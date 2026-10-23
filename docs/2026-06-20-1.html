@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --paper: #fffdf8;
+      --ink: #1f2528;
+      --muted: #667070;
+      --rule: #d8cdbb;
+      --accent: #8b2f2f;
+      --accent-soft: #f1e2d7;
+      --link: #135f7a;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      color: var(--muted);
+      margin-top: 10px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    main {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 8px 30px rgba(50, 35, 20, 0.08);
+      padding: 24px;
+    }
+    section {
+      margin: 0 0 34px;
+    }
+    section:last-child {
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 1.55rem;
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+    }
+    article {
+      padding: 16px 0;
+      border-bottom: 1px solid #ece3d5;
+    }
+    article:last-child {
+      border-bottom: none;
+    }
+    h3 {
+      font-size: 1.18rem;
+      margin: 0 0 6px;
+      line-height: 1.25;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    p {
+      margin: 0.55em 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .tags {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .language-practice {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 3px double var(--rule);
+    }
+    .language-practice h2 {
+      background: var(--accent-soft);
+      padding: 10px 12px;
+      border-bottom: none;
+    }
+    .language-item {
+      border-bottom: 1px solid var(--rule);
+      padding: 18px 0;
+    }
+    .language-item:last-child {
+      border-bottom: none;
+    }
+    .language-item h3 {
+      font-size: 1.25rem;
+      color: var(--accent);
+      margin-top: 0;
+    }
+    .language-item ul {
+      margin-top: 0.4em;
+    }
+    .source-notes {
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    @media (min-width: 760px) {
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+      }
+      .grid section {
+        margin-bottom: 0;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Saturday, June 20, 2026 · Run 2026-06-20-1</div>
+    </header>
+
+    <main>
+      <div class="grid">
+        <section>
+          <h2>AI Research</h2>
+
+          <article>
+            <h3><a href="https://x.com/_albertgu/status/2068051132187079103">Albert Gu argues for intra-layer hybridization of softmax and linear attention</a></h3>
+            <div class="meta">X AI Research</div>
+            <p>Albert Gu describes a finer-grained design for hybrid sequence models: rather than simply alternating layer types, a single layer can switch between softmax attention and linear attention during generation because the two mixers share similar projection parameters.</p>
+            <div class="tags">Architecture · attention · sequence models</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/classiclarryd/status/2068015247110312329">NanoGPT speedrun reaches 79.2s using FP8 MLP up projection</a></h3>
+            <div class="meta">X AI Research</div>
+            <p>Larry Dial reports a new NanoGPT Speedrun world record at 79.2 seconds, credited to @sisovicm. The implementation detail of note: moving the MLP up projection to FP8 on the forward pass, then adding five training steps to compensate for the loss increase.</p>
+            <div class="tags">Benchmark · training efficiency · FP8</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/StanfordAILab/status/2068018829868011995">Stanford AI Lab posts on the technical history of chain-of-thought monitoring</a></h3>
+            <div class="meta">X AI Research</div>
+            <p>Stanford AI Lab shares a SAIL Blog post, “CoT Monitoring: Where Does a Hot Safety Problem Come From?”, by Peter Hase and Christopher Potts. The piece traces how chain-of-thought monitoring became a central AI safety research topic.</p>
+            <div class="tags">Chain-of-thought monitoring · AI safety · research analysis</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/Jianlin_S/status/2067941349719265746">Margin-Enforcing Projection technical note</a></h3>
+            <div class="meta">X AI Research</div>
+            <p>Jianlin Su links to a technical note titled “Margin-Enforcing Projection.” The available fragment contains only the tweet text and shortened link, but it appears to point to a specific optimization or method note.</p>
+            <div class="tags">Methods · optimization</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/hardmaru/status/2067900315991699615">Hardmaru links 1991 work to transformers, pretraining, distillation, and world models</a></h3>
+            <div class="meta">X AI Research</div>
+            <p>Hardmaru points to 1991 foundations for ideas now associated with transformers, pretraining, distillation, and world models, connecting them to later Google Brain work and Sakana AI’s recursive self-improvement research.</p>
+            <div class="tags">Research history · world models · distillation</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/wightmanr/status/2067971516978102423">Open-sourced 9B document-structure extraction model claims near-frontier performance</a></h3>
+            <div class="meta">X AI Research</div>
+            <p>Ross Wightman retweets an announcement of an open-sourced 9B model for extracting structured data from documents. The visible text claims near-frontier performance and 90.2% on an internal benchmark, though the original linked details are truncated in the supplied fragment.</p>
+            <div class="tags">Document AI · open models · benchmark</div>
+          </article>
+        </section>
+
+        <section>
+          <h2>Bio &amp; Genomics Research</h2>
+
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2068081064992809443">UniversalEPI predicts cell-type-specific enhancer–promoter interactions</a></h3>
+            <div class="meta">X Bio Research</div>
+            <p>UniversalEPI is described as an attention-based deep ensemble model for predicting enhancer–promoter interactions up to 2 Mb apart using DNA sequence plus chromatin accessibility. It focuses on sparse accessible regulatory elements, with inter-peak genomic context represented through distances and auxiliary information embedded into transformer input.</p>
+            <div class="tags">Genomics · gene regulation · chromatin · deep learning</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2068080597319475710">ExpressionVAE uses discrete latent codes for single-cell perturbation prediction</a></h3>
+            <div class="meta">X Bio Research</div>
+            <p>ExpressionVAE, or eVAE, is presented as a discrete-latent generative model for single-cell perturbation prediction. It compresses cells into short sequences of finite-scalar-quantized codes, then trains a perturbation-conditioned prior over those codes, with reported results on Replogle and Parse 1M against continuous-latent baselines.</p>
+            <div class="tags">Single-cell · perturbation · virtual cells · generative models</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2068080224642986024">GenOT applies generative optimal transport to spatial transcriptomics</a></h3>
+            <div class="meta">X Bio Research</div>
+            <p>GenOT is described as a generative optimal-transport approach for spatiotemporal interpolation and generation in spatial transcriptomics. The method combines gene-expression and spatial information with a multi-scale graph convolutional network, contrastive learning, and OT barycenter-based generation for cross-slice and cross-platform imputation.</p>
+            <div class="tags">Spatial transcriptomics · single-cell · optimal transport · generative models</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2067627004338618506">MOFSACEO-MSA combines fuzzy optimization and RL for RNA multiple-sequence alignment</a></h3>
+            <div class="meta">X Bio Research</div>
+            <p>MOFSACEO-MSA is a reinforcement-learning-enhanced, fuzzy multi-objective optimizer for multiple sequence alignment, aimed especially at difficult RNA alignments where high pairwise scores can trade off against excessive gaps and inflated alignment length.</p>
+            <div class="tags">Bioinformatics · RNA · sequence alignment · reinforcement learning</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/NatureRevGenet/status/2067915310280171570">Genomics for drug-target prioritization in complex diseases</a></h3>
+            <div class="meta">Nature Reviews Genetics via X Bio Research</div>
+            <p>Nature Reviews Genetics reshared a piece on “Genomics of drug target prioritization for complex diseases,” pointing to a review or resource on using genomics to identify and prioritize therapeutic targets.</p>
+            <div class="tags">Genomics · drug discovery · complex disease · review</div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/NatureRevGenet/status/2067979008676118924">Genetic origins and constraints of evolutionary innovation</a></h3>
+            <div class="meta">Nature Reviews Genetics via X Bio Research</div>
+            <p>Nature Reviews Genetics posted a new editorial, “Genetic origins and constraints of evolutionary innovation,” tied to a July focus issue on evolutionary innovation.</p>
+            <div class="tags">Genomics · evolution · review</div>
+          </article>
+        </section>
+      </div>
+
+      <section class="language-practice">
+        <h2>Language Practice</h2>
+
+        <article class="language-item" lang="de">
+          <h3>Deutsch — Unreal Engine 6: Epics erster Ausblick verrät ein wichtiges Detail – und einen ersten Zeitraum für Tests</h3>
+          <div class="meta">GameStar · 17.06.2026 · <a href="https://www.gamestar.de/artikel/unreal-engine-6-early-access-2027-roadmap,3454807.html">https://www.gamestar.de/artikel/unreal-engine-6-early-access-2027-roadmap,3454807.html</a></div>
+          <p>GameStar fasst Epics ersten offiziellen Fahrplan zur Unreal Engine 6 zusammen. Demnach soll eine frühe Vorabversion im kommenden Jahr erscheinen; zugleich macht Epic deutlich, dass ein neu eröffneter UE6-Entwicklungszweig auf GitHub noch keine Alpha-Version ist, sondern vor allem Transparenz schaffen soll.</p>
+          <p>Der Artikel erklärt, warum UE6 mehr sein dürfte als nur ein klassisches Versionsupdate: Epic will Unreal Engine 5 und den Unreal Editor for Fortnite enger zusammenführen. Damit rücken professionelle Spieleentwicklung, Fortnite-Creator-Werkzeuge und künftige Systeme wie Verse, Scene Graph, offene Inhaltsstandards und KI-gestützte Workflows näher zusammen.</p>
+          <p>Für Entwicklerinnen und Entwickler ist besonders relevant, dass bestehende UE5- oder UEFN-Projekte laut Epic nicht einfach neu begonnen werden müssen. Alte Systeme sollen erst dann verschwinden, wenn neue Frameworks ausgereift sind und passende Konvertierungswerkzeuge bereitstehen.</p>
+          <p><strong>Warum lesen:</strong> Der Text bietet einen gut verständlichen Überblick darüber, wie Epic die nächste große Engine-Generation plant und was das für Spieleentwicklung und Creator-Ökosysteme bedeuten könnte.</p>
+        </article>
+
+        <article class="language-item" lang="fr">
+          <h3>Français — Un manuscrit inédit de Mozart découvert à la Bibliothèque nationale de France sera interprété pour la Fête de la musique</h3>
+          <div class="meta">Le Monde · 2026-06-19 · <a href="https://www.lemonde.fr/culture/article/2026/06/19/un-manuscrit-inedit-de-mozart-decouvert-a-la-bibliotheque-nationale-de-france_6704915_3246.html">https://www.lemonde.fr/culture/article/2026/06/19/un-manuscrit-inedit-de-mozart-decouvert-a-la-bibliotheque-nationale-de-france_6704915_3246.html</a></div>
+          <p>Le Monde signale la redécouverte, dans les réserves du département de la musique de la Bibliothèque nationale de France, d’un manuscrit autographe inédit attribué à Mozart. Le document comprend sept courtes pièces pour flûte et harpe, probablement liées au dernier séjour parisien du compositeur en 1778, et la découverte est présentée comme importante pour l’histoire de la musique européenne.</p>
+          <p>L’article raconte aussi la préparation de la première interprétation contemporaine de ces pages : deux musiciens de l’Orchestre philharmonique de Radio France, la flûtiste Mathilde Caldérini et le harpiste Nicolas Tulliez, ont travaillé la partition à Paris peu avant sa diffusion prévue sur France Musique pour la Fête de la musique. Le sujet mêle enquête patrimoniale, musicologie et coulisses d’interprétation, avec l’enjeu rare de faire entendre une musique restée inconnue.</p>
+          <p><strong>Pourquoi lire :</strong> pour suivre une découverte culturelle exceptionnelle qui relie la BNF, Radio France et l’héritage musical de Mozart.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>manuscrit autographe</strong> — document écrit de la main même de l’auteur ou du compositeur.</li>
+            <li><strong>première mondiale</strong> — toute première exécution ou diffusion publique d’une œuvre.</li>
+            <li><strong>département de la musique</strong> — service spécialisé d’une bibliothèque ou d’une institution patrimoniale qui conserve partitions, archives et documents musicaux.</li>
+          </ul>
+        </article>
+
+        <article class="language-item" lang="ja">
+          <h3>日本語 — 何を試し，何をやめたか。ネクソンとKRAFTONが語るAIトランスフォーメーションの現在地［NDC26］</h3>
+          <div class="meta">4Gamer.net · 2026-06-19 · <a href="https://www.4gamer.net/games/991/G999104/20260619008/">https://www.4gamer.net/games/991/G999104/20260619008/</a></div>
+          <p>Nexon Developers Conference 26（NDC26）で行われた，ネクソンとKRAFTONのAIトランスフォーメーションをめぐる対談記事。ネクソン側は，初期にはサービス監視やレポーティングの自動化に取り組み，現在は開発生産性の向上や開発パイプラインの再設計を重視していると説明する。KRAFTON側は「AIファースト」を掲げ，小さな業務単位からAIへの置き換えを試し，効果を見ながら段階的に進めているという。</p>
+          <p>記事の読みどころは，成功談だけでなく「やめたこと」や失敗の扱いにも踏み込んでいる点。ネクソンは全社向けChatGPT導入でセキュリティや運用負荷，インフラコストの壁に直面し，自社ホスト版ツールの維持も容易ではなかった経験から，「技術的に可能なこと」と「継続可能なこと」は別だと語る。KRAFTONも，大規模なエンタープライズツールの拙速な導入や，使われない社内ツールを反省点として挙げている。</p>
+          <p>ゲーム産業ならではの論点として，「楽しさ」や創造性をAIでどう扱うかも議論される。定型業務やデータ整理，開発支援ではAI活用が進む一方で，最終的に人間が何を担うべきかを問い直す段階に向かっている，という問題意識が示されている。AI導入を単なる効率化ではなく，仕事の流れや人の役割を再定義するものとして考えたい読者に向いた記事。</p>
+          <p><strong>読む理由：</strong> ゲーム会社のAI導入を，華やかな成功事例ではなく運用・コスト・撤退判断まで含めて読めるから。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>AIトランスフォーメーション（えーあいとらんすふぉーめーしょん）</strong> — AIを業務や組織の仕組みに組み込み，働き方や開発方法を変える取り組み。</li>
+            <li><strong>開発（かいはつ）パイプライン</strong> — 企画，制作，テスト，運用など，ソフトやゲームを作る一連の工程。</li>
+            <li><strong>オントロジー（おんとろじー）</strong> — データ同士の関係や意味を整理し，AIが扱いやすくするための構造化された知識体系。</li>
+          </ul>
+        </article>
+
+        <article class="language-item" lang="zh">
+          <h3>中文 — 黄循财总理会晤普京 强调新加坡在乌克兰问题上并非选边站</h3>
+          <div class="meta">联合早报 · 2026-06-19 · <a href="https://www.zaobao.com.sg/news/singapore/story20260619-9230099">https://www.zaobao.com.sg/news/singapore/story20260619-9230099</a></div>
+          <p>黄循财总理在俄罗斯喀山出席亚细安—俄罗斯纪念峰会期间，应俄方要求同俄罗斯总统普京会面。黄总理强调，新加坡在乌克兰问题上的立场不是“选边站”，而是基于一贯坚持国家主权和领土完整的原则；我国外交部也表示，双方就双边关系、区域和国际事态发展交换意见。</p>
+          <p>报道回顾，新加坡在2022年俄罗斯入侵乌克兰后对俄实施制裁，主要针对与战争行动相关的军事、科技和金融活动。黄总理会后在脸书重申，新加坡支持遵循国际法和《联合国宪章》，推动公平、持续和长久和平；他也说，即使各国在某些课题上看法不一致，对话与接触仍然重要。</p>
+          <p>普京则称俄新关系历来具有相互尊重和务实特点，并认为两国在经济和国际信息安全等领域仍有合作空间。黄总理也同鞑靼斯坦共和国行政长官会面，讨论文化、教育和民间交流等合作。</p>
+          <p><strong>为什么读：</strong> 这篇报道适合观察新加坡在大国关系、俄乌战争和亚细安外交之间如何表达自身立场。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>领土完整 (lǐngtǔ wánzhěng)</strong> — 国际法和外交语境中指国家疆域不受侵犯、不得被分割或吞并的原则。</li>
+            <li><strong>轮值主席国 (lúnzhí zhǔxíguó)</strong> — 区域或国际组织中按顺序承担主持和协调职责的成员国。</li>
+            <li><strong>国际信息安全 (guójì xìnxī ānquán)</strong> — 涉及网络空间、数据、通信系统和跨国信息风险治理的安全议题。</li>
+          </ul>
+        </article>
+      </section>
+
+      <div class="source-notes">
+        <strong>Quiet source notes:</strong> The AI and bio research source stages excluded low-signal material such as hiring posts, product announcements, memes, generic commentary, retweets, duplicates, and items already present in their registries.
+      </div>
+    </main>
+  </div>
+
+
+
+</body>
+</html>

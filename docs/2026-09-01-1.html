@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20221f;
+      --muted: #62675f;
+      --accent: #275b4d;
+      --accent-soft: #e8f0ec;
+      --rule: #d8d8cf;
+      --card: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover { color: #173d33; }
+
+    .page {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.4rem 0 1.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .kicker {
+      margin: 0 0 0.25rem;
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    nav {
+      margin: 0 0 2.4rem;
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 0.2rem 0.6rem;
+      font-weight: 650;
+    }
+
+    section {
+      margin: 2.7rem 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin-bottom: 1.2rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      padding-bottom: 0.35rem;
+      font-size: clamp(1.65rem, 4vw, 2.35rem);
+      line-height: 1.15;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.2rem;
+    }
+
+    article {
+      min-width: 0;
+    }
+
+    .story {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 1.2rem 1.3rem;
+    }
+
+    .story h3,
+    .language-story h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.27rem;
+      line-height: 1.27;
+    }
+
+    .story p,
+    .language-story p {
+      margin: 0.55rem 0;
+    }
+
+    .source-line {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .tags {
+      margin-top: 0.85rem;
+      font-family: system-ui, sans-serif;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0.15rem 0.2rem 0.15rem 0;
+      padding: 0.14rem 0.45rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #315448;
+      font-size: 0.7rem;
+    }
+
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 5px double var(--ink);
+    }
+
+    .language-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .language-story {
+      margin: 1.2rem 0;
+      padding: 1.4rem 1.5rem;
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+    }
+
+    .language-story h3 {
+      font-size: 1.4rem;
+    }
+
+    .language-story ul {
+      margin: 0.45rem 0 0.2rem;
+      padding-left: 1.4rem;
+    }
+
+    .language-story li {
+      margin: 0.25rem 0;
+    }
+
+    .notice {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    footer {
+      margin-top: 3.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 1.1rem, 1120px);
+        padding-top: 0.8rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story,
+      .language-story {
+        padding: 1rem;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .section-heading span {
+        display: block;
+        margin-bottom: 0.4rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="kicker">Research, science, and language practice</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-09-01">Tuesday, September 1, 2026</time> · Run 2026-09-01-1</p>
+    </header>
+
+    <nav aria-label="Sections">
+      <a href="#ai">AI Research</a>
+      <a href="#biology">Biology &amp; Drug Discovery</a>
+      <a href="#genomics">Genomics &amp; Cell Science</a>
+      <a href="#languages">Language Practice</a>
+    </nav>
+
+    <section id="ai">
+      <div class="section-heading">
+        <h2>AI Research</h2>
+        <span>Architectures and optimization</span>
+      </div>
+
+      <div class="grid">
+        <article class="story">
+          <h3><a href="https://x.com/yifanzhang_/status/2094318018969088329">Fast Weight Attention co-designs continual learning with efficient test-time hardware</a></h3>
+          <p>Fast Weight Attention is presented as a continual-learning method built around model–hardware co-design for hardware-efficient learning at test time. The linked research focuses on making adaptation practical rather than treating hardware as an afterthought.</p>
+          <div class="tags">
+            <span class="tag">continual learning</span>
+            <span class="tag">fast weights</span>
+            <span class="tag">test-time learning</span>
+            <span class="tag">hardware</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/_albertgu/status/2094530500669157474">Can Transformers be retrofitted into recurrent models through distillation?</a></h3>
+          <p>Albert Gu argues that this kind of transfer is better described as cross-architecture “retrofitting” than post-training. Because distillation tends to work best between similar architectures, Transformer-to-recurrent transfers may be too mismatched; training new recurrent designs from scratch could be preferable.</p>
+          <div class="tags">
+            <span class="tag">distillation</span>
+            <span class="tag">Transformers</span>
+            <span class="tag">recurrent models</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/YouJiacheng/status/2094334854733484074">KL and PSGD objectives converge under matched geometry</a></h3>
+          <p>You Jiacheng observes that requiring the gradient to depend linearly on the covariance matrix makes the Euclidean gradient unique up to an invertible change of basis. Under the same geometry, KL-based and PSGD objectives therefore produce the same update. The discussion also relates PSGD’s QEQ update to KL objectives with affine-invariant Riemannian geometry.</p>
+          <div class="tags">
+            <span class="tag">optimization</span>
+            <span class="tag">PSGD</span>
+            <span class="tag">KL-Shampoo</span>
+            <span class="tag">gradient geometry</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="biology">
+      <div class="section-heading">
+        <h2>Biology &amp; Drug Discovery</h2>
+        <span>Protein models, screening, and fitness</span>
+      </div>
+
+      <div class="grid">
+        <article class="story">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2094356595086176445">Benchmark charts where AlphaFold 3 and Boltz-2 help medicinal chemistry—and where they fail</a></h3>
+          <p>A broad benchmark evaluates AlphaFold 3 and Boltz-2 across kinases, allosteric modulators, protein–protein interaction inhibitors, PROTACs, molecular glues, covalent compounds, membrane proteins, RNA binders, and fragments. It separately scores whole-ligand pose, pharmacophore placement, and volume overlap.</p>
+          <p>Canonical orthosteric complexes, especially kinases, perform best. Cryptic allosteric pockets and induced-proximity geometry remain difficult. Model confidence can enrich for accurate poses, but it does not reliably track experimental activity.</p>
+          <div class="tags">
+            <span class="tag">drug discovery</span>
+            <span class="tag">AlphaFold 3</span>
+            <span class="tag">Boltz-2</span>
+            <span class="tag">benchmark</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2094355046721056922">BindScreen scales sequence-based virtual screening</a></h3>
+          <p>BindScreen uses separate protein-sequence and molecular encoders, allowing compound embeddings to be reused across targets. Its protein-centric batches retain multiple known binders rather than incorrectly treating them as negatives.</p>
+          <p>The method improves early enrichment across several protein encoders while reducing training and screening costs. On leakage-controlled external tests, however, it still trails approaches based on three-dimensional structures.</p>
+          <div class="tags">
+            <span class="tag">virtual screening</span>
+            <span class="tag">contrastive learning</span>
+            <span class="tag">protein language models</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2094356490442485827">Orthogonal projection reveals biochemical signals inside protein language models</a></h3>
+          <p>A post-hoc interpretability method projects known biochemical and structural features out of protein-language-model embeddings, then measures the loss in variant-fitness performance. Removing real features consistently reduces Matthews correlation coefficient, while removing shuffled controls does not; nonlinear projections have larger effects.</p>
+          <p>The analysis estimates that measured biochemical features explain roughly 15–29% of prediction variance, leaving substantial additional information encoded in the embeddings.</p>
+          <div class="tags">
+            <span class="tag">interpretability</span>
+            <span class="tag">protein fitness</span>
+            <span class="tag">variant effects</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2094558706893766750">RegimeFormer and RegimeAtlas map protein perturbations at sequence scale</a></h3>
+          <p>RegimeFormer organizes residue fragility and predictive uncertainty into reproducible perturbation regimes. Its associated atlas indexes 202,556,313 non-redundant protein sequences. A diversity-preserving subset of 995,995 proteins provides residue-level summaries across more than 407 million residues, with substitution-specific predictions available on demand.</p>
+          <div class="tags">
+            <span class="tag">protein fitness</span>
+            <span class="tag">uncertainty</span>
+            <span class="tag">dataset</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/anshulkundaje/status/2094536155006165122">Experimental protein-fitness dataset attracts research attention</a></h3>
+          <p>Multiple researchers highlighted a new experimental sequence–fitness dataset containing about 13,000 measurements across three proteins. The available posts are truncated, so details about the assays, measured fitness landscapes, and data access are not available in this edition.</p>
+          <div class="tags">
+            <span class="tag">protein fitness</span>
+            <span class="tag">experimental biology</span>
+            <span class="tag">dataset</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2094556041627554289">STATE perturbation-response model is now online</a></h3>
+          <p>Cell Press has highlighted the online publication of STATE, a model designed to predict cellular responses to perturbations across diverse biological contexts. The supplied publication notice does not include methodological or benchmarking details.</p>
+          <div class="tags">
+            <span class="tag">virtual cells</span>
+            <span class="tag">perturbation prediction</span>
+            <span class="tag">single-cell</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="genomics">
+      <div class="section-heading">
+        <h2>Genomics &amp; Cell Science</h2>
+        <span>Annotation, regulation, interactions, and imaging</span>
+      </div>
+
+      <div class="grid">
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2094556842710175998">Vipsania learns eukaryotic gene structures without labeled annotations</a></h3>
+          <p>Vipsania places a differentiable hidden Markov layer inside a deep sequence model to learn gene structures from unannotated genomes. It operates at single-nucleotide resolution, explicitly tracks reading frame, and emphasizes predicted gene boundaries in its loss.</p>
+          <p>A broadly pretrained model can reportedly adapt to a target eukaryotic genome without labeled annotations, potentially helping species that lack high-quality reference sets.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">gene annotation</span>
+            <span class="tag">unsupervised learning</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/cutleraging/status/2094659893944865145">Dynema targets dynamic eQTLs at single-cell resolution</a></h3>
+          <p>Dynema was introduced as an efficient genome-wide method for identifying reproducible, context-dependent dynamic eQTLs, with an emphasis on fast and accurate analysis at single-cell resolution. The available post is truncated, so implementation and benchmark details remain unavailable.</p>
+          <div class="tags">
+            <span class="tag">eQTL</span>
+            <span class="tag">single-cell</span>
+            <span class="tag">gene regulation</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2094357035832000903">ppigFinder links bacterial genome annotation to AlphaFold 3 interaction screening</a></h3>
+          <p>ppigFinder is a desktop workflow combining open-reading-frame calling, functional annotation, genomic-context inspection, and several AlphaFold 3 interaction-screening modes.</p>
+          <p>In a VirD4-centered screen of 4,303 predicted ORFs, minimum interchain PAE ranked all 14 known XVIPCD-containing effectors within the top 1% and helped identify a candidate absent from KEGG. The work also illustrates a limitation: pairwise predictions can miss assembly-dependent interactions, including VirD4 oligomerization.</p>
+          <div class="tags">
+            <span class="tag">bacterial genomics</span>
+            <span class="tag">protein interactions</span>
+            <span class="tag">AlphaFold 3</span>
+            <span class="tag">tool</span>
+          </div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/naturemethods/status/2094494297043185911">REDCAT adds metabolic state to spatial tissue atlases</a></h3>
+          <p>Raman Enhanced Delineation of Cell Atlases in Tissues combines stimulated Raman scattering microscopy with high-plex immunofluorescence. The resulting profiles jointly capture proteins, lipids, nuclear metabolites, and redox metabolism, adding biochemical-state information to spatial maps of cells and tissues.</p>
+          <div class="tags">
+            <span class="tag">spatial biology</span>
+            <span class="tag">cell atlas</span>
+            <span class="tag">imaging</span>
+            <span class="tag">metabolism</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="languages" class="language-practice">
+      <div class="section-heading">
+        <h2>Language Practice</h2>
+        <span>Daily reading in four languages</span>
+      </div>
+      <p class="language-intro">Edited native-language reading selections are preserved below in their original languages.</p>
+
+      <article class="language-story" lang="de">
+        <h3>Deutsch — Kein Handy – auch nicht in der Oberstufe</h3>
+        <p class="source-line">Tagesschau · 01.09.2026 · <a href="https://www.tagesschau.de/ausland/europa/frankreich-handyverbot-schule-100.html">Artikel lesen</a></p>
+        <p>Zum Beginn des neuen Schuljahres weitet Frankreich das Handyverbot auf die Oberstufe aus. Für Grundschulen und die Mittelstufe galt es bereits. Viele Jugendliche halten die neue Regel für übertrieben, während eine Mehrheit der erwachsenen Franzosen ein flächendeckendes Verbot befürwortet.</p>
+        <p>Schulleitungen unterstützen zwar das Ziel, sehen aber erhebliche praktische Probleme: Es fehlen klare Vorgaben zur Aufbewahrung der Geräte, zu möglichen Ausnahmen und zu angemessenen Sanktionen. Zudem läuft ein Teil der schulischen Kommunikation inzwischen digital. Schulen, die Handys schon länger freiwillig verbieten, berichten jedoch auch von positiven Folgen – etwa davon, dass Schülerinnen und Schüler in den Pausen wieder mehr miteinander sprechen.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel verbindet eine aktuelle französische Bildungsdebatte mit einer alltagsnahen europäischen Frage über Jugendliche, Digitalisierung und sinnvolle Schulregeln.</p>
+      </article>
+
+      <article class="language-story" lang="fr">
+        <h3>Français — L'Union européenne va suspendre ses importations de viande du Brésil</h3>
+        <p class="source-line">France 24 · 1er septembre 2026 · <a href="https://www.france24.com/fr/%C3%A9co-tech/20260901-union-europeenne-va-suspendre-importations-viande-bresil-sante-regles-sanitaires-antibiotiques-antimicrobiens">Lire l'article</a></p>
+        <p>L'Union européenne va suspendre les importations de bœuf et de volaille en provenance du Brésil, ainsi que celles d'œufs et de miel. La Commission européenne estime que Brasília n'a pas fourni de garanties suffisantes concernant le respect des règles européennes qui limitent l'usage des antibiotiques dans l'élevage. Les exportations pourront reprendre lorsque cette conformité aura été démontrée, mais aucun calendrier précis n'a été annoncé.</p>
+        <p>Cette décision intervient quelques mois après la signature de l'accord de libre-échange entre l'UE et le Mercosur, vivement critiqué par une partie du secteur agricole français et européen. Au-delà de la concurrence commerciale, l'enjeu est sanitaire : l'Union interdit l'emploi d'antimicrobiens pour accélérer la croissance des animaux et cherche à freiner l'apparition de microbes résistants aux médicaments. Une issue rapide reste possible pour la volaille et le miel, tandis que la remise en conformité de la filière bovine pourrait demander davantage de temps.</p>
+        <p><strong>Pourquoi lire :</strong> L'article relie de façon claire commerce international, politique agricole européenne et lutte contre la résistance aux antibiotiques.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>antimicrobien</strong> — substance destinée à détruire des micro-organismes ou à empêcher leur développement</li>
+          <li><strong>antibiorésistance</strong> — capacité acquise par des bactéries à résister aux traitements antibiotiques</li>
+          <li><strong>filière bovine</strong> — ensemble des activités économiques liées à l'élevage, à la transformation et à la vente des bovins</li>
+          <li><strong>donner des gages de vigilance</strong> — montrer concrètement que l'on applique des contrôles sérieux et exigeants</li>
+        </ul>
+      </article>
+
+      <article class="language-story" lang="ja">
+        <h3>日本語 — 長期金利 3％に上昇 約30年ぶり 日銀の早期利上げ観測など背景</h3>
+        <p class="source-line">NHKニュース · 2026年9月1日 · <a href="https://news.web.nhk/newsweb/na/nd-20260901de47546">記事を読む</a></p>
+        <p>1日の債券市場で長期金利が急上昇し、代表的な指標である10年もの国債の利回りが3％に達しました。これはおよそ30年ぶりの高い水準です。</p>
+        <p>背景には、日本銀行が早い時期に追加の利上げに踏み切るとの観測や、日本の財政状況に対する市場の懸念があります。金融政策と財政への見方が国債の取引にどう反映されるのかを伝える記事です。</p>
+        <p><strong>読む理由：</strong> 日本の金融政策をめぐる重要な動きを、経済ニュースで頻出する表現とともに学べます。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>長期金利（ちょうききんり）</strong> — 返済までの期間が長い資金を借りる際の金利で、日本では10年もの国債の利回りが代表的な指標。</li>
+          <li><strong>国債（こくさい）</strong> — 国が資金を調達するために発行する債券。</li>
+          <li><strong>利上げ観測（りあげかんそく）</strong> — 中央銀行が近く政策金利を引き上げるだろうという市場の予想。</li>
+        </ul>
+      </article>
+
+      <article class="language-story" lang="zh">
+        <h3>中文 — 华为上半年净利润下降36%</h3>
+        <p class="source-line">德国之声中文网 · 2026年8月31日 · <a href="https://www.dw.com/zh/%E5%8D%8E%E4%B8%BA%E4%B8%8A%E5%8D%8A%E5%B9%B4%E5%87%80%E5%88%A9%E6%B6%A6%E4%B8%8B%E9%99%8D36/a-78577351">原文链接</a></p>
+        <p>华为今年上半年营收同比增长9.6%，达到4678.2亿元人民币，但净利润降至238.1亿元，同比下滑36%。报道指出，投入成本上升、存储芯片涨价以及研发开支增加，抵消了营收增长带来的收益。</p>
+        <p>面对美国长期实施的出口限制，华为正投入大量资金发展芯片、软件和人工智能计算基础设施的本土替代方案。其上半年研发支出增长25.2%，占营收四分之一以上；与此同时，生产成本、行政费用和库存也明显上升，反映出企业推进技术自主所承担的财务压力。</p>
+        <p><strong>为什么读：</strong> 文章通过具体财务数据，呈现华为在制裁环境下兼顾营收复苏、技术自主与盈利能力的难题。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>净利润 (jìng lìrùn)</strong> — 企业扣除成本、税费等全部支出后实际获得的利润。</li>
+          <li><strong>研发支出 (yánfā zhīchū)</strong> — 企业用于研究、技术开发和产品创新的资金。</li>
+          <li><strong>出口管制 (chūkǒu guǎnzhì)</strong> — 政府对特定商品、技术或设备出口所实施的限制措施。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      News Daily · September 1, 2026 · Research links from X lead to the supplied source posts.
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

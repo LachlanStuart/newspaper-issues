@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #202421;
+      --muted: #626963;
+      --paper: #fbfaf6;
+      --panel: #ffffff;
+      --rule: #d9ddd7;
+      --accent: #245c49;
+      --accent-soft: #e9f1ed;
+      --notice: #f4f1e8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+
+    main {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+
+    header {
+      padding-bottom: 24px;
+      border-bottom: 3px double var(--ink);
+      text-align: center;
+    }
+
+    .kicker {
+      margin: 0 0 8px;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 4.6rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    section {
+      margin-top: 38px;
+    }
+
+    .section-heading {
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.15rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    article {
+      padding: 0 0 24px;
+      margin: 0 0 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    article:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.42rem;
+      line-height: 1.25;
+    }
+
+    h2 a {
+      color: var(--ink);
+      text-decoration-color: #8da397;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    h2 a:hover,
+    h2 a:focus {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+
+    p {
+      margin: 0.5em 0;
+    }
+
+    .lead {
+      padding: 24px;
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      border-top: 4px solid var(--accent);
+    }
+
+    .lead h2 {
+      font-size: clamp(1.65rem, 4vw, 2.25rem);
+    }
+
+    .tags {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    .tags span {
+      display: inline-block;
+      margin: 4px 6px 0 0;
+      padding: 3px 8px;
+      background: var(--accent-soft);
+      border-radius: 999px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 30px;
+    }
+
+    .grid article:nth-last-child(-n+2) {
+      border-bottom-color: transparent;
+    }
+
+    .caveat {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .language-practice {
+      margin-top: 46px;
+      padding-top: 30px;
+      border-top: 4px double var(--ink);
+    }
+
+    .language-card {
+      padding: 14px 18px;
+      margin: 10px 0;
+      background: var(--notice);
+      border-left: 3px solid #b8b3a3;
+    }
+
+    .language-card h3 {
+      margin: 0 0 4px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+
+    .language-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.94rem;
+    }
+
+    .operations {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.83rem;
+    }
+
+    .operations h2 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    footer {
+      margin-top: 36px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        width: min(100% - 24px, 960px);
+        padding-top: 26px;
+      }
+
+      .grid {
+        display: block;
+      }
+
+      .grid article {
+        border-bottom-color: var(--rule);
+      }
+
+      .lead {
+        padding: 18px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="kicker">Computational biology and genomics</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-07-21">Tuesday, July 21, 2026</time> · Run 2026-07-21-1</p>
+    </header>
+
+    <section aria-labelledby="top-story">
+      <h2 class="section-heading" id="top-story">Top story</h2>
+      <article class="lead">
+        <h2><a href="https://x.com/BiologyAIDaily/status/2079217667068788874">Nesso-1 speeds up open-source protein–ligand affinity prediction</a></h2>
+        <p>Nesso-1 replaces atomistic diffusion with coarse-grained cofolding that models relationships between ligand atoms and protein residue centers. It predicts affinity in roughly one second on a single GPU and is reported to run more than ten times faster than Boltz-2 while outperforming it on several public benchmarks and 25 internal biochemical assays.</p>
+        <p>The authors also offer an unusually candid warning about evaluation: many public affinity benchmarks are largely in-distribution, while molecular weight remains a competitive baseline on difficult zero-shot tests. Fast virtual screening is useful, but reliable generalization to unfamiliar chemistry and targets remains unresolved.</p>
+        <div class="tags">
+          <span>Drug discovery</span>
+          <span>Binding affinity</span>
+          <span>Virtual screening</span>
+          <span>Open source</span>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="regulation-spatial">
+      <h2 class="section-heading" id="regulation-spatial">Gene regulation, chromatin and spatial biology</h2>
+      <div class="grid">
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079151482998571502">DNA flexibility may organize pioneer-factor interactions with nucleosomes</a></h2>
+          <p>The highlighted research examines how conformational flexibility encoded by DNA sequence shapes the interaction landscape between pioneer transcription factors and nucleosomes, connecting regulatory sequence, chromatin structure and factor binding.</p>
+          <p class="caveat">The available post was truncated, so its experimental design and results were not supplied.</p>
+        </article>
+
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079151438215995420">EYKTHYR seeks regulators of spatial gene-expression programs</a></h2>
+          <p>EYKTHYR is introduced as a method for revealing transcriptional regulators associated with spatial expression programs. It could help connect spatial-omics measurements to the regulatory mechanisms that produce them.</p>
+          <p class="caveat">Details of its inputs, inference strategy and validation were not available.</p>
+        </article>
+
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079151446877229338">stTrace reconstructs developmental paths from spatial-temporal domains</a></h2>
+          <p>stTrace detects spatial-temporal domains in spatial transcriptomic data and uses them to trace developmental paths, addressing the challenge of recovering trajectories while retaining tissue context.</p>
+          <p class="caveat">The supplied item did not include implementation or validation details.</p>
+        </article>
+
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079151504171393223">Gene2role embeds genes by their roles in signed regulatory networks</a></h2>
+          <p>Gene2role is presented as a role-based embedding method for comparative analysis of signed gene-regulatory networks, potentially allowing activating and inhibitory network structures to be compared through learned representations.</p>
+          <p class="caveat">Methodological and benchmarking details were not supplied.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="cell-modeling">
+      <h2 class="section-heading" id="cell-modeling">Cell modeling and biological design</h2>
+      <div class="grid">
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079424385392529702">Order-agnostic method proposed for RNA inverse design</a></h2>
+          <p>A work presented at the ICML 2026 Generative Biology workshop introduces an order-agnostic approach to RNA inverse design, a problem central to creating programmable biological molecules.</p>
+          <p class="caveat">The source post was truncated, leaving the architecture, evaluation protocol and results unavailable.</p>
+        </article>
+
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079151512849440932">cellSight characterizes cellular dynamics from single-cell RNA-seq</a></h2>
+          <p>cellSight is presented as a method for characterizing cell dynamics from single-cell RNA sequencing data, with potential relevance to dynamic cell-state and virtual-cell models.</p>
+          <p class="caveat">Its assumptions, benchmarks and biological applications were not described in the supplied material.</p>
+        </article>
+
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079229848481063153">Σ0–EvoCell proposes a shared latent-space ontology for evolution and cell biology</a></h2>
+          <p>Σ0–EvoCell is described as an AI-native ontology intended to connect evolutionary and cell biology in latent space, a potentially useful direction for cross-scale biological representation.</p>
+          <p class="caveat">Data sources, ontology construction, validation and concrete applications could not be assessed from the brief post.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="omics-infrastructure">
+      <h2 class="section-heading" id="omics-infrastructure">Omics methods and genomic infrastructure</h2>
+      <div class="grid">
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079151430477513070">PEARL combines multi-omics classification with graph-based feature discovery</a></h2>
+          <p>PEARL is described as a deep graph-learning framework for integrative multi-omics classification and discovery of informative omics features. The combination aims to support both prediction and biological interpretation.</p>
+          <p class="caveat">The available description did not identify datasets, disease applications or comparative performance.</p>
+        </article>
+
+        <article>
+          <h2><a href="https://x.com/razoralign/status/2079151474282762622">DRaCOon analyzes pathway-level differential co-expression</a></h2>
+          <p>DRaCOon is an algorithm for identifying condition-dependent changes in coordinated pathway regulation from transcriptomic datasets.</p>
+          <p class="caveat">Information about statistical controls, benchmarks and applications was not included.</p>
+        </article>
+
+        <article>
+          <h2><a href="https://x.com/NatureRevGenet/status/2079219161775976521">Review surveys the construction and use of pangenome references</a></h2>
+          <p>A freely readable review from <em>Nature Reviews Genetics</em> examines how pangenome references are built and applied to represent genetic diversity. Such references are becoming foundational infrastructure for more representative variant discovery and population genomics.</p>
+          <p class="caveat">The source post did not summarize the review’s specific recommendations or methodological comparisons.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-heading" id="language-practice">Language practice</h2>
+      <p>No verified reading selections were available for this edition.</p>
+
+      <div class="language-card" lang="de">
+        <h3>Deutsch — tägliche Lektüre</h3>
+        <p>Deutsche Welle und die Ausweichquelle GameStar waren nicht erreichbar; daher konnte kein geeigneter Artikel zuverlässig ausgewählt werden.</p>
+      </div>
+
+      <div class="language-card" lang="fr">
+        <h3>Français — lecture quotidienne</h3>
+        <p>ActuaLitté et le site de repli Le Monde étaient inaccessibles ; aucun article n’a donc pu être vérifié.</p>
+      </div>
+
+      <div class="language-card" lang="ja">
+        <h3>日本語 — 毎日の読み物</h3>
+        <p>AUTOMATONと代替候補の4Gamerから記事を取得できなかったため、今回の読み物はありません。</p>
+      </div>
+
+      <div class="language-card" lang="zh">
+        <h3>中文 — 每日阅读</h3>
+        <p>DW 中文及备用来源联合早报均无法访问，因此本期未能核实并选取文章。</p>
+      </div>
+    </section>
+
+    <aside class="operations" aria-labelledby="source-notes">
+      <h2 id="source-notes">Source notes</h2>
+      <p>The X AI Research list could not be collected after three attempts, so this edition contains no items from that source. Several included biology posts supplied only titles or truncated descriptions; those limitations are noted alongside the relevant stories.</p>
+    </aside>
+
+    <footer>
+      News Daily · July 21, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #faf8f2;
+      --ink: #20201d;
+      --muted: #68675f;
+      --accent: #8b2d2d;
+      --line: #d9d4c8;
+      --panel: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    .page {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 0 18px;
+      margin-bottom: 34px;
+    }
+    .kicker {
+      margin: 0 0 4px;
+      color: var(--accent);
+      font: 700 0.78rem/1.3 Arial, sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font: 0.86rem/1.4 Arial, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section { margin: 42px 0; }
+    .section-title {
+      margin: 0 0 22px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 30px;
+    }
+    article {
+      break-inside: avoid;
+      padding: 0 0 24px;
+      margin: 0 0 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    article h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      line-height: 1.3;
+    }
+    article p { margin: 0 0 10px; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+      overflow-wrap: anywhere;
+    }
+    .source-link {
+      font: 700 0.8rem/1.4 Arial, sans-serif;
+      letter-spacing: 0.03em;
+    }
+    .language-section {
+      margin-top: 58px;
+      padding-top: 30px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -10px 0 28px;
+    }
+    .language-card {
+      padding: 24px 26px;
+      margin: 0 0 24px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .language-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.35rem;
+    }
+    .language-card .byline {
+      color: var(--muted);
+      font: 0.84rem/1.5 Arial, sans-serif;
+      margin-bottom: 16px;
+    }
+    .language-card ul {
+      margin-top: 8px;
+      padding-left: 22px;
+    }
+    .language-card li { margin-bottom: 6px; }
+    footer {
+      margin-top: 52px;
+      padding-top: 18px;
+      border-top: 1px solid var(--ink);
+      color: var(--muted);
+      font: 0.82rem/1.55 Arial, sans-serif;
+    }
+    footer h2 {
+      color: var(--ink);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    @media (max-width: 720px) {
+      .page { width: min(100% - 24px, 1040px); padding-top: 20px; }
+      .grid { grid-template-columns: 1fr; }
+      .language-card { padding: 19px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="kicker">Research, technology &amp; biology</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-09-11">Friday, September 11, 2026</time></p>
+    </header>
+
+    <section aria-labelledby="ai-systems">
+      <h2 class="section-title" id="ai-systems">AI Systems &amp; Architecture</h2>
+      <div class="grid">
+        <article>
+          <h3>DeepSeek V4.1 adopts an encoder–decoder-style architecture</h3>
+          <p>Sebastian Raschka highlights a major architectural overhaul in DeepSeek V4.1. Technical discussion says the native multimodal model retains a SigLIP vision encoder, while comparisons with YOCO suggest that “decoder–decoder” may be the more precise description.</p>
+          <a class="source-link" href="https://x.com/rasbt/status/2098142625819672603">Read the discussion</a>
+        </article>
+
+        <article>
+          <h3>YOCO experiment reuses hidden states instead of KV states</h3>
+          <p>A small pretraining experiment replaces KV reuse with hidden-state reuse and reports a modest improvement while preserving YOCO’s reuse mechanism.</p>
+          <a class="source-link" href="https://x.com/SonglinYang4/status/2098155732323663932">View the experiment</a>
+        </article>
+
+        <article>
+          <h3>Layer dropout benefits from annealing and depth-dependent rates</h3>
+          <p>Experiments inspired by <em>Don’t Drop Dropout</em> indicate that layer dropout works best when its rate begins high and declines during training, upper layers are dropped more often, and hyperparameters are tuned carefully. The approach approximates stochastic network growth and may leave lower layers usable as a speculative-decoding draft model.</p>
+          <a class="source-link" href="https://x.com/yaroslavvb/status/2098105666581959154">Read the results</a>
+        </article>
+
+        <article>
+          <h3>Speculative decoding may improve MoE utilization</h3>
+          <p>You Jiacheng distinguishes three uses for speculative decoding: accelerating dense models at small batch sizes, increasing arithmetic intensity for long-context full attention, and improving low-intensity MoE inference when sparse attention makes batching dependent on HBM capacity. In the latter regimes, it may raise both speed and throughput.</p>
+          <a class="source-link" href="https://x.com/YouJiacheng/status/2097993808688615456">Read the analysis</a>
+        </article>
+
+        <article>
+          <h3>Jetson Thor’s memory capacity faces a bandwidth tradeoff</h3>
+          <p>John Carmack argues that Jetson Thor’s 128 GB of memory may be excessive relative to its 273 GB/s bandwidth for cost-optimized, real-time robotics. He estimates that conventional models evaluated tens of times per second could use only about 10 GB of weights, though wider MoE systems, slower planning models, and development workloads could justify the added capacity.</p>
+          <a class="source-link" href="https://x.com/ID_AA_Carmack/status/2098175668399866159">Read the hardware analysis</a>
+        </article>
+
+        <article>
+          <h3>Correction clarifies PSGD-QEQ and KL-AIRM equivalence</h3>
+          <p>A correction to earlier optimizer analysis says the gradient is not unique; rather, a difference in geometry offsets the gradient transformation. In the eigenspace, where the relevant quantities commute, the derivation uses <code>p = q²</code> and <code>dp = 2q dq = -2q²r = -2pr</code>, making the formulations equivalent up to step size.</p>
+          <a class="source-link" href="https://x.com/YouJiacheng/status/2098022060425703830">Read the correction</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="computational-biology">
+      <h2 class="section-title" id="computational-biology">Computational Biology &amp; Genomics</h2>
+      <div class="grid">
+        <article>
+          <h3>BOTANIC-1 targets plant-genome sequence modeling</h3>
+          <p>BOTANIC-1 is an open family of models for crop design and analysis from genomic sequence. Its release reports performance above previous baselines and improvements as model size increases.</p>
+          <a class="source-link" href="https://x.com/cgeorgiaw/status/2098061366221300136">Explore BOTANIC-1</a>
+        </article>
+
+        <article>
+          <h3>Machine-learned potential simulates full enzyme reactions</h3>
+          <p>Researchers report all-atom simulations of enzymatic reactions with explicit solvent, covering systems of roughly 30,000–60,000 atoms. Available source material does not provide enough detail to assess the model or its validation.</p>
+          <a class="source-link" href="https://x.com/MoAlQuraishi/status/2098136972795457919">View the research discussion</a>
+        </article>
+
+        <article>
+          <h3>Vizitig builds alignment-free pangenome sequence graphs</h3>
+          <p>Vizitig constructs compacted, colored graphs directly from overlapping DNA or RNA k-mers, representing variation as graph branches rather than deviations from a single reference. It supports interactive web and command-line exploration, with a query language for large multi-sample pangenome and pantranscriptome collections.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2098144843616883033">Learn about Vizitig</a>
+        </article>
+
+        <article>
+          <h3>DeepBioP connects biological formats to deep-learning workflows</h3>
+          <p>DeepBioP pairs a Rust core with Python bindings to feed biological data formats, including FASTQ, into deep-learning pipelines. Full feature and benchmark details were not available in the source excerpt.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2097995838454903172">View the announcement</a>
+        </article>
+
+        <article>
+          <h3>Many-target CRISPRi reveals successive response shells</h3>
+          <p>Many-target CRISPRi experiments reportedly produced multi-gene responses with apparent first-, second-, and third-order shells of effects. The available excerpt does not identify the experimental system or explain how the hierarchy should be interpreted.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2097995879949254799">View the research note</a>
+        </article>
+
+        <article>
+          <h3>Prostate-cancer study maps mutational processes across 959 genomes</h3>
+          <p>A <em>Nature</em> study analyzes the mutational processes shaping 959 genomes from a pan-prostate-cancer cohort. Specific mutational signatures and clinical associations were not included in the available excerpt.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2097995903634444654">View the study announcement</a>
+        </article>
+
+        <article>
+          <h3>Autonomous gene-expression control uses endogenous signals</h3>
+          <p>A synthetic-biology paper reports autonomous control of gene expression using endogenous transcriptional signals. The source excerpt is incomplete, leaving the circuit design, signals, and experimental results unspecified.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2098068293336887759">View the paper announcement</a>
+        </article>
+
+        <article>
+          <h3>Zebrafish relatives as comparative genomics models</h3>
+          <p><em>Nature Reviews Genetics</em> has published a review of zebrafish relatives as models for functional comparative genetics and genomics.</p>
+          <a class="source-link" href="https://x.com/NatureRevGenet/status/2098095982710030520">View the review announcement</a>
+        </article>
+
+        <article>
+          <h3><em>Nature Methods</em> focuses on AI in biological research</h3>
+          <p>The journal’s September issue includes a collection on AI applications and methodology across biological research, comprising an editorial, a perspective, and a review.</p>
+          <a class="source-link" href="https://x.com/naturemethods/status/2098065302219014206">Browse the collection announcement</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="language-intro">Edited daily reading selections in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Die Angst vor „Schläfern“ und misstrauische Blicke</h3>
+        <p class="byline">Tagesschau · 11.09.2026 · <a href="https://www.tagesschau.de/inland/gesellschaft/elfter-september-anschlaege-muslime-100.html">Link</a></p>
+        <p>Der Artikel zeichnet nach, wie die Anschläge vom 11. September 2001 die deutsche Gesellschaft veränderten. Am Beispiel des deutsch-afghanischen Apothekers Obeid Said schildert er, wie muslimische Menschen plötzlich unter Generalverdacht gerieten. Said wurde wenige Wochen nach den Anschlägen von der Polizei zu seiner Religion und möglichen Verbindungen zu Terrororganisationen befragt, ohne später eine Erklärung dafür zu erhalten.</p>
+        <p>Zugleich beleuchtet der Beitrag die damalige Rasterfahndung nach möglichen „Schläfern“ und ihre langfristigen gesellschaftlichen Folgen. Menschen mit Einwanderungsgeschichte berichten von wachsendem Misstrauen, veränderten Blicken und der Sorge, als Bedrohung wahrgenommen zu werden. Die Erfahrungen der Betroffenen zeigen, wie stark die Ereignisse auch 25 Jahre später das Sicherheitsgefühl und das Zusammenleben in Deutschland prägen.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet deutsche Zeitgeschichte mit persönlichen Erfahrungen und der weiterhin aktuellen Debatte über Sicherheit, Rassismus und gesellschaftliches Vertrauen.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Anthropic déjoue des opérations de surveillance menées à l'aide de son IA en Chine et en Iran</h3>
+        <p class="byline">France 24 · 11 septembre 2026 · <a href="https://www.france24.com/fr/%C3%A9co-tech/20260911-ia-anthropic-claude-dejoue-operations-surveillance-chine-iran-mali-moonshot-deepseek">Lien</a></p>
+        <p>Anthropic affirme avoir neutralisé plusieurs opérations qui détournaient son assistant Claude afin de surveiller des dissidents et des minorités. Détectées entre janvier et juillet, ces campagnes auraient notamment ciblé des militants prodémocratie hongkongais, des communautés tibétaines et du Falun Gong, ainsi que des opposants iraniens vivant à l'étranger. Au Mali, un prestataire lié aux autorités aurait également employé Claude pour concevoir un logiciel de collecte de renseignements.</p>
+        <p>L'entreprise dit par ailleurs avoir bloqué des tentatives liées à la conception d'armes, à des recherches biologiques sensibles et à des escroqueries. Elle accuse aussi les sociétés chinoises Moonshot et DeepSeek d'avoir interrogé Claude clandestinement pour alimenter leurs propres services et améliorer leurs modèles. Selon Anthropic, Moonshot aurait transmis près de 300 000 requêtes en dix jours au moyen de milliers de comptes frauduleux, exposant potentiellement des données confidentielles de ses clients.</p>
+        <p><strong>Pourquoi lire :</strong> L'article illustre concrètement la manière dont les outils d'IA peuvent être détournés à des fins de surveillance, de fraude ou d'entraînement clandestin de modèles concurrents.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>collecte de renseignements</strong> — acquisition organisée d'informations à des fins de sécurité, d'espionnage ou d'analyse</li>
+          <li><strong>distillation</strong> — technique consistant à utiliser les réponses d'un modèle puissant pour entraîner ou améliorer un autre modèle</li>
+          <li><strong>requête redirigée</strong> — demande informatique transmise à un autre service que celui auquel l'utilisateur pense s'adresser</li>
+          <li><strong>souche hautement pathogène</strong> — variante d'un agent infectieux susceptible de provoquer une maladie particulièrement grave</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 博物館資料 文化庁策定の収集管理考え方に意見書提出 学術団体</h3>
+        <p class="byline">NHKニュース · 2026年9月11日 · <a href="https://news.web.nhk/newsweb/na/nd-20260911de49697">記事を読む</a></p>
+        <p>全国の博物館で資料が収蔵庫に入りきらない問題を受け、文化庁は資料の収集・管理に関する基本的な考え方を策定しています。改正された国の基準には、やむをえない場合の資料の「廃棄」が明記されました。</p>
+        <p>学芸員や研究者でつくる「博物館コレクション管理研究会」は、重複や質の低さといった基準を機械的に当てはめて資料を除籍・処分するのは適切ではないと指摘しました。財政難や収蔵庫不足だけを理由に処分が進まないよう、歯止めとなる記述を設けることも求めています。</p>
+        <p><strong>読む理由：</strong> 文化財を将来へ残す責任と、博物館が直面する保管場所・財政上の制約を考えられる記事です。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>収蔵庫（しゅうぞうこ）</strong> — 博物館などが資料や作品を保管するための場所</li>
+          <li><strong>除籍（じょせき）</strong> — 登録された資料を正式にコレクションから外すこと</li>
+          <li><strong>学芸員（がくげいいん）</strong> — 博物館で資料の収集、保存、調査、展示などを担当する専門職</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — 可折叠iPhone Duo领衔：苹果发布多款新品</h3>
+        <p class="byline">机核 · 2026-09-11 · <a href="https://www.gcores.com/articles/219507">https://www.gcores.com/articles/219507</a></p>
+        <p>苹果在特别活动中发布首款可折叠手机 iPhone Duo，以及 iPhone 18 Pro 系列、Apple Watch Series 12、Apple Watch Ultra 4 和 AirPods 5。售价15999元起的 iPhone Duo 配有7.6英寸内屏与5.4英寸外屏，两块屏幕采用相同比例，可在开合时保持内容缩放和视觉体验的连贯性。</p>
+        <p>iPhone Duo 搭载 A20 Pro 芯片、VC 均热板和双电池架构，并针对折叠形态调整了摄像系统及 iOS 27 的交互方式。同期发布的其他产品则主要更新了影像、续航、健康感测和主动降噪功能；iPhone 18 Pro 系列将于9月12日开放预购，9月18日正式发售。</p>
+        <p><strong>为什么读：</strong> 文章简洁汇总苹果新品的价格与核心规格，适合了解消费电子和折叠屏领域的最新产品动向。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>可折叠屏幕 (kě zhédié píngmù)</strong> — 能通过铰链开合，在便携与大显示面积之间切换的屏幕。</li>
+          <li><strong>VC均热板 (VC jūnrèbǎn)</strong> — 利用液体蒸发与冷凝快速传导热量的散热组件。</li>
+          <li><strong>可变光圈 (kěbiàn guāngquān)</strong> — 能调整镜头进光孔径，从而控制亮度、景深等拍摄效果的技术。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      <h2>Editorial note</h2>
+      <p>Several biology source posts were truncated, so summaries are limited to the claims visible in the supplied material. Product announcements, pricing claims, political commentary, memes, and posts without sufficient technical context were excluded from the research sections.</p>
+      <p>News Daily · Run 2026-09-11-1</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

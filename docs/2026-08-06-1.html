@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #62676d;
+      --paper: #fffdf8;
+      --panel: #f5f2ea;
+      --rule: #d8d2c6;
+      --accent: #8b2f2f;
+      --link: #245b83;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #ece9e1;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+      padding: 2rem clamp(1rem, 4vw, 3.5rem) 3rem;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.2rem 0 1rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 2.5rem 0 1rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.17rem;
+      line-height: 1.3;
+    }
+
+    p {
+      margin: 0.45rem 0 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    .overview {
+      max-width: 850px;
+      margin: 0 auto 2rem;
+      padding: 1rem 1.2rem;
+      background: var(--panel);
+      border-left: 4px solid var(--accent);
+      font-size: 1.04rem;
+    }
+
+    .articles {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 2rem;
+    }
+
+    article {
+      padding: 1rem 0 1.15rem;
+      border-bottom: 1px solid var(--rule);
+      break-inside: avoid;
+    }
+
+    .source {
+      margin-top: 0.55rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .language-practice {
+      margin-top: 3rem;
+      padding-top: 0.5rem;
+      border-top: 5px solid var(--ink);
+    }
+
+    .language-intro {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .reading {
+      margin-top: 1.5rem;
+      padding: 1.35rem;
+      background: #faf8f2;
+      border: 1px solid var(--rule);
+    }
+
+    .reading h3 {
+      font-size: 1.35rem;
+    }
+
+    .reading-meta {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .vocabulary {
+      margin-bottom: 0;
+      padding-left: 1.25rem;
+    }
+
+    .notes {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 720px) {
+      main {
+        padding-top: 1rem;
+      }
+
+      .articles {
+        grid-template-columns: 1fr;
+      }
+
+      .reading {
+        padding: 1rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <div class="date">Thursday, August 6, 2026</div>
+  </header>
+
+  <div class="overview">
+    <strong>Today in research:</strong> spatial and genomic foundation models continue to grow in scale, while researchers sharpen the distinction between useful representations and reliable biological counterfactuals. Elsewhere, wet-lab results offer a mixed but informative picture for AI-designed antibodies, codon optimization, and protein-variant interpretation.
+  </div>
+
+  <section>
+    <h2>Genomics, Regulation &amp; Foundation Models</h2>
+    <div class="articles">
+      <article>
+        <h3><a href="https://x.com/GoodfireAI/status/2085040914200985838">MAPS explains predicted effects of 2.1 million genetic variants</a></h3>
+        <p>Goodfire presents MAPS, a Mechanistic Atlas of Protein Sequences built by inspecting representations inside ESM-C. The project aims to predict not only whether a missense variant is harmful, but how it changes particular protein properties.</p>
+        <div class="source">Goodfire AI via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2085241693251736036">An expanded codebook of human transcription-factor binding</a></h3>
+        <p>A newly highlighted Nature study maps DNA-binding specificity across human transcription factors, with potential value for understanding and modeling transcriptional regulation. Methodological and quantitative details were not included in the source excerpt.</p>
+        <div class="source">Anshul Kundaje via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2085071827232239791">TERRA pretrains a tissue model on 112 million spatially profiled cells</a></h3>
+        <p>TERRA represents each cell together with its neighborhood as a sequence of gene tokens, producing gene-, cell-, and neighborhood-scale representations. Its joint-embedding predictive objective infers masked molecular and spatial context in latent space rather than reconstructing raw counts.</p>
+        <div class="source">RazorAlign via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2085231468570435769">Spatial data are rich—but counterfactual evidence remains thin</a></h3>
+        <p>Anshul Kundaje argues that tissue spatial data offer much richer context than isolated single-cell measurements and may scale well for representation learning. He cautions, however, that RNA-only snapshots still lack other modalities and time, and have not yet demonstrated dependable counterfactual predictions for in vivo biology, drug discovery, or clinical trials.</p>
+        <div class="source">Commentary via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2085218802611245391">Omnigenic Model brings biological information into a genetics architecture</a></h3>
+        <p>A new preprint introduces a biology-informed neural-network architecture for human genetics. The available announcement does not expose enough detail to assess its precise design, target tasks, or evaluation.</p>
+        <div class="source">Anshul Kundaje via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/gen0m1cs/status/2085155807318904847">scE2G adds a benchmark for enhancer–gene prediction</a></h3>
+        <p>The published scE2G work is now online in Nature Genetics and adds a benchmark beyond the earlier preprint. Further information about the benchmark was not visible in the supplied excerpt.</p>
+        <div class="source">Genomics research post via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/gen0m1cs/status/2085012866218746362">ENCODE GRAMMAR assembles a regulatory-genomics atlas</a></h3>
+        <p>ENCODE GRAMMAR is presented as a Genomic Regulatory Atlas of sequence Models, Motifs, Annotations and Rules. It appears to be a substantial resource for regulatory sequence modeling, although scale and implementation details were unavailable in the abbreviated announcement.</p>
+        <div class="source">Genomics research post via X</div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Protein Engineering, Chemistry &amp; Therapeutics</h2>
+    <div class="articles">
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2085001682182926847">SynCodonLM evolves coding sequences without changing their proteins</a></h3>
+        <p>SynCodonLM proposes synonymous substitutions while preserving amino-acid sequence. In CHO-cell tests involving 24 antibody therapeutics, optimized sequences improved secreted titer for 18 constructs, with an average increase of about 1.26× and no detected decline in the reported quality assays. Model scores correlated moderately with titer changes and outperformed individual conventional descriptors.</p>
+        <div class="source">Biology AI Daily via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2085001786365297119">CheMatE jointly embeds molecular structures and scientific language</a></h3>
+        <p>CheMatE is an 8,192-token encoder trained on molecular SMILES and chemistry-focused text from a 21.9-billion-token corpus. Frozen embeddings ranked strongly across 48 classification and regression datasets, though the authors note possible structure-annotation errors and limited evaluation of long contexts.</p>
+        <div class="source">Biology AI Daily via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2084998374747783185">Physics helps separate protein stability from functional constraint</a></h3>
+        <p>Researchers combine the AWSEM folding potential with inverse-folding scores from models such as ESM-IF1 and ProteinMPNN. The blend improves stability prediction and helps distinguish destabilizing mutations from variants that preserve folding but disrupt function—a distinction reflected in different patterns among oncogenes, tumor suppressors, and loss-of-function variants.</p>
+        <div class="source">Biology AI Daily via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2084996306590953740">High-attention ESM-2 sites track functional protein regions</a></h3>
+        <p>Across 19,871 human proteins, high-attention residue sites were reported to lie closer than matched controls to active sites, binding sites, domains, pathogenic positions, and cancer variants. Examples involving MYC and BCL-2 suggest a possible role in prioritizing candidate binding pockets.</p>
+        <div class="source">Biology AI Daily via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2084995992940904469">MHChron tests peptide–MHC prediction under harder generalization splits</a></h3>
+        <p>MHChron curates 42,012 examples from almost 18.8 million peptide–MHC pairs, balancing labels across peptide lengths and broadening allele coverage. Structure-aware models helped modestly, especially for unseen MHC-I allele clusters, but both sequence-only and structural systems remained near random for many unseen MHC-II clusters.</p>
+        <div class="source">Biology AI Daily via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2084999956117815378">AI-generated anti–PD-1 antibodies produce weak, mixed binding results</a></h3>
+        <p>Six humanized candidates were generated by interpolating between pembrolizumab and nivolumab in a developability-conditioned latent space. Five designs were purified and three showed detectable PD-1 binding, but signals were too weak for confident kinetic estimates. The result highlights the need for antigen- and epitope-conditioned design and stronger experimental validation.</p>
+        <div class="source">Biology AI Daily via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2084997830155067443">OpenAntigens aids construct design across the extracellular proteome</a></h3>
+        <p>This free database provides structure-aware design reports for 5,328 secreted or cell-surface human proteins. Its July release includes 55,305 construct suggestions and integrates topology, AlphaFold confidence, structural precedents, domains, disease links, interactions, orthologs, paralogs, and predicted accessible surfaces.</p>
+        <div class="source">Biology AI Daily via X</div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Methods &amp; Research Tools</h2>
+    <div class="articles">
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2084997893379719236">Comparing spike-inference algorithms for GCaMP8 imaging</a></h3>
+        <p>A Nature Methods analysis examines how different GCaMP8 calcium-indicator variants behave when neural spikes are inferred with different algorithms, addressing an important source of variability in calcium-imaging experiments.</p>
+        <div class="source">Nature Methods via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2084995648407871581">Spatialproteomics offers an end-to-end Python imaging toolbox</a></h3>
+        <p>Spatialproteomics is a Python-based toolkit for analyzing highly multiplexed imaging data from end to end, providing computational infrastructure for large, high-dimensional biological images.</p>
+        <div class="source">Nature Methods via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2085009053776806335">SecAct infers secreted-protein signaling from transcriptomes</a></h3>
+        <p>SecAct uses transcriptomic measurements to infer the activities of secreted-protein signaling pathways, with potential applications in extracellular signaling and cell–cell communication analysis. Benchmarking details were not included in the available announcement.</p>
+        <div class="source">Nature Methods via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2084994046850675176">Fullscope-seq adds isoform resolution to spatial transcriptomics</a></h3>
+        <p>Fullscope-seq combines spatial transcriptomics with long-read sequencing to recover isoform-level information at single-cell resolution. The method was demonstrated on macaque brain slices.</p>
+        <div class="source">Nature Methods via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2085013459943465304">LATeNT enables light-controlled inhibition of exocytosis</a></h3>
+        <p>LATeNT is a light-activatable tetanus neurotoxin designed to inhibit exocytosis with spatial and temporal precision in neurons and other cells. Construction and quantitative validation details were not available in the supplied announcement.</p>
+        <div class="source">Nature Methods via X</div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Disease Research, Resources &amp; Clinical Safety</h2>
+    <div class="articles">
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2085204319314509973">Human Cancer Models Initiative reports a decade-scale profiling effort</a></h3>
+        <p>The initiative marks the culmination of ten years of work involving 2,780 patients and more than 300 scientists. Three related Nature papers cover large-scale cancer dependencies and multimodal molecular profiling, creating a potentially valuable resource for disease modeling and therapeutic-target research.</p>
+        <div class="source">Anshul Kundaje via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2085223714657038539">Death in a Chinese gene-editing trial raises safety questions</a></h3>
+        <p>A report says a child died during a gene-editing trial in China, renewing concern about transparency and clinical safety. The available excerpt does not identify the intervention, disease, timing, or whether the treatment caused the death, so no causal conclusion can be drawn from the post alone.</p>
+        <div class="source">Report highlighted via X</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2085149957649297841">Functional mapping targets the CD40 autoimmunity locus</a></h3>
+        <p>A new preprint combines surface-protein QTL analysis with experimental fine-mapping of CD40, a therapeutically important immune surface protein. Cohort, variant, assay, and causal details were not visible in the abbreviated source post.</p>
+        <div class="source">Anshul Kundaje via X</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="language-practice">
+    <h2>Language Practice</h2>
+    <p class="language-intro">Edited reading selections in their original languages.</p>
+
+    <article class="reading" lang="de">
+      <h3>Deutsch — Jüdische Spurensuche</h3>
+      <div class="reading-meta">Deutschlandfunk Kultur · 04.08.2026 · <a href="https://www.deutschlandfunkkultur.de/anna-schapiro-fuehlen-sie-sich-wie-zu-hause-aber-vergessen-sie-dabei-nicht-dass-sie-gast-sind-roman-rezension-100.html">Artikel lesen</a></div>
+      <p>Anna Schapiros autobiografisch grundierter Debütroman „Fühlen Sie sich wie zu Hause, aber vergessen Sie dabei nicht, dass Sie zu Gast sind“ erzählt von einer russisch-jüdischen Familie, von Migration und vom Schweigen zwischen den Generationen. Die Erzählerin Anja erkennt nach dem Tod ihrer Großmutter, dass ihr Wissen über die eigene Familie hauptsächlich aus vereinzelten Anekdoten besteht.</p>
+      <p>Mit einem Aufnahmegerät reist Anja zu Verwandten und früheren Weggefährten ihrer Familie in den USA und Israel. Aus den Gesprächen entsteht eine vielstimmige Familiengeschichte, die Erfahrungen mit sowjetischem Antisemitismus, Auswanderung und Zugehörigkeit verbindet. Die Rezension würdigt besonders Schapiros präzise, stellenweise poetische Sprache, bemerkt aber auch Unsicherheiten im ausufernden Schlussteil.</p>
+      <p><strong>Warum lesen:</strong> Die Rezension bietet einen zugänglichen Einstieg in einen Roman über Erinnerung, jüdische Identität und die Suche nach der eigenen Herkunft.</p>
+    </article>
+
+    <article class="reading" lang="fr">
+      <h3>Français — Drone explosif à Leipzig : une menace susceptible d’impliquer « des puissances étrangères », selon Berlin</h3>
+      <div class="reading-meta">RFI · 6 août 2026 · <a href="https://www.rfi.fr/fr/europe/20260806-drone-explosif-%C3%A0-leipzig-une-menace-susceptible-d-impliquer-des-puissances-%C3%A9trang%C3%A8res-selon-berlin">Lire l’article</a></div>
+      <p>Un drone équipé d’explosifs a été découvert sur le tarmac de l’aéroport de Leipzig-Halle, important centre logistique pour l’Otan et pour l’acheminement de l’aide militaire à l’Ukraine. Les autorités allemandes n’ont pas encore attribué l’incident, mais le ministre de l’Intérieur Alexander Dobrindt évoque une possible attaque hybride et une menace susceptible d’impliquer des puissances étrangères.</p>
+      <p>D’après des informations qui restent à confirmer, un défaut du détonateur aurait empêché l’explosion. L’affaire inquiète particulièrement Berlin, car les drones avaient déjà provoqué de nombreuses perturbations du trafic aérien en Allemagne, sans toutefois transporter de charge explosive. Le gouvernement, confronté depuis plusieurs mois à des opérations d’espionnage et à des cyberattaques, cherche désormais à mieux coordonner ses services face à des adversaires de plus en plus équipés.</p>
+      <p><strong>Pourquoi lire :</strong> Un article bref et accessible pour comprendre l’évolution des menaces hybrides en Allemagne et le rôle stratégique de l’aéroport de Leipzig.</p>
+      <p><strong>Vocabulaire utile</strong></p>
+      <ul class="vocabulary">
+        <li><strong>attaque hybride</strong> — opération combinant plusieurs moyens, par exemple sabotage, cyberattaque, désinformation ou espionnage, sans prendre la forme d’une guerre déclarée</li>
+        <li><strong>charge explosive</strong> — quantité d’explosif intégrée à un engin et destinée à provoquer une détonation</li>
+        <li><strong>tarmac</strong> — zone d’un aéroport où les avions stationnent, circulent ou sont chargés</li>
+        <li><strong>hub logistique</strong> — plateforme centrale servant à organiser et redistribuer des marchandises, du matériel ou des équipements</li>
+      </ul>
+    </article>
+
+    <article class="reading" lang="ja">
+      <h3>日本語 — Gmail、他社メアドを送信元にできる機能を廃止へ</h3>
+      <div class="reading-meta">ITmedia NEWS · 2026-08-06 · <a href="https://www.itmedia.co.jp/news/article/2608/06/2000000421/">記事を読む</a></div>
+      <p>Googleは、Gmailで他社のメールアドレスを差出人として設定できる機能を、2027年1月に終了すると発表した。維持に過剰なリソースが必要だったことが理由で、他社アカウントのメールをPOPで取得する機能や、Gmailの迷惑メール対策などを外部アカウントに適用する「Gmailify」も終了する。</p>
+      <p>一方、Gmail同士のエイリアスやGoogle Workspaceの送信元機能には影響しない。モバイル版Gmailアプリへ他社アカウントを直接追加する方法や、Thunderbird、Outlook、Apple MailなどからIMAP・POPを通じてGmailへアクセスする機能も引き続き利用できる。</p>
+      <p><strong>読む理由：</strong> Gmailの複数アカウント運用がどう変わるのかを、継続される機能との違いも含めて短く確認できる。</p>
+      <p><strong>語彙メモ</strong></p>
+      <ul class="vocabulary">
+        <li><strong>差出人（さしだしにん）</strong> — メールを送った人として表示される名前やアドレス。</li>
+        <li><strong>エイリアス</strong> — 一つのメールアカウントに追加して使う、別名のメールアドレス。</li>
+        <li><strong>受信プロトコル（じゅしんプロトコル）</strong> — POPやIMAPなど、メールを受け取るための通信方式。</li>
+      </ul>
+    </article>
+
+    <article class="reading" lang="zh">
+      <h3>中文 — 自嘲加炫技，《影之刃零》30秒新片子暗示了什么突破？</h3>
+      <div class="reading-meta">机核 · 2026-08-06 · <a href="https://www.gcores.com/articles/218023">阅读文章</a></div>
+      <p>国产动作游戏《影之刃零》宣布将于8月12日开启全平台预售，届时还会公开售价、电脑推荐配置及一段11分钟的实机演示。在此之前，官方先发布了一支30秒短片，以角色沐小葵的一句“你终于来了，你又慢了”回应游戏延期和长时间沉寂，也展示了升级后的角色建模与面部捕捉效果。</p>
+      <p>文章进一步分析短片中的剧情及世界观线索：沐小葵的突出位置可能意味着人物关系和原作剧情已被大幅重构；片尾出现的机械热气球，则强化了游戏融合传统江湖与蒸汽机械的“武侠朋克”风格。不过，高空载具是否代表更立体的探索玩法，目前仍只是根据画面作出的推测。</p>
+      <p><strong>为什么读：</strong> 这篇短文适合了解国产武侠游戏的宣传语言、视觉技术术语及世界观设计。</p>
+      <p><strong>词汇笔记</strong></p>
+      <ul class="vocabulary">
+        <li><strong>实机演示 (shíjī yǎnshì)</strong> — 使用实际运行中的游戏画面展示玩法与画质，而非预先制作的宣传动画</li>
+        <li><strong>面部捕捉 (miànbù bǔzhuō)</strong> — 记录演员面部动作并转化为数字角色表情的技术</li>
+        <li><strong>角色建模 (juésè jiànmó)</strong> — 为游戏角色制作三维外形、材质及细节的过程</li>
+      </ul>
+    </article>
+  </section>
+
+  <aside class="notes">
+    <strong>Source note:</strong> Several research announcements were available only as shortened or truncated social-media excerpts. Summaries above are therefore limited to visible claims, and links may lead to source posts rather than full papers. The duplicate SecAct announcement was consolidated.
+  </aside>
+
+  <footer>
+    News Daily · August 6, 2026 · Run 2026-08-06-1
+  </footer>
+</main>
+
+
+
+</body>
+</html>

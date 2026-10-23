@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20211f;
+      --muted: #666861;
+      --rule: #d8d5cb;
+      --accent: #315c51;
+      --accent-soft: #e8efec;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eeece5;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    main {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.1rem, 4vw, 3.5rem) 3rem;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.3rem 0 1rem;
+      margin-bottom: 2.2rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+    .date {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 2.6rem 0;
+    }
+    h2 {
+      margin: 0 0 1.1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .lead-grid, .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem 1.6rem;
+    }
+    article {
+      break-inside: avoid;
+      border-bottom: 1px solid var(--rule);
+      padding: 0 0 1.15rem;
+    }
+    .lead {
+      background: var(--accent-soft);
+      border-top: 3px solid var(--accent);
+      border-bottom: 0;
+      padding: 1.15rem 1.2rem;
+    }
+    h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.16rem;
+      line-height: 1.28;
+    }
+    .lead h3 {
+      font-size: 1.35rem;
+    }
+    p {
+      margin: 0.4rem 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+    }
+    a:hover { color: #183f36; }
+    .tags {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.76rem;
+    }
+    .briefs {
+      columns: 2 20rem;
+      column-gap: 2rem;
+    }
+    .briefs article {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    .language {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-note, .run-notes {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+    }
+    .language-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.7rem 1.5rem;
+      padding: 0;
+      list-style: none;
+    }
+    .language-list li {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 0.7rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 700px) {
+      .lead-grid, .story-grid, .language-list { grid-template-columns: 1fr; }
+      .briefs { columns: 1; }
+      main { padding-top: 1.2rem; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p class="date">Tuesday, July 28, 2026 · Research Edition</p>
+  </header>
+
+  <section aria-labelledby="top-stories">
+    <h2 id="top-stories">Top Stories</h2>
+    <div class="lead-grid">
+      <article class="lead">
+        <h3><a href="https://x.com/BiologyAIDaily/status/2081728672307007919">Deep learning finds conserved ageing states across mice and humans</a></h3>
+        <p>A residual domain-adversarial network transfers ageing-state labels from mouse to human single-cell data while suppressing species-specific shortcuts. Reported held-out human AUROCs range from 0.933 to 0.953 across stem-cell transcriptomic, epigenomic and CD8+ T-cell datasets. Multiple attribution methods identify conserved genes and pathways, while ablations connect the architecture and training scheme to transfer accuracy and attribution stability.</p>
+        <p class="tags">Single-cell biology · Ageing · Domain adaptation · Interpretability</p>
+      </article>
+
+      <article class="lead">
+        <h3><a href="https://x.com/BiologyAIDaily/status/2081728363249758539">Spatium trains on 51.8 million spatial-proteomics cells</a></h3>
+        <p>The foundation model draws on 70 human studies spanning four platforms, 18 tissues and 18 disease contexts. Rank-based protein tokenization is intended to handle platform-specific intensity scales and incomplete panels. Reported uses include few-shot cell annotation, spatial-niche discovery, protein imputation and transfer among spatial proteomics, single-cell RNA sequencing and histology.</p>
+        <p class="tags">Spatial proteomics · Foundation models · Multimodal biology</p>
+      </article>
+
+      <article class="lead">
+        <h3><a href="https://x.com/BiologyAIDaily/status/2081728123792671051">DECODE learns biological-response embeddings for virtual screening</a></h3>
+        <p>DECODE trains jointly on chemical structures, L1000 transcriptomics and Cell Painting profiles, yet can screen from chemical structure alone at inference. It separates shared response factors from modality-specific signals and uses contrastive alignment plus modality masking. Evaluations reportedly include mechanism-of-action retrieval and early enrichment in anticancer and target-specific screens.</p>
+        <p class="tags">Drug discovery · Virtual screening · Multimodal learning</p>
+      </article>
+
+      <article class="lead">
+        <h3><a href="https://x.com/BiologyAIDaily/status/2081728571102658923">Explicit ions can steer AlphaFold 3—but not reliably</a></h3>
+        <p>A perspective explores adding explicit ions to sample alternative conformations and diagnose over-folded disordered regions. Examples show major structural changes in RNA–protein interfaces, G-quadruplexes, membrane proteins and disordered sequences, but also incorrect stoichiometries, clashes and experimentally inconsistent states. The central warning: confidence scores reflect internal certainty, not correctness.</p>
+        <p class="tags">AlphaFold 3 · Structural biology · RNA · Model evaluation</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="ai-systems">
+    <h2 id="ai-systems">AI Systems, Kernels &amp; Evaluation</h2>
+    <div class="story-grid">
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2081978720030699601">Autonomously generated KDA PTX kernel targets H100 and B200 GPUs</a></h3>
+        <p>An open-source PTX implementation of KDA for NVIDIA H100 and B200 accelerators was reportedly generated fully autonomously—an unusual test of AI-produced low-level GPU code.</p>
+        <p class="tags">GPU kernels · PTX · KDA · AI coding</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2081818343875785131">FLA 0.5.2 adds FlashKDA and context-parallel support</a></h3>
+        <p>The release introduces fused KDA kernels through the FlashKDA backend, context-parallel KDA support and several additional fused operations for efficient sequence-model implementations.</p>
+        <p class="tags">FLA · FlashKDA · Fused kernels · Context parallelism</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/classiclarryd/status/2081909171554071027">NanoGPT speedrun falls to 76.0 seconds</a></h3>
+        <p>A new record trims runtime from 76.3 to 76.0 seconds. The optimization rewrites XSA algebraically, retaining equivalent mathematics while enabling faster execution.</p>
+        <p class="tags">NanoGPT · Training efficiency · Benchmarking</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/rasbt/status/2081834681582895370">Kimi K3 recipe reportedly delivers a 2.5× scaling improvement over K2</a></h3>
+        <p>An observation from the model’s technical report highlights a scaling law under which the K3 training recipe is said to improve efficiency by roughly 2.5 times over K2.</p>
+        <p class="tags">Kimi K3 · Scaling laws · Model training</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/nathancgy4/status/2081805228899479787">Kimi K3 analysis centers numerical stability at scale</a></h3>
+        <p>A technical thread examines signal propagation and numerical precision, arguing that stability remains one of the central difficulties in training very large architectures.</p>
+        <p class="tags">Kimi K3 · Numerical stability · Precision</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/YouJiacheng/status/2081768987168559301">Lightweight DCMHA replaces a full head transform with a dynamic rank-one update</a></h3>
+        <p>Where the original DCMHA applies an H×H transform to per-head attention, the lightweight version uses an approximately rank-one dynamic transformation. Base attention supplies an identity-like component and a dynamic projection supplies the modification.</p>
+        <p class="tags">Attention · DCMHA · Low-rank methods</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/GoodfireAI/status/2081784983019290783">LLM activations appear to encode the bouba–kiki effect</a></h3>
+        <p>Goodfire reports a direction in Llama and Gemma activations separating “spiky-sounding” from “round-sounding” words independently of meaning, echoing the familiar human sound-symbolism effect.</p>
+        <p class="tags">Mechanistic interpretability · Representations · Sound symbolism</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/OpenMed_AI/status/2081759484871942615">LocalArena makes leaderboard uncertainty visible</a></h3>
+        <p>In a small evaluation, Kimi K3 won eight head-to-head comparisons and ranked first under Bradley–Terry, yet all 13 model-pair results were inconclusive at 95% confidence because intervals overlapped. The Apache-2.0 tool reports those intervals rather than presenting rank alone.</p>
+        <p class="tags">Evaluation · Confidence intervals · Bradley–Terry · Open source</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="computational-biology">
+    <h2 id="computational-biology">Computational Biology &amp; Genomics</h2>
+    <div class="story-grid">
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2081921240030392323">PG-LLM tests general-purpose language models on protein variants</a></h3>
+        <p>The benchmark asks whether general-purpose LLMs can predict protein variant effects across 217 tasks. It probes whether textual reasoning and limited contextual examples can compete with specialized protein models.</p>
+        <p class="tags">Protein variants · LLMs · ProteinGym · Benchmarks</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/pkoo562/status/2081685337710133481">Review charts a path toward generalizable regulatory-genomics AI</a></h3>
+        <p>A Nature Genetics review surveys loss functions, out-of-distribution behavior, interpretation and ways to correct generalization failures. It also considers active and continual learning from perturbation data, especially for transfer across cellular contexts.</p>
+        <p class="tags">Regulatory genomics · OOD generalization · Interpretability · Review</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2081933754671755318">ArchVelo offers a new framework for RNA velocity</a></h3>
+        <p>A Nature Communications paper introduces a computational framework for analyzing cellular dynamics through RNA velocity. Methodological and evaluation details were not available in the supplied announcement.</p>
+        <p class="tags">RNA velocity · Single-cell biology · Cellular dynamics</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2081815643003990204">Cherimoya Accessibility Atlas publishes its first draft</a></h3>
+        <p>CATv1 is a new regulatory-genomics resource associated with the Cherimoya regulatory-sequence model. The announcement did not specify the atlas’s complete scope or access details.</p>
+        <p class="tags">Chromatin accessibility · Regulatory genomics · Dataset</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2081743465281688040">cRegulon models combinatorial regulation in single-cell multi-omics</a></h3>
+        <p>The method is presented as a way to identify combinatorial regulatory units underlying cell-type biology from multi-omic single-cell measurements.</p>
+        <p class="tags">Gene regulation · Single-cell · Multi-omics</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2081743427855896580">ScPGE predicts expression from candidate cis-regulatory elements</a></h3>
+        <p>ScPGE is introduced as a scalable framework connecting candidate regulatory elements to gene-expression predictions. Benchmark details were not included in the announcement.</p>
+        <p class="tags">Cis regulation · Gene expression · Sequence function</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2081743440011018521">snATAC-Express infers expression from accessibility peaks</a></h3>
+        <p>The method uses prioritized chromatin-accessibility peaks in single-nucleus ATAC-seq data to infer transcriptional output. Evaluation results were not supplied.</p>
+        <p class="tags">snATAC-seq · Chromatin accessibility · Gene expression</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2081743636786782554">ApexOracle aims to design antibiotics for future pathogens</a></h3>
+        <p>The announced framework targets prediction and generation of antibiotics intended to remain useful against future pathogens. Its biological assumptions, validation protocol and performance remain unspecified in the available item.</p>
+        <p class="tags">Antibiotics · Generative models · Antimicrobial resistance</p>
+      </article>
+    </div>
+  </section>
+
+  <section aria-labelledby="tools">
+    <h2 id="tools">Research Tools in Brief</h2>
+    <div class="briefs">
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2081743544394686909">Minimod analyzes modified bases in long reads</a></h3>
+        <p>A newly announced tool for base-modification analysis in long-read sequencing data, with potential applications in direct epigenetic and modified-base profiling. Implementation and benchmark details were not provided.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2081743554817507379">Theseus tackles affine-gap sequence-to-graph alignment</a></h3>
+        <p>Theseus is presented as a fast, optimal alignment method for graph-based sequence analysis, potentially useful in pangenome and variation-graph workflows. No comparative benchmarks were included.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="language" aria-labelledby="language-practice">
+    <h2 id="language-practice">Language Practice</h2>
+    <p class="language-note">No verified reading selections were available for this run.</p>
+    <ul class="language-list">
+      <li lang="de"><strong>Deutsch — tägliche Lektüre</strong><br>Tagesschau und <a href="https://www.deutschlandfunkkultur.de/">Deutschlandfunk Kultur</a> waren nicht zugänglich; ein geeigneter Artikel konnte nicht verifiziert werden.</li>
+      <li lang="fr"><strong>Français — lecture quotidienne</strong><br>France 24 et la source de repli <a href="https://www.rfi.fr/fr/">RFI</a> étaient inaccessibles ; aucun article n’a pu être vérifié.</li>
+      <li lang="ja"><strong>日本語 — 毎日の読み物</strong><br>NHKニュースと代替の<a href="https://www.itmedia.co.jp/news/">ITmedia NEWS</a>にアクセスできず、記事を検証できませんでした。</li>
+      <li lang="zh"><strong>中文 — 每日阅读</strong><br><a href="https://www.rfi.fr/cn">RFI 中文</a>及备用来源 DW 中文均无法访问，因此没有可核实的文章。</li>
+    </ul>
+  </section>
+
+  <footer>
+    News Daily · Run 2026-07-28-1 · Links in this edition lead to the supplied source posts.
+  </footer>
+</main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #65717f;
+      --line: #ded6c8;
+      --accent: #8a4b2a;
+      --accent-soft: #f0dfd1;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+    }
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      margin: 0;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .dateline {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(58, 45, 30, 0.05);
+    }
+    h2 {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 1.6rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+    article {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.2rem;
+    }
+    h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    h3 a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #6d3b22;
+      padding: 1px 7px;
+      border-radius: 999px;
+      margin: 2px 3px 2px 0;
+      font-size: 0.82rem;
+    }
+    a {
+      color: #7a3f22;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 4px double var(--line);
+      padding-top: 10px;
+    }
+    .language-practice section {
+      border-color: #d7c7b5;
+    }
+    .snippet h3 {
+      color: var(--accent);
+    }
+    .snippet ul {
+      margin-top: 6px;
+    }
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: 28px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dateline">Friday, June 26, 2026 · Run 2026-06-26-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research &amp; Evaluation</h2>
+
+        <article>
+          <h3><a href="https://x.com/hardmaru/status/2070388643043401740">Sakana AI CoffeeBench evaluates long-horizon LLM agent management</a></h3>
+          <p>Sakana AI announced CoffeeBench, built with KPMG AZSA, to evaluate long-term business-management behavior in LLM agents. The benchmark has six agents interacting through email and transactions as companies try to maximize profit, making it a testbed for cooperation, competition, and misconduct in multi-agent economic settings.</p>
+          <div class="tags"><span class="tag">agents</span><span class="tag">benchmark</span><span class="tag">multi-agent</span><span class="tag">evaluation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2070052287666610506">OpenThoughts-Agent-v2 trains small agentic models across multiple benchmarks</a></h3>
+          <p>Stanford AI Lab says OpenThoughts-Agent-v2 targets small models for terminal use and coding. In compute-controlled comparisons, it reportedly leads at every training-set size and generalizes across seven agentic benchmarks, positioning it as a dataset and training resource beyond single-benchmark agent data.</p>
+          <div class="tags"><span class="tag">agents</span><span class="tag">datasets</span><span class="tag">coding</span><span class="tag">benchmarks</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/GoodfireAI/status/2070181051801235463">Goodfire demonstrates targeted model editing via parameter decomposition</a></h3>
+          <p>Goodfire reports removing a 67M-parameter language model’s ability to predict German text by fine-tuning only a scalar factor on one decomposed weight subcomponent, using only four German tokens. Follow-up notes say interpretability labels helped avoid broader foreign-language damage and focus the intervention on a German-specific component.</p>
+          <div class="tags"><span class="tag">interpretability</span><span class="tag">model-editing</span><span class="tag">language-models</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2070263014272745610">Lilian Weng posts a long-form scaling laws overview</a></h3>
+          <p>Songlin Yang reshared Lilian Weng’s long-form post on scaling laws, framed around using scaling laws to reason about expensive compute. The item points to a technical overview of compute and model scaling methodology.</p>
+          <div class="tags"><span class="tag">scaling-laws</span><span class="tag">compute</span><span class="tag">methodology</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2070281380148461649">TBench Science benchmark highlighted by Stanford AI Lab</a></h3>
+          <p>Stanford AI Lab amplified a Laude Institute post for “TBench Science,” associated with researchers including Steven Dillmann, Ryan Martin, Alex Shaw, Mike Merrill, Alex Dimakis, Sanmi Koyejo, and Ludwig Schmidt. The provided detail is limited, but it appears to be a science-oriented benchmark or evaluation resource.</p>
+          <div class="tags"><span class="tag">benchmark</span><span class="tag">science</span><span class="tag">evaluation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/Jianlin_S/status/2070149170120499466">General matrix-function approximation framework note</a></h3>
+          <p>Jianlin Su shared “The Beauty of Brute Force: A General Matrix Function Approximation Framework.” Only the title and link were available, but matrix-function approximation is relevant to optimization and numerical methods used in modern ML training.</p>
+          <div class="tags"><span class="tag">optimization</span><span class="tag">linear-algebra</span><span class="tag">numerical-methods</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cgeorgiaw/status/2070122470787477659">4B local model evaluated on physics tasks</a></h3>
+          <p>Georgia Channing retweeted a post describing a 4B local model doing physics tasks including dynamic fracture, beam mechanics, topology optimization, and Chladni plates. The available text is truncated, but it raises a useful model-evaluation question: what can small local models capture in scientific domains?</p>
+          <div class="tags"><span class="tag">scientific-ai</span><span class="tag">physics</span><span class="tag">small-models</span><span class="tag">evaluation</span></div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Biology, Genomics &amp; Drug Discovery</h2>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2070169603377139725">ComplexDesign proposes hallucination-based multi-target protein binder design</a></h3>
+          <p>ComplexDesign uses AlphaFold-Multimer-guided sequence hallucination, target-target masking, ProteinMPNN redesign, and AlphaFold3 validation to design binders that bridge multiple proteins without a predefined target geometry. The work is relevant to molecular glues, PROTAC-like proximity therapeutics, and programmable multichain assemblies.</p>
+          <div class="tags"><span class="tag">protein-design</span><span class="tag">drug-discovery</span><span class="tag">molecular-glues</span><span class="tag">alphafold</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2070162526696853771">TCRBinder predicts T-cell receptor specificity with paired-chain and peptide-HLA context</a></h3>
+          <p>TCRBinder is described as a unified pre-trained model for TCR binding specificity using full-length paired TCR alpha/beta chains, peptide, and HLA context. It combines Roformer TCR encoders, ESM2 peptide/HLA encoders, multi-fusion CNNs, and interpretability analyses that recover known CDR3 and structural-contact signals.</p>
+          <div class="tags"><span class="tag">immunology</span><span class="tag">tcr</span><span class="tag">protein-language-models</span><span class="tag">cancer-immunotherapy</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2070162353698795795">MMCA applies multimodal co-attention to drug-target interaction prediction</a></h3>
+          <p>The MMCA framework aligns drug molecular-graph features with protein sequence and annotation-derived features using multimodal co-attention. Reported evaluations span BioSNAP, BindingDB, and Human STRING, with ablations suggesting that graph, protein, and co-attention components all contribute.</p>
+          <div class="tags"><span class="tag">drug-discovery</span><span class="tag">drug-target-interaction</span><span class="tag">gnn</span><span class="tag">multimodal-ai</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2070162091810652496">QUBO/Ising formulation targets constraint-driven cyclic peptide sequence design</a></h3>
+          <p>A reduced-alphabet QUBO/Ising formulation casts cyclic peptide design as binary optimization over residue classes. The modular Hamiltonian can encode cyclization modes, motifs, composition constraints, target-compatibility terms, and coarse developability proxies for classical or quantum-compatible solvers.</p>
+          <div class="tags"><span class="tag">peptide-design</span><span class="tag">drug-discovery</span><span class="tag">optimization</span><span class="tag">quantum-computing</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2070161121663967346">Closed-loop auto research framework certifies molecular property prediction improvements on held-out tests</a></h3>
+          <p>This paper studies agentic closed-loop research for molecular property prediction, separating discovery from held-out certification. It evaluates feature, model, and data interventions across ADMET, MoleculeNet, and Polaris/Biogen tasks, with explicit leakage controls and examples where validation gains fail to transfer.</p>
+          <div class="tags"><span class="tag">drug-discovery</span><span class="tag">admet</span><span class="tag">llm-agents</span><span class="tag">generalization</span><span class="tag">data-leakage</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2070158462580122099">DeepSpot-M predicts transcriptome-wide virtual spatial transcriptomics from histology</a></h3>
+          <p>DeepSpot-M is described as a multimodal foundation model that maps H&amp;E tiles to gene-expression queries using pathology foundation-model tokens, cross-attention gene decoding, and biological gene embeddings. Reported capabilities include zero-shot genes, cross-cancer generalization, Xenium adaptation, TCGA-scale virtual spatial atlases, and natural-language spatial querying.</p>
+          <div class="tags"><span class="tag">spatial-transcriptomics</span><span class="tag">computational-pathology</span><span class="tag">foundation-models</span><span class="tag">cancer</span><span class="tag">multimodal-ai</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2070144329797275676">AbAffinity predicts antibody-antigen affinity with chain-aware protein language modeling</a></h3>
+          <p>AbAffinity is a sequence-only antibody-antigen affinity predictor that keeps heavy chain, light chain, and antigen as separate streams over frozen ESM-2 embeddings. It uses CDR-focused pooling, heavy-light attention, gated fusion, cross-attention, and attribution analyses that localize signal to CDRs and epitope residues.</p>
+          <div class="tags"><span class="tag">antibodies</span><span class="tag">protein-language-models</span><span class="tag">affinity-prediction</span><span class="tag">drug-discovery</span><span class="tag">interpretability</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2070238901881688365">PerturbPlan proposes analytical design of Perturb-seq and TAP-seq experiments</a></h3>
+          <p>An IGVF Consortium preprint introduces PerturbPlan, an analytical framework for designing Perturb-seq and TAP-seq experiments. The available item was truncated, but the focus is experimental design for functional genomics perturbation assays.</p>
+          <div class="tags"><span class="tag">functional-genomics</span><span class="tag">perturb-seq</span><span class="tag">gene-regulation</span><span class="tag">experimental-design</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2070199411356127588">scBench-Long benchmark targets long-horizon single-cell biology evaluation</a></h3>
+          <p>scBench-Long is introduced as a benchmark for long-horizon single-cell biology. The normalized content is truncated, but it is positioned as a difficult evaluation suite for single-cell foundation-model or virtual-cell-style capabilities.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">benchmarks</span><span class="tag">virtual-cells</span><span class="tag">foundation-models</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/pkoo562/status/2070115387719426360">K562 CRISPRi enhancer benchmark compares Enformer, Borzoi, NTv3, and AlphaGenome</a></h3>
+          <p>A new analysis tests Enformer, Borzoi, NTv3, and AlphaGenome on K562 CRISPRi enhancers, extending Karollus 2023. The item is truncated, but it is clearly about benchmarking genomic sequence-to-function models on enhancer perturbation data.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">enhancers</span><span class="tag">crispri</span><span class="tag">sequence-to-function</span><span class="tag">alphagenome</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/pkoo562/status/2070249487562387642">tangermeme v1.4 adds support for agentic genomic sequence-to-function workflows</a></h3>
+          <p>tangermeme v1.4.0 focuses on supporting agentic usage of genomic sequence-to-function models. The tweet is truncated, but it points to a concrete tooling update for genomic model workflows.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">sequence-to-function</span><span class="tag">tools</span><span class="tag">agentic-ai</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2070295394157031662">fastQpick enables scalable bootstrap and subsampling of FASTQ reads</a></h3>
+          <p>fastQpick is presented as a fast, memory-efficient tool for sampling DNA-seq or RNA-seq FASTQ reads with replacement. The thread says it can generate bootstrap replicates for technical-variance estimation and process a 500-million-read library in under 30 minutes.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">sequencing</span><span class="tag">fastq</span><span class="tag">bioinformatics-tools</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2070295099943367082">A-liner visualizes genome-scale sequence alignments with annotations and tracks</a></h3>
+          <p>A-liner is a command-line tool for linear visualization of genome-scale sequence alignments. It can integrate gene annotations, highlighted genomic regions, coordinate scales, and quantitative tracks into reproducible, publication-ready figures.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">visualization</span><span class="tag">sequence-alignment</span><span class="tag">bioinformatics-tools</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cutleraging/status/2070145341274362181">dNdS-Fun extends dN/dS-style selection analysis to coding and noncoding somatic mutations</a></h3>
+          <p>dNdS-Fun is described as an extension of the classic dN/dS framework to quantify selection across both coding and noncoding somatic mutations. The item identifies a concrete genomics method relevant to cancer genomics and noncoding variant interpretation.</p>
+          <div class="tags"><span class="tag">cancer-genomics</span><span class="tag">somatic-mutations</span><span class="tag">noncoding-variants</span><span class="tag">evolution</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2070095296529563941">PREMIER reports large DNA insertion without double-strand breaks</a></h3>
+          <p>PREMIER technology is reported to break the 10 kb barrier without double-strand breaks, with a peak efficiency of 85.9% and publication in <em>Nucleic Acids Research</em>. The provided content is promotional and truncated, but it describes a concrete genome-editing method.</p>
+          <div class="tags"><span class="tag">genome-editing</span><span class="tag">dna-insertion</span><span class="tag">synthetic-biology</span><span class="tag">nucleic-acids</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2070248214129688961">Nature Methods highlights BioFile Finder for searchable image metadata datasets</a></h3>
+          <p>BioFile Finder is described as a free, open-source application that transforms image metadata into an interactive, searchable, and browsable dataset.</p>
+          <div class="tags"><span class="tag">bioimaging</span><span class="tag">metadata</span><span class="tag">open-source</span><span class="tag">research-tools</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2070247375428321657">iPSC-based model studies epithelial-to-mesenchymal cell-state transitions</a></h3>
+          <p>Nature Methods points to a human induced pluripotent stem-cell-based culture model for studying cell-state transitions in epithelial-to-mesenchymal transition, with an associated Research Briefing.</p>
+          <div class="tags"><span class="tag">cell-state-transitions</span><span class="tag">ipsc</span><span class="tag">emt</span><span class="tag">methods</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatRevMCB/status/2070193462289543464">Nature Reviews MCB publishes review on histone acetylation at the dawn of gene regulation</a></h3>
+          <p><em>Nature Reviews Molecular Cell Biology</em> announced a new online article titled “Histone acetylation at the dawn of gene regulation,” a gene-regulation review centered on chromatin biology.</p>
+          <div class="tags"><span class="tag">gene-regulation</span><span class="tag">chromatin</span><span class="tag">histone-acetylation</span><span class="tag">review</span></div>
+        </article>
+      </section>
+
+      <div class="language-practice">
+        <section lang="de">
+          <h2>Language Practice — Deutsch</h2>
+          <article class="snippet">
+            <h3>Deutsch — 2035 - und die Deutsche Bahn hat immer noch Verspätung</h3>
+            <div class="meta">Deutsche Welle · 2026-06-25 · <a href="https://www.dw.com/de/2035-und-die-deutsche-bahn-hat-immer-noch-versp%C3%A4tung/a-77709923">https://www.dw.com/de/2035-und-die-deutsche-bahn-hat-immer-noch-versp%C3%A4tung/a-77709923</a></div>
+            <p>Der Artikel beschreibt die tiefe Krise der Deutschen Bahn: Nach einer Panne beim veralteten Bahnfunksystem GSM-R stand der Zugverkehr zeitweise still, während Hitze, störanfällige Infrastruktur und ausfallende Klimaanlagen weitere Probleme verschärfen. DW ordnet diese Ereignisse als Symptom einer länger gewachsenen Misere ein, nicht als Einzelfall.</p>
+            <p>Im Mittelpunkt stehen schlechte Pünktlichkeitswerte, verschobene Ziele und Großprojekte wie Stuttgart 21, dessen Fertigstellung erneut nach hinten rückt. Die neue Bahnchefin Evelyn Palla spricht von realistischeren Zielmarken; zugleich zeigt der Text, wie alte Gleise, Stellwerke und politische Fehlentscheidungen die Modernisierung seit Jahrzehnten bremsen.</p>
+            <p><strong>Warum lesen:</strong> Der Beitrag ist gut geeignet, um aktuelle deutsche Infrastruktur- und Verkehrspolitik mit vielen konkreten Beispielen und Zahlen zu verstehen.</p>
+          </article>
+        </section>
+
+        <section lang="fr">
+          <h2>Language Practice — Français</h2>
+          <article class="snippet">
+            <h3>Français — IA : comment améliorer les catalogues de bibliothèque sans numériser les livres ?</h3>
+            <div class="meta">ActuaLitté · 2026-06-23 · <a href="https://actualitte.com/article/132197/humeurs/ia-comment-ameliorer-les-catalogues-de-bibliotheque-sans-numeriser-les-livres">https://actualitte.com/article/132197/humeurs/ia-comment-ameliorer-les-catalogues-de-bibliotheque-sans-numeriser-les-livres</a></div>
+            <p>Dans cette tribune, Cédric Limousin examine l’idée, de plus en plus présente dans les bibliothèques universitaires, d’améliorer les catalogues grâce à l’intelligence artificielle. Le texte explique d’abord pourquoi les grands modèles de langage produisent parfois des réponses plausibles mais fausses, puis présente le RAG comme une méthode destinée à limiter ces erreurs en reliant la génération de texte à des documents identifiés.</p>
+            <p>L’article devient surtout intéressant quand il confronte cette promesse aux contraintes très concrètes des bibliothèques : pour fonctionner, un système de RAG doit accéder à des textes numériques, les découper, les vectoriser et les rendre disponibles au modèle. Or les fonds ne sont pas toujours numérisés, les droits d’usage sont complexes, et les coûts techniques peuvent pousser les institutions vers de grandes plateformes privées plutôt que vers des solutions réellement autonomes.</p>
+            <p>Au-delà du cas des catalogues, le sujet pose donc une question culturelle et politique : comment moderniser la recherche documentaire sans transformer les bibliothèques en simples dépendances d’acteurs technologiques extérieurs ? C’est une lecture utile pour comprendre les limites pratiques de l’IA dans les métiers du livre et de la documentation.</p>
+            <p><strong>Pourquoi lire :</strong> Pour saisir, en français clair mais technique, pourquoi l’IA ne suffit pas à résoudre les problèmes d’accès, de droit et de souveraineté des bibliothèques.</p>
+            <p><strong>Vocabulaire utile</strong></p>
+            <ul>
+              <li><strong>RAG</strong> — méthode qui ajoute une étape de recherche dans un corpus documentaire avant qu’un modèle d’IA ne rédige sa réponse.</li>
+              <li><strong>vectorisation</strong> — transformation de fragments de texte en coordonnées numériques afin de comparer leur proximité sémantique.</li>
+              <li><strong>hallucination</strong> — réponse produite par un modèle d’IA qui semble vraisemblable mais ne correspond pas nécessairement à un fait vérifié.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="ja">
+          <h2>Language Practice — 日本語</h2>
+          <article class="snippet">
+            <h3>日本語 — 大注目の魔女パン屋経営RPG『The Witch’s Bakery』8月20日発売へ。作り込み濃厚なパリの街を散策、“人の心”まで癒す魔法のパン屋生活</h3>
+            <div class="meta">AUTOMATON · 2026-06-26 12:20 · <a href="https://automaton-media.com/articles/newsjp/20260626-451972">https://automaton-media.com/articles/newsjp/20260626-451972</a></div>
+            <p>Silver Lining Interactiveは、フランスのインディースタジオSunny Labが手がけるアドベンチャーRPG『The Witch’s Bakery』を8月20日に発売すると発表した。対応機種はPC（Steam）、Nintendo Switch/Switch 2、PS5、Xbox Series X|Sで、日本語表示にも対応予定。プレイヤーは若き魔法使いルネとなり、パリでベーカリーを営みながら、魔法の力で人々の心を癒していく。</p>
+            <p>ゲームは昼・夕方・夜の3フェーズで進行する。昼は店でパンや菓子を作って販売し、夕方は手描き風に描かれたパリの街を探索。落ち込んだ友人の心の中「ハートパレス」に入り、悩みを解くための材料を見つける要素もある。夜には魔法の練習や店の飾りつけ、アトリエでの休息を行い、経営・探索・交流が少しずつ物語を動かしていく構成だ。</p>
+            <p>本作はKickstarterで約31万ユーロを集めた注目作で、『ペルソナ5』や「魔女の宅急便」から影響を受けているという。音楽面では久石譲氏やフランスのロマン派・印象派音楽からの影響に加え、「借りぐらしのアリエッティ」の音楽を手がけたセシル・コルベル氏の楽曲も収録される。デジタル版発売後には、PS5/Switch/Switch 2向けパッケージ版も予定され、限定デジタル・クックブックが同梱される。</p>
+            <p><strong>読む理由：</strong> 経営シム、魔法、パリ散策、心のケアを組み合わせた作品性が、日本語でゲーム紹介文を読む練習に向いている。</p>
+            <p><strong>語彙メモ</strong></p>
+            <ul>
+              <li><strong>経営（けいえい）RPG</strong> — 店や組織を運営する要素と、物語・成長要素を組み合わせたゲーム。</li>
+              <li><strong>ハートパレス</strong> — 作中で、人の閉ざした心や葛藤が形になって現れる場所。</li>
+              <li><strong>パッケージ版（ぱっけーじばん）</strong> — ダウンロード版ではなく、物理的なソフトや特典を含む販売形態。</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="zh">
+          <h2>Language Practice — 中文</h2>
+          <article class="snippet">
+            <h3>中文 — 受地缘政治紧张局势影响 大陆游客选择临近安全的出游目的地</h3>
+            <div class="meta">联合早报 · 2026-06-26 · <a href="https://www.zaobao.com.sg/news/china/story20260626-9268271">https://www.zaobao.com.sg/news/china/story20260626-9268271</a></div>
+            <p>报道引述预订数据指出，受地缘政治紧张、中东冲突及航班干扰等因素影响，今年夏天中国大陆游客出境旅游的选择更偏向“临近、安全、物有所值、较易抵达”的目的地。首尔预计成为今夏大陆游客首选，6月至8月到访人次同比增长；香港、吉隆坡以及越南胡志明市、河内等亚洲短途目的地也表现突出。</p>
+            <p>文章同时指出，虽然世界旅游业理事会预计大陆游客今年出游次数和消费规模仍相当可观，但6月出行量预估低于去年同期。日本则因中日关系紧张和北京发布赴日旅游提醒等因素，吸引力明显下降，东京、大阪等过去热门目的地在数据中退热。</p>
+            <p>这篇报道适合练习阅读旅游经济、区域政治与消费趋势交织的新闻文本：同一组出行数据背后，既有安全感和价格因素，也有外交关系、航线稳定性与目的地形象的变化。</p>
+            <p><strong>为什么读：</strong> 它用旅游预订数据呈现普通消费者如何感知并回应地缘政治风险。</p>
+            <p><strong>词汇笔记</strong></p>
+            <ul>
+              <li><strong>地缘政治 (dìyuán zhèngzhì)</strong> — 指地理位置、国家关系和战略利益交织形成的国际政治局势。</li>
+              <li><strong>出境旅游 (chūjìng lǚyóu)</strong> — 居民离开本国或本地区到海外旅行的旅游活动。</li>
+              <li><strong>预订数据 (yùdìng shùjù)</strong> — 由机票、酒店、行程等预订记录汇总出的市场趋势数据。</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+
+      <section>
+        <h2>Quiet Source Notes</h2>
+        <p>Some source items were omitted as low-signal duplicates, product announcements, hiring posts, shallow commentary, or previously reported material. Several included social posts were truncated in the provided fragments, so their summaries are limited to the available text.</p>
+      </section>
+    </main>
+
+    <footer>
+      News · Compiled from provided source fragments only
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

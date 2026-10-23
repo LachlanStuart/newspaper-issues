@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --card: #fffdf8;
+      --ink: #20201e;
+      --muted: #68675f;
+      --rule: #d8d2c5;
+      --accent: #315d69;
+      --accent-soft: #e6eff0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: #183f49; }
+    .page {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 24px 0 20px;
+      margin-bottom: 34px;
+    }
+    .kicker {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+    section { margin: 44px 0; }
+    .section-title {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      margin: 0 0 22px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .section-title span {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      padding: 20px 21px;
+    }
+    article.lead {
+      grid-column: 1 / -1;
+      border-top: 4px solid var(--accent);
+    }
+    h2, h3 { text-wrap: balance; }
+    article h3 {
+      margin: 0 0 9px;
+      font-size: 1.22rem;
+      line-height: 1.3;
+    }
+    article p { margin: 0.65em 0; }
+    article p:first-of-type { margin-top: 0; }
+    article p:last-child { margin-bottom: 0; }
+    .source {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+    .tags {
+      margin-top: 13px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+    }
+    .caution {
+      border-left: 3px solid #ad7a32;
+      padding-left: 12px;
+    }
+    .language-practice {
+      margin-top: 60px;
+      padding-top: 28px;
+      border-top: 5px double var(--ink);
+    }
+    .language-intro {
+      max-width: 760px;
+      margin: -8px 0 24px;
+      color: var(--muted);
+    }
+    .language-list {
+      display: grid;
+      gap: 24px;
+    }
+    .language-card {
+      padding: 25px 27px;
+    }
+    .language-card h3 {
+      font-size: 1.38rem;
+    }
+    .language-card ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+    .language-card li { margin: 5px 0; }
+    footer {
+      margin-top: 50px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      article.lead { grid-column: auto; }
+      .page { width: min(100% - 22px, 1100px); }
+      article, .language-card { padding: 18px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="kicker">News daily research newspaper</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-08-20">Thursday, August 20, 2026</time> · Run 2026-08-20-1</p>
+    </header>
+
+    <section aria-labelledby="ai-systems">
+      <h2 class="section-title" id="ai-systems">AI Systems <span>Training, architectures and inference</span></h2>
+      <div class="grid">
+        <article class="lead">
+          <h3><a href="https://x.com/gpjt/status/2090244093850812688">Built-in PyTorch GELU lifts LLM training throughput from 21K to 25K tokens per second</a></h3>
+          <p class="source">X AI Research</p>
+          <p>A training case study reports that replacing a hand-written, tanh-approximated GELU with PyTorch’s optimized implementation increased throughput by about 19%, from 21,000 to 25,000 tokens per second. The discussion also notes that GPT-2’s original TensorFlow weights assume the approximate GELU, an important compatibility detail, and proposes profiling <code>torch.compile</code> as a further comparison.</p>
+          <p class="tags">LLM training · PyTorch · performance · profiling</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2090164055583736262">A recurrent Transformer sends top-layer activations back into lower layers</a></h3>
+          <p class="source">X AI Research</p>
+          <p>The linked architecture introduces cross-depth feedback: activations from upper layers are injected into lower layers on the next recurrence. This departs from the conventional one-way stack and explores recurrent computation and activation reuse within Transformers.</p>
+          <p class="tags">Transformers · recurrence · architecture · activation reuse</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/ddalcu/status/2090103071267238064">Qwen3.8-27B MLX quantizations compared for quality, speed and memory</a></h3>
+          <p class="source">X AI Research</p>
+          <p>An overnight comparison identifies 6-bit weights as a promising quality–speed compromise. A 3.8-bits-per-weight version is positioned specifically for memory-constrained 24 GB machines. The accompanying discussion argues that MTP, DFlash and other speculative-drafting adapters should live in separately discoverable repositories instead of being bundled into every quantized model repository.</p>
+          <p class="tags">Quantization · MLX · inference · speculative decoding</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-ai">
+      <h2 class="section-title" id="bio-ai">Biology &amp; Drug Discovery <span>Design, validation and scientific claims</span></h2>
+      <div class="grid">
+        <article class="lead">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090283646163014129">AIntibody challenge gives computational antibody discovery a blinded, prospective test</a></h3>
+          <p class="source">X Bio Research · Nature Biotechnology benchmark</p>
+          <p>The benchmark synthesized 511 submitted antibodies from 29 organizations, then measured affinity and five developability dimensions under standardized conditions. Individual successes included an affinity-matured antibody at roughly 95 pM, but no method generalized across tasks. In one challenge, most ranking strategies underperformed historical random clone selection, while a simple positional-consensus baseline placed third in affinity maturation.</p>
+          <p>The nominal 2.9 pM out-of-library winner also failed a hydrophobic-interaction chromatography test. The result is a useful warning that exceptional affinity alone does not establish therapeutic suitability—and that simple baselines remain essential in prospective evaluation.</p>
+          <p class="tags">Antibodies · wet-lab validation · benchmarking · developability</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/ChoYehlin/status/2090213001681158378">Researchers dispute “autonomous design” framing around a Claude binder campaign</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>Protein-design researchers argue that the reported results came from orchestrating established tools through repeated generate–predict–redesign–refold cycles, rather than from a one-shot generator. They also point to the long initial prompt written by a protein-design expert, complicating claims that agents removed the need for human expertise. Protein Hunter, HalluDesign, BindCraft, RFdiffusion and ProteinMPNN-style workflows are cited as substantive parts of the design machinery.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090075882186805248">NACraft optimizes RNA and DNA aptamers through differentiable model feedback</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>NACraft is a training-free framework that backpropagates user-defined objectives through Boltz-1 distograms to optimize nucleotide sequences. It supports de novo binding, remodeling known aptamers and balancing positive-target affinity against off-target selectivity, followed by NA-MPNN refinement and independent AlphaFold 3 rescoring.</p>
+          <p class="caution">Reported tests include PD-L1, EGFR and HER2, but the evidence described here is computational rather than experimental.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090075641358299604">Lacuna searches protein ensembles for cryptic drug-binding pockets</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>The open-source Python tool generates or accepts conformational ensembles, detects pockets in each conformer and clusters them into persistent sites with ensemble-level crypticity statistics. Its default normal-mode workflow runs quickly on CPUs, while plugins can use molecular dynamics or Boltz-2 samples.</p>
+          <p>On the 180-target CryptoBench test fold, reported top-five recovery was 55.6% with the default ranker and 66.1% after adding protein-language-model features. Outputs include docking-ready boxes and Boltz constraints.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090075528707588480">AlphaConformers steers AlphaFold 2 toward alternative protein states</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>AlphaConformers retrieves structurally related proteins from PDB and AlphaFold DB, clusters their conformations and builds cluster-specific alignments and template sets. On a leakage-controlled post-2018 apo/holo benchmark, it reportedly improved recovery most strongly for subtle 1–2 Å rearrangements and complemented methods such as BioEmu on larger changes.</p>
+          <p>Its main limitation is dependence on structural-database coverage, alongside the unresolved difficulty of ranking ensembles without a reference.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090075242039590925">MCTH applies uncertainty-aware tree search to multimodal biomolecular co-design</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>Monte Carlo Tree Hallucination treats frozen folding and inverse-folding models as black-box operators, then uses Monte Carlo tree search to allocate a fixed inference budget among design trajectories. The same planning layer is applied to protein–RNA, protein–DNA, protein–protein and protein–ligand tasks.</p>
+          <p>Optional biophysical penalties and disagreement between predictors are intended to reduce optimization against a single oracle. The reported gains rely on computational confidence scores, rescoring and binder filters; no prospective wet-lab validation is described.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090075167276036288">Library-specific adaptation improves molecular language models for iterative screening</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>A benchmark across six make-on-demand molecular libraries finds Morgan fingerprints remain a strong and robust default, while frozen molecular-language-model embeddings vary substantially by domain. LoRA adaptation using only unlabeled structures from the target library improved results; an auxiliary objective predicting Morgan fingerprint bits produced the largest gains.</p>
+          <p>Adapted ChemBERTa, MolFormer and T5Chem models reportedly surpassed the fingerprint baseline on average in the study’s active-search setup.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/AlexanderKalian/status/2090013629777109285">Researchers warn that “virtual cell” claims can overstate what is being simulated</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>Alexander Kalian argues that a recently promoted “simulated cell” is better understood as a visualization and integration of known DNA, RNA, protein and regulatory information—not an atomistic or mechanistic simulation of arbitrary cellular chemistry. Missing elements include interactions, homeostasis, transport, repair and biochemical dynamics, while a comprehensive atomistic simulation of a human cell remains computationally infeasible.</p>
+          <p>Anshul Kundaje agreed with the central distinction and said the associated technical report did not support its reported claims.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genomics">
+      <h2 class="section-title" id="genomics">Genomics &amp; Biological Data <span>Methods, datasets and enabling technology</span></h2>
+      <div class="grid">
+        <article class="lead">
+          <h3><a href="https://x.com/razoralign/status/2090304854166298788">Positive Phase 3 result reported for a personalized mRNA melanoma vaccine</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>Multiple posts report a positive result from Merck and Moderna’s INTerpath-001 Phase 3 melanoma trial. One supplied account describes 1,137 patients, with each mRNA dose personalized to the patient’s tumor.</p>
+          <p class="caution"><strong>Important limitation:</strong> the available posts are truncated and provide no endpoint values, effect sizes, safety data or primary trial report. This should be treated as a headline clinical update pending fuller results.</p>
+          <p class="tags">mRNA vaccines · melanoma · cancer immunotherapy · personalized medicine</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2090234677722497117">Pangenome study defines variants as non-reference edges in a graph</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>A preprint proposes defining pangenome variants relative to a reference tree containing every graph node but only a subset of edges; non-reference edges then represent variants. Applied to the Minigraph-Cactus draft human pangenome, the method identified 29.6 million variants. Of these, 3.5 million—or 11.7%—had a reference allele absent from GRCh38.</p>
+          <p>The work tackles a foundational issue: what “variant” means when the reference is a graph rather than a single linear genome.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2090232410025939079">SVlog uses declarative logic to interpret structural variation</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>SVlog is a transparent, extensible framework built on the Soufflé logic-programming engine. It represents relationships among structural variants, genes and other genomic elements as relational facts, while composable predicates encode deterministic analysis rules. The design aims to make disease-relevant structural-variant interpretation auditable and easier to extend.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2090231418140107015">MOFTy models multimodal omics with Bayesian Gaussian-process factors</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>MOFTy learns shared latent factors across data modalities and can incorporate continuous variables such as time or spatial coordinates. It supports Gaussian, Bernoulli and Poisson likelihoods for real-valued, binary and count observations, respectively, while handling missing measurements without prior imputation.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2090307477409816962">PubCheF pairs about 2.5 million molecules with biological-function descriptions</a></h3>
+          <p class="source">X Bio Research</p>
+          <p>The new Hugging Face dataset is described as pairing approximately 2.5 million molecules with biological functions extracted from source material, potentially supporting multimodal molecular models and drug-discovery research.</p>
+          <p class="caution">The supplied post is truncated, so extraction quality, licensing, dataset splits and validation details are unavailable.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2090304732372091319">Overlapping oligonucleotides self-assemble into DNA fragments at high throughput</a></h3>
+          <p class="source">X Bio Research · Nature Biotechnology highlight</p>
+          <p>A highlighted method uses molecular self-assembly of overlapping oligonucleotides for high-throughput DNA-fragment synthesis, with potential applications in synthetic genomics, gene circuits and large-scale biological design.</p>
+          <p class="caution">Only the title and link were available, so throughput, fidelity, fragment length and cost cannot be assessed from this report.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="languages">
+      <h2 class="section-title" id="languages">Language Practice <span>Original-language daily reading</span></h2>
+      <p class="language-intro">Edited reading selections are preserved in their original languages and scripts.</p>
+
+      <div class="language-list">
+        <article class="language-card" lang="de">
+          <h3>Deutsch — Meta-Prozess: Staatsanwältin erhebt schwere Vorwürfe</h3>
+          <p class="source">Deutsche Welle · 19. August 2026 · <a href="https://www.dw.com/de/meta-prozess-usa-sucht-social-media-instagram-facebook-jugendliche-kinder/a-78423787">Artikel lesen</a></p>
+          <p>In einem Pilotprozess vor einem Bundesgericht im kalifornischen Oakland werfen 29 US-Bundesstaaten dem Meta-Konzern vor, Facebook und Instagram bewusst so gestaltet zu haben, dass Kinder und Jugendliche möglichst lange auf den Plattformen bleiben. Die Anklage verweist unter anderem auf Endlos-Scrollen, Autoplay, Benachrichtigungen und Like-Zähler. Meta habe bekannte Risiken für die psychische Gesundheit Minderjähriger verschwiegen, lautet der Vorwurf.</p>
+          <p>Meta bestreitet, junge Menschen gezielt abhängig gemacht zu haben, und verweist auf eigene Schutzmaßnahmen. Ein ehemaliger Facebook-Ingenieur belastete das Unternehmen jedoch als erster Zeuge und erklärte, intern erfasste Statistiken hätten das Ausmaß schädlicher Inhalte erheblich unterschätzt. Bei einer Niederlage drohen Meta hohe Strafzahlungen sowie verbindliche Änderungen an zentralen App-Funktionen; auch Konzernchef Mark Zuckerberg soll aussagen.</p>
+          <p><strong>Warum lesen:</strong> Der Artikel bietet einen aktuellen und konkreten Einblick in die Debatte über Plattformdesign, Jugendschutz und die Verantwortung großer Technologiekonzerne.</p>
+        </article>
+
+        <article class="language-card" lang="fr">
+          <h3>Français — Après Anthropic, Amazon : ces livres achetés, découpés puis changés en données</h3>
+          <p class="source">ActuaLitté · 18 août 2026 · <a href="https://actualitte.com/article/133380/technologie/apres-anthropic-amazon-ces-livres-achetes-decoupes-puis-changes-en-donnees">Lire l’article</a></p>
+          <p>Une enquête de <em>404 Media</em>, relayée par ActuaLitté, décrit le parcours d’une importante commande de livres d’occasion suivie grâce à un AirTag. Après plusieurs étapes aux États-Unis, les ouvrages seraient arrivés dans un site d’Amazon à North Las Vegas, où des employés disent réceptionner, découper et numériser de grandes quantités de livres. Cette méthode détruit les exemplaires physiques, mais permet de transformer rapidement leurs pages en données exploitables.</p>
+          <p>Amazon reconnaît acheter des livres afin d’améliorer ses produits et services, sans préciser quels modèles ou applications utilisent les textes numérisés. L’article rapproche néanmoins cette opération du développement d’Amazon Nova et d’une pratique déjà documentée chez Anthropic. Les livres imprimés, notamment les plus anciens, intéressent particulièrement les entreprises d’IA parce qu’ils offrent des textes humains édités et structurés, antérieurs à la multiplication des contenus synthétiques sur le web.</p>
+          <p>Cette stratégie soulève aussi des questions juridiques. Dans une affaire concernant Anthropic, un juge américain a estimé que la numérisation d’exemplaires légalement achetés puis détruits pouvait, dans certaines circonstances précises, relever du <em>fair use</em>. Cette décision ne constitue toutefois pas une autorisation générale et ne couvre pas l’acquisition d’ouvrages provenant de bibliothèques pirates.</p>
+          <p><strong>Pourquoi lire :</strong> Une enquête concrète sur la chaîne matérielle, juridique et économique qui transforme des livres imprimés en données pour l’intelligence artificielle.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>corpus d’entraînement</strong> — ensemble de textes ou d’autres données utilisés pour former un modèle d’intelligence artificielle</li>
+            <li><strong>numérisation patrimoniale</strong> — conversion numérique soigneuse de documents que l’on cherche à préserver matériellement</li>
+            <li><strong>fair use</strong> — principe du droit américain autorisant certains usages limités d’œuvres protégées sans accord préalable</li>
+            <li><strong>bibliothèque pirate</strong> — collection numérique diffusant des œuvres sans l’autorisation des titulaires de droits</li>
+          </ul>
+        </article>
+
+        <article class="language-card" lang="ja">
+          <h3>日本語 — インディーゲーム開発者にお金は出して口は出さない、支援集団COREBLAZERが日本の開発者パートナーを探しているらしい。何が狙い？どういうリスクがある？訊いた</h3>
+          <p class="source">AUTOMATON · 2026-08-20 · <a href="https://automaton-media.com/articles/interviewsjp/coreb-20260820-461301/">リンク</a></p>
+          <p>『アークナイツ』などを手がけるHypergryph傘下のCOREBLAZERは、インディーゲームの開発チームに資金や事業面の支援を提供する投資組織だ。パブリッシャーとは異なり、出資を理由にゲームの方向性を支配したり、IPやパブリッシング権を取得したりすることは前提にしていないという。資金提供に加え、予算管理、契約、知的財産の保護、海外企業との交渉、マーケティング準備なども支援する。</p>
+          <p>同組織は現在まで約30の開発チームに投資しており、過去の案件の約95％は会社の株式を取得するエクイティ出資だった。投資先の企業価値や作品の収益が伸びればCOREBLAZERも利益を得る仕組みであり、慈善事業ではないことも明確に説明している。一方、日本では株式の譲渡に慎重な開発者も多いため、特定作品の収益からリターンを得るプロジェクト投資も含め、柔軟な形を検討するという。</p>
+          <p>日本に注目する理由として、独自のビジュアル、キャラクター、物語や世界観を重視するクリエイター文化が挙げられた。COREBLAZERは、日本の開発者が抱える資金調達、海外パブリッシャーとの接続、ローカライズ、中国市場への展開といった課題に、自らの経験を生かしたいとしている。投資形態を先に決めるのではなく、まず作品を遊び、開発者が本当に必要とする支援を見極める方針だ。</p>
+          <p><strong>読む理由：</strong> インディーゲームを支える投資の仕組みと、海外資本が日本の開発者に注目する理由を具体的に学べるインタビューだから。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>エクイティ出資（しゅっし）</strong> — 企業の株式や持分を取得する形で資金を提供すること。</li>
+            <li><strong>知的財産（ちてきざいさん）</strong> — ゲームの名称、キャラクター、技術、著作物など、創作から生まれる法的権利。</li>
+            <li><strong>パブリッシング権（けん）</strong> — ゲームを販売・宣伝・流通させる権利。</li>
+            <li><strong>ローカライズ</strong> — 言語だけでなく、文化や市場の事情にも合わせて作品を調整すること。</li>
+          </ul>
+        </article>
+
+        <article class="language-card" lang="zh">
+          <h3>中文 — 光州双年展“台湾馆”遭改名 艺术家批评“政治审查”</h3>
+          <p class="source">德国之声中文网 · 2026-08-19 · <a href="https://www.dw.com/zh/%E5%85%89%E5%B7%9E%E5%8F%8C%E5%B9%B4%E5%B1%95%E5%8F%B0%E6%B9%BE%E9%A6%86%E9%81%AD%E6%94%B9%E5%90%8D-%E8%89%BA%E6%9C%AF%E5%AE%B6%E6%89%B9%E8%AF%84%E6%94%BF%E6%B2%BB%E5%AE%A1%E6%9F%A5/a-78431171">阅读原文</a></p>
+          <p>韩国光州双年展将于9月开幕，但原以“Taiwan Pavilion（台湾馆）”名义签约参展的国立台湾美术馆，后来被主办方改以英文缩写“NTMoFA”标示。台湾文化部称，主办单位未事先通知便更名，国美馆、台湾驻韩代表处等多次交涉，也未获得回应。</p>
+          <p>主办方表示，以国家名称参展须由大使馆或文化部门提交正式核准文件，而国美馆是以机构身份签约，因此使用机构名称。台湾策展人与艺术家则认为，这不仅是名称争议，更涉及参展者的身份认同、言论自由及艺术机构是否受到政治压力。韩国及台湾多个艺术团体也要求主办方公开决策过程、法律依据与可能的施压来源。</p>
+          <p>光州双年展创办于1995年，旨在纪念1980年光州民主化运动。正因为展览以反抗威权、争取民主为历史基础，这场围绕“台湾馆”命名的争议更显尖锐。</p>
+          <p><strong>为什么读：</strong> 文章从一场国际艺术展的命名争议切入，呈现文化外交、身份认同与艺术自由之间的复杂拉扯。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>双年展 (shuāngniánzhǎn)</strong> — 通常每两年举办一次的大型国际艺术展览。</li>
+            <li><strong>政治审查 (zhèngzhì shěnchá)</strong> — 基于政治立场或政治压力，对名称、言论或艺术表达加以限制。</li>
+            <li><strong>身份认同 (shēnfèn rèntóng)</strong> — 个人或群体对自身国家、文化及社会归属的理解与确认。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      News Daily · August 20, 2026 · Summaries reflect the supplied source reports; linked research and clinical claims may await independent or primary-source confirmation.
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

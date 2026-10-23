@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f5ef;
+      --paper: #fffdf8;
+      --ink: #222;
+      --muted: #666;
+      --rule: #d8d0bf;
+      --accent: #2d5c88;
+      --tag-bg: #eef3f7;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 28px auto;
+      padding: 36px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 0.02em;
+    }
+    .subtitle {
+      color: var(--muted);
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    h2 {
+      margin-top: 34px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 1.45rem;
+      color: #111;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.08rem;
+      line-height: 1.35;
+    }
+    article {
+      padding: 16px 0;
+      border-bottom: 1px solid #ebe4d6;
+    }
+    article:last-child {
+      border-bottom: none;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .summary {
+      margin: 6px 0 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      color: #4d5a63;
+    }
+    .tag {
+      display: inline-block;
+      padding: 2px 7px;
+      margin: 2px 3px 2px 0;
+      border-radius: 999px;
+      background: var(--tag-bg);
+    }
+    .section-note {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    .compact-grid {
+      columns: 2 360px;
+      column-gap: 34px;
+    }
+    .compact-grid article {
+      break-inside: avoid;
+    }
+    footer {
+      margin-top: 36px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="subtitle">Tuesday, June 09, 2026 · Run 2026-06-09-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research</h2>
+
+      <article>
+        <h3><a href="https://x.com/giffmana/status/2064078394485014696">Dynamic short convolutions improve Transformers across scales</a></h3>
+        <p class="summary">Lucas Beyer highlighted a paper on input-dependent dynamic short convolutions for Transformers. The discussion emphasizes not just model architecture but practical systems details: Triton kernels, wall-clock measurements, and scaling experiments despite the apparent cost of dynamic convolution weights.</p>
+        <div class="tags">
+          <span class="tag">architecture</span><span class="tag">transformers</span><span class="tag">convolutions</span><span class="tag">scaling</span><span class="tag">systems</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2064030627343798686">Stanford AI Lab shares CPI-style metric for AI coding output</a></h3>
+        <p class="summary">Stanford AI Lab amplified Chris Potts’s framing of a consumer-price-index-like metric for AI coding output: whether a token buys more or less coding capability than it did a few months ago. It is a useful lens on coding-model evaluation and token economics.</p>
+        <div class="tags">
+          <span class="tag">evaluation</span><span class="tag">coding agents</span><span class="tag">benchmarks</span><span class="tag">metrics</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/nathancgy4/status/2064010906250711330">Nathan Chen argues pretraining research still matters for efficiency and scale</a></h3>
+        <p class="summary">Nathan Chen makes the case that pretraining and deep-learning research remain central even amid data, compute, and RL bottlenecks. Architecture and optimizer improvements can shift scaling laws, reduce FLOPs for the same loss, make long-context settings cheaper through hybrid or sparse attention, and improve training stability for models that were previously infeasible.</p>
+        <div class="tags">
+          <span class="tag">pretraining</span><span class="tag">scaling laws</span><span class="tag">architecture</span><span class="tag">optimizers</span><span class="tag">efficiency</span>
+        </div>
+      </article>
+
+      <p class="section-note">Note: some link-only posts had too little supplied context to summarize reliably.</p>
+    </section>
+
+    <section>
+      <h2>Biology, Genomics &amp; AI</h2>
+      <div class="compact-grid">
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2064094519562572163">Learning BCR affinity maturation for antibody variant evaluation</a></h3>
+          <p class="summary">A forthcoming ICML paper focuses on learning the B-cell receptor affinity-maturation process. The motivation is the gap between antibody language models that learn antibody-like sequences and models that capture selection from naive germline antibodies into strong binders.</p>
+          <div class="tags"><span class="tag">antibodies</span><span class="tag">immunology</span><span class="tag">machine learning</span><span class="tag">drug discovery</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064080713960571297">Dual-channel fusion GCN for single-cell gene regulatory network reconstruction</a></h3>
+          <p class="summary">A dual-channel graph convolutional network is proposed for reconstructing single-cell gene regulatory networks and identifying key regulators. The method fuses prior regulatory knowledge with gene co-expression patterns and combines differential expression with regulatory changes to distinguish cell states.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">gene regulation</span><span class="tag">graph neural networks</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064010305852829917">FlowTransOP translates omics signatures with constrained deep flow matching</a></h3>
+          <p class="summary">FlowTransOP is described as a method for distributional translation of omics signatures via constrained deep flow matching, with likely relevance to perturbation modeling and virtual-cell-style analysis.</p>
+          <div class="tags"><span class="tag">omics</span><span class="tag">flow matching</span><span class="tag">perturbation modeling</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064010292850487716">MoCAVI / PERCISTRA: multiplex multimodal chemical screens at single-cell resolution</a></h3>
+          <p class="summary">MoCAVI / PERCISTRA is presented as a platform for massively multiplex multimodal chemical screens at single-cell resolution, relevant to perturbation biology and drug discovery.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">chemical screening</span><span class="tag">multiomics</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064010281475588203">Entropy Fusion DNA: alignment-free gene-fusion detection</a></h3>
+          <p class="summary">Entropy Fusion DNA is an alignment-free approach to gene-fusion detection using entropy and mutual information descriptors, aimed at genomics and disease-associated fusion discovery.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">gene fusions</span><span class="tag">bioinformatics</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064010272063570192">Unimeth: transformer framework for DNA methylation detection from nanopore reads</a></h3>
+          <p class="summary">Unimeth is a unified transformer framework for accurate DNA methylation detection from nanopore reads, combining epigenomics, sequencing, and deep learning.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">epigenomics</span><span class="tag">nanopore</span><span class="tag">transformers</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064009102922236246">CellReasoner: reasoning-enhanced LLM for cell type annotation</a></h3>
+          <p class="summary">CellReasoner applies a reasoning-enhanced large language model to cell type annotation, a common bottleneck in single-cell analysis workflows.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">LLM</span><span class="tag">cell type annotation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064009083326534128">BioReason incentivizes multimodal biological reasoning within a DNA-LLM</a></h3>
+          <p class="summary">BioReason is described as work on incentivizing multimodal biological reasoning inside a DNA-language-model framework.</p>
+          <div class="tags"><span class="tag">DNA language models</span><span class="tag">LLM</span><span class="tag">multimodal AI</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064009038468423712">CellVoyager: AI compbio agent for autonomous biological data analysis</a></h3>
+          <p class="summary">CellVoyager is an AI computational-biology agent intended to generate insights by autonomously analyzing biological data, pointing toward more automated compbio workflows.</p>
+          <div class="tags"><span class="tag">AI agents</span><span class="tag">computational biology</span><span class="tag">data analysis</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064008977395163523">MixupVI combines pseudobulk and single-cell transcriptomics for cell-type estimation</a></h3>
+          <p class="summary">MixupVI uses joint probabilistic modeling of pseudobulk and single-cell transcriptomics to improve estimation of cell-type composition.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">transcriptomics</span><span class="tag">probabilistic modeling</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064008964493484081">Parameter-efficient fine-tuning for supervised regulatory sequence models</a></h3>
+          <p class="summary">This work applies parameter-efficient fine-tuning to supervised regulatory sequence models, relevant to gene regulation and genomic sequence modeling.</p>
+          <div class="tags"><span class="tag">gene regulation</span><span class="tag">regulatory sequences</span><span class="tag">fine-tuning</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064008939805835723">DeepGFT identifies spatial domains in complex and 3D spatial transcriptomics</a></h3>
+          <p class="summary">DeepGFT uses deep learning and graph Fourier methods to identify spatial domains in complex and 3D spatial transcriptomics data.</p>
+          <div class="tags"><span class="tag">spatial transcriptomics</span><span class="tag">deep learning</span><span class="tag">graph methods</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatureRevGenet/status/2063983448390516863">RBPscan measures protein–RNA interactions in living cells</a></h3>
+          <p class="summary">Nature Reviews Genetics highlighted RBPscan, a method for measuring protein–RNA interactions in living cells, useful for RNA regulation and interactome mapping.</p>
+          <div class="tags"><span class="tag">RNA</span><span class="tag">protein–RNA interactions</span><span class="tag">methods</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2063977497470083117">Hydra: interpretable deep generative ensemble learning for single-cell omics</a></h3>
+          <p class="summary">Hydra is an interpretable deep generative ensemble-learning approach for single-cell omics, with an emphasis on rare cell type analysis.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">deep learning</span><span class="tag">interpretability</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2063968859531726912">scMagnify decomposes multi-scale dynamic regulation from single-cell multiomics</a></h3>
+          <p class="summary">scMagnify targets decomposition of multi-scale dynamic regulation from single-cell multiomics data, relevant to dynamic gene-regulatory analysis.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">multiomics</span><span class="tag">gene regulation</span><span class="tag">dynamics</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2063963041822396498">FIRST-seq: nanopore cDNA sequencing for RNA modification and structure profiling</a></h3>
+          <p class="summary">FIRST-seq is a nanopore-based cDNA sequencing platform for profiling RNA modifications and RNA structure.</p>
+          <div class="tags"><span class="tag">RNA</span><span class="tag">nanopore</span><span class="tag">sequencing</span><span class="tag">RNA modifications</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2063954356932849987">GeoBridge generates and navigates single-cell dynamics</a></h3>
+          <p class="summary">GeoBridge models single-cell dynamics through a geodesic bridge between nonlinear transcriptional and lineage-related structure, relevant to virtual-cell and perturbation-biology workflows.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">transcriptional dynamics</span><span class="tag">virtual cells</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2064077243706667158">UniSplicer: deep learning for splice-site prediction and splice-altering mutation detection</a></h3>
+          <p class="summary">UniSplicer is described as a deep-learning framework for accurate splice-site prediction and detection of splice-altering mutations, with implications for disease-variant interpretation.</p>
+          <div class="tags"><span class="tag">splicing</span><span class="tag">genomics</span><span class="tag">variant interpretation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rishabh16_/status/2064148799141065042">Anthropic science blog on why AI has advanced faster in coding than biology</a></h3>
+          <p class="summary">An Anthropic Science Blog item asks why AI has advanced faster in coding than in biology, arguing that biological databases and tooling can be difficult environments for agents compared with software-development systems.</p>
+          <div class="tags"><span class="tag">AI for biology</span><span class="tag">agents</span><span class="tag">bioinformatics infrastructure</span></div>
+        </article>
+
+      </div>
+
+      <p class="section-note">Note: many biology items came from retweeted snippets with truncated text and shortened links, so several summaries are limited to the supplied titles and brief descriptions.</p>
+    </section>
+
+    <footer>
+      Sources: X AI Research and X Bio Research fragments supplied to the 2026-06-09 News pipeline. No quiet failure notes were reported for this run.
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

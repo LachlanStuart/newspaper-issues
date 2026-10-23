@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #ddd6c9;
+      --accent: #7c3aed;
+      --accent-soft: #ede9fe;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    header .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 6px 0 4px;
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+    header .date {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.65rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.22rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 14px 0;
+      border-top: 1px solid #eee7dc;
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      margin: 2px 0 8px;
+    }
+    a {
+      color: #4f46e5;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #4c1d95;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 2px 3px 2px 0;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 4px solid var(--accent);
+      padding-top: 10px;
+    }
+    .language-practice section {
+      border-color: #d8ccf7;
+    }
+    .language-practice h2 {
+      color: #4c1d95;
+    }
+    ul {
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      margin-top: 30px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Tuesday, June 23, 2026 · Run 2026-06-23-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Artificial Intelligence Research</h2>
+
+        <article>
+          <h3><a href="https://x.com/giffmana/status/2069297468429173244">i1 text-to-image model built by a small academic team using public datasets</a></h3>
+          <div class="meta">X AI Research</div>
+          <p>A retweeted announcement describes “i1,” a simple text-to-image model effort from a small academic team, built around fully public datasets. The available source text is truncated, so paper links, resource details, and methodology are not visible here, but the item appears to be a technical model release with dataset and training-recipe relevance.</p>
+          <div class="tags">
+            <span class="tag">text-to-image</span>
+            <span class="tag">datasets</span>
+            <span class="tag">open research</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/hardmaru/status/2069209921393144318">Sakana Fugu technical report and release notes</a></h3>
+          <div class="meta">X AI Research</div>
+          <p>Hardmaru shared the Sakana Fugu technical report and release notes. The surrounding thread describes Fugu as an orchestration model trained to call multiple LLMs or agents through a single API. The linked short URLs are not expanded in the provided data, so implementation specifics are limited.</p>
+          <div class="tags">
+            <span class="tag">multi-agent</span>
+            <span class="tag">LLM orchestration</span>
+            <span class="tag">technical report</span>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Biology &amp; Bioinformatics Research</h2>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2069198579156373906">SABER mitigates seed-sensitive clustering instability in single-cell RNA-seq</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>SABER, short for StAbility-BasEd Reassignment, is presented as a Scanpy-based framework for finding cells whose cluster assignments vary across repeated runs and reassigning them to stable cluster cores using cosine similarity. The thread says the method improves clustering quality while retaining all cells and uses substantially less memory than standard Seurat-Louvain clustering.</p>
+          <div class="tags">
+            <span class="tag">single-cell</span>
+            <span class="tag">scRNA-seq</span>
+            <span class="tag">clustering</span>
+            <span class="tag">bioinformatics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2069198171021201570">CAGNet infers cell-cell interactions from spatial transcriptomics with clustering-guided graph learning</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>CAGNet is described as a structure-aware, clustering-alternated graph network for cell-cell interaction inference in spatial transcriptomics. It uses a graph attention network to produce structure-aware embeddings, alternates between embedding and cluster-center updates, and uses clustering as an intermediate signal for downstream CCI link prediction.</p>
+          <div class="tags">
+            <span class="tag">spatial transcriptomics</span>
+            <span class="tag">graph neural networks</span>
+            <span class="tag">cell-cell interaction</span>
+            <span class="tag">single-cell</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2069197885292585380">GENATATORs use DNA language models for ab initio gene annotation</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>GENATATORs are described as fine-tuned DNA language model-based gene annotation models for ab initio annotation from DNA sequence alone. The thread says the models combine long-context modeling, multispecies training, and biologically informed post-processing to reconstruct coding and non-coding gene structures, including UTRs and lncRNAs.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">DNA language models</span>
+            <span class="tag">gene annotation</span>
+            <span class="tag">foundation models</span>
+          </div>
+        </article>
+      </section>
+
+      <div class="language-practice">
+        <section lang="de">
+          <h2>Language Practice — Deutsch</h2>
+          <article>
+            <h3><a href="https://www.tagesschau.de/ausland/europa/afghanistan-taliban-eu-verhandlungen-100.html">Deutsch — Ex-Gotteskrieger verhandelt mit EU über Abschiebungen</a></h3>
+            <div class="meta">Tagesschau · 22.06.2026</div>
+            <p>Eine Delegation der Taliban wird in Brüssel erwartet, um mit Vertreterinnen und Vertretern europäischer Staaten über Abschiebungen nach Afghanistan zu sprechen. Besonders brisant ist die Person an der Spitze: Abdul Qahar Balkhi, heute Diplomat der Taliban, soll früher in Kundus gegen die Bundeswehr gekämpft haben.</p>
+            <p>Der Artikel verbindet aktuelle Migrationspolitik mit der ungeklärten Frage, wie europäische Staaten mit einem Regime umgehen, dem schwere Menschenrechtsverletzungen vorgeworfen werden. Stimmen wie die des Afghanistan-Veteranen Johannes Clair zeigen, warum der Empfang eines früheren Taliban-Kämpfers in Europa für viele politisch und persönlich schwer erträglich ist.</p>
+            <p><strong>Warum lesen:</strong> Der Text bietet viel Stoff zu EU-Politik, Abschiebungen, Afghanistan und der moralischen Spannung zwischen Realpolitik und Menschenrechten.</p>
+          </article>
+        </section>
+
+        <section lang="fr">
+          <h2>Language Practice — Français</h2>
+          <article>
+            <h3><a href="https://www.france24.com/fr/france/20260622-la-canicule-s-%C3%A9tendra-mardi-en-france-54-d%C3%A9partements-en-vigilance-rouge">Français — La canicule s'étendra mardi en France, 54 départements en vigilance rouge</a></h3>
+            <div class="meta">France 24 · 2026-06-22</div>
+            <p>France 24 décrit l’extension d’un épisode caniculaire majeur en France : mardi 23 juin, 54 départements doivent passer en vigilance rouge, tandis que 35 autres restent en vigilance orange. Selon Météo-France, plus de 90 % de la population française sera exposée à des chaleurs extrêmes, avec des températures pouvant atteindre localement plus de 40 °C et une baisse du mercure attendue seulement en fin de semaine.</p>
+            <p>L’article insiste sur les conséquences concrètes de cette situation : fermetures d’écoles, horaires aménagés, suppressions de trains, adaptation du travail et risques sanitaires pour les personnes vulnérables. Il mentionne aussi plusieurs drames récents attribués ou potentiellement liés à la chaleur, ainsi qu’une comparaison avec l’intensité de la canicule de 2003, restée une référence en France pour ses conséquences humaines.</p>
+            <p>Le papier est utile pour suivre à la fois le vocabulaire météorologique officiel et la manière dont une crise climatique se traduit dans l’organisation quotidienne du pays : école, transports, travail, santé publique et décisions préfectorales.</p>
+            <p><strong>Pourquoi lire :</strong> un article clair pour comprendre comment les autorités françaises qualifient et gèrent une canicule exceptionnelle.</p>
+            <p><strong>Vocabulaire utile</strong></p>
+            <ul>
+              <li><strong>vigilance rouge</strong> — niveau maximal d’alerte de Météo-France signalant un danger météorologique important pour la population.</li>
+              <li><strong>horaires aménagés</strong> — organisation modifiée des heures de cours ou de travail pour s’adapter à une contrainte, ici la chaleur.</li>
+              <li><strong>populations vulnérables</strong> — personnes plus exposées aux risques sanitaires, notamment enfants, personnes âgées ou malades.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="ja">
+          <h2>Language Practice — 日本語</h2>
+          <article>
+            <h3><a href="https://news.web.nhk/newsweb/na/na-k10015156901000">日本語 — 沖縄戦81年「慰霊の日」 戦没者追悼式【詳細】</a></h3>
+            <div class="meta">NHKニュース · 2026-06-23</div>
+            <p>6月23日は、20万人を超える人が亡くなった沖縄戦から81年となる「慰霊の日」です。NHKは、沖縄県内各地で平和への祈りがささげられていること、そして沖縄本島南部の糸満市で県主催の戦没者追悼式が開かれたことを伝えています。</p>
+            <p>記事は、沖縄戦の記憶と現在の平和祈念を結びつける当日の詳報です。日本の近現代史、地域社会、戦争記憶に関心がある読者にとって、ニュース日本語の語彙と式典報道の文体を学ぶのに適しています。</p>
+            <p><strong>読む理由：</strong> 沖縄の「慰霊の日」を通じて、戦争記憶と平和をめぐる日本語表現を学べる記事です。</p>
+            <p><strong>語彙メモ</strong></p>
+            <ul>
+              <li><strong>慰霊の日（いれいのひ）</strong> — 沖縄戦の犠牲者を悼み、平和を祈る沖縄県の記念日。</li>
+              <li><strong>戦没者追悼式（せんぼつしゃついとうしき）</strong> — 戦争で亡くなった人をしのぶための公的な式典。</li>
+              <li><strong>激戦地（げきせんち）</strong> — 非常に激しい戦闘が行われた場所。</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="zh">
+          <h2>Language Practice — 中文</h2>
+          <article>
+            <h3><a href="https://www.bbc.com/zhongwen/articles/c1wy8d9gpdxo/simp">中文 — “不只是裸露”巴基斯坦女星发声警告——影像与网路虐待的复杂现实</a></h3>
+            <div class="meta">BBC 中文 · 2026年6月22日</div>
+            <p>这篇报道从巴基斯坦女性马努尔的遭遇切入：她的私人照片并非裸照，也不含明显性暗示，却在婚姻破裂后被前夫入侵帐户、散布给亲友和同事。照片中的露肩、西式服装、与朋友合照等内容，在保守社群中被重新解读，导致她失去家庭支持、职场关系和社会地位。</p>
+            <p>报道引述性别正义组织查恩（Chayn）的新报告指出，科技平台和主管机关常把“影像性虐待”狭义理解为裸露或性露骨内容，忽略了“未经同意散布”本身及其文化后果。报告主张应把判断重点从影像是否裸露，转向伤害、意图和同意。</p>
+            <p>巴基斯坦女演员艾莎·奥马尔也谈到自己多年前照片被窃取并上传网路后的职业损失。文章把个人经历、平台规则、执法盲点和文化语境放在一起，说明非露骨影像同样可能成为控制、羞辱和报复的工具。</p>
+            <p><strong>为什么读：</strong> 这是一篇关于性别、科技平台责任和文化语境如何交织的社会议题报道，词汇和概念都很有学习价值。</p>
+            <p><strong>词汇笔记</strong></p>
+            <ul>
+              <li><strong>影像性虐待 (yǐngxiàng xìng nüèdài)</strong> — 未经同意散布、威胁散布或操控个人影像，以造成羞辱、控制或伤害的行为。</li>
+              <li><strong>复仇式色情 (fùchóu shì sèqíng)</strong> — 通常指在关系破裂后，未经同意公开亲密或性影像的报复行为。</li>
+              <li><strong>端对端加密 (duān duì duān jiāmì)</strong> — 讯息只在发送者和接收者设备上可读，平台本身通常无法查看内容的加密方式。</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+
+      <section>
+        <h2>Source Notes</h2>
+        <p>Some AI research posts were truncated or only contained shortlinks, limiting the amount of technical detail available in this edition.</p>
+      </section>
+    </main>
+
+    <footer>
+      News · Generated from provided source reports only
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

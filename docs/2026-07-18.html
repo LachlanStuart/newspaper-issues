@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #f7f4ed;
+      --ink: #20201d;
+      --muted: #68665f;
+      --accent: #285c4d;
+      --rule: #cbc6b9;
+      --card: rgba(255, 255, 255, 0.48);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 38px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 12px 20px;
+      margin-bottom: 34px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section { margin-top: 42px; }
+    h2 {
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      line-height: 1.3;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    article {
+      background: var(--card);
+      border-top: 3px solid var(--accent);
+      padding: 18px 20px 20px;
+    }
+    article.lead { grid-column: 1 / -1; }
+    article p { margin: 0 0 12px; }
+    article p:last-child { margin-bottom: 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .source-link {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.84rem;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 28px;
+      border-top: 5px double var(--ink);
+    }
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .language-card {
+      border: 1px solid var(--rule);
+      background: transparent;
+      padding: 18px 20px;
+    }
+    .language-card p {
+      margin: 0 0 10px;
+    }
+    .language-card p:last-child { margin-bottom: 0; }
+    .quiet-notes {
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+    .quiet-notes h2 {
+      border: 0;
+      padding: 0;
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1rem;
+      color: var(--ink);
+    }
+    .quiet-notes p { margin: 5px 0; }
+    footer {
+      margin-top: 32px;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 720px) {
+      main { width: min(100% - 22px, 1080px); padding-top: 20px; }
+      .grid, .language-grid { grid-template-columns: 1fr; }
+      article.lead { grid-column: auto; }
+      article, .language-card { padding: 16px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p class="date">Saturday, July 18, 2026</p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 id="ai-research">Artificial Intelligence Research</h2>
+      <div class="grid">
+        <article class="lead">
+          <h3>DeepLoop scales the depth of looped Transformers</h3>
+          <p>DeepLoop proposes techniques for keeping weight-shared, looped Transformers stable as their effective depth increases. A follow-up reports that the resulting model surpassed much larger systems on ARC-AGI-1, suggesting that repeated computation may offer another route to capable models beyond simply adding parameters.</p>
+          <p class="source-link"><a href="https://x.com/yifanzhang_/status/2078158296381583538">Read the research post on X</a></p>
+        </article>
+
+        <article>
+          <h3>“Diffusing Blame” trains dual-stream networks without backpropagation</h3>
+          <p>The method broadcasts task-dependent error signals directly to hidden layers, enabling networks with dedicated excitatory and inhibitory neurons to follow Dale’s principle without conventional backpropagation. Evaluations cover image recognition and backpropagation-free reinforcement learning, including locomotion and Craftax.</p>
+          <p class="source-link"><a href="https://x.com/hardmaru/status/2078156625479921847">Read the research post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Competition targets architecture–optimizer co-design</h3>
+          <p>Tilde and CoreAutoAI have launched a research competition focused on jointly designing neural architectures and optimization methods. The challenge treats the two choices as an intertwined search problem rather than optimizing either component in isolation.</p>
+          <p class="source-link"><a href="https://x.com/tilderesearch/status/2078249421545050154">View the announcement on X</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="drug-discovery">
+      <h2 id="drug-discovery">Drug Discovery &amp; Molecular Engineering</h2>
+      <div class="grid">
+        <article class="lead">
+          <h3>PeptiVerse unifies affinity and developability prediction for therapeutic peptides</h3>
+          <p>PeptiVerse offers a standardized workflow for predicting hemolysis, permeability, solubility, toxicity, half-life, non-fouling behavior, and protein-binding affinity from amino-acid sequences or SMILES. It combines frozen ESM-2, PeptideCLM, and ChemBERTa embeddings with lightweight property-specific models, supports chemically modified peptides, and supplies uncertainty estimates and standardized datasets.</p>
+          <p>The evaluation uses similarity-aware splits to reduce leakage. One notable result is that OpenFold3 ipTM reportedly has almost no association with experimentally measured peptide–protein affinity.</p>
+          <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2078329215863402607">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>Machine learning engineers cross-reactive anti–PD-L1 antibodies with minimal mutations</h3>
+          <p>Researchers paired yeast-display deep mutational scanning with a ConvNeXt-style sequence classifier to make a human anti–PD-L1 antibody bind mouse PD-L1 while preserving human binding. Their search produced variants with only four or five mutations, compared with 13–15 substitutions in conventional DMS-derived leads.</p>
+          <p>Epitope mapping, structural modeling, cell binding, blockade assays, and a CT26 mouse tumor study provide experimental support for the designs.</p>
+          <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2078327797995708667">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>Molecular-dynamics datasets support toxicity and binding prediction</h3>
+          <p>The DEMR framework converts molecular-dynamics trajectories into sequences of compact atom-pair contact tensors and processes them with a Transformer. Its accompanying TOX21-MD and DUD-E-MD datasets contain standardized 10-nanosecond trajectories for toxicity endpoints and three binder-identification tasks.</p>
+          <p>Reported results indicate that dynamics are especially useful for imbalanced toxicity prediction, with roughly ten sampled frames often enough for competitive performance.</p>
+          <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2078327579216687266">Read the research summary on X</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genomics">
+      <h2 id="genomics">Genomics, Immunology &amp; Bioinformatics</h2>
+      <div class="grid">
+        <article class="lead">
+          <h3>AlphaGEM reconstructs genome-scale metabolism with structural alignment and protein language models</h3>
+          <p>AlphaGEM automates metabolic-model construction for non-model organisms through structure-first orthology mapping, PLMSearch, and an ensemble of enzyme-annotation systems. Structural filters reject misleading sequence homologs, while the ensemble looks for divergent proteins that may account for “dark metabolism.”</p>
+          <p>Benchmarks span fungi, bacteria, mammals, and 332 yeast species, with reported improvements in phenotype prediction and gene–reaction coverage, alongside less reliance on gap filling.</p>
+          <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2078328563665916112">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>Immune-repertoire generators often trade generalization for memorization</h3>
+          <p>A benchmark of generative models for T-cell and B-cell receptor repertoires examines clone-frequency structure, sequence statistics, connectivity, memorization, innovation, and preservation of subject or phenotype signals.</p>
+          <p>Many models reproduce clonal expansion by copying dominant training clones. Coverage of unseen TCRs remains low and is largely limited to sequences only one or two mutations away from training data, underscoring the need for standardized AIRR-specific evaluation.</p>
+          <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2078328329036509631">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>BatchSVG flags spatially variable genes driven by technical bias</h3>
+          <p>BatchSVG compares per-gene binomial-deviance rankings with and without a covariate representing a known technical bias. Genes whose rankings shift substantially are marked as batch-associated and can be removed before downstream spatial analysis, helping prevent artifacts from being mistaken for biological regulation.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2078245432690655555">Read the method post on X</a></p>
+        </article>
+
+        <article>
+          <h3>PG2 provides interactive analysis of pangenome graphs</h3>
+          <p>PG2, also called PanGenoGrapher, is a web-based visualization and analysis tool built on Visuall and Cytoscape.js. It supports automatic graph layout, path and walk highlighting, neighborhood inspection, context menus, and advanced graph queries.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2078245709703413897">View the tool post on X</a></p>
+        </article>
+
+        <article class="lead">
+          <h3>RT&amp;T-AMP-MERFISH aims for whole-transcriptome, isoform-resolved spatial imaging</h3>
+          <p>A newly announced multi-year spatial-transcriptomics effort reports progress toward whole-transcriptome, isoform-resolved imaging at single-cell tissue resolution. The available source snapshot was truncated, so methodological and quantitative details could not be assessed for this edition.</p>
+          <p class="source-link"><a href="https://x.com/anshulkundaje/status/2078240530836979719">View the announcement on X</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice</h2>
+      <div class="language-grid">
+        <article class="language-card" lang="de">
+          <h3>Deutsch — tägliche Lektüre</h3>
+          <p>Tagesschau und die Ersatzquelle Deutschlandfunk Kultur waren wegen Ausfällen der verfügbaren Web-, Extraktions- und Browserzugänge nicht erreichbar; daher konnte kein Artikel zuverlässig ausgewählt werden.</p>
+          <p class="source-link"><a href="https://www.tagesschau.de/">Tagesschau</a></p>
+        </article>
+
+        <article class="language-card" lang="fr">
+          <h3>Français — lecture quotidienne</h3>
+          <p>Aucun article n’a pu être vérifié : France 24 et la source de secours RFI étaient inaccessibles via les outils web disponibles lors de cette exécution.</p>
+          <p class="source-link"><a href="https://www.france24.com/fr/">France 24</a></p>
+        </article>
+
+        <article class="language-card" lang="ja">
+          <h3>日本語 — 毎日の読み物</h3>
+          <p>NHKニュースに接続できなかったため、フォールバックのITmedia NEWSも試しましたが、検索・取得サービスおよびブラウザーが利用できず、記事を確認できませんでした。</p>
+          <p class="source-link"><a href="https://www.itmedia.co.jp/news/">ITmedia NEWS</a></p>
+        </article>
+
+        <article class="language-card" lang="zh">
+          <h3>中文 — 每日阅读</h3>
+          <p>端传媒无法访问；随后尝试备用来源 BBC 中文，但网页提取、站内限定搜索及浏览器访问工具均不可用，因此未能可靠找到并核实合适文章。</p>
+          <p class="source-link"><a href="https://www.bbc.com/zhongwen/simp">BBC 中文</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="quiet-notes" aria-labelledby="edition-notes">
+      <h2 id="edition-notes">Edition notes</h2>
+      <p>Some linked research resources could not be resolved beyond their associated X posts; those posts are used as the available source links.</p>
+      <p>No verified language-practice articles were available for this run.</p>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-07-18-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20211f;
+      --muted: #66685f;
+      --rule: #d8d5ca;
+      --accent: #315d54;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 24px 0 20px;
+      margin-bottom: 34px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    section {
+      margin-top: 38px;
+    }
+    section > h2 {
+      margin: 0 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+    }
+    article {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:first-of-type { padding-top: 4px; }
+    article h3 {
+      margin: 0 0 7px;
+      font-size: 1.22rem;
+      line-height: 1.28;
+    }
+    article h3 a {
+      color: var(--ink);
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    article h3 a:hover { color: var(--accent); }
+    p { margin: 8px 0; }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .tags {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    .tags span {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 7px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--card);
+    }
+    code {
+      padding: 0.08em 0.28em;
+      border-radius: 3px;
+      background: #efeee8;
+      font-size: 0.9em;
+    }
+    .language-practice {
+      margin-top: 54px;
+      padding-top: 12px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > h2 {
+      border-bottom-width: 1px;
+    }
+    .language-card {
+      margin: 28px 0;
+      padding: 24px;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      background: var(--card);
+    }
+    .language-card h3 {
+      font-size: 1.3rem;
+    }
+    .language-card h4 {
+      margin: 20px 0 6px;
+      font-size: 1rem;
+    }
+    .language-card ul {
+      margin: 6px 0 0;
+      padding-left: 22px;
+    }
+    .language-card li { margin: 5px 0; }
+    .source-link {
+      overflow-wrap: anywhere;
+    }
+    footer {
+      margin-top: 50px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+    }
+    footer p { margin: 5px 0; }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p class="date">Wednesday, August 26, 2026</p>
+  </header>
+
+  <section>
+    <h2>AI Architecture &amp; Optimization</h2>
+
+    <article>
+      <h3><a href="https://x.com/nathancgy4/status/2092419228049535320">Early-layer MoE weight norms examined at 180-billion-parameter scale</a></h3>
+      <p>A model-architecture research log tests its central idea on an undertrained 180B-parameter mixture-of-experts model, with smaller-scale ablations for support. It also examines possible batch-size confounding, compares the numerical ranges and epsilon behavior of Adam and Muon, and tests Megatron’s gradient-handling behavior.</p>
+      <div class="tags"><span>architecture</span><span>mixture of experts</span><span>scaling</span><span>ablations</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/YouJiacheng/status/2092471282189426826">A multiplicative preconditioner joins PSGD-Kron and KL-Shampoo</a></h3>
+      <p>The proposed optimizer combines PSGD-Kron’s inverse-square-root covariance update with KL-Shampoo’s objective while avoiding eigendecomposition, matrix inversion, and linear solves. It minimizes the KL divergence between <code>N(0, Σ)</code> and <code>N(0, P⁻²)</code>; parameterizing <code>P = RᵀR</code> reduces the multiplicative update to <code>R ← RA</code>.</p>
+      <div class="tags"><span>optimization</span><span>preconditioning</span><span>matrix methods</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/giffmana/status/2092148361038037007">RotNet retrospective shows proxy tasks can be architecture-sensitive</a></h3>
+      <p>A retrospective on self-supervised learning finds that RotNet and other creative proxy tasks changed substantially under seemingly innocuous architectural modifications. Exemplar learning—the predecessor of methods including SimCLR and MoCo—was the notable exception, remaining comparatively stable.</p>
+      <div class="tags"><span>self-supervised learning</span><span>computer vision</span><span>robustness</span></div>
+    </article>
+  </section>
+
+  <section>
+    <h2>Research Tools, Agents &amp; Benchmarks</h2>
+
+    <article>
+      <h3><a href="https://x.com/cgeorgiaw/status/2092265875982156025">Rare-disease challenge releases genomic data for diagnosis and drug repurposing</a></h3>
+      <p>The “Rare Disease, Real Kid” challenge provides a patient’s FASTQ and VCF data alongside clinical symptoms. One track evaluates ranked candidate variants using rank points and F-max under a rubric based on Stenton et al. 2024. A second asks teams to characterize the disrupted mechanism and propose approved drugs, with expert judging for rigor, impact, innovation, and scalability.</p>
+      <div class="tags"><span>genomics</span><span>dataset</span><span>variant ranking</span><span>drug repurposing</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/AndrewYNg/status/2092315079576555806">OpenWorker adds auditable agents for cybersecurity workflows</a></h3>
+      <p>The open-source agent harness now includes workflows for source-code vulnerability scanning, dependency and supply-chain checks, and cloud-configuration auditing. It can run local open-weight models so sensitive code stays on-device, while an inspectable codebase lets teams check for unwanted data exfiltration.</p>
+      <div class="tags"><span>agents</span><span>cybersecurity</span><span>open source</span><span>local models</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/naturemethods/status/2092322332127699418">SACCELERATOR offers expert-guided spatial clustering</a></h3>
+      <p>Nature Methods presents an open-source, extensible framework that incorporates expert guidance into spatial clustering workflows. The project is positioned as a reusable tool for spatial-data and cellular-biology analysis.</p>
+      <div class="tags"><span>spatial omics</span><span>clustering</span><span>computational biology</span><span>open source</span></div>
+    </article>
+  </section>
+
+  <section>
+    <h2>Biology &amp; Genomics</h2>
+
+    <article>
+      <h3><a href="https://x.com/DdelAlamo/status/2092236482501083215">Protein-design novelty metrics may overlook natural subdomain recombination</a></h3>
+      <p>An analysis argues that protein-backbone design methods can produce apparent novelty by recombining naturally occurring subdomain structures rather than creating wholly unprecedented domains. Common novelty metrics reportedly miss this behavior, raising questions about evaluation and interpretability in generative protein design.</p>
+      <div class="tags"><span>protein design</span><span>evaluation</span><span>interpretability</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/razoralign/status/2092285501801935290">Bonsai uses trees to explore single-cell data with less distortion</a></h3>
+      <p>Bonsai represents high-dimensional single-cell data as trees for visualization and exploratory analysis. Its aim is to preserve structures—such as complex biological organization and differentiation trajectories—that conventional low-dimensional plots such as UMAP may destroy.</p>
+      <div class="tags"><span>single cell</span><span>visualization</span><span>computational biology</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/razoralign/status/2092285225032417593">Seurat 5.6 beta targets faster, more scalable single-cell workflows</a></h3>
+      <p>The public beta introduces major speed, memory-use, and scalability improvements to the widely used toolkit’s core single-cell analysis workflows.</p>
+      <div class="tags"><span>single cell</span><span>software</span><span>data analysis</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/anshulkundaje/status/2092405991904325755">Study tests AI-guided optimization of a SARS-CoV-2 antibody</a></h3>
+      <p>A shared study evaluates how useful current AI models are for optimizing an antibody against the extensively studied SARS-CoV-2 spike receptor-binding domain. The available source excerpt does not provide the study’s detailed results.</p>
+      <div class="tags"><span>antibodies</span><span>medicine</span><span>AI benchmarking</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/NatureRevGenet/status/2092235592193180087">How transcription factors locate precise genomic targets</a></h3>
+      <p>A new Nature Reviews Genetics item examines the process by which a transcription factor searches for and reaches a precise target in the genome, with relevance to gene-regulatory mechanisms.</p>
+      <div class="tags"><span>gene regulation</span><span>transcription factors</span><span>genomics</span></div>
+    </article>
+
+    <article>
+      <h3><a href="https://x.com/NatureRevGenet/status/2092222225290273145">Revisiting gene-expression evolution at the dawn of RNA-seq</a></h3>
+      <p>Nature Reviews Genetics looks back at the study of gene-expression evolution during the emergence of RNA sequencing, connecting transcriptomics with the evolution of gene regulation.</p>
+      <div class="tags"><span>transcriptomics</span><span>gene expression</span><span>evolution</span></div>
+    </article>
+  </section>
+
+  <section class="language-practice">
+    <h2>Language Practice</h2>
+
+    <article class="language-card" lang="de">
+      <h3><a href="https://www.deutschlandfunkkultur.de/bundesregierung-will-games-branche-staerker-foerdern-100.html">Deutsch — Bundesregierung will Games-Branche stärker fördern</a></h3>
+      <p class="meta">Deutschlandfunk Kultur · 26.08.2026</p>
+      <p>In Köln beginnt die Gamescom, die als weltweit größte Messe für Computer- und Videospiele gilt. Nach einer großen Eröffnungsshow öffnet sie zunächst für das Fachpublikum und anschließend für alle Besucherinnen und Besucher. Mit mehr als 1600 Ausstellern verzeichnet die Messe nach Angaben der Veranstalter einen neuen Höchststand. Künstliche Intelligenz gehört zu den zentralen Themen, weil sie die Entwicklung vieler Spiele derzeit verändert.</p>
+      <p>Bundesfinanzminister Lars Klingbeil kündigte zugleich deutlich höhere Fördermittel für die deutsche Games-Branche an. Für 2026 und 2027 seien jeweils rund 120 Millionen Euro vorgesehen; 2024 lag die Förderung laut Klingbeil noch bei 50 Millionen Euro.</p>
+      <p><strong>Warum lesen:</strong> Der kurze Beitrag verbindet ein aktuelles Kultur- und Technikereignis mit der Frage, wie Deutschland seine Games-Industrie politisch unterstützen will.</p>
+    </article>
+
+    <article class="language-card" lang="fr">
+      <h3><a href="https://www.rfi.fr/fr/musique/20260826-rokia-traor%C3%A9-n%C3%A9-so-dix-ans-apr%C3%A8s-un-album-synonyme-d-accomplissement">Français — Rokia Traoré : « Né So », dix ans après, un album synonyme d’accomplissement</a></h3>
+      <p class="meta">RFI · 26 août 2026</p>
+      <p>Dix ans après sa parution, RFI revient sur <em>Né So</em>, le sixième album de la chanteuse malienne Rokia Traoré. L’œuvre occupe une place centrale dans son parcours : elle réunit les musiques classiques d’Afrique de l’Ouest, le rock occidental et la culture afro-américaine. L’artiste y prolonge la transformation amorcée avec <em>Tchamantché</em> et <em>Beautiful Africa</em>, tout en distinguant plus nettement sa carrière personnelle de son travail culturel mené à Bamako avec la Fondation Passerelle.</p>
+      <p>Le titre <em>Né So</em>, qui signifie « chez moi » en bambara, traduit l’attachement de la musicienne à l’Afrique et sa volonté d’évoquer le déchirement des personnes contraintes de quitter leur pays. L’album associe des musiciens maliens, ivoiriens et burkinabés à des collaborateurs comme John Paul Jones, ancien membre de Led Zeppelin, et le réalisateur britannique John Parish. Il comporte aussi une reprise de « Strange Fruit » de Billie Holiday ainsi qu’un texte élaboré avec l’aide de l’écrivaine Toni Morrison.</p>
+      <p>Rokia Traoré décrit aujourd’hui ce disque comme un « accomplissement » plutôt que comme un aboutissement définitif. Il représente pour elle un point d’épanouissement artistique atteint avant plusieurs années de turbulences judiciaires et d’éloignement du monde musical. L’article éclaire ainsi la cohérence d’un album où se croisent engagement, transmission culturelle et influences internationales.</p>
+      <p><strong>Pourquoi lire :</strong> Pour découvrir comment Rokia Traoré construit un langage musical à la rencontre de l’Afrique, de l’Occident et de la culture afro-américaine.</p>
+      <h4>Vocabulaire utile</h4>
+      <ul>
+        <li><strong>barycentre</strong> — point d’équilibre ou centre symbolique autour duquel s’organisent plusieurs influences</li>
+        <li><strong>ngoni</strong> — instrument traditionnel ouest-africain à cordes pincées, souvent considéré comme un ancêtre du banjo</li>
+        <li><strong>ambassadrice de bonne volonté</strong> — personnalité chargée de sensibiliser le public aux missions d’une organisation internationale</li>
+        <li><strong>orchestration</strong> — choix et organisation des instruments utilisés dans une œuvre musicale</li>
+      </ul>
+    </article>
+
+    <article class="language-card" lang="ja">
+      <h3><a href="https://www.itmedia.co.jp/news/article/2608/26/2000000739/">日本語 — “ドパガキ”がショート動画を止められない理由　fMRIを使って若者の脳活動を分析　中国チームが研究</a></h3>
+      <p class="meta">ITmedia NEWS · 2026年8月26日</p>
+      <p>中国の浙江大学などの研究チームが、ショート動画を見ている若者の脳活動をfMRIなどで測定した。成人56人にさまざまな動画を自由に視聴してもらい、最後まで見た興味のある動画と、途中で飛ばした興味のない動画に対する反応を比較した。</p>
+      <p>興味のある動画に没入している間は、自制心や注意力に関わる前帯状皮質背側部と背外側前頭前野の活動が低下していた。また、脳内のグルタミン酸濃度が高い人ほど活動低下が弱い傾向も確認された。研究結果は、動画を止めにくい理由が意志の強弱だけではなく、認知コントロールや脳内物質のバランスとも関係する可能性を示している。</p>
+      <p><strong>読む理由：</strong> 身近なショート動画の習慣を題材に、脳科学の研究手法と結果を説明する日本語を学べる。</p>
+      <h4>語彙メモ</h4>
+      <ul>
+        <li><strong>認知制御（にんちせいぎょ）</strong> — 欲求を抑え、目標に合わせて注意や行動を調整する脳の働き。</li>
+        <li><strong>前帯状皮質背側部（ぜんたいじょうひしつはいそくぶ）</strong> — 注意や意思決定、行動の調整に関わる脳領域。</li>
+        <li><strong>神経伝達物質（しんけいでんたつぶっしつ）</strong> — 神経細胞の間で情報を伝える化学物質。</li>
+      </ul>
+    </article>
+
+    <article class="language-card" lang="zh">
+      <h3><a href="https://www.dw.com/zh/%E4%B8%B2%E8%B0%8B%E8%B5%B0%E7%A7%81ai%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%87%B3%E4%B8%AD%E5%9B%BD-%E5%8F%B0%E6%B9%BE%E8%B5%B7%E8%AF%89%E8%8B%B1%E4%BC%9F%E8%BE%BE%E5%91%98%E5%B7%A5%E7%AD%89%E4%B9%9D%E4%BA%BA/a-78487460">中文 — 串谋走私AI服务器至中国 台湾起诉英伟达员工等九人</a></h3>
+      <p class="meta">德国之声 · 2026-08-24</p>
+      <p>台湾基隆地方检察署起诉九名涉嫌非法向中国大陆出口高端人工智能服务器的人士，其中包括英伟达和美超微在台湾合作企业的员工。检方称，被告涉嫌内外勾结，绕过企业内部控制及出口限制，取得130台搭载英伟达B300图形处理器的服务器。</p>
+      <p>在这些设备中，74台据称已直接运往中国大陆或经第三地转运，另有56台在出口前被查获。台湾近年来持续收紧相关管制，以防先进芯片技术和专业知识流入中国；案件也凸显美国对华半导体限制如何影响台湾科技产业及企业合规责任。</p>
+      <p><strong>为什么读：</strong> 文章把AI芯片、出口管制与台海科技竞争放在同一宗司法案件中，适合学习科技及法律新闻词汇。</p>
+      <h4>词汇笔记</h4>
+      <ul>
+        <li><strong>出口管制 (chūkǒu guǎnzhì)</strong> — 政府对特定商品、技术或设备的跨境销售所施加的限制。</li>
+        <li><strong>图形处理器 (túxíng chǔlǐqì)</strong> — GPU，原用于图像运算，如今也是训练和运行人工智能模型的重要芯片。</li>
+        <li><strong>第三地转运 (dì-sān-dì zhuǎnyùn)</strong> — 货物不直接送往目的地，而是先经过另一个国家或地区再转运。</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer>
+    <p>News Daily · Run 2026-08-26-1</p>
+    <p>Some research links point to the source posts because the underlying resources were available only through shortened links. A few brief source posts did not expose full methodological details or results.</p>
+  </footer>
+</main>
+
+
+
+</body>
+</html>

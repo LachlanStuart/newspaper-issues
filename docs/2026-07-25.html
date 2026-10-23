@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #faf8f2;
+      --ink: #20201d;
+      --muted: #66645d;
+      --accent: #245b76;
+      --rule: #d9d4c8;
+      --panel: #f1eee5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 34px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .edition {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.83rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 0 0 44px;
+    }
+
+    .section-title {
+      margin: 0 0 20px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--ink);
+      font-family: system-ui, sans-serif;
+      font-size: 1.12rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    .lead-grid,
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px 32px;
+    }
+
+    article {
+      break-inside: avoid;
+    }
+
+    article + article {
+      border-top: 1px solid var(--rule);
+      padding-top: 22px;
+    }
+
+    .story-grid article:nth-child(2) {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    h2 {
+      margin: 0 0 9px;
+      font-size: 1.42rem;
+      line-height: 1.22;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+    }
+
+    a:hover,
+    a:focus {
+      color: #173e52;
+    }
+
+    .source-link {
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 650;
+    }
+
+    .caveat {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .language-practice {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 5px double var(--ink);
+    }
+
+    .language-empty {
+      padding: 18px 20px;
+      background: var(--panel);
+      border: 1px solid var(--rule);
+    }
+
+    .language-list {
+      margin: 12px 0 0;
+      padding-left: 22px;
+    }
+
+    .language-list li {
+      margin: 5px 0;
+    }
+
+    .notes {
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .notes h2 {
+      color: var(--ink);
+      font-family: system-ui, sans-serif;
+      font-size: 0.95rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    footer {
+      margin-top: 35px;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 720px) {
+      .page {
+        width: min(100% - 24px, 1040px);
+        padding-top: 20px;
+      }
+
+      .lead-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .story-grid article:nth-child(2) {
+        border-top: 1px solid var(--rule);
+        padding-top: 22px;
+      }
+
+      header {
+        margin-bottom: 28px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="edition">Saturday, July 25, 2026 · Research Edition</div>
+    </header>
+
+    <section aria-labelledby="ai">
+      <h1 class="section-title" id="ai">Artificial Intelligence</h1>
+      <div class="lead-grid">
+        <article>
+          <h2>Looped Transformer aims for more capacity without more parameters</h2>
+          <p>Nanbeige has released Nanbeige4.2-3B, a three-billion-parameter model that reuses computation through a Looped Transformer architecture. The approach is intended to increase effective model capacity while holding the parameter count steady, making it an interesting experiment in language-model efficiency.</p>
+          <a class="source-link" href="https://x.com/SonglinYang4/status/2080957024502952003">View the announcement on X</a>
+        </article>
+
+        <article>
+          <h2>Databricks tests context-aware data agents on 401 workplace tasks</h2>
+          <p>Databricks compared Genie Code with three general-purpose coding agents on 401 tasks derived from internal use. Each agent received its native harness, access to Databricks through MCP, and a 20-minute budget. The company reports that Genie Code reached 76.6% accuracy at a mean cost of $0.55 per task, attributing its performance to semantic search, persistent memory, and workspace context.</p>
+          <p class="caveat">The benchmark and its interpretation are vendor-authored.</p>
+          <a class="source-link" href="https://x.com/DbrxMosaicAI/status/2080827369896423442">Read the benchmark post on X</a>
+        </article>
+
+        <article>
+          <h2>Critique questions ARC-AGI-3’s harness sensitivity and scoring</h2>
+          <p>A methodological critique argues that ARC-AGI-3 results are already strongly affected by agent harnesses and small amounts of reinforcement learning. It also challenges the benchmark’s quadratic transformation of the percentage of tasks solved.</p>
+          <p class="caveat">The supplied post did not include a visible supporting analysis, so the argument cannot be independently assessed here.</p>
+          <a class="source-link" href="https://x.com/mgostIH/status/2080724523062628849">Read the critique on X</a>
+        </article>
+
+        <article>
+          <h2>AI-assisted work reportedly advances an open quantum-cryptography problem</h2>
+          <p>A report claims that GPT-5.6 Sol Ultra helped solve a six-year-old open problem in quantum cryptography by generating a construction and part of the main argument. If substantiated, it would be a notable example of AI contributing directly to mathematical research rather than merely summarizing it.</p>
+          <p class="caveat">The available text was truncated and contained no visible paper or technical resource, so the claim remains unverified in this edition.</p>
+          <a class="source-link" href="https://x.com/steipete/status/2080943684502405214">View the report on X</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="protein">
+      <h1 class="section-title" id="protein">Protein &amp; Molecular Design</h1>
+      <div class="story-grid">
+        <article>
+          <h2>Immune-receptor benchmark uncovers a germline shortcut in protein language models</h2>
+          <p>Across B-cell and T-cell receptor retrieval datasets, classical sequence alignment consistently beat frozen protein-language-model embeddings on antigen-specific CDR3 sequences. The models approached parity only when conserved framework regions were included, while germline-reversion experiments suggested that much of the improvement came from germline-derived context rather than better extraction of antigen-specific signals.</p>
+          <p>The study also found that random data splits inflated retrieval accuracy by roughly 15–28 percentage points through clonal leakage, reinforcing the case for clone-aware evaluation.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080635588471087245">Read the research summary on X</a>
+        </article>
+
+        <article>
+          <h2>CAD-guided diffusion makes global protein shape programmable</h2>
+          <p>A blueprint-guided RFdiffusion framework uses signed-distance and point-cloud objectives to constrain generated protein backbones to user-specified three-dimensional envelopes. Experimental work produced stable single-chain shapes, a rare left-handed β-sheet architecture, and tunable rings and helical filaments.</p>
+          <p>The researchers also coupled a designed helical propeller to an F1-ATPase rotor and observed ATP-dependent motion, although they did not establish directional swimming.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080635441888301287">Read the research summary on X</a>
+        </article>
+
+        <article>
+          <h2>DECAF designs molecules around conformational ensembles</h2>
+          <p>Decoupled Annealing Flows separates molecular generation into a graph-conditioned conformational-ensemble model and a coordinate-conditioned molecular-graph model. Its annealing loop evaluates proposed molecules using ensemble statistics, reducing the danger of optimizing an unusually favorable single conformer that does not represent the molecule’s Boltzmann distribution.</p>
+          <p>Demonstrations included tuning mean radius of gyration, solvent-accessible area, multi-objective trade-offs, and higher moments such as conformational variance and skewness. Selected results were checked with all-atom molecular dynamics.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080635323898577195">Read the research summary on X</a>
+        </article>
+
+        <article>
+          <h2>Review surveys mitochondrial tRNA production and disease</h2>
+          <p>A review in <em>Nature Reviews Molecular Cell Biology</em> examines mitochondrial tRNA biogenesis and modification, including how failures in these processes contribute to disease. It offers a useful bridge between RNA regulation, mitochondrial function, and molecular pathology.</p>
+          <a class="source-link" href="https://x.com/NatRevMCB/status/2080695056181428484">View the journal announcement on X</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genomics">
+      <h1 class="section-title" id="genomics">Genomics, RNA &amp; Research Tools</h1>
+      <div class="story-grid">
+        <article>
+          <h2>Single-cell atlas maps the human tonsil’s 3D genome</h2>
+          <p>A newly published <em>Science</em> study is described as the first single-cell three-dimensional genome atlas of human tonsil. The resource could help researchers study chromatin organization and gene regulation in a complex immune tissue.</p>
+          <p class="caveat">The supplied announcement was truncated and did not expose the study’s methods or specific biological findings.</p>
+          <a class="source-link" href="https://x.com/anshulkundaje/status/2080722168502264161">View the publication post on X</a>
+        </article>
+
+        <article>
+          <h2>Blind test targets RNA 3D ensemble prediction</h2>
+          <p>The Das Lab has highlighted what it describes as the first blind test of RNA three-dimensional ensemble prediction, centered on the ligand-free SAMURI ribozyme. Such tests are important because flexible RNAs occupy distributions of structures rather than a single fixed conformation.</p>
+          <p class="caveat">The available post did not identify the tested models, experimental reference, or quantitative results.</p>
+          <a class="source-link" href="https://x.com/anshulkundaje/status/2080890038687318277">View the announcement on X</a>
+        </article>
+
+        <article>
+          <h2>Graphoscope opens an interactive view of the HPRC pangenome</h2>
+          <p>Graphoscope allows researchers to search for a gene or genomic region and visualize it within the Human Pangenome Reference Consortium’s Year 2 pangenome graph. The tool offers a practical way to inspect genomic diversity that cannot be represented fully by one linear reference.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2080946956843782184">Explore the tool announcement on X</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="neuroscience">
+      <h1 class="section-title" id="neuroscience">Neuroscience &amp; Imaging</h1>
+      <div class="story-grid">
+        <article>
+          <h2>FlatMux multiplexes two-photon voltage imaging</h2>
+          <p>FlatMux is an optimized microscope system for multiplexed two-photon imaging of neuronal activity with voltage sensors. The method is intended to expand high-resolution functional measurement of neural signals, though the supplied announcement did not include performance figures.</p>
+          <a class="source-link" href="https://x.com/naturemethods/status/2080358387489849579">View the method announcement on X</a>
+        </article>
+
+        <article>
+          <h2>Siibra connects analysis across human brain atlases</h2>
+          <p>The Siibra software suite supports work across multiple human brain atlases and was used to generate the Multilevel Human Brain Atlas. It is positioned as a reusable resource for neuroscience and biomedical-data analysis.</p>
+          <a class="source-link" href="https://x.com/naturemethods/status/2080344680261111914">View the software announcement on X</a>
+        </article>
+
+        <article>
+          <h2>Cross-scale imaging probes neurovascular coupling</h2>
+          <p>A mouse study combines brain-wide BOLD fMRI measurements of vascular activity with calcium imaging at single-cell resolution. Bringing these scales together could clarify how cellular neural activity relates to the vascular signals underlying widely used functional brain imaging.</p>
+          <p class="caveat">No quantitative findings were included in the supplied announcement.</p>
+          <a class="source-link" href="https://x.com/naturemethods/status/2080342051787288623">View the study announcement on X</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="languages">
+      <h1 class="section-title" id="languages">Language Practice</h1>
+      <div class="language-empty">
+        <p>No verified language-practice readings were available for this edition.</p>
+        <ul class="language-list">
+          <li lang="de"><strong>Deutsch:</strong> GameStar und heise online konnten nicht erreicht werden.</li>
+          <li lang="fr"><strong>Français :</strong> Le Monde et la source de secours Numerama étaient inaccessibles.</li>
+          <li lang="ja"><strong>日本語：</strong> 4Gamerとフォールバック先のnippon.com 日本語の記事を確認できませんでした。</li>
+          <li lang="zh-Hans"><strong>中文：</strong> 机核与备用来源端传媒均无法访问，未能核实文章。</li>
+        </ul>
+      </div>
+    </section>
+
+    <aside class="notes" aria-labelledby="edition-notes">
+      <h2 id="edition-notes">Edition notes</h2>
+      <p>The research coverage above was compiled from supplied social-media source reports. Several linked destinations were unavailable or unresolved, and some posts were truncated; uncertainty and missing evidence are noted alongside the affected stories. Language-practice collection was unavailable because of access and service-limit failures.</p>
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-07-25-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

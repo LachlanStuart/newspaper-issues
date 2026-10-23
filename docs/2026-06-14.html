@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffaf2;
+      --ink: #1f1f1f;
+      --muted: #666;
+      --rule: #d8cdbd;
+      --accent: #7a3e2f;
+      --tag-bg: #efe4d4;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .dateline {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 22px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 14px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 6px;
+      font-size: 1.45rem;
+    }
+    h3 {
+      margin: 18px 0 6px;
+      font-size: 1.12rem;
+    }
+    h3 a {
+      color: var(--ink);
+      text-decoration-color: var(--accent);
+    }
+    a {
+      color: #6d2f23;
+      overflow-wrap: anywhere;
+    }
+    article {
+      margin: 16px 0 20px;
+      padding-bottom: 14px;
+      border-bottom: 1px solid #eadfce;
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    .summary {
+      margin: 5px 0 8px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 4px 0 8px;
+    }
+    .tags {
+      margin-top: 8px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid #dfd0bd;
+      color: #5f4a3b;
+      border-radius: 999px;
+      padding: 1px 8px;
+      margin: 2px 3px 2px 0;
+      font-size: 0.78rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 3px double var(--rule);
+      padding-top: 8px;
+    }
+    .language-practice article {
+      white-space: normal;
+    }
+    .language-practice h3 {
+      color: var(--accent);
+    }
+    .quiet {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+    ul {
+      margin-top: 6px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dateline">Sunday, June 14, 2026 · Run 2026-06-14-1</div>
+    </header>
+
+    <section>
+      <h2>AI Safety, Governance, and Rationality</h2>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/eAMyxM28hNp4ewGdT/don-t-just-aim-for-frontier-labs">Don’t just aim for Frontier Labs</a></h3>
+        <p class="summary">A LessWrong post argues that AI safety and security competence should not be concentrated only inside frontier labs. Instead, it should be embedded wherever AI is deployed, drawing comparisons to cybersecurity, aviation, finance, and other safety-critical industries.</p>
+        <div class="tags"><span class="tag">ai-safety</span><span class="tag">governance</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/wTgnbETckJcDd7qgu/our-work-is-low-skill-expression">Our Work is Low Skill Expression</a></h3>
+        <p class="summary">This strategy essay compares AI-success work to poker and venture investing: high variance, weak feedback, and delayed outcomes make it dangerous to over-update on short-term signals. The author argues for diversified portfolios of strategy rather than narrow bets.</p>
+        <div class="tags"><span class="tag">ai-strategy</span><span class="tag">forecasting</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/gNtHHCh363xSGJyz3/anthropic-is-taking-ai-welfare-seriously-i-m-not-sure-it">Anthropic Is Taking AI Welfare Seriously. I’m Not Sure It Knows What It’s Measuring.</a></h3>
+        <p class="summary">A post on AI welfare examines Anthropic’s treatment of Claude welfare, arguing that behavioral evidence for possible model wellbeing or self-image is suggestive but still mechanistically underdetermined.</p>
+        <div class="tags"><span class="tag">ai-welfare</span><span class="tag">anthropic</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/AvyXkzAebPcWLZeju/a-cheap-specialist-judge-gets-used-by-agents-but-fails-to">A cheap specialist judge gets used by agents but fails to reduce alignment audit costs</a></h3>
+        <p class="summary">An empirical alignment-auditing post reports an experiment in which agents were given access to a small specialized judge model on AuditBench. The judge was used frequently and sometimes helped conditionally, but did not reduce overall audit costs.</p>
+        <div class="tags"><span class="tag">alignment-evals</span><span class="tag">ai-safety</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/DQNSqCzuoeutoQ5RG/american-government-takes-down-claude-fable">American Government Takes Down Claude Fable</a></h3>
+        <p class="summary">This AI policy post analyzes a reported U.S. export-control action affecting Anthropic’s Fable/Mythos models, criticizing the process and exploring implications for model access, AI governance, and lab–government relations.</p>
+        <div class="tags"><span class="tag">ai-policy</span><span class="tag">anthropic</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/hpkjqtPnzKRmmHEG4/not-telling-is-lying">Not telling is lying</a></h3>
+        <p class="summary">A philosophical essay introduces the “behavioral intentional stance” as a lens for analyzing concealment, lying, and whether someone is optimizing jointly with another person’s preferences.</p>
+        <div class="tags"><span class="tag">philosophy</span><span class="tag">ethics</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Machine Learning and Interpretability</h2>
+
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11777">Steepest Descent on Manifolds: 6. Muon + Double Rotation</a></h3>
+        <p class="summary">科学空间 continues its series on steepest descent methods on manifolds, focusing on matrix-parameter optimization with Muon. The article discusses how optimizers such as Adam or Muon couple changes in singular values with changes in left and right singular vectors, making direct control of singular values difficult. It appears to introduce a “double rotation” approach for better managing matrix optimization behavior.</p>
+        <div class="tags"><span class="tag">machine-learning</span><span class="tag">optimization</span><span class="tag">linear-algebra</span><span class="tag">Muon</span><span class="tag">manifolds</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/8gZspSs4WFtpfki9i/speeding-up-jumprelu-sae-inference-with-custom-triton">Speeding Up JumpReLU SAE Inference with Custom Triton Kernels (2–14× on Real SAEs)</a></h3>
+        <p class="summary">A technical LessWrong post presents custom Triton kernels that exploit JumpReLU sparse autoencoder sparsity, reporting substantial decoder-inference speedups on real SAEs. The work is relevant to mechanistic interpretability workflows where SAE inference cost matters.</p>
+        <div class="tags"><span class="tag">mechanistic-interpretability</span><span class="tag">technical</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Biology, Genomics, and Scientific AI</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065955439322538366">RegVelo: gene-regulatory-informed dynamics of single cells</a></h3>
+        <p class="summary">A highlighted Cell issue item on RegVelo, a method for modeling single-cell dynamics using gene-regulatory information.</p>
+        <div class="tags"><span class="tag">gene-regulation</span><span class="tag">single-cell</span><span class="tag">cell-dynamics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065780815796257220">GRAVITY: dynamic gene-regulatory-network-enhanced RNA velocity</a></h3>
+        <p class="summary">GRAVITY is described as a dynamic gene-regulatory-network-enhanced RNA velocity model for trajectory inference and biological discovery.</p>
+        <div class="tags"><span class="tag">gene-regulation</span><span class="tag">single-cell</span><span class="tag">rna-velocity</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890909372461108">GeneChat: multimodal large language model for gene function prediction</a></h3>
+        <p class="summary">GeneChat is a multimodal LLM aimed at gene function prediction, connecting genomics with language-model-based biological tooling.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">llm</span><span class="tag">gene-function</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890873683096040">Pangenome-aware DeepVariant</a></h3>
+        <p class="summary">A pangenome-aware version of DeepVariant is highlighted for variant calling, pointing toward variant detection that better accounts for population-scale genome representation.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">variant-calling</span><span class="tag">pangenome</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890835510792635">SVbyEye: visual characterization of structural variation across whole-genome assemblies</a></h3>
+        <p class="summary">SVbyEye is a visual tool for characterizing structural variation among whole-genome assemblies.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">structural-variation</span><span class="tag">tool</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890819480121535">PhenoGraph: multi-agent phenotype discovery in spatial transcriptomics</a></h3>
+        <p class="summary">PhenoGraph is described as a knowledge-augmented multi-agent framework for phenotype-driven discovery in spatial transcriptomics data.</p>
+        <div class="tags"><span class="tag">spatial-transcriptomics</span><span class="tag">agents</span><span class="tag">phenotypes</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890745190641682">NetworkVI: interpretable multimodal single-cell integration with biological guidance</a></h3>
+        <p class="summary">NetworkVI uses biologically guided variational inference for interpretable multimodal single-cell integration and mechanistic discovery.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">multi-omics</span><span class="tag">interpretability</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890699137126675">MINGLE: interpretable cell-type annotation for single-cell chromatin accessibility</a></h3>
+        <p class="summary">MINGLE is a mutual-information-based interpretable framework for automatic cell-type annotation in single-cell chromatin accessibility data.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">epigenomics</span><span class="tag">interpretability</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890681441403328">spaMGCN: graph convolutional autoencoder for spatial-domain identification</a></h3>
+        <p class="summary">spaMGCN applies a graph convolutional network with autoencoder structure and multi-scale adaptation for spatial domain identification.</p>
+        <div class="tags"><span class="tag">spatial-omics</span><span class="tag">gnn</span><span class="tag">single-cell</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890658326569270">BiGSM: Bayesian inference of gene regulatory networks via sparse modeling</a></h3>
+        <p class="summary">BiGSM is a Bayesian sparse-modeling approach for inferring gene regulatory networks.</p>
+        <div class="tags"><span class="tag">gene-regulation</span><span class="tag">bayesian-modeling</span><span class="tag">grn</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890641113231662">DR-GEM: robust self-supervised learning for single-cell embeddings and annotations</a></h3>
+        <p class="summary">DR-GEM is described as a robust self-supervised machine-learning method for single-cell embeddings and annotations.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">self-supervised-learning</span><span class="tag">annotation</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890623417434520">KRONOS: foundation model for spatial proteomics</a></h3>
+        <p class="summary">KRONOS is highlighted as a foundation model for spatial proteomics.</p>
+        <div class="tags"><span class="tag">foundation-models</span><span class="tag">spatial-proteomics</span><span class="tag">proteomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890611555909713">Kompot compares phenotypic manifolds for single-cell differential abundance and expression</a></h3>
+        <p class="summary">Kompot is a method for comparing phenotypic manifolds and detecting differential abundance and gene expression at single-cell resolution.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">differential-expression</span><span class="tag">phenotypes</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890569424150873">CellNEST reveals cell–cell relay networks from spatial transcriptomics</a></h3>
+        <p class="summary">CellNEST uses attention mechanisms on spatial transcriptomics data to reveal cell–cell relay networks.</p>
+        <div class="tags"><span class="tag">spatial-transcriptomics</span><span class="tag">cell-communication</span><span class="tag">attention</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065892709555142860">scFAIR Consortium: decentralized hub for scRNA-seq standardization and unification</a></h3>
+        <p class="summary">The scFAIR Consortium is described as a decentralized hub for standardizing and unifying single-cell RNA-seq data.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">data-infrastructure</span><span class="tag">scrna-seq</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065890949885268262">OmnibusX: unified platform for accessible multi-omics analysis</a></h3>
+        <p class="summary">OmnibusX is presented as a unified platform intended to make multi-omics analysis more accessible.</p>
+        <div class="tags"><span class="tag">multi-omics</span><span class="tag">tool</span><span class="tag">bioinformatics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065780622216589652">scPRS: single-cell polygenic risk scores for disease heterogeneity</a></h3>
+        <p class="summary">scPRS applies single-cell polygenic risk scores to dissect cellular and molecular heterogeneity in complex human diseases.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">single-cell</span><span class="tag">disease</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2065687591941472644">Clinical AI paper on knowledge grounding</a></h3>
+        <p class="summary">A highlighted npj Digital Medicine paper argues that clinical AI is moving from pattern matching toward knowledge grounding. The available item was truncated, but the topic is relevant to medical AI evaluation and modeling.</p>
+        <div class="tags"><span class="tag">clinical-ai</span><span class="tag">medicine</span><span class="tag">knowledge-grounding</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Education, Community, and Essays</h2>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/q5K75FJXg9wowDGdk/paying-kids-to-do-schoolwork">Paying Kids To Do Schoolwork</a></h3>
+        <p class="summary">A LessWrong post proposes small direct rewards for children’s schoolwork as a way to improve motivation and support more self-paced, asynchronous learning.</p>
+        <div class="tags"><span class="tag">education</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/J4XtisYDx5hESpnTj/impressions-at-the-extremity-of-civilization">Impressions at the Extremity of Civilization</a></h3>
+        <p class="summary">A diary-like sequence of vignettes about Lighthaven, festival preparation, infrastructure, community life, and burnout.</p>
+        <div class="tags"><span class="tag">community</span><span class="tag">essay</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/3v4LRuML6bSYHgQws/what-is-a-game">What is a game?</a></h3>
+        <p class="summary">This essay distinguishes between rule-optimization and social-activity conceptions of games, explaining why people disagree about “breaking” games and how handicaps or explicit rule changes can help.</p>
+        <div class="tags"><span class="tag">games</span><span class="tag">social-norms</span></div>
+      </article>
+    </section>
+
+    <div class="language-practice">
+      <section lang="de">
+        <h2>Language Practice</h2>
+
+        <article>
+          <h3>Deutsch — Bundesrat will KI-Überwachung und Quick Freeze durch BKA</h3>
+          <p class="meta">heise online · 2026-06-13 · <a href="https://www.heise.de/news/Biometrische-Rasterfahndung-Bundesrat-will-noch-schaerfere-KI-Ueberwachung-11331325.html">https://www.heise.de/news/Biometrische-Rasterfahndung-Bundesrat-will-noch-schaerfere-KI-Ueberwachung-11331325.html</a></p>
+          <p>Der Artikel beschreibt, wie der Bundesrat die geplanten digitalen Ermittlungsbefugnisse der Bundesregierung verschärfen möchte. Im Zentrum stehen automatisierte Bild- und biometrische Abgleiche im Internet, KI-gestützte Datenanalysen, verfahrensübergreifende Rechercheplattformen sowie das sogenannte „Quick Freeze“ von Verkehrsdaten.</p>
+          <p>Heise ordnet den Konflikt zwischen Sicherheitsbehörden, Ländern, Bundesregierung und Internetwirtschaft ein: Während die Länder niedrigere Hürden und eine stärkere Rolle des BKA fordern, warnen Kritiker vor einem „staatlichen Suchraum“ im Netz und vor rechtlich unsicheren Massenbefugnissen. Der Beitrag ist damit besonders interessant für Leserinnen und Leser, die Datenschutz, Strafverfolgung und digitale Grundrechte in Deutschland verfolgen.</p>
+          <p><strong>Warum lesen:</strong> Der Text bietet einen aktuellen Einblick in die deutsche Debatte über KI, Überwachung und die Grenzen staatlicher Ermittlungsbefugnisse.</p>
+        </article>
+
+        <article lang="fr">
+          <h3>Français — L’équipage peut souffler : la NASA a identifié la zone sans danger pour faire voler la mission Artémis III</h3>
+          <p class="meta">Numerama · 2026-06-13 · <a href="https://www.numerama.com/sciences/2273573-lequipage-peut-souffler-la-nasa-a-identifie-la-zone-sans-danger-pour-faire-voler-la-mission-artemis-iii.html">https://www.numerama.com/sciences/2273573-lequipage-peut-souffler-la-nasa-a-identifie-la-zone-sans-danger-pour-faire-voler-la-mission-artemis-iii.html</a></p>
+          <p>Numerama explique pourquoi la mission Artémis III, finalement prévue autour de la Terre plutôt que sur la Lune, devrait évoluer dans une orbite très précise. La NASA viserait une altitude circulaire d’environ 425 kilomètres, décrite comme une zone de compromis pour réduire les dangers pesant sur la capsule Orion et son équipage.</p>
+          <p>L’article détaille les risques qui contraignent ce choix : trop bas, la mission doit composer avec les débris spatiaux, les micrométéorites et le trafic orbital ; trop haut, l’exposition aux radiations devient plus préoccupante. Cette altitude proche de celle de l’ISS permettrait aussi d’éviter certaines zones occupées par de grandes constellations de satellites, tout en limitant les scénarios dangereux comme une dépressurisation après impact.</p>
+          <p>Au-delà du chiffre, le sujet montre comment Artémis III se transforme en vol de qualification : la mission servira surtout à tester des systèmes et à préparer les futurs alunissages, notamment ceux impliquant SpaceX et Blue Origin, avant les étapes suivantes du programme lunaire américain.</p>
+          <p><strong>Pourquoi lire :</strong> Un bon article pour enrichir son vocabulaire scientifique en français tout en suivant les enjeux concrets du retour humain vers la Lune.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>orbite terrestre basse</strong> — zone autour de la Terre où circulent notamment l’ISS et de nombreux satellites, à quelques centaines de kilomètres d’altitude.</li>
+            <li><strong>débris orbitaux</strong> — fragments d’objets spatiaux pouvant devenir dangereux à très grande vitesse.</li>
+            <li><strong>vol de qualification</strong> — mission destinée à valider des systèmes techniques avant une opération plus ambitieuse.</li>
+          </ul>
+        </article>
+
+        <article lang="ja">
+          <h3>日本語 — 全国の書店の数が1万店を下回る　「無書店自治体」も3割近くに</h3>
+          <p class="meta">nippon.com · 2026-06-14 · <a href="https://www.nippon.com/ja/japan-data/h02808">https://www.nippon.com/ja/japan-data/h02808</a></p>
+          <p>日本国内の書店数が、2026年3月末時点で9993店となり、初めて1万店を下回ったことをデータで紹介する記事。ピークだった1998年と比べると約4割の水準で、2025年度には102店が開店した一方、499店が閉店している。</p>
+          <p>記事は、書店の減少が単なる小売業の問題にとどまらず、地域の文化インフラや「本に触れる機会」の格差にも関わる点を指摘している。特に、地域内に書店が1店もない「無書店自治体」は全国の市区町村の29.3％、510カ所に達し、地方都市や過疎地域で本を手に取って選ぶ機会が減っているという。</p>
+          <p><strong>読む理由：</strong> 出版・地域文化・地方格差を短いデータ記事で確認でき、日本社会の変化を読む練習に向いている。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>無書店自治体（むしょてんじちたい）</strong> — 地域内に書店が1店もない市区町村。</li>
+            <li><strong>出版（しゅっぱん）インフラ</strong> — 本や雑誌の流通・販売を支える仕組みや基盤。</li>
+            <li><strong>過疎地域（かそちいき）</strong> — 人口減少が進み、生活サービスの維持が難しくなっている地域。</li>
+          </ul>
+        </article>
+
+        <article lang="zh">
+          <h3>中文 — AI进入小学课堂 助小五生进行个人化华语口试训练</h3>
+          <p class="meta">联合早报 · 2026-06-13 · <a href="https://www.zaobao.com.sg/news/singapore/story20260613-9081244">https://www.zaobao.com.sg/news/singapore/story20260613-9081244</a></p>
+          <p>报道聚焦新加坡小学在华文课堂中引入人工智能辅助口试训练的做法。圣婴女校（客落）的华文教师使用学生学习平台 SLS 内的 AI 功能 SALiS，让小五学生在完成口试练习时获得即时反馈。这个系统不是直接给标准答案，而是根据教师预设的知识库和口试框架，提醒学生补充解释、例子、建议或总结。</p>
+          <p>文章也写到教师在设计这类 AI 工具时面临的现实工作量：知识库、词汇、回应指令、鼓励语气和反馈方式都需要从零搭建。教师认为，AI 能缓解一名教师面对多名学生时难以逐一反馈的限制，也能让较内向的学生更愿意参与讨论；但系统仍需教师监督，且未来若能建立校际共享资料库，备课负担会大幅减轻。</p>
+          <p>报道同时纳入家长和教育专家的担忧：语言学习仍需要真实的人际互动，AI 不应成为主要学习方式。家长普遍不反对孩子接触 AI，但担心过度依赖、缺乏判断力、影响独立思考，甚至改变孩子的情绪表达方式。文章因此把课堂 AI 放在更大的教育伦理和家庭监督语境中讨论。</p>
+          <p><strong>为什么读：</strong> 这篇文章既有新加坡本地教育现场，也触及 AI 进入语言学习后的教学设计、家长焦虑与儿童素养问题。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>学生学习平台 (xuéshēng xuéxí píngtái)</strong> — 新加坡学校使用的线上教学与练习系统。</li>
+            <li><strong>口试框架 (kǒushì kuàngjià)</strong> — 帮助学生组织口头回答的结构，如说明、举例、建议和总结。</li>
+            <li><strong>校际共享资料库 (xiàojì gòngxiǎng zīliàokù)</strong> — 不同学校之间共同使用、更新和参考的教学资源库。</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+
+    <section>
+      <h2>Quiet Source Notes</h2>
+      <div class="quiet">
+        <p>No new reportable posts were found for Hazy Research, Kasra Blog, Nathan Chen Blog, or Queer Festival Heidelberg from the provided data.</p>
+        <p>The x-ai-research collector returned no items because its list timeline fetch failed. No substitute content was fetched or invented.</p>
+      </div>
+    </section>
+  </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --ink:#202a30; --muted:#617078; --line:#d9dedb; --accent:#17675f; }
+* { box-sizing:border-box; }
+body { margin:0; background:#f6f5f0; color:var(--ink); font-family:Georgia,"Times New Roman",serif; line-height:1.65; }
+main { max-width:960px; margin:auto; padding:36px 26px 48px; }
+header { border-bottom:3px solid var(--ink); padding-bottom:20px; margin-bottom:28px; }
+h1 { font-size:3.5rem; line-height:1; margin:8px 0 14px; letter-spacing:-2px; }
+h2 { font-size:1.6rem; margin:32px 0 18px; border-bottom:1px solid var(--line); padding-bottom:9px; }
+h3 { font-size:1.2rem; line-height:1.4; margin:0 0 9px; }
+p { margin:8px 0 12px; }
+a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
+.meta, nav, footer, .eyebrow { font-family:system-ui,sans-serif; font-size:.86rem; color:var(--muted); }
+.eyebrow { letter-spacing:.13em; text-transform:uppercase; }
+nav { margin-top:16px; display:flex; flex-wrap:wrap; gap:8px 22px; }
+article { padding:0 0 22px; margin-bottom:22px; border-bottom:1px solid var(--line); }
+article:last-child { margin-bottom:0; }
+.language-section { margin-top:44px; border-top:3px solid var(--ink); }
+.language-section article { padding-top:12px; }
+ul { padding-left:24px; }
+li { margin-bottom:8px; }
+footer { margin-top:36px; padding-top:16px; border-top:1px solid var(--line); }
+@media (max-width:600px) { main { padding:24px 18px; } h1 { font-size:2.8rem; } }
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="eyebrow">The daily newspaper</div>
+<h1>News</h1>
+<div class="meta"><time datetime="2026-10-20">Tuesday, 20 October 2026</time></div>
+<p>Robotics with minimal sensing, updates in biological research, and native-language reading in German, French, Japanese and Chinese.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; robotics</a>
+<a href="#biology">Biology &amp; genomics</a>
+<a href="#tools">Biological research tools</a>
+<a href="#practice">Language practice</a>
+</nav>
+</header>
+
+<section id="ai">
+<h2>AI &amp; robotics</h2>
+<article>
+<h3>Robot assembly policies work from joint positions alone</h3>
+<p>Younghyo Park reports simulation-trained policies that insert pegs, mesh gears and thread nuts using only joint-position readings—without cameras, tactile sensors, force/torque sensors or joint-torque sensing. The peg policy reportedly transfers to real hardware without additional training.</p>
+<p>Related commentary from You Jiacheng questions geometric priors in the mjfit evaluation and describes a possible simulated-contact discrepancy. These remain critiques rather than established findings.</p>
+<p class="meta"><a href="https://x.com/younghyo_park/status/2112182379091501136">Research announcement</a> · <a href="https://x.com/YouJiacheng/status/2112415806793621878">Benchmark commentary</a> · <a href="https://x.com/YouJiacheng/status/2112416300765163770">Contact-simulation critique</a></p>
+</article>
+<article>
+<h3>LILIE: a language-informed image encoder</h3>
+<p>Stanford AI Lab shares Suchir Agarwal’s introduction to LILIE, a <strong>Language-Informed and Lossless Image Encoder</strong>. The available excerpt says a language-informed encoder is trained, but stops before explaining the supervision method. No results or paper link are provided.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2112230742881415660">Stanford AI Lab announcement</a></p>
+</article>
+<article>
+<h3>MLX-VLM adds local draft-model training on Macs</h3>
+<p>Prince Canuma reports that MLX-VLM now supports training draft models locally on a Mac. Supported architectures, training recipes and measured decoding gains are not specified in the supplied post.</p>
+<p class="meta"><a href="https://x.com/Prince_Canuma/status/2112210315303940538">MLX-VLM update</a></p>
+</article>
+<article>
+<h3>Technical reading: Continuous Softmax Attention</h3>
+<p>Jianlin Su shares a resource titled <em>Continuous Softmax Attention</em>. The post supplies a link but no derivation or experimental results.</p>
+<p class="meta"><a href="https://t.co/gSkQm47EtF">Technical resource (shortened link)</a> · <a href="https://x.com/Jianlin_S/status/2112189903694123186">Original post</a></p>
+</article>
+</section>
+
+<section id="biology">
+<h2>Biology &amp; genomics</h2>
+<article>
+<h3>Seal targets gene regulation in the developing human brain</h3>
+<p>A shared announcement describes Seal as an AI-based approach to modeling gene regulation and variant effects across space and time in the developing human brain. Model details, evaluation results and a complete publication citation are absent from the available excerpt.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2112189507441476077">Research announcement</a></p>
+</article>
+<article>
+<h3>Fibrosis preprint examines the regulatory logic of cell-state plasticity</h3>
+<p><em>A Compact Regulatory Logic Governs Fibroblast Cell State Plasticity in Fibrosis</em> connects gene regulation with changes in fibroblast state in fibrotic disease. The truncated announcement does not identify the datasets, specific regulators or validation results.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2112261385287786969">Preprint announcement</a></p>
+</article>
+<article>
+<h3>Transcription-factor specificity may require more than DNA motifs</h3>
+<p>A shared research post cites live-cell single-molecule imaging in support of the claim that DNA motifs alone do not encode transcription-factor specificity. The excerpt does not identify the additional determinants, so the proposed mechanism remains unclear here.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2112189463782916478">Research post</a></p>
+</article>
+<article>
+<h3>Keeping biomedical AI claims aligned with evidence</h3>
+<p>Anshul Kundaje criticizes Goodfire’s public claims concerning an Alzheimer’s biomarker and annotation of variants of uncertain significance. In a follow-up, he explicitly calls EVEE useful for variant prioritization while arguing that public communication should match the evidence in papers.</p>
+<p>These are attributed assessments, not an independently established verdict: the underlying studies and the company’s response are not included in the supplied material.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2112271987355873441">Kundaje’s commentary</a></p>
+</article>
+<article>
+<h3>Equitable population epigenomics and global health</h3>
+<p><em>Nature Reviews Genetics</em> announces <em>Towards equitable population epigenomics: implications for global health</em>. The available post establishes the topic but does not include specific recommendations or findings.</p>
+<p class="meta"><a href="https://x.com/NatureRevGenet/status/2112238729079480543">Article announcement</a></p>
+</article>
+<article>
+<h3>Cellular scaling laws in the mammalian brain</h3>
+<p>A shared announcement reports publication in <em>Cell</em> of <em>Cellular scaling laws in the mammalian brain</em>, naming Fei Chen and Evan Macosko. The excerpt does not specify the species studied, measurements or quantitative scaling relationships.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2112023093938147828">Publication announcement</a></p>
+</article>
+</section>
+
+<section id="tools">
+<h2>Biological research tools &amp; methods</h2>
+<article>
+<h3>BindCraft2 v1.0.4 updates binder-design capabilities</h3>
+<p>The release announcement reports improvements to VHH, scFv, ARP and induced-fit targeting, making this a relevant update for therapeutic binder discovery. The supplied excerpt includes neither quantitative benchmarks nor details of the remaining changes.</p>
+<p class="meta"><a href="https://x.com/sokrypton/status/2112149641043296713">Release announcement</a></p>
+</article>
+<article>
+<h3>STalign and STcompare ported to C++</h3>
+<p>Jean Fan’s shared announcement reports C++ ports of the spatial-biology tools STalign and STcompare, crediting Kamil Slowikowski. The excerpt ends before describing resulting capabilities or performance gains; it does not establish a speedup.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2112265360636600750">Implementation update</a></p>
+</article>
+<article>
+<h3>Self-extending DNA recording with stochastic and programmed writing</h3>
+<p>A research link highlights this approach to biological recording and programmable genetic systems. Only the title and links are supplied, leaving the recording capacity, mechanism and experimental applications unspecified.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2112207993983144070">Research link</a></p>
+</article>
+</section>
+
+<section id="practice" class="language-section">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Londoner Unternehmen will digitale Avatare von toten Musikern auf Tour schicken</h3>
+<p class="meta">Deutschlandfunk Kultur · 20.10.2026 · <a href="https://www.deutschlandfunkkultur.de/londoner-unternehmen-will-digitale-avatare-von-toten-musikern-auf-tour-schicken-102.html">Artikel lesen</a></p>
+<p>Unit1 Studio aus London plant Konzerttourneen mit digitalen Nachbildungen verstorbener oder nicht mehr auftretender Musiker. Als Vorbild dient die erfolgreiche Show „ABBA Voyage“. Archivaufnahmen und Bildschirmtechnik sollen dabei mit der Begleitung durch echte Musiker zusammenkommen.</p>
+<p>Noch müssen die Künstler beziehungsweise ihre Erben für das Projekt gewonnen werden. Auch beim Publikum ist Zustimmung nicht selbstverständlich: Die Meldung verweist auf ablehnende Reaktionen auf einen KI-Avatar von Ozzy Osbourne. Damit steht neben der technischen Umsetzung die Frage im Raum, wie Fans solche digitalen Wiederauftritte aufnehmen.</p>
+<p><strong>Warum lesen:</strong> Die kurze Meldung verbindet Musik und digitale Technik mit der Frage, wo Erinnerung an Künstler in umstrittene Inszenierung übergeht.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Mobilisation en France: après les violences, les premières condamnations sont tombées</h3>
+<p class="meta">RFI · 20 octobre 2026 · <a href="https://www.rfi.fr/fr/france/20261020-mobilisation-en-france-apr%C3%A8s-les-violences-les-premi%C3%A8res-condamnations-sont-tomb%C3%A9es">https://www.rfi.fr/fr/france/20261020-mobilisation-en-france-apr%C3%A8s-les-violences-les-premi%C3%A8res-condamnations-sont-tomb%C3%A9es</a></p>
+<p>RFI revient sur les premières comparutions immédiates organisées après les violences du week-end des 17 et 18 octobre en France. Selon les chiffres annoncés par le ministre de la Justice, 2 513 personnes ont été placées en garde à vue et 67 incarcérées. Les audiences ont commencé le lundi 19 octobre, tandis que certains secteurs de plusieurs grandes villes connaissaient leur première nuit sous couvre-feu.</p>
+<p>Le reportage s'arrête sur le cas d'un homme de 21 ans jugé à Paris pour détention de substances incendiaires et explosives. Il reconnaît cette détention, mais conteste avoir voulu utiliser ces produits. Le tribunal le condamne à huit mois de prison, dont deux ferme, avec incarcération immédiate. Son avocate critique une sanction qu'elle juge exemplaire et disproportionnée, rappelant notamment l'absence de casier judiciaire de son client et le fait que le procureur n'avait pas demandé son incarcération.</p>
+<p>L'article présente également une autre décision : un homme de 25 ans, jugé pour un tir de mortier sur une voiture de police, reçoit dix mois de prison avec sursis. Les deux hommes se voient interdire de paraître à Paris pendant un an. Ces deux situations donnent un aperçu concret des premières réponses judiciaires, sans constituer un bilan de l'ensemble des procès.</p>
+<p><strong>Pourquoi lire :</strong> Un reportage bref pour suivre l'actualité sociale française tout en comprenant les distinctions entre plusieurs procédures et sanctions pénales.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>comparution immédiate</strong> — procédure permettant de juger rapidement une personne à l'issue de sa garde à vue, lorsque les conditions légales sont réunies.</li>
+<li><strong>mandat de dépôt</strong> — ordre judiciaire de recevoir et de détenir une personne en prison.</li>
+<li><strong>sursis</strong> — mesure suspendant l'exécution d'une peine, qui peut être révoquée dans les conditions prévues par la loi.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 音源販売「SONICWIRE」不正アクセス、「Mythosで状況把握」　会員情報最大42万件漏えいか</h3>
+<p class="meta">ITmedia NEWS · 2026-10-20 · <a href="https://www.itmedia.co.jp/news/article/2610/20/2000002406/">記事を読む</a></p>
+<p>「初音ミク」の開発元として知られるクリプトン・フューチャー・メディアは、音源販売サイト「SONICWIRE」とシリアル管理サービス「D2R」が不正アクセスを受けたと発表した。SONICWIREの会員情報は最大約42万件が漏えいした可能性があり、氏名、メールアドレス、ハッシュ化されたパスワードなどが対象という。対象システムにはクレジットカード情報を保存しておらず、その漏えいは現時点で確認されていない。</p>
+<p>同社は10月17日夜に異常を確認してサービスを停止し、全会員のパスワードを無効化した。復旧後の初回ログインには再設定が必要になる。また、状況把握にAnthropicのAIモデル「Claude Mythos」を活用したと説明している。記事では、販売店で購入した製品のシリアルナンバーを受け取るD2Rの停止が、商品の新規注文や購入済み製品の手続きにも影響していることを紹介している。</p>
+<p><strong>読む理由：</strong> 日本の音楽制作サービスを支える仕組みと、不正アクセスが利用者や販売店に及ぼす影響を具体的に読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>不正アクセス（ふせいアクセス）</strong> — 正当な権限を持たずにコンピュータやサービスへ入り込むこと。</li>
+<li><strong>ハッシュ値（ハッシュち）</strong> — データを一定の規則で変換した値で、パスワードの照合などに使われる。</li>
+<li><strong>音源（おんげん）</strong> — 音のもととなる素材や機器・ソフトウェアで、この記事では音楽制作向けの商品を指す。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 德国政府宣布与英伟达（NVIDIA）建立合作伙伴关系</h3>
+<p class="meta">RFI 中文 · 2026-10-19 · <a href="https://www.rfi.fr/cn/经贸/20261019-德国政府宣布与英伟达-nvidia-建立合作伙伴关系">https://www.rfi.fr/cn/经贸/20261019-德国政府宣布与英伟达-nvidia-建立合作伙伴关系</a></p>
+<p>据法广报道，德国政府10月19日宣布与英伟达建立合作伙伴关系，希望将本国工业资料与制造业专业知识用于开发工业人工智能模型，并推动这类技术在工厂中大规模应用。双方在柏林投资峰会期间签署协议，官方尚未公布投资金额；德国《商务日报》所称的数亿美元规模仍属媒体报道。</p>
+<p>德国希望凭借高阶工业制造优势，在面向实际生产环境的AI应用中取得领先地位，而不只是追赶美国企业主导的生成式AI。黄仁勋强调，下一波发展重点是“实体AI”，技术应当增强德国的工业专长。不过，开发模型需要大量生产线资料，传统工业企业却往往不愿分享。梅尔茨因此呼吁企业、尤其是专业中型公司开放更多资料，凸显产业合作面临的实际障碍。</p>
+<p><strong>为什么读：</strong> 这篇报道把德国制造业转型与人工智能联系起来，适合了解工业AI的发展方向，并学习科技与产业政策报道中的常用术语。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>工业人工智能 (gōngyè réngōng zhìnéng)</strong> — 用于制造、生产管理等工业场景的人工智能技术。</li>
+<li><strong>生成式人工智能 (shēngchéngshì réngōng zhìnéng)</strong> — 根据训练资料中的规律生成文字、图像等新内容的人工智能。</li>
+<li><strong>实体人工智能 (shítǐ réngōng zhìnéng)</strong> — 能感知物理环境并通过机器或设备与现实世界互动的人工智能。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on supplied X posts, many of which are truncated announcements rather than complete papers. Missing methods and results have not been reconstructed, and shortened links have not been resolved.</p>
+<p>News · Edition 2026-10-20 · Run 2026-10-20-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

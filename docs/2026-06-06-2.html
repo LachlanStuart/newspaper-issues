@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --paper: #fffaf0;
+      --ink: #24211c;
+      --muted: #6d6457;
+      --line: #d8cdbc;
+      --accent: #7b3f2a;
+      --accent-soft: #efe0d5;
+      --tag: #eee6d8;
+    }
+
+    html {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Charter, Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    body {
+      margin: 0;
+      padding: 2rem 1rem 4rem;
+    }
+
+    .paper {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(38, 31, 23, 0.10);
+    }
+
+    header {
+      padding: 2rem 2rem 1.25rem;
+      border-bottom: 3px double var(--line);
+      text-align: center;
+    }
+
+    .kicker {
+      color: var(--muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.25rem 0 0.35rem;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      line-height: 0.95;
+      font-weight: 800;
+    }
+
+    .subtitle {
+      margin: 0.4rem auto 0;
+      max-width: 680px;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    main {
+      padding: 1.5rem 2rem 2rem;
+    }
+
+    .lead {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 1.75rem;
+    }
+
+    @media (max-width: 760px) {
+      .lead {
+        grid-template-columns: 1fr;
+      }
+
+      header, main {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+      }
+    }
+
+    section {
+      margin: 0 0 2.2rem;
+    }
+
+    h2 {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 0.25rem;
+      margin: 0 0 1rem;
+      font-size: 1.45rem;
+      letter-spacing: 0.02em;
+    }
+
+    h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+
+    article {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    article:first-of-type {
+      padding-top: 0;
+    }
+
+    article:last-child {
+      border-bottom: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-bottom: 0.35rem;
+      font-variant-caps: small-caps;
+      letter-spacing: 0.03em;
+    }
+
+    .summary {
+      margin: 0.35rem 0;
+    }
+
+    .why {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      margin-top: 0.55rem;
+      display: flex;
+      gap: 0.35rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--tag);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.08rem 0.45rem;
+      color: #5f574e;
+      font-size: 0.78rem;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .box {
+      background: var(--accent-soft);
+      border: 1px solid #dcc4b2;
+      padding: 1rem;
+    }
+
+    .box h2 {
+      border-bottom: 0;
+      margin-bottom: 0.5rem;
+      padding: 0;
+      font-size: 1.25rem;
+    }
+
+    .box ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.2rem;
+    }
+
+    .compact article {
+      padding: 0.8rem 0;
+    }
+
+    .columns {
+      columns: 2 320px;
+      column-gap: 2rem;
+    }
+
+    .columns article {
+      break-inside: avoid;
+    }
+
+    .notes {
+      margin-top: 2.5rem;
+      border-top: 1px solid var(--line);
+      padding-top: 1rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .notes h2 {
+      color: var(--ink);
+      border-bottom: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .notes ul {
+      margin-top: 0.5rem;
+    }
+
+    footer {
+      padding: 1rem 2rem 1.5rem;
+      border-top: 3px double var(--line);
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="paper">
+    <header>
+      <div class="kicker">Daily Newspaper · Run 2026-06-06-2</div>
+      <h1>News</h1>
+      <p class="subtitle">Saturday, 2026-06-06. Today’s edition is heavy on AI safety, coding agents, ML optimization, MoE routing, and a surprisingly focused run of matrix-method nerd-sniping.</p>
+    </header>
+
+    <main>
+      <div class="lead">
+        <section>
+          <h2>Front Page</h2>
+
+          <article>
+            <div class="source">Kasra Blog</div>
+            <h3><a href="https://kasra.blog/blog/i-spent-1500-seeing-if-llms-could-hack-my-app/">I built a vulnerable app and spent $1,500 seeing if LLMs could hack it</a></h3>
+            <p class="summary">Kasra built a deliberately vulnerable book review app and spent $1,500 testing whether LLMs could reproduce a common exploit class from real security research.</p>
+            <p class="why">Included because it is a recent 2026-06-03 post and the only genuinely new-looking article in the feed for this run.</p>
+            <div class="tags"><span class="tag">llms</span><span class="tag">security</span><span class="tag">coding-agents</span></div>
+          </article>
+
+          <article>
+            <div class="source">Hazy Research</div>
+            <h3><a href="https://hazyresearch.stanford.edu/blog/2026-05-15-minions-to-openjarvis-retrospective">From Minions to OpenJarvis: A Retrospective on Two Years in Local AI</a></h3>
+            <p class="summary">A Hazy Research retrospective on two years of local AI work, from Minions to OpenJarvis.</p>
+            <p class="why">Included as the latest unreported Hazy Research blog post; relevant for local AI and agent systems.</p>
+            <div class="tags"><span class="tag">ai</span><span class="tag">local-ai</span><span class="tag">agents</span></div>
+          </article>
+
+          <article>
+            <div class="source">LessWrong</div>
+            <h3><a href="https://www.lesswrong.com/posts/KzXptMbuDsYLrppss/why-software-automation-is-hard">Why Software Automation Is Hard</a></h3>
+            <p class="summary">A long, grounded analysis of why coding agents feel magical for individuals but often fail to translate into 10x productivity inside larger software organizations, focusing on context, coordination, tech debt, and cognitive costs.</p>
+            <p class="why">Included for its direct relevance to AI software automation and organizational bottlenecks.</p>
+            <div class="tags"><span class="tag">ai</span><span class="tag">software-engineering</span><span class="tag">automation</span></div>
+          </article>
+        </section>
+
+        <aside class="box">
+          <h2>Editor’s skim</h2>
+          <p>If you only have a few minutes:</p>
+          <ul>
+            <li>Read Kasra for concrete LLM security/autonomy testing.</li>
+            <li>Read Larry Dial’s “Software Automation Is Hard” for sober agent-productivity framing.</li>
+            <li>Dip into 科学空间 if you want optimizer/MoE technical depth; it’s a full buffet today.</li>
+            <li>The LessWrong batch is broad: governance, prompt injection, consistency training, reasoning evals, and AI safety career advice.</li>
+          </ul>
+        </aside>
+      </div>
+
+      <section>
+        <h2>AI Governance, Safety, and Evaluation</h2>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/SQoBeezisWunLhBqJ/what-if-anthropic-unilaterally-paused-capabilities">What if Anthropic unilaterally paused capabilities development right now?</a></h3>
+          <p class="summary">Argues that a unilateral Anthropic pause could have strong signaling and coordination effects, potentially pressuring other labs and governments more than the standard “we cannot pause alone” argument admits.</p>
+          <p class="why">Included as a new post on frontier AI governance and lab strategy.</p>
+          <div class="tags"><span class="tag">ai-governance</span><span class="tag">anthropic</span><span class="tag">ai-safety</span></div>
+        </article>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/bzkQgYhaCcpvKqmAK/optimisation-over-non-stationary-distributions-creates">Optimisation over non-stationary distributions creates weirder minds</a></h3>
+          <p class="summary">Explores how mixing training objectives can produce ecological generalists, conditional policies, or strategy churn, with implications for shaping AI systems under non-stationary post-training.</p>
+          <p class="why">Included as a new AI safety theory post about training dynamics and model internals.</p>
+          <div class="tags"><span class="tag">ai-safety</span><span class="tag">training-dynamics</span><span class="tag">alignment</span></div>
+        </article>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/GPMZaRmxxNb8o2aGo/evaluating-using-mock-tool-calls-to-quarantine-untrusted-2">Evaluating using Mock Tool Calls to Quarantine Untrusted Prompt Inputs</a></h3>
+          <p class="summary">Reports a small study finding that wrapping untrusted prompt inputs in mock tool calls did not reliably improve robustness for LLM-as-judge tasks and sometimes made attacks easier.</p>
+          <p class="why">Included for empirical relevance to prompt injection, instruction hierarchy, and tool-message trust.</p>
+          <div class="tags"><span class="tag">prompt-injection</span><span class="tag">llm-evals</span><span class="tag">ai-safety</span></div>
+        </article>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/zLERnZYLTPGqyfpqy/two-more-methods-for-consistency-training-and-some-new-ways-1">Two More Methods for Consistency Training and Some New Ways to Apply It</a></h3>
+          <p class="summary">Introduces MLPCT and AttCT, evaluates consistency training across several threat models, and argues that output-level and representation-level methods fit different kinds of failures.</p>
+          <p class="why">Included as a technical AI safety post with ICML AI4Good-related consistency-training results.</p>
+          <div class="tags"><span class="tag">ai-safety</span><span class="tag">consistency-training</span><span class="tag">machine-learning</span></div>
+        </article>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/Ze4C99Dasj74YKCFh/revisiting-gsm-symbolic-do-2026-frontier-models-still-fail">Revisiting GSM-Symbolic: Do 2026 Frontier Models Still Fail at Confounded Grade School Math?</a></h3>
+          <p class="summary">Re-tests GSM-Symbolic-style no-op distractors on newer models and argues that once genuinely ambiguous distractors are filtered out, the famous performance drop largely disappears.</p>
+          <p class="why">Included as a replication-style post relevant to LLM reasoning benchmarks and evaluation methodology.</p>
+          <div class="tags"><span class="tag">llm-evals</span><span class="tag">reasoning</span><span class="tag">replication</span></div>
+        </article>
+      </section>
+
+      <section>
+        <h2>ML Optimization, MoE, and Matrix Methods</h2>
+        <div class="columns compact">
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11772">Why Does the Official Muon Version Add an Extra max(1, ·) Compared with the MuP Version?</a></h3>
+            <p class="summary">A technical follow-up on Muon optimizer variants comparing the official KellerJordan formulation with the MuP-style version, focusing on why the official learning-rate scaling includes an extra max(1, ·) factor tied to matrix shape.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">optimization</span><span class="tag">muon</span><span class="tag">mup</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11767">Is Higher Singular-Value Entropy Always Better for Matrix Parameters?</a></h3>
+            <p class="summary">Revisits singular-value entropy as a diagnostic for matrix parameters and asks whether higher entropy is necessarily desirable, especially when comparing optimizer-induced structure from Muon versus Adam.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">linear-algebra</span><span class="tag">optimization</span><span class="tag">llm-training</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11760">A Tour of MoE, Part 8: Forced Sequence-Level Balancing</a></h3>
+            <p class="summary">Continues the author’s Mixture-of-Experts series with a focus on routing and load balancing, introducing forced sequence-level balancing as a way to ensure expert balance at the sequence level.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">moe</span><span class="tag">llm</span><span class="tag">routing</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11750">Where Does DeepSeek V4’s tid2eid Come From?</a></h3>
+            <p class="summary">Discusses MoE load-balancing issues near embedding layers and the tid2eid mapping in DeepSeek-style systems, using DeepSeek V3/V4 and Kimi K2 as context.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">moe</span><span class="tag">deepseek</span><span class="tag">routing</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11738">Using FID Directly as a Loss: From Gradient Computation to Streaming Training</a></h3>
+            <p class="summary">Asks why generative vision models are not trained directly against FID, examining differentiability, gradient computation, and streaming training practicality.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">generative-models</span><span class="tag">fid</span><span class="tag">computer-vision</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11736">How Can We Estimate a Matrix’s Spectral Norm More Scientifically?</a></h3>
+            <p class="summary">Connects spectral norm estimation to Lipschitz constraints in WGANs, LLM training stability, and Muon, likely comparing practical estimation methods such as power iteration.</p>
+            <div class="tags"><span class="tag">math</span><span class="tag">linear-algebra</span><span class="tag">spectral-norm</span><span class="tag">optimization</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11729">Beyond MuP, Part 4: Holding Firm to Parameter Stability</a></h3>
+            <p class="summary">Extends MuP-style parameterization theory by separating stability criteria into parameter stability and increment stability, then focusing on preserving parameter stability as scale changes.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">mup</span><span class="tag">scaling</span><span class="tag">theory</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11719">A Muon Implementation Based on Streaming Power Iteration, Part 5: Extensions</a></h3>
+            <p class="summary">The fifth article in a series on spreading power-iteration-style spectral approximation across training steps for efficient Muon implementations.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">optimization</span><span class="tag">muon</span><span class="tag">svd</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11710">A Muon Implementation Based on Streaming Power Iteration, Part 4: Principles</a></h3>
+            <p class="summary">Explains why streaming power iteration can approximate the matrix operations Muon needs during training without paying for full expensive SVD-like procedures each step.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">optimization</span><span class="tag">muon</span><span class="tag">power-iteration</span></div>
+          </article>
+
+          <article>
+            <div class="source">科学空间 / Spaces AC</div>
+            <h3><a href="https://spaces.ac.cn/archives/11697">A Muon Implementation Based on Streaming Power Iteration, Part 3: Refinement</a></h3>
+            <p class="summary">Refines implementation details for using streaming power iteration as an efficient, stable approximation to spectral/SVD-like matrix information inside Muon training.</p>
+            <div class="tags"><span class="tag">ml</span><span class="tag">optimization</span><span class="tag">muon</span><span class="tag">implementation</span></div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Research Careers, Robotics, Psychology, and Philosophy</h2>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/HQH2atbxpdts7c49N/does-robotics-capabilities-research-accelerate-agi-timelines">Does robotics capabilities research accelerate AGI timelines?</a></h3>
+          <p class="summary">A career-question post asking whether theoretical robotics work, especially continual learning and adaptive navigation, meaningfully contributes to AGI capabilities or timeline acceleration.</p>
+          <p class="why">Included as a new discussion prompt on robotics, AGI timelines, and career choice.</p>
+          <div class="tags"><span class="tag">agi</span><span class="tag">robotics</span><span class="tag">career</span></div>
+        </article>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/M5HGCidR7crf9SnMT/do-not-try-to-write-your-first-research-publication-as-a">Do not try to write your first research publication as a single author</a></h3>
+          <p class="summary">Practical career advice for junior technical AI safety researchers, arguing that first publications should usually be pursued through fellowships or teams rather than solo paper-writing.</p>
+          <p class="why">Included for concrete AI safety career-development advice.</p>
+          <div class="tags"><span class="tag">career</span><span class="tag">ai-safety</span><span class="tag">research</span></div>
+        </article>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/aRcZSKYdt26KdqoFw/beyond-the-lexical-personality-traits-what-is-the-structure">Beyond the lexical personality traits: What is the structure of personality?</a></h3>
+          <p class="summary">Describes a methodology for building a more concrete, factor-analyzed personality model from narrow behavioral items rather than broad lexical trait labels.</p>
+          <p class="why">Included as a new post on personality psychology and psychometric methodology.</p>
+          <div class="tags"><span class="tag">psychology</span><span class="tag">personality</span><span class="tag">statistics</span></div>
+        </article>
+
+        <article>
+          <div class="source">LessWrong</div>
+          <h3><a href="https://www.lesswrong.com/posts/QWZRP7MLgRajDhiRk/the-masochistic-prior">The Masochistic Prior</a></h3>
+          <p class="summary">A philosophical essay arguing for confronting the most painful plausible truths directly, especially around death, atheism, transhumanism, and the urgency of defeating mortality.</p>
+          <p class="why">Included as a new essay on deep atheism, mortality, and transhumanist motivation.</p>
+          <div class="tags"><span class="tag">philosophy</span><span class="tag">transhumanism</span><span class="tag">mortality</span></div>
+        </article>
+      </section>
+
+      <section class="notes">
+        <h2>Quiet source notes</h2>
+        <ul>
+          <li>Hazy Research: skipped the blog index and older archive links; only the latest apparent post was included to avoid backfill noise.</li>
+          <li>Kasra Blog: older feed entries were treated as backfill rather than daily-new items.</li>
+          <li>Nathan Chen Blog: no genuinely new items; every collected URL for this run was already present in the source registry.</li>
+          <li>Queer Festival Heidelberg: no genuinely new posts found; feed items were older archive entries from 2021–2024.</li>
+          <li>科学空间 / Spaces AC: registry was empty, so all relevant feed items were treated as new.</li>
+          <li>x-ai-research: filter-report failed quietly with “[Errno 7] Argument list too long: 'hermes'”.</li>
+          <li>x-bio-research: filter-report failed quietly with “[Errno 7] Argument list too long: 'hermes'”.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      Generated for News pipeline · 2026-06-06
+    </footer>
+  </div>
+</body>
+</html>

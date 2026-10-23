@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ec;
+      --card: #fffdf8;
+      --ink: #202522;
+      --muted: #626963;
+      --rule: #c9c8bc;
+      --accent: #195f52;
+      --accent-soft: #dcebe5;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    .page {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+    }
+
+    header {
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.15rem 0 1.25rem;
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .kicker {
+      margin: 0;
+      color: var(--muted);
+      font: 700 0.78rem/1.2 system-ui, sans-serif;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.25rem 0;
+      font-size: clamp(2.4rem, 7vw, 5.2rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .date {
+      margin: 0;
+      color: var(--muted);
+      font: 500 0.92rem/1.4 system-ui, sans-serif;
+    }
+
+    section { margin: 0 0 3.25rem; }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 1.2rem;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 0.35rem;
+      font-size: clamp(1.55rem, 4vw, 2.25rem);
+      line-height: 1.15;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font: 600 0.76rem/1.2 system-ui, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 1.15rem 1.25rem;
+    }
+
+    article.feature {
+      grid-column: 1 / -1;
+      border-top: 4px solid var(--accent);
+    }
+
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+
+    article p {
+      margin: 0.55rem 0 0;
+    }
+
+    .meta, .tags {
+      color: var(--muted);
+      font: 500 0.76rem/1.45 system-ui, sans-serif;
+    }
+
+    .tags {
+      margin-top: 0.8rem;
+      letter-spacing: 0.015em;
+    }
+
+    .language-practice {
+      border-top: 5px double var(--ink);
+      padding-top: 2rem;
+    }
+
+    .language-intro {
+      color: var(--muted);
+      max-width: 54rem;
+      margin: -0.45rem 0 1.4rem;
+    }
+
+    .language-card {
+      margin-bottom: 1.25rem;
+      padding: 1.4rem;
+    }
+
+    .language-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .language-card ul {
+      margin: 0.65rem 0 0;
+      padding-left: 1.3rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      padding-top: 1rem;
+      font: 500 0.78rem/1.5 system-ui, sans-serif;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .page { width: min(100% - 1rem, 1120px); }
+      .grid { grid-template-columns: 1fr; }
+      article.feature { grid-column: auto; }
+      .section-heading { display: block; }
+      article { padding: 1rem; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <p class="kicker">Research, technology and science</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-09-12">Saturday, 12 September 2026</time></p>
+    </header>
+
+    <section aria-labelledby="ai-heading">
+      <div class="section-heading">
+        <h2 id="ai-heading">Artificial Intelligence</h2>
+        <span>Models, agents and evaluation</span>
+      </div>
+
+      <div class="grid">
+        <article class="feature">
+          <h3><a href="https://x.com/hardmaru/status/2098531497737412956">Royal Society collection examines world models in natural and artificial intelligence</a></h3>
+          <p>A Royal Society special issue brings together research on causal abstractions, self-modeling, active exploration and physically grounded intelligence. Its introduction argues that self-prediction can regularize and simplify networks—and that adaptive agents may need models of both themselves and their environments.</p>
+          <p class="tags">World models · Self-modeling · Causal learning · Agents</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/mgostIH/status/2098412691370971364">An alternative training analysis for DeepSeek V4.1</a></h3>
+          <p>A technical discussion proposes using a non-causal encoder with a causal decoder while training only on decoded tokens. It also considers diffusion-style objectives and the possible trade-offs in data efficiency.</p>
+          <p class="tags">Language models · Encoder–decoder systems · Diffusion</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/giffmana/status/2098327824713076992">RL environment strings may confound evaluation-awareness claims</a></h3>
+          <p>Lucas Beyer argues that apparent evaluation awareness may sometimes arise from explicit strings embedded in training environments, such as messages stating that a behavior is unsupported. The critique underscores the need to inspect environment data and exclude direct cues before attributing behavior to latent awareness.</p>
+          <p class="tags">Reinforcement learning · Evaluation · Data contamination</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/YouJiacheng/status/2098357474957090856">KKT duality applied to LLM reinforcement learning</a></h3>
+          <p>A linked technical result applies a Karush–Kuhn–Tucker duality argument to an LLM reinforcement-learning problem. The source post provides little methodological detail, but points to a mathematical optimization treatment of modern LLM training.</p>
+          <p class="tags">Optimization · Duality · LLM training</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cgeorgiaw/status/2098416812744458291">Hugging Face Datasets adds biological data formats</a></h3>
+          <p>The <code>datasets</code> library now supports mmCIF, PDB, FASTA and FASTQ, making biological sequences and molecular structures directly accessible in Hugging Face data workflows.</p>
+          <p class="tags">Open-source tooling · Bioinformatics · Protein structures</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2098335386367930834">Trans-ethnic GWAS method accounts explicitly for ancestry</a></h3>
+          <p>A research link describes a trans-ethnic meta-regression method for genome-wide association studies intended to increase discovery power while accounting for ancestry. The available source is truncated, so further methodological details are not available.</p>
+          <p class="tags">Genomics · GWAS · Statistical methods</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-heading">
+      <div class="section-heading">
+        <h2 id="bio-heading">Computational Biology &amp; Medicine</h2>
+        <span>Design, prediction and experimental validation</span>
+      </div>
+
+      <div class="grid">
+        <article class="feature">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2098603072775946643">Odin-Multi designs binders for cross-reactivity or target specificity</a></h3>
+          <p>Odin-Multi optimizes a single binder sequence across several structural contexts, combining attractive objectives for intended targets with repulsive objectives for off-targets. The study reports enrichment of cross-reactive GPCR and toxin binders, along with experimental leads that bound two related toxins or discriminated between pMHC targets differing by a single peptide residue.</p>
+          <p class="tags">Protein design · Drug discovery · Immunotherapy · Antivenom</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2098602754193379372">Large screen maps what makes de novo CAR recognition domains work</a></h3>
+          <p>Researchers tested 1,758 AI-designed binders as CAR recognition domains for BCMA, CD19 and CD22. Wet-lab results connected interface packing and binder charge to CAR activity and tonic signaling, identified native-partner epitope occlusion as a CD19 failure mode, and found that non-interface diversification could reduce off-target activation while preserving on-target function.</p>
+          <p class="tags">CAR-T · Cancer · Protein design · Wet-lab validation</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2098602823726629157">TAPAS combines AlphaFold 3, geometry and sequence features</a></h3>
+          <p>TAPAS uses TabPFN to combine AlphaFold 3 interface confidence, structural geometry and ESM-2 embeddings for TCR–pMHC binding prediction. Sequence features performed well when peptides appeared during training but collapsed on unseen peptides; structural confidence and geometry generalized better, with the combined model producing the strongest results across VDJdb and two external viral-pMHC benchmarks.</p>
+          <p class="tags">Immunology · TCR · AlphaFold 3 · Generalization</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2098602418263228670">RubisGen produces active, divergent Rubisco enzymes</a></h3>
+          <p>RubisGen combines a ProGen-2 generator, an ESM-2 discriminator and structural filtering to narrow 5.6 million generated Rubisco-like sequences to 21 experimental candidates. Five produced measurable carbon-fixation product, and a 1.40 Å structure confirmed the canonical fold in a design with roughly 39% sequence identity, although catalytic optimization remained difficult.</p>
+          <p class="tags">Synthetic biology · Enzyme engineering · Carbon fixation</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2098619998784909393">Knowledge-guided model predicts responses to unprofiled drugs</a></h3>
+          <p>A reported framework combines MAP-KG, multimodal contrastive learning and a single-cell foundation model to predict transcriptional responses to previously unprofiled drugs in zero-shot settings. The source reports gains of up to 19.8% in Pearson correlation for the top 50 differentially expressed genes.</p>
+          <p class="tags">Virtual cells · Single-cell biology · Drug response</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2098521539914428495">ID3 uses gradients for constrained codon optimization</a></h3>
+          <p>Data Differentiable Designer treats trained predictors as fixed differentiable objectives and optimizes codon-probability inputs while preserving the encoded amino-acid sequence. Fixed transformations map learnable logits to continuous codon distributions or discrete one-hot sequences.</p>
+          <p class="tags">mRNA design · Codon optimization · Therapeutics</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2098460033810117075">Dense RNA-motif modifications improve in vivo prime editing</a></h3>
+          <p>A Nature Biomedical Engineering item reports that dense RNA-motif modifications make prime editing more robust in vivo and improve efficiency across multiple editing systems. The available source contains only the headline-level result.</p>
+          <p class="tags">Prime editing · Genome editing · RNA · Medicine</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="methods-heading">
+      <div class="section-heading">
+        <h2 id="methods-heading">Benchmarks, Data &amp; Foundations</h2>
+        <span>Where conclusions can fail</span>
+      </div>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2098602941372617138">Molecule-generation review finds inconsistent protocols and leakage risks</a></h3>
+          <p>A systematic review organizes 82 molecular-generation methods spanning autoregressive models, VAEs, GANs, flows and diffusion. It argues that saturated intrinsic metrics, inconsistent dataset splits and varying docking protocols obscure meaningful comparisons, and calls for protein-level generalization tests, interaction-aware datasets, receptor flexibility and explicit multi-objective evaluation.</p>
+          <p class="tags">Drug discovery · Molecule generation · Benchmarking</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2098602601164267839">PPI audit shows random splits reward shortcuts</a></h3>
+          <p>G-AUDIT examines shortcut signals in HIPPIE, IntAct, STRING, PINDER and PDB-Dimers. Weak models reached near-perfect scores in biased settings but fell close to chance after similarity-resistant splitting and negative sampling balanced for topology, taxonomy, self-interactions and functional relatedness. The work also warns that PDB-derived sets overrepresent homomers.</p>
+          <p class="tags">Protein interactions · Dataset bias · Interpretability</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2098522333208269298">HyphAeon places phylogenetic history inside a foundation model</a></h3>
+          <p>HyphAeon models molecular evolution using multiple-sequence alignments and phylogenetic context. It combines codon and amino-acid tokenization, continuous-time substitution priors and tree-geometric rotary embeddings, aiming to regularize noisy single-site likelihood estimates on shallow alignments toward plausible evolutionary trajectories.</p>
+          <p class="tags">Comparative genomics · Phylogenetics · Molecular evolution</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatRevMCB/status/2098390845984739504">PRC2–RNA findings depend on bioinformatics choices</a></h3>
+          <p>A Nature Reviews Molecular Cell Biology article examines how computational pipeline choices affect conclusions about interactions between RNA and the chromatin-regulatory PRC2 complex. The available item does not provide further methodological detail.</p>
+          <p class="tags">Gene regulation · Epigenetics · Reproducibility</p>
+        </article>
+
+        <article class="feature">
+          <h3><a href="https://x.com/anshulkundaje/status/2098185755432825149">Frontier-model biosecurity extends beyond access to knowledge</a></h3>
+          <p>Anshul Kundaje argues that biological risk from frontier models includes the acceleration of procurement and supply-chain deception, not only access to technical information. Citing dangerous real-world queries, he calls for stronger protections and monitoring across both upstream and downstream parts of the physical pipeline rather than relying solely on model refusals.</p>
+          <p class="tags">Biosecurity · AI safety · Supply chains · Governance</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <div class="section-heading">
+        <h2 id="language-heading">Language Practice</h2>
+        <span>Daily reading</span>
+      </div>
+      <p class="language-intro">Edited reading selections in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — OLG Köln bremst Verbraucherschützer: „Bezahlen mit Daten“ ist kein Preis</h3>
+        <p class="meta">heise online · 11. September 2026 · <a href="https://www.heise.de/news/OLG-Koeln-bremst-Verbraucherschuetzer-Bezahlen-mit-Daten-ist-kein-Preis-11451080.html">Link</a></p>
+        <p>Wer Rabatt- und Kunden-Apps verwendet, überlässt den Anbietern häufig persönliche Daten und Informationen über das eigene Einkaufsverhalten. Das Oberlandesgericht Köln hat nun entschieden, dass diese Daten bei der Registrierung trotzdem nicht als Bestandteil eines verbraucherrechtlichen Gesamtpreises ausgewiesen werden müssen. Anlass war eine Klage des Bundesverbands der Verbraucherzentralen gegen die App des Discounters Penny.</p>
+        <p>Nach Auffassung des Gerichts können persönliche Daten zwar eine wirtschaftliche Gegenleistung sein, sie stellen jedoch keinen berechenbaren Geldbetrag und damit keinen Preis im Sinne der einschlägigen Vorschriften dar. Für Transparenz über Zweck und Umfang der Datenverarbeitung sorge bereits die Datenschutz-Grundverordnung. Da das Gericht die Revision zugelassen hat, könnte der Bundesgerichtshof die grundsätzliche Abgrenzung zwischen Datenschutz und Verbraucherschutz noch klären.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel beleuchtet anhand eines alltäglichen Beispiels, welchen rechtlichen Wert persönliche Daten in Deutschland haben.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — À Zagreb, des robotaxis roulent sans superviseur à bord pour la première fois en Europe</h3>
+        <p class="meta">Numerama · 11 septembre 2026 · <a href="https://www.numerama.com/vroom/2331067-a-zagreb-des-robotaxis-roulent-sans-personne-a-bord-pour-la-premiere-fois-en-europe.html">Lire l’article</a></p>
+        <p>La startup croate Verne et l’entreprise chinoise Pony.ai testent à Zagreb des taxis entièrement autonomes, sans opérateur de sécurité à bord. Les véhicules empruntent un parcours de 22 kilomètres reliant notamment un quartier d’affaires à l’aéroport Franjo Tuđman. Il s’agit d’une première sur les routes ouvertes européennes, où les autres expérimentations conservent jusqu’ici un humain capable de reprendre le volant.</p>
+        <p>Cette avancée reste cependant très encadrée : seuls des passagers invités participent aux trajets sans conducteur, tandis que le service commercial continue d’utiliser un opérateur. Les SUV électriques Arcfox Alpha T5 embarquent la technologie de septième génération de Pony.ai et une plateforme de calcul Nvidia DRIVE AGX. Verne prépare aussi un véhicule à deux places dépourvu de volant et de pédales, mais n’a pas encore annoncé sa date de déploiement.</p>
+        <p>Le projet place Zagreb en avance sur Londres et Madrid, où d’autres programmes de conduite autonome sont en préparation ou fonctionnent encore avec supervision humaine. Verne, Pony.ai et Uber se partagent respectivement l’exploitation de la flotte, la technologie autonome et l’accès au service par application.</p>
+        <p><strong>Pourquoi lire :</strong> Un aperçu concret de l’arrivée progressive des véhicules sans conducteur en Europe et des limites réglementaires qui encadrent encore leur usage.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>robotaxi</strong> — taxi capable d’effectuer un trajet grâce à un système de conduite autonome</li>
+          <li><strong>opérateur de sécurité</strong> — personne présente dans un véhicule expérimental pour reprendre les commandes en cas de problème</li>
+          <li><strong>flotte</strong> — ensemble de véhicules exploités par une même entreprise ou un même service</li>
+          <li><strong>calculateur embarqué</strong> — ordinateur intégré au véhicule qui traite les données des capteurs et pilote les fonctions de conduite</li>
+          <li><strong>route ouverte</strong> — voie publique utilisée par la circulation ordinaire, par opposition à une piste d’essai fermée</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 映画『ネルソンさん、あなたは人を殺しましたか？』：鬼才・塚本晋也がこの時代にベトナム戦争を描いた理由</h3>
+        <p class="meta">nippon.com · 2026-09-12 · <a href="https://www.nippon.com/ja/japan-topics/c030333/">記事を読む</a></p>
+        <p>塚本晋也監督の新作は、18歳で米海兵隊に入り、ベトナム戦争の最前線へ送られたアレン・ネルソンのノンフィクションを映画化したものだ。作品は戦闘だけでなく、帰還後のネルソンがフラッシュバックや異常行動に苦しみ、カウンセリングを通じて自らの加害行為と向き合う過程を描く。</p>
+        <p>記事では、塚本監督が戦争を遠い過去ではなく、現代社会に迫る現実的な問題として捉えていることが語られる。さらに、帰還兵のPTSD、家庭内で次世代へ受け継がれる暴力、沖縄での米軍訓練、ネルソンが日本で続けた反戦講演などを通じ、戦争が個人と社会に残す長期的な傷を掘り下げている。</p>
+        <p><strong>読む理由：</strong> 映画制作の背景から、戦争加害、心的外傷、暴力の連鎖という重い問題を考えられるインタビューだから。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>帰還兵（きかんへい）</strong> — 戦地での任務を終えて自国へ戻った兵士。</li>
+          <li><strong>心的外傷後ストレス障害（しんてきがいしょうごストレスしょうがい）</strong> — 強い恐怖体験の後に、記憶の再体験や不安などが続く精神疾患。PTSD。</li>
+          <li><strong>掃討作戦（そうとうさくせん）</strong> — 特定地域の敵対勢力を排除するために行う軍事作戦。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — 科尼岛外展训练中心设施增无障碍设计 坐轮椅也能探险</h3>
+        <p class="meta">联合早报 · 2026-09-12 · <a href="https://www.zaobao.com.sg/news/singapore/story20260912-9665117">阅读原文</a></p>
+        <p>新加坡科尼岛外展训练中心把包容理念融入探险设施，让坐轮椅的学生也能在团队协助下体验高空绳索等项目。中心占地12公顷，设有70个室内外高空探险设施和30多个地面装置，其中两项高空设施及两项地面设施可供轮椅使用者参与。</p>
+        <p>中心也试行接待听障学生，由老师协助指导员与学生沟通，并安排其他学生学习简单手语。为保障高空活动安全，设施采用智能保护绳系统，一次只能解开一个安全扣；学生须先练习操作，并经教练确认掌握方法后才能参加挑战。校方认为，这类训练不仅促进团队协作和解决问题的能力，也能帮助学生建立自信。</p>
+        <p><strong>为什么读：</strong> 文章以新加坡的户外教育为切口，呈现无障碍设计如何把“人人可参与”落实到具体设施与活动中。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>无障碍设计 (wú zhàng’ài shèjì)</strong> — 让残障人士也能安全、便利使用设施的设计理念。</li>
+          <li><strong>智能保护绳系统 (zhìnéng bǎohùshéng xìtǒng)</strong> — 通过联动安全扣降低高空活动误操作风险的防护装置。</li>
+          <li><strong>包容理念 (bāoróng lǐniàn)</strong> — 在制度或空间设计中照顾不同能力与需求人群的原则。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-09-12-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

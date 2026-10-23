@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #d8cfc0;
+      --accent: #7a4f24;
+      --accent-soft: #efe3d3;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      letter-spacing: 0.03em;
+      line-height: 1;
+    }
+    .subtitle {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(60, 45, 25, 0.04);
+    }
+    h2 {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 1.45rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+    }
+    article {
+      padding: 14px 0;
+      border-bottom: 1px solid #eee5d8;
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.16rem;
+      line-height: 1.25;
+    }
+    p {
+      margin: 8px 0;
+    }
+    a {
+      color: #1f5f99;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 2px 3px 2px 0;
+    }
+    .note {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      margin-top: 14px;
+    }
+    .language-practice {
+      margin-top: 34px;
+    }
+    .language-practice h2 {
+      color: #365f44;
+    }
+    .language-item {
+      white-space: normal;
+    }
+    ul {
+      margin-top: 6px;
+    }
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      margin-top: 28px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="subtitle">Monday, June 15, 2026 · Run ID: 2026-06-15-99</div>
+    </header>
+
+    <section>
+      <h2>AI Research &amp; Systems</h2>
+
+      <article>
+        <h3><a href="https://x.com/tri_dao/status/2066518563184365953">Recompute trick speeds speculative decoding for SSM hybrid models</a></h3>
+        <div class="meta">X AI Research</div>
+        <p>Tri Dao notes that in hybrid models such as Qwen 3.5 and Nemotron Ultra, Gated-DeltaNet/Mamba states can bottleneck massive-context agent workloads. The proposed implementation trick is to load states and compute with them but avoid storing them, using recomputation to make the path roughly 2× faster and enable speculative decoding for SSMs.</p>
+        <div class="tags">
+          <span class="tag">inference</span>
+          <span class="tag">ssm</span>
+          <span class="tag">speculative decoding</span>
+          <span class="tag">systems</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/YouJiacheng/status/2066452999774605496">Fixed-point iteration for rational spectral functions</a></h3>
+        <div class="meta">X AI Research</div>
+        <p>You Jiacheng sketches extending a fixed-point method from fractional spectral powers to rational functions: if the iteration can handle <em>p<sub>1</sub>(y) − p<sub>2</sub>(y)x</em>, then <em>x<sub>n</sub></em> converges to <em>p<sub>1</sub>(y) / p<sub>2</sub>(y)</em>. A follow-up notes that rational functions can also be computed directly with inversion via LU decomposition.</p>
+        <div class="tags">
+          <span class="tag">optimization</span>
+          <span class="tag">linear algebra</span>
+          <span class="tag">spectral methods</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/giffmana/status/2066435889522196984">S4L semi-supervised ImageNet baselines cited in LLM methodology discussion</a></h3>
+        <div class="meta">X AI Research</div>
+        <p>Lucas Beyer points to the S4L paper as prior evidence from vision on the importance of strongly tuned baselines, referencing 10% and 1% ImageNet semi-supervised settings. A follow-up says the related LLM work also involved ensembles and distillation.</p>
+        <div class="tags">
+          <span class="tag">benchmarks</span>
+          <span class="tag">semi-supervised learning</span>
+          <span class="tag">vision</span>
+          <span class="tag">methodology</span>
+        </div>
+      </article>
+
+      <p class="note">Source note: product launches, shallow retweets, memes, broad model/product announcements, and items with too little technical detail were omitted.</p>
+    </section>
+
+    <section>
+      <h2>Bio, Genomics &amp; Biomedical AI</h2>
+
+      <article>
+        <h3><a href="https://x.com/sokrypton/status/2066223464210370862">OpenFold3 weights running inside the AlphaFold 3 JAX codebase</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>Sergey Ovchinnikov reports getting OpenFold3 weights to run inside the AlphaFold 3 codebase, with support claimed for proteins, ligands, RNA, and DNA. A follow-up notes that changes needed for AlphaFold 3 compatibility were summarized and that OpenFold3 maintainers expect to address them in a future version.</p>
+        <div class="tags">
+          <span class="tag">structural biology</span>
+          <span class="tag">protein modeling</span>
+          <span class="tag">open source</span>
+          <span class="tag">tooling</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066276106219696488">AlphaCell: world model for perturbation-induced cellular dynamics</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>A research item highlights <strong>AlphaCell</strong>, described as an effort toward building a world model to simulate perturbation-induced cellular dynamics.</p>
+        <div class="tags">
+          <span class="tag">virtual cells</span>
+          <span class="tag">perturbation modeling</span>
+          <span class="tag">cellular dynamics</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066276088674955297">OmicClaw: natural-language multi-omics analysis over OmicVerse</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p><strong>OmicClaw</strong> is described as an executable and reproducible natural-language multi-omics analysis system built over the unified OmicVerse ecosystem.</p>
+        <div class="tags">
+          <span class="tag">multi-omics</span>
+          <span class="tag">agents</span>
+          <span class="tag">bioinformatics</span>
+          <span class="tag">tooling</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066276064230559897">BiOmics: foundational agent for grounded autonomous multi-omics interpretation</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p><strong>BiOmics</strong> is presented as a foundational agent for grounded and autonomous interpretation of multi-omics data.</p>
+        <div class="tags">
+          <span class="tag">multi-omics</span>
+          <span class="tag">agents</span>
+          <span class="tag">biomedical AI</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066276049575636996">TransXplorer: automated translational discovery platform for RNA-seq data</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p><strong>TransXplorer</strong> is highlighted as an automated translational discovery platform for RNA-seq data, relevant to genomics, transcriptomics, disease discovery, and biomedical tooling.</p>
+        <div class="tags">
+          <span class="tag">RNA-seq</span>
+          <span class="tag">translational discovery</span>
+          <span class="tag">genomics</span>
+          <span class="tag">tooling</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2065967162997854267">Anshul Kundaje criticizes weak benchmarks and metrics in bio/health AI</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>Anshul Kundaje argues that AI applications in biology and health are hampered by poor benchmarks and metrics, using the discussion to criticize overreliance on weak evaluation and gatekeeping review.</p>
+        <div class="tags">
+          <span class="tag">bio-AI evaluation</span>
+          <span class="tag">benchmarks</span>
+          <span class="tag">clinical AI</span>
+          <span class="tag">research quality</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066195112737341711">PacBio vs ONT for diagnosing neurological repeat expansion disorders</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>A conference-style report compares PacBio and Oxford Nanopore sequencing for diagnosing neurological repeat expansion disorders, noting that both approaches were described as effective.</p>
+        <div class="tags">
+          <span class="tag">genomics</span>
+          <span class="tag">long-read sequencing</span>
+          <span class="tag">neurological disease</span>
+          <span class="tag">diagnostics</span>
+        </div>
+      </article>
+
+      <p class="note">Source note: several relevant-looking retweets had only truncated text and shortened links available, so summaries are limited to the provided normalized item text.</p>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+
+      <article class="language-item" lang="de">
+        <h3>Deutsch — Ein Unternehmen hat die Vier-Tage-Woche ausprobiert – nach drei Monaten ist der Chef vom Ergebnis überrascht</h3>
+        <div class="meta">GameStar · 2026-06-14 · <a href="https://www.gamestar.de/artikel/vier-tage-woche-ausprobiert-jetzt-sieben-tage-woche,3454571.html">https://www.gamestar.de/artikel/vier-tage-woche-ausprobiert-jetzt-sieben-tage-woche,3454571.html</a></div>
+        <p>Der Artikel beschreibt, wie das britische SEO-Beratungsunternehmen Lumen nach einer erfolgreichen Einführung der Vier-Tage-Woche noch einen Schritt weiterging: Statt fester vier Arbeitstage dürfen Beschäftigte ihre 32 Wochenstunden flexibler verteilen. Nach drei Monaten zeigte sich laut GameStar, dass die meisten Mitarbeitenden ihre Routinen gar nicht radikal umwarfen, sondern die Freiheit vor allem für kleinere persönliche Anpassungen nutzten.</p>
+        <p>Interessant ist der Text, weil er die Debatte um kürzere Arbeitszeiten nicht nur als reine Produktivitätsfrage behandelt, sondern auch als Frage von Selbstorganisation, Teamkultur und Vertrauen. CEO Aled Nelmes betont, dass ein solches Modell nicht für jede Person und jede Firma passt: Es brauche Eigenverantwortung, Fokus und klare Erwartungen, damit Flexibilität nicht zur Belastung wird.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel liefert einen gut verständlichen Einstieg in die aktuelle Diskussion über Vier-Tage-Woche, flexible Arbeitsmodelle und moderne Unternehmenskultur.</p>
+      </article>
+
+      <article class="language-item" lang="fr">
+        <h3>Français — « Les Barockeuses », sur Arte.tv : à la découverte ludique de huit musiciennes effacées de l’histoire</h3>
+        <div class="meta">Le Monde · 2026-06-14 · <a href="https://www.lemonde.fr/culture/article/2026/06/14/les-barockeuses-sur-arte-tv-a-la-decouverte-ludique-de-huit-musiciennes-effacees-de-l-histoire_6702749_3246.html">https://www.lemonde.fr/culture/article/2026/06/14/les-barockeuses-sur-arte-tv-a-la-decouverte-ludique-de-huit-musiciennes-effacees-de-l-histoire_6702749_3246.html</a></div>
+        <p>Dans cette critique culturelle, <em>Le Monde</em> présente la série documentaire <strong>« Les Barockeuses »</strong>, disponible à la demande sur Arte.tv. Karine Chaunac et Mina Perrichon y reviennent sur huit musiciennes de l’époque baroque, instrumentistes ou compositrices, dont l’histoire a souvent gardé peu de traces, notamment dans l’Italie des XVIe et XVIIe siècles.</p>
+        <p>L’article souligne la forme très accessible du projet : faute d’archives abondantes, la série combine des séquences d’animation, un récit historique et des interprétations musicales. Le néologisme « barockeuses » sert à mettre en avant le caractère audacieux, voire transgressif, de ces parcours féminins dans un milieu musical longtemps dominé par les hommes.</p>
+        <p>C’est un bon choix de lecture pour travailler un français de critique culturelle, avec du vocabulaire lié à l’histoire de la musique, au documentaire et à la redécouverte patrimoniale.</p>
+        <p><strong>Pourquoi lire :</strong> pour découvrir comment un article court peut présenter une œuvre audiovisuelle tout en ouvrant sur des questions d’histoire culturelle et de visibilité des femmes artistes.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>époque baroque</strong> — période artistique des XVIIe et début XVIIIe siècles, associée à des formes musicales, picturales et architecturales très expressives.</li>
+          <li><strong>séquences d’animation</strong> — passages filmés sous forme de dessins ou d’images animées, utilisés ici pour compenser le manque d’archives visuelles.</li>
+          <li><strong>néologisme</strong> — mot nouvellement créé ou employé dans un sens nouveau, comme « barockeuses » dans la série.</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="ja">
+        <h3>日本語 — 「Fate/Grand Order」，6月中旬にゲームエンジンをUnity 6へアップデート。追加で約16GBの再ダウンロードが必要に</h3>
+        <div class="meta">4Gamer.net · 2026-06-12 11:58 · <a href="https://www.4gamer.net/games/266/G026651/20260612008">https://www.4gamer.net/games/266/G026651/20260612008</a></div>
+        <p>スマートフォン向けRPG「Fate/Grand Order」が，2026年6月中旬にゲームエンジンをUnity 6へ移行するアプリアップデートを実施する予定だと報じている。すでに一括ダウンロードを利用しているプレイヤーでも，更新後に追加で約16GBの再ダウンロードが必要になる点が大きな注意点だ。</p>
+        <p>記事では，同時期に始まった期間限定イベント「夏予習版:雀のお宿の活動日誌〜閻魔亭繁盛記〜」にも触れている。さらに，9月には対応端末の更新も予定されており，iOS版はiOS 15.0以降かつiPhone 12以降，Android版はAndroid 7.0以降かつSnapdragon 855相当以上が推奨環境になるという。長く遊んでいるユーザーほど，ストレージ容量や端末性能を早めに確認しておきたい内容になっている。</p>
+        <p><strong>読む理由：</strong> 人気スマホゲームの大型技術更新を通じて，ゲーム運営・端末要件・大容量データ配信に関する日本語表現を読める。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>ゲームエンジン（げーむえんじん）</strong> — ゲームの描画，音，操作，処理などを支える基盤ソフトウェア</li>
+          <li><strong>一括（いっかつ）ダウンロード</strong> — 必要なデータをまとめて端末に保存する方式</li>
+          <li><strong>推奨環境（すいしょうかんきょう）</strong> — 快適に利用するために運営側がすすめる端末やOSの条件</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="zh">
+        <h3>中文 — G7面对中国的爱恨情仇</h3>
+        <div class="meta">德国之声中文网 · 2026-06-15 · <a href="https://www.dw.com/zh/g7面对中国的爱恨情仇/a-77545975">https://www.dw.com/zh/g7面对中国的爱恨情仇/a-77545975</a></div>
+        <p>这篇分析围绕6月15日至17日在法国埃维昂举行的G7峰会，讨论一个核心矛盾：中国已是全球最大工业国之一、经济与科技影响力巨大，却仍被排除在七国集团之外。文章回顾G7自1975年形成以来的“民主国家俱乐部”定位，并指出中国在政治制度、透明度和自由指标上与G7成员存在结构性差异。</p>
+        <p>文章也说明，虽然中国不在G7之内，却常常是G7议程的中心。中国的贸易顺差、关键稀土供应、汽车和先进制造出口，以及不断增强的科技与军事实力，都让G7国家感到压力。法国总统马克龙据称安排峰会时间专门讨论如何实现对华贸易“再平衡”。</p>
+        <p>报道最后呈现了北京与西方分析人士的不同视角：北京批评G7具有排他性，但也无法忽视其经济、科技、军事和金融影响力；而一些专家担心，如果贸然接纳中国，G7内部凝聚力可能受损，甚至重演俄罗斯加入G8后又被排除的前车之鉴。</p>
+        <p><strong>为什么读：</strong> 这是一篇适合练习国际政治中文表达的文章，集中呈现G7、中国、贸易与民主制度之间的复杂关系。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>贸易顺差 (màoyì shùnchā)</strong> — 一个国家出口额高于进口额的差额。</li>
+          <li><strong>再平衡 (zài pínghéng)</strong> — 调整失衡关系，使贸易、经济或政治结构更趋均衡。</li>
+          <li><strong>排他性 (páitāxìng)</strong> — 指某个组织或制度把特定对象排除在外的性质。</li>
+          <li><strong>特洛伊木马 (Tèluòyī mùmǎ)</strong> — 比喻表面无害、实际可能从内部破坏系统的因素。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      End of report · No quiet failure notes for this run.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #202124;
+      --muted: #66645f;
+      --accent: #315b55;
+      --accent-soft: #e7efec;
+      --rule: #d8d4ca;
+      --card: #ffffff;
+      --link: #245d82;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 38px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 24px 12px 20px;
+      margin-bottom: 34px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+    header .date {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 42px 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      line-height: 1.3;
+    }
+    h4 {
+      margin: 28px 0 12px;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    p { margin: 0.5em 0 0; }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: #173f59; }
+    .lead-grid, .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .lead-grid .story:first-child {
+      grid-column: 1 / -1;
+      border-top: 4px solid var(--accent);
+    }
+    .story {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 19px 20px;
+    }
+    .story p {
+      color: #343533;
+    }
+    .tags, .source-line {
+      margin-top: 11px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      line-height: 1.45;
+    }
+    .language-section {
+      margin-top: 50px;
+      padding-top: 6px;
+      border-top: 7px double var(--ink);
+    }
+    .language-note {
+      color: var(--muted);
+      font-style: italic;
+      margin-bottom: 24px;
+    }
+    .reading {
+      margin: 24px 0;
+      padding: 24px clamp(18px, 4vw, 34px);
+      background: var(--card);
+      border-left: 5px solid var(--accent);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .reading h3 {
+      font-size: 1.35rem;
+    }
+    .reading .byline {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      margin-bottom: 14px;
+    }
+    .reading ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+    .notes {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+    footer {
+      margin-top: 28px;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.06em;
+    }
+    @media (max-width: 720px) {
+      .page { width: min(100% - 22px, 1080px); padding-top: 18px; }
+      .lead-grid, .grid { grid-template-columns: 1fr; }
+      .lead-grid .story:first-child { grid-column: auto; }
+      body { font-size: 16px; }
+      .story { padding: 16px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="date">Wednesday, August 5, 2026 · Run 2026-08-05-1</div>
+    </header>
+
+    <section>
+      <h2>AI &amp; Robotics Research</h2>
+      <div class="lead-grid">
+        <article class="story">
+          <h3><a href="https://x.com/StanfordAILab/status/2084740768187699561">Why vision-language-action models struggle with contact-rich manipulation</a></h3>
+          <p>Stanford AI Lab highlights a paper examining persistent failures of vision-language-action models in robotic tasks where physical contact is central. The work targets a practical weakness in systems that must move beyond visual understanding and interact reliably with the physical world.</p>
+          <div class="tags">Robotics · VLA models · Manipulation</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/cgeorgiaw/status/2084659743042199837">OpenADMET launches a blinded CYP-inhibition benchmark</a></h3>
+          <p>The third OpenADMET scientific-ML challenge asks participants to predict cytochrome P450 inhibition from molecular structures across multiple tasks. It includes a newly collected dataset and uses a fully blinded experimental test set, offering a more rigorous check on real-world generalization.</p>
+          <div class="tags">Scientific ML · Drug discovery · Benchmark</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/Prince_Canuma/status/2084701992472228183">LFM2.5-2.6B benchmarked on Apple Silicon</a></h3>
+          <p>A local-inference test runs the model in full BF16 on an M5 Max with one to 16 concurrent streams. Reported results include 11,231 tokens per second for prefill, roughly 84 tokens per second for single-stream decoding, 476 aggregate tokens per second at batch 16, and 8.5 GB of memory for a 128K context.</p>
+          <div class="tags">Local inference · Apple Silicon · Language models</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/YouJiacheng/status/2084672287085842499">Delayed policies and the horizon of compounding error</a></h3>
+          <p>A technical analysis argues that delayed policies may shorten the path over which errors compound—an effect compared with TD(n)—even if they do not reduce the total number of function evaluations. The distinction may help clarify where such methods gain robustness.</p>
+          <div class="tags">Reinforcement learning · Policy learning</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/GoodfireAI/status/2084673339055038559">Attention-layer removal reportedly improves robotics-model efficiency by 40%</a></h3>
+          <p>An interpretability-guided analysis reportedly found that many attention layers could be removed from a robotics model, producing a 40% efficiency improvement. The available source excerpt does not include enough methodological detail to assess the result fully.</p>
+          <div class="tags">Interpretability · Model pruning · Robotics</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/giffmana/status/2084381298240475254">Testing video-model bias through ambiguous continuations</a></h3>
+          <p>A proposed experiment begins with a video prefix that admits several plausible continuations, then observes which future a generative model chooses. This offers a concrete way to expose preferences or biases encoded in video-generation systems.</p>
+          <div class="tags">Video models · Bias · Evaluation</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Genomics</h2>
+
+      <h4>Featured resources and evaluations</h4>
+      <div class="grid">
+        <article class="story">
+          <h3><a href="https://x.com/anshulkundaje/status/2084836326000746855">ENCODE GRAMMAR publishes 3,865 interpretable regulatory-sequence model sets</a></h3>
+          <p>ENCODE GRAMMAR is an open atlas of BPNet-family models for decoding human regulatory DNA. It covers transcription-factor binding, chromatin accessibility, transcription initiation, and reporter assays, with base-resolution contribution maps, motifs, denoised profiles, ensemble uncertainty, and genome-browser tracks. Resources are being distributed through ENCODE, Hugging Face, UCSC, and the ENCODE Motif Compendium.</p>
+          <div class="tags">Genomics · Regulatory DNA · Interpretability · Open data</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2084296001188409794">Protein models face mutation-induced fold switching</a></h3>
+          <p>An NMR-characterized benchmark tests AlphaFold2/3, ESMFold2, ESM3, Boltz-1x, AF-Cluster, and related methods on switching between GA and GB folds. Sensitivity varies strongly by mutation site; most methods struggle with multi-state energetics, while MSA usage and recycling can qualitatively alter predictions. The study argues for explicit ensemble and thermodynamic modeling.</p>
+          <div class="tags">Protein dynamics · AlphaFold · NMR · Model evaluation</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/GoodfireAI/status/2084678115004170312">Generated protein binder prompts a memorization audit</a></h3>
+          <p>A technical analysis asks whether a supposedly novel 76-residue binder generated by BoltzGen reproduces ubiquitin-like structure or sequence. The case raises broader questions about novelty, memorization, and evaluation in generative protein design, although the supplied account ends before the full findings.</p>
+          <div class="tags">Protein design · Memorization · Generative models</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/GoodfireAI/status/2084675480213700905">Probing structural representations inside ESM-C</a></h3>
+          <p>A research thread investigates how the ESM-C protein language model represents structural information from amino-acid sequence alone. The available excerpt contains only the opening of the technical analysis, but the question is central to understanding what protein language models learn internally.</p>
+          <div class="tags">Protein language models · Representation learning · Interpretability</div>
+        </article>
+      </div>
+
+      <h4>Single-cell, regulatory, and sequencing methods</h4>
+      <div class="grid">
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084663427738522080">CellForge proposes agentic virtual-cell model design</a></h3>
+          <p>CellForge is introduced as an agentic framework for designing virtual-cell models. The available announcement does not describe its tasks, evaluation protocol, or results.</p>
+          <div class="tags">Virtual cells · Agents · Model design</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084663397556383957">TENET traces regulatory-element networks</a></h3>
+          <p>TENET is presented as a method for reconstructing regulatory-element networks from epigenetic traits and identifying influential transcription factors. Detailed benchmarks were not included in the source excerpt.</p>
+          <div class="tags">Gene regulation · Epigenomics · Transcription factors</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084663148091761094">Double optimal transport for unpaired regulatory-network studies</a></h3>
+          <p>A new approach applies double optimal transport to infer differential gene-regulatory networks from unpaired samples, addressing a common problem in cross-condition and multimodal studies.</p>
+          <div class="tags">Optimal transport · Regulatory networks · Omics</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084586548520214808">scMultiNODE integrates temporal single-cell modalities</a></h3>
+          <p>scMultiNODE is introduced as an integrative model for multimodal, temporal single-cell data. Architecture, datasets, and benchmark results were not supplied in the collected item.</p>
+          <div class="tags">Single-cell · Multi-omics · Cell dynamics</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084663114998636630">scMomer pretrains with missing single-cell modalities</a></h3>
+          <p>scMomer is a modality-aware pretraining framework intended for single-cell multi-omics datasets in which one or more modalities are absent—a practical limitation for biological foundation models.</p>
+          <div class="tags">Single-cell · Pretraining · Missing data</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084663070358704139">Hi-Cformer models chromatin contacts across scales</a></h3>
+          <p>Hi-Cformer is introduced for multiscale modeling of chromatin-contact maps in single-cell Hi-C analysis, connecting representation learning with 3D-genome research.</p>
+          <div class="tags">Single-cell Hi-C · Chromatin · 3D genomics</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084663086548684838">MultiNano detects single-base m6A from nanopore signals</a></h3>
+          <p>MultiNano is presented as a multi-view method for detecting and quantifying m6A RNA modifications at single-base resolution directly from nanopore signals. Benchmark details were not included.</p>
+          <div class="tags">RNA · m6A · Nanopore · Epitranscriptomics</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084663160922153409">Snappy discovers DNA methylation sites from nanopore reads</a></h3>
+          <p>Snappy aims to identify DNA methylation sites de novo from Oxford Nanopore reads. The supplied announcement does not specify performance or the supported modification types.</p>
+          <div class="tags">DNA methylation · Nanopore · Epigenomics</div>
+        </article>
+      </div>
+
+      <h4>Protein engineering, medicine, and research practice</h4>
+      <div class="grid">
+        <article class="story">
+          <h3><a href="https://x.com/DdelAlamo/status/2084817052276035810">Turning static small-molecule binders into shape-changing proteins</a></h3>
+          <p>A bioRxiv paper reportedly describes a method for converting static small-molecule-binding proteins into dynamic, shape-changing systems. The available excerpt does not include the design mechanism or validation results.</p>
+          <div class="tags">Protein design · Molecular sensing · Protein dynamics</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2084584410545115375">A global view of human centromere variation</a></h3>
+          <p>A Nature study maps variation and evolution in human centromeres, repetitive and structurally variable regions that have historically been difficult to study. Study size and methods were not included in the collected announcement.</p>
+          <div class="tags">Human genomics · Centromeres · Evolution</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/anshulkundaje/status/2084726055768887314">PRISM2 pathology foundation model receives published validation</a></h3>
+          <p>PRISM2 is described as a multimodal, slide-level pathology foundation model with newly published results. The supplied source does not provide its clinical tasks, cohorts, or performance figures.</p>
+          <div class="tags">Pathology · Multimodal AI · Foundation models</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/anshulkundaje/status/2084731113432625367">“Drug Discovery Has No Magic Wands” pushes back on AI hype</a></h3>
+          <p>The highlighted essay challenges claims that AI alone can rapidly solve cancer or drug discovery. Its central argument, as summarized in the available discussion, is that unresolved disease mechanisms and experimental evidence remain the bottleneck—not merely binder generation or computational scale.</p>
+          <div class="tags">Drug discovery · AI evaluation · Experimental biology</div>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/schwabpa/status/2084844540960059679">In biomedical AI, causal quality may matter more than data volume</a></h3>
+          <p>Patrick Schwab argues that clean experiments capable of resolving mechanistic questions can contain more causal information than much larger associational datasets. Related discussion emphasizes negative evidence and experiments that decisively eliminate hypotheses.</p>
+          <div class="tags">Causal inference · Data quality · Experimental design</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice · Tägliche Lektüre · Lecture quotidienne · 毎日の読み物 · 每日阅读</h2>
+      <p class="language-note">Edited reading selections are preserved in their original languages.</p>
+
+      <article class="reading" lang="de">
+        <h3>Deutsch — Ceuta als Stresstest für Europas neuen Asylpakt</h3>
+        <div class="byline">Deutsche Welle · 4. August 2026 · <a href="https://www.dw.com/de/ceuta-als-stresstest-f%C3%BCr-europas-neuen-asylpakt-spanien-grenzkontrollen/a-78235760">Link</a></div>
+        <p>Nach dem massenhaften Grenzübertritt aus Marokko in die spanische Exklave Ceuta steht der neue EU-Asyl- und Migrationspakt vor einer frühen Bewährungsprobe. Spanien stabilisierte die Lage mit zusätzlichen Polizei- und Armeekräften. Bei einer außerordentlichen Beratung stellten sich die EU-Innenminister hinter Madrid und betonten ihre Solidarität, obwohl zuvor mehrere Regierungen Zweifel am Schutz der europäischen Außengrenze geäußert hatten.</p>
+        <p>Die europäischen Partner wollen Frontex stärken, Rückführungen unterstützen und entschiedener gegen Schleusernetzwerke vorgehen. Zugleich zeigen zusätzliche Grenzkontrollen Frankreichs und anderer Staaten, dass das Vertrauen in den Schengenraum belastet bleibt. Ungeklärt ist außerdem, ob Migranten auf andere Mitgliedstaaten verteilt werden sollen und wie weit die EU bei der Auslagerung von Asylverfahren in Drittstaaten gehen könnte.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag zeigt anschaulich, wie eine akute Grenzkrise die Solidarität der EU und ihr gerade erst eingeführtes Asylsystem auf die Probe stellt.</p>
+      </article>
+
+      <article class="reading" lang="fr">
+        <h3>Français — Écotaxe, encadrement des loyers... Des propositions pour les commerces de proximité</h3>
+        <div class="byline">ActuaLitté · 4 août 2026 · <a href="https://actualitte.com/article/133105/librairie/ecotaxe-encadrement-des-loyers-des-propositions-pour-les-commerces-de-proximite">Lien</a></div>
+        <p>Face aux difficultés des librairies et, plus largement, des commerces de proximité, les députés Laurent Lhardit et Jean-Pierre Vigier présentent une quarantaine de recommandations. Leur rapport décrit une profonde recomposition du commerce français : raréfaction des boutiques en milieu rural, hausse de la vacance commerciale en ville, affaiblissement des centres-villes et concurrence croissante des plateformes en ligne. Il propose notamment la création de zones prioritaires de commerce et, à titre expérimental, un encadrement local des loyers commerciaux.</p>
+        <p>Les rapporteurs veulent également faciliter la reprise des entreprises alors que 500 000 dirigeants devraient partir à la retraite au cours des dix prochaines années. Ils préconisent un guichet unique d’information, un recours accru au crédit-vendeur et un meilleur accompagnement des repreneurs. Pour rééquilibrer la concurrence avec le commerce électronique, ils suggèrent enfin une écotaxe sur la vente à distance, l’extension de la taxe sur les surfaces commerciales aux entrepôts en ligne et une taxe européenne sur le chiffre d’affaires des grandes plateformes.</p>
+        <p><strong>Pourquoi lire :</strong> L’article éclaire les difficultés économiques des librairies tout en présentant des mesures concrètes susceptibles de transformer les centres-villes et le commerce en ligne.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>vacance commerciale</strong> — présence durable de locaux commerciaux inoccupés dans un territoire</li>
+          <li><strong>preneur à bail</strong> — personne ou entreprise qui loue un local dans le cadre d’un contrat de bail</li>
+          <li><strong>crédit-vendeur</strong> — financement par lequel le vendeur accepte que l’acheteur paie une partie du prix de reprise de manière différée</li>
+          <li><strong>déréférencement</strong> — retrait d’un produit, d’un vendeur ou d’une plateforme des résultats et catalogues accessibles au public</li>
+        </ul>
+      </article>
+
+      <article class="reading" lang="ja">
+        <h3>日本語 — キオクシア、“フラッシュメモリでDRAMを補う”拡張モジュール発表。AI時代のメモリ不足を救うかも</h3>
+        <div class="byline">AUTOMATON · 2026年8月5日 · <a href="https://automaton-media.com/articles/newsjp/20260805-458507/">リンク</a></div>
+        <p>国内半導体メーカーのキオクシアが、AI処理を想定したメモリ拡張モジュール「KIOXIA XL1シリーズ」を発表した。低遅延のフラッシュメモリ「XL-FLASH」とCXL規格のインターフェースを組み合わせ、DRAMとNANDフラッシュの中間に位置する記憶領域を提供する。アクセス頻度の低いデータをこのモジュールへ移すことで、高価なDRAMをより効率よく使えるという。</p>
+        <p>AIの普及に伴い、データセンターではメモリの容量不足とコスト上昇が課題になっている。XL1シリーズは2026年8月中に業界パートナー向け評価用サンプルが出荷される予定だが、製品化はまだ未定で、当面はAIワークロードでの利用が中心となる見込みだ。将来は一般消費者向け製品へ応用される可能性もある。</p>
+        <p><strong>読む理由：</strong> AI時代のメモリ不足に対し、日本企業が提案する新しい半導体技術を具体的に学べる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>不揮発性メモリ（ふきはつせいメモリ）</strong> — 電源を切っても保存したデータが消えない記憶装置。</li>
+          <li><strong>低遅延（ていちえん）</strong> — データの要求から応答までの待ち時間が短いこと。</li>
+          <li><strong>ストレージクラスメモリ</strong> — DRAMの速度とフラッシュメモリの大容量・不揮発性の中間を担うメモリ技術。</li>
+        </ul>
+      </article>
+
+      <article class="reading" lang="zh-Hans">
+        <h3>中文 — 数说科技：太空垃圾砸破我家屋顶了，我该向谁求偿？</h3>
+        <div class="byline">端传媒 · 2026-08-05 · <a href="https://theinitium.com/20260805-tech-in-numbers-who-pays-for-space-debris-damage-zh-hans/">链接</a></div>
+        <p>随着火箭发射与卫星活动增加，坠回地球的太空垃圾已不是纯粹的科幻想像。文章指出，如今每天都有太空垃圾进入大气层，每周约有一块重量超过一吨的碎片坠落；现有太空监测网络正在追踪约四万件在轨碎片。</p>
+        <p>报道以肯亚马库埃尼郡的事故为例：2025年1月，一个直径约2.4公尺、重约453公斤的金属环从天而降，落入当地村庄。这样的事件带出一个日益现实的问题：当太空碎片损坏民居或危及人身安全时，受害者应向谁求偿，又该如何确认碎片的来源与责任归属？</p>
+        <p><strong>为什么读：</strong> 从具体坠落事故切入太空产业扩张带来的公共安全与跨国责任问题，篇幅短而信息密集。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>太空碎片 (tàikōng suìpiàn)</strong> — 火箭、卫星等航天器遗留在太空中或坠回地球的废弃物体。</li>
+          <li><strong>在轨 (zàiguǐ)</strong> — 物体仍在环绕地球或其他天体的轨道上运行。</li>
+          <li><strong>求偿 (qiúcháng)</strong> — 因财产损失或人身伤害而要求责任方作出赔偿。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notes">
+      <strong>Source note:</strong> Several research announcements and linked threads were truncated in the supplied material. Items lacking abstracts, methods, or benchmark results have therefore been described conservatively, and reported claims should be assessed through the linked sources.
+    </aside>
+
+    <footer>News Daily · August 5, 2026</footer>
+  </main>
+
+
+
+</body>
+</html>

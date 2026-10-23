@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20242a;
+      --muted: #626a73;
+      --paper: #fffdf8;
+      --page: #ece9e1;
+      --accent: #8b2e2e;
+      --rule: #d5d0c5;
+      --soft: #f4f0e7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    main {
+      width: min(960px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 3rem clamp(1.2rem, 5vw, 4rem);
+      background: var(--paper);
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 1.4rem 0 1.1rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 8vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+    .date {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    section { margin: 2.8rem 0; }
+    .section-title {
+      margin: 0 0 1.4rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 3px double var(--ink);
+      font-family: system-ui, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    article {
+      padding: 0 0 1.5rem;
+      margin: 0 0 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.42rem;
+      line-height: 1.25;
+    }
+    h3 a { color: var(--ink); }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    p { margin: 0.55rem 0; }
+    .source-line {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .tags {
+      margin-top: 0.8rem;
+      font-family: system-ui, sans-serif;
+      font-size: 0.76rem;
+      color: var(--muted);
+    }
+    .tags span {
+      display: inline-block;
+      margin: 0.15rem 0.3rem 0.15rem 0;
+      padding: 0.15rem 0.45rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--soft);
+    }
+    .language-practice {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 6px double var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      font-style: italic;
+      margin: -0.7rem 0 2rem;
+    }
+    .language-block {
+      padding: 1.4rem;
+      margin: 1.5rem 0;
+      border: 1px solid var(--rule);
+      background: #fffefa;
+    }
+    .language-block h3 {
+      padding-bottom: 0.55rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .language-block ul {
+      margin: 0.55rem 0 0;
+      padding-left: 1.4rem;
+    }
+    .notes {
+      margin-top: 3.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+    }
+    @media (min-width: 760px) {
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 2rem;
+      }
+      .story-grid article:nth-last-child(-n+2) { border-bottom: 0; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p class="date">Monday, August 17, 2026 · Run 2026-08-17-1</p>
+  </header>
+
+  <section>
+    <h2 class="section-title">Artificial Intelligence</h2>
+    <div class="story-grid">
+      <article>
+        <h3><a href="https://x.com/ID_AA_Carmack/status/2089193025826140182">Replay buffers versus single-use observations in streaming reinforcement learning</a></h3>
+        <p>John Carmack questions the practice of using each observation once and then discarding it in streaming reinforcement learning. Even under tight memory constraints, he argues, a managed replay buffer holding hundreds of sparse observations should offer useful options beyond bootstrapping—making a one-observation buffer unlikely to be optimal.</p>
+        <p class="tags"><span>Reinforcement learning</span><span>Replay buffers</span><span>Streaming learning</span></p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/gen0m1cs/status/2089051520499060954">Survey reviews statistical methods for generative AI</a></h3>
+        <p>A research post points to Edgar Dobriban’s review, <em>Statistical Methods in Generative Artificial Intelligence</em>, published in the <em>Annual Review of Statistics and Its Application</em>. It offers a route into the statistical methodology underlying generative models, although the available source snapshot does not include the complete linked-resource details.</p>
+        <p class="tags"><span>Generative modeling</span><span>Statistics</span><span>Survey</span></p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2088909363209723909">Long context may increase reliance on supplied facts</a></h3>
+        <p>A highlighted research result suggests that long context presents more than a processing challenge: supplying it may also cause models to rely more heavily on that context as their factual source. The available snapshot does not expose the paper or its full methodology, but the claim raises an important question about how context length changes model behavior.</p>
+        <p class="tags"><span>Long context</span><span>Language models</span><span>Model behavior</span></p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Biology &amp; Medicine</h2>
+    <div class="story-grid">
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2089023377231241559">How does a genome specify the construction of a brain?</a></h3>
+        <p>A research thread revisits the algorithmic problem of how a genome can direct brain development. Rather than stopping at lists of known molecules and mechanisms, it asks what principles can explain the construction of complex neural organization. The supplied post is truncated, so its specific framework and results are not available.</p>
+        <p class="tags"><span>Genomics</span><span>Developmental biology</span><span>Neuroscience</span></p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2088948170353205367">Directed evolution develops an enzyme for DNA synthesis</a></h3>
+        <p>A shared research item reports that Forget and colleagues used directed evolution to develop an enzyme that facilitates the synthesis of desired DNA sequences. This could be enabling work for genome engineering and synthetic biology, though the available excerpt does not describe the synthesis regime, performance, or experimental scope.</p>
+        <p class="tags"><span>DNA synthesis</span><span>Directed evolution</span><span>Synthetic biology</span></p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2088837686924841349">A challenge to aggressive AI-for-medicine forecasts</a></h3>
+        <p>Anshul Kundaje asks advocates of the claim that most human diseases could become curable within five to ten years to spell out how that transition would happen. The post does not offer a detailed counter-model, but it usefully presses for concrete biological, translational, and clinical pathways connecting model progress to cures.</p>
+        <p class="tags"><span>AI for medicine</span><span>Scientific forecasting</span><span>Clinical translation</span></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="language-practice">
+    <h2 class="section-title">Language Practice</h2>
+    <p class="language-intro">Edited reading selections are preserved in their original languages.</p>
+
+    <article class="language-block" lang="de">
+      <h3><a href="https://www.tagesschau.de/wirtschaft/konjunktur/unternehmen-abwanderung-ungarn-100.html">Deutsch — Warum deutsche Industrie ihr Glück in Ungarn sucht</a></h3>
+      <p class="source-line">Tagesschau · 17.08.2026 · <a href="https://www.tagesschau.de/wirtschaft/konjunktur/unternehmen-abwanderung-ungarn-100.html">Artikel öffnen</a></p>
+      <p>Hohe Energie-, Lohn- und Fertigungskosten sowie eine schwächere Nachfrage setzen die deutsche Industrie unter Druck. Der Automobilzulieferer KACO hat deshalb mehrere Produktionsanlagen aus Baden-Württemberg nach Ungarn verlagert. Eine Unternehmensumfrage zeigt, dass viele Führungskräfte bis 2030 mit weiterem Stellenabbau in Deutschland rechnen, während Osteuropa als Produktionsstandort an Bedeutung gewinnt.</p>
+      <p>Besonders die Autoindustrie investiert stark in Ungarn: BMW, Audi und Mercedes-Benz betreiben dort große Werke, zugleich bauen chinesische Konzerne neue Produktionsstätten auf. Neben deutlich niedrigeren Arbeitskosten sprechen kurze Lieferwege und die Produktion direkt in den jeweiligen Absatzmärkten für den Standort. Für Deutschland sieht der Beitrag Chancen vor allem in Forschung, Entwicklung und Innovation – zugleich warnt der KACO-Geschäftsführer vor Wohlstandsverlusten durch eine fortschreitende Deindustrialisierung.</p>
+      <p><strong>Warum lesen:</strong> Der Artikel veranschaulicht an einem konkreten Unternehmen, wie Kostendruck und internationale Standortentscheidungen die Zukunft der deutschen Industrie verändern.</p>
+    </article>
+
+    <article class="language-block" lang="fr">
+      <h3><a href="https://www.france24.com/fr/afrique/20260817-alvin-junior-mak-%C3%A9toile-montante-mode-franco-congolaise-propuls%C3%A9-mondial">Français — Alvin Junior Mak, étoile montante de la mode franco-congolaise propulsé par le Mondial</a></h3>
+      <p class="source-line">France 24 · 17 août 2026 · <a href="https://www.france24.com/fr/afrique/20260817-alvin-junior-mak-%C3%A9toile-montante-mode-franco-congolaise-propuls%C3%A9-mondial">Lire l’article</a></p>
+      <p>Styliste autodidacte né à Kinshasa et installé en France depuis l’enfance, Alvin Junior Mak s’est fait remarquer en dessinant la tenue officielle de l’équipe de République démocratique du Congo pour le Mondial 2026. Son costume noir, agrémenté d’un empiècement léopard et d’une broche représentant l’animal emblématique du pays, conjugue selon lui créativité congolaise et élégance parisienne. Le portrait revient sur l’influence de la sape, sur son passage par l’aide sociale à l’enfance et sur ses débuts professionnels dans le prêt-à-porter puis le luxe.</p>
+      <p>Après l’échec financier de sa première collection, le créateur a choisi de fabriquer en France des pièces haut de gamme en petites séries. La visibilité apportée par des artistes et des footballeurs a progressivement renforcé sa notoriété, avant que la tenue des Léopards ne fasse connaître sa marque à l’échelle internationale. Pour ce projet, il a confié la confection à un atelier de Kinshasa et y a associé des victimes de la guerre dans l’est du pays dans une démarche de réinsertion économique.</p>
+      <p>Le retentissement du Mondial a entraîné une hausse spectaculaire de ses ventes et l’oblige désormais à adapter la logistique, les expéditions et le service client de son entreprise. Alvin Junior Mak refuse toutefois de considérer ce succès comme un aboutissement : il prépare une nouvelle collection ainsi qu’un premier défilé pour janvier 2027, avec l’ambition d’inscrire durablement sa marque Jmakxparis dans le paysage de la mode française.</p>
+      <p><strong>Pourquoi lire :</strong> Ce portrait associe mode, entrepreneuriat, double culture franco-congolaise et retombées économiques d’une réussite internationale.</p>
+      <p><strong>Vocabulaire utile</strong></p>
+      <ul>
+        <li><strong>la sape</strong> — mouvement culturel congolais qui érige l’élégance vestimentaire, l’originalité et la mise en scène de soi en véritable art de vivre</li>
+        <li><strong>un empiècement</strong> — morceau de tissu intégré à un vêtement pour renforcer sa structure ou créer un effet décoratif</li>
+        <li><strong>le prêt-à-porter</strong> — vêtements produits en série dans des tailles standardisées, par opposition aux créations sur mesure</li>
+        <li><strong>la confection</strong> — fabrication de vêtements, notamment par la coupe et l’assemblage des tissus</li>
+        <li><strong>la réinsertion</strong> — processus permettant à une personne fragilisée ou marginalisée de retrouver une place dans la vie sociale et professionnelle</li>
+      </ul>
+    </article>
+
+    <article class="language-block" lang="ja">
+      <h3><a href="https://news.web.nhk/newsweb/na/nd-20260817de44439">日本語 — リヒテンシュタイン 女性も国家元首可能に 欧州で転換進む</a></h3>
+      <p class="source-line">NHKニュース · 2026年8月17日 · <a href="https://news.web.nhk/newsweb/na/nd-20260817de44439">記事を読む</a></p>
+      <p>リヒテンシュタインは国家元首の継承制度を改め、性別にかかわらず第1子を優先することにしました。これにより、女性にも国家元首の継承権が認められるようになります。</p>
+      <p>記事はこの法改正を、王位継承において性別を問わず第1子を優先するヨーロッパの流れの一つとして紹介しています。伝統的な君主制が、男女平等という現代的な考え方にどう対応しているかを知ることができます。</p>
+      <p><strong>読む理由：</strong> ヨーロッパの君主制と男女平等をめぐる制度の変化を、簡潔なニュース日本語で学べます。</p>
+      <p><strong>語彙メモ</strong></p>
+      <ul>
+        <li><strong>国家元首（こっかげんしゅ）</strong> — 国を代表する最高位の地位にある人物</li>
+        <li><strong>継承権（けいしょうけん）</strong> — 地位や財産などを引き継ぐことのできる権利</li>
+        <li><strong>王位継承（おういけいしょう）</strong> — 国王や君主の地位を次の人物が受け継ぐこと</li>
+      </ul>
+    </article>
+
+    <article class="language-block" lang="zh-Hans">
+      <h3><a href="https://theinitium.com/20260817-mainland-china-tech-tour-story-zh-hans/">中文 — 我走进中国科技旅游“蓝海”：深圳会迎来WALL-E美丽新世界吗？</a></h3>
+      <p class="source-line">端传媒 · 2026-08-17 · <a href="https://theinitium.com/20260817-mainland-china-tech-tour-story-zh-hans/">阅读文章</a></p>
+      <p>过去一年，深圳兴起了一种把新兴技术基础设施串联起来的“科技游”。报道以导游Fred经营的路线为切口：去年，国际导游平台上的深圳线路还以莲花山、南头古城等传统景点为主；如今，无人机、机器人及科技企业相关体验已占据推荐流前列，热门线路积累了数百条好评。</p>
+      <p>类似产品也开始出现在上海、杭州和北京，部分多日旅行团还加入参观阿里巴巴、宇树科技、比亚迪或华为工厂，以及与创业者对话等闭门体验，收费可达数千美元。文章把这股风潮放在中国扩大入境游、对外展示科技形象的背景下，观察高度视觉化的技术景观如何被包装成旅游产品。</p>
+      <p><strong>为什么读：</strong> 从深圳的新旅游生意切入，可以同时理解城市形象、平台经济与中国科技叙事如何彼此塑造。</p>
+      <p><strong>词汇笔记</strong></p>
+      <ul>
+        <li><strong>蓝海 (lánhǎi)</strong> — 竞争尚少、仍有较大发展空间的新市场。</li>
+        <li><strong>入境游 (rùjìng yóu)</strong> — 外国或境外游客进入一个国家或地区进行的旅游活动。</li>
+        <li><strong>闭门体验 (bìmén tǐyàn)</strong> — 不向普通公众开放、仅限特定参与者进入的参访或交流活动。</li>
+      </ul>
+    </article>
+  </section>
+
+  <aside class="notes">
+    <strong>Source note:</strong> Several research posts were available only as shortened or truncated snapshots. Where the underlying paper, methods, or experimental details were missing, the summaries above retain that limitation and link to the available post.
+  </aside>
+
+  <footer>
+    News Daily · August 17, 2026
+  </footer>
+</main>
+
+
+
+</body>
+</html>

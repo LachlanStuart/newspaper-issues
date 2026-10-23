@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --ink: #20201e;
+      --muted: #68665f;
+      --accent: #8b2e2e;
+      --line: #d7d1c5;
+      --card: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(1120px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.5rem 0 4rem;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.25rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section { margin: 2.75rem 0; }
+    .section-title {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 0.4rem;
+      margin: 0 0 1.25rem;
+      font-size: 1.75rem;
+    }
+    .intro {
+      color: var(--muted);
+      max-width: 720px;
+      margin-top: -0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+      gap: 1rem;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 1.15rem 1.2rem;
+      break-inside: avoid;
+    }
+    article h3 {
+      margin: 0 0 0.6rem;
+      font-size: 1.18rem;
+      line-height: 1.28;
+    }
+    article p { margin: 0.55rem 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .tags {
+      margin-top: 0.85rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.76rem;
+    }
+    .language-practice {
+      margin-top: 4rem;
+      padding-top: 1rem;
+      border-top: 5px solid var(--ink);
+    }
+    .language-item {
+      margin: 1.5rem 0 2rem;
+      padding: 1.4rem;
+    }
+    .language-item h3 {
+      font-size: 1.35rem;
+    }
+    .byline {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .language-item ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.35rem;
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 3rem;
+      padding-top: 1rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p>Saturday, September 19, 2026 · Research and language edition</p>
+  </header>
+
+  <section>
+    <h2 class="section-title">AI Research &amp; Evaluation</h2>
+    <div class="grid">
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2101020335000998089">Context-sharded parallelism speeds diffusion-language-model training</a></h3>
+        <p>Stanford researchers introduce Context-Sharded Block Parallelism, a distributed strategy whose efficiency gains increase with context length. Reported results include 7.59× faster DFlash2 drafter training, 1.61× faster block-diffusion fine-tuning, and 1.33× faster autoregressive-to-block-diffusion adaptation.</p>
+        <p class="tags">Distributed training · Diffusion language models · Parallelism</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/classiclarryd/status/2101035266396111160">NanoGPT speedrun reaches 67.6 seconds</a></h3>
+        <p>The new record uses dataset-derived masks to stop multi-token prediction from assigning probability to token pairs that cannot occur under the tokenizer. The change reportedly improves validation loss and lowers the record from 68.0 to 67.6 seconds.</p>
+        <p class="tags">Language-model training · Tokenization · Multi-token prediction</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/ID_AA_Carmack/status/2100947920556024260">Carmack tests TD-error centering for relative value learning</a></h3>
+        <p>John Carmack reframes relative Bellman regression as subtracting the mean temporal-difference error from each sample’s error. It did not improve his tasks, but the negative result led to a hypothesis about persistent Q-learning overestimation: maximum-action bootstrap values may lack corresponding downward Bellman pressure.</p>
+        <p class="tags">Reinforcement learning · Q-learning · Bellman regression</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/steipete/status/2101192464275279968">Epoch AI begins auditing 15 benchmarks</a></h3>
+        <p>Epoch AI has launched a Benchmark Reviews initiative covering 15 AI benchmarks. The available announcement is truncated, so its review criteria and the full set of benchmark categories are not yet clear from the supplied material.</p>
+        <p class="tags">Benchmarks · Evaluation · Auditing</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/steipete/status/2100966012749541490">WeirdML v3 introduces 11 agentic tasks</a></h3>
+        <p>WeirdML v3 is described as a fully agentic benchmark with 11 complex, hand-built tasks requiring models to explore and understand unfamiliar environments. The available announcement does not include the complete task descriptions.</p>
+        <p class="tags">Agents · Benchmarks · Environment exploration</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/yifanzhang_/status/2101068650161807857">A research thread connects GPO, RPG, and BPO scaling recipes</a></h3>
+        <p>Yifan Zhang collects GPO, RPG, and BPO as related approaches near the frontier of reinforcement-learning scaling, while noting that the GPO paper appeared two years ago. The supplied data contains shortened resource links rather than their canonical destinations.</p>
+        <p class="tags">Reinforcement learning · Scaling · Training methods</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/gen0m1cs/status/2101113807955226838">Converting disease-PGS R² to the liability scale</a></h3>
+        <p>A preprint by Uffelmann and Visscher revisits how Nagelkerke’s R² for disease polygenic scores should be converted to the liability scale. The discussion also points readers to Lee and colleagues’ 2012 work.</p>
+        <p class="tags">Genomics · Polygenic scores · Statistics</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2100743920103854113">Layer looping and model growth target better scaling</a></h3>
+        <p>A new paper combines layer looping with model growth in an effort to improve neural scaling behavior. The supplied post is truncated before its complete claims and supporting resource link appear.</p>
+        <p class="tags">Looped transformers · Scaling laws · Recurrent depth</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Biology, Genomics &amp; Drug Discovery</h2>
+    <div class="grid">
+      <article>
+        <h3><a href="https://x.com/BrianHie/status/2100946452205977697">VIPR RNA system reveals an unexpected form of DNA recognition</a></h3>
+        <p>A newly published <em>Science</em> paper introduces VIPR, discovered through investigation of a previously mysterious RNA. The work points to an unexpected mode of DNA recognition, although the available post does not describe the mechanism in detail.</p>
+        <p class="tags">RNA · DNA recognition · Genome engineering</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/DdelAlamo/status/2100915865378033798">TorchFold improves antibody–antigen prediction through self-distillation</a></h3>
+        <p>TorchFold reportedly more than doubles its FoldBench performance after adding high-confidence predictions sampled from sequence databases to training. Discussion suggests extensive sampling may uncover correct, confident structures that can then be distilled into later models.</p>
+        <p class="tags">Antibodies · Structure prediction · Self-distillation</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/DdelAlamo/status/2100917758414221771">Confidence modules can rank externally supplied molecular poses</a></h3>
+        <p>Existing poses can apparently be scored by running a structure predictor’s trunk, bypassing its diffusion module, and sending the poses directly to its confidence module. This could repurpose co-folding confidence heads for docking and virtual-screening workflows without regenerating structures.</p>
+        <p class="tags">Pose scoring · Virtual screening · Drug discovery</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/kavi_deniz/status/2101011930173571232">Claude-generated kernels accelerate biomolecular models</a></h3>
+        <p>Anthropic reports optimizing computational kernels for more than 30 open structure-prediction and molecular-design models, including ESMFold2, OpenDDE, and RFdiffusion. The claimed average speedup is roughly fourfold without major accuracy losses; separate users report similar gains and higher training utilization.</p>
+        <p class="tags">Biomolecular modeling · Software optimization · Protein design</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2101178305357697495">“Virtual Biotech” deploys more than 37,000 agents</a></h3>
+        <p>A <em>Science</em> paper described in the supplied posts uses more than 37,000 AI agents to identify promising drug targets and make forecasts. Other researchers have questioned its evaluation, but the available excerpts do not provide enough detail to assess either the targets or their validation.</p>
+        <p class="tags">AI agents · Drug targets · Evaluation</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StevenSalzberg1/status/2100642795685830987">Review challenges AlphaGenome variant scoring</a></h3>
+        <p>A critical thread questions the usefulness and evaluation of DeepMind’s precomputed AlphaGenome scores. The discussion raises possible indirect leakage or circular training logic, emphasizes realistic class imbalance in exome prioritization, and argues that stronger expression models may need perturbation data, evolutionary information, or additional biophysical inductive biases.</p>
+        <p class="tags">AlphaGenome · Variant interpretation · Data leakage</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2101062338329890960">What would make a virtual cell a true world model?</a></h3>
+        <p>A new framework distinguishes today’s perturbation predictors from persistent virtual cells. Current systems often predict population-level transcriptomic responses from destructive measurements; fuller world models would maintain state and propagate interventions into coherent molecular, structural, interaction, and morphological outcomes over time.</p>
+        <p class="tags">Virtual cells · World models · Single-cell biology</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2101061209302991117">scBaseCount standardizes public 10x single-cell data</a></h3>
+        <p>scBaseCount mines public 10x Genomics scRNA-seq datasets from the Sequence Read Archive and reprocesses them through a standardized pipeline. Its SRAgent system continuously identifies repositories, reconciles metadata, and supports discovery, annotation, and raw-data reprocessing.</p>
+        <p class="tags">Single-cell RNA-seq · Data harmonization · AI agents</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2101060594539663854">DELPHAI models heterogeneous perturbation responses</a></h3>
+        <p>DELPHAI jointly trains a single-cell fitness network and an optimal-transport network without explicit biological priors. It reweights control-cell distributions by learned survival fitness, transports them toward perturbed populations, and retrieves expression changes in gene space. The authors report leading differentially expressed gene prediction while exposing which lineages a perturbation depletes.</p>
+        <p class="tags">Single-cell · Optimal transport · Cell fitness</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2101060160009785423">Delphy scales Bayesian phylogenetics to epidemic datasets</a></h3>
+        <p>Delphy is presented as an exact, faster, and more scalable reformulation of Bayesian phylogenetics. It uses explicit mutation-annotated trees to exploit the high sequence similarity of large epidemic datasets and samples posterior trees through Markov-chain Monte Carlo moves.</p>
+        <p class="tags">Phylogenetics · Epidemiology · MCMC</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2101146146022265206">Intercellular CRISPR screening probes cell-to-cell interactions</a></h3>
+        <p>A new screening approach aims to move beyond cell-intrinsic effects and measure genetic control of interactions between cells. The supplied posts establish the motivation and multicellular focus but do not provide enough detail about the assay design or results.</p>
+        <p class="tags">CRISPR screens · Cell–cell interactions · Functional genomics</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2100958138283241659">Spatial isoform sequencing reaches single-cell resolution</a></h3>
+        <p>A method demonstrated in mouse brain slices combines transcript-isoform information with tissue location at single-cell resolution. The available announcement does not include protocol or performance details.</p>
+        <p class="tags">Spatial transcriptomics · Isoforms · Brain</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2100954322368409936">Iterative Mapping measures intact proteoforms molecule by molecule</a></h3>
+        <p>Iterative Mapping of proteoforms is a new technology for measuring intact proteoforms at single-molecule resolution. Its throughput, coverage, and validation are not described in the supplied item.</p>
+        <p class="tags">Proteoforms · Single-molecule methods · Proteomics</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatRevMCB/status/2100961804340060414">Review surveys DNA-break repair pathway choice</a></h3>
+        <p>A new <em>Nature Reviews Molecular Cell Biology</em> article examines how cells choose among DNA-break repair pathways and how those decisions relate to disease, genome maintenance, cancer biology, and genome editing.</p>
+        <p class="tags">DNA repair · Genome stability · Disease</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="language-practice">
+    <h2 class="section-title">Language Practice</h2>
+    <p class="intro">Edited reading selections in their original languages.</p>
+
+    <article class="language-item" lang="de">
+      <h3>Deutsch — Mecklenburg‑Vorpommern: SPD will AfD-Sieg verhindern</h3>
+      <p class="byline">Deutsche Welle · 19. September 2026 · <a href="https://www.dw.com/de/mecklenburgvorpommern-spd-will-afd-sieg-verhindern/a-78241701">Artikel lesen</a></p>
+      <p>Kurz vor der Landtagswahl in Mecklenburg-Vorpommern führt die AfD mit rund 35 Prozent in den Umfragen. Die seit fast drei Jahrzehnten regierende SPD hat den Abstand jedoch verkürzt und erreicht etwa 30 Prozent. Ministerpräsidentin Manuela Schwesig setzt dabei auf ihren Amtsbonus und positioniert sich deutlich gegen die AfD.</p>
+      <p>Der Artikel beschreibt zugleich die wirtschaftliche und gesellschaftliche Lage des dünn besiedelten Bundeslandes. Eine überdurchschnittliche Arbeitslosigkeit, Unzufriedenheit mit der Bundesregierung und historische Erfahrungen mit rechtsextremer Gewalt prägen den Wahlkampf. Da alle anderen aussichtsreichen Parteien eine Zusammenarbeit mit der AfD ausschließen, gilt eine Regierung unter ihrem Spitzenkandidaten Leif-Erik Holm trotz der Umfrageführung als unwahrscheinlich.</p>
+      <p><strong>Warum lesen:</strong> Der Beitrag bietet einen kompakten Einblick in eine richtungsweisende ostdeutsche Landtagswahl und die politischen Spannungen zwischen AfD und SPD.</p>
+    </article>
+
+    <article class="language-item" lang="fr">
+      <h3>Français — Un statut juridique pour les amis : la proposition de loi de Clémence Guetté</h3>
+      <p class="byline">ActuaLitté · 17 septembre 2026 · <a href="https://actualitte.com/article/133998/politique-publique/un-statut-juridique-pour-les-amis-la-proposition-de-loi-de-clemence-guette">Lire l’article</a></p>
+      <p>La députée Clémence Guetté a déposé une proposition de loi destinée à reconnaître certains liens amicaux dans le droit français. Le texte part du constat qu’une part importante du soin, de l’entraide et de la solidarité s’exerce hors du couple et de la famille, alors que les protections juridiques restent principalement organisées autour de ces deux cadres. Il prévoit notamment de donner des effets juridiques au baptême civil et de mieux reconnaître le rôle des parrains et marraines.</p>
+      <p>La mesure centrale serait la création d’un « partenariat social » entre deux adultes liés par des rapports d’affection, de secours et d’assistance, sans obligation de vivre ensemble et même si l’un d’eux est déjà marié ou pacsé. Ce contrat faciliterait les successions entre amis en réduisant fortement leur fiscalité. La proposition étendrait aussi certains congés — deuil, proche aidant, naissance ou enfant malade — aux partenaires sociaux et à certaines personnes désignées par la famille.</p>
+      <p>L’article replace enfin cette initiative dans un courant éditorial et intellectuel qui interroge la place dominante du couple et de la famille. Il montre comment l’essai récent de Clémence Guetté, nourri par plusieurs ouvrages consacrés aux « familles choisies », s’est rapidement transformé en texte législatif. La proposition doit encore être examinée par la commission des lois et pourra être amendée.</p>
+      <p><strong>Pourquoi lire :</strong> L’article permet d’aborder un débat social original tout en découvrant le vocabulaire du droit civil et du travail.</p>
+      <p><strong>Vocabulaire utile</strong></p>
+      <ul>
+        <li><strong>réserve héréditaire</strong> — part d’une succession que la loi garantit à certains héritiers, notamment les enfants</li>
+        <li><strong>abattement fiscal</strong> — somme retranchée de la valeur imposable avant le calcul d’un impôt</li>
+        <li><strong>parrainage républicain</strong> — cérémonie civile et symbolique par laquelle des adultes s’engagent moralement auprès d’un enfant</li>
+      </ul>
+    </article>
+
+    <article class="language-item" lang="ja">
+      <h3>日本語 — 『Fate/EXTRA Record』は原作を守りつつ「現代のJRPG」に進化、デッキ構築型バトルに大刷新。その狙いや“アニプレックス移管”の影響など、気になることを訊いた</h3>
+      <p class="byline">AUTOMATON · 2026年9月19日 · <a href="https://automaton-media.com/articles/reportjp/fate-extra-record-20260919-468661/">記事を読む</a></p>
+      <p>2010年発売の『Fate/EXTRA』を現代向けに作り直す『Fate/EXTRA Record』について、メディアセッションの内容と開発スタッフへの質疑応答をまとめた記事。原作のシナリオや象徴的な台詞を守りながら、3Dグラフィック、フルボイス、アリーナ探索、サーヴァントとの交流などを再構築している。アニプレックスへの移管後も従来の開発方針は維持され、メテオライズが実開発を担っているという。</p>
+      <p>戦闘は原作の「じゃんけん」型から、APの範囲内で攻撃・防御・スキルのカードを選ぶデッキ構築型へ刷新された。7日間という制限の中でアリーナを探索し、敵の戦い方や真名につながる情報を集める仕組みは原作から継承。セイバー、アーチャー、キャスターごとに固有のカードと戦術が用意され、複雑になりすぎない範囲で戦略性を高める設計が語られている。本作は2027年1月28日にPCおよび各種家庭用ゲーム機向けに発売予定だ。</p>
+      <p><strong>読む理由：</strong> 人気作のリメイクで「原作らしさ」と現代的なゲーム設計をどう両立させるのか、具体的な仕組みと開発側の判断を読める。</p>
+      <p><strong>語彙メモ</strong></p>
+      <ul>
+        <li><strong>移管（いかん）</strong> — 業務や権限、事業などを別の組織へ移すこと。</li>
+        <li><strong>デッキ構築型（こうちくがた）</strong> — カードの組み合わせを整え、それを使って戦略を組み立てるゲーム形式。</li>
+        <li><strong>真名（しんめい）</strong> — 『Fate』シリーズで、英霊やサーヴァントが生前に持っていた本当の名前。</li>
+      </ul>
+    </article>
+
+    <article class="language-item" lang="zh">
+      <h3>中文 — 看了中国农村养老困境报道 德国网民提议捐助老妇</h3>
+      <p class="byline">德国之声 · 2026-09-18 · <a href="https://www.dw.com/zh/%E7%9C%8B%E4%BA%86%E4%B8%AD%E5%9B%BD%E5%86%9C%E6%9D%91%E5%85%BB%E8%80%81%E5%9B%B0%E5%A2%83%E6%8A%A5%E9%81%93-%E5%BE%B7%E5%9B%BD%E7%BD%91%E6%B0%91%E6%8F%90%E8%AE%AE%E6%8D%90%E5%8A%A9%E8%80%81%E5%A6%87/a-79328203">阅读文章</a></p>
+      <p>德国电视一台的纪录短片记录了重庆一名75岁农村妇女的生活。她一年前曾中风，仍需每周背着竹筐、乘坐一个半小时地铁进城卖菜，以补贴生活和长期服药的开支。报道借她和其他农村老人的经历，呈现城乡养老保障的巨大差距：官方统计显示，农村养老金实际月均发放额远低于城市退休人员的平均水平，也难以覆盖农村老人的日常支出。</p>
+      <p>节目播出后，不少德国观众提出为老人众筹或设立捐款账户，节目组称正在审核募捐的法律合规问题。讨论也延伸至德国自身的老年贫困和养老金改革；与此同时，一些留言质疑报道是否准确，文章则指出，这类质疑往往混淆了中国城乡居民所享有的不同退休和医疗保障。</p>
+      <p><strong>为什么读：</strong> 文章以一个具体人物连接中国城乡养老差距与德国社会的养老金争论，适合学习社会保障及公共政策词汇。</p>
+      <p><strong>词汇笔记</strong></p>
+      <ul>
+        <li><strong>基础养老金 (jīchǔ yǎnglǎojīn)</strong> — 由公共养老制度向符合条件者发放的基本养老待遇。</li>
+        <li><strong>城乡居民 (chéngxiāng jūmín)</strong> — 城镇和乡村居民的合称，常用于社会保障及公共政策语境。</li>
+        <li><strong>法律合规 (fǎlǜ hégé)</strong> — 某项行动符合相关法律、规章和监管要求的状态。</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer>
+    News Daily · Run 2026-09-19-1
+  </footer>
+</main>
+
+
+
+</body>
+</html>

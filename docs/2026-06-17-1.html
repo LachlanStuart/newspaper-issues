@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --paper: #fffdf7;
+      --ink: #1f2328;
+      --muted: #667085;
+      --rule: #d8cdbb;
+      --accent: #7a3e16;
+      --soft: #f1e7d7;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 18px;
+      margin-bottom: 26px;
+    }
+    .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 4px 0 8px;
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+    .date {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 2px 10px rgba(40, 30, 20, 0.05);
+      padding: 20px;
+      margin: 22px 0;
+    }
+    h2 {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 1.55rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+    }
+    article {
+      padding: 15px 0;
+      border-bottom: 1px solid var(--soft);
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+    p {
+      margin: 0.55rem 0;
+    }
+    a {
+      color: #0b5cab;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      background: var(--soft);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 1px 8px;
+      margin: 2px 3px 2px 0;
+    }
+    .language-section {
+      margin-top: 34px;
+    }
+    .language-section article {
+      font-family: Georgia, "Times New Roman", "Noto Serif CJK JP", "Noto Serif CJK SC", "Yu Mincho", "Hiragino Mincho ProN", "Songti SC", serif;
+    }
+    .language-section h3 {
+      color: #2f3a4a;
+    }
+    ul {
+      margin-top: 0.4rem;
+    }
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      margin-top: 28px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Wednesday, June 17, 2026 · Run 2026-06-17-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research</h2>
+
+      <article>
+        <h3><a href="https://x.com/rasbt/status/2067036636181848528">VibeCoder post-training stack analyzed on Qwen2.5-Coder-3B base</a></h3>
+        <p>Sebastian Raschka summarizes a technical report for a coding model built on Qwen2.5-Coder-3B. The notable pieces are a high-signal synthetic-data pipeline, multiple reasoning paths, heavy filtering, two-stage supervised fine-tuning, pass@k checkpoint selection, MGPO/GRPO-style RLVR, 64k-context reinforcement learning, staged math/code/STEM RL, and a final reward that favors shorter correct trajectories.</p>
+        <p>This is useful as a concrete technical breakdown of a modern coding-model post-training recipe.</p>
+        <div class="tags">
+          <span class="tag">post-training</span>
+          <span class="tag">coding models</span>
+          <span class="tag">RLVR</span>
+          <span class="tag">synthetic data</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/aaron_defazio/status/2066906317340778705">Optimizer thread discusses p-uniform convexity in the “which optimizer rules them all” debate</a></h3>
+        <p>Aaron Defazio points to a technical optimizer discussion that takes a more moderate view of optimizer comparisons. One visible mathematical point: <em>1/p‖x‖<sub>p</sub><sup>p</sup></em> is p-uniformly convex, enabling a generalized optimization argument.</p>
+        <p>The item is for readers following deeper theory-side debates about training dynamics and optimizer design.</p>
+        <div class="tags">
+          <span class="tag">optimization</span>
+          <span class="tag">theory</span>
+          <span class="tag">training</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2066811185903948191">Long-range retrieval may require eventual full-attention training</a></h3>
+        <p>Songlin Yang shares a technical note arguing that if long-range retrieval ultimately needs full-attention training, then the size of the training window has direct implications for efficient attention methods and hybrid long-context model design.</p>
+        <p>The discussion is relevant for people tracking the tradeoffs behind long-context systems, retrieval behavior, and attention efficiency.</p>
+        <div class="tags">
+          <span class="tag">attention</span>
+          <span class="tag">long context</span>
+          <span class="tag">retrieval</span>
+          <span class="tag">training</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/cgeorgiaw/status/2066869484246233254">Tahoe AI releases get a science-model deep dive</a></h3>
+        <p>Georgia Channing points to a deep dive on recent Tahoe AI releases, with lessons for scientific machine learning. The main takeaway is that progress is not just a matter of stuffing more content into LLMs: data volume is not automatically useful, and context matters heavily.</p>
+        <p>The post also notes that the work is available through Hugging Face Science.</p>
+        <div class="tags">
+          <span class="tag">scientific ML</span>
+          <span class="tag">datasets</span>
+          <span class="tag">foundation models</span>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio, Genomics &amp; Drug Discovery</h2>
+
+      <article>
+        <h3><a href="https://x.com/GabriCorso/status/2066947216225234951">Boltz releases BoltzMol-1, BoltzProt-1, and an API for small-molecule and protein design</a></h3>
+        <p>Gabriele Corso announced a major Boltz release: BoltzMol-1 for small-molecule design and hit discovery, BoltzProt-1 for protein design, and an API designed to run Boltz models on scalable GPUs from external workflows and agents.</p>
+        <p>Follow-up material points to manuscripts and emphasizes wet-lab validation, protein binding affinity prediction, ADME prediction, and partner integrations. The release is notable because it connects model announcements with drug-discovery and protein-design validation claims.</p>
+        <div class="tags">
+          <span class="tag">drug discovery</span>
+          <span class="tag">protein design</span>
+          <span class="tag">small-molecule design</span>
+          <span class="tag">wet-lab validation</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/HannesStaerk/status/2066948547270889855">Hannes Stark highlights stricter evaluation protocols for de novo binder design</a></h3>
+        <p>Hannes Stark shared a Boltz blog post on the difficulty of classifying binders from de novo design models and on the need for a more rigorous evaluation protocol. The thread says binder classifications from one CRO disagreed with follow-up testing at other CROs.</p>
+        <p>The updated protocol is reportedly used in the revised BoltzGen and new BoltzProt-1 papers, making this a methodological item about reproducibility and benchmarking rather than just a model release.</p>
+        <div class="tags">
+          <span class="tag">protein design</span>
+          <span class="tag">benchmarking</span>
+          <span class="tag">evaluation</span>
+          <span class="tag">reproducibility</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2067014669756448945">Omnii genomic language model uses annotation-aware long-context generative genomics</a></h3>
+        <p>Omnii is described as a genomic language model for generative genomics. The model fuses DNA sequence with information-dense genomic annotation tracks and conservation signals, is mid/post-trained for downstream design and prediction tasks, and uses a multi-hybrid backbone with block convolutions, dynamic sparse attention, and a 2 million-token context window.</p>
+        <p>The item is interesting as an example of genomic foundation modeling that goes beyond raw sequence alone.</p>
+        <div class="tags">
+          <span class="tag">genomics</span>
+          <span class="tag">foundation models</span>
+          <span class="tag">generative genomics</span>
+          <span class="tag">long context</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2067014402684113033">RepGene proposes unified gene representations robust to missing biological views</a></h3>
+        <p>RepGene is presented as a lightweight framework for mapping five biological views into a shared gene representation space. The approach combines modality adapters, a shared encoder, presence-aware fusion, and self-supervised cross-view objectives.</p>
+        <p>The thread says frozen representations are evaluated with benchmark-defined linear probes under strict train–test splits, making the item relevant for multi-omics representation learning.</p>
+        <div class="tags">
+          <span class="tag">gene representation</span>
+          <span class="tag">multi-omics</span>
+          <span class="tag">self-supervised learning</span>
+          <span class="tag">benchmarks</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2067014203509203038">minibwa aims to succeed BWA-MEM for fast genomic read alignment</a></h3>
+        <p>A thread highlights minibwa, described as the next iteration of BWA-MEM. It aligns standard whole-genome short reads and Hi-C reads, maps accurate long reads like minimap2, supports BS-seq data, and includes BWA-MEM-like mate rescue for properly paired reads.</p>
+        <p>This is a core bioinformatics infrastructure item for readers who care about sequencing read alignment tools.</p>
+        <div class="tags">
+          <span class="tag">genomics</span>
+          <span class="tag">read alignment</span>
+          <span class="tag">sequencing</span>
+          <span class="tag">bioinformatics tools</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+
+      <article lang="de">
+        <h3>Deutsch — <a href="https://www.deutschlandfunkkultur.de/grossbritannien-will-social-media-verbot-fuer-unter-16-jaehrige-einfuehren-100.html">Großbritannien will Social-Media-Verbot für unter 16-Jährige einführen</a></h3>
+        <div class="meta">Deutschlandfunk Kultur · 2026-06-15</div>
+        <p>Die britische Regierung plant ein weitreichendes Verbot sozialer Medien für Kinder und Jugendliche unter 16 Jahren. Premierminister Keir Starmer begründet den Schritt mit dem Schutz Minderjähriger: Soziale Medien machten Kinder unglücklich, Altersgrenzen und bisherige Schutzmechanismen reichten aus Sicht der Regierung offenbar nicht aus.</p>
+        <p>Der Beitrag ist besonders interessant, weil er eine Debatte aufgreift, die längst über Großbritannien hinausreicht. Auch in Europa wird diskutiert, wie Plattformen reguliert werden sollen, welche Verantwortung Eltern, Schulen und Tech-Unternehmen tragen und ob Verbote tatsächlich schützen oder nur schwer durchsetzbare Symbolpolitik bleiben.</p>
+        <p><strong>Warum lesen:</strong> Der Text bietet einen aktuellen Einstieg in die deutschsprachige Debatte über Jugendschutz, Plattformregulierung und den politischen Umgang mit sozialen Medien.</p>
+      </article>
+
+      <article lang="fr">
+        <h3>Français — <a href="https://www.rfi.fr/fr/france/20260617-france-la-dgsi-va-retirer-la-gestion-de-ses-donn%C3%A9es-au-g%C3%A9ant-am%C3%A9ricain-palantir">France: la DGSI va retirer la gestion de ses données au géant américain Palantir</a></h3>
+        <div class="meta">RFI · 2026-06-17</div>
+        <p>RFI rapporte que la Direction générale de la sécurité intérieure va retirer à l’entreprise américaine Palantir la gestion et l’exploitation de ses données à grande échelle. Le Premier ministre Sébastien Lecornu a annoncé que ces données seraient transférées en France et confiées à ChapsVision, une entreprise française déjà active auprès de services de renseignement allemands.</p>
+        <p>L’article présente cette décision comme un enjeu de souveraineté numérique : Paris veut réduire sa dépendance à des prestataires américains, notamment dans un domaine aussi sensible que le renseignement intérieur et l’intelligence artificielle. Palantir, sollicitée par la France après les attentats de 2015, travaille aussi avec d’autres États et institutions, ce qui alimente les inquiétudes du gouvernement français.</p>
+        <p>Le texte ouvre aussi sur une dimension européenne et industrielle : ChapsVision espère remplacer Palantir dans d’autres contrats publics en Europe, tandis que l’entreprise américaine reste très présente dans le secteur privé, auprès de groupes comme Airbus, Stellantis ou la Société générale.</p>
+        <p><strong>Pourquoi lire :</strong> Un article court mais dense pour suivre les débats français et européens sur la souveraineté numérique, les données sensibles et les dépendances technologiques.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>souveraineté numérique</strong> — capacité d’un État ou d’une organisation à contrôler ses infrastructures, ses données et ses choix technologiques.</li>
+          <li><strong>renseignement intérieur</strong> — activités de collecte et d’analyse d’informations liées à la sécurité à l’intérieur du pays.</li>
+          <li><strong>prestataire privé</strong> — entreprise extérieure chargée de fournir un service à une administration ou à une autre entreprise.</li>
+        </ul>
+      </article>
+
+      <article lang="ja">
+        <h3>日本語 — <a href="https://www.itmedia.co.jp/news/articles/2606/17/news026.html">学術界にも“告発系インフルエンサー”の波？　配信者がNature掲載論文の不正指摘→研究者らは懲戒処分　中国で波乱</a></h3>
+        <div class="meta">ITmedia NEWS · 2026-06-17</div>
+        <p>中国の動画配信者・耿洪偉さんが、Nature系の学術誌に掲載された複数の論文について、データ捏造の疑いを動画で指摘し、学術界に大きな波紋を広げている。耿さんはBilibiliなどで活動するサイエンス系の配信者で、問題のあるデータパターンや図表の不自然さを具体的に示したという。</p>
+        <p>記事によると、告発の対象となった研究者の一部は所属大学などから処分を受け、解任・降格・賞の取り消しといった対応も出ている。出版社側も調査を進めているとされ、従来は専門家や査読者の領域と見なされがちだった研究不正の発見に、一般の発信者やSNSが関わる時代になっている点が焦点だ。</p>
+        <p>単なる「炎上」ではなく、科学研究の信頼性、論文出版社の責任、大学の調査体制、そしてインフルエンサー型の告発が持つ影響力を考えさせる内容になっている。テクノロジー、メディア、学術倫理が交差するニュースとして読める。</p>
+        <p><strong>読む理由：</strong> SNS時代の研究不正告発が、学術界の制度や権威にどう影響するかを考える材料になる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>捏造（ねつぞう）</strong> — 実際には存在しないデータや事実を作り上げること。</li>
+          <li><strong>査読（さどく）</strong> — 論文を公開する前に、同分野の専門家が内容を審査する仕組み。</li>
+          <li><strong>懲戒処分（ちょうかいしょぶん）</strong> — 規則違反などに対して、組織が職員や研究者に科す処分。</li>
+        </ul>
+      </article>
+
+      <article lang="zh-Hans">
+        <h3>中文 — <a href="https://www.bbc.com/zhongwen/articles/cx2jgvp28xdo/simp">英国社交媒体禁令：大胆而直接，却并非万灵丹</a></h3>
+        <div class="meta">BBC News 中文 · 2026-06-16</div>
+        <p>英国首相斯塔默宣布，将仿效澳洲模式，对16岁以下青少年实施社交媒体禁令，并对16、17岁用户增加额外限制。文章指出，这一方案被称为“澳洲加强版”，可能涵盖 TikTok、Snapchat、Instagram、YouTube 等平台；游戏平台和论坛或许获得豁免，但直播功能也会受到限制。</p>
+        <p>BBC科技事务编辑认为，这项政策回应了儿童网络安全的真实焦虑，但执行难度很高。核心问题包括如何可靠地验证年龄、责任应由苹果和谷歌等应用商店承担，还是由各个社交平台自行承担；同时，禁令也可能把青少年推向监管更少、更危险的网络角落。</p>
+        <p>文章还讨论了法律、产业和外交层面的压力：政策推进速度快，可能面临司法审查；英国一方面希望监管大型科技公司，另一方面又依赖科技和AI投资；而美国政府和美国科技企业也可能反对这类监管。</p>
+        <p><strong>为什么读：</strong> 这篇文章适合了解英国如何在儿童保护、数字自由、平台责任和科技产业之间寻找平衡。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>年龄验证 (niánlíng yànzhèng)</strong> — 平台确认用户真实年龄的技术或程序，是社交媒体禁令能否执行的关键。</li>
+          <li><strong>司法审查 (sīfǎ shěnchá)</strong> — 法院检查政府政策或行政决定是否合法、程序是否正当。</li>
+          <li><strong>家长控制 (jiāzhǎng kòngzhì)</strong> — 由父母设置的数字安全功能，用来限制儿童使用应用、内容或上网时间。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Source Notes</h2>
+      <p>The AI and bio research feeds excluded some previously reported items, shallow commentary, product amplification, and low-detail retweets. No quiet failure notes were reported for this run.</p>
+    </section>
+
+    <footer>
+      News · Daily newspaper generated for 2026-06-17
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

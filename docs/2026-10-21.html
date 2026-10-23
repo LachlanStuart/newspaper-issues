@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202b32;--muted:#606c72;--paper:#faf9f5;--line:#dcded7;--accent:#17656a}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main,header,footer{max-width:1000px;margin:auto;padding:24px}
+header{padding-top:42px;border-bottom:3px solid var(--ink)}
+h1{font-size:3.5rem;line-height:1;margin:10px 0 16px;letter-spacing:-2px}
+h2{font-size:1.7rem;margin:34px 0 18px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+h3{font-size:1.2rem;line-height:1.35;margin:0 0 10px}
+p{margin:10px 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.eyebrow,.meta,nav,footer{font-family:system-ui,sans-serif}
+.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.15em;color:var(--muted)}
+.meta{font-size:.85rem;color:var(--muted)}
+nav{display:flex;gap:10px 22px;flex-wrap:wrap;font-size:.9rem;margin-top:20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+article{padding:18px 0;border-bottom:1px solid var(--line)}
+.practice{margin-top:48px;border-top:3px solid var(--ink)}
+.practice article{max-width:800px;margin:auto;padding:28px 0}
+.practice h3{font-size:1.4rem}
+ul{padding-left:23px}
+li{margin:7px 0}
+footer{font-size:.82rem;color:var(--muted);padding-bottom:40px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}h1{font-size:2.8rem}main,header,footer{padding-left:20px;padding-right:20px}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<div class="eyebrow">Daily newspaper · Wednesday, 21 October 2026</div>
+<h1>News</h1>
+<p>Genomic models, biological design and research agents—with a close look at what the evidence supports.</p>
+<nav aria-label="Sections">
+<a href="#genomics">Genomics &amp; regulation</a>
+<a href="#design">Molecular design &amp; medicine</a>
+<a href="#ai">AI methods &amp; engineering</a>
+<a href="#resources">Research resources</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="genomics">
+<h2>Genomics &amp; regulation</h2>
+<div class="grid">
+<article>
+<h3>Omnii-1 announcement claims compassionate-use phage treatment</h3>
+<p>Eric Nguyen introduced Omnii-1, a multimodal genome language model, and says its designed bacteriophages were administered to a patient with an antibiotic-resistant infection under compassionate use. The supplied posts include no patient outcomes, safety results or independent confirmation of the claimed first.</p>
+<p>In <a href="https://x.com/anshulkundaje/status/2112626335122420177">replies</a>, Anshul Kundaje calls for cell-type-specific chromatin and expression evaluations: aggregate genomic benchmarks can hide weaknesses across cell contexts and individuals.</p>
+<p class="meta"><a href="https://x.com/exnx/status/2112580926651904379">Omnii-1 announcement</a> · X Bio Research</p>
+</article>
+<article>
+<h3>DeepD: million-nucleotide context, with promoter assays</h3>
+<p>A supplied paper digest describes DeepD as a phylogeny-conditioned sparse mixture-of-experts model for variant effects, regulatory annotation and species-conditioned sequence generation.</p>
+<p>Maize promoter designs were reportedly tested in protoplast assays. Chromosome-scale yeast and plant generation, however, was evaluated computationally—not demonstrated as viable synthetic genomes. Missing multi-omics inputs and uncertain performance in repetitive regions remain limitations.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112532163442979163">DeepD digest</a> · X Bio Research</p>
+</article>
+<article>
+<h3>Bolero targets context-dependent gene regulation</h3>
+<p>A preprint announcement introduces Bolero for predicting gene regulation from DNA sequence and cellular context. The excerpt is too short to assess its architecture, datasets, performance or availability.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2112756511504208311">Bolero announcement</a> · X Bio Research</p>
+</article>
+<article>
+<h3>Cell context is not yet causal trans-regulation</h3>
+<p>Kundaje highlights work by Jingtian Zhou and colleagues on a sequence model trained across cell contexts to predict chromatin and expression. He places it among joint cis–trans regulatory models, while stressing that a causal trans component remains unfinished.</p>
+<p>The excerpt supplies neither a model name nor benchmark results; it does not establish whether this is the same work as Bolero.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2112628420601692407">Regulatory-model commentary</a> · X Bio Research</p>
+</article>
+</div>
+</section>
+
+<section id="design">
+<h2>Molecular design &amp; medicine</h2>
+<div class="grid">
+<article>
+<h3>Antibody selection needs target-specific calibration</h3>
+<p>A digest of a study covering 4,184 experimentally characterized antibody–antigen pairs introduces Regional Interaction Contrast and Non-CDR Antibody Confidence. Interface-support metrics reportedly perform best across antigens; framework confidence is more useful for ranking candidates within a target campaign.</p>
+<p>Binders and non-binders still overlap substantially, and absolute thresholds transfer poorly between targets. The practical lesson is to calibrate per target rather than rely on universal confidence cutoffs.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112533054019215785">Antibody-filtering benchmark</a> · X Bio Research</p>
+</article>
+<article>
+<h3>AlphaFold 3 confidence helps rank drugs—not establish efficacy</h3>
+<p>In the CANDO benchmark, AF3 interaction-confidence scores reportedly match BANDOCK+ in aggregate disease ranking on a matched set of 2,449 approved drugs and 1,103 proteins. Global ipTM performed best among the AF3 outputs tested, but neither method consistently led across indications and protein subsets.</p>
+<p>Ranking utility does not establish correct binding predictions, measured affinity or clinical efficacy.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112532583909335078">Drug-prioritization digest</a> · X Bio Research</p>
+</article>
+<article>
+<h3>CAPO checks adaptation costs before committing</h3>
+<p>CAPO is an auditable multi-agent framework that tests training feasibility and budget before adapting biological models. In a hit-to-lead benchmark, it rejected unaffordable Boltz-2 fine-tuning in favor of a lightweight calibrated predictor, reportedly improving mean Spearman correlation from 0.594 to 0.700 across held-out targets.</p>
+<p>A temporal ClinVar evaluation also reports gains, with weaker evidence for generalization to novel regions. Cost accounting excluded preprocessing, evaluation and idle overheads.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112531917233070140">CAPO digest</a> · X Bio Research</p>
+</article>
+<article>
+<h3>CD19 CAR engineering reports epitope depletion</h3>
+<p>A post shared by Brian Hie reports deimmunization of a clinical CD19 CAR binder, with experimentally detected HLA-I epitope depletion and retained tumor-killing activity. The truncated excerpt does not establish reduced immune responses in patients.</p>
+<p class="meta"><a href="https://x.com/BrianHie/status/2112636747335205161">CAR-binder update</a> · X Bio Research</p>
+</article>
+<article>
+<h3>RNAGenScape keeps mRNA optimization near learned sequences</h3>
+<p>RNAGenScape alternates property-guided latent-space updates with learned manifold projection to reduce off-distribution drift. Its digest reports improvements on stability, translation-efficiency and ribosome-load datasets, alongside sequence and structural viability checks.</p>
+<p>The gains are oracle-predicted and the checks computational; wet-lab validation of the optimized sequences is not described.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112532926147735593">RNAGenScape digest</a> · X Bio Research</p>
+</article>
+<article>
+<h3>LigRNA predicts RNA binding sites for specific ligands</h3>
+<p>LigRNA combines RNA foundation-model embeddings, structural features and ligand molecular graphs, using cross-attention for nucleotide-level predictions. The digest reports F1 scores of 0.73 on TE9 and 0.58 on TE18, although TE18 AUROC trails competing methods.</p>
+<p>Ablations identify the RNA residual encoder as the most consistent contributor; independent gains from other components vary by dataset.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112531740891959381">LigRNA digest</a> · X Bio Research</p>
+</article>
+<article>
+<h3>RiboBridge tests whether RNA partner placement matters</h3>
+<p>RiboBridge infers pairing relationships from RNA backbone geometry and uses them as soft guidance for sequence design. Across 550 generated backbones, the digest reports refolding-based joint validity of 0.451, versus 0.335 for a topology-free decoder.</p>
+<p>Swapping or rewiring the inferred relationships sharply reduces performance, supporting the importance of specific partner placement. These are computational tests, not demonstrations of experimental RNA function.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112532023680045353">RiboBridge digest</a> · X Bio Research</p>
+</article>
+<article>
+<h3>RA-GHN couples antibody sequence and structure design</h3>
+<p>RA-GHN combines equivariant graphs and hypergraphs to represent antibody–antigen interfaces and jointly predict CDR sequence and structure. Reported SAbDab results include 1.78 Å CDR-H3 RMSD and 38.15% amino-acid recovery.</p>
+<p>The work also proposes a score combining structural reliability with sequence novelty. Affinity-optimization claims are computational; no experimental binding validation is supplied.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2112532281873367515">RA-GHN digest</a> · X Bio Research</p>
+</article>
+<article>
+<h3>Artios announced for open-source enzyme design</h3>
+<p>Posts shared by Sergey Ovchinnikov and Rishabh describe Artios as a fully open-source system for designing functional de novo enzymes. A <a href="https://x.com/rishabh16_/status/2112767985098129569">companion post</a> points to a paper and development story; the excerpts do not provide methods, experimental success rates or licensing details.</p>
+<p class="meta"><a href="https://x.com/sokrypton/status/2112734637998973014">Artios announcement</a> · X Bio Research</p>
+</article>
+<article>
+<h3>BioEmu2 preview focuses on structure and dynamics</h3>
+<p>Ovchinnikov and Kundaje share Microsoft's BioEmu2 public-preview announcement, describing a foundation model for biomolecular structure and dynamics. A related excerpt depicts an intrinsically disordered peptide folding and binding its receptor through an intermediate state.</p>
+<p>No quantitative accuracy results or experimental validation of the displayed dynamics appear in the supplied material.</p>
+<p class="meta"><a href="https://x.com/sokrypton/status/2112525471430631809">BioEmu2 preview post</a> · X Bio Research</p>
+</article>
+</div>
+</section>
+
+<section id="ai">
+<h2>AI methods &amp; engineering</h2>
+<div class="grid">
+<article>
+<h3>A coding workflow separates planning, execution and oversight</h3>
+<p>Peter Steinberger describes a frontend migration with a planning agent, Codex CLI workers in worktrees, and an oversight agent that challenges the planner. The <a href="https://x.com/steipete/status/2112597162924351909">parent post</a> reports roughly 600 pull requests over about two weeks, with human check-ins every other day.</p>
+<p>A follow-up acknowledges missed UI regressions. This is an engineering case study, not a controlled comparison with subagent workflows.</p>
+<p class="meta"><a href="https://x.com/steipete/status/2112605703219347503">Workflow discussion</a> · X AI Research</p>
+</article>
+<article>
+<h3>QD-Rec evolves diverse recommendations</h3>
+<p>Sakana AI introduces QD-Rec as a method for evolving diverse proposals to support decision-making. The supplied post links a <a href="https://t.co/JAskXgekg1">paper</a> and <a href="https://t.co/mBIDR95NC4">blog</a>, but shows no evaluation results.</p>
+<p class="meta"><a href="https://x.com/hardmaru/status/2112507214095339871">QD-Rec announcement</a> · X AI Research</p>
+</article>
+<article>
+<h3>DeepSeek reportedly releases DeepInfer under Apache 2.0</h3>
+<p>A repost says DeepSeek has open-sourced DeepInfer, a framework for large-scale inference. The resource URL is truncated in the supplied material, which includes neither architecture details nor performance measurements.</p>
+<p class="meta"><a href="https://x.com/nathancgy4/status/2112572436030071109">DeepInfer release post</a> · X AI Research</p>
+</article>
+<article>
+<h3>Contrastive decoding as prior correction</h3>
+<p>You Jiacheng argues that classifier-free guidance and contrastive decoding sharpen relative to an unconditional prior, rather than merely making outputs more deterministic—discrete regression already uses argmax decoding. Drawing an analogy with imbalanced classification, he describes CFG1 as correcting the prior toward uniform.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2112772467861434674">Decoding analysis</a> · X AI Research</p>
+</article>
+<article>
+<h3>Could high-update-ratio RL resemble MCTS distillation?</h3>
+<p>You Jiacheng frames distillation from Monte Carlo tree search as an efficient policy-improvement operator: one update can propagate signals comparable to many temporal-difference updates. He suggests reinforcement learning with a high update-to-data ratio might achieve similar capabilities. This is a hypothesis, not a reported experimental result.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2112465727387275625">MCTS and RL discussion</a> · X AI Research</p>
+</article>
+<article>
+<h3>Blind-assembly critique questions simulator geometry</h3>
+<p>Following proprioception-only assembly work, You Jiacheng argues that mjfit's cylindrical-peg/round-hole setup supplies a strong geometric prior. A <a href="https://x.com/YouJiacheng/status/2112416300765163770">follow-up example</a> suggests the simulator may allow insertion where physical geometry should jam.</p>
+<p>This remains an attributed methodological critique, not a verified benchmark defect.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2112415806793621878">Benchmark critique</a> · X AI Research</p>
+</article>
+<article>
+<h3>Phonon speech synthesis gains MLX-Audio support</h3>
+<p>Prince Canuma reports Phonon TTS support in MLX-Audio for Apple Silicon, including Mac, iOS and iPadOS. Replies link a <a href="https://t.co/pjnw3b53eM">model blog</a> and <a href="https://t.co/CkjfRBBiQ9">weights</a>. No measurements substantiate the post's expressiveness claim.</p>
+<p class="meta"><a href="https://x.com/Prince_Canuma/status/2112594486597763195">Phonon integration post</a> · X AI Research</p>
+</article>
+</div>
+</section>
+
+<section id="resources">
+<h2>Research resources</h2>
+<div class="grid">
+<article>
+<h3>Tangermeme v1.6.0 brings algorithms and efficiency updates</h3>
+<p>Jacob Schreiber's announcement, shared by Kundaje, introduces a new release of the regulatory-genomics interpretation toolkit. Related posts discuss FastISM for accelerated saturation mutagenesis and a general-purpose gradient-times-input saliency function, but the excerpts do not establish complete release contents or quantified speedups.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2112629627491631210">Tangermeme announcement</a> · X Bio Research</p>
+</article>
+<article>
+<h3>Literature curation confronts disagreement on surface proteins</h3>
+<p>Rebecca Carlson reports that five major human surface-protein databases agree on only 188 proteins and describes using Claude to read the literature instead. A <a href="https://x.com/anshulkundaje/status/2112583006032732409">companion post</a> points to an open viewer.</p>
+<p>The supplied excerpts do not describe the curation protocol, validation accuracy or resulting resource size.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2112582878563639442">Surface-protein resource discussion</a> · X Bio Research</p>
+</article>
+<article>
+<h3>A review of small-variant calling with long reads</h3>
+<p>Nature Reviews Genetics announces “Small variant calling in the era of long-read sequencing.” The supplied post identifies the review but includes no methodological recommendations or comparative results.</p>
+<p class="meta"><a href="https://x.com/NatureRevGenet/status/2112649494143934846">Review announcement</a> · X Bio Research</p>
+</article>
+</div>
+</section>
+
+<section class="practice" id="languages">
+<h2>Language practice</h2>
+<article lang="de">
+<h3>Deutsch — EU-Rechnungshof sieht kaum Fortschritte bei Digitalisierung</h3>
+<p class="meta">Tagesschau · 20.10.2026 · <a href="https://www.tagesschau.de/ausland/europa/europaeischer-rechnungshof-corona-gelder-100.html">https://www.tagesschau.de/ausland/europa/europaeischer-rechnungshof-corona-gelder-100.html</a></p>
+<p>Milliardenhilfen führen nicht automatisch zu besseren Behörden: Der Europäische Rechnungshof zieht eine gemischte Bilanz der Förderung öffentlicher Verwaltungen aus dem Corona-Wiederaufbaufonds. Seit 2021 hat die EU dafür knapp 50 Milliarden Euro bereitgestellt. Laut dem Prüfbericht hat jedoch bislang nur gut ein Drittel der untersuchten Maßnahmen nennenswerte Ergebnisse erzielt.</p>
+<p>In Deutschland sind inzwischen etwa die Wohnortummeldung und die Kfz-Zulassung digital möglich. Bei der Modernisierung staatlicher Register sehen die Prüfer dagegen keine Fortschritte; die Abstimmung zwischen Bund, Ländern und Kommunen führt weiterhin zu Verzögerungen. Außerdem bleibt häufig unklar, ob abgeschlossene Projekte die Verwaltung tatsächlich schneller, effizienter oder bürgerfreundlicher machen. Für künftige EU-Programme fordert der Rechnungshof deshalb, messbare Ergebnisse stärker in den Mittelpunkt zu stellen.</p>
+<p><strong>Warum lesen:</strong> Der Artikel zeigt anhand alltäglicher Behördenleistungen, warum digitale Angebote allein noch keine erfolgreiche Verwaltungsmodernisierung belegen.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — A Rome, un hôpital met l'art au service des patients atteints d'un cancer</h3>
+<p class="meta">France 24 · 2026-10-21 · <a href="https://www.france24.com/fr/info-en-continu/20261021-a-rome-un-h%C3%B4pital-met-l-art-au-service-des-patients-atteints-d-un-cancer">Lire l’article</a></p>
+<p>À Rome, l’hôpital de l’île Tibérine associe les soins contre le cancer à un parcours artistique et culturel baptisé « Isola.ART ». Livres, tableaux et vestiges antiques accompagnent les patients dès la salle d’attente. Pendant les séances de radiothérapie, chacun peut choisir une ambiance musicale et des images du patrimoine romain, diffusées sur des écrans installés aux murs et au plafond. Le dispositif prolonge une expérimentation lancée en 2013 à la polyclinique Gemelli, puis étendue à d’autres établissements italiens.</p>
+<p>L’accompagnement dépasse les murs de l’hôpital : des visites guidées de monuments, notamment le Colisée et le Palais Colonna, sont proposées aux patients et à leurs proches. Les médecins interrogés souhaitent ainsi soutenir leur capacité à faire face au bouleversement du diagnostic et à se projeter dans l’avenir. Deux patients racontent comment ces expériences les aident à se détendre et à retrouver des moments de plaisir. Le reportage présente surtout leurs témoignages et la démarche des soignants, sans fournir de résultats d’étude permettant de mesurer un effet sur la guérison.</p>
+<p><strong>Pourquoi lire :</strong> Un reportage qui relie patrimoine italien, expérience des patients et réflexion sur la place de la culture dans l’accompagnement médical.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>radiothérapie</strong> — traitement utilisant des rayonnements pour détruire les cellules cancéreuses.</li>
+<li><strong>oncologie</strong> — spécialité médicale consacrée à l’étude et au traitement des cancers.</li>
+<li><strong>résilience</strong> — capacité à s’adapter et à se reconstruire après une épreuve ou un bouleversement.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 「カーセンサーnet」などに不正アクセス 最大370万件漏えいか</h3>
+<p class="meta">NHKニュース · 2026年10月21日 · <a href="https://news.web.nhk/newsweb/na/nd-20261021de62694">記事を読む</a></p>
+<p>リクルートの中古車情報サイト「カーセンサーnet」と販売店向けサービスが不正アクセスを受け、最大約370万件の個人情報が漏えいした可能性がある。10月17日に不審なアクセスを検知し、調査で、販売店に問い合わせた利用者の氏名や住所、電話番号など約320万件が対象となるおそれが分かった。</p>
+<p>影響は利用者だけでなく、登録事業者や従業員らの情報にも及ぶ可能性がある。販売店向けサービスでは個人事業主の口座情報も含まれるという。同社は対象のサイトやサービスを一時停止し、謝罪した。記事は漏えいが確定したとはせず、現時点で判明している可能性と対象範囲を伝えている。</p>
+<p><strong>読む理由：</strong> 身近なネットサービスの情報管理を考えながら、サイバー被害の報道で使われる専門語と、不確実性を示す表現を学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>不正アクセス（ふせいアクセス）</strong> — 正当な権限なしにコンピューターやシステムに接続・侵入すること。</li>
+<li><strong>漏えい（ろうえい）</strong> — 管理されている情報が、外部や権限のない相手に漏れること。</li>
+<li><strong>個人事業主（こじんじぎょうぬし）</strong> — 法人を設立せず、個人として事業を営む人。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 香港演员钟雪莹、袁澧林发声之后，她们分享亲历的性别冒犯</h3>
+<p class="meta">BBC 中文 · 2026-10-20 · <a href="https://www.bbc.com/zhongwen/articles/cqly0v0xnxdvo/simp">https://www.bbc.com/zhongwen/articles/cqly0v0xnxdvo/simp</a></p>
+<p>香港演员钟雪莹和袁澧林公开反对带有性意味的冒犯言论后，更多女性开始分享类似经历。BBC中文访问了四位有电影、新闻、舞台兼职或公关工作经历的女性，呈现职场中的外貌点评、色情玩笑及越界举动如何被当成日常交往。报道涉及性骚扰经历，阅读前可斟酌自身感受。</p>
+<p>受访者的叙述反复触及一个难题：感到不舒服，并不意味着能够立即拒绝。资历、职位、客户关系与未来工作机会，都可能增加发声的代价；有些人向上司求助，却只得到淡化问题的回应。她们也谈到改变：随着经验增长、同伴声援增加，有人开始明确表达界线，或为处境相似的同事出声。</p>
+<p>报道采访的反性暴力教育工作者指出，把冒犯称为“玩笑”，可能是在试探底线，并把责任推回受害者。改善环境不能只靠当事人勇敢拒绝，还需要旁观者主动制止，以及企业、学校建立应对机制。文章因此不只是讨论个人如何回应，也追问组织为何容许这些行为持续发生。</p>
+<p><strong>为什么读：</strong> 通过香港与台湾的具体职场经历，学习如何用中文讨论性别、权力关系与个人界线，也能接触附有解释的粤语表达。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>物化 (wù huà)</strong> — 把人当作满足他人需求或供人评价的对象，忽视其意愿、能力与尊严。</li>
+<li><strong>话语权 (huà yǔ quán)</strong> — 在群体或组织中表达意见、影响判断并让意见受到重视的能力与地位。</li>
+<li><strong>申诉 (shēn sù)</strong> — 认为自身权益受到侵害时，向有关机构正式说明情况并请求处理。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied posts and paper digests, many of which are truncated. Linked papers, resources, performance figures and clinical claims were not independently verified. Shortened resource links are preserved as supplied.</p>
+<p>News · 21 October 2026 · Edition 2026-10-21-1</p>
+</footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #666b73;
+      --paper: #fffdf8;
+      --accent: #245b78;
+      --accent-soft: #eaf2f6;
+      --rule: #d8d5ce;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f2f0ea;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    main {
+      width: min(1040px, calc(100% - 28px));
+      margin: 24px auto;
+      padding: clamp(24px, 5vw, 60px);
+      background: var(--paper);
+      box-shadow: 0 3px 24px rgba(0,0,0,.08);
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 36px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .edition {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .9rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    section { margin: 42px 0; }
+    h2 {
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    article {
+      padding: 0 0 22px;
+      margin: 0 0 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child { margin-bottom: 0; }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+    h3 a { color: var(--ink); }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    p { margin: .55em 0; }
+    .source, .tags {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .84rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 30px;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 32px;
+      border-top: 5px double var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      font-style: italic;
+      margin-top: -10px;
+      margin-bottom: 28px;
+    }
+    .language-card {
+      padding: 24px;
+      margin-bottom: 24px;
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      background: var(--card);
+    }
+    .language-card h3 { font-size: 1.3rem; }
+    .language-card ul { margin: .6em 0; padding-left: 1.35em; }
+    .language-card li { margin: .35em 0; }
+    .notes {
+      margin-top: 48px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .86rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .78rem;
+      margin-top: 40px;
+    }
+    @media (max-width: 720px) {
+      main { width: 100%; margin: 0; box-shadow: none; }
+      .grid { grid-template-columns: 1fr; }
+      .language-card { padding: 18px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p class="edition">Sunday, July 12, 2026 · Run 2026-07-12-1</p>
+  </header>
+
+  <section>
+    <h2>AI Safety, Governance &amp; Trust</h2>
+
+    <div class="grid">
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/EexsebbYhbe2gXkPP/the-current-bottleneck-is-political-will-not-research">The current bottleneck is political will, not research</a></h3>
+        <p class="source">LessWrong</p>
+        <p>An extensive case for shifting more AI-safety effort toward advocacy, policymaker engagement, and coalition-building. The author argues that useful safeguards are already known but remain unimplemented, and proposes projects aimed at closing that political gap.</p>
+        <p class="tags">AI governance · AI safety · advocacy</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/z9tXCGogEgkgHSh8G/introduction-for-and-reactions-to-plan-a">Introduction for and Reactions to Plan A</a></h3>
+        <p class="source">LessWrong</p>
+        <p>A critical survey of reactions to AI 2040’s “Plan A,” a proposed coordinated US–China slowdown built around compute monitoring, verification, and research transparency.</p>
+        <p class="tags">AI governance · forecasting · international coordination</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/JsTRjtqbwN5EtNEiC/kiss-ai-safety">KISS AI Safety</a></h3>
+        <p class="source">LessWrong</p>
+        <p>Argues that public communication about AI safety should drop technical jargon in favor of a simple, direct narrative centered on loss of control.</p>
+        <p class="tags">AI safety · communication</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/4TMKvGmoAWjXBGwWk/measuring-is-not-enough-anymore">Measuring Is Not Enough Anymore</a></h3>
+        <p class="source">LessWrong</p>
+        <p>Questions whether general-capability evaluations—such as METR’s time-horizon graph—actually reduce risk, or instead encourage investment by making capability progress easier to see and extrapolate.</p>
+        <p class="tags">AI evaluations · capabilities · AI safety</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/MBRNR5h9g6HGvAJDe/don-t-bring-an-ai-detector-to-a-deepfake-fight-proving">Don’t bring an AI detector to a deepfake fight</a></h3>
+        <p class="source">LessWrong</p>
+        <p>A proposal to replace brittle deepfake detection with cryptographically signed, multimodal capture. Camera, audio, motion, depth, and other sensor data would be recorded together and checked for consistency to establish provenance.</p>
+        <p class="tags">Deepfakes · provenance · cryptography</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/syeJotaNhFjhRz4v7/a-simple-model-of-ai-psychosis">A Simple Model of AI “Psychosis”</a></h3>
+        <p class="source">LessWrong</p>
+        <p>Models severe chatbot-related delusions as movement toward a mania attractor, driven by sycophancy, compulsive engagement, sleep deprivation, and mutually reinforcing conversational personas. It also offers harm-reduction suggestions for users and developers.</p>
+        <p class="tags">Mental health · chatbots · sycophancy</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Machine Learning Research &amp; Evaluation</h2>
+
+    <div class="grid">
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11804">Making Model Training More Scientific, Part 7: Learning-Rate Scheduling and Weight Averaging</a></h3>
+        <p class="source">科学空间 / Spaces AC</p>
+        <p>This installment examines two techniques for improving final training results: learning-rate scheduling and weight averaging. Building on earlier analysis of SGD, it explains why effective schedules naturally include warmup and explores their interaction with averaging weights over training.</p>
+        <p class="tags">Optimization · learning-rate scheduling · weight averaging</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/BaFbWjFhusjazeSuN/theories-of-deep-learning-1">Theories of Deep Learning</a></h3>
+        <p class="source">LessWrong</p>
+        <p>A high-level survey connecting categorical deep learning, modular duality for optimization, and an output-space theory of generalization.</p>
+        <p class="tags">Deep learning · machine-learning theory</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/ajhzc6ktEKyFeJFBS/the-termination-circuit-how-reasoning-models-stop-thinking">The Termination Circuit: how reasoning models stop thinking</a></h3>
+        <p class="source">LessWrong</p>
+        <p>Reports evidence that reasoning models often know an answer well before they stop. The work suggests late-layer MLPs implement a high-dimensional verification gate that triggers when a stated answer matches the internally computed result, with implications for reducing overthinking.</p>
+        <p class="tags">Mechanistic interpretability · reasoning models · inference efficiency</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/giffmana/status/2076023377668510159">APK Arena benchmarks AI agents on phone-use tasks</a></h3>
+        <p class="source">X AI Research</p>
+        <p>APK Arena is introduced as a benchmark for evaluating AI agents in interactive mobile environments, with frontier models tested side by side. The available post is truncated, so methodological detail is limited.</p>
+        <p class="tags">AI agents · phone use · evaluation</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/GoodfireAI/status/2075976186510069974">Tracking how representations of weekdays emerge during pretraining</a></h3>
+        <p class="source">X AI Research · Goodfire</p>
+        <p>A research visualization follows the emergence of an internal representation of the days of the week over model pretraining. The available post is truncated and does not provide further experimental detail.</p>
+        <p class="tags">Interpretability · representations · pretraining</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Computational Biology &amp; Medicine</h2>
+
+    <div class="grid">
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2076073569696858521">ENCODE 4 expands maps of human regulatory DNA</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>ENCODE 4 reports a catalog based on 5.3 million DNase I hypersensitive sites, plus chromatin-state and transcription-factor-occupancy maps. It adds nearly 18,000 proposed human lncRNA genes, roughly 150,000 transcript isoforms, transcription maps, regulatory interactions across more than 100 tissues and cell lines, and predictions of noncoding variant effects.</p>
+        <p class="tags">Genomics · gene regulation · ENCODE · dataset</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2076075208746930215">CellTok represents single-cell transcriptomes as native tokens</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>CellTok uses vector-quantized autoencoding to turn each transcriptomic profile into a short sequence of discrete cellular tokens. It expands a pretrained language model’s vocabulary and jointly models cells, populations, instructions, and textual biological context.</p>
+        <p class="tags">Single-cell biology · transcriptomics · language models</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2076077365223207347">CellPilot offers traceable, locally deployable agentic single-cell analysis</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>CellPilot guides a locally deployable small language model through a Scanpy workflow, from raw count matrices to cluster-level annotation. Its controller inspects intermediate results, revises later decisions, and retains a traceable session history.</p>
+        <p class="tags">Single-cell · bioinformatics agents · reproducibility</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075929300277317653">OmicFormer uses statistical feature orderings for disease prediction</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>OmicFormer converts tabular omics into sequences ordered by feature–label associations and feature correlations. Across UK Biobank tasks it reports modest gains over strong baselines, with improved transfer to an external proteomics cohort and stronger leave-one-site-out neuroimaging results.</p>
+        <p class="tags">Omics · disease prediction · distribution shift</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075929532637618619">Ribo-LENS predicts RNA small-molecule pockets</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>Ribo-LENS works from typed RNA base-pairing graphs rather than full atomic coordinates. Its graph model assembles connected pocket subgraphs and outperforms the reported GerNA-Bind baseline on a 22-RNA test set; its restricted docking regions also achieved virtual-screening enrichment comparable to blind cavity search.</p>
+        <p class="tags">RNA · drug discovery · graph neural networks</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075929388613550437">Quantum-derived latent priors tested for MHC-binding peptide design</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>A conditional GAN for HLA-I peptide generation was seeded with structured priors from a photonic Gaussian Boson Sampling device. The priors modestly increased predicted strong-binder yield, and selected peptides were experimentally validated for three understudied alleles. The authors do not claim quantum advantage at this classically simulable scale.</p>
+        <p class="tags">Immunology · peptide design · quantum machine learning</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075929719518974158">IgGM2 jointly designs antibodies, nanobodies, and T-cell receptors</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>IgGM2 is an all-atom diffusion framework for immune-receptor complex prediction and target-conditioned CDR sequence–structure co-design. Reported antibody, nanobody, and TCR results are promising, although the evidence is currently based on computational benchmarks and interface metrics.</p>
+        <p class="tags">Antibody design · TCR · immunotherapy · diffusion models</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075928153198129296">AlphaFold 3 shows limited but measurable T-cell specificity signal</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>A benchmark of unseen-epitope TCR–pMHC specificity introduces an MSA-reuse pipeline that reportedly cuts preprocessing from about 55 minutes to 29 seconds per complex. AlphaFold 3 and Chai-1 lead tested alternatives, but AF3’s specificity ROC-AUC remains around 0.6 and appears more tied to receptor-placement geometry than interface chemistry.</p>
+        <p class="tags">TCR · AlphaFold 3 · model evaluation</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075927523138097658">Protein language models encode mutational supply as well as fitness</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>Analysis of influenza H3N2 and SARS-CoV-2 models suggests substitution scores reflect nucleotide-level mutation accessibility despite amino-acid-only training. Explicit mutation probabilities improve forecasts of which substitutions emerge, but worsen predictions of frequencies among variants already observed.</p>
+        <p class="tags">Protein language models · viral evolution · pathogen forecasting</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075927163581431862">BINND learns weak and non-complementary DNA binding</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>BINND is trained on roughly 144.6 million labeled pairs of dissimilar DNA sequences and reports AUC 0.88. It generalizes to held-out baits and different salt conditions, and was used to design a hyperconnected DNA interaction network that was partly recovered in wet-lab pulldowns.</p>
+        <p class="tags">Synthetic biology · DNA hybridization · deep learning</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2075927363100229839">DrugGen-2 conditions molecular generation on disease and target</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>DrugGen-2 fine-tunes a molecular language model on disease–target–approved-drug relationships, then applies reinforcement learning for predicted affinity, diversity, and novelty. A diabetic-nephropathy case study produced more unique valid molecules than reported baselines, but docking results were mixed and the evidence remains predominantly computational.</p>
+        <p class="tags">Drug discovery · molecule generation · precision medicine</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Culture, Community &amp; Practice</h2>
+
+    <div class="grid">
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/PAvjpADicegDbD8ws/easy-whole-set-dances-with-a-hook">Easy Whole Set Dances With a Hook</a></h3>
+        <p class="source">LessWrong</p>
+        <p>A practical collection of easy whole-set dances with memorable figures, including suggestions for small spaces and different numbers of couples.</p>
+        <p class="tags">Dance · community</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/uLCQ6YEou5kgfW2nx/notes-on-tony-parkes-contra-dance-calling">Notes on Tony Parkes’ “Contra Dance Calling”</a></h3>
+        <p class="source">LessWrong</p>
+        <p>A comparison of the 1992 and 2010 editions of Tony Parkes’ calling manual, tracing changes in tempo norms, technology, live-music practice, and gender-free terminology.</p>
+        <p class="tags">Dance · history · community</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="language-practice">
+    <h2>Language Practice · Tägliche Lektüre · Lecture quotidienne · 毎日の読み物 · 每日阅读</h2>
+    <p class="language-intro">Native-language reading selections, preserved without translation.</p>
+
+    <article class="language-card" lang="de">
+      <h3><a href="https://www.deutschlandfunkkultur.de/us-branchenverbaende-schlagen-eine-kennzeichnung-von-ki-erzeugter-musik-vor-100.html">Deutsch — US-Branchenverbände schlagen eine Kennzeichnung von KI-erzeugter Musik vor</a></h3>
+      <p class="source">Deutschlandfunk Kultur · 11.07.2026 · <a href="https://www.deutschlandfunkkultur.de/us-branchenverbaende-schlagen-eine-kennzeichnung-von-ki-erzeugter-musik-vor-100.html">Artikel öffnen</a></p>
+      <p>Mehrere US-amerikanische Branchenverbände haben ein gemeinsames System vorgeschlagen, das den Einsatz künstlicher Intelligenz bei Musikaufnahmen sichtbar machen soll. Beteiligt sind unter anderem der internationale Musikindustrieverband IFPI und die Recording Industry Association of America. Auch Vertreter digitaler Musikdienste unterstützen das Vorhaben, weil Hörerinnen und Hörer nachvollziehen können sollen, wie eine Aufnahme entstanden ist.</p>
+      <p>Das Konzept unterscheidet zwischen Musik, die überwiegend von einer KI erzeugt wurde, und menschlich geschaffenen Produktionen, bei denen KI lediglich unterstützend zum Einsatz kam. Streaminganbieter zeigen ebenfalls Interesse an einem einheitlichen Standard; Deezer kennzeichnet KI-generierte Musik nach eigenen Angaben bereits.</p>
+      <p><strong>Warum lesen:</strong> Der kurze Beitrag zeigt, wie die Musikbranche mit einer leicht verständlichen Kennzeichnung auf die wachsende Rolle generativer KI reagieren will.</p>
+    </article>
+
+    <article class="language-card" lang="fr">
+      <h3><a href="https://www.rfi.fr/fr/%C3%A9conomie/20260712-spruce-pine-la-mine-de-quartz-qui-fait-tourner-l-%C3%A9conomie-num%C3%A9rique-mondiale">Français — Spruce Pine: la mine de quartz qui fait tourner l’économie numérique mondiale</a></h3>
+      <p class="source">RFI · 2026-07-12 · <a href="https://www.rfi.fr/fr/%C3%A9conomie/20260712-spruce-pine-la-mine-de-quartz-qui-fait-tourner-l-%C3%A9conomie-num%C3%A9rique-mondiale">Lire l’article</a></p>
+      <p>L’article s’intéresse à Spruce Pine, une mine dont le quartz compte parmi les plus purs au monde. Cette caractéristique confère au site une importance particulière pour l’économie numérique mondiale, qui dépend de matières premières répondant à des exigences de pureté extrêmement élevées.</p>
+      <p>À travers cet exemple, RFI met en lumière le lien souvent invisible entre l’extraction minière et les technologies numériques. Derrière les équipements électroniques et les infrastructures informatiques se trouve une chaîne industrielle tributaire de ressources rares, de leur transformation et de quelques lieux de production stratégiques.</p>
+      <p><strong>Pourquoi lire :</strong> Une lecture éclairante sur la dimension matérielle et géopolitique d’une économie numérique que l’on imagine parfois dématérialisée.</p>
+      <p><strong>Vocabulaire utile</strong></p>
+      <ul>
+        <li><strong>quartz de haute pureté</strong> — quartz contenant une quantité infime d’impuretés et destiné à des usages industriels très exigeants</li>
+        <li><strong>matière première stratégique</strong> — ressource indispensable à une industrie et dont l’approvisionnement peut constituer un enjeu économique ou géopolitique</li>
+        <li><strong>chaîne industrielle</strong> — ensemble des étapes et des acteurs qui transforment une ressource brute en produit utilisable</li>
+      </ul>
+    </article>
+
+    <article class="language-card" lang="ja">
+      <h3><a href="https://www.itmedia.co.jp/news/articles/2607/12/news013.html">日本語 — なんでPSのディスク版ゲームがなくなるの？　不満たらたらのゲーム好きマンガ家を黙らせた担当の一言とは</a></h3>
+      <p class="source">ITmedia NEWS · 2026-07-12 · <a href="https://www.itmedia.co.jp/news/articles/2607/12/news013.html">記事を読む</a></p>
+      <p>家庭用ゲームソフトの購入方法が、パッケージ版からダウンロード版へ移りつつある状況を扱ったマンガ記事です。記事では、2028年1月にPlayStation向けゲームの物理ディスク生産が終了し、その後の新作はダウンロード版だけになるとのうわさをきっかけに、ゲーム好きの作者がディスク版への思いを語ります。</p>
+      <p>作者は、友人との貸し借りや中古店での売買、棚に並べて所有する感覚など、物理メディアならではの魅力を挙げます。一方、ディスクを入れ替えずに遊べるダウンロード版の便利さや、「キーカード」のような中間的な販売方式にも触れ、デジタル移行が進んでも利用者に選択肢を残してほしいと考えます。</p>
+      <p><strong>読む理由：</strong> ゲームのデジタル化が、利便性だけでなく所有感や中古市場、利用者の選択にどう影響するかを身近な視点で考えられます。</p>
+      <p><strong>語彙メモ</strong></p>
+      <ul>
+        <li><strong>物理媒体（ぶつりばいたい）</strong> — ディスクやカードなど、手で触れられる形で情報を記録するもの</li>
+        <li><strong>中古市場（ちゅうこしじょう）</strong> — 一度所有された商品を売買する市場</li>
+        <li><strong>所有感（しょゆうかん）</strong> — 物を自分のものとして持っているという実感</li>
+      </ul>
+    </article>
+
+    <article class="language-card" lang="zh-Hans">
+      <h3><a href="https://theinitium.com/20260712-animal-nightjar-livestream-myna-invasive-species-zh-hans/">中文 — 过街八哥，人人喊打：当生物被贴上「外来种」标签之后</a></h3>
+      <p class="source">端传媒 · 2026-07-12 · <a href="https://theinitium.com/20260712-animal-nightjar-livestream-myna-invasive-species-zh-hans/">阅读文章</a></p>
+      <p>今年五月底，台湾一个YouTube频道开始全天直播一对南亚夜鹰育雏。夜鹰近年逐渐适应都市环境，响亮的叫声也成为当地春夏夜晚常见的城市声景。直播吸引数百乃至上千名网友观看，观众还共同记录亲鸟与雏鸟的生活。</p>
+      <p>一只家八哥后来闯入镜头，啄破尚未孵化的夜鹰蛋，激起围观者对这种「外来种」的敌意。文章以这场直播冲突为切口，追问人们为何容易把「外来」直接等同于「入侵」，并将复杂的生态关系化约为带有善恶判断的空间秩序。</p>
+      <p><strong>为什么读：</strong> 从一场网络直播延伸到外来物种的定义与道德化争议，兼具台湾都市生态和社群媒体观察。</p>
+      <p><strong>词汇笔记</strong></p>
+      <ul>
+        <li><strong>外来种 (wàilái zhǒng)</strong> — 因人为活动进入原本分布范围以外地区的生物物种，不一定都会危害当地生态。</li>
+        <li><strong>育雏 (yù chú)</strong> — 亲鸟照料、喂养尚未独立的幼鸟。</li>
+        <li><strong>城市声景 (chéngshì shēngjǐng)</strong> — 由自然声、人类活动声和机械声等共同构成的都市听觉环境。</li>
+      </ul>
+    </article>
+  </section>
+
+  <aside class="notes">
+    <strong>Source desk:</strong> Hazy Research, Kasra Blog, Nathan Chen Blog, and Queer Festival Heidelberg had no new items in the supplied material. No source failures were reported.
+  </aside>
+
+  <footer>
+    News Daily · July 12, 2026
+  </footer>
+</main>
+
+
+
+</body>
+</html>

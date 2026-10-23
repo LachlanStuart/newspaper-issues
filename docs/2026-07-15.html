@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbfaf6;
+      --ink: #20201d;
+      --muted: #66645e;
+      --accent: #245b78;
+      --rule: #d8d4ca;
+      --card: #ffffff;
+      --soft: #f1efe8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 10px 18px;
+      margin-bottom: 34px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section { margin: 42px 0; }
+    .section-title {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 20px;
+      padding-bottom: 7px;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .lead {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-left: 5px solid var(--accent);
+      padding: 22px 24px;
+      margin-bottom: 18px;
+    }
+    .lead h3, article h3 {
+      margin: 0 0 8px;
+      line-height: 1.25;
+    }
+    .lead h3 { font-size: 1.45rem; }
+    article h3 { font-size: 1.14rem; }
+    p { margin: 8px 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    article {
+      background: var(--card);
+      border-top: 3px solid var(--ink);
+      padding: 17px 18px 18px;
+      min-width: 0;
+    }
+    .source {
+      margin-top: 13px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .tags {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.76rem;
+      letter-spacing: 0.02em;
+      margin-top: 12px;
+    }
+    .language-practice {
+      border-top: 5px double var(--ink);
+      padding-top: 25px;
+      margin-top: 55px;
+    }
+    .language-intro {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      margin: -10px 0 25px;
+    }
+    .language-card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 24px;
+      margin: 22px 0;
+    }
+    .language-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.3;
+    }
+    .language-card .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      margin-bottom: 14px;
+    }
+    .language-card h4 {
+      font-size: 1rem;
+      margin: 18px 0 6px;
+    }
+    .language-card ul { margin-top: 5px; }
+    footer {
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      margin-top: 48px;
+      padding-top: 16px;
+      text-align: center;
+    }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      main { width: min(100% - 22px, 1100px); padding-top: 18px; }
+      .lead, article, .language-card { padding: 17px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Wednesday, July 15, 2026 · Research and discovery briefing</p>
+    </header>
+
+    <section>
+      <h2 class="section-title">AI Research Tools &amp; Multimodal Methods</h2>
+
+      <div class="lead">
+        <h3><a href="https://x.com/GoodfireAI/status/2077073005088501780">Silico automates replication and extension of AI research experiments</a></h3>
+        <p>Goodfire presents Silico, an experimental platform for automating research reproduction and follow-up work. Reported demonstrations include replicating J-space on GLM-5.2 and extending multi-hop question answering to contexts of roughly 256,000 tokens.</p>
+        <p>The team also reports reproducing RLFR in two days, reducing Qwen3-8B hallucinations by 37% without capability loss, finding protein-structure-correlated subspaces with Block-Sparse Featurizers, and replicating PICASSO for pathology-model interpretation.</p>
+        <p class="tags">Research automation · Interpretability · Reinforcement learning · Long context</p>
+      </div>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2077017911814692871">NicheTrans translates spatial biological data across modalities</a></h3>
+          <p>Nature Methods highlights a multimodal framework for translating spatial biological data between modalities. The supplied material does not include methodological or benchmark details, but the approach may be useful for integrating spatial-omics measurements collected through different technologies.</p>
+          <p class="tags">Spatial biology · Multimodal learning · Computational biology</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077056510358876648">Structural transfer appears stronger from language to biology than in reverse</a></h3>
+          <p>A controlled study reports asymmetric transfer between natural-language and protein models. Language-task training transfers above chance to protein homology, while protein training and continued pretraining provide little reliable benefit on language-structure tasks. Architecture-matched comparisons and shuffled-protein controls suggest differences in learnability rather than a universally shared representation space.</p>
+          <p class="tags">Foundation models · Transfer learning · Protein language models</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Protein Design, Structure &amp; Therapeutics</h2>
+
+      <div class="lead">
+        <h3><a href="https://x.com/BiologyAIDaily/status/2077058494273134982">Designed proteins selectively inhibit or activate kinases</a></h3>
+        <p>A preprint uses RFdiffusion, ProteinMPNN, Rosetta and AlphaFold2 to design compact proteins against distinct conformations of focal adhesion kinase. Screening produced 30 inhibitors and three activators, including nanomolar modulators that changed FAK signaling, adhesion phenotypes and cancer-spheroid viability. Successful scaffolds were also retargeted to Src.</p>
+        <p>The work suggests that conformational ensembles can serve as programmable targets for bidirectional control of cell signaling. Delivery, immunogenicity and in-vivo validation remain unresolved.</p>
+        <p class="tags">Protein design · Kinases · Cancer biology · Drug discovery</p>
+      </div>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077057137063379134">GPFlow enables variable-length protein and peptide generation</a></h3>
+          <p>GPFlow combines an insertion process that changes sequence length with within-length generative dynamics, removing the need to specify length before sampling. Reported applications include unconditional sequence and structure generation, motif scaffolding and full-atom peptide co-design, with improvements in designability or diversity over fixed-length baselines in several evaluations.</p>
+          <p class="tags">Protein design · Peptide design · Generative models · Flow matching</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077056353101853121">AlphaFold 3 assessment finds persistent specificity gaps</a></h3>
+          <p>A broad evaluation covers ubiquitination, TCR–epitope recognition, antibody–antigen complexes, protein–RNA interactions and protein–lipid co-folding. AlphaFold 3 often localizes interfaces and can prioritize some candidates, but struggles with partner specificity, mutation effects, affinity calibration and choosing the right model across seeds. Reduced training-set overlap further lowers performance.</p>
+          <p class="tags">AlphaFold 3 · Model evaluation · Immunology · Molecular interactions</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2076750630417203341">RNAbpFlow generates all-atom RNA conformational ensembles</a></h3>
+          <p>RNAbpFlow is designed to generate all-atom conformational ensembles for single-chain RNA monomers without evolutionary information or homologous structures. Detailed benchmarks were not available in the supplied report, but the method could be relevant to RNA structural biology and therapeutic discovery.</p>
+          <p class="tags">RNA · Structural biology · Conformational ensembles · Generative models</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077056812269056359">CPP2Vec offers lightweight peptide-delivery prediction</a></h3>
+          <p>CPP2Vec combines Skip-Gram peptide embeddings with conventional classifiers to predict cell penetration, uptake efficiency and phosphorodiamidate morpholino oligomer delivery. It reports performance comparable to heavier protein language models at much lower CPU cost. A small Duchenne muscular dystrophy study links predicted delivery scores with dystrophin-restoration measurements.</p>
+          <p class="tags">Drug delivery · Peptides · Antisense · Machine learning</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077056932972814444">Active learning optimizes concentrated antibody formulations</a></h3>
+          <p>An automated Design–Build–Test–Learn platform combines robotic formulation, high-throughput assays and Gaussian-process Bayesian optimization. Starting with 24 seed formulations, two active-learning rounds searched a space of about 800 million combinations and improved melting temperature, diffusivity and viscosity after only 72 experiments. SHAP analysis identified arginine as a major source of trade-offs.</p>
+          <p class="tags">Active learning · Lab automation · Antibodies · Biologics development</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077052854981022105">A geometric atlas traces modality fusion inside ESM3</a></h3>
+          <p>An interpretability study follows sequence, structure tokens, secondary structure, solvent accessibility and functional annotations through ESM3’s 48 layers. Physical modalities undergo a sharp fusion transition around layers 25–35, with sequence joining structure-derived information relatively late; functional annotations remain largely orthogonal. Controls suggest the geometry is learned rather than an architectural artifact.</p>
+          <p class="tags">Mechanistic interpretability · ESM3 · Multimodal protein models</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Genomics, Cells &amp; Biological Foundation Models</h2>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077055782500339792">The BioCollection assembles a 52.6-billion-token biology corpus</a></h3>
+          <p>THEBIOCOLLECTION unifies training-ready records covering small molecules, proteins, genomic sequences, cells and pathways, with computed properties and instruction tasks. Its evaluation suite spans recognition, prediction, generation and cross-domain reasoning. Continued training of a fixed 16B architecture reportedly more than doubled aggregate biological performance while preserving general language ability.</p>
+          <p class="tags">Datasets · Biological language models · Genomics · Benchmarks</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2077052978310328496">ARSENAL learns regulatory DNA from short enriched sequences</a></h3>
+          <p>ARSENAL is a masked DNA language model trained on about 2.3 million ENCODE candidate cis-regulatory elements using 350-base-pair contexts. Its zero-shot likelihood maps recover motifs and dependencies, improve regulatory-QTL scoring, and support ChromBPNet count and variant-effect prediction. It can also guide in-silico design of cell-type-specific accessible sequences, though experimental validation is still needed.</p>
+          <p class="tags">Regulatory genomics · DNA language models · Variant effects · Sequence design</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/pkoo562/status/2077226934724174219">Cherimoya targets efficient local regulatory-function prediction</a></h3>
+          <p>Cherimoya is presented as a smaller, faster sequence-to-function model for predicting local regulatory activity. The accompanying report emphasizes extensive hyperparameter exploration and practical efficiency improvements, with a code repository available for further study.</p>
+          <p class="tags">Genomics · Gene regulation · Sequence-to-function · Efficient models</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2077126253870768179">Single-cell foundation models show task-dependent utility</a></h3>
+          <p>A systematic analysis compares 20 pretrained single-cell representation methods across six downstream tasks and 1,607 datasets containing nearly 21.8 million cells. No method consistently dominates, and strong performance on original datasets often fails to remain robust when cell counts, gene counts, class balance, composition or batch complexity change.</p>
+          <p class="tags">Single-cell · Foundation models · Robustness · Model evaluation</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2077126993444012363">FIERCE reconstructs cellular trajectories with signaling entropy</a></h3>
+          <p>FIERCE reconstructs dynamics from single-cell RNA sequencing by estimating each cell’s future signaling entropy, calculating entropy velocity and generating a vector field over a differentiation-potency landscape. The resulting streamplots aim to show paths cells follow during differentiation.</p>
+          <p class="tags">Single-cell · Cell trajectories · Differentiation · Systems biology</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2077053532684050693">Tahoe-100M offers a large perturbation atlas</a></h3>
+          <p>Tahoe-100M is presented as a large single-cell perturbation atlas for studying context-dependent gene function and cellular modeling. The supplied report contained only the resource title and a shortened link, so dataset composition and validation results remain unavailable.</p>
+          <p class="tags">Dataset · Single-cell · Perturbation biology · Virtual cells</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2 class="section-title">Language Practice · Tägliche Lektüre · Lecture quotidienne · 毎日の読み物 · 每日阅读</h2>
+      <p class="language-intro">Edited reading selections are preserved in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Neu bei Steam: Eine lang ersehnte deutsche Wirtschaftssimulation verpasst diese Woche ihren Release – aber es gibt ein tolles Trostpflaster</h3>
+        <p class="byline">GameStar · 13.07.2026 · <a href="https://www.gamestar.de/artikel/neu-bei-steam,3456192.html">https://www.gamestar.de/artikel/neu-bei-steam,3456192.html</a></p>
+        <p>Die deutsche Wirtschaftssimulation „Die Gilde: Europa 1410“ sollte ursprünglich diese Woche in den Early Access starten. Publisher THQ Nordic hat die Veröffentlichung jedoch kurzfristig auf September 2026 verschoben und verweist dabei auf Rückmeldungen zur Demo beim Steam Next Fest. GameStar stellt als Ersatz mehrere andere Neuerscheinungen der Woche vor.</p>
+        <p>Im Mittelpunkt steht das Koop-Horrorspiel „The Mound: Omen of Cthulhu“, in dem bis zu vier Personen einen verfluchten südamerikanischen Dschungel erkunden. Ein dynamisches Sanity-System verzerrt dabei für jedes Teammitglied individuell die Wahrnehmung: Verbündete können wie Monster erscheinen und harmlose Wege wie tödliche Fallen. Ergänzt wird die Wochenvorschau durch Detektivspiele, nostalgisch angehauchte Titel und ein ungewöhnliches Rollenspiel über Krankheitserreger im menschlichen Körper.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel bietet einen kompakten Überblick über aktuelle PC-Spielveröffentlichungen und erklärt anschaulich einige ungewöhnliche Spielideen.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Fin de vie : l’aide à mourir, un « long cheminement » pour Emmanuel Macron</h3>
+        <p class="byline">Le Monde · 15 juillet 2026 · <a href="https://www.lemonde.fr/politique/article/2026/07/15/fin-de-vie-l-aide-a-mourir-un-long-cheminement-pour-emmanuel-macron_6723495_823448.html">https://www.lemonde.fr/politique/article/2026/07/15/fin-de-vie-l-aide-a-mourir-un-long-cheminement-pour-emmanuel-macron_6723495_823448.html</a></p>
+        <p>L’article retrace l’évolution prudente d’Emmanuel Macron sur l’aide à mourir. Le chef de l’État a longtemps douté de la nécessité d’une nouvelle législation, craignant notamment de heurter les représentants des cultes et d’accentuer les divisions de la société française sur une question éthique particulièrement sensible.</p>
+        <p>Le récit souligne aussi l’importance politique du choix des mots : Emmanuel Macron ne souhaitait employer ni « euthanasie » ni « suicide », et l’académicien Erik Orsenna aurait été sollicité pour chercher une formulation différente. Cette maturation aboutit à une proposition de loi sur l’aide à mourir, soumise au vote final de l’Assemblée nationale le 15 juillet.</p>
+        <p><strong>Pourquoi lire :</strong> Pour comprendre comment une réforme majeure de la fin de vie s’est construite à la fois par des arbitrages politiques, éthiques et lexicaux.</p>
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>aide à mourir</strong> — dispositif encadré permettant, sous certaines conditions légales et médicales, d’accompagner une personne qui demande à mettre fin à sa vie</li>
+          <li><strong>fin de vie</strong> — période où une personne souffre d’une maladie grave, incurable ou arrivée à un stade avancé</li>
+          <li><strong>représentants des cultes</strong> — responsables qui parlent au nom des différentes institutions religieuses</li>
+          <li><strong>fracturer la société</strong> — provoquer une division profonde et durable au sein de la population</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — Motorola製折りたたみスマホのフラグシップ「razr fold」が8月4日に発売。SoCにSnapdragon 8 Gen 5を採用</h3>
+        <p class="byline">4Gamer · 2026-07-15 · <a href="https://www.4gamer.net/games/374/G037460/20260715011/">https://www.4gamer.net/games/374/G037460/20260715011/</a></p>
+        <p>Motorola Mobilityの折りたたみ式スマートフォン「motorola razr fold」が、8月4日に発売される。端末を開くと約8.1インチのメイン画面を利用でき、閉じた状態でも約6.6インチのサブ画面で操作できる。展開時の厚さは約4.55ミリ、折りたたみ時は約9.89ミリで、重量は約243グラム。ペン入力にも対応する。</p>
+        <p>SoCにはSnapdragon 8 Gen 5を採用し、メインメモリは12GB、ストレージは256GB。3基のアウトカメラはいずれも約5000万画素で、標準・広角・光学3倍望遠を使い分けられる。最大120Hzのメイン画面、最大165Hzのサブ画面、6000mAhのバッテリー、Wi-Fi 7なども備えた高性能モデルだ。</p>
+        <p><strong>読む理由：</strong> 折りたたみスマートフォンの最新設計と主要スペックを、具体的な数値とともに確認できる。</p>
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>有機EL（ゆうきイーエル）</strong> — 自ら発光する素材を使い、高いコントラストを実現するディスプレイ方式</li>
+          <li><strong>リフレッシュレート</strong> — 画面表示を1秒間に何回更新できるかを示す数値</li>
+          <li><strong>光学望遠（こうがくぼうえん）</strong> — レンズの仕組みで被写体を拡大し、画質の低下を抑える撮影方式</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — AI热潮推高中国进出口 对德国贸易顺差明显</h3>
+        <p class="byline">德国之声 · 2026年7月14日 · <a href="https://www.dw.com/zh/ai%E7%83%AD%E6%BD%AE%E6%8E%A8%E9%AB%98%E4%B8%AD%E5%9B%BD%E8%BF%9B%E5%87%BA%E5%8F%A3-%E5%AF%B9%E5%BE%B7%E5%9B%BD%E8%B4%B8%E6%98%93%E9%A1%BA%E5%B7%AE%E6%98%8E%E6%98%BE/a-77950854">https://www.dw.com/zh/ai热潮推高中国进出口-对德国贸易顺差明显/a-77950854</a></p>
+        <p>中国6月对德国出口额同比增长27.2%，从德国进口额却只增长3.1%。今年上半年，中国对德商品出口总额为675亿美元，进口额为452亿美元，使德国对华贸易赤字达到223亿美元。报道指出，过去以汽车、机械和特种技术出口见长的德国，如今正面对中国电动汽车及机械设备带来的更强竞争，同时在电池和医药前体产品等领域仍依赖中国供应。</p>
+        <p>人工智能热潮也显著推高了中国整体进出口金额，其中半导体出口额同比翻倍，数据处理设备出口额增长53.1%。不过，分析认为增长主要来自存储芯片短缺造成的价格上涨，而非实际出口数量增加。随着中国汽车出口激增、稀土出口管制收紧，欧洲与中国之间的产业竞争和贸易摩擦可能继续升温。</p>
+        <p><strong>为什么读：</strong> 文章以最新数据串联AI产业、半导体价格和中德贸易失衡，适合积累科技经济与国际贸易词汇。</p>
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>贸易顺差 (màoyì shùnchā)</strong> — 一国出口额高于进口额所形成的差额</li>
+          <li><strong>前体产品 (qiántǐ chǎnpǐn)</strong> — 用于进一步制造药品或化学品的基础原料</li>
+          <li><strong>量价背离 (liàng jià bèilí)</strong> — 商品价格与实际交易数量朝不同方向变化的现象</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-07-15-1 · Research links point to the supplied source posts.
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

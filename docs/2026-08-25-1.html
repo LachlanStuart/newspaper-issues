@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbfaf6;
+      --ink: #202522;
+      --muted: #626a64;
+      --accent: #245d4b;
+      --accent-soft: #e8f0ec;
+      --rule: #d7dcd7;
+      --card: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration-thickness: 2px;
+    }
+
+    .page {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+
+    .masthead {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 38px;
+    }
+
+    .masthead h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 8vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .masthead p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 44px 0;
+    }
+
+    .section-heading {
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 10px;
+      padding-bottom: 8px;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 22px;
+      font-style: italic;
+    }
+
+    .lead {
+      background: var(--accent-soft);
+      border-left: 5px solid var(--accent);
+      padding: 22px 24px;
+      margin: 22px 0 28px;
+    }
+
+    .lead h3 {
+      font-size: 1.55rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    article {
+      break-inside: avoid;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 20px;
+    }
+
+    article h3,
+    article h4 {
+      margin: 0 0 8px;
+      line-height: 1.28;
+    }
+
+    article h3 {
+      font-size: 1.25rem;
+    }
+
+    article h4 {
+      font-size: 1.08rem;
+    }
+
+    article p {
+      margin: 8px 0;
+    }
+
+    .source-link {
+      display: inline-block;
+      margin-top: 6px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 600;
+    }
+
+    .language-practice {
+      margin-top: 60px;
+      padding-top: 12px;
+      border-top: 6px double var(--ink);
+    }
+
+    .language-item {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: clamp(20px, 4vw, 32px);
+      margin: 24px 0;
+    }
+
+    .language-item h3 {
+      font-size: 1.4rem;
+      line-height: 1.35;
+    }
+
+    .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 16px;
+    }
+
+    .vocabulary {
+      background: #f3f5f2;
+      padding: 14px 18px;
+      margin-top: 18px;
+    }
+
+    .vocabulary h4 {
+      margin: 0 0 8px;
+    }
+
+    .vocabulary ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .notes {
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      margin-top: 52px;
+      padding-top: 18px;
+    }
+
+    footer {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+      text-align: center;
+      margin-top: 42px;
+    }
+
+    @media (max-width: 700px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        width: min(100% - 22px, 960px);
+        padding-top: 20px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <h1>News</h1>
+      <p>Tuesday, August 25, 2026 · Research, technology, and language practice</p>
+    </header>
+
+    <section aria-labelledby="ai-systems">
+      <h2 class="section-heading" id="ai-systems">AI Systems, Models &amp; Tools</h2>
+      <p class="section-intro">Open model training, GPU kernels, tokenization, optimization, and a major NLP reference update.</p>
+
+      <article class="lead">
+        <h3>Marin begins fully open training of a 535B-parameter language model</h3>
+        <p>The Marin project has begun training a mixture-style language model with 535 billion total parameters and 23 billion active parameters. Its planned program spans pretraining and mid-training, with code, data, recipes, and experimental results being published as part of an open research process.</p>
+        <a class="source-link" href="https://x.com/YouJiacheng/status/2091888854898979034">Read the Marin training update on X</a>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <h3>CAKE adds Blackwell training kernels for KDA</h3>
+          <p>CAKE has upstreamed paired forward and backward KDA training kernels targeting NVIDIA’s SM100a and SM103a Blackwell architectures. The implementation concerns efficient training for linear-attention models; comparisons with FLA are underway, although detailed benchmark results were not included in the source material.</p>
+          <a class="source-link" href="https://x.com/SonglinYang4/status/2091807394376630568">View the kernel update</a>
+        </article>
+
+        <article class="card">
+          <h3><code>ctok</code> reproduces Claude token counts across 500-plus languages</h3>
+          <p>The open tokenizer-reproduction tool reportedly matches token counts in more than 500 natural languages. Related implementation notes identify pre-tokenization regex splitting as the dominant tokenization cost and point to specialized pre-tokenization code as a possible performance strategy.</p>
+          <a class="source-link" href="https://x.com/YouJiacheng/status/2091968486373548284">See the tokenizer discussion</a>
+        </article>
+
+        <article class="card">
+          <h3>Momentum reconsidered as feature-level gradient descent</h3>
+          <p>A technical article proposes a new interpretation of momentum under the title “A New Understanding of Momentum: Toward Feature-Level Gradient Descent.” It may be of interest to readers studying how optimization dynamics interact with learned neural features.</p>
+          <a class="source-link" href="https://x.com/Jianlin_S/status/2091468151213158808">Open the linked technical resource</a>
+        </article>
+
+        <article class="card">
+          <h3><em>Speech and Language Processing</em> gets an August 2026 edition</h3>
+          <p>Stanford AI Lab has announced an August 2026 release of Jurafsky and Martin’s widely used reference on natural-language processing and speech. Specific revisions were not available in the supplied announcement.</p>
+          <a class="source-link" href="https://x.com/StanfordAILab/status/2091444412090130805">View the release announcement</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="computational-biology">
+      <h2 class="section-heading" id="computational-biology">Computational Biology &amp; Scientific Methods</h2>
+      <p class="section-intro">Protein design, scientific imaging, single-cell genomics, immune signaling, and genome engineering.</p>
+
+      <div class="grid">
+        <article class="card">
+          <h3>ProteinDPO predicts stability and generates thermostable proteins</h3>
+          <p><em>Nature Methods</em> highlights ProteinDPO, a protein language model designed both to predict protein stability and to generate thermostable sequences. The work connects language-model methods with a concrete protein-engineering objective.</p>
+          <a class="source-link" href="https://x.com/naturemethods/status/2091955479702278435">Read the Nature Methods post</a>
+        </article>
+
+        <article class="card">
+          <h3>Cryo-ET challenge yields improved particle-picking algorithms</h3>
+          <p>A Kaggle competition focused on particle picking in cryo-electron tomography prompted the development of algorithms reported to outperform previous state-of-the-art software, illustrating how shared benchmarks can advance difficult scientific-imaging tasks.</p>
+          <a class="source-link" href="https://x.com/naturemethods/status/2091959611670614410">View the challenge report</a>
+        </article>
+
+        <article class="card">
+          <h3>sc-pcQTL maps multi-gene regulatory phenotypes</h3>
+          <p>sc-pcQTL combines two-component hurdle modeling, sliding-window clustering, and principal components to map local co-expression phenotypes from single-cell RNA sequencing. Applied to 1.24 million peripheral blood mononuclear cells, it identified 2,485 clusters and tested 4,353 cluster-level phenotypes; 2,040 had at least one significant cis association. Simulations indicated greater power than donor-level pseudobulk correlation tests.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2092044591205929425">Read the sc-pcQTL summary</a>
+        </article>
+
+        <article class="card">
+          <h3>scDRS-FM fine-maps disease associations cell by cell</h3>
+          <p>scDRS-FM is introduced as a framework for fine-mapping polygenic disease associations at individual-cell resolution in single-cell RNA-seq data. The available posts do not provide enough detail to assess its complete methodology or reported results.</p>
+          <a class="source-link" href="https://x.com/anshulkundaje/status/2092107902144450809">View the research post</a>
+          <br>
+          <a class="source-link" href="https://x.com/gen0m1cs/status/2092078176537022488">View an additional mention</a>
+        </article>
+
+        <article class="card">
+          <h3>Cytokine signaling atlas examines STAT mosaics in T cells</h3>
+          <p>A preprint titled “A Cytokine Receptor Signaling Atlas Reveals How STAT Mosaics Fine-Tune T Cell Function” studies how combinations of STAT signaling outputs regulate T-cell behavior. Further experimental details were not present in the supplied material.</p>
+          <a class="source-link" href="https://x.com/anshulkundaje/status/2092112286769197119">Open the preprint announcement</a>
+        </article>
+
+        <article class="card">
+          <h3>Single-cell clonal expansion pairs TCRs with peptide–MHC interactions</h3>
+          <p>A Garcia Lab preprint presents a single-cell approach for connecting T-cell receptor clones with their peptide–MHC interactions. Such functional pairing could help resolve immune-receptor specificity, although the available summary does not establish the study’s scale or validation.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2092044385076863486">View the preprint post</a>
+        </article>
+
+        <article class="card">
+          <h3>DREAMS profiles spatial DNA and RNA modifications</h3>
+          <p>DREAMS is presented as a method for illuminating spatial landscapes of DNA and RNA modifications. The source announcement does not specify assay resolution, tissue applications, or validation results.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2092043864043622412">See the DREAMS announcement</a>
+        </article>
+
+        <article class="card">
+          <h3>Model-guided evolution optimizes compact genome editors</h3>
+          <p>A <em>Nature Biotechnology</em> report describes an adaptive, model-guided approach to evolving compact eukaryotic genome editors from sparse experimental data. It combines machine learning with directed evolution, though the supplied summary does not identify the editor families or quantify the improvements.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2092043680156942645">Read the research notice</a>
+        </article>
+
+        <article class="card">
+          <h3>kpiCells model mechanically regulated cell interactions</h3>
+          <p>kpiCells are biomimetic artificial cells designed to investigate how mechanical regulation affects cell–cell interactions. The available item does not describe their construction or the specific biological systems tested.</p>
+          <a class="source-link" href="https://x.com/naturemethods/status/2091953440989532552">View the Nature Methods post</a>
+        </article>
+
+        <article class="card">
+          <h3>Review surveys homology-directed repair across genome editors</h3>
+          <p>A new review examines homology-directed repair in the context of an increasingly varied genome-editing landscape, offering a synthesis of a central DNA-repair mechanism and its relationship to newer editing systems.</p>
+          <a class="source-link" href="https://x.com/NatRevMCB/status/2091875485974429739">Open the review announcement</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <h2 class="section-heading" id="language-heading">Language Practice · Lectures quotidiennes · 毎日の読み物 · 每日阅读</h2>
+      <p class="section-intro">Native-language reading selections, preserved without translation.</p>
+
+      <article class="language-item" lang="de">
+        <h3>Deutsch — Ukraine nimmt Russlands Schwarzmeer-Häfen ins Visier</h3>
+        <p class="byline">Deutsche Welle · 25. August 2026 · <a href="https://www.dw.com/de/ukraine-nimmt-russlands-schwarzmeer-h%C3%A4fen-ins-visier/a-78485726">Artikel lesen</a></p>
+
+        <p>Verstärkte ukrainische Drohnenangriffe haben den Betrieb russischer Häfen am Schwarzen und Asowschen Meer erheblich beeinträchtigt. Besonders betroffen ist Noworossijsk, Russlands größter Handelshafen am Schwarzen Meer und ein zentraler Umschlagplatz für Getreide, Erdöl, Metalle und Container. Mehrere Getreideterminals mussten ihre Arbeit einstellen; auch der Ölumschlag wurde zeitweise unterbrochen.</p>
+
+        <p>Die Störungen könnten weit über Russland hinauswirken. Rund 90 Prozent der russischen Getreidelieferungen werden normalerweise über die Region abgewickelt, während auch die ukrainischen Exporte durch russische Angriffe zurückgehen. Alternative Routen über Ostseehäfen oder die Donau können die traditionellen Wege nur teilweise ersetzen. Experten rechnen deshalb mit höheren Transportkosten, Belastungen für russische Produzenten und möglichen Folgen für den weltweiten Weizenmarkt.</p>
+
+        <p><strong>Warum lesen:</strong> Der Artikel verbindet die militärische Entwicklung im Schwarzen Meer anschaulich mit ihren wirtschaftlichen und globalen Folgen.</p>
+      </article>
+
+      <article class="language-item" lang="fr">
+        <h3>Français — Des scientifiques analysent les microbes qui dévorent les manuscrits millénaires</h3>
+        <p class="byline">ActuaLitté · 22 août 2026 · <a href="https://actualitte.com/article/133454/bibliophilie/des-scientifiques-analysent-les-microbes-qui-devorent-les-manuscrits-millenaires">Lire l’article</a></p>
+
+        <p>Des chercheurs tunisiens et allemands étudient la détérioration inhabituelle de parchemins anciens conservés à Kairouan : bords assombris, déformations, gélatinisation et fragilisation progressive. Douze fragments datant des IXe au XIe siècles ont fait l’objet de prélèvements et d’un séquençage ADN à haut débit, afin d’identifier les communautés de bactéries et de champignons présentes à leur surface. L’enjeu patrimonial est majeur, puisque les collections concernées comprennent plus de 42 500 feuillets et constituent un ensemble exceptionnel de manuscrits islamiques sur parchemin.</p>
+
+        <p>Les analyses ont notamment révélé la présence fréquente de bactéries du genre <em>Bacillus</em>. Certaines espèces produisent des enzymes capables de dégrader le collagène, matière essentielle du parchemin. Les scientifiques restent toutefois prudents : détecter l’ADN d’un microorganisme ne prouve ni qu’il soit encore vivant, ni qu’il soit responsable des dommages. Avant toute désinfection générale, ils recommandent donc de poursuivre les expériences et de privilégier une conservation préventive fondée sur la stabilité des conditions environnementales et le contrôle de l’humidité.</p>
+
+        <p><strong>Pourquoi lire :</strong> Un article à la croisée de la microbiologie, de l’histoire du livre et de la préservation d’un patrimoine écrit exceptionnel.</p>
+
+        <div class="vocabulary">
+          <h4>Vocabulaire utile</h4>
+          <ul>
+            <li><strong>biodégradation</strong> — décomposition d’une matière sous l’action d’organismes vivants, notamment des bactéries ou des champignons</li>
+            <li><strong>collagénase</strong> — enzyme capable de dégrader le collagène présent dans les tissus animaux et le parchemin</li>
+            <li><strong>séquençage ADN à haut débit</strong> — technique permettant d’analyser rapidement un très grand nombre de fragments génétiques</li>
+            <li><strong>conservation préventive</strong> — ensemble de mesures destinées à ralentir la détérioration d’un objet sans intervenir directement sur celui-ci</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="language-item" lang="ja">
+        <h3>日本語 — 巨大化ネコと少女の美麗旅ゲーム『Ylem’s Cat』は「ほぼ全員ネコを飼ってる開発チーム」が放つ、ネコの手借りまくりゲーム。目指すのは『The Outer Wilds』の“あの感覚”</h3>
+        <p class="byline">AUTOMATON · 2026年8月25日 · <a href="https://automaton-media.com/articles/reportjp/20260825-462457/">記事を読む</a></p>
+
+        <p>中国・広州のダイヤモンドキャットスタジオが開発する『Ylem’s Cat』は、少女ジャスミンと猫のミオが世界の謎を追うシングルプレイ型アクションアドベンチャーだ。『アウター・ワイルズ』や『TUNIC』に影響を受けた「知識アンロック型」の謎解きと、複数の戦闘スタイルを組み立てられるアクションを融合している。PC向けに2028年の発売が予定され、想定プレイ時間は15〜20時間だという。</p>
+
+        <p>ミオは大猫・中猫・小猫の三形態に変化し、乗り物や戦闘要員として活躍するだけでなく、光を追う、壁を引っかく、敵を威嚇するといった猫らしい行動で探索の手掛かりを示す。ジャスミンとの連携攻撃に加え、猫だけに戦わせる遊び方も可能で、アクションが苦手な人にも配慮されている。開発チームの大半が実際に猫を飼っており、その観察経験が謎解きの仕組みに生かされている点も興味深い。</p>
+
+        <p><strong>読む理由：</strong> 猫の習性そのものを探索と戦闘のシステムへ落とし込んだ、独創的なゲームデザインを具体的に知ることができる。</p>
+
+        <div class="vocabulary">
+          <h4>語彙メモ</h4>
+          <ul>
+            <li><strong>知識アンロック（ちしきアンロック）</strong> — プレイヤーが得た情報や理解によって、新しい進路や解法が分かるようになる設計。</li>
+            <li><strong>連携攻撃（れんけいこうげき）</strong> — 複数のキャラクターが動きを組み合わせて繰り出す攻撃。</li>
+            <li><strong>資源管理（しげんかんり）</strong> — スタミナなど限りのある要素を、状況に応じて配分・回復すること。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="language-item" lang="zh">
+        <h3>中文 — 串谋走私AI服务器至大陆　台起诉英伟达美超微员工等九人</h3>
+        <p class="byline">联合早报 · 2026-08-24 · <a href="https://www.zaobao.com.sg/news/china/story20260824-9568307">阅读原文</a></p>
+
+        <p>台湾检方起诉九名涉嫌非法出口高端人工智能服务器的人士，包括英伟达台湾一名员工和美超微台湾两名员工。涉案者据称取得130台搭载英伟达B300图形处理器的服务器，其中74台已直接或经印度尼西亚、日本及香港等地转运至中国大陆，另有56台在出口前被海关查获；转售所得超过2120万美元。</p>
+
+        <p>检方指控涉案人员利用日本公司作为中转点，并通过伪造最终用途、代垫资金和营造服务器在台湾机房运行的假象，规避企业的白名单审核及实地查核。英伟达涉案员工被检方称为“放行B300 GPU的核心人物”，两名美超微员工则被指明知服务器最终流向仍配合完成订单。检方认为此案不仅违反先进半导体出口管制，也增加企业合规成本并损害台湾的国际形象。</p>
+
+        <p><strong>为什么读：</strong> 文章以具体案件呈现高端AI硬件出口管制如何执行、又可能如何被供应链内部人员规避。</p>
+
+        <div class="vocabulary">
+          <h4>词汇笔记</h4>
+          <ul>
+            <li><strong>最终用途声明 (zuìzhōng yòngtú shēngmíng)</strong> — 买方说明受管制产品将如何使用的正式文件。</li>
+            <li><strong>白名单 (báimíngdān)</strong> — 通过审核、获准购买或参与交易的对象名单。</li>
+            <li><strong>出口管制 (chūkǒu guǎnzhì)</strong> — 政府对特定技术、商品或设备出口实施的许可与限制制度。</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <aside class="notes" aria-label="Editorial notes">
+      <strong>Source note:</strong> Several research announcements were available only as shortened or truncated social-media posts. Coverage above is limited to the details present in the supplied source material.
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-08-25-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

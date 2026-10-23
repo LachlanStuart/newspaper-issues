@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fffdf8;
+      --ink: #202020;
+      --muted: #66635d;
+      --accent: #8b2f2f;
+      --line: #d9d3c8;
+      --soft: #f3efe7;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e9e5dc;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+
+    .newspaper {
+      width: min(980px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.25rem, 4vw, 4rem);
+      background: var(--paper);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 5px double var(--ink);
+      padding: 1.2rem 0 1rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .dateline {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    main {
+      margin-top: 2.25rem;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+      font-size: 1.08rem;
+      color: #45423d;
+    }
+
+    section {
+      margin-top: 2.5rem;
+    }
+
+    .section-title {
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--ink);
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    .stories {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem 2rem;
+    }
+
+    article {
+      padding-bottom: 1.4rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.3rem;
+      line-height: 1.25;
+    }
+
+    article p {
+      margin: 0.5rem 0;
+    }
+
+    .source-link {
+      display: inline-block;
+      margin-top: 0.35rem;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .source-link:hover,
+    .source-link:focus {
+      text-decoration: underline;
+    }
+
+    .language-practice {
+      margin-top: 3.5rem;
+      padding: 1.5rem;
+      border-top: 4px double var(--ink);
+      border-bottom: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .language-practice .section-title {
+      margin-top: 0;
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem 1.5rem;
+    }
+
+    .language-note {
+      padding: 0.9rem 1rem;
+      background: rgba(255, 255, 255, 0.55);
+      border-left: 3px solid var(--line);
+    }
+
+    .language-note h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.05rem;
+    }
+
+    .language-note p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+
+    .language-note a {
+      color: inherit;
+    }
+
+    .operations {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .operations h2 {
+      margin: 0 0 0.45rem;
+      color: #55514b;
+      font-size: 0.85rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .operations p {
+      margin: 0.25rem 0;
+    }
+
+    footer {
+      margin-top: 2rem;
+      padding-top: 0.9rem;
+      border-top: 3px double var(--ink);
+      color: var(--muted);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 680px) {
+      .stories,
+      .language-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newspaper {
+        padding-top: 1.25rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="newspaper">
+    <header>
+      <h1>News</h1>
+      <p class="dateline">July 20, 2026 · Research Edition</p>
+    </header>
+
+    <main>
+      <p class="lead">
+        Today’s research briefing focuses on computational methods for molecular design,
+        enzyme engineering, vaccine-antigen discovery, RNA regulation, and protein stability.
+      </p>
+
+      <section aria-labelledby="molecular-design">
+        <h2 class="section-title" id="molecular-design">Molecular Design</h2>
+        <div class="stories">
+          <article>
+            <h3>DrugRPG brings chemical and physical constraints into ligand generation</h3>
+            <p>
+              DrugRPG is a pocket-conditioned 3D diffusion framework intended to stop generated
+              ligands from exploiting docking models while violating basic chemistry or steric
+              constraints. It aligns its representation with a large 2D chemical encoder,
+              explicitly models bond types, and applies differentiable clash guidance during
+              sampling.
+            </p>
+            <p>
+              Across 10,000 generated molecules, the reported results include fewer severe
+              clashes, better redocking consistency, and stronger multi-objective developability
+              than seven comparison methods.
+            </p>
+            <a class="source-link" href="https://x.com/BiologyAIDaily/status/2078832205640704034">Read the research post →</a>
+          </article>
+
+          <article>
+            <h3>Perturbed Flow Matching aims for faster pocket-conditioned generation</h3>
+            <p>
+              Perturbed Flow Matching modifies flow-matching trajectories using protein-pocket
+              information and coupled atom-type and coordinate signals while preserving endpoint
+              distributions. Its equivariant network models ligand, protein, and cross-molecular
+              interactions, supplemented by bond-length and protein-clash losses.
+            </p>
+            <p>
+              On CrossDocked2020, the authors report improved docking and geometry metrics as
+              well as a 21.3× valid-molecule generation speedup over the diffusion baseline used
+              in their timing comparison.
+            </p>
+            <a class="source-link" href="https://x.com/BiologyAIDaily/status/2078827997881356689">Read the research post →</a>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="proteins-enzymes">
+        <h2 class="section-title" id="proteins-enzymes">Proteins &amp; Enzymes</h2>
+        <div class="stories">
+          <article>
+            <h3>EnzGFM specializes language modeling for enzyme research</h3>
+            <p>
+              EnzGFM combines Mamba and Transformer components, with pretraining first on
+              UniRef50 and then on curated enzyme sequences. The paper reports gains in
+              kinetic-property prediction, enzyme–reaction retrieval, EC classification, and
+              mutation-effect prediction, including evaluations with low-sequence-identity
+              splits.
+            </p>
+            <p>
+              An associated agent also prioritized SEAP variants for a CHO-cell experiment.
+              Every candidate unique to its top set reportedly improved activity, with the best
+              reaching 7.13× wild type.
+            </p>
+            <a class="source-link" href="https://x.com/BiologyAIDaily/status/2078829016103231874">Read the research post →</a>
+          </article>
+
+          <article>
+            <h3>N-terminal model predicts stability differences between protein isoforms</h3>
+            <p>
+              A model trained on roughly 48,000 experimentally measured 23-residue N-termini
+              predicts protein-stability effects beyond the first two residues emphasized by
+              canonical N-end-rule models. It identifies an internal-arginine stabilization
+              pattern and validates graded effects through reporter assays.
+            </p>
+            <p>
+              Applied to alternative translation starts, the model predicts—and experiments
+              confirm—that short extensions or truncations can substantially change isoform
+              stability by introducing or masking hydrophobic segments.
+            </p>
+            <a class="source-link" href="https://x.com/BiologyAIDaily/status/2078828491550982638">Read the research post →</a>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="biomedical-discovery">
+        <h2 class="section-title" id="biomedical-discovery">Biomedical Discovery &amp; Gene Regulation</h2>
+        <div class="stories">
+          <article>
+            <h3>SemVac uses literature-aware language models to rank vaccine antigens</h3>
+            <p>
+              SemVac scores proteins as protective-antigen candidates using literature-derived
+              functional descriptions rather than sequence or structure alone. The study
+              compares 14 language models on bacterial and cross-kingdom antigen datasets,
+              tests them after removing papers with explicit vaccine keywords, and applies the
+              approach to the Mpox proteome.
+            </p>
+            <p>
+              One notable result is a practical warning: explicit reasoning increased recall
+              but reduced precision, suggesting that over-reasoning may be costly when each
+              proposed target requires experimental follow-up.
+            </p>
+            <a class="source-link" href="https://x.com/BiologyAIDaily/status/2078828632123040203">Read the research post →</a>
+          </article>
+
+          <article>
+            <h3>DB-IRES predicts internal ribosome entry sites from RNA sequences</h3>
+            <p>
+              DB-IRES combines densely connected one-dimensional convolutions, a bidirectional
+              GRU, attention, and five-fold soft-voting ensembles to classify internal ribosome
+              entry sites from 174-nucleotide sequences. It was trained on 18,527 sequences from
+              a high-throughput bicistronic assay.
+            </p>
+            <p>
+              The model reports an AUPR of 0.504 on the imbalanced test set, while motif analysis
+              recovers purine-rich patterns. Fixed-length inputs and uncertain cross-species
+              generalization remain important limitations.
+            </p>
+            <a class="source-link" href="https://x.com/BiologyAIDaily/status/2078829962610798724">Read the research post →</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="language-practice" aria-labelledby="language-practice">
+        <h2 class="section-title" id="language-practice">Language Practice</h2>
+        <p>No verified reading selections were available for this edition.</p>
+
+        <div class="language-grid">
+          <div class="language-note" lang="de">
+            <h3>Deutsch — tägliche Lektüre</h3>
+            <p>
+              Kein Artikel verfügbar: <a href="https://www.gamestar.de/news/">GameStar</a>
+              und die Ersatzquelle konnten nicht verlässlich geprüft werden.
+            </p>
+          </div>
+
+          <div class="language-note" lang="fr">
+            <h3>Français — lecture quotidienne</h3>
+            <p>
+              Aucun article n’a pu être vérifié auprès du Monde ou de la source de secours
+              <a href="https://www.numerama.com/">Numerama</a>.
+            </p>
+          </div>
+
+          <div class="language-note" lang="ja">
+            <h3>日本語 — 毎日の読み物</h3>
+            <p>
+              4Gamerおよびフォールバックの
+              <a href="https://www.nippon.com/ja/">nippon.com 日本語</a>
+              から、記事内容と公開日を確認できませんでした。
+            </p>
+          </div>
+
+          <div class="language-note" lang="zh">
+            <h3>中文 — 每日阅读</h3>
+            <p>
+              无法核实联合早报或备用来源
+              <a href="https://www.gcores.com/">机核</a>
+              的近期文章，因此本期未选取阅读材料。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <aside class="operations" aria-labelledby="source-notes">
+        <h2 id="source-notes">Source notes</h2>
+        <p>
+          The AI research social feed could not be collected after repeated timeline requests,
+          so this edition contains no items from that source.
+        </p>
+      </aside>
+    </main>
+
+    <footer>
+      News Daily · Run 2026-07-20-1
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

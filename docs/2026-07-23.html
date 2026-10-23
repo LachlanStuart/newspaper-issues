@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20211f;
+      --muted: #66685f;
+      --rule: #d8d5ca;
+      --accent: #245b4a;
+      --soft: #eef3ee;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eceae3;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .paper {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.1rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      border-top: 4px double var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.25rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .kicker {
+      margin: 0;
+      color: var(--muted);
+      font: 700 0.76rem/1.3 Arial, sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0.2rem 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1;
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 0.65rem 0 0;
+      font: 0.9rem Arial, sans-serif;
+      color: var(--muted);
+    }
+    section {
+      margin-top: 2.8rem;
+    }
+    .section-title {
+      margin: 0 0 1.2rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+    .lead-grid, .story-grid {
+      display: grid;
+      gap: 1.4rem 1.8rem;
+    }
+    .lead-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .story-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    article {
+      break-inside: avoid;
+    }
+    .story-grid article {
+      padding-top: 0.25rem;
+      border-top: 1px solid var(--rule);
+    }
+    article h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+    .lead-grid article h3 {
+      font-size: 1.4rem;
+    }
+    article p {
+      margin: 0;
+      font-size: 0.98rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .source-link {
+      display: inline-block;
+      margin-top: 0.65rem;
+      font: 700 0.76rem/1.3 Arial, sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .language {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -0.5rem 0 1.4rem;
+      font-size: 0.95rem;
+    }
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+    .language-card {
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--rule);
+      background: var(--soft);
+    }
+    .language-card h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.08rem;
+    }
+    .language-card p {
+      margin: 0;
+      font-size: 0.93rem;
+    }
+    .language-card .source-link {
+      margin-top: 0.55rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      color: var(--muted);
+      font: 0.78rem Arial, sans-serif;
+    }
+    @media (max-width: 820px) {
+      .story-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+    @media (max-width: 600px) {
+      .paper { padding-top: 1.2rem; }
+      .lead-grid, .story-grid, .language-grid { grid-template-columns: 1fr; }
+      h1 { font-size: 2.75rem; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="paper">
+    <header>
+      <p class="kicker">Research, computation and the life sciences</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-07-23">Thursday, July 23, 2026</time> · Run 2026-07-23-1</p>
+    </header>
+
+    <section aria-labelledby="top-stories">
+      <h2 class="section-title" id="top-stories">Top Stories</h2>
+      <div class="lead-grid">
+        <article>
+          <h3>AI-redesigned proteins give directed evolution a stronger starting point</h3>
+          <p>A Nature study pairs ProteinMPNN redesign with continuous directed evolution. Added stability allowed botulinum-neurotoxin proteases to tolerate mutations that improved activity, expression and specificity; one ataxin-2-targeting variant achieved more than 79-fold greater selected specificity than the best variant evolved from wild type. Whether the result generalizes beyond this protein family remains open.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080081143333015767">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Can general-purpose language models design physically plausible 3D ligands?</h3>
+          <p>The 3D-Fit benchmark asks LLMs to generate reconstructable molecules from textual descriptions of pockets, fragments and mandatory interactions. Models often obeyed local constraints, but produced strained or clashing poses and remained behind specialized diffusion systems on physical plausibility. The authors also flag dual-use risks as instruction following improves.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080069617897390489">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Linearizing softmax attention into Gated DeltaNet</h3>
+          <p>A technical note develops a connection between softmax-attention linearization and the Gated DeltaNet formulation, offering architecture analysis relevant to more efficient sequence modeling.</p>
+          <a class="source-link" href="https://x.com/Jianlin_S/status/2080162408874844514">Open the technical post</a>
+        </article>
+        <article>
+          <h3>Long RNA structure prediction from sequence alone</h3>
+          <p>NUMonomer is a quadratic-scaling, all-atom model for RNA and single-stranded DNA that needs no MSA, secondary-structure annotation or pretrained sequence embedding. Tests included RNA structures as long as 4,269 nucleotides; it was competitive with AlphaFold 3 and stronger in strict sequence-only comparisons, while ssDNA remained difficult for every method.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2079917678245158921">Read the research summary</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="ai-systems">
+      <h2 class="section-title" id="ai-systems">AI Systems, Agents &amp; Robotics</h2>
+      <div class="story-grid">
+        <article>
+          <h3>Knowledge built directly into Transformer blocks</h3>
+          <p>Stanford AI Lab highlights a method for incorporating knowledge directly into a Transformer block without gradient-based training. The available post does not expose a paper or technical-report link.</p>
+          <a class="source-link" href="https://x.com/StanfordAILab/status/2080145637715431661">View the post</a>
+        </article>
+        <article>
+          <h3>Agentic genomics moves toward autonomous validation</h3>
+          <p>A Cell Genomics article examines how AI agents may expand from automating data pipelines to validating scientific work autonomously. The available social post is truncated and does not include the article’s direct URL.</p>
+          <a class="source-link" href="https://x.com/gen0m1cs/status/2079856521047871690">View the post</a>
+        </article>
+        <article>
+          <h3>Rust-first robotics with a shared Python interface</h3>
+          <p>A proof-of-concept framework puts runtime and real-time control in Rust while exposing Python for simulation and machine learning. A common actor and messaging model lets components move between the languages without redesign, and an Isaac bridge is demonstrated.</p>
+          <a class="source-link" href="https://x.com/wightmanr/status/2079741937146581002">View the project post</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="protein-engineering">
+      <h2 class="section-title" id="protein-engineering">Protein Design &amp; Engineering</h2>
+      <div class="story-grid">
+        <article>
+          <h3>ABOPD learns from antibody diffusion’s own trajectories</h3>
+          <p>ABOPD tackles exposure bias by distilling a backbone-aware teacher on intermediate states encountered during the student model’s reverse-denoising rollouts. External CDR-H3 and six-CDR evaluations found lower backbone RMSD and fewer steric clashes than controls trained only on reference-derived noisy states.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080070595044352383">Read the research summary</a>
+        </article>
+        <article>
+          <h3>ProtSyntax models the grammar of protein modification</h3>
+          <p>ProtSyntax is a sparse mixture-of-experts model trained on 4.25 million examples spanning 40 post-translational-modification classes. Its objectives also cover kinase specificity, modification crosstalk and enzyme kinetics, with reported applications to variant prioritization and Alzheimer’s-pathway proteins.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080070488014098554">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Million-sequence weak supervision for antibody expression</h3>
+          <p>A preference-learning pipeline combines expression measurements for 1,254 VHHs with 4.2 million immunization-derived camelid sequences treated as weak positives. Domain-adaptive pretraining and DPO improved expression ranking across several protein-language-model backbones.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080070277103517936">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Diff-Switch explores alternative protein conformations</h3>
+          <p>Diff-Switch guides a pretrained backbone diffusion model with domain-preservation rewards and a metadynamics-inspired exploration bias. In a phosphorylation-switch case study, four of 16 designs showed AlphaFold 3-predicted opening, compared with none from the baseline.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080070137601036473">Read the research summary</a>
+        </article>
+        <article>
+          <h3>EvoIF combines evolutionary profiles and inverse folding</h3>
+          <p>EvoIF fuses homolog-frequency profiles with ProteinMPNN residue probabilities while leaving its large backbones frozen. Across 217 ProteinGym assays, the combined profiles performed best, suggesting a comparatively efficient approach to zero-shot mutation scoring.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2079917761682366678">Read the research summary</a>
+        </article>
+        <article>
+          <h3>What ESM-IF may remember about catalytic residues</h3>
+          <p>A practical example suggests ESM-IF recovers evolutionary conservation at catalytic positions in proteins represented during training. Earlier observations found that the effect was not shared by all inverse-folding models, raising questions about interpretability and training-data dependence.</p>
+          <a class="source-link" href="https://x.com/DdelAlamo/status/2079911094055821549">View the analysis</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="drug-discovery">
+      <h2 class="section-title" id="drug-discovery">Drug Discovery &amp; Molecular Modeling</h2>
+      <div class="story-grid">
+        <article>
+          <h3>DBMol optimizes molecules through structure predictors</h3>
+          <p>DBMol alternates gradient optimization in a relaxed molecular-graph space with projection back to valid chemistry. It uses Boltz-2 objectives and evaluates with held-out AlphaFold 3, docking, diversity and retrosynthesis analyses. Predictor-aligned success improved, but chemical repair and synthesis mapping sometimes damaged pocket fit.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080069999553900839">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Calibrating uncertainty across binding-affinity engines</h3>
+          <p>RELIABLE-BA fuses GNINA, BIND, FlowDock and DynamicBind as evidential experts, estimating reliability from protein and ligand embeddings. On PDBbind and an independent BindingDB-derived set, choosing the most confident 10% of predictions reduced mean absolute error by as much as 25.7%.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080069194138403073">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Physics refinement meets model arbitration in antibody docking</h3>
+          <p>ProteinDock adds chain pre-relaxation and antibody-oriented electrostatics to Rosetta. Directly refining AlphaFold 3 predictions did not help sequence-only cases, but choosing between AlphaFold 3 and Boltz-2 with a Rosetta interface score raised success on a post-cutoff set from 54% to 60%.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2079917525295599922">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Training explicitly for cold-start drug–target prediction</h3>
+          <p>EBD-DTI masks known entities during training, removes their interactions and applies the same bridge-and-diffusion pathway later used for unseen drugs or proteins. Tests on BioSNAP, BindingDB and DrugBank identify this episodic cold-start training as the main contributor.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2079916702176092528">Read the research summary</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="immunology">
+      <h2 class="section-title" id="immunology">Immunology &amp; Therapeutic Prediction</h2>
+      <div class="story-grid">
+        <article>
+          <h3>PepCL updates peptide–MHC models without forgetting</h3>
+          <p>PepCL combines replay from the original immunopeptidomics distribution with score-drift regularization. It improved performance on new assays and neoantigen-related tasks while retaining more mass-spectrometry-derived behavior than ordinary fine-tuning, including transfer to alleles absent from the update set.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2080070379662623224">Read the research summary</a>
+        </article>
+        <article>
+          <h3>AlphaFold 3 ensembles for TCR recognition</h3>
+          <p>enFoldX summarizes confidence, geometry, contacts and variability across many AlphaFold 3 samples rather than trusting one top-ranked complex. Ensemble instability helped distinguish cognate TCR–peptide–MHC structures from plausible-looking non-cognate ones, including in neoantigen-like and unseen-peptide tests.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2079917985582698759">Read the research summary</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="cells-genomes">
+      <h2 class="section-title" id="cells-genomes">Cells, Genomes &amp; Research Tools</h2>
+      <div class="story-grid">
+        <article>
+          <h3>BaiZe treats perturbations as transcriptomic transitions</h3>
+          <p>BaiZe conditions a diffusion decoder on control-cell state, genetic perturbations, drug structure and dose, time, species and optional ATAC context. Reported tests cover unseen states, higher-order perturbations, cross-species transfer, dose response and temporal projection.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2079916380393210315">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Posterior-level alignment for multimodal single-cell data</h3>
+          <p>UniVI uses a mixture-of-experts variational autoencoder with modality-specific encoders and decoders. A symmetric divergence penalty aligns posterior means and variances for paired cells, aiming to reduce false alignment when one modality is especially sparse or noisy.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2080012701846429908">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Reference-free haplotype phasing on assembly graphs</h3>
+          <p>grapHiC applies a graph transformer to sequence-overlap and Hi-C information on unsimplified unitig graphs. Its symmetry-aware fuzzy-clustering objective reportedly outperforms standard contrastive losses and produces phased graphs for downstream assembly.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2080011935291187389">Read the research summary</a>
+        </article>
+        <article>
+          <h3>Faster edge-significance tests for gene networks</h3>
+          <p>SignifiKANTE estimates permutation-based P-values for regression-inferred regulatory edges. It groups target genes with similar background count distributions using Wasserstein distance, allowing a small set of shared null distributions to support approximate testing at scale.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2080009759995072637">Read the tool summary</a>
+        </article>
+        <article>
+          <h3>Agent-aware provenance for Bioconductor workflows</h3>
+          <p>OmicsLake records dataset versions and lineage through supported dplyr transformations and joins. Stored versions can retain prompt, run, agent and script identifiers, while adapters preserve native Bioconductor S4 objects.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2080009512376058120">Read the tool summary</a>
+        </article>
+        <article>
+          <h3>Interactive decoding of long-read barcodes</h3>
+          <p>seqsizzle is a terminal reader that detects and highlights adapters or artifacts with configurable fuzzy matching. Multi-scale k-mer enrichment against a binomial null helps reveal recurring structures in complex long-read barcode and adapter designs.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2080009244804550677">Read the tool summary</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="language" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="language-intro">No verified reading selections were available for today’s language-practice edition. Source notes are preserved below in their original languages.</p>
+      <div class="language-grid">
+        <article class="language-card" lang="de">
+          <h3>Deutsch — tägliche Lektüre</h3>
+          <p>Tagesschau war nicht erreichbar. Auch der Abruf der Ausweichquelle Deutschlandfunk Kultur scheiterte, daher konnte kein geeigneter Artikel zuverlässig ausgewählt werden.</p>
+          <a class="source-link" href="https://www.deutschlandfunkkultur.de/">Deutschlandfunk Kultur</a>
+        </article>
+        <article class="language-card" lang="fr">
+          <h3>Français — lecture quotidienne</h3>
+          <p>France 24 était inaccessible. La source de repli RFI était également inaccessible ; aucun article n’a donc pu être vérifié sans en inventer le contenu.</p>
+          <a class="source-link" href="https://www.rfi.fr/fr/">RFI</a>
+        </article>
+        <article class="language-card" lang="ja">
+          <h3>日本語 — 毎日の読み物</h3>
+          <p>NHKニュースは接続障害および抽出サービスのエラーにより確認できませんでした。代替のITmedia NEWSも確認できなかったため、記事を選定していません。</p>
+          <a class="source-link" href="https://www.itmedia.co.jp/news/">ITmedia NEWS</a>
+        </article>
+        <article class="language-card" lang="zh-Hans">
+          <h3>中文 — 每日阅读</h3>
+          <p>BBC 中文无法访问；随后尝试后备来源RFI中文，但同样因连接失败而无法核实文章，因此未选取内容。</p>
+          <a class="source-link" href="https://www.bbc.com/zhongwen/simp">BBC 中文</a>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      News Daily · Research links in this edition point to the available source posts.
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #ddd6c8;
+      --accent: #7c3aed;
+      --accent-soft: #ede9fe;
+      --link: #2557a7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      text-align: center;
+      padding: 28px 18px 24px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.06);
+    }
+    .kicker {
+      color: var(--accent);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 8px 0 6px;
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    .lede {
+      max-width: 760px;
+      margin: 22px auto 0;
+      color: #344054;
+      font-size: 1.08rem;
+    }
+    main {
+      margin-top: 28px;
+      display: grid;
+      gap: 26px;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(31, 41, 51, 0.045);
+    }
+    h2 {
+      margin: 0 0 8px;
+      font-size: 1.75rem;
+      letter-spacing: -0.02em;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 8px;
+    }
+    .section-note {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.94rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 22px;
+    }
+    article {
+      padding-top: 2px;
+      border-top: 1px solid var(--rule);
+    }
+    article.feature {
+      grid-column: 1 / -1;
+      padding: 18px;
+      border: 1px solid var(--rule);
+      background: linear-gradient(180deg, #fffdf8, #faf7f0);
+    }
+    h3 {
+      margin: 10px 0 8px;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+    article.feature h3 {
+      margin-top: 0;
+      font-size: 1.45rem;
+    }
+    p {
+      margin: 0 0 10px;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      padding: 0;
+      list-style: none;
+    }
+    .tags li {
+      background: var(--accent-soft);
+      color: #4c1d95;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.74rem;
+      white-space: nowrap;
+    }
+    .linkline {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-top: 8px;
+    }
+    .notes {
+      background: transparent;
+      border-style: dashed;
+      box-shadow: none;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+    .notes h2 {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    footer {
+      margin-top: 26px;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+    }
+    @media (max-width: 760px) {
+      .page { padding: 18px 12px 36px; }
+      header, section { padding: 18px; }
+      .grid { grid-template-columns: 1fr; }
+      article.feature { grid-column: auto; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Thursday, June 11, 2026 · Run 2026-06-11-1</div>
+      <p class="lede">
+        Today’s edition is research-heavy: optimizer mechanics and diffusion-language architectures on the AI side,
+        plus a broad sweep of genomics, molecular generation, immunology, and protein-design work from the bio-AI feed.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research &amp; Machine Learning</h2>
+        <p class="section-note">Technical notes on optimization, sampling, representation analysis, multi-agent coordination, and model architecture.</p>
+
+        <div class="grid">
+          <article class="feature">
+            <h3><a href="https://x.com/YouJiacheng/status/2064859509521289340">Muon, Shampoo, and stochastic spectral descent optimizer relationships</a></h3>
+            <p>
+              You Jiacheng offers a compact taxonomy relating Muon to Shampoo and stochastic spectral descent.
+              The thread frames Muon as a one-sided, β1=β2 Shampoo variant without variance damping, or SSD with
+              momentum, while emphasizing that it is not simply “Shampoo with β2=0.” A follow-up highlights Muon’s
+              Newton–Schulz iteration as both numerically stable and hardware-friendly.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/YouJiacheng/status/2064859509521289340">x.com/YouJiacheng/status/2064859509521289340</a></div>
+            <ul class="tags">
+              <li>optimization</li><li>muon</li><li>shampoo</li><li>training</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/YouJiacheng/status/2064800000409035188">Stable iterative computation of P<sup>-1/2</sup>G for Shampoo-like optimizers</a></h3>
+            <p>
+              A second optimizer thread focuses on numerical stability in Gram-Newton–Schulz and Shampoo-style
+              preconditioning. The key point: computing P<sup>-1/2</sup> separately can be unstable, while an iterative
+              method proposed by Jianlin Su computes P<sup>-1/2</sup>G directly and more stably.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/YouJiacheng/status/2064800000409035188">x.com/YouJiacheng/status/2064800000409035188</a></div>
+            <ul class="tags">
+              <li>optimization</li><li>numerical stability</li><li>training</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/giffmana/status/2064718736783823145">Diffusion video models appear to encode explicit physics under linear probes</a></h3>
+            <p>
+              Lucas Beyer summarizes work arguing that video generation models contain explicit internal
+              representations of physical properties. Linear probes over diffusion video models reportedly predict
+              physics-relevant quantities better than V-JEPA or VideoMAE, suggesting more structured world-model
+              information than expected.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/giffmana/status/2064718736783823145">x.com/giffmana/status/2064718736783823145</a></div>
+            <ul class="tags">
+              <li>video generation</li><li>representation analysis</li><li>world models</li><li>physics</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/Prince_Canuma/status/2064770112771514601">DiffusionGemma architecture and day-0 MLX-VLM support</a></h3>
+            <p>
+              DiffusionGemma is described as using parallel 256-token block generation with bidirectional attention
+              and iterative self-correction rather than standard token-by-token decoding. The post also notes a 26B
+              mixture-of-experts design with 3.8B active parameters and MLX-VLM support on Apple Silicon.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/Prince_Canuma/status/2064770112771514601">x.com/Prince_Canuma/status/2064770112771514601</a></div>
+            <ul class="tags">
+              <li>diffusion language models</li><li>architecture</li><li>MLX</li><li>inference</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/YouJiacheng/status/2064834234976805313">Entropy-Guided Power Sampling follows Scalable Power Sampling</a></h3>
+            <p>
+              A retweeted thread points to “Entropy-Guided Power Sampling,” described as a follow-up to Scalable
+              Power Sampling that tries to explain why power-sampling behavior depends on entropy. The available
+              text is truncated, so paper details are limited.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/YouJiacheng/status/2064834234976805313">x.com/YouJiacheng/status/2064834234976805313</a></div>
+            <ul class="tags">
+              <li>sampling</li><li>generation</li><li>methods</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/StanfordAILab/status/2064782326153044027">Decentralized coordination in multi-agent systems without a controller agent</a></h3>
+            <p>
+              Stanford AI Lab highlights a research thread asking what happens when multi-agent systems stop relying
+              on a central controller and instead coordinate by sharing results. The normalized text is truncated, but
+              the architectural question is a useful one for agent-system design.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/StanfordAILab/status/2064782326153044027">x.com/StanfordAILab/status/2064782326153044027</a></div>
+            <ul class="tags">
+              <li>multi-agent systems</li><li>agents</li><li>coordination</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/yifanzhang_/status/2064504280657362999">No Wall for pretraining and RL scaling</a></h3>
+            <p>
+              Yifan Zhang links a resource arguing that there is “No Wall” for pretraining and reinforcement-learning
+              scaling. The item is brief and the linked URL is shortened in the provided data, so methodological
+              details are not visible here.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/yifanzhang_/status/2064504280657362999">x.com/yifanzhang_/status/2064504280657362999</a></div>
+            <ul class="tags">
+              <li>scaling</li><li>pretraining</li><li>reinforcement learning</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Bio-AI, Genomics &amp; Drug Discovery</h2>
+        <p class="section-note">Benchmarks, sequence-to-function modeling, molecular generation, calibration, and protein engineering.</p>
+
+        <div class="grid">
+          <article class="feature">
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064711319744561636">Nullsettes benchmark tests whether genomic language models understand expression logic</a></h3>
+            <p>
+              Nullsettes creates synthetic loss-of-function expression cassettes by rearranging regulatory and coding
+              elements while preserving the original parts. Across 14 genomic language models, many failed to
+              reliably score obviously broken constructs below intact ones, especially when the intact cassette was
+              evolutionarily implausible. The result is a warning that sequence likelihood may track naturalness more
+              than mechanistic gene-expression function.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064711319744561636">x.com/BiologyAIDaily/status/2064711319744561636</a></div>
+            <ul class="tags">
+              <li>genomics</li><li>gene regulation</li><li>benchmarks</li><li>foundation models</li><li>synthetic biology</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064710579475066973">SAGE-net trains sequence-to-function models on personal genomes</a></h3>
+            <p>
+              SAGE-net trains sequence-to-function models directly on phased personal genomes and paired RNA-seq,
+              constructing personalized DNA inputs from VCFs on the fly. It reports gains for inter-individual
+              expression prediction in seen genes and attribution examples recovering variant-linked regulatory
+              signals, while also finding weak generalization to unseen genes and alleles.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064710579475066973">x.com/BiologyAIDaily/status/2064710579475066973</a></div>
+            <ul class="tags">
+              <li>personal genomics</li><li>variant interpretation</li><li>sequence-to-function</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064723342851203094">FlexFlow brings biology-informed discrete flow matching to DNA, promoter, and peptide design</a></h3>
+            <p>
+              FlexFlow modifies discrete flow matching with structured biological couplings, including BLOSUM-like
+              protein substitutions and nucleotide substitution priors. Reported applications include enhancer
+              generation, conditional promoter design from transcription-initiation profiles, and peptide–MHC II
+              generation under a stringent held-out split.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064723342851203094">x.com/BiologyAIDaily/status/2064723342851203094</a></div>
+            <ul class="tags">
+              <li>generative models</li><li>DNA design</li><li>flow matching</li><li>immunology</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064711229961380032">CaliPPer estimates when binding-prediction models will generalize</a></h3>
+            <p>
+              CaliPPer is a model-agnostic reliability framework for binding prediction. It uses a multi-chain
+              Sample-to-Domain Distance to estimate how far candidate TCR, BCR, antibody, MHC, or small-molecule
+              examples are from the training distribution, then predicts aggregate performance, per-target difficulty,
+              and per-sample confidence.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064711229961380032">x.com/BiologyAIDaily/status/2064711229961380032</a></div>
+            <ul class="tags">
+              <li>binding prediction</li><li>OOD generalization</li><li>model calibration</li><li>drug discovery</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064711109022818625">BiSP-GP unifies molecular generation and property prediction for drug-like molecules</a></h3>
+            <p>
+              BiSP-GP serializes continuous properties such as QED, LogP, and SAS into token sequences, enabling one
+              autoregressive setup for conditional molecule generation and SMILES-to-property prediction. The system
+              supports scaffold and multi-property control and includes a PAK1 inhibitor optimization case study.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064711109022818625">x.com/BiologyAIDaily/status/2064711109022818625</a></div>
+            <ul class="tags">
+              <li>molecular generation</li><li>cheminformatics</li><li>foundation models</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064710914503549062">Self-reflective LLM loop uses quantum-chemistry analysis for molecular design</a></h3>
+            <p>
+              This molecular-design loop follows a “Generate → Analyze → Reflect → Refine” pattern. Instead of
+              feeding back only scalar scores, the reflection module uses quantum-chemistry outputs such as orbital
+              energies, charges, dipoles, and electronic energies to propose mechanistic design edits.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064710914503549062">x.com/BiologyAIDaily/status/2064710914503549062</a></div>
+            <ul class="tags">
+              <li>molecular design</li><li>LLMs</li><li>quantum chemistry</li><li>RAG</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064723638272844132">LOCK-GP introduces flexible protein sequence kernels for sparse property prediction</a></h3>
+            <p>
+              LOCK-GP combines substitution-matrix priors with Gaussian processes to model protein property landscapes
+              from sparse data. The emphasis is on extrapolation, uncertainty calibration, and Bayesian optimization,
+              with a structure-conditioned CLOCK variant trained across thermostability landscapes.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064723638272844132">x.com/BiologyAIDaily/status/2064723638272844132</a></div>
+            <ul class="tags">
+              <li>protein engineering</li><li>Gaussian processes</li><li>uncertainty</li><li>active learning</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064723727313744331">DGIF steers inverse folding toward stability and solubility without retraining the generator</a></h3>
+            <p>
+              DGIF guides an inverse-folding model by backpropagating property-discriminator gradients into the
+              autoregressive model’s history state during decoding. Variants target thermostability, solubility, or
+              both, with computational validation and wet-lab tests on RrADH in which most suggested mutations
+              improved melting temperature and all improved solubility.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064723727313744331">x.com/BiologyAIDaily/status/2064723727313744331</a></div>
+            <ul class="tags">
+              <li>protein design</li><li>inverse folding</li><li>wet-lab validation</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/BiologyAIDaily/status/2064723868703740134">SurfDesign conditions protein design on molecular surfaces</a></h3>
+            <p>
+              SurfDesign reframes protein design around molecular surfaces, encoding shape, normals, curvature, and
+              physicochemical attributes through an SE(3)-equivariant surface-conditioned message-passing encoder
+              plus protein language model fine-tuning. Benchmarks cover binder design, enzyme design, and inverse
+              folding.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/BiologyAIDaily/status/2064723868703740134">x.com/BiologyAIDaily/status/2064723868703740134</a></div>
+            <ul class="tags">
+              <li>protein design</li><li>enzyme design</li><li>geometric deep learning</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/NatRevMCB/status/2064321676524016080">Programmable delivery of mitochondria to specific cell types</a></h3>
+            <p>
+              Nature Reviews Molecular Cell Biology flagged a new article on programmable delivery of mitochondria to
+              specific cell types. Only the headline and link were available in the provided data, but the topic is
+              relevant to cell engineering and therapeutic delivery.
+            </p>
+            <div class="linkline">Read: <a href="https://x.com/NatRevMCB/status/2064321676524016080">x.com/NatRevMCB/status/2064321676524016080</a></div>
+            <ul class="tags">
+              <li>cell engineering</li><li>therapeutic delivery</li><li>mitochondria</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="notes">
+        <h2>Editor’s Notes</h2>
+        <p>
+          Some source items were truncated in the provided fragments, so a few summaries are necessarily limited to
+          visible headline-level detail. The AI research feed also skipped product takes, memes, policy commentary,
+          and already-reported items. The bio research feed omitted generic announcements, vague retweets, and
+          previously reported items; one configured X list failed during collection, so the bio section reflects only
+          the normalized items available for this run.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      News · Generated from provided source report fragments only
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

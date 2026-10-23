@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #faf8f2;
+      --ink: #20201d;
+      --muted: #67665f;
+      --accent: #8b2f2f;
+      --rule: #d9d4c8;
+      --card: #fffefa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    .page {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 56px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 34px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section { margin-top: 38px; }
+    .section-title {
+      margin: 0 0 18px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.55rem;
+    }
+    article {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:first-of-type { padding-top: 0; }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+    h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    h3 a:hover, h3 a:focus { color: var(--accent); text-decoration: underline; }
+    p { margin: 0.65em 0; }
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .tags {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    .tag {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      padding: 2px 7px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--card);
+    }
+    .language-practice {
+      margin-top: 52px;
+      padding-top: 8px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -8px 0 26px;
+    }
+    .language-block {
+      margin: 28px 0;
+      padding: 24px;
+      border: 1px solid var(--rule);
+      background: var(--card);
+    }
+    .language-block h2 {
+      margin: 0 0 16px;
+      font-size: 1.35rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 9px;
+    }
+    .language-block h3 { font-size: 1.25rem; }
+    .language-block ul { margin-top: 8px; }
+    a { color: var(--accent); overflow-wrap: anywhere; }
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer h2 {
+      margin: 0 0 6px;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    @media (min-width: 760px) {
+      .research-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 28px;
+      }
+      .research-grid article:nth-last-child(-n+2) { border-bottom: 0; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <p>Friday, September 25, 2026</p>
+    </header>
+
+    <section aria-labelledby="bio-research">
+      <h2 class="section-title" id="bio-research">Biology &amp; Biomedical Research</h2>
+      <div class="research-grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2103342419790164459">Designed cytokine prodrugs sharpen tumor targeting in mice</a></h3>
+          <p>Researchers report computationally designed protein masks that keep IL-21-like and IL-2-like cytokine mimics inactive until tumor-associated proteases cleave them. The workflow used RFdiffusion2, ProteinMPNN and AlphaFold2 before experimental optimization.</p>
+          <p>Optimized constructs showed roughly 150–197-fold activation after cleavage. A split IL-2 system achieved at least 800-fold suppression and required both protease activity and tumor-antigen localization for activation. In small mouse studies, an IL-21 prodrug improved tumor control while reducing weight loss and peripheral STAT3 signaling compared with the unmasked mimic.</p>
+          <p class="meta">These are preclinical findings, and linker cleavage sensitivity had a significant effect on both efficacy and toxicity.</p>
+          <div class="tags"><span class="tag">protein design</span><span class="tag">cancer</span><span class="tag">immunotherapy</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2103218182425387433">SPECTRA models CRISPR responses through regulatory networks</a></h3>
+          <p>SPECTRA—the SPEctral CRISPR Transcriptome Regulatory Autoencoder—represents CRISPR perturbations as localized signals introduced into a gene-regulatory network and propagated by directed graph neural networks.</p>
+          <p>The model combines a variational encoder for control cells with a directed heterophilic graph decoder, drawing on single-cell expression, pretrained transcriptomic context and prior regulatory topology. Its network-based formulation is intended to make predicted perturbation responses more interpretable.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">CRISPR</span><span class="tag">gene regulation</span><span class="tag">graph neural networks</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rishabh16_/status/2103240169352556992">Protein-complex predictions announced for more than 2,800 viruses</a></h3>
+          <p>NVIDIA, Google DeepMind, EMBL-EBI and research partners have announced a collection of AI-predicted protein-complex structures spanning more than 2,800 viruses. The resource could be useful for structural virology and infectious-disease research.</p>
+          <p class="meta">The available announcement does not identify the database location, prediction model, validation protocol or exact number of complexes.</p>
+          <div class="tags"><span class="tag">virology</span><span class="tag">datasets</span><span class="tag">protein complexes</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2103086101456199765">A proposed “second regulatory code” in chromatin</a></h3>
+          <p>A 2026 study titled <em>Transcription factors read a second regulatory code in chromatin</em> examines how transcription factors interpret regulatory information in chromatin beyond the primary DNA sequence.</p>
+          <p class="meta">The available post is truncated, so its proposed mechanism and supporting experiments cannot be assessed from the supplied material.</p>
+          <div class="tags"><span class="tag">chromatin</span><span class="tag">transcription factors</span><span class="tag">regulatory genomics</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="language-intro">Today’s edited reading selections in German, French, Japanese and Chinese.</p>
+
+      <article class="language-block" lang="de">
+        <h2>Deutsch — tägliche Lektüre</h2>
+        <h3><a href="https://www.deutschlandfunkkultur.de/klaenge-rhythmen-emotionen-wie-wirkt-musik-im-gehirn-100.html">Klänge, Rhythmen, Emotionen – Wie wirkt Musik im Gehirn?</a></h3>
+        <p class="meta">Deutschlandfunk Kultur · 24.09.2026 · <a href="https://www.deutschlandfunkkultur.de/klaenge-rhythmen-emotionen-wie-wirkt-musik-im-gehirn-100.html">Artikel lesen</a></p>
+        <p>Musik kann Menschen unmittelbar emotional bewegen, doch wie diese Wirkung im Gehirn entsteht, ist wissenschaftlich nicht abschließend geklärt. Das Feature stellt die Debatte in der Psychologie und Gehirnforschung vor und fragt, wie Modelle des menschlichen Bewusstseins das Zusammenspiel von Klängen, Rhythmen und Gefühlen erklären können.</p>
+        <p>Die Forschung ist nicht nur für das Verständnis unseres Musikerlebens relevant. Erkenntnisse über die neuronale Verarbeitung von Musik könnten auch therapeutische Ansätze bei Erkrankungen wie Parkinson oder Alzheimer unterstützen.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet eine alltägliche kulturelle Erfahrung mit aktuellen Fragen aus Neurowissenschaft, Psychologie und Medizin.</p>
+      </article>
+
+      <article class="language-block" lang="fr">
+        <h2>Français — lecture quotidienne</h2>
+        <h3><a href="https://www.rfi.fr/fr/europe/20260925-festival-cin%C3%A9ma-san-sebastian-histoire-dictature-franquisme-desencanto-cuelgamuros-garcia-lorca">Festival de cinéma de San Sebastián: des pages d'histoire niées, oubliées et longues à tourner</a></h3>
+        <p class="meta">RFI · 25 septembre 2026 · <a href="https://www.rfi.fr/fr/europe/20260925-festival-cin%C3%A9ma-san-sebastian-histoire-dictature-franquisme-desencanto-cuelgamuros-garcia-lorca">Lire l’article</a></p>
+        <p>Le Festival de San Sebastián consacre plusieurs projections au soulèvement militaire de 1936, à la dictature franquiste et à leurs traces dans la société espagnole. Deux films reviennent notamment sur Federico García Lorca et son dernier amour : la fiction <em>La bola negra</em>, portée par une esthétique queer et colorée, et le documentaire <em>La voz quebrada</em>, qui s'appuie sur des archives et des séquences animées pour retracer la jeunesse et le parcours théâtral du poète assassiné.</p>
+        <p>L'article présente aussi <em>Cuelgamuros</em>, consacré à l'exhumation et à l'identification des victimes enterrées dans les cryptes de l'ancien Valle de los Caídos, ainsi que plusieurs œuvres autrefois censurées. La projection intégrale de <em>Rocio</em> et le retour d’<em>El Desencanto</em>, retiré du festival en 1976 en signe de protestation contre les violences policières au Pays basque, apparaissent comme des gestes de réparation. À travers ces films, le festival examine ainsi son propre rôle sous le franquisme et les limites de la transition démocratique espagnole.</p>
+        <p><strong>Pourquoi lire :</strong> Un article riche en histoire culturelle qui montre comment le cinéma participe au travail de mémoire et remet en circulation des œuvres longtemps censurées.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>travail de mémoire</strong> — démarche collective visant à reconnaître, étudier et transmettre un passé traumatique ou occulté</li>
+          <li><strong>faire amende honorable</strong> — reconnaître publiquement ses torts et chercher à les réparer</li>
+          <li><strong>exhumation</strong> — opération consistant à retirer des restes humains de leur lieu d’inhumation</li>
+          <li><strong>révisionnisme</strong> — remise en cause orientée ou trompeuse de faits historiques établis</li>
+          <li><strong>soft power</strong> — capacité d’un État à exercer son influence par la culture, l’image ou l’attraction plutôt que par la contrainte</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="ja">
+        <h2>日本語 — 毎日の読み物</h2>
+        <h3><a href="https://www.itmedia.co.jp/news/article/2609/25/2000001741/">窓口での待ち時間のイライラ、AI作成のBGMで軽減なるか　東京・港区が実証実験</a></h3>
+        <p class="meta">ITmedia NEWS · 2026年9月25日 · <a href="https://www.itmedia.co.jp/news/article/2609/25/2000001741/">リンク</a></p>
+        <p>東京都港区は、AIが作成したBGMによって区役所の窓口環境を改善できるかを調べる実証実験を始めた。来庁者が待ち時間に感じるストレスと、窓口業務を担当する職員の心理的負担を軽減できるか検証する。</p>
+        <p>待合エリアでは穏やかなアコースティック曲、職員の執務スペースでは歌詞のない曲を中心に流す。10月23日までアンケートを実施するほか、職員にはウェアラブル端末を装着してもらい、BGMの有無による心拍数やストレス状態の変化も調べる。効果が確認されれば、港区は実施場所の拡大を検討する。</p>
+        <p><strong>読む理由：</strong> AI生成音楽を行政サービスの環境改善に使い、その効果を主観的な回答と身体データの両面から測る興味深い試みだから。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>音響心理学（おんきょうしんりがく）</strong> — 音が人の感情や行動、知覚に与える影響を研究する分野</li>
+          <li><strong>実証実験（じっしょうじっけん）</strong> — 技術や方法が実際の環境で有効かどうかを確かめる試験</li>
+          <li><strong>心理的負担（しんりてきふたん）</strong> — 仕事や環境によって心にかかるストレスや重圧</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="zh">
+        <h2>中文 — 每日阅读</h2>
+        <h3><a href="https://www.dw.com/zh/增长预期翻倍德国经济走出困境了吗/a-79413288">增长预期翻倍，德国经济走出困境了吗？</a></h3>
+        <p class="meta">德国之声 · 2026年9月24日 · <a href="https://www.dw.com/zh/增长预期翻倍德国经济走出困境了吗/a-79413288">阅读文章</a></p>
+        <p>德国五大经济研究机构在联合秋季报告中，将德国2026年国内生产总值增长预期从0.6%上调至1.3%，并把2027年的预期调高至1.1%。经济学家认为，全球经济保持稳健、人工智能热潮带动出口与制造业，以及政府扩大基础设施和国防投资，共同支撑了近期复苏。</p>
+        <p>不过，报告并未断言德国经济已经摆脱困境。高能源成本、人口老龄化和政策不确定性仍在削弱长期增长潜力，各机构预计2028年的增速可能只有0.4%。经济学家警告，如果政府只靠新增债务制造短期刺激，却不推进可持续的结构性改革，当前的好转可能只是昙花一现。</p>
+        <p><strong>为什么读：</strong> 文章用最新预测呈现德国经济的短期转机与长期隐忧，适合学习经济政策和宏观分析词汇。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>扩张性财政政策 (kuòzhāngxìng cáizhèng zhèngcè)</strong> — 政府通过增加支出、投资或举债来刺激经济的政策。</li>
+          <li><strong>结构性改革 (jiégòuxìng gǎigé)</strong> — 针对劳动力、能源、产业或制度等深层问题进行的长期调整。</li>
+          <li><strong>人口老龄化 (rénkǒu lǎolínghuà)</strong> — 老年人口占比上升，并可能导致劳动力减少及社会保障负担加重。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      <h2>Source note</h2>
+      <p>The AI-research social feed could not be collected after three attempts, so no items from that source appear in this edition.</p>
+      <p>Run 2026-09-25-1</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

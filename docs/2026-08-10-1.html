@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #62666b;
+      --paper: #fffdf8;
+      --accent: #315f72;
+      --rule: #d8d3c8;
+      --panel: #f5f1e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ece9e1;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    main {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.2rem, 5vw, 4.5rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      border-top: 4px double var(--ink);
+      border-bottom: 4px double var(--ink);
+      padding: 1.2rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 2.7rem 0 1.2rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+    }
+    h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    article {
+      padding: 1.15rem 0 1.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child { border-bottom: 0; }
+    p { margin: 0.65rem 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.83rem;
+    }
+    .tags {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0.15rem 0.3rem 0.15rem 0;
+      padding: 0.15rem 0.45rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--panel);
+    }
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 0.5rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+    }
+    .language-block {
+      margin: 1.5rem 0;
+      padding: 1.35rem 1.5rem;
+      border: 1px solid var(--rule);
+      background: #fffefa;
+    }
+    .language-block h3 { font-size: 1.35rem; }
+    .language-block ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.3rem;
+    }
+    .quiet-notes {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Monday, August 10, 2026</p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 id="ai-research">AI Research</h2>
+
+      <article>
+        <h3><a href="https://x.com/classiclarryd/status/2086582390135406713">NanoGPT speedrun reaches 73.8 seconds with fused FP8 MLP down projection</a></h3>
+        <p>A new NanoGPT speedrun record cuts training time by 0.8 seconds, reaching 73.8 seconds. The compact, 280-line FP8 implementation optimizes the forward pass of the MLP down projection: activation quantization is folded into the preceding kernel, delayed amax scaling is used, and weight quantization is fused with the transpose operation.</p>
+        <p>The result is a concrete example of training-efficiency gains produced through careful GPU-kernel engineering rather than a change to the model itself.</p>
+        <div class="tags">
+          <span class="tag">Training efficiency</span>
+          <span class="tag">FP8</span>
+          <span class="tag">GPU kernels</span>
+          <span class="tag">NanoGPT</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/Jianlin_S/status/2086389196261036496">Survey of language-model loss functions beyond cross-entropy</a></h3>
+        <p>Jianlin Su shared a technical resource examining loss functions that language models can use as alternatives to cross-entropy. It may be useful to readers interested in training objectives and the assumptions behind standard next-token prediction.</p>
+        <p class="meta">The underlying resource appears only as a shortened link in the available source data, so further detail was not available for this edition.</p>
+        <div class="tags">
+          <span class="tag">Language models</span>
+          <span class="tag">Loss functions</span>
+          <span class="tag">Training objectives</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice</h2>
+      <p class="language-intro">Today’s edited reading selections in German, French, Japanese, and Chinese.</p>
+
+      <article class="language-block" lang="de">
+        <h3>Deutsch — <a href="https://www.dw.com/de/100-tage-isolation-projekt-solis100-dlr-esa-weltraum-mond-mars-langzeitmissionen/a-78287936">100 Tage Isolation: Projekt SOLIS100 ist zu Ende</a></h3>
+        <p class="meta">Deutsche Welle · 8. August 2026</p>
+        <p>Sechs europäische Freiwillige haben für das Forschungsprojekt SOLIS100 mehr als drei Monate abgeschottet in einer Simulationsanlage des Deutschen Zentrums für Luft- und Raumfahrt in Köln verbracht. Die drei Frauen und drei Männer lebten ohne Sonnenlicht, frische Lebensmittel und direkten Kontakt zu Angehörigen auf engem Raum zusammen.</p>
+        <p>Im Auftrag der Europäischen Weltraumorganisation ESA untersuchte das Projekt, wie sich die Bedingungen langer Missionen auf Gesundheit und Leistungsfähigkeit auswirken. Der streng geregelte Alltag umfasste wissenschaftliche Arbeit, medizinische Untersuchungen, Sport und die Wartung der Station. Die gesammelten Daten sollen helfen, Astronautinnen und Astronauten besser auf künftige Reisen zum Mond oder Mars vorzubereiten.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag bietet einen anschaulichen Einblick in die menschlichen und wissenschaftlichen Herausforderungen langfristiger Weltraummissionen.</p>
+      </article>
+
+      <article class="language-block" lang="fr">
+        <h3>Français — <a href="https://actualitte.com/article/133193/enquetes/du-papier-au-numerique-la-revolution-qui-bouleverse-le-manga-japonais">Du papier au numérique, la révolution qui bouleverse le manga japonais</a></h3>
+        <p class="meta">ActuaLitté · 7 août 2026</p>
+        <p>Le tirage moyen du <em>Weekly Shonen Jump</em> est passé sous le seuil du million d’exemplaires pour la première fois depuis 1971. Entre avril et juin 2026, le célèbre magazine japonais, qui a accueilli des séries comme <em>Dragon Ball</em>, <em>One Piece</em> et <em>Naruto</em>, n’était plus imprimé qu’à 985 000 exemplaires par numéro. Cette baisse marque l’affaiblissement d’un modèle historique : celui des grands magazines hebdomadaires dans lesquels les chapitres sont publiés avant d’être réunis en volumes.</p>
+        <p>L’article explique que ce recul ne traduit pas nécessairement une désaffection pour le manga. Le marché japonais bascule plutôt vers les écrans : en 2025, le numérique représentait 76,1 % de sa valeur, tandis que les ventes sur papier chutaient fortement. Shueisha accompagne cette évolution avec <em>Shonen Jump+</em> et <em>MANGA Plus</em>, qui permettent notamment de diffuser les nouveaux chapitres à l’international dès leur parution japonaise.</p>
+        <p>La comparaison avec la France met en évidence un autre modèle de consommation. Les magazines de prépublication n’y ont jamais durablement conquis le grand public, qui privilégie les volumes reliés, les plateformes numériques et les adaptations animées. Malgré une baisse récente des ventes françaises, le manga conserve une audience importante : ce qui vacille n’est donc pas le genre lui-même, mais le support imprimé qui a longtemps structuré sa diffusion.</p>
+        <p><strong>Pourquoi lire :</strong> Une enquête claire sur la transformation numérique d’une industrie culturelle majeure, enrichie de chiffres japonais et français.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>tirage moyen</strong> — nombre moyen d’exemplaires imprimés pour chaque numéro, distinct du nombre réellement vendu</li>
+          <li><strong>prépublication</strong> — diffusion des chapitres d’une œuvre dans un magazine avant leur réunion en volume</li>
+          <li><strong>tankōbon</strong> — volume relié japonais rassemblant plusieurs chapitres d’un manga précédemment publiés</li>
+          <li><strong>série phare</strong> — œuvre particulièrement populaire qui soutient les ventes ou l’image d’une publication</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="ja">
+        <h3>日本語 — <a href="https://automaton-media.com/articles/newsjp/20260810-459430">“オンライン対応”デスクトップ放置島暮らしシム『Desktop Island: Idle Together!』発表。PC作業の裏で放置＆開拓、いつでも好きなタイミングで合流できる最大5人島づくり</a></h3>
+        <p class="meta">AUTOMATON · 2026-08-10</p>
+        <p>ベルギーのインディーデベロッパーBiteMe Gamesが、PC向けスローライフシミュレーションゲーム『Desktop Island: Idle Together!』を発表した。プレイヤーは資源を集めて島を開拓し、施設を改良しながら住民やほかのプレイヤーが集まるコミュニティを築いていく。日本語表示にも対応する予定で、12月の配信に先立ちSteamでプレイテストが行われている。</p>
+        <p>本作はフルスクリーンだけでなく、画面下部や小さなウィンドウ、通知のみといった表示方法を選べる。仕事など別の作業をしながら進行を見守る放置ゲームとしても遊べる点が特徴だ。最大5人の協力プレイでは島の変化が自動的に同期され、島を作成したホストが不在でも、ほかのメンバーが好きな時間に参加できるという。</p>
+        <p>島では伐採、釣り、農業、採掘、料理などの技能を伸ばせるほか、家具や設備を配置して村を自分好みに整えられる。デスクトップ常駐型ゲームの気軽さと、複数人で島を発展させる共同生活を組み合わせた作品として注目される。</p>
+        <p><strong>読む理由：</strong> PC作業と共存するゲーム設計や、時間を合わせなくても遊べる協力プレイの仕組みを具体的に知ることができる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>常駐型（じょうちゅうがた）</strong> — アプリなどが終了せず、画面上やシステム内で継続して動作する形式。</li>
+          <li><strong>放置ゲーム（ほうちゲーム）</strong> — 操作していない時間にも資源の獲得や進行が続くゲーム。</li>
+          <li><strong>同期（どうき）</strong> — 複数の端末や利用者の間で、データを同じ状態にそろえること。</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="zh-Hans">
+        <h3>中文 — <a href="https://www.bbc.com/zhongwen/articles/crrvndrv1pyo/simp">人工智能被用于设计全新病毒</a></h3>
+        <p class="meta">BBC 中文 · 2026-08-07</p>
+        <p>美国斯坦福大学的研究人员首次利用生成式人工智能设计出完整病毒基因组。研究团队从302个候选方案中进行筛选和合成，最终发现16种噬菌体能够在实验室中有效杀死大肠杆菌。这些病毒只感染特定细菌，不会对人类造成直接威胁。</p>
+        <p>研究人员认为，新型噬菌体未来或可用于治疗抗生素耐药性感染，人工智能辅助设计也可能拓展至酶、抗体及其他疗法。不过，这项突破同时引发紧迫的生物安全问题：同类技术若被恶意使用，可能被用于制造危险病原体。专家因此强调，研究范围、训练资料和实验环境都需要严格管控。</p>
+        <p><strong>为什么读：</strong> 文章以具体实验说明人工智能如何从生成文字迈向设计完整基因组，并呈现医学潜力与生物安全风险之间的张力。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>噬菌体 (shìjūntǐ)</strong> — 专门感染细菌并在细菌内复制的病毒。</li>
+          <li><strong>基因组 (jīyīnzǔ)</strong> — 一个生物体或病毒所包含的全部遗传信息。</li>
+          <li><strong>合成生物学 (héchéng shēngwùxué)</strong> — 运用工程设计方法改造或创造生物系统的研究领域。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="quiet-notes" aria-label="Source notes">
+      <strong>Source note:</strong> No new bio-research items met the reporting criteria in the supplied material; available posts were repeats, duplicates, outside scope, or too incomplete to assess reliably.
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-08-10-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

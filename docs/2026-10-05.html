@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --paper:#faf8f3; --ink:#222b30; --muted:#616970; --rule:#d8d4ca; --accent:#175c70; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font-family:Georgia,"Times New Roman",serif; line-height:1.65; }
+main { max-width:940px; margin:auto; padding:40px 24px; }
+header { border-bottom:3px solid var(--ink); padding-bottom:22px; }
+h1 { font-size:3.4rem; line-height:1.1; margin:0 0 12px; letter-spacing:-.04em; }
+h2 { font-size:1.65rem; margin:32px 0 16px; }
+h3 { font-size:1.22rem; line-height:1.4; margin:0 0 10px; }
+p { margin:10px 0; }
+a { color:var(--accent); text-underline-offset:3px; overflow-wrap:anywhere; }
+.meta, nav, footer, .label { font-family:system-ui,sans-serif; font-size:.87rem; color:var(--muted); }
+nav { margin-top:14px; display:flex; flex-wrap:wrap; gap:8px 20px; }
+article { padding:20px 0; border-bottom:1px solid var(--rule); }
+.label { text-transform:uppercase; letter-spacing:.09em; margin-bottom:7px; }
+.practice { border-top:3px solid var(--ink); margin-top:40px; }
+.practice article { padding:25px 0; }
+ul { padding-left:24px; }
+li { margin:7px 0; }
+footer { margin-top:32px; border-top:1px solid var(--rule); padding-top:16px; }
+@media (max-width:600px) { main { padding:25px 18px; } h1 { font-size:2.8rem; } }
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="meta">Daily newspaper · <time datetime="2026-10-05">Monday, 5 October 2026</time></div>
+<p>Attention numerics, genomics evaluation, and research tooling—followed by readings in German, French, Japanese, and Chinese.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI research &amp; tools</a>
+<a href="#biology">Biology &amp; medicine</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+
+<section id="ai" aria-labelledby="ai-heading">
+<h2 id="ai-heading">AI research &amp; tools</h2>
+<article>
+<div class="label">Training · Numerical stability</div>
+<h3>Large attention logits expose numerical fragility</h3>
+<p>You Jiacheng flags numerical-stability concerns when attention logits become very large, particularly when softmax-related computations subtract large, nearby values. Follow-up replies broaden the concern beyond FlashAttention and suggest that forward–backward consistency may deserve priority. This is a technical discussion, not a demonstrated fix.</p>
+<p><a href="https://x.com/YouJiacheng/status/2106657526544752735">Original discussion</a> · <a href="https://x.com/YouJiacheng/status/2106701678196211876">Implementation discussion</a> · <a href="https://x.com/YouJiacheng/status/2106703173394325725">Further qualification</a></p>
+</article>
+<article>
+<div class="label">Speech recognition · Tooling</div>
+<h3>Parakeet Redux and Ultra gain parakeet.cpp support</h3>
+<p>An announcement reports that Moondream Parakeet Redux and Ultra are now supported in parakeet.cpp, adding a tooling integration for the speech models. The supplied post includes no performance measurements or implementation details.</p>
+<p><a href="https://x.com/vikhyatk/status/2106652266929525017">Announcement</a> · <a href="https://t.co/yKEWKdaysL">Linked resource</a></p>
+</article>
+<article>
+<div class="label">Research retrospective</div>
+<h3>Compression progress as a basis for curiosity</h3>
+<p>David Ha revisits Schmidhuber’s <em>Formal Theory of Fun and Creativity</em>, pointing to its account of compression progress and intrinsic motivation as foundations for curiosity and discovery. The post identifies a 2009 Japanese scientific-journal publication: a historical research pointer rather than a new result.</p>
+<p><a href="https://x.com/hardmaru/status/2106733573135024285">Post</a> · <a href="https://t.co/iQcJf9r3K2">Linked paper/resource</a></p>
+</article>
+</section>
+
+<section id="biology" aria-labelledby="biology-heading">
+<h2 id="biology-heading">Biology &amp; medicine</h2>
+<article>
+<div class="label">Genomics · Evaluation</div>
+<h3>ENCODE GRAMMAR authors plan metric clarifications</h3>
+<p>Community feedback on the openly released ENCODE GRAMMAR resource identified performance metrics that could be misleading without further explanation, according to Anshul Kundaje. The team is preparing clarifications. The update concerns evaluation and documentation—not revised model performance—and matters for readers interpreting the resource’s reported results.</p>
+<p><a href="https://x.com/anshulkundaje/status/2106769706162213197">Author update</a></p>
+</article>
+<article>
+<div class="label">Cancer · Clinical imaging</div>
+<h3>Ultrarapid 3D histology aims to map glioma infiltration during surgery</h3>
+<p>A reshared <em>Cell</em> announcement highlights the paper “Ultrarapid deep 3D histology enables intraoperative mapping of glioma infiltration.” The application is mapping tumor infiltration during an operation, but the supplied excerpt provides no methods, timing measurements, accuracy results, or patient-outcome evidence.</p>
+<p><a href="https://x.com/razoralign/status/2106722329585979553">Reshared paper announcement</a></p>
+</article>
+<article>
+<div class="label">Bio-AI · Experimental design</div>
+<h3>Broad biological representations still need focused experiments</h3>
+<p>In related replies, Kundaje argues that broad observational datasets can yield generalizable representations, but these should then be tuned with experiments designed around specific biological questions. He also emphasizes pairing well-designed predictive models with interpretation tools to uncover gene-regulatory biology. The parent discussion was not supplied, so the particular models and datasets remain unidentified.</p>
+<p><a href="https://x.com/anshulkundaje/status/2106793104103833935">Methodological discussion</a></p>
+</article>
+</section>
+
+<section id="languages" class="practice" aria-labelledby="languages-heading">
+<h2 id="languages-heading">Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Neue Ausstellung: Blick der „Schwarzen Diaspora“ auf die Moderne: „Along the Color Line“</h3>
+<p class="meta">Deutschlandfunk Kultur · 04.10.2026 · <a href="https://www.deutschlandfunkkultur.de/neue-ausstellung-blick-der-schwarzen-diaspora-auf-die-moderne-along-the-color-line-102.html">Link</a></p>
+<p>Zum 50-jährigen Bestehen zeigt das Museum Ludwig in Köln die Ausstellung „Along the Color Line. Spuren einer Transatlantischen Moderne“. Sie untersucht die Beziehungen zwischen der europäischen Moderne und der Kunst Schwarzer Menschen afrikanischer Abstammung außerhalb Afrikas. Neben bildender Kunst bezieht die bis zum 7. März 2027 laufende Schau auch Literatur und Musik ein.</p>
+<p>Im Mittelpunkt steht die Frage, wie Künstlerinnen und Künstler der Schwarzen Diaspora die Moderne weiterentwickelten oder sich von ihr abgrenzten. Bewegungen wie die Harlem Renaissance und die Négritude machen dabei Verbindungen zwischen den Kontinenten sichtbar. Das Museum kritisiert zugleich, dass europäische Sammlungen Schwarze Kunst häufig kaum berücksichtigen – eine Schieflage, die es mit fortwirkenden kolonialen und gesellschaftlichen Machtverhältnissen verbindet.</p>
+<p><strong>Warum lesen:</strong> Die kurze Meldung bietet einen Einstieg in die Frage, wessen Perspektiven unser Bild der Kunstmoderne prägen und welche bislang fehlen.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Blocage des lycées en France: le gouvernement souhaite une reprise des cours où la sécurité le permet</h3>
+<p class="meta">RFI · 05/10/2026 · <a href="https://www.rfi.fr/fr/france/20261005-blocage-des-lyc%C3%A9es-en-france-le-gouvernement-souhaite-une-reprise-des-cours-o%C3%B9-la-s%C3%A9curit%C3%A9-le-permet">Lire l’article</a></p>
+<p>Face à un mouvement de blocage des lycées qui s’étend depuis la mi-septembre, le gouvernement français souhaite rétablir les cours dans les établissements où la sécurité est assurée. Sébastien Lecornu demande de traiter en priorité les absences prolongées d’enseignants et les postes vacants, avec un premier bilan attendu le 16 octobre. Il prévoit également une réunion avec les présidents de région sur la rénovation des lycées et des propositions pour améliorer Parcoursup avant la fin du mois.</p>
+<p>L’article confronte cette réponse institutionnelle aux revendications des jeunes : davantage de moyens, des professeurs remplacés et des bâtiments en meilleur état. Selon le ministre de l’Éducation nationale, entre 400 et 500 lycées avaient suspendu leurs cours le vendredi précédent, et un nombre comparable pourrait rester concerné le lundi, malgré des reprises partielles. À Saint-Denis, une assemblée générale illustre la volonté de poursuivre la mobilisation ainsi que les tensions autour des interventions policières, dont la brutalité est dénoncée par des participants et contestée par le ministre de l’Intérieur.</p>
+<p>Au-delà des affrontements, RFI examine les difficultés structurelles du patrimoine scolaire. Le vieillissement des bâtiments et leur mauvaise isolation rendent les rénovations coûteuses, tandis que les régions dénoncent une réduction de leurs ressources. Le reportage relie ainsi la colère lycéenne à des enjeux durables : les inégalités éducatives, les conditions d’enseignement et le financement des équipements publics.</p>
+<p><strong>Pourquoi lire :</strong> Un éclairage sur la crise des lycées français qui articule revendications sociales, réponse gouvernementale et contraintes budgétaires.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>académie</strong> — circonscription administrative de l’Éducation nationale, dirigée par un recteur ou une rectrice.</li>
+<li><strong>poste non pourvu</strong> — emploi prévu dans une organisation, mais auquel personne n’a encore été affecté.</li>
+<li><strong>vétusté du bâti</strong> — vieillissement et dégradation des bâtiments, susceptibles de nécessiter une rénovation importante.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — ドコモ、一部のユーザー情報をGoogleに無断送信　1万6000件でRCSの同意画面出ず</h3>
+<p class="meta">ITmedia NEWS · 2026-10-05 · <a href="https://www.itmedia.co.jp/news/article/2610/05/2000001993/">記事を読む</a></p>
+<p>NTTドコモは、店頭の契約手続きシステムに不備があり、一部の利用者に必要な説明や同意確認をしないまま、メッセージサービス「RCS」を有効にしていたと発表した。対象は9月17日から25日に、電話番号を引き継いで他社から乗り換えるMNP新規契約をした約1万6000件。Google Asia Pacificへの情報提供に同意するかを確認する画面が表示されなかったという。</p>
+<p>このうち225件では実際にRCSの送受信があり、電話番号などの通信に関する情報がGoogle側へ送られていた。一方、ドコモによると本文は暗号化され、Googleが内容を閲覧することはない。対象者のRCS利用は9月30日夜から順次停止され、10月4日から個別の連絡が始まった。写真や動画も送れる便利な通信サービスの裏側で、どの情報が外部へ渡り、どの段階で同意が必要になるのかを考えさせる記事だ。</p>
+<p><strong>読む理由：</strong> 身近なスマートフォンのサービスを題材に、通信技術と個人情報の取り扱いに関する日本語を学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>第三者提供（だいさんしゃていきょう）</strong> — 企業などが保有する個人情報を、別の企業などに渡すこと。</li>
+<li><strong>番号ポータビリティー（ばんごうポータビリティー）</strong> — 電話番号を変えずに携帯電話会社を乗り換えられる制度。略称はMNP。</li>
+<li><strong>暗号化（あんごうか）</strong> — データを、適切な鍵がなければ内容を読み取れない形に変換すること。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — B站连续三年独家承办WF手办模型展，站内模玩相关UP主超76万</h3>
+<p class="meta">机核 · 1天前（页面显示） · <a href="https://www.gcores.com/articles/220495">https://www.gcores.com/articles/220495</a></p>
+<p>手办模型爱好者如何从线上交流走向线下创作与交易？这篇报道介绍了10月3日至4日在上海举行的WF2026手办模型展。文章称，本届展会吸引超过400家品牌展商和2700位个人创作者，展品包括人物手办、收藏级雕像、可动兵人及机甲模型；两日线下参与总人次预计突破15万。</p>
+<p>比新品数量更值得留意的是“当日版权”制度：创作者获得临时授权后，可以在展会期间展示、销售特定作品的同人模型。今年，这套机制首次延伸至线上，B站会员购的相关会场覆盖58个IP。报道由此呈现了版权合作如何为个人创作者提供销售渠道，也让玩家有机会购买小规模制作的作品。</p>
+<p>文章还将展会与B站的模玩社区联系起来，援引数据称，B站承办WF三年来，站内模玩相关UP主已超过76万。全文偏重展会规模、品牌参与及平台发展，适合了解国内模玩文化的商业生态，而不是寻找具体模型的独立评测。</p>
+<p><strong>为什么读：</strong> 从手办展这一兴趣圈层切入，可以同时认识中文模玩术语、同人创作的授权机制，以及视频社区与线下消费的联系。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>当日版权 (dāngrì bǎnquán)</strong> — 展会中的临时授权制度，允许创作者按规定展示和销售特定IP的同人作品。</li>
+<li><strong>原型师 (yuánxíngshī)</strong> — 负责制作手办或模型原始造型的创作者，其作品可作为后续复制生产的基础。</li>
+<li><strong>涂装 (túzhuāng)</strong> — 为模型上色并处理表面效果的工艺，用于表现材质、细节或旧化痕迹。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied posts and excerpts, not independent review of linked papers. Some biology posts were truncated. Shortened resource links are preserved as supplied; their destinations and contents were unavailable.</p>
+<p>News · 5 October 2026 · Edition 2026-10-05-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #65717e;
+      --rule: #ded6c9;
+      --accent: #7a3e22;
+      --accent-soft: #f0e1d8;
+      --link: #174f8a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 18px;
+      margin-bottom: 26px;
+    }
+    .kicker {
+      color: var(--accent);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+    .date {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 20px;
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(31, 41, 51, 0.04);
+    }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.55rem;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.12rem;
+      line-height: 1.3;
+    }
+    article {
+      padding: 14px 0;
+      border-top: 1px solid #eee8df;
+    }
+    article:first-of-type { border-top: 0; padding-top: 4px; }
+    p { margin: 7px 0; }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #613018;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.76rem;
+      margin: 2px 4px 2px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 18px;
+    }
+    .grid section { margin: 0; }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 3px double var(--rule);
+      padding-top: 8px;
+    }
+    .language-practice section {
+      border-left: 5px solid var(--accent);
+    }
+    .language-practice h2 {
+      color: var(--ink);
+    }
+    .language-snippet h3 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-top: 4px;
+    }
+    ul { margin-top: 6px; }
+    footer {
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      margin-top: 26px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Wednesday, July 08, 2026 · Run 2026-07-08-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research & Tools</h2>
+
+      <article>
+        <h3><a href="https://x.com/GoodfireAI/status/2074634702737281303">Goodfire introduces Block-Sparse Featurizers for multidimensional activation concepts</a></h3>
+        <p>Goodfire describes Block-Sparse Featurizers, an interpretability method that searches for multidimensional blocks or subspaces in model activations rather than single-direction features. The thread says many vision-model concepts appear to occupy two to four dimensions and links to the paper, code, and a full post.</p>
+        <div class="tags"><span class="tag">interpretability</span><span class="tag">representations</span><span class="tag">activation analysis</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/Prince_Canuma/status/2074600634620235811">Cohere Transcribe Arabic gets day-0 mlx-audio support</a></h3>
+        <p>Prince Canuma notes mlx-audio support for Cohere Transcribe Arabic, a 2B-parameter Conformer encoder-decoder ASR model for Arabic dialects and Arabic-English code-switching. The post highlights preprocessing details, Apache 2.0 licensing, Python and Swift support, and leaderboard performance.</p>
+        <div class="tags"><span class="tag">speech recognition</span><span class="tag">audio</span><span class="tag">mlx</span><span class="tag">model release</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2074688583949324663">Stanford shares work on reducing skill atrophy from AI overreliance</a></h3>
+        <p>Stanford AI Lab shared work on designing AI tools that support user capability rather than simply replacing it. The provided post text is truncated, so paper and resource details are not visible, but the topic is a useful human-AI interaction thread to watch.</p>
+        <div class="tags"><span class="tag">human-AI interaction</span><span class="tag">AI tools</span><span class="tag">evaluation</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Biology, Drug Discovery & Bio-ML</h2>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074486801306374455">FLOWR.ROOT unifies pocket-conditioned 3D ligand generation and affinity prediction</a></h3>
+        <p>FLOWR.ROOT is summarized as a Nature Communications SE(3)-equivariant flow-matching foundation model for structure-aware ligand generation and multi-endpoint affinity prediction. It jointly handles pocket-aware 3D ligand generation, pIC50/pKi/pKd/pEC50 prediction, confidence estimation, scaffold hopping, fragment operations, and inference-time steering toward higher predicted affinity, with staged pretraining and LoRA adaptation for project-specific SAR.</p>
+        <div class="tags"><span class="tag">drug discovery</span><span class="tag">generative models</span><span class="tag">protein-ligand</span><span class="tag">flow matching</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074486610616598955">CatESO differentiably optimizes enzyme sequences for substrate-aware kcat</a></h3>
+        <p>CatESO uses differentiable enzyme sequence optimization guided by a substrate-aware kcat predictor. The method relaxes mutable residues with Gumbel–Softmax, backpropagates predicted turnover gains into sequence choices, and regularizes designs with ESM-2 plausibility and ESMFold pLDDT penalties to reduce predictor gaming and preserve foldability.</p>
+        <div class="tags"><span class="tag">enzyme engineering</span><span class="tag">protein design</span><span class="tag">protein language models</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074486484112138724">Sequence-only ESM2 model reaches strong ∆Tm prediction on S4346/S571 benchmark</a></h3>
+        <p>A summarized paper reports that careful training of an ESM2-650M sequence-only model can match or beat structure-informed baselines for mutation-induced melting-temperature change prediction. The result emphasizes robust losses, full fine-tuning, homology shift in the test set, and the danger of crediting gains to structural inputs when training recipe choices may matter more.</p>
+        <div class="tags"><span class="tag">protein stability</span><span class="tag">benchmarking</span><span class="tag">variant effects</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074486305938125096">PEPstrMOD2 models chemically modified and non-natural peptide structures</a></h3>
+        <p>PEPstrMOD2 combines AlphaFold2 or ESMFold starting structures with AMBER minimization and short molecular-dynamics refinement to predict structures of chemically modified, cyclic, and non-natural peptides. The tool expands chemical coverage to 928 modifications and reports improved stereochemistry and local quality on modified-peptide benchmarks compared with direct deep-learning outputs.</p>
+        <div class="tags"><span class="tag">peptide therapeutics</span><span class="tag">protein structure</span><span class="tag">molecular dynamics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074486053394849796">Benchmark calls for harder enzyme-specificity evaluation and introduces CYP ranking task</a></h3>
+        <p>A paper on enzyme-specificity prediction argues that standard AUROC/AUPR tests can overstate practical discovery performance. It introduces a curated cytochrome P450 reaction dataset and leakage-aware ranking benchmark, finding that several recent models often fail to beat BLAST baselines, while supervised heads on Boltz pair embeddings add useful interaction-aware signal.</p>
+        <div class="tags"><span class="tag">enzyme specificity</span><span class="tag">biocatalysis</span><span class="tag">model evaluation</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074485904786518046">Benchmarking AlphaFold-style models for antibody and TCR antigen recognition</a></h3>
+        <p>A benchmark compares AF2, AF3, Boltz-1, Chai-1, and immune-tailored approaches on antibody–protein, antibody–peptide, and TCR–pMHC recognition. The summary highlights that massive sampling improves success, antibody–peptide complexes remain hard, ranking is a bottleneck, interface-focused confidence metrics can beat global scores, and pooling methods may improve coverage.</p>
+        <div class="tags"><span class="tag">antibodies</span><span class="tag">TCR</span><span class="tag">AlphaFold</span><span class="tag">immunology</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074485733461811670">MARLIN performs formula-free de novo molecular structure elucidation from MS/MS spectra</a></h3>
+        <p>MARLIN targets untargeted MS/MS structure elucidation without assuming the true molecular formula. It uses a self-supervised spectral encoder to predict fingerprints and a block-diffusion molecular language model constrained by precursor mass, reporting the strongest evaluated results among formula-free methods on NPLIB1.</p>
+        <div class="tags"><span class="tag">metabolomics</span><span class="tag">mass spectrometry</span><span class="tag">molecular generation</span><span class="tag">diffusion models</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074485542218305993">Nature Methods benchmark tests sequence-based human protein localization predictors</a></h3>
+        <p>A Nature Methods study builds HOU, a high-confidence multilabel human protein-localization benchmark integrating UniProt, Human Protein Atlas, and OpenCell. It compares sequence-based predictors and protein language model backbones under homology-aware splits, showing that fine-grained and rare compartments remain difficult, MCC is more robust than common aggregate metrics, and models generalize poorly to pathogenic mislocalization variants.</p>
+        <div class="tags"><span class="tag">protein localization</span><span class="tag">protein language models</span><span class="tag">proteomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074485267260711384">MPSU-Mamba predicts molecular ground-state conformations with multi-perspective scans</a></h3>
+        <p>MPSU-Mamba applies Mamba state-space models to 2D-to-3D molecular conformer prediction. It builds atom-type, connectivity, and position-based scan orders plus max-activation gating, reporting gains on QM9 and Molecule3D, including limited-data settings, without relying on RDKit initial conformers.</p>
+        <div class="tags"><span class="tag">cheminformatics</span><span class="tag">molecular conformation</span><span class="tag">state-space models</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074485093205512372">Task-adapted scGPT embeddings become perturbation-centric on LINCS L1000</a></h3>
+        <p>A study fine-tunes scGPT on more than 3 million LINCS L1000 perturbation profiles to predict perturbation identity, shifting embeddings away from cell-line structure and toward perturbation-state coherence. The resulting space organizes chemical similarity, mechanisms of action, compound-target relationships, and genetic-perturbation functional relationships, supporting MoA imputation and target-prioritization use cases.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">perturbation biology</span><span class="tag">foundation models</span><span class="tag">drug discovery</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2074484374746382479">Plate-aware active learning improves whole-cell antibiotic discovery generalization</a></h3>
+        <p>A whole-cell antibiotic-discovery study reports that plate-aware active learning improved hit rates in a prospective <em>Borrelia burgdorferi</em> campaign and enriched out-of-distribution virtual-screening hits. The acquisition function balances predicted inhibition, hit and non-hit novelty, intra-plate diversity, and model rationales under realistic high-throughput-screening batching constraints.</p>
+        <div class="tags"><span class="tag">antibiotic discovery</span><span class="tag">active learning</span><span class="tag">HTS</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2074737041418711082">Anshul Kundaje critiques perturbation-prediction metrics after a biology-foundation-model preprint</a></h3>
+        <p>Anshul Kundaje comments on a new perturbation-prediction preprint asking whether biology-specific foundation models are needed for predicting cellular responses. He argues that if a strange or simple model can outperform large atlas-trained perturbation models, the field may have problems with experimental design, timepoint selection, and performance metrics, and he questions loose use of the term “virtual cell” for perturbation predictors.</p>
+        <div class="tags"><span class="tag">virtual cells</span><span class="tag">perturbation prediction</span><span class="tag">model evaluation</span><span class="tag">commentary</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2074545014747828611">Genome annotation method emphasizes transcriptome and alignment evidence</a></h3>
+        <p>A brief item points to a new genome-annotation method from Steven Salzberg’s group that relies heavily on transcriptome and alignment evidence and is claimed to outperform existing approaches. The provided detail is sparse, but the direction is relevant for genomics tooling and bioinformatics workflows.</p>
+        <div class="tags"><span class="tag">genome annotation</span><span class="tag">transcriptomics</span><span class="tag">bioinformatics</span></div>
+      </article>
+    </section>
+
+    <div class="language-practice">
+      <header>
+        <div class="kicker">Language Practice</div>
+        <h1>Daily Reading</h1>
+        <div class="date">Native-language snippets preserved from source reports</div>
+      </header>
+
+      <section class="language-snippet" lang="de">
+        <h2>Deutsch — tägliche Lektüre</h2>
+        <article>
+          <h3>Deutsch — Neuer "Gebäudetyp E" geplant: Bauen ohne Schnickschnack</h3>
+          <p class="meta">Tagesschau · 2026-07-07 · <a href="https://www.tagesschau.de/inland/innenpolitik/gebauedetyp-e-wohnraum-100.html">https://www.tagesschau.de/inland/innenpolitik/gebauedetyp-e-wohnraum-100.html</a></p>
+          <p>Die Bundesregierung will mit dem geplanten "Gebäudetyp E" den Wohnungsbau in Deutschland vereinfachen. Das E steht für "einfach" und "experimentell": Künftig sollen Bauherren, Architekten und Unternehmen rechtssicher vereinbaren können, auf bestimmte nicht sicherheitsrelevante Standards zu verzichten. So sollen Bauprojekte günstiger und schneller werden.</p>
+          <p>Im Artikel geht es nicht um einen festen Vorgabenkatalog, sondern um ein neues Planungs- und Vertragskonzept. Bauministerin Verena Hubertz betont, dass Gebäude sehr unterschiedlich seien und Architekten Spielraum behalten müssten. Ein Bauforscher begrüßt den Ansatz, fordert aber klarere Basisstandards und eine stärkere Entschlackung von Normen und Förderlogik.</p>
+          <p><strong>Warum lesen:</strong> Der Text erklärt an einem konkreten politischen Vorhaben, warum Bauen in Deutschland so teuer ist und welche Kompromisse beim Wohnungsbau diskutiert werden.</p>
+        </article>
+      </section>
+
+      <section class="language-snippet" lang="fr">
+        <h2>Français — lecture quotidienne</h2>
+        <article>
+          <h3>Français — Pourquoi Samsung se prend une claque boursière malgré des profits astronomiques</h3>
+          <p class="meta">France 24 · 2026-07-08 · <a href="https://www.france24.com/fr/%C3%A9co-tech/20260708-pourquoi-samsung-se-prend-une-claque-boursi%C3%A8re-malgr%C3%A9-des-profits-astronomiques">https://www.france24.com/fr/%C3%A9co-tech/20260708-pourquoi-samsung-se-prend-une-claque-boursi%C3%A8re-malgr%C3%A9-des-profits-astronomiques</a></p>
+          <p>France 24 revient sur un paradoxe boursier : Samsung a annoncé une envolée spectaculaire de ses bénéfices, tirés par la demande en semi-conducteurs liés à l’intelligence artificielle, mais son action a malgré tout chuté de près de 6 % à la Bourse sud-coréenne. L’article explique que les marchés avaient déjà largement anticipé ces bons résultats, après une progression très forte du cours de l’action depuis 2025.</p>
+          <p>Le papier met surtout en lumière les attentes devenues extrêmes autour de l’IA. Dans ce secteur, il ne suffit plus d’afficher une forte croissance : les investisseurs veulent savoir si une entreprise peut croître plus vite que ses rivales et conserver un avantage durable. Samsung est présenté comme un acteur central de la chaîne technologique, mais aussi comme une entreprise soumise à la nervosité des marchés face à une possible surchauffe de l’enthousiasme pour l’intelligence artificielle.</p>
+          <p><strong>Pourquoi lire :</strong> un bon article pour comprendre comment la fièvre de l’IA transforme les critères de réussite des grandes entreprises technologiques.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>semi-conducteurs</strong> — composants électroniques essentiels aux puces informatiques et aux systèmes d’intelligence artificielle.</li>
+            <li><strong>claque boursière</strong> — forte baisse de la valeur d’une action ou d’une entreprise en Bourse.</li>
+            <li><strong>marchés financiers</strong> — ensemble des lieux et mécanismes où s’échangent actions, obligations et autres actifs financiers.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="language-snippet" lang="ja">
+        <h2>日本語 — 毎日の読み物</h2>
+        <article>
+          <h3>日本語 — 「はじめてのおつかい」 絵本作家の林明子さん死去 81歳</h3>
+          <p class="meta">NHKニュース · 2026-07-08 14:00 · <a href="https://news.web.nhk/newsweb/na/na-k10015171741000">https://news.web.nhk/newsweb/na/na-k10015171741000</a></p>
+          <p>NHKニュースは、絵本作家の林明子さんが7月1日に肺炎のため亡くなったと伝えています。81歳でした。林さんは「はじめてのおつかい」や「おつきさまこんばんは」など、長く読み継がれてきた絵本を数多く手がけた作家として知られています。</p>
+          <p>記事は訃報として、林さんの代表作と、日本の子どもの読書文化に残した存在感を簡潔に伝える内容です。絵本、児童文学、出版文化に関心がある読者にとって、作品名や作家紹介を通じて読みやすい日本語に触れられる記事です。</p>
+          <p><strong>読む理由：</strong> 日本の絵本文化で広く親しまれてきた作家の訃報で、短いながら文化的背景を知るきっかけになります。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>絵本作家（えほんさっか）</strong> — 子ども向けの絵本を作る作家や画家。</li>
+            <li><strong>訃報（ふほう）</strong> — 人が亡くなったことを知らせる知らせ。</li>
+            <li><strong>肺炎（はいえん）</strong> — 肺に炎症が起きる病気。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="language-snippet" lang="zh">
+        <h2>中文 — 每日阅读</h2>
+        <article>
+          <h3>中文 — 推广华语政策不变 政府探讨准更多方言电影在戏院公映</h3>
+          <p class="meta">联合早报 · 2026-07-07 · <a href="https://www.zaobao.com.sg/news/singapore/story20260707-9324107">https://www.zaobao.com.sg/news/singapore/story20260707-9324107</a></p>
+          <p>《联合早报》报道，新加坡政府表示推广华语的长期政策不会改变，但承认本地语言环境已有变化，近年来在执行大众传媒方言使用方针时更趋务实灵活。围绕潮语电影《给阿嬷的情书》放映场次引发的讨论，国会议员向相关部门提出多项询问，关注方言电影、方言使用限制与讲华语运动之间的关系。</p>
+          <p>数码发展及新闻部兼保健卫生部高级政务部长陈杰豪说，资讯通信媒体发展局已允许电影中出现更多方言内容，本地每年也有三四十部方言电影在电影节放映。对于《给阿嬷的情书》，当局已批准多轮加映，累计场次达到272场；若片商因需求继续申请加场，当局也准备批准。</p>
+          <p>报道还呈现了议员和学者的不同意见：一些议员认为，讲华语运动的对象已从方言族群转向英语群体，推广华语与保留方言文化并不冲突；受访学者则指出，学习和使用方言不会降低华语水平，反而有助于深化对华族语言文化的理解。</p>
+          <p><strong>为什么读：</strong> 这篇文章把新加坡的语言政策、方言文化传承和电影放映制度放在同一场公共讨论中，适合了解本地华语社会的现实语境。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>讲华语运动 (jiǎng huáyǔ yùndòng)</strong> — 新加坡自1979年推行的语言政策运动，鼓励华族以华语作为共同沟通语言。</li>
+            <li><strong>资讯通信媒体发展局 (zīxùn tōngxìn méitǐ fāzhǎn jú)</strong> — 新加坡负责资讯、通信和媒体监管等事务的政府机构。</li>
+            <li><strong>电影分级框架 (diànyǐng fēnjí kuàngjià)</strong> — 对电影内容进行审查、分类和放映限制的制度安排。</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+
+    <footer>
+      Source notes: no quiet failure notes reported for this run.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #ded7ca;
+      --accent: #284b63;
+      --accent-soft: #e8f0f4;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      letter-spacing: -0.04em;
+      color: var(--accent);
+    }
+    .dateline {
+      margin-top: 6px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 1.55rem;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 14px 0;
+      border-top: 1px solid #eee6d9;
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 4px;
+    }
+    p {
+      margin: 8px 0;
+    }
+    a {
+      color: #0b5cad;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      border: 1px solid #d3e1e8;
+      color: #24475d;
+      padding: 1px 7px;
+      border-radius: 999px;
+      margin: 2px 3px 2px 0;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 3px double var(--line);
+      padding-top: 12px;
+    }
+    .language-practice section {
+      border-color: #d7d0e4;
+      background: #fffefe;
+    }
+    .language-practice h2 {
+      color: #4b3f72;
+    }
+    ul {
+      margin-top: 8px;
+    }
+    .notes {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: transparent;
+      border-style: dashed;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dateline">Friday, June 19, 2026 · Run 2026-06-19-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research &amp; Systems</h2>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2067727194118553796">Stanford AI Lab presents M* runtime for composite multimodal models</a></h3>
+          <p>Stanford AI Lab says M* is a unified runtime for composite multimodal models rather than a single decode loop, reporting up to 2.7× speedups on omni TTS and 12.5× on world-model rollouts versus specialized systems.</p>
+          <div class="tags"><span class="tag">systems</span><span class="tag">multimodal</span><span class="tag">inference</span><span class="tag">benchmark</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/GoodfireAI/status/2067722348468597005">PROPEL arXiv paper follows Goodfire and VmaxAI collaboration</a></h3>
+          <p>Goodfire retweeted that the arXiv paper for PROPEL is now available, following a prior collaboration blog post with VmaxAI. The item is notable as a new paper announcement from a technical interpretability and research source.</p>
+          <div class="tags"><span class="tag">paper</span><span class="tag">interpretability</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cgeorgiaw/status/2067616130378641896">LeMat-Rho releases 70k r²SCAN charge-density materials dataset</a></h3>
+          <p>LeMat-Rho is an open dataset of 70,000 lithium- and cobalt-containing materials with high-fidelity r²SCAN charge densities, Bader charges, fixed-grid ML-ready tensors, adaptive physics grids, and full VASP outputs. The thread argues that charge-density supervision can help ML models predict electronic structure, charge transfer, bonding behavior, DFT warm starts, and properties beyond energy/force proxies.</p>
+          <div class="tags"><span class="tag">dataset</span><span class="tag">materials science</span><span class="tag">scientific ML</span><span class="tag">DFT</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rasbt/status/2067612153020838055">Raschka analyzes GLM-5.2 architecture and IndexShare sparse-attention reuse</a></h3>
+          <p>Sebastian Raschka summarized GLM-5.2 as building on GLM-5/5.1 with Multi-head Latent Attention and DeepSeek Sparse Attention. A key addition is IndexShare, a cross-layer DSA reuse mechanism that computes the sparse-attention top-k indexer once every four layers and reuses selected token indices to reduce 1M-token inference cost.</p>
+          <div class="tags"><span class="tag">architecture</span><span class="tag">attention</span><span class="tag">long context</span><span class="tag">inference</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/Prince_Canuma/status/2067848167022870978">MLX-VLM adds day-0 support for Laguna-M.1 225B MoE</a></h3>
+          <p>MLX-VLM has day-0 support for Laguna-M.1, described as a 225B-parameter mixture-of-experts model with 23B active parameters. The item is mainly useful for readers tracking local and Apple-oriented AI tooling.</p>
+          <div class="tags"><span class="tag">tooling</span><span class="tag">MLX</span><span class="tag">vision-language</span><span class="tag">MoE</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cgeorgiaw/status/2067651174627496286">Breast-cancer metrics proposed as a usefulness test for AI scientist systems</a></h3>
+          <p>Georgia Channing argued that claims about revolutionary AI scientist systems should be tied to concrete scientific outputs, pointing to breast-cancer-related metrics as a way to evaluate usefulness. The post is notable for pushing evaluation away from generic AI discourse and toward measurable scientific impact.</p>
+          <div class="tags"><span class="tag">evaluation</span><span class="tag">AI scientist</span><span class="tag">biomedicine</span><span class="tag">benchmark</span></div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Bio, Genomics &amp; Scientific ML</h2>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067630254081089872">HomoDSP predicts DNA-binding specificity from homologous protein–DNA structure templates</a></h3>
+          <p>HomoDSP is a structure-aware method for predicting DNA-binding specificity and position weight matrices by retrieving multiple homologous protein–DNA interface templates from a large predicted-complex library, HomoDB. It extends geometric DNA-binding predictors with template-interface evidence and reports improvements over DeepPBS and NA-MPNN, including on predicted AF3-like inputs and AI-designed DNA-binding proteins.</p>
+          <div class="tags"><span class="tag">gene regulation</span><span class="tag">protein-DNA</span><span class="tag">structural biology</span><span class="tag">machine learning</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067630077844897915">LOGICA aligns biological foundation models in logit space across protein, ligand, and TCR modalities</a></h3>
+          <p>LOGICA is presented as a multimodal framework that aligns biological language models through their native output logits rather than pooled embeddings. Highlighted experiments cover protein–ligand prediction, drug resistance, and TCR–peptide interactions, with token-level likelihood scoring for mutation-local variant ranking and interpretable cross-modal dependency maps enriched for structural contacts.</p>
+          <div class="tags"><span class="tag">drug discovery</span><span class="tag">multimodal models</span><span class="tag">protein language models</span><span class="tag">immunology</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067629926841479208">KEPLA injects biochemical knowledge graphs into protein–ligand affinity prediction</a></h3>
+          <p>KEPLA combines ESM2 protein sequence representations, ligand graph encoders, cross-attention, and a biochemical knowledge graph built from GO annotations and ligand properties. It targets interaction-free protein–ligand binding affinity prediction, reporting stronger results than several baselines on PDBbind, CSAR-HiQ, cross-domain splits, and Astex.</p>
+          <div class="tags"><span class="tag">drug discovery</span><span class="tag">protein-ligand</span><span class="tag">knowledge graphs</span><span class="tag">binding affinity</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067629810332139645">DesignMaster uses multi-conditional 3D diffusion for PROTAC linker generation</a></h3>
+          <p>DesignMaster is a controllable 3D diffusion framework for PROTAC design that keeps warhead and E3 ligands fixed while generating linkers under explicit length and physicochemical constraints. The summary reports high validity and recovery on PROTAC-DB 2.0/3.0, property-distribution alignment, and a docking/RMSD case study against a reference PROTAC structure.</p>
+          <div class="tags"><span class="tag">drug discovery</span><span class="tag">PROTAC</span><span class="tag">diffusion models</span><span class="tag">molecular design</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067630424030097804">Protein language model steering via unsupervised reward optimization</a></h3>
+          <p>“Be Your Own Teacher” is an unsupervised post-training framework for steering protein language models without wet-lab feedback or curated preference data. It builds proxy rewards from PLM uncertainty and ESMC embedding consistency, then applies Soft Reward Optimization and Binarized Reward Optimization to improve controllable generation on compositional out-of-distribution protein prompts.</p>
+          <div class="tags"><span class="tag">protein language models</span><span class="tag">protein design</span><span class="tag">generative models</span><span class="tag">evaluation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067629400800244221">PolyFold benchmarks open-use molecular structure predictors and exposes homology-leakage issues</a></h3>
+          <p>PolyFold is an open, reproducible benchmark comparing Boltz-2 and OpenFold 3 across 6,063 post-cutoff PDB structures. The paper emphasizes residual homology leakage in multichain complexes, proposes WAFI as a stricter filtering metric, and analyzes performance on nucleic-acid complexes, antibody–antigen interfaces, homodimers, and ligand plausibility.</p>
+          <div class="tags"><span class="tag">benchmark</span><span class="tag">structure prediction</span><span class="tag">drug discovery</span><span class="tag">reproducibility</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067629572515102989">Phylogenetic signal is weakened by pooled protein language model embeddings</a></h3>
+          <p>A study of 500 PANTHER families tests whether PLM embedding distances can support zero-shot phylogenetic inference. The key finding is that pooled sequence-level embeddings lose much of the phylogenetic signal, while residue-level, alignment-aware distance aggregation improves topology recovery; branch lengths remain poorly calibrated.</p>
+          <div class="tags"><span class="tag">protein language models</span><span class="tag">phylogenetics</span><span class="tag">representation learning</span><span class="tag">bioinformatics</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067627736575971450">ConformFlow generates protein conformational ensembles with sequence-conditioned normalizing flows</a></h3>
+          <p>ConformFlow is a sequence-conditioned normalizing flow for generating protein conformational ensembles in a learned backbone-geometry latent space adapted from the ESM3 structure tokenizer. It reports improved ensemble fidelity versus BioEmu on several MD-derived observables, much faster sampling, and likelihood-guided controllability for geometric constraints.</p>
+          <div class="tags"><span class="tag">protein dynamics</span><span class="tag">normalizing flows</span><span class="tag">molecular dynamics</span><span class="tag">structural biology</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067626554830786813">MultiMolecule standardizes biomolecular sequence-model workflows</a></h3>
+          <p>MultiMolecule is an open-source Python ecosystem for reusable biomolecular sequence-model workflows across DNA, RNA, and protein. It standardizes 53 model-family implementations, 112 checkpoints, curated datasets, validation checks against source outputs, and prediction pipelines for regulatory activity, variant effects, methylation, splicing, RNA structure, polyadenylation, and ribosome load.</p>
+          <div class="tags"><span class="tag">tool</span><span class="tag">genomics</span><span class="tag">transcriptomics</span><span class="tag">protein models</span><span class="tag">reproducibility</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067626661345214895">CANVAS designs active-site lids for de novo TIM-barrel enzymes</a></h3>
+          <p>CANVAS is a computational workflow for turning minimal de novo TIM barrels into functional enzymes by designing lid structures that shape a substrate pocket and position catalytic residues. The Kemp elimination case study combines Triad, RFdiffusion, ProteinMPNN, AlphaFold2, crystallography, MD, and ensemble-based redesign, producing experimentally active KempTIM variants.</p>
+          <div class="tags"><span class="tag">protein design</span><span class="tag">enzyme engineering</span><span class="tag">synthetic biology</span><span class="tag">experimental validation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067767981984424043">Praxis-BGM applies semi-supervised transfer learning to omics clustering</a></h3>
+          <p>Praxis-BGM is a natural-gradient variational inference framework for Gaussian mixture models that transfers informative priors from large reference datasets to smaller omics datasets. It incorporates cluster means, covariances, and structural connectivity, using Variational Online Newton updates for semi-supervised clustering.</p>
+          <div class="tags"><span class="tag">omics</span><span class="tag">clustering</span><span class="tag">transfer learning</span><span class="tag">statistics</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067764539580649644">Paradoxical gene regulation explained by competition for genomic decoy sites</a></h3>
+          <p>A highlighted study shows that competition between activators and repressors for genomic decoy sites can produce counterintuitive regulation, where increasing a nominal activator reduces target-gene expression. A mechanistic reaction-network model predicted the effect, which was validated experimentally with a minimal CRISPRa/CRISPRi circuit.</p>
+          <div class="tags"><span class="tag">gene regulation</span><span class="tag">synthetic biology</span><span class="tag">biological circuits</span><span class="tag">CRISPR</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067763226977443913">Movi 2 offers compressed indexes for fast pangenome queries</a></h3>
+          <p>Movi 2 is a fast, space-efficient pangenome query tool based on compressed move-structure indexes. The most compressed version reportedly reduces the Movi index footprint more than fivefold and scales to large HPRC pangenome collections with more than 460 human haplotypes.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">pangenome</span><span class="tag">indexing</span><span class="tag">tool</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067762184617439595">Causal reinforcement learning framework for gene regulatory network inference</a></h3>
+          <p>The highlighted paper proposes a reinforcement-learning framework for gene regulatory network inference. Its architecture combines k-nearest neighbors, a structural causal model layer, and a variational graph autoencoder inside a deep Q-network, with rewards based on BIC and network loss to favor simpler, biologically interpretable causal networks.</p>
+          <div class="tags"><span class="tag">gene regulatory networks</span><span class="tag">causal inference</span><span class="tag">reinforcement learning</span><span class="tag">single-cell</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067761664922169388">GOATEA adds interactive R/Shiny gene set enrichment analysis</a></h3>
+          <p>GOATEA extends the GOAT gene set enrichment approach with R/Shiny interactive visualization, multi-contrast comparison, and integration of gene- and network-based context for bottom-up pathway analysis.</p>
+          <div class="tags"><span class="tag">bioinformatics</span><span class="tag">gene set enrichment</span><span class="tag">pathway analysis</span><span class="tag">R</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatureRevGenet/status/2067617977630142472">Nature Reviews Genetics: pleiotropic effects of cis-regulatory mutations</a></h3>
+          <p><em>Nature Reviews Genetics</em> highlighted a new online article on the pleiotropic effects of cis-regulatory mutations, a topic relevant to interpreting regulatory genomics, disease mechanisms, and evolution.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">cis-regulation</span><span class="tag">gene regulation</span><span class="tag">review</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatureRevGenet/status/2067617227982135307">Nature Reviews Genetics: transposable elements as catalysts of evolutionary innovation</a></h3>
+          <p><em>Nature Reviews Genetics</em> highlighted a new online article on transposable elements as catalysts of evolutionary innovation. The review topic has broad relevance for genomics, evolution, and gene regulation.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">transposable elements</span><span class="tag">evolution</span><span class="tag">review</span></div>
+        </article>
+      </section>
+
+      <div class="language-practice">
+        <header>
+          <h1>Language Practice</h1>
+          <div class="dateline">Native-language reading snippets from today’s sources</div>
+        </header>
+
+        <section lang="de">
+          <h2>Deutsch — tägliche Lektüre</h2>
+          <article>
+            <h3>Deutsch — KI-Einsatz: Warum menschliche Expertise wichtiger ist als Automatisierung</h3>
+            <div class="meta">heise online · 2026-06-18 · <a href="https://www.heise.de/news/KI-Einsatz-Warum-menschliche-Expertise-wichtiger-ist-als-Automatisierung-11336805.html">https://www.heise.de/news/KI-Einsatz-Warum-menschliche-Expertise-wichtiger-ist-als-Automatisierung-11336805.html</a></div>
+            <p>Der Artikel fasst Ergebnisse des „Global AI Jobs Barometer 2026“ von PwC zusammen: Unternehmen, die Künstliche Intelligenz vor allem zur Verstärkung menschlicher Expertise einsetzen, wachsen demnach schneller und erzielen höhere Produktivitätsgewinne als Firmen, die KI primär als Automatisierungs- und Sparinstrument nutzen. Grundlage der Untersuchung sind unter anderem mehr als eine Milliarde Stellenanzeigen sowie Arbeitsmarkt-, Berufs- und Unternehmensdaten aus 27 Ländern und Regionen.</p>
+            <p>Für Beschäftigte ist die Botschaft ambivalent. Einerseits spricht die Studie gegen die Vorstellung, dass der größte wirtschaftliche Nutzen von KI einfach im Ersetzen von Menschen liegt. Andererseits geraten klassische Einstiegsjobs und Routinetätigkeiten unter Druck: Schon Berufseinsteiger sollen stärker Urteilsvermögen, soziale Kompetenz und den Umgang mit KI-gestützten Prozessen mitbringen.</p>
+            <p>Heise hebt außerdem hervor, dass KI-Kompetenzen am Arbeitsmarkt deutlich wichtiger werden. Stellenanzeigen mit spezifischen KI-Anforderungen wachsen laut Bericht viel schneller als der Gesamtarbeitsmarkt, während sich in Deutschland nur ein kleiner Teil der Beschäftigten gut genug vorbereitet fühlt, KI-Tools wirksam einzusetzen.</p>
+            <p><strong>Warum lesen:</strong> Der Text bietet einen gut zugänglichen Überblick darüber, wie KI Arbeit verändert — jenseits der einfachen Erzählung vom Jobkiller.</p>
+          </article>
+        </section>
+
+        <section lang="fr">
+          <h2>Français — lecture quotidienne</h2>
+          <article>
+            <h3>Français — Midjourney promet de réduire la mortalité mondiale de 30 % grâce à un immense scanner corporel à ultrasons</h3>
+            <div class="meta">Numerama · 2026-06-19 · <a href="https://www.numerama.com/sciences/2278697-midjourney-promet-de-reduire-la-mortalite-mondiale-de-30-grace-a-un-immense-scanner-corporel-a-ultrasons.html">https://www.numerama.com/sciences/2278697-midjourney-promet-de-reduire-la-mortalite-mondiale-de-30-grace-a-un-immense-scanner-corporel-a-ultrasons.html</a></div>
+            <p>Numerama revient sur une annonce inattendue de Midjourney, surtout connue pour ses images générées par intelligence artificielle : l’entreprise lance une division médicale, Midjourney Medical, et présente un projet de scanner corporel complet fondé sur des ultrasons. L’appareil, développé avec Butterfly Network, promettrait une imagerie du corps entier en une minute, sans radiation ni champ magnétique puissant.</p>
+            <p>L’article insiste sur le caractère spectaculaire — et très spéculatif — de cette promesse. Midjourney imagine d’abord installer ce scanner dans un spa de luxe à San Francisco, avant un déploiement beaucoup plus large à l’horizon 2031. L’entreprise avance des chiffres ambitieux, comme 50 000 scanners dans le monde et une possible réduction de 30 % de la mortalité mondiale grâce au dépistage préventif.</p>
+            <p>Le sujet est intéressant parce qu’il mélange plusieurs enjeux contemporains : l’expansion des entreprises d’IA vers le matériel, la médicalisation du bien-être haut de gamme, et les promesses parfois vertigineuses de la prévention technologique. Numerama adopte un ton prudent, en rappelant que la vision annoncée devra encore prouver sa faisabilité médicale, économique et réglementaire.</p>
+            <p><strong>Pourquoi lire :</strong> pour découvrir comment une entreprise emblématique de l’IA générative tente de se repositionner dans la santé, avec une annonce à la fois fascinante et difficile à croire.</p>
+            <p><strong>Vocabulaire utile</strong></p>
+            <ul>
+              <li><strong>imagerie préventive</strong> — ensemble de techniques visant à détecter des problèmes de santé avant l’apparition de symptômes graves.</li>
+              <li><strong>ultrasons</strong> — ondes sonores de haute fréquence utilisées notamment en échographie pour explorer l’intérieur du corps.</li>
+              <li><strong>champ magnétique puissant</strong> — élément central de l’IRM, qui permet de produire des images médicales détaillées sans rayons X.</li>
+              <li><strong>déploiement</strong> — mise en place progressive d’une technologie ou d’un service à grande échelle.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="ja">
+          <h2>日本語 — 毎日の読み物</h2>
+          <article>
+            <h3>日本語 — 平均株価、終値で初の7万円大台に : 米国とイランの戦闘終結署名を好感</h3>
+            <div class="meta">nippon.com · 2026-06-18 · <a href="https://www.nippon.com/ja/japan-data/h02819">https://www.nippon.com/ja/japan-data/h02819</a></div>
+            <p>日経平均株価が2026年6月18日、終値で初めて7万円台に乗せたことを、過去の推移とともに整理したデータ記事。終値は前日比1151円24銭高の7万1053円49銭で、米国とイランの戦闘終結に向けた動きによる投資家心理の改善や、AI・ハイテク関連銘柄の好調が背景として挙げられている。</p>
+            <p>記事は、1989年末のバブル期最高値から、金融機関破綻、デフレ、リーマン・ショックを経た長期低迷、そして2012年以降の金融緩和やコロナ禍後の大規模な資金供給までを短く振り返る。2024年にバブル期の高値を超えた後、2025年に5万円台、2026年4月に6万円台、そしてわずか1カ月半ほどで7万円台へ進んだ急ピッチな上昇が焦点になっている。</p>
+            <p><strong>読む理由：</strong> 日本経済・金融市場をめぐる基本語彙と、株価上昇を説明する日本語表現をまとめて学べる記事。</p>
+            <p><strong>語彙メモ</strong></p>
+            <ul>
+              <li><strong>日経平均株価（にっけいへいきんかぶか）</strong> — 東京証券取引所に上場する代表的な225銘柄から算出される日本の主要株価指数。</li>
+              <li><strong>投資家心理（とうしかしんり）</strong> — 投資家が市場の先行きに対して持つ期待や不安のこと。</li>
+              <li><strong>金融緩和（きんゆうかんわ）</strong> — 中央銀行が金利低下や資金供給を通じて景気を支えようとする政策。</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="zh">
+          <h2>中文 — 每日阅读</h2>
+          <article>
+            <h3>中文 — 全面拥抱AI：Epic公布虚幻引擎6路线图</h3>
+            <div class="meta">机核 · 2026-06-19 · <a href="https://www.gcores.com/articles/216057">https://www.gcores.com/articles/216057</a></div>
+            <p>这篇资讯整理了 Epic 对虚幻引擎 6 的路线图：未来两年内，Epic 计划把虚幻引擎 5 与 UEFN 合并为面向次世代游戏的一体化引擎，并在 2027 年底推出抢先体验版。文章的重点不只是画质升级，而是 UE6 如何改变游戏发布、运营、协作和内容流通方式。</p>
+            <p>文中提到 UE6 的三条主线：Gameplay 编程模型转向 Verse；通过开放标准实现跨游戏、跨生态、跨引擎的内容与代码互操作；以及把 LLM、生成式 AI、Claude、Codex 等工具接入开发流程。Epic 还计划用《堡垒之夜》的装扮系统作为跨游戏资产可移植性的验证案例。</p>
+            <p>对游戏开发或技术文化读者来说，这篇文章适合作为理解“引擎平台化”和“AI 辅助创作”趋势的入口：UE6 被描述为不只是一个制作工具，而是一个连接开发者、玩家资产、在线服务和模型工具的生态系统。</p>
+            <p><strong>为什么读：</strong> 它浓缩了游戏引擎、AI 工具链和跨平台内容生态正在汇合的一个重要行业动向。</p>
+            <p><strong>词汇笔记</strong></p>
+            <ul>
+              <li><strong>虚幻引擎 (xūhuàn yǐnqíng)</strong> — Epic 开发的游戏引擎，常用于 3A 游戏、影视虚拟制作和实时交互内容。</li>
+              <li><strong>互操作 (hù cāozuò)</strong> — 不同系统、游戏、引擎或平台之间能够共享、迁移和使用内容或数据。</li>
+              <li><strong>事务化 (shìwù huà)</strong> — 把程序操作设计成可回滚、可重新执行的“事务”，常用于并发和分布式系统。</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+
+      <section class="notes">
+        <h2>Quiet Source Notes</h2>
+        <p>AI research source filtering omitted previously reported items, product announcements, memes, shallow retweets, events, hiring or social posts, and model-comparison takes without visible methodology.</p>
+        <p>Bio research source filtering omitted retweets, hiring/funding/product-promotion threads, memes/off-topic posts, and items already present in the previous registry.</p>
+      </section>
+    </main>
+  </div>
+
+
+
+</body>
+</html>

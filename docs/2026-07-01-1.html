@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2328;
+      --muted: #666b73;
+      --rule: #d8d0c3;
+      --accent: #6b3f1d;
+      --accent-soft: #efe3d4;
+      --link: #1756a9;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+    }
+    header .kicker {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.82rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    h1 {
+      margin: 6px 0 4px;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    header .date {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    h2 {
+      margin: 0 0 14px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+      color: var(--accent);
+      font-size: 1.55rem;
+    }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 15px 0;
+      border-top: 1px solid #ece6dc;
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 4px;
+    }
+    p {
+      margin: 0.45rem 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .tags {
+      margin-top: 0.4rem;
+      color: var(--muted);
+      font-size: 0.86rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .note {
+      margin-top: 14px;
+      padding: 12px 14px;
+      background: #faf7f1;
+      border-left: 4px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 3px double var(--rule);
+      padding-top: 8px;
+    }
+    .language-practice section {
+      background: #fffefb;
+    }
+    .language-practice h2 {
+      font-size: 1.4rem;
+    }
+    .language-practice h3 {
+      color: var(--accent);
+    }
+    ul {
+      margin-top: 0.35rem;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.85rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Wednesday, July 1, 2026 · Run 2026-07-01-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research & Systems</h2>
+
+      <article>
+        <h3><a href="https://x.com/ID_AA_Carmack/status/2072152520374280269">Carmack suggests tree-structured positional representations for code models</a></h3>
+        <p>John Carmack argues that although LLMs emit code linearly, code is fundamentally a flattened abstract syntax tree. He raises the question of whether models could reason over parsed code more effectively if positional embeddings represented tree structure directly, rather than relying on token order alone.</p>
+        <div class="tags">code models · representations · architectures</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2072145464028442644">Stanford shares position paper on what LLM hallucination means</a></h3>
+        <p>Stanford AI Lab highlighted a new position paper arguing for a clearer definition of LLM “hallucination.” The provided source text was truncated, but the item points to ongoing work on evaluation and reliability terminology.</p>
+        <div class="tags">LLM evaluation · hallucination · position paper</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/nathancgy4/status/2072003983594729771">Inference speed framed as the next high-leverage AI research axis</a></h3>
+        <p>Nathan Chen argues that future AI progress can be split into performance and speed: scaling data and compute mainly drives capability, while chips, infrastructure, kernels, efficient attention, speculative decoding, and data-architecture co-design drive speed. He suggests inference speed under large workloads may become a decisive research frontier.</p>
+        <div class="tags">inference · scaling · systems · efficient attention</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/cgeorgiaw/status/2071975400549351783">Multimodal Universe releases 80TB astrophysics dataset with memory-efficient HATS cross-matching</a></h3>
+        <p>Georgia Channing highlighted an 80TB Hugging Face astrophysics release spanning galaxy imagery, spectra, variable-star time series, and physical measurements. A follow-up explains that Multimodal Universe moved to HATS: equal-area sky tiles stored as parquet files, so cross-matching loads only overlapping tiles and can match large surveys such as SDSS × Gaia with roughly 4GB RAM.</p>
+        <div class="tags">datasets · scientific ML · astrophysics · Hugging Face · data engineering</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/tri_dao/status/2071974600548958480">Tri Dao comments on Etched hardcoding attention into silicon for LLM inference</a></h3>
+        <p>Tri Dao notes that Etched designed chips within two years by hardcoding attention into silicon and targeting high model FLOP utilization. The argument: specialized LLM inference hardware could substantially reduce the cost of intelligence.</p>
+        <div class="tags">inference · hardware · attention · systems</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2071845261140504896">Stanford R&amp;B-EnCoRe lets VLA models select useful reasoning before acting</a></h3>
+        <p>Stanford AI Lab announced a SAIL blog post on R&amp;B-EnCoRe, where a vision-language-action model teaches itself which chain-of-thought helps it act, reportedly without rewards, verifiers, or human annotation. The normalized data included only a shortened link for the blog.</p>
+        <div class="tags">robotics · VLA · self-improvement · reasoning</div>
+      </article>
+
+      <div class="note">Source note: Some linked resources were only visible as shortened URLs in the provided data, so a few summaries are necessarily limited.</div>
+    </section>
+
+    <section>
+      <h2>Bio, Genomics & Drug Discovery</h2>
+
+      <article>
+        <h3><a href="https://x.com/HannesStaerk/status/2071995306716098644">Xaira Therapeutics blog discusses standards for evaluating protein binder design models</a></h3>
+        <p>Hannes Stark highlighted a Xaira Therapeutics blog post on evaluating binder design models, emphasizing clearer standards for calling a candidate a binder and for reporting binder-design results.</p>
+        <div class="tags">protein design · drug discovery · evaluation</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2072161271529488465">GeneBench-Pro benchmark targets AI agents on messy gene-research tasks</a></h3>
+        <p>Anshul Kundaje retweeted OpenAI’s introduction of GeneBench-Pro, described as a research-level benchmark for testing how well AI agents navigate messy gene-related research problems.</p>
+        <div class="tags">genomics · benchmarks · AI agents</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072136701150163350">CSCN infers cell-specific causal gene regulatory networks from scRNA-seq</a></h3>
+        <p>CSCN, a Cell-Specific Causal Network framework, infers directed cell-specific gene regulatory relationships from single-cell RNA-seq. The thread says it uses causal discovery, conditional-independence testing, kd-trees, bitmap indexing, and a Causal Katz Matrix that improved cell-state discrimination across nine datasets.</p>
+        <div class="tags">single-cell · gene regulation · causal inference</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072136328805003739">OmicsTransformer uses masked consistency and uncertainty-aware fusion for multi-omics prediction</a></h3>
+        <p>OmicsTransformer is described as an end-to-end multi-omics framework that projects modalities into latent patches, applies masked semantic consistency with an Exponential Cosine Consistency Loss, models dependencies with a Transformer encoder, and fuses modalities using sample-specific uncertainty.</p>
+        <div class="tags">multi-omics · transformers · self-supervised learning</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072135132174258502">2026 Virtual Cell Challenge announced</a></h3>
+        <p>The Arc Institute announced that the 2026 Virtual Cell Challenge will officially kick off on August 20, encouraging teams to assemble for the competition.</p>
+        <div class="tags">virtual cells · challenge · single-cell</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/TuXinming/status/2072020323906760993">DrugDiscoveryBench evaluates AI agents on early-stage drug discovery tasks</a></h3>
+        <p>Xinming Tu introduced DrugDiscoveryBench, an agentic benchmark for early-stage drug discovery built by Phylo Bio with Scale Labs. It contains 82 expert-curated tasks across the early drug-discovery pipeline, each with a single verifiable answer and expert-written grading rubric. The thread reports that top agents solved only about half the tasks and that model ranking depends strongly on the harness.</p>
+        <div class="tags">drug discovery · benchmarks · AI agents</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016693141119412">STELLA proposes a self-evolving LLM agent for biomedical research</a></h3>
+        <p>A retweet highlighted “STELLA: Self-Evolving LLM Agent for Biomedical Research.” The provided item includes only the title and shortened links, but the topic sits squarely in biomedical AI-agent research.</p>
+        <div class="tags">biomedical AI · AI agents</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016663638429830">LevSeq generates sequence-function data for directed evolution and machine learning</a></h3>
+        <p>LevSeq was highlighted as a method for rapid generation of sequence-function data for directed evolution and machine learning.</p>
+        <div class="tags">directed evolution · sequence-function · machine learning</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016651495883110">Genomic Touchstone benchmarks genomic language models in the context of the central dogma</a></h3>
+        <p>Genomic Touchstone was highlighted as a benchmark for genomic language models framed around the central dogma.</p>
+        <div class="tags">genomics · language models · benchmarks</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016635888820696">codonGPT uses reinforcement learning to optimize RNA sequences under biological constraints</a></h3>
+        <p>codonGPT applies reinforcement learning on a generative language model to optimize RNA sequences under biological constraints.</p>
+        <div class="tags">RNA · sequence design · reinforcement learning</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016616091775305">PathCLAST applies pathway-augmented contrastive learning to spatial transcriptomics</a></h3>
+        <p>PathCLAST is described as a pathway-augmented contrastive learning method with attention for spatial transcriptomics.</p>
+        <div class="tags">spatial transcriptomics · contrastive learning · pathways</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016598513361228">Fuzzy sequencer for rapid DNA fragment counting and genotyping</a></h3>
+        <p>A highlighted genomics tool proposes a fuzzy sequencer for rapid DNA fragment counting and genotyping.</p>
+        <div class="tags">genomics · genotyping · sequencing</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016587167764747">DESpace2 detects differential spatial patterns in spatial omics data</a></h3>
+        <p>DESpace2 is presented as a method for detecting differential spatial patterns in spatial omics data.</p>
+        <div class="tags">spatial omics · methods</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072016574584897865">MORPH predicts single-cell outcomes of genetic perturbations across conditions and modalities</a></h3>
+        <p>MORPH predicts the single-cell outcome of genetic perturbations across conditions and data modalities, a topic central to virtual-cell and gene-regulation modeling.</p>
+        <div class="tags">single-cell · perturbation prediction · virtual cells</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072002376136106139">NIH All of Us releases large multi-omics dataset including 535K whole genomes</a></h3>
+        <p>A retweet reported that NIH All of Us released a massive multi-omics dataset, including 535K whole genomes and more than 120K newly added genomes. The tweet notes that the WGS portion is now larger than the UK Biobank WGS release.</p>
+        <div class="tags">genomics · multi-omics · datasets</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2071970032767434870">Enhancer–promoter specificity study highlights reporter-assay artifacts</a></h3>
+        <p>Anshul Kundaje highlighted experimental and analytical work on how enhancers affect specific promoters, noting reporter-assay artifacts found by the authors and implications for sequence models.</p>
+        <div class="tags">gene regulation · enhancers · reporter assays</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2072006718763176203">High-throughput reporter assays may give unreliable enhancer-activity measurements</a></h3>
+        <p>Kundaje argued that common high-throughput reporter assay designs can provide unreliable or incorrect measurements of enhancer activity, and said systematic comparisons using sequence models are forthcoming.</p>
+        <div class="tags">gene regulation · enhancers · sequence models</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2071973354848788714">Nature Reviews Genetics featured review on interpreting, extrapolating, and perturbing single cells</a></h3>
+        <p>Nature Reviews Genetics highlighted a featured article titled “Interpretation, extrapolation and perturbation of single cells,” relevant to single-cell modeling, perturbation, and virtual-cell research.</p>
+        <div class="tags">single-cell · perturbation · review</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2071973125994979819">Nature Reviews Genetics featured review on genome annotation at increased scale and resolution</a></h3>
+        <p>Nature Reviews Genetics highlighted a featured article titled “Annotating genomes at increased scale and resolution,” a review topic relevant to large-scale genome annotation.</p>
+        <div class="tags">genomics · genome annotation · review</div>
+      </article>
+
+      <div class="note">Source note: Several retweeted items provided only titles and shortened links in the normalized data, so some summaries are intentionally brief.</div>
+    </section>
+
+    <div class="language-practice">
+      <header>
+        <div class="kicker">Language Practice</div>
+        <h1>Daily Reading Snippets</h1>
+        <div class="date">Native-language reading selections preserved from source reports</div>
+      </header>
+
+      <section lang="de">
+        <h2>Deutsch — tägliche Lektüre</h2>
+        <article>
+          <h3>Deutsch — Nach Rekordhitze: Regierung sieht Kommunen in der Pflicht</h3>
+          <p class="meta">Deutsche Welle · vor 15 Stunden · <a href="https://www.dw.com/de/nach-rekordhitze-regierung-sieht-kommunen-in-der-pflicht/a-77771388">https://www.dw.com/de/nach-rekordhitze-regierung-sieht-kommunen-in-der-pflicht/a-77771388</a></p>
+          <p>Nach Temperaturen über 40 Grad und Problemen in Pflegeheimen, Krankenhäusern, Bahnverkehr und Infrastruktur zieht die DW eine politische Bilanz der jüngsten Hitzewelle: Deutschland sei auf häufigere Extremhitze und die Folgen des Klimawandels nicht ausreichend vorbereitet. Umweltminister Carsten Schneider verweist auf die Verantwortung von Ländern und Kommunen, sieht aber zugleich verfassungsrechtliche Hürden für direkte Bundesfinanzierung.</p>
+          <p>Der Artikel zeigt den Konflikt zwischen Bund, Kommunen, Opposition und Umweltverbänden: Städte warnen, Hitzeaktionspläne blieben ohne Geld wirkungslos, während Greenpeace dauerhafte Investitionen in Entsiegelung, Grünflächen und Schatten fordert. Gleichzeitig geht es um größere Klimapolitik — etwa das 2030-Ziel, Treibhausgase deutlich zu senken, und die Kritik daran, dass neue Öl- und Gasheizungen wieder leichter möglich werden.</p>
+          <p><strong>Warum lesen:</strong> Der Text verbindet Alltagserfahrung bei Hitze mit der politischen Frage, wer Klimaanpassung in Deutschland bezahlen und umsetzen soll.</p>
+        </article>
+      </section>
+
+      <section lang="fr">
+        <h2>Français — lecture quotidienne</h2>
+        <article>
+          <h3>Français — Entre 2025 et 2026, les budgets culturels des régions en baisse de 6 %</h3>
+          <p class="meta">ActuaLitté · 2026-06-30 · <a href="https://actualitte.com/article/132376/politique-publique/entre-2025-et-2026-les-budgets-culturels-des-regions-en-baisse-de-6">https://actualitte.com/article/132376/politique-publique/entre-2025-et-2026-les-budgets-culturels-des-regions-en-baisse-de-6</a></p>
+          <p>ActuaLitté revient sur la Cartographie des budgets Culture 2026 publiée par le Syndicat des Musiques Actuelles. Selon ces données, les budgets culturels régionaux reculent de 6 % entre 2025 et 2026, avec une baisse nette dans 8 régions sur 13. Sur deux ans, la contraction atteindrait 120,8 millions d’euros, soit près de 14,7 % de baisse globale du financement régional de la culture.</p>
+          <p>L’article détaille les territoires les plus touchés : Provence-Alpes-Côte d’Azur, Pays de la Loire, Auvergne-Rhône-Alpes, Occitanie ou Nouvelle-Aquitaine affichent des coupes importantes. Certaines conséquences sont déjà concrètes, comme la fin des activités de l’agence culturelle L’A. en Nouvelle-Aquitaine, faute de financement suffisant. À l’inverse, la Normandie et la Corse apparaissent comme les rares régions en hausse, même si la situation peut varier selon les départements.</p>
+          <p>Le papier insiste aussi sur les limites méthodologiques : les budgets « culture » ne recouvrent pas toujours le même périmètre selon les régions, et les chiffres peuvent encore évoluer après des votes rectificatifs. Mais la tendance générale reste celle d’un resserrement durable des financements publics, qui touche à la fois les collectivités régionales, l’État et certains dispositifs déconcentrés.</p>
+          <p><strong>Pourquoi lire :</strong> un bon article pour comprendre, avec chiffres et exemples régionaux, comment les arbitrages budgétaires pèsent concrètement sur la vie culturelle en France.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>budget primitif</strong> — budget initial voté par une collectivité pour l’année, avant d’éventuelles modifications.</li>
+            <li><strong>vote rectificatif</strong> — décision budgétaire ultérieure qui corrige ou ajuste les crédits déjà votés.</li>
+            <li><strong>dispositifs déconcentrés</strong> — moyens ou services de l’État gérés localement, par exemple via les DRAC.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section lang="ja">
+        <h2>日本語 — 毎日の読み物</h2>
+        <article>
+          <h3>日本語 — 「RPGツクールMV/MZ」にて、“任意コマンド実行”の脆弱性が報告される。公式は「不審なゲーム・セーブ・素材」を使わないよう注意喚起</h3>
+          <p class="meta">AUTOMATON · 2026-07-01 · <a href="https://automaton-media.com/articles/newsjp/20260701-452738/">https://automaton-media.com/articles/newsjp/20260701-452738/</a></p>
+          <p>「RPGツクールMV」および「RPGツクールMZ」に、任意のOSコマンドが実行される可能性のある脆弱性が報告された。JVNが6月30日に「RPGツクールMVおよびMZにおけるOSコマンドインジェクションの脆弱性」として公表し、開発元のGotcha Gotcha Gamesも、不審なゲーム、セーブデータ、素材などを読み込まないよう注意喚起している。</p>
+          <p>問題は、セーブデータを読み込む際に細工された内容を適切に扱えず、悪用されるおそれがあるというもの。影響を受けるのは「RPGツクールMV」バージョン1.6.3以前と、「RPGツクールMZ」バージョン1.10.0以前で、記事時点では修正アップデートはまだ配信されていない。現状では、SNSや掲示板、ファイル共有サービスなどで出所を確認できないデータを避けることがワークアラウンドとして示されている。</p>
+          <p>「RPGツクール」は個人制作や小規模開発の現場で広く使われ、プラグインや素材、セーブデータの共有も活発なシリーズだ。そのため、単なる製品不具合にとどまらず、コミュニティでのデータ共有の安全性にも関わるニュースになっている。</p>
+          <p><strong>読む理由：</strong> ゲーム制作ツールとユーザーコミュニティの文化が、セキュリティ問題とどう交差するかを日本語で読める記事。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>脆弱性（ぜいじゃくせい）</strong> — ソフトウェアなどにある、攻撃や悪用につながる弱点。</li>
+            <li><strong>任意（にんい）コマンド実行</strong> — 攻撃者が意図したOS命令を実行できてしまう危険な状態。</li>
+            <li><strong>ワークアラウンド</strong> — 根本修正までのあいだに被害を避けるための暫定的な回避策。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section lang="zh">
+        <h2>中文 — 每日阅读</h2>
+        <article>
+          <h3>中文 — 《宝可梦GO》玩家数据被指用于训练美军无人机AI</h3>
+          <p class="meta">机核 · 2026-06-30 · <a href="https://www.gcores.com/articles/216566">https://www.gcores.com/articles/216566</a></p>
+          <p>这篇资讯关注《宝可梦GO》开发商 Niantic 的现实环境扫描数据争议：玩家为了游戏奖励上传补给站实景图像，长期积累出规模巨大的现实空间图像资料。文章指出，外界担心这些数据虽最初来自娱乐应用，却可能被转化为训练空间 AI、视觉定位系统乃至军事无人机导航能力的基础材料。</p>
+          <p>报道还梳理了 Niantic 出售游戏业务、拆分 Niantic Spatial，并与美国国防科技企业 Vantor 合作的背景。双方均否认向国防承包商转交原始扫描数据，Niantic 称相关素材仅用于内部训练基础 AI 模型；但数字权益观察者仍担忧，普通用户很难真正理解用户协议，也可能在不知情中成为商业乃至军事空间情报的数据来源。</p>
+          <p><strong>为什么读：</strong> 它把一款大众手游、位置数据、AI 训练和军事技术连接起来，适合思考“免费服务”背后的数据权利问题。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>实景扫描 (shíjǐng sǎomiáo)</strong> — 用手机或设备采集现实地点的图像、空间信息，用于建模或定位。</li>
+            <li><strong>视觉定位系统 (shìjué dìngwèi xìtǒng)</strong> — 通过图像识别环境特征来判断设备或人员位置的技术。</li>
+            <li><strong>国防承包商 (guófáng chéngbāoshāng)</strong> — 为军方或国防部门提供技术、设备、软件等服务的商业公司。</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+
+    <footer>
+      News · Compiled from provided source report fragments only.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

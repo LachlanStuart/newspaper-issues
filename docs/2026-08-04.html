@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fffdf8;
+      --ink: #20201e;
+      --muted: #66645f;
+      --rule: #d9d4c9;
+      --accent: #8b2f2f;
+      --soft: #f4f0e7;
+      --link: #245d82;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ece8df;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    .newspaper {
+      width: min(1120px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.1rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.08);
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 3px double var(--ink);
+      padding: 1rem 0 1.15rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+    .dateline {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 2.8rem 0;
+    }
+    section > h2 {
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+    .lead-grid,
+    .story-grid {
+      display: grid;
+      gap: 1.5rem 2rem;
+    }
+    .lead-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .story-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    article {
+      break-inside: avoid;
+    }
+    article + article {
+      padding-top: 1.35rem;
+      border-top: 1px solid var(--rule);
+    }
+    .lead-grid article + article,
+    .story-grid article + article {
+      padding-top: 0;
+      border-top: 0;
+    }
+    .story-grid article:nth-child(n+3) {
+      padding-top: 1.4rem;
+      border-top: 1px solid var(--rule);
+    }
+    h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.22rem;
+      line-height: 1.3;
+    }
+    p {
+      margin: 0.55rem 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: var(--accent); }
+    .source {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+      margin-bottom: 0.65rem;
+    }
+    .tags {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+    }
+    .tags span {
+      display: inline-block;
+      margin: 0.15rem 0.25rem 0.15rem 0;
+      padding: 0.12rem 0.42rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--soft);
+    }
+    .caveat {
+      color: var(--muted);
+      font-style: italic;
+    }
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 1.2rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      border-bottom: 0;
+      margin-bottom: 0.25rem;
+      font-size: 2rem;
+    }
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 2rem;
+    }
+    .language-card {
+      margin: 0 0 2rem;
+      padding: 1.4rem 1.5rem;
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent);
+      background: #fffefa;
+    }
+    .language-card + .language-card {
+      border-top: 1px solid var(--rule);
+    }
+    .language-card h3 {
+      font-size: 1.35rem;
+    }
+    .language-card .source {
+      margin-bottom: 0.9rem;
+    }
+    .language-card ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.4rem;
+    }
+    footer {
+      margin-top: 3.2rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 760px) {
+      .lead-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+      .lead-grid article + article,
+      .story-grid article + article {
+        padding-top: 1.35rem;
+        border-top: 1px solid var(--rule);
+      }
+      .newspaper { padding-top: 1.2rem; }
+      .language-card { padding: 1.1rem; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="newspaper">
+    <header>
+      <h1>News</h1>
+      <div class="dateline">Tuesday, August 4, 2026 · Research Edition</div>
+    </header>
+
+    <section aria-labelledby="ai-systems">
+      <h2 id="ai-systems">AI Systems &amp; Methods</h2>
+      <div class="lead-grid">
+        <article>
+          <h3><a href="https://x.com/vikhyatk/status/2084409834523476073">Photon 2.0 compiles full model forward passes into GPU megakernels</a></h3>
+          <div class="source">X AI Research</div>
+          <p>Photon 2.0 uses a tracer DSL to map a model’s data flow and dependencies, then searches for schedules capable of executing an entire forward pass as one GPU program. A CPU-only cost model screens schedules before compilation.</p>
+          <p>One generated schedule overlaps the MLP’s FC2 projection with attention scanning of the KV cache—a concrete example of the system finding concurrency across operations that are usually handled separately.</p>
+          <div class="tags"><span>Inference</span><span>GPU kernels</span><span>Compilers</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/YouJiacheng/status/2084471460664602792">Explorative Modeling reframed as a generalization of IMLE</a></h3>
+          <div class="source">X AI Research</div>
+          <p>You Jiacheng argues that end-to-end Forward XM is closely related to IMLE with non-amortized candidate sampling. The distinctive element is the combination of best-of-K selection with objectives such as diffusion losses.</p>
+          <p>The wider discussion connects XM to search-based latent encoders, compute scaling, earlier mixture-of-noises loss work, and learned optimization. It also raises a train–test mismatch question introduced by multi-start training.</p>
+          <div class="tags"><span>Generative modeling</span><span>IMLE</span><span>Optimization</span></div>
+        </article>
+      </div>
+
+      <div class="story-grid" style="margin-top: 1.8rem;">
+        <article>
+          <h3><a href="https://x.com/mgostIH/status/2083883797662036437">A faster XM variant generates several candidates in one pass</a></h3>
+          <div class="source">X AI Research</div>
+          <p>A proposed extension produces multiple candidates simultaneously from one random input instead of evaluating K independent inputs. If it works as intended, it could reduce inference time by approximately a factor of K. The construction is also related to antithetic or stratified sampling and may reduce variance.</p>
+          <div class="tags"><span>Sampling</span><span>Inference efficiency</span><span>Variance reduction</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/mgostIH/status/2083836559879438345">Expectiles offer a smooth alternative to quantiles for tail modeling</a></h3>
+          <div class="source">X AI Research</div>
+          <p>A statistical thread contrasts quantiles with expectiles, which arise from asymmetric squared losses and yield smoother summaries of distribution tails. Their drawback is interpretability: the distinction resembles that between means and medians, or between standard and absolute deviations.</p>
+          <div class="tags"><span>Statistics</span><span>Regression losses</span><span>Tail modeling</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/Jianlin_S/status/2084515130994495772">Technical note examines K3’s mixture-of-experts and attention design</a></h3>
+          <div class="source">X AI Research</div>
+          <p>Jianlin Su points to an architecture analysis of K3’s mixture-of-experts and attention mechanisms. The available source excerpt does not expose the linked destination or enough detail to summarize its technical conclusions.</p>
+          <div class="tags"><span>Architecture</span><span>Mixture of experts</span><span>Attention</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="computational-biology">
+      <h2 id="computational-biology">Computational Biology &amp; Drug Discovery</h2>
+      <div class="story-grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2084295009613050051">AlphaFold 3 antibody benchmark exposes hallucinated epitopes and target-size bias</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A benchmark covering 3,401 experimentally validated antibody–antigen complexes and 23,798 negative controls finds only moderate classification performance from AlphaFold 3 interface-confidence thresholds, with an approximately 3% false-positive rate.</p>
+          <p>The model can generate convincing interfaces for non-binding decoys, favors ordered antigen regions, and performs worse on larger targets and EM-derived complexes. More sampling substantially improves recall, while the target-size effect challenges the use of one fixed PAE cutoff across binder-design campaigns.</p>
+          <div class="tags"><span>AlphaFold 3</span><span>Antibodies</span><span>Model reliability</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2084296761863287263">Boltz2ESI uses ligand-aware co-folding to predict enzyme specificity</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>Boltz2ESI combines a two-stage Boltz-2 co-folding protocol with ESM3 protein embeddings, Uni-Mol2 ligand features, fingerprints, and a geometry-conditioned Pairformer to predict catalytic substrate specificity.</p>
+          <p>On ESIBank’s held-out-enzyme-and-substrate split, it reports an AUROC of 0.7664, ahead of docking-based EZSpecificity and sequence-only ESP. Nearly random zero-shot affinity prediction reinforces an important distinction: binding alone does not establish catalysis. An external plant-P450 ranking test shows promising but mixed pathway-level transfer.</p>
+          <div class="tags"><span>Enzyme specificity</span><span>Boltz-2</span><span>Biocatalysis</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2084295735445790737">PG-MLD distills molecular dynamics into SMILES-only models</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>PG-MLD trains an equivariant 3D teacher using molecular-dynamics trajectories, geometric perturbations, and electronic descriptors, then transfers atom- and molecule-level representations into SMILES language models. The students need neither conformer generation nor simulation at inference time.</p>
+          <p>Reported gains cover 25 of 27 architecture–task combinations across ChemBERTa, ChemBERTa-2, and MoLFormer on MoleculeNet, though the evidence currently rests on standard molecular-property benchmarks.</p>
+          <div class="tags"><span>Molecular dynamics</span><span>Knowledge distillation</span><span>Cheminformatics</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2084295370809409761">Faster circular alignment reveals motifs in cyclic-peptide libraries</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>An optimized implementation of the MARS multiple circular sequence-alignment heuristic recovers rotational frames without all-pairs refinement, replaces expensive guide-tree construction, and adds multicore and SIMD execution.</p>
+          <p>In a test of 1,000 randomly rotated, 18-residue MDM2-binding cyclic peptides, it recovered a conservation motif hidden from standard alignment and ran in about 1.4 seconds, versus roughly 942 seconds for the original method. Performance still degrades somewhat on short, highly divergent sequences.</p>
+          <div class="tags"><span>Cyclic peptides</span><span>Sequence alignment</span><span>Motif discovery</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genomics">
+      <h2 id="genomics">Genomics &amp; Cell Atlases</h2>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2084453945230114849">scE2G enhancer-to-gene mapping pipeline appears in <em>Nature Genetics</em></a></h3>
+        <div class="source">X Bio Research</div>
+        <p>The scE2G work on single-cell enhancer-to-gene mapping is now published, with an additional benchmark added since the preprint. Its pipeline can be applied to single-cell ATAC-seq or multiome data, while an accompanying browser exposes predictions across hundreds of cell types. More cell types are planned.</p>
+        <div class="tags"><span>Gene regulation</span><span>Enhancers</span><span>Single-cell genomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2084373939749540002">scAtlasTb offers a reproducible framework for single-cell reference atlases</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>The single-cell Atlas Toolbox is presented as a modular system for iterative, scalable atlas construction, with systematic assessment and refinement of choices at each stage. According to the source, multiple Human Cell Atlas reference-atlas projects have already adopted it.</p>
+        <div class="tags"><span>Single-cell</span><span>Human Cell Atlas</span><span>Reproducibility</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2084450767109591541">Researchers announce complete mutagenesis of the ΦX174 genome and proteome</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>The work targets both the genome and proteome of bacteriophage ΦX174, a historically important compact genome. It could be significant for genotype-to-phenotype mapping and synthetic biology, but the available excerpts do not provide enough information to assess the experimental design or principal findings.</p>
+        <div class="tags"><span>Mutagenesis</span><span>Bacteriophage</span><span>Synthetic biology</span></div>
+      </article>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice</h2>
+      <p class="section-intro">Today’s edited reading selections in German, French, Japanese, and Chinese.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Ich bin Autor und finde die KI-Kennzeichnungspflicht der EU ist ein Feigenblatt, denn sie greift zu kurz</h3>
+        <div class="source">GameStar · 2026-08-04 · <a href="https://www.gamestar.de/artikel/eu-kennzeichnungspflicht-kolumne,3457431.html">Artikel lesen</a></div>
+        <p>Der Autor und Lektor Maxe Schwind kritisiert die neue EU-Kennzeichnungspflicht für KI-generierte Inhalte als unzureichend. Besonders bei Texten bleibe unklar, was als Veröffentlichung von „allgemeinem Interesse“ gilt und ob beispielsweise Bücher, Webseiten oder Beiträge in sozialen Medien entsprechend gekennzeichnet werden müssen.</p>
+        <p>Zudem lasse sich die Regel nach seiner Einschätzung leicht umgehen, weil redaktionell von Menschen überprüfte KI-Texte von der Kennzeichnung ausgenommen sein können, ohne dass eindeutig definiert werde, wie umfangreich diese Prüfung sein muss. Sein grundsätzlichster Einwand betrifft jedoch die Trainingsdaten generativer KI: Eine Kennzeichnung schütze weder die Urheberrechte von Kunstschaffenden noch gleiche sie die bereits erfolgte Nutzung geschützter Werke aus.</p>
+        <p><strong>Warum lesen:</strong> Die pointierte Kolumne verbindet aktuelle EU-Regulierung mit konkreten Fragen zu Urheberrecht, Literatur und der praktischen Erkennbarkeit KI-generierter Texte.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — La crise de Ceuta, un révélateur des divisions de l’Union européenne sur la question migratoire</h3>
+        <div class="source">Le Monde · 4 août 2026 · <a href="https://www.lemonde.fr/international/article/2026/08/04/la-crise-de-ceuta-un-revelateur-des-divisions-de-l-union-europeenne-sur-la-question-migratoire_6737979_3210.html">Lire l’article</a></div>
+        <p>Les ministres de l’intérieur des vingt-sept États membres doivent se réunir en visioconférence à l’initiative de l’Irlande, qui assure la présidence tournante du Conseil de l’Union européenne. Ils entendent tirer les leçons de la crise du 30 juillet, lorsque près de 50 000 migrants venus du Maroc sont entrés dans l’enclave espagnole de Ceuta avant de rebrousser chemin dans les vingt-quatre heures.</p>
+        <p>L’épisode met en évidence les désaccords européens sur la politique migratoire. Alors que Dublin souhaite manifester la solidarité de l’UE avec l’Espagne, vingt-deux dirigeants européens, principalement issus de la droite, reprochent au gouvernement de Pedro Sánchez de ne pas protéger suffisamment les frontières extérieures. Ils critiquent également les politiques susceptibles de produire un « effet d’appel », visant notamment le plan espagnol de régularisation de personnes sans papiers déjà présentes dans le pays.</p>
+        <p><strong>Pourquoi lire :</strong> L’article éclaire les tensions entre solidarité européenne, contrôle des frontières et choix nationaux en matière de régularisation.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>présidence tournante</strong> — système selon lequel chaque État membre dirige à tour de rôle les travaux du Conseil de l’Union européenne pendant une période déterminée</li>
+          <li><strong>enclave</strong> — territoire appartenant à un État mais situé à l’intérieur ou au contact du territoire d’un autre État</li>
+          <li><strong>effet d’appel</strong> — expression politique désignant l’idée qu’une mesure favorable pourrait encourager de nouvelles arrivées migratoires</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 「RyzaChat:AIライザと創るあなただけのひと夏の夢物語」が発表に。話すだけでゲームを楽しめるフリーシナリオ型のAIチャット形式RPG</h3>
+        <div class="source">4Gamer · 2026年8月4日 · <a href="https://www.4gamer.net/games/029/G102959/20260804017/">記事を読む</a></div>
+        <p>SpiralAIは、コーエーテクモゲームスからライセンスを受けたスマートフォン向けアプリ「RyzaChat:AIライザと創るあなただけのひと夏の夢物語」を発表した。「ライザのアトリエ ～常闇の女王と秘密の隠れ家～」の世界を舞台に、AIライザとの会話を通じて物語を進めるAIチャット形式のRPGだ。</p>
+        <p>決められた筋書きを追うだけではなく、プレイヤーの発言に応じて展開が作られる「フリーシナリオ型」を特徴としている。iOSとAndroidに対応し、2026年8月18日の配信が予定されている。</p>
+        <p><strong>読む理由：</strong> 生成AIと既存ゲーム作品のキャラクターを組み合わせた、新しい物語体験の実例を知ることができる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>生成AI（せいせいエーアイ）</strong> — 入力された言葉などを基に、新しい文章や画像を作る人工知能</li>
+          <li><strong>自由会話（じゆうかいわ）</strong> — あらかじめ決められた選択肢ではなく、利用者が任意の言葉で行う会話</li>
+          <li><strong>フリーシナリオ型（がた）</strong> — プレイヤーの選択や行動によって物語の進み方が変わる形式</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh-Hans">
+        <h3>中文 — “台湾出版、香港销售”模式受阻，书商如何在红线下找出路？</h3>
+        <div class="source">BBC 中文 · 2026年8月4日 · <a href="https://www.bbc.com/zhongwen/articles/c1d1qwq9502o/simp">阅读文章</a></div>
+        <p>台湾较低的出版门槛和相对自由的环境，近年吸引一些香港出版人赴台经营，再把书籍运回香港销售。然而，香港警方接连调查独立书店，多本台湾出版的书籍卷入涉及煽动刊物的案件，使这条连接台湾出版社、香港物流商与独立书店的供应链面临更高风险。</p>
+        <p>受访出版人担心，书籍可能因作者身份、政治关键词或题材而被扣查，物流商也可能拒绝承运敏感作品。随着实体书销售渠道收窄，业界开始把电子书和台湾本地市场视为替代出路，但学者指出，电子书无法完全取代独立书店提供的公共讨论空间与社群联系。</p>
+        <p><strong>为什么读：</strong> 文章从出版、物流和阅读社群三个层面，呈现香港监管环境如何改变华文书籍的跨境流通。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>煽动刊物 (shāndòng kānwù)</strong> — 被执法机关认定具有煽动意图的出版物。</li>
+          <li><strong>供应链 (gōngyìngliàn)</strong> — 产品从制作、运输到销售所涉及的一整套环节。</li>
+          <li><strong>原子化 (yuánzǐhuà)</strong> — 社会成员彼此联系减弱、趋向孤立个体的状态。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-08-04-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

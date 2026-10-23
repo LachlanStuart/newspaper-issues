@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f7f3ea;
+      --paper: #fffaf0;
+      --ink: #241f1a;
+      --muted: #6c6258;
+      --rule: #d8cbb8;
+      --accent: #7b3f00;
+      --link: #8b2f00;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #17130f;
+        --paper: #211b16;
+        --ink: #f3e7d5;
+        --muted: #b9aa98;
+        --rule: #473a2f;
+        --accent: #f0b36b;
+        --link: #ffb078;
+      }
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    main {
+      max-width: 860px;
+      margin: 32px auto;
+      padding: 32px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+
+    .kicker {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 6px 0 8px;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .date {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    section {
+      margin: 28px 0;
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+    }
+
+    article {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    article:last-child {
+      border-bottom: 0;
+    }
+
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+
+    p {
+      margin: 0.45rem 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .source {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-style: italic;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+      margin-top: 30px;
+    }
+
+    .lead {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0 0 22px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="kicker">Daily Newspaper</p>
+      <h1>News</h1>
+      <p class="date">Saturday, 2026-06-06</p>
+    </header>
+
+    <p class="lead">
+      A compact issue today: Nathan Chen’s blog index surfaced several new links, mostly technical notes, competitive programming material, and one AI alignment essay.
+    </p>
+
+    <section>
+      <h2>Technical Notes & Vignettes</h2>
+
+      <article>
+        <h3><a href="https://blog.tilderesearch.com/vignettes/gram-space">Gram Space</a></h3>
+        <p>
+          A new vignette from Nathan Chen’s Tilde Research blog. The title suggests a compact mathematical or technical note, probably the kind of short piece worth opening directly rather than trying to infer too much from metadata.
+        </p>
+        <p class="source">Source: Nathan Chen Blog</p>
+      </article>
+
+      <article>
+        <h3><a href="https://blog.tilderesearch.com/blog/momoe">Momoe</a></h3>
+        <p>
+          A newly surfaced Tilde Research blog post. The collector only had the link and title, so this one is best treated as a direct-click item: potentially interesting, but not enough context was available to summarize it responsibly.
+        </p>
+        <p class="source">Source: Nathan Chen Blog</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Competitive Programming</h2>
+
+      <article>
+        <h3><a href="https://codeforces.com/blog/entry/139776">Codeforces Blog Entry 139776</a></h3>
+        <p>
+          A Codeforces blog entry linked from Nathan Chen’s index. Likely relevant if you’re in the mood for algorithmic notes, contest discussion, or competitive-programming-adjacent writeups.
+        </p>
+        <p class="source">Source: Nathan Chen Blog</p>
+      </article>
+
+      <article>
+        <h3><a href="https://nathanchen.me/public/Codeforces2024.html">Codeforces 2024</a></h3>
+        <p>
+          A Nathan Chen page about Codeforces in 2024. This looks like the more reflective companion item: probably contest history, performance notes, or a year-in-review style page.
+        </p>
+        <p class="source">Source: Nathan Chen Blog</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>AI & Alignment</h2>
+
+      <article>
+        <h3><a href="https://nathancgy.substack.com/p/going-down-the-ai-alignment-rabbit">Going Down the AI Alignment Rabbit Hole</a></h3>
+        <p>
+          A Substack post on AI alignment linked from Nathan Chen’s blog index. Worth checking if you want a personal exploration of alignment ideas rather than a formal research paper.
+        </p>
+        <p class="source">Source: Nathan Chen Blog</p>
+      </article>
+    </section>
+
+    <section class="note">
+      <h2>Source Notes</h2>
+      <p>
+        Nathan Chen Blog: the collector found link-only fallback items without article bodies or dates, so summaries here are intentionally conservative and based on titles, URLs, and source context.
+      </p>
+    </section>
+  </main>
+</body>
+</html>

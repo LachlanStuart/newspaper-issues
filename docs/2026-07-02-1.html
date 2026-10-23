@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #ded7c9;
+      --accent: #7c3aed;
+      --accent-soft: #eee7ff;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      padding-bottom: 22px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .dek {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.98rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.6rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 15px 0;
+      border-top: 1px solid #ebe5d8;
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    p {
+      margin: 8px 0;
+    }
+    a {
+      color: #4f46e5;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta, .tags, .note {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+    .tags {
+      margin-top: 6px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #4c1d95;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 2px 3px 2px 0;
+      font-size: 0.78rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 14px 24px;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 3px double var(--line);
+      padding-top: 22px;
+    }
+    .language-practice section {
+      border-left: 5px solid var(--accent);
+    }
+    .lang-snippet h3 {
+      font-size: 1.22rem;
+      margin-top: 0;
+    }
+    .lang-snippet ul {
+      margin-top: 6px;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dek">Thursday, July 2, 2026 · Run 2026-07-02-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research &amp; Machine Learning</h2>
+
+        <article>
+          <h3><a href="https://x.com/giffmana/status/2072385842476192225">Muon optimizer may lose older optimizers’ simplicity bias</a></h3>
+          <p>Lucas Beyer amplified a technical thread arguing that Muon’s training-speed gains may come with a hidden tradeoff: it may weaken the simplicity bias associated with older optimizers. The item is relevant for people tracking optimizer behavior beyond headline convergence speed.</p>
+          <div class="tags"><span class="tag">optimization</span><span class="tag">training</span><span class="tag">muon</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/OpenMed_AI/status/2072239759469035796">GeneBench-Pro benchmarks model judgment in computational biology</a></h3>
+          <p>GeneBench-Pro is presented as a benchmark for testing whether models can handle judgment-heavy analyses resembling real-world computational biology work, rather than only narrow question answering.</p>
+          <div class="tags"><span class="tag">benchmark</span><span class="tag">biomedicine</span><span class="tag">computational biology</span><span class="tag">evaluation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/AndrewYNg/status/2071988145667928442">Andrew Ng outlines loop engineering patterns for coding agents</a></h3>
+          <p>Andrew Ng describes agentic software development as three nested feedback loops: the coding agent loop with tests and evaluations, the developer loop for steering product behavior, and an external loop using users or A/B testing. It is a practical framing for building and improving coding-agent workflows.</p>
+          <div class="tags"><span class="tag">agents</span><span class="tag">coding agents</span><span class="tag">evaluation</span><span class="tag">methodology</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rasbt/status/2071945864088535126">Raschka releases <em>Build a Reasoning Model From Scratch</em></a></h3>
+          <p>Sebastian Raschka says his 440-page technical book <em>Build a Reasoning Model (From Scratch)</em> is out. It covers inference scaling, reinforcement learning, and distillation from scratch, making it a substantial educational resource for reasoning-model builders.</p>
+          <div class="tags"><span class="tag">reasoning models</span><span class="tag">reinforcement learning</span><span class="tag">distillation</span><span class="tag">resource</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2072492602201403764">graphREML for heritability partitioning and enrichment</a></h3>
+          <p>graphREML is described as a method for common-variant heritability partitioning and enrichment from genetic data, relevant to statistical genetics and biomedical modeling.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">statistical genetics</span><span class="tag">method</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2072025486725714305">PGS Bridge for polygenic risk-score research</a></h3>
+          <p>A Nature Communications paper introduces PGS Bridge as a resource to consult before using polygenic risk scores in research. It is a methods-and-resource item for computational genomics work involving large-scale risk-score analyses.</p>
+          <div class="tags"><span class="tag">genomics</span><span class="tag">polygenic risk scores</span><span class="tag">method</span></div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Bio AI, Protein Design &amp; Drug Discovery</h2>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072330388404597067">OpenGerminal re-implements Germinal antibody design with an open-source stack</a></h3>
+          <p>OpenGerminal is an open-source implementation of the Germinal de novo VHH/antibody design pipeline. It replaces restricted components such as PyRosetta and IgLM with tools including OpenMM, FASPR, FreeSASA, Biopython, sc-rs, and AbLang1. The thread reports improved early Chai-1 cofolding pass rates versus the original Germinal setup on PD-L1 and IL-3, while noting limitations around placeholder Rosetta-like energy terms.</p>
+          <div class="tags"><span class="tag">antibody design</span><span class="tag">protein design</span><span class="tag">open source</span><span class="tag">drug discovery</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072329616388489565">Pep2Mol uses diffusion models to generate small molecules for protein–protein interfaces</a></h3>
+          <p>Pep2Mol is a 3D diffusion model for orthosteric PPI-interface ligand generation. It conditions on both the receptor interface and an aligned peptide or protein binder, using binder geometry to guide competitive small-molecule generation. The authors curate 10,956 PPI–protein–ligand structure pairs and report stronger Vina-based binding metrics than several pocket-conditioned baselines.</p>
+          <div class="tags"><span class="tag">drug discovery</span><span class="tag">diffusion models</span><span class="tag">PPI</span><span class="tag">molecular generation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072329301551362324">Adversarial sequence mutations expose nonphysical invariance in AlphaFold and ESMFold</a></h3>
+          <p>A stress test of AlphaFold 3 and ESMFold finds that predicted folds can remain largely invariant under disruptive sequence mutations and deletions, including mutations biased toward destabilizing core positions. The thread highlights interface fragility in multimers, difficulty with fold-switching responses, and confidence metrics that may reflect template coverage more than calibrated uncertainty.</p>
+          <div class="tags"><span class="tag">AlphaFold</span><span class="tag">protein design</span><span class="tag">benchmarking</span><span class="tag">model failures</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072329041059967272">Coevolution-aware ancestral sequence reconstruction preserves epistatic constraints</a></h3>
+          <p>This ancestral sequence reconstruction framework combines site-wise phylogenetic posterior sampling with Direct Coupling Analysis. A Metropolis reshuffling step preserves per-site posterior marginals while improving DCA energy, aiming to produce ancestral candidates that remain phylogenetically plausible and compatible with family-level coevolution constraints.</p>
+          <div class="tags"><span class="tag">protein evolution</span><span class="tag">epistasis</span><span class="tag">ancestral sequence reconstruction</span><span class="tag">coevolution</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072326697601605815">Prot2Prop predicts multiple protein developability properties with adapter-tuned ProstT5</a></h3>
+          <p>Prot2Prop is a multitask model for six protein developability endpoints: material production, solubility, temperature stability, aggregation propensity, expression yield, and folding stability. It freezes ProstT5 and adds shared plus task-specific residual adapters, reporting strong AUROC/Spearman metrics with about 3.2 million trainable parameters.</p>
+          <div class="tags"><span class="tag">protein language models</span><span class="tag">developability</span><span class="tag">protein engineering</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072325670471135337">NMRAgent uses an LLM agent for evidence-based NMR molecular structure elucidation</a></h3>
+          <p>NMRAgent combines retrieval-augmented generation over chemical knowledge, spectrum–structure database retrieval, de novo generation, peak–atom verification, and fragment-level repair. Its emphasis is auditable peak assignment rather than black-box SMILES output, with reported results on NMRGym and demonstrations correcting literature misassignments.</p>
+          <div class="tags"><span class="tag">cheminformatics</span><span class="tag">LLM agents</span><span class="tag">NMR</span><span class="tag">natural products</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072324776702681531">Local Epistasis Regression infers heterogeneous fitness landscapes from sparse mutagenesis data</a></h3>
+          <p>Local Epistasis Regression is a Gaussian-process/Bayesian framework that learns which site pairs interact and uses that structure as a prior to infer fitness landscapes from incomplete, noisy combinatorial-mutagenesis data. It targets position-specific epistatic heterogeneity and supports higher-order interactions.</p>
+          <div class="tags"><span class="tag">fitness landscapes</span><span class="tag">epistasis</span><span class="tag">deep mutational scanning</span><span class="tag">Bayesian modeling</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072324411504681262">ProLoc localizes protein functional regions from text descriptions</a></h3>
+          <p>ProLoc defines a protein grounding task: given a sequence and a natural-language functional description, localize the residue spans responsible for that function. The benchmark uses InterPro protein–text–region triples with cluster-level splits, and the model combines frozen ESM2 and PubMedBERT representations with attention and span heads.</p>
+          <div class="tags"><span class="tag">protein function</span><span class="tag">protein language models</span><span class="tag">interpretability</span><span class="tag">benchmark</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072324288133415379">UTRGen designs and predicts 5′ UTR function with a GPT-style sequence model</a></h3>
+          <p>UTRGen is an end-to-end framework for 5′ UTR generation, function prediction, and reinforcement-learning-guided design. It is pre-trained on about 9.45 million non-redundant eukaryotic 5′ UTRs, then fine-tuned for mean ribosome load, translation efficiency, expression level, and IRES prediction.</p>
+          <div class="tags"><span class="tag">gene regulation</span><span class="tag">mRNA</span><span class="tag">UTR design</span><span class="tag">reinforcement learning</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072323547117260986">BoltzProt-1 ranks de novo binders with a dedicated PPI predictor and developability assays</a></h3>
+          <p>BoltzProt-1 is a de novo binder and nanobody/VHH design pipeline focused on prospective hit rate and developability. It uses a dedicated BoltzPPI interaction predictor to rank designs rather than relying mainly on structure-confidence proxies, and reports confirmed binders across a low-homology target panel plus developability filtering.</p>
+          <div class="tags"><span class="tag">protein design</span><span class="tag">binder design</span><span class="tag">nanobody</span><span class="tag">drug discovery</span><span class="tag">developability</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2072323007884759200">Dual Graph Transformer improves molecular property prediction with atom and bond graphs</a></h3>
+          <p>DGT models molecules using both a standard atom graph and a bond-centric line graph, fusing atom and bond representations inside graph-transformer layers. It adds graph-structural encodings, optional 3D geometry, stereochemistry descriptors, and attention-by-gradient interpretability, with reported gains across MoleculeNet tasks.</p>
+          <div class="tags"><span class="tag">molecular property prediction</span><span class="tag">graph transformers</span><span class="tag">drug discovery</span><span class="tag">interpretability</span></div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Genomics, Synthetic Biology &amp; Measurement</h2>
+
+        <article>
+          <h3><a href="https://x.com/WJGreenleaf/status/2072394763224134106">PIP-seq adapted for scalable, inexpensive multiomics</a></h3>
+          <p>William Greenleaf notes a new bioRxiv preprint adapting the PIP-seq platform for scalable, inexpensive multiomics. The provided source text is brief, but the topic is directly relevant to single-cell and multi-omics data generation.</p>
+          <div class="tags"><span class="tag">multiomics</span><span class="tag">single-cell</span><span class="tag">methods</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2072323746288079205">Human-cell biological full adder performs binary math with fewer genetic steps</a></h3>
+          <p>A Phys.org item describes human cells performing binary math using a biological “full adder” and signal selector, reportedly with fewer genetic steps. It points to a synthetic-biology circuit result, though the available normalized text is limited.</p>
+          <div class="tags"><span class="tag">synthetic biology</span><span class="tag">biological circuits</span><span class="tag">cell engineering</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2072349167691948136">INSTALL gene-editing tool inserts large DNA sequences into mammalian genomes</a></h3>
+          <p>A Yale Genetics retweet says a new gene-editing tool called INSTALL can insert large DNA sequences into mammalian genomes without triggering an immune response. The item is relevant to large-insertion genome editing, though the source text was truncated.</p>
+          <div class="tags"><span class="tag">genome editing</span><span class="tag">DNA insertion</span><span class="tag">mammalian genomes</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2072349178047742041">Genome-wide absolute quantification of chromatin looping published in Nature Structural &amp; Molecular Biology</a></h3>
+          <p>A Nature Structural &amp; Molecular Biology item highlights a paper on genome-wide absolute quantification of chromatin looping. Even from the brief source text, the topic is central to 3D genome organization and gene regulation.</p>
+          <div class="tags"><span class="tag">gene regulation</span><span class="tag">chromatin</span><span class="tag">3D genome</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2072182373601480976">Steroid-receptor target-site recognition in the mammalian genome</a></h3>
+          <p>Anshul Kundaje amplified a Barkai Lab thread asking how steroid receptors identify target sites in the mammalian genome despite many similar DNA sequences. The normalized item is truncated, but it appears to be a gene-regulation study on transcription-factor specificity.</p>
+          <div class="tags"><span class="tag">gene regulation</span><span class="tag">transcription factors</span><span class="tag">genomics</span></div>
+        </article>
+      </section>
+
+      <div class="language-practice">
+        <h2>Language Practice</h2>
+
+        <section lang="de">
+          <div class="lang-snippet">
+            <h3>Deutsch — Der amerikanische Traum in zehn Great American Novels</h3>
+            <p class="meta">Deutschlandfunk Kultur · 2026-06-30 · <a href="https://www.deutschlandfunkkultur.de/great-american-novels-twain-franzen-strout-roth-melville-morrison-100.html">https://www.deutschlandfunkkultur.de/great-american-novels-twain-franzen-strout-roth-melville-morrison-100.html</a></p>
+            <p>Zum 250. Jahrestag der Unabhängigkeit der USA blickt Deutschlandfunk Kultur auf zehn Romane, die als „Great American Novels“ gelesen werden können. Der Beitrag zeigt, wie Literatur den amerikanischen Traum nicht nur als Aufstiegsversprechen, sondern auch als Geschichte von Gewalt, Ausgrenzung, Rassismus, Naturbeherrschung und gesellschaftlichen Brüchen erzählt.</p>
+            <p>Die Auswahl reicht von James Fenimore Coopers „Der Wildtöter“ und Melvilles „Moby Dick“ über Mark Twain, Fitzgerald und Toni Morrison bis zu Philip Roth, Jonathan Franzen und Elizabeth Strout. Zu jedem Werk gibt es eine kurze Einordnung, die deutlich macht, welches Bild der USA der jeweilige Roman entwirft — vom Frontier-Mythos über Sklaverei und Trauma bis zur modernen Familien- und Gegenwartskrise.</p>
+            <p><strong>Warum lesen:</strong> Der Artikel eignet sich gut für eine literarisch-politische Lektüre, weil er bekannte Klassiker knapp einordnet und zugleich fragt, wessen Perspektiven in einem nationalen Kanon sichtbar werden.</p>
+          </div>
+        </section>
+
+        <section lang="fr">
+          <div class="lang-snippet">
+            <h3>Français — IA: les centres de données émettent encore plus de CO₂, d’électricité et d’eau que prévu, selon un rapport</h3>
+            <p class="meta">RFI · 2026-07-01 · <a href="https://www.rfi.fr/fr/environnement/20260701-ia-les-centres-de-donn%C3%A9es-%C3%A9mettent-encore-plus-de-co%E2%82%82-d-%C3%A9lectricit%C3%A9-et-d-eau-que-pr%C3%A9vu-selon-un-rapport">https://www.rfi.fr/fr/environnement/20260701-ia-les-centres-de-donn%C3%A9es-%C3%A9mettent-encore-plus-de-co₂-d-%C3%A9lectricit%C3%A9-et-d-eau-que-pr%C3%A9vu-selon-un-rapport</a></p>
+            <p>RFI rapporte les conclusions d’une étude d’Allianz Trade sur l’impact environnemental des centres de données, devenus indispensables au fonctionnement de l’intelligence artificielle générative. Selon ce rapport, leurs émissions seraient nettement plus élevées qu’on ne l’estimait jusque-là : 286 millions de tonnes de CO₂ en 2025, soit davantage que l’empreinte carbone annuelle d’un pays comme la France.</p>
+            <p>L’article souligne aussi la consommation croissante d’électricité et d’eau liée à ces infrastructures. L’IA générative représenterait déjà une part importante de la consommation électrique des centres de données, et cette part pourrait doubler d’ici 2030. Le sujet s’inscrit dans un débat plus large sur la transparence du secteur technologique face au coût écologique de l’IA, alors que l’ONU appelle les entreprises à dire « toute la vérité » sur leurs infrastructures.</p>
+            <p><strong>Pourquoi lire :</strong> Un texte court et utile pour suivre le vocabulaire français autour de l’IA, du climat et des infrastructures numériques.</p>
+            <p><strong>Vocabulaire utile</strong></p>
+            <ul>
+              <li><strong>centre de données</strong> — infrastructure qui héberge des serveurs informatiques et permet le stockage ou le traitement massif de données.</li>
+              <li><strong>empreinte carbone</strong> — mesure des émissions de gaz à effet de serre liées à une activité, une organisation ou un pays.</li>
+              <li><strong>énergivore</strong> — qui consomme beaucoup d’énergie, notamment d’électricité.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section lang="ja">
+          <div class="lang-snippet">
+            <h3>日本語 — 「インターネットの父」ヴィント・サーフ氏、Googleを退任へ</h3>
+            <p class="meta">ITmedia NEWS · 2026-07-02 · <a href="https://www.itmedia.co.jp/news/articles/2607/02/news057.html">https://www.itmedia.co.jp/news/articles/2607/02/news057.html</a></p>
+            <p>TCP/IPの共同開発者で、「インターネットの父」の一人として知られるヴィント・サーフ氏が、Googleを退任する見通しだと報じられています。退任は、米非営利団体Laude Instituteのカンファレンスで、カリフォルニア大学バークレー校のデイブ・パターソン氏が紹介したことで明らかになりました。Googleからの正式発表は、記事公開時点ではまだ確認されていません。</p>
+            <p>サーフ氏は2005年にGoogleへ入り、副社長兼チーフ・インターネット・エバンジェリストとして、インターネット標準化や国際的な政策議論に長く関わってきました。記事では、退任の話題に加えて、AIエージェント同士の通信に自然言語を使うことへの懸念も紹介されています。サーフ氏は、自然言語には柔軟性がある一方で曖昧さもあり、エージェント間のやり取りにはより高い精度が必要だと見ています。</p>
+            <p>また、複数のAIエージェントが連携する時代には、業界全体が再びオープンな標準規格を求める方向へ進むのではないか、という見方も示されています。インターネットの基盤を築いた人物の退任ニュースであると同時に、AI時代の通信・標準化を考える記事としても読めます。</p>
+            <p><strong>読む理由：</strong> インターネットの歴史と、AIエージェント時代の標準化という現在進行形のテーマがつながる一本です。</p>
+            <p><strong>語彙メモ</strong></p>
+            <ul>
+              <li><strong>標準化（ひょうじゅんか）</strong> — 技術や仕様を共通のルールとして整えること。</li>
+              <li><strong>自然言語（しぜんげんご）</strong> — 日本語や英語のように、人間が日常的に使う言語。</li>
+              <li><strong>エージェント型AI（えーじぇんとがたえーあい）</strong> — 目的に応じて自律的に判断・行動するAIシステム。</li>
+            </ul>
+          </div>
+        </section>
+
+        <section lang="zh">
+          <div class="lang-snippet">
+            <h3>中文 — 大型数据中心与云服务须申请执照 违规者可罚最高100万元或营收10%</h3>
+            <p class="meta">联合早报 · 2026-07-01 · <a href="https://www.zaobao.com.sg/news/singapore/story20260701-9293744">https://www.zaobao.com.sg/news/singapore/story20260701-9293744</a></p>
+            <p>新加坡政府拟制定《数码基础设施法案》，要求大型数据中心和云服务业者申请执照，才能继续提供关键数码服务。报道指出，网络银行、私召车、电商平台等日常服务都高度依赖这些基础设施，一旦中断，可能影响公众生活、企业运作以及整体经济社会韧性。</p>
+            <p>拟议制度要求持照者加强实体与网络安全，制定业务连续性和服务中断复原计划，并在网络攻击或服务中断时及时通报资讯通信媒体发展局。若业者不符合要求，当局可罚款最高100万元，或相等于本地年营业额的10%；严重违规者还可能被吊销执照。</p>
+            <p>法案也把环保表现纳入监管：信息技术负载至少3兆瓦的数据中心须申请另一类执照，并符合最低环保标准；当局初步将以电源使用效率（PUE）指标评估用电表现。公众咨询将持续至7月22日，政府计划今年把法案提呈国会。</p>
+            <p><strong>为什么读：</strong> 这篇报道把AI、云服务和日常数码生活背后的基础设施监管讲得很具体，适合练习科技政策与公共治理词汇。</p>
+            <p><strong>词汇笔记</strong></p>
+            <ul>
+              <li><strong>数码基础设施 (shùmǎ jīchǔ shèshī)</strong> — 支撑网络银行、云服务、电商等数码服务运行的底层设施。</li>
+              <li><strong>业务连续性 (yèwù liánxùxìng)</strong> — 在事故、攻击或中断发生时，服务仍能维持或迅速恢复的能力。</li>
+              <li><strong>电源使用效率 (diànyuán shǐyòng xiàolǜ)</strong> — 衡量数据中心能源使用表现的指标，常以PUE表示。</li>
+            </ul>
+          </div>
+        </section>
+      </div>
+
+      <section>
+        <h2>Source Notes</h2>
+        <p class="note">Some X-based bio items were based on brief or truncated normalized tweet text; details are correspondingly limited. No quiet failure notes were reported for this run.</p>
+      </section>
+    </main>
+
+    <footer>
+      News · 2026-07-02
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

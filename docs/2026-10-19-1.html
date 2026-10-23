@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202b32;--muted:#596770;--paper:#fffdf8;--line:#dcded8;--accent:#17665e}
+*{box-sizing:border-box}
+body{margin:0;background:#f0f1eb;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.7}
+main{max-width:960px;margin:32px auto;padding:40px 48px;background:var(--paper)}
+header{border-bottom:3px solid var(--ink);padding-bottom:22px}
+h1{font-size:3.5rem;line-height:1.1;margin:0 0 12px;letter-spacing:-2px}
+h2{font-size:1.65rem;line-height:1.3;margin:34px 0 22px}
+h3{font-size:1.25rem;line-height:1.45;margin:0 0 10px}
+p{margin:10px 0 16px}
+.meta,nav,footer,.label{font-family:system-ui,sans-serif;font-size:.85rem;color:var(--muted)}
+nav{margin-top:16px}
+nav a{margin-right:18px}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+article{margin:0 0 26px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.label{text-transform:uppercase;letter-spacing:.09em;margin-bottom:8px}
+.links{font-family:system-ui,sans-serif;font-size:.9rem}
+#languages{border-top:3px solid var(--ink);margin-top:38px;padding-top:4px}
+#languages article{margin-top:30px}
+ul{padding-left:24px}
+li{margin:8px 0}
+footer{border-top:1px solid var(--line);padding-top:18px;margin-top:30px}
+@media(max-width:640px){main{margin:0;padding:26px 20px}h1{font-size:2.8rem}h2{font-size:1.45rem}}
+@media print{body,main{background:white}main{max-width:none;margin:0;padding:0}a{color:inherit}article{break-inside:avoid}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="label">Daily newspaper</div>
+<h1>News</h1>
+<div class="meta"><time datetime="2026-10-19">Monday, 19 October 2026</time></div>
+<p>Protein design leads today’s research selection, alongside clinical-data access controls and emerging tools for genomics and live-cell biology.</p>
+<nav aria-label="Sections">
+<a href="#protein-design">Protein design</a>
+<a href="#clinical-ai">Clinical AI</a>
+<a href="#research-briefs">Research briefs</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+
+<section id="protein-design" aria-labelledby="protein-heading">
+<h2 id="protein-heading">Protein design &amp; biocatalysis</h2>
+<article>
+<h3>MESSI preserves protein function while reducing predicted immune epitopes</h3>
+<p>MESSI, a structure-conditioned discrete diffusion model, steers protein redesign toward lower predicted MHC-II presentation risk. The supplied research summary describes computational tests across 211 proteins and three HLA-DR alleles, plus functional experiments on luciferase, a PD-1 minibinder and uricase.</p>
+<p>The redesigned proteins retained enzyme activity or measurable binding. Two minibinder variants reportedly improved affinity, with the best reaching approximately 30 nM. <strong>These experiments demonstrate retained function, not reduced immunogenicity.</strong> Zero predicted epitopes does not establish an absence of human immune responses; broader HLA coverage, T-cell recognition and B-cell epitopes remain limitations.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2111818135603171636">Source: BiologyAIDaily on X</a></p>
+</article>
+<article>
+<h3>Metal Mer designs active metalloenzymes for selective synthesis</h3>
+<p>Metal Mer and METALPROT use metal-coordination motifs drawn from structural databases to assemble catalytic sites on designed protein backbones. The supplied summary reports activity in 17 of 60 initial zinc-enzyme designs, crystallographic agreement for an active design, and highly selective ketone reductions across multiple substrates.</p>
+<p>Remodeling the enzyme pocket expanded activity to bulky, drug-like substrates, including selective steroid transformations. An iron-catalysis extension reportedly reached a 96:4 enantiomeric ratio after a single mutation. The results point to applications in selective chemical synthesis—not evidence of therapeutic efficacy.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2111817526846050550">Source: BiologyAIDaily on X</a></p>
+</article>
+</section>
+
+<section id="clinical-ai" aria-labelledby="clinical-heading">
+<h2 id="clinical-heading">Clinical AI &amp; data governance</h2>
+<article>
+<h3>OpenMed demonstrates role- and consent-gated clinical data access</h3>
+<p>An OpenMed 3.0 synthetic-data demonstration separates identified and de-identified records, checks role and consent on each read, and logs access attempts without storing their content in the audit log. Researchers cannot access the identified view; withdrawn consent blocks clinicians as well.</p>
+<p>The authors say the Apache-2.0 SDK runs offline. A key boundary: <strong>the demo script creates the de-identified view</strong>; the post does not establish automatic de-identification by the SDK.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2111804499132055865">Source: OpenMed on X</a> · <a href="https://t.co/KA6pIhODuR">Documentation</a> · <a href="https://x.com/OpenMed_AI/status/2111857337363312964">Code-demo follow-up</a></p>
+</article>
+</section>
+
+<section id="research-briefs" aria-labelledby="briefs-heading">
+<h2 id="briefs-heading">Genomics &amp; research tools — briefs</h2>
+<article>
+<h3>ChromE-seq pairs 3D chromatin and gene expression in single cells</h3>
+<p>A preprint announcement introduces a method for measuring three-dimensional chromatin organization and gene expression in the same cell, potentially connecting genome architecture with transcriptional state. The supplied retweet is truncated, leaving sample details, performance and biological findings unassessed.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2111801695353348291">Source post on X</a></p>
+</article>
+<article>
+<h3>Exercise atlas adds single-nucleus methylation maps</h3>
+<p>Follow-up posts highlight base-resolution DNA methylation maps across three muscle types in a chronic voluntary-exercise atlas, adding an epigenomic dimension to earlier proteomics coverage. A related post reports genes with large exercise-associated methylation shifts, but the excerpts do not identify those genes, quantify effects or establish causal consequences.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2111823182605037597">Source post on X</a></p>
+</article>
+<article>
+<h3>DO1 Cas9 emerges from deep-ocean metagenomics</h3>
+<p>A Ceron Lab preprint announcement describes DO1 Cas9 as the first Cas9 nuclease characterized from the deep ocean, recovered through metagenomic discovery. The excerpt provides no editing-efficiency, targeting, specificity or comparative results, so its practical advantages remain unclear.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2112023127391896056">Source post on X</a></p>
+</article>
+<article>
+<h3>Structure-aware prediction examines functional variants in maize</h3>
+<p>A Cell Press post highlights research using structure-aware prediction to interpret functional nonsynonymous variants in a maize EMS mutant library. The application is established by the provided material, but model details, benchmarks and experimental-validation findings are not available.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2112023149818810614">Source post on X</a></p>
+</article>
+<article>
+<h3>High-affinity split HaloTag for live-cell protein labeling</h3>
+<p>A Japanese-language research post highlights a <cite>Nature Communications</cite> paper developing a high-affinity split HaloTag for labeling proteins in living cells. The excerpt supplies no quantitative affinity, labeling-performance or perturbation measurements.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2111712649595789477">Source post on X</a></p>
+</article>
+</section>
+
+<section id="languages" aria-labelledby="language-heading">
+<h2 id="language-heading">Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — EU plant KI-Revolution: Viele offene Fragen</h3>
+<p class="meta">Deutsche Welle · 17.10.2026 · <a href="https://www.dw.com/de/künstliche-intelligenz-europäische-union-techbranche-umwelt-sicherheit-arbeitsschutz/a-79686511">https://www.dw.com/de/künstliche-intelligenz-europäische-union-techbranche-umwelt-sicherheit-arbeitsschutz/a-79686511</a></p>
+<p>Auf einem internationalen KI-Gipfel in Dublin haben Politik und Technologiebranche dafür geworben, Europas Wirtschaft mithilfe künstlicher Intelligenz zu stärken. Als mögliche Vorteile nennen sie bessere Krebsdiagnosen, frühzeitige Warnungen vor Extremwetter und eine effizientere Stromversorgung. Der Beitrag stellt diesem Aufbruchsversprechen kritische Stimmen gegenüber: Der KI-Forscher Barry O’Sullivan bemängelt die einseitige Ausrichtung der Veranstaltung und empfiehlt Europa, stärker auf eigene Stärken wie Industrierobotik und spezialisierte Anwendungen zu setzen.</p>
+<p>Im Mittelpunkt steht die Frage, welche Regeln den technologischen Wandel begleiten sollen. Die EU verweist auf ihren AI Act, während Kritiker in verschobenen Schutzvorschriften Zugeständnisse an die Wirtschaft sehen. Auch die Folgen für Beschäftigte bleiben umstritten: KI könnte monotone Aufgaben übernehmen und Freiräume schaffen, aber ebenso Überwachung und Arbeitsdruck verstärken. Entscheidend ist, wer über den Einsatz der Technik bestimmt und wem Produktivitätsgewinne zugutekommen.</p>
+<p>Hinzu kommen Umweltkosten und die Abhängigkeit von außereuropäischen Anbietern. Gerade in Irland konkurriert der Ausbau von Rechenzentren mit anderen Bedürfnissen um Strom und Netzkapazitäten. Die Reportage macht deutlich, dass wirtschaftliche Wettbewerbsfähigkeit, verlässliche Sicherheitsregeln und Klimaschutz nicht getrennt voneinander verhandelt werden können.</p>
+<p><strong>Warum lesen:</strong> Der Artikel verbindet Europas KI-Ambitionen mit konkreten Fragen zu Arbeitsbedingungen, Ressourcenverbrauch und politischer Kontrolle.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — “Non. L'intelligence artificielle ne raccourcit pas. Elle coupe.”</h3>
+<p class="meta">ActuaLitté · 17/10/2026 · <a href="https://actualitte.com/article/134687/humeurs/non-l-intelligence-artificielle-ne-raccourcit-pas-elle-coupe">https://actualitte.com/article/134687/humeurs/non-l-intelligence-artificielle-ne-raccourcit-pas-elle-coupe</a></p>
+<p>Dans cette chronique d’humeur, Adnan Algın rapproche deux expériences : les reproches d’un directeur de création qui jugeait ses textes trop longs en 2008, puis les suggestions de réduction formulées par une intelligence artificielle en 2026. À travers des souvenirs du milieu publicitaire et des références littéraires turques, il conteste l’idée qu’un lecteur abandonnerait nécessairement un texte développé. Les exemples empruntés au publicitaire David Ogilvy lui servent à défendre une écriture dont les détails peuvent justement retenir l’attention.</p>
+<p>Son objection porte surtout sur ce que la réécriture automatique efface. En comparant ses textes aux versions proposées par la machine, l’auteur dit avoir vu disparaître des expressions idiomatiques, des effets comiques et des particularités de style. Il distingue ainsi le travail exigeant de la concision d’une simple suppression de matière. Ce témoignage personnel, volontairement ironique plutôt que technique, invite à examiner ce qu’on souhaite préserver lorsqu’on confie sa prose à un outil d’IA : non seulement son sens, mais aussi son rythme et sa singularité.</p>
+<p><strong>Pourquoi lire :</strong> Une réflexion mordante sur l’écriture assistée par IA, qui permet aussi de découvrir un français riche en images et en références littéraires.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>concision</strong> — qualité d’un texte qui exprime beaucoup avec peu de mots, sans sacrifier la précision.</li>
+<li><strong>expression idiomatique</strong> — tournure propre à une langue dont le sens ne se déduit pas toujours des mots pris séparément.</li>
+<li><strong>directeur de création</strong> — responsable qui oriente et supervise le travail créatif, notamment dans une agence de publicité.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 奈良県橿原市が“『ストリートファイター』シリーズ活用”まちづくりを推進。歴史の街で進む「ストリートファイターストリート」構想</h3>
+<p class="meta">AUTOMATON · 2026-10-19 · <a href="https://automaton-media.com/articles/newsjp/20261019-474227/">記事を読む</a></p>
+<p>奈良県橿原市は10月19日、カプコンの『ストリートファイター』シリーズを活用したまちづくりをさらに進めると発表した。カプコン創業者の辻本憲三氏が同市出身という縁があり、市と同社は2022年に包括連携協定を締結。これまでにリュウや春麗などの銅像、キャラクターを描いたマンホール、駅の装飾などを整備してきた。</p>
+<p>今後の中心となるのは、近鉄大和八木駅周辺の「ストリートファイターストリート」構想だ。駅北側には29体のキャラクターをゲームの選択画面風に描いた巨大壁画があり、駅構内にも装飾が広がっている。大和八木駅と橿原神宮前駅では、リュウ役と春麗役の声優による観光案内放送も実施中。市は追加のオブジェ制作に向けて寄附を募り、駅周辺から市内各所へ取り組みを広げる方針だ。歴史遺産を訪れる観光客に、ゲーム文化を通じて街を巡ってもらう狙いがある。</p>
+<p><strong>読む理由：</strong> ゲームのキャラクターが地域の観光や公共空間にどう取り入れられるのか、具体例とともに読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>包括連携協定（ほうかつれんけいきょうてい）</strong> — 自治体と企業などが、幅広い分野で協力するために結ぶ取り決め。</li>
+<li><strong>観光誘客（かんこうゆうきゃく）</strong> — 地域の魅力を発信し、観光客に訪れてもらうための取り組み。</li>
+<li><strong>市内周遊（しないしゅうゆう）</strong> — 市内の複数の観光地や施設を巡ること。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 中国品牌主导消费科技：价廉物美与安全疑虑</h3>
+<p class="meta">DW 中文 · 2026-10-18 · <a href="https://www.dw.com/zh/中国品牌主导消费科技价廉物美与安全疑虑/a-79682834">https://www.dw.com/zh/中国品牌主导消费科技价廉物美与安全疑虑/a-79682834</a></p>
+<p>从运动相机到扫地机器人，中国消费科技品牌正在挑战曾经领先的西方企业。报道以大疆、影石与GoPro的竞争为切入点，探讨“中国制造”如何摆脱单纯依靠低价的形象。受访业内人士认为，激烈的国内竞争、密集的供应链、工业自动化和快速开发能力，共同推动了这一变化；对初创企业而言，深圳的制造网络尤其难以替代。</p>
+<p>不过，产品竞争力并不自动带来消费者的信任。报道将视角转向欧洲，讨论联网设备的数据隐私、安全风险以及跨境数据监管问题。受访顾问用“信任溢价”描述中国企业面临的额外门槛：为了让海外消费者愿意选择自己的产品，企业往往需要提供更突出的性能或价格优势。企业宣称遵守欧盟数据保护规定，与外界对中国法律可能要求交出数据的担忧，构成了报道中的重要张力。</p>
+<p>关税和市场准入限制也在改变竞争方式。受访者预计，中国品牌会加快海外设厂，并进一步进入高端市场；西方中小企业则可能通过服务特定地区、寻找独特卖点或与中国企业合作来维持竞争力。文章把日常购买电子产品的选择，与产业政策、本地化生产和品牌信任联系起来。</p>
+<p><strong>为什么读：</strong> 从熟悉的消费电子产品入手，了解中欧科技竞争如何同时涉及制造优势、数据保护与消费者信任。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>供应链 (gōngyìng liàn)</strong> — 从零部件采购、生产到产品交付所形成的企业协作网络。</li>
+<li><strong>信任溢价 (xìnrèn yìjià)</strong> — 本文指企业因尚未获得市场信任，而必须通过更优产品或更低价格承担的额外竞争成本。</li>
+<li><strong>细分市场 (xìfēn shìchǎng)</strong> — 按地区、需求或用户群划分出的特定市场，企业可针对其中的需求提供产品或服务。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source note:</strong> Research coverage is based on the supplied post excerpts and summaries; linked papers, documentation and code were not independently inspected. Briefs identify where the available material is incomplete.</p>
+<p>News · Edition 2026-10-19 · Run 2026-10-19-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

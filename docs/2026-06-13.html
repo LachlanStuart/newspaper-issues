@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2328;
+      --muted: #667085;
+      --rule: #d9d2c3;
+      --accent: #204e6a;
+      --accent-soft: #e7f0f5;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    header .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 6px 0 4px;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.05;
+      font-weight: 700;
+    }
+    header .date {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(39, 35, 25, 0.04);
+    }
+    h2 {
+      font-size: 1.5rem;
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+    }
+    h3 {
+      font-size: 1.15rem;
+      margin: 0 0 6px;
+      line-height: 1.3;
+    }
+    article {
+      padding: 16px 0;
+      border-top: 1px solid #eee7da;
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 4px;
+    }
+    p {
+      margin: 8px 0;
+    }
+    a {
+      color: #145da0;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      margin: 2px 0 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #244b5f;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin: 2px 3px 2px 0;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0 22px;
+    }
+    .language-section {
+      margin-top: 34px;
+      border-top: 4px solid var(--accent);
+    }
+    .language-section h2 {
+      border-bottom: 0;
+      margin-bottom: 4px;
+    }
+    .language-note {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin-bottom: 18px;
+    }
+    .language-item {
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+      margin-top: 18px;
+    }
+    .language-item h3 {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+    ul {
+      margin-top: 6px;
+    }
+    .notes {
+      font-size: 0.92rem;
+      color: var(--muted);
+      background: transparent;
+      box-shadow: none;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Saturday, June 13, 2026 · Run 2026-06-13-91</div>
+    </header>
+
+    <section>
+      <h2>AI for Biology, Chemistry & Drug Discovery</h2>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065650120910311636">EasyNano optimizes epitope-targeted nanobody CDRs through differentiable ESMFold2 distograms</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>EasyNano is a rapid nanobody CDR-redesign pipeline that optimizes CDR residue logits through an ESMFold2-Fast distogram proxy, with explicit CDR-to-epitope proximity loss and a structure-prior mask to prevent framework pose drift. Reported examples include large ipTM gains for weak binders such as Ty1/RBD and KN035/PD-L1 while preserving constraints such as disulfides.</p>
+          <div class="tags"><span class="tag">antibody design</span><span class="tag">nanobodies</span><span class="tag">protein design</span><span class="tag">drug discovery</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649951506645252">E-CloudBind uses electron-density point clouds for protein–ligand affinity prediction</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>E-CloudBind reframes affinity prediction around electron-density point clouds and density-overlap interaction graphs rather than brittle atomic-distance cutoffs. The reported results emphasize robustness to crystallographic-resolution changes and AlphaFold2 structure substitution, with screening case studies against PBP1A, SARS-CoV-2 Mpro and BCL-2.</p>
+          <div class="tags"><span class="tag">protein–ligand binding</span><span class="tag">virtual screening</span><span class="tag">geometric deep learning</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649791518797886">TheraPep-AI classifies therapeutic peptides with augmented negative sampling</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>TheraPep-AI is a sequence-only multi-label classifier for 48 therapeutic peptide functions trained with a hard synthetic-decoy ladder. Its main focus is false-positive control: the model reportedly reaches a 2.1% false-positive rate on peptide-like synthetic negatives while maintaining useful multi-label performance and sparse-filter interpretability for motif recovery.</p>
+          <div class="tags"><span class="tag">therapeutic peptides</span><span class="tag">sequence modeling</span><span class="tag">interpretability</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649655904706882">MDForge designs molecular-dynamics pipelines with LLM agents and simulator feedback</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>MDForge is an LLM-agent system for synthesizing full molecular-dynamics workflows and improving them from sparse terminal simulator rewards. Its PRISM mechanism decomposes failures into stage diagnostics and typed critiques from force-field, sampling and analysis specialists; benchmarks include SAMPL host–guest free-energy tasks and a prospective CB[7] binding case.</p>
+          <div class="tags"><span class="tag">molecular dynamics</span><span class="tag">LLM agents</span><span class="tag">free energy</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649533963616262">APCyc designs cyclic peptides with pocket-conditioned cyclization topology</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>APCyc is a target-aware latent diffusion model for cyclic peptide design that treats cyclization chemistry and linkage sites as design variables. It predicts residue-level cyclization topology, injects linkage probabilities into an SE(3)-equivariant denoiser, and supports property-guided generation for affinity, permeability, protease resistance, solubility and immunogenicity.</p>
+          <div class="tags"><span class="tag">cyclic peptides</span><span class="tag">diffusion models</span><span class="tag">peptide design</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649327742288006">Post-hoc uncertainty estimator filters molecular diffusion model samples</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>This method estimates uncertainty for pretrained 3D molecular diffusion models by perturbing denoiser parameters with a Laplace-style approximation and aggregating variance in noise predictions along denoising trajectories. On QM9, the score correlates with stability and validity better than diffusion NLL and can improve sample filtering, though gains reportedly do not transfer to GEOM-Drugs.</p>
+          <div class="tags"><span class="tag">molecular generation</span><span class="tag">uncertainty</span><span class="tag">model evaluation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622529264533740">Sparse autoencoder features from ESMC predict enzyme function with interpretable concepts</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>This work uses sparse autoencoder features from ESMC-6B as interpretable protein signatures for EC-number prediction. Simple probes over SAE activations reportedly approach or exceed BLASTp on microbial SwissProt enzyme benchmarks, preserve coverage for no-hit cases, and identify millions-scale dark enzyme-like candidates from ESM Atlas representatives.</p>
+          <div class="tags"><span class="tag">protein language models</span><span class="tag">enzymes</span><span class="tag">sparse autoencoders</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622351426031675">DeepRHP learns latent design spaces for random heteropolymers as protein mimics</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>DeepRHP is a semi-supervised hybrid VAE for random heteropolymer sequence ensembles, coupling sequence reconstruction with reconstruction of local hydrophilic–lipophilic balance features. The model maps synthetic polymer libraries and reduced protein sequences into a shared latent space to suggest compositions resembling target membrane proteins such as Aquaporin Z.</p>
+          <div class="tags"><span class="tag">protein engineering</span><span class="tag">biomaterials</span><span class="tag">polymer design</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622231120822364">MolGram augments molecular language models with local n-gram memory</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>MolGram adds conditional local n-gram memory to SMILES Transformers while retaining character tokenization. The method uses hash-based n-gram retrieval, contextual gating and local convolution, reportedly improving molecule generation, forward reaction prediction and retrosynthesis across GPT and T5-style backbones.</p>
+          <div class="tags"><span class="tag">SMILES</span><span class="tag">retrosynthesis</span><span class="tag">cheminformatics</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Genomics, RNA & Cellular Modeling</h2>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622110899499349">m6A-FORM is an RNA m6A foundation model for peak-aware site calling</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>m6A-FORM is a transformer model pretrained on millions of MeRIP-seq peak-derived RNA windows and fine-tuned for NER-style within-peak m6A site labeling. The model is also reused for m6A regulator binding and decay-outcome prediction, with attribution analyses linking sites to RBP context and tissue-conserved methylation patterns.</p>
+          <div class="tags"><span class="tag">RNA</span><span class="tag">m6A</span><span class="tag">epitranscriptomics</span><span class="tag">foundation models</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065621851540529431">Viral proteins reveal a dominant “nativeness” axis in protein language model embeddings</a></h3>
+          <p class="meta">Biology+AI Daily</p>
+          <p>The summarized paper finds that protein language model embeddings are strongly organized by a principal-component “nativeness” axis aligned with reconstruction perplexity, placing viral proteins between cellular proteins and random or shuffled controls. The pattern appears across ESM, ProGen2 and EvoDiff families, while viral-specific information remains linearly accessible for detection and biosecurity evaluation.</p>
+          <div class="tags"><span class="tag">viral proteins</span><span class="tag">biosecurity</span><span class="tag">representation learning</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065612103118172620">ANCHOR infers allelic and isoform structure from single-cell long-read RNA-seq</a></h3>
+          <p class="meta">razoralign</p>
+          <p>ANCHOR is a haplotype-aware single-cell long-read RNA-seq method that discovers expressed heterozygous variants de novo, assigns molecules to parental haplotypes with a pair HMM, and aggregates UMI-level evidence with a beta-binomial model that can abstain under ambiguity. Isoforms are defined from observed splice structures rather than only reference transcript assignment.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">long-read sequencing</span><span class="tag">haplotypes</span><span class="tag">isoforms</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065611768374976656">TMO learns cell-state-dependent regulatory lags from single-cell multiomic data</a></h3>
+          <p class="meta">razoralign</p>
+          <p>TMO, or Temporal Multi-Omics, is a deep learning framework for signed, cell-state-conditional regulatory lags using asymmetric cross-modal attention. It projects RNA and ATAC into latent components, tokenizes each cell, and biases attention with a data-driven lag prior from sliding-window cross-correlation.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">multiomics</span><span class="tag">gene regulation</span><span class="tag">ATAC-seq</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065611345136087195">TifBERT is a self-supervised foundation model for bulk RNA-seq representations</a></h3>
+          <p class="meta">razoralign</p>
+          <p>TifBERT converts unordered expression profiles into sample-specific gene sequences using TF-IDF ordering, then pretrains with masked gene modeling over whole-transcriptome sliding windows. The goal is normalization-robust bulk RNA-seq representation learning without predefined landmark genes, external gene embeddings or projection-based compression.</p>
+          <div class="tags"><span class="tag">RNA-seq</span><span class="tag">transcriptomics</span><span class="tag">self-supervised learning</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065611024833933333">OCOO-T proposes a simple flow-matching virtual cell model for perturbation response</a></h3>
+          <p class="meta">razoralign</p>
+          <p>OCOO-T is a minimalist AI virtual-cell model for transcriptional perturbation response prediction. It uses a plain Transformer stack directly on continuous gene-expression profiles and formulates perturbation response prediction as continuous-time denoising conditioned on perturbation and cellular covariates.</p>
+          <div class="tags"><span class="tag">virtual cells</span><span class="tag">perturbation response</span><span class="tag">flow matching</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatureRevGenet/status/2065515796017873228">Nature Reviews Genetics highlights single-cell four-omics with CHARM</a></h3>
+          <p class="meta">Nature Reviews Genetics</p>
+          <p>Nature Reviews Genetics posted a new online item titled “Single-cell four-omics with CHARM.” The available fragment only includes the title and link, but the item appears to concern a multiomic single-cell method.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">multiomics</span><span class="tag">genomics methods</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+      <p class="language-note">Native-language reading snippets from selected sources. These are preserved in the source language.</p>
+
+      <article class="language-item" lang="de">
+        <h3>Deutsch — BSW vor der Wahl in Sachsen-Anhalt: „Bürgerregierung“ statt Brandmauer?</h3>
+        <p class="meta">Tagesschau · 13.06.2026 · <a href="https://www.tagesschau.de/inland/innenpolitik/bsw-landtagswahlen-100.html">https://www.tagesschau.de/inland/innenpolitik/bsw-landtagswahlen-100.html</a></p>
+        <p>Das BSW sucht in Sachsen-Anhalt vor der Landtagswahl nach einem eigenen politischen Angebot und wirbt mit der Idee einer sogenannten „Bürgerregierung“. Statt einer klassischen Koalition schlägt die Partei einen überparteilichen Ministerpräsidenten, ein nach Kompetenz besetztes Kabinett und wechselnde Mehrheiten im Landtag vor.</p>
+        <p>Der Artikel ordnet ein, warum dieser Vorschlag zugleich strategisch riskant ist: Das BSW liegt laut jüngster Umfrage bei vier Prozent und müsste zunächst überhaupt in den Landtag einziehen. Gleichzeitig bleibt das Verhältnis zur AfD und zur viel diskutierten „Brandmauer“ ein zentraler Konfliktpunkt, weil das BSW zwar mit der Brandmauer-Logik bricht, aber nach eigenen Angaben weder CDU noch AfD einfach zur Macht verhelfen will.</p>
+        <p>Politikwissenschaftler Benjamin Höhne bewertet die Idee skeptisch und sieht darin auch den Versuch, Aufmerksamkeit zu gewinnen und als mögliches „Zünglein an der Waage“ wahrgenommen zu werden. Dadurch wird der Text zu einem kompakten Einblick in ostdeutsche Landespolitik, Parteienstrategie und die Frage, wie Regieren ohne stabile Koalition aussehen könnte.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel bietet gutes Deutsch für politische Analyse und erklärt anschaulich, wie Parteien vor einer schwierigen Wahl taktisch um Deutungshoheit kämpfen.</p>
+      </article>
+
+      <article class="language-item" lang="fr">
+        <h3>Français — Le chef du gang vénézuélien Tren de Aragua, "Niño Guerrero", tué dans une frappe américaine</h3>
+        <p class="meta">France 24 · 2026-06-13 · <a href="https://www.france24.com/fr/am%C3%A9riques/20260613-le-chef-du-gang-v%C3%A9n%C3%A9zu%C3%A9lien-tren-de-aragua-ni%C3%B1o-guerrero-tu%C3%A9-dans-une-frappe-am%C3%A9ricaine">https://www.france24.com/fr/am%C3%A9riques/20260613-le-chef-du-gang-v%C3%A9n%C3%A9zu%C3%A9lien-tren-de-aragua-ni%C3%B1o-guerrero-tu%C3%A9-dans-une-frappe-am%C3%A9ricaine</a></p>
+        <p>France 24 rapporte la mort annoncée d’Hector Rusthenford Guerrero Flores, alias « Niño Guerrero », chef du gang vénézuélien Tren de Aragua. Selon les autorités vénézuéliennes et américaines citées dans l’article, il aurait été tué dans le sud du Venezuela lors d’une opération conjointe impliquant Washington et Caracas.</p>
+        <p>L’article replace cette opération dans le contexte plus large de la lutte contre le Tren de Aragua, présenté par les États-Unis comme une organisation criminelle transnationale et terroriste. Le texte rappelle l’extension du gang depuis l’État d’Aragua vers plusieurs pays d’Amérique du Sud, ainsi que les accusations portées contre lui : traite d’êtres humains, enlèvements, extorsion, trafic de drogue et violences.</p>
+        <p>Le récit s’intéresse aussi au rôle de la prison de Tocorón, où Niño Guerrero aurait consolidé son pouvoir, et aux enjeux diplomatiques d’une coopération sécuritaire entre les États-Unis et le Venezuela. Pour un lecteur de français, c’est un article dense en vocabulaire judiciaire, sécuritaire et diplomatique.</p>
+        <p><strong>Pourquoi lire :</strong> un bon texte pour comprendre le lexique francophone de la criminalité transnationale, des opérations militaires et des relations diplomatiques.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>opération conjointe</strong> — action menée ensemble par plusieurs États, armées ou services de sécurité.</li>
+          <li><strong>organisation criminelle transnationale</strong> — groupe criminel actif dans plusieurs pays, au-delà d’un seul territoire national.</li>
+          <li><strong>mise à prix</strong> — récompense promise pour obtenir des informations permettant de capturer une personne recherchée.</li>
+          <li><strong>extorsion</strong> — obtention d’argent ou d’avantages par la menace ou la violence.</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="ja">
+        <h3>日本語 — 歌詞も曲もAIが生成した音楽「著作物に該当しない」JASRAC方針</h3>
+        <p class="meta">NHKニュース · 2026-06-13 · <a href="https://www3.nhk.or.jp/news/html/20260613/k10015148991000.html">https://www3.nhk.or.jp/news/html/20260613/k10015148991000.html</a></p>
+        <p>生成AIを使った音楽が急速に広がるなか、JASRACがAI利用作品の扱いに関するガイドラインを示した。単純な指示にもとづいてAIが歌詞も曲も生成したものについては、「人間の創作的寄与が認められない作品」として、著作物に該当しないという方針だ。</p>
+        <p>記事は、AIが作った作品を音楽著作権の管理対象にできるのかという実務上の線引きを扱っている。音楽制作の現場では、AIを道具として使う場合と、AIが自律的に生成する場合の区別が重要になっており、クリエイター、音楽出版社、配信サービスに関わる論点として読める。</p>
+        <p><strong>読む理由：</strong> 生成AI時代の「創作」と「著作権」の境界を、日本の音楽業界の具体例で学べる記事。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>生成AI（せいせいエーアイ）</strong> — 文章・画像・音楽などを新しく作り出す人工知能。</li>
+          <li><strong>著作物（ちょさくぶつ）</strong> — 人間の思想や感情を創作的に表現したもの。</li>
+          <li><strong>創作的寄与（そうさくてききよ）</strong> — 作品づくりに人間が創造的に関わったこと。</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="zh">
+        <h3>中文 — AI 工作流技巧—100% vibe coding 完成 gamejam</h3>
+        <p class="meta">机核 · 2026-06-12 · <a href="https://www.gcores.com/articles/215114">https://www.gcores.com/articles/215114</a></p>
+        <p>这篇文章是作者在 BOOOM Jam 中用 AI Agent 完成俯视角射击游戏《茫室》的复盘。项目中，作者主要负责指挥 Cursor、Codex 等工具生成和维护代码，音乐音效由 ElevenLabs 生成，美术与关卡则由合作者手工完成。作者的核心判断很清楚：AI 改变的是生产效率，而不是自动保证游戏质量；机制是否成立、体验是否好玩，仍然取决于人的判断与打磨。</p>
+        <p>文章最有价值的部分，是把“AI 写代码”扩展成完整游戏开发工作流：资产重命名、Unity 配置转译、Notion 剧情对白导入、本地化文本回填、Git 冲突处理、性能分析、音频归一化、WebGL 构建等，都被交给 Agent 承担一部分重复劳动。作者也强调，Agent 适合处理“模糊转译”——把人类语言、素材文件、配置表和工具格式之间来回转换。</p>
+        <p>对关注 AI 与创作工具的人来说，这不是一篇单纯的工具推荐，而是一份具体的生产流程记录：它展示了在 game jam 这种高压、短周期场景里，AI 如何让个人开发者更快试错、更频繁提交、更容易整理复杂数据，同时也让创作者变得“更忙”，因为可以做的细节突然变多了。</p>
+        <p><strong>为什么读：</strong> 适合想理解 AI Agent 如何真正进入游戏开发流程、而不只是“帮忙写几行代码”的读者。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>工作流 (gōngzuòliú)</strong> — 完成一个项目时，各工具、步骤和协作方式连接起来形成的流程。</li>
+          <li><strong>模糊转译 (móhu zhuǎnyì)</strong> — 将不严格结构化的人类描述、文档或素材，转换成机器或工具可用格式的过程。</li>
+          <li><strong>本地化 (běndìhuà)</strong> — 将游戏文本、界面和文化表达调整到适合不同语言或地区玩家的工作。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h2>Source Notes</h2>
+      <p>Some previously reported, near-duplicate, off-topic, generic announcement, job, funding, infrastructure, and insufficient-detail items were skipped from the bio-research source.</p>
+    </section>
+  </main>
+
+
+
+</body>
+</html>

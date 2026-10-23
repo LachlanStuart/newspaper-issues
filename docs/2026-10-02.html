@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f2;--ink:#242923;--muted:#62695f;--rule:#d7dbcf;--accent:#285c50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1000px;margin:auto;padding:38px 24px 56px}
+header{border-top:5px solid var(--ink);border-bottom:double 4px var(--ink);padding:18px 0 22px}
+h1{font-size:clamp(2.8rem,7vw,4.6rem);line-height:1;margin:8px 0 16px;letter-spacing:-.04em}
+.edition,.meta,nav,footer,.label{font-family:system-ui,sans-serif}
+.edition,.meta{color:var(--muted);font-size:.88rem}
+header p{margin:8px 0}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;font-size:.9rem;margin-top:18px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.75rem;line-height:1.25;margin:0 0 24px}
+h3{font-size:1.2rem;line-height:1.4;margin:0 0 10px}
+p{margin:0 0 12px}
+section{margin-top:38px}
+article{margin-bottom:26px}
+article+article{padding-top:22px;border-top:1px solid var(--rule)}
+.links{font: .85rem/1.6 system-ui,sans-serif}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+.grid article{margin:0;padding:0 0 20px;border:0}
+.label{font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:8px}
+.briefs{padding-left:22px}
+.briefs li{padding:0 0 15px 5px}
+#language{border-top:double 4px var(--ink);padding-top:30px}
+.reading{margin-top:30px;padding-bottom:10px}
+.reading h3{font-size:1.4rem}
+.reading ul{padding-left:24px}
+.reading li{margin-bottom:8px}
+footer{border-top:1px solid var(--rule);padding-top:18px;margin-top:32px;color:var(--muted);font-size:.8rem}
+@media(max-width:650px){main{padding:24px 18px 36px}.grid{grid-template-columns:1fr;gap:12px}}
+@media print{body{background:white}main{max-width:none}nav{display:none}a{color:inherit}article{break-inside:avoid}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="edition">DAILY NEWSPAPER · <time datetime="2026-10-02">Friday, 2 October 2026</time></div>
+<h1>News</h1>
+<p>Scaling forecasts, biological modeling, and practical research tools — followed by readings in four languages.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; computing</a>
+<a href="#biology">Biology &amp; genomics</a>
+<a href="#tools">Research toolbox</a>
+<a href="#perspectives">Methods &amp; perspectives</a>
+<a href="#language">Language practice</a>
+</nav>
+</header>
+
+<section id="ai" aria-labelledby="ai-heading">
+<h2 id="ai-heading">AI &amp; computing</h2>
+<article>
+<div class="label">Training &amp; scaling</div>
+<h3>Marin’s 535B MoE run reportedly stays within 0.3% of its scaling forecast</h3>
+<p>Larry Dial reports that Marin’s 535-billion-parameter mixture-of-experts run is halfway toward its 18-trillion-token target and within 0.3% of a preregistered evaluation-loss forecast, despite a 300-fold extrapolation. Custom kernels reportedly made it possible to grow the planned model from 360B to 535B parameters while increasing token throughput.</p>
+<p>The update connects two questions that often get separated: how accurately training outcomes can be predicted, and how hardware-aware implementation changes the model that can be trained.</p>
+<p class="links"><a href="https://x.com/classiclarryd/status/2105794059424215317">Larry Dial on X</a> · <a href="https://t.co/aOtxDCr1El">Implementation write-up</a> · <a href="https://t.co/hYxClnWWxF">Live run</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>Goodfire claims more robust biosecurity monitoring</h3>
+<p>Goodfire describes real-time monitors that reportedly outperform frontier-model safeguards while refusing fewer dual-use tasks. Its thread claims 3–5× greater adversarial robustness than established screening methods, with improvements as biology models become more capable. The supplied excerpts do not identify the evaluation datasets or define the robustness measure.</p>
+<p class="links"><a href="https://x.com/GoodfireAI/status/2105704995492692175">Goodfire on X</a> · <a href="https://t.co/B2Opp3RMlR">Full post</a></p>
+</article>
+<article>
+<h3>Local transcription on a 2GB GTX 750 Ti</h3>
+<p>mgostIH shares an agent-assisted CUDA runtime for Parakeet that reportedly runs speech transcription on an SM50 GTX 750 Ti with just 2GB of VRAM. It is a concrete legacy-hardware compatibility result, though no speed or accuracy measurements are supplied.</p>
+<p class="links"><a href="https://x.com/mgostIH/status/2105722896253698183">Source post</a> · <a href="https://t.co/JYKwWo970q">Resource</a></p>
+</article>
+<article>
+<h3>Spine Lab keeps image geometry separate from model explanations</h3>
+<p>OpenMed’s demo uses LFM2.5-VL-3B to select tools and explain measurements while deterministic code computes geometry and links numbers to the image. Moving a landmark invalidates the previous explanation. Six local requests reportedly took 0.71–0.81 seconds each.</p>
+<p>Landmarks are currently hand-placed, and unscaled JPEGs limit measurements to angles and ratios. The supplied thread does not establish clinical validation.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2105692969173160171">OpenMed on X</a> · <a href="https://t.co/pneoVfTHUp">Demo</a> · <a href="https://t.co/dvpBPmGedV">Workflow details</a></p>
+</article>
+<article>
+<h3>More concurrent requests need not mean more throughput</h3>
+<p>You Jiacheng compares round-robin and FIFO scheduling at the same steady-state request arrival rate. In the example, throughput is equal, but round-robin has four times as many live requests and four times the latency. The underlying workload is not supplied; the numerical result should not be generalized to all serving systems.</p>
+<p class="links"><a href="https://x.com/YouJiacheng/status/2105540198109196676">Scheduling discussion</a></p>
+</article>
+</div>
+</section>
+
+<section id="biology" aria-labelledby="biology-heading">
+<h2 id="biology-heading">Biology &amp; genomics</h2>
+<article>
+<h3>ProxiNet brings spatial-reference signals to dissociated single-cell data</h3>
+<p>ProxiNet learns transcriptomic signatures of pairwise cellular proximity from spatial reference datasets, then transfers those signatures to dissociated single-cell transcriptomes. Companion commentary reports prediction across brain regions and spatial technologies, including zero-shot cross-technology transfer. Gradient-based attribution identifies associated genes and transcriptional programs.</p>
+<p>The approach aims to recover spatially informative signals from expression data after cells have been separated. No quantitative evaluation is available in the supplied posts.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2105800234748260540">ProxiNet source post</a></p>
+</article>
+<article>
+<h3>Quantum Hamiltonian models for gene-regulatory inference</h3>
+<p>QHGM models pseudotime-ordered single-cell expression by encoding gene interactions in a parameterized Hamiltonian. VQ-Net is described as a variational quantum algorithm that learns those parameters from scRNA-seq data using Hamiltonian evolution. The supplied posts offer neither benchmark results nor evidence of practical quantum advantage.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2105799571779784883">QHGM and VQ-Net</a></p>
+<p>A separate research pointer, “Quantum Hamiltonian Learning using Time-Resolved Measurement Data and its Application to Gene Regulatory Network Inference,” addresses time-resolved measurements. Its relationship to QHGM/VQ-Net is not established by the excerpt, which also supplies no results.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2105657991764828420">Time-resolved Hamiltonian learning</a></p>
+</article>
+<article>
+<h3>DNA models: data curation, evaluation, and gene discovery</h3>
+<p>Anshul Kundaje argues that selecting related sequences while preserving functional diversity can substantially improve DNA language models. He cites Shorkie, Evo bacteriophage work, and GPN-STAR, but the supplied replies do not identify the particular underlying result being discussed.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2105683424644304944">Kundaje’s methodological observation</a></p>
+<ul class="briefs">
+<li><strong>Evo2’s biological blind spots:</strong> “Benchmarking DNA Foundation Models: Biological Blind Spots in Evo2 Variant-Effect Prediction” is highlighted as an evaluation pointer. The supplied title does not reveal which variant classes are affected, the evaluation design, or the findings. <a href="https://x.com/razoralign/status/2105684891950268789">Source post</a></li>
+<li><strong>A general Evo 2 resource:</strong> “Evo 2: Genome modeling and design across all domains of life” resurfaces as a resource, not evidence of a new release or updated results. <a href="https://x.com/razoralign/status/2105684827055980701">Resource post</a></li>
+<li><strong>Mining functional de novo genes:</strong> “Evo: Semantic mining of functional de novo genes from a genomic language model” points to gene-discovery research. Methods, experiments, and functional validation are not described in the supplied excerpt. <a href="https://x.com/razoralign/status/2105681551090708850">Research pointer</a></li>
+</ul>
+</article>
+<article>
+<h3>MitoTOL announces mitochondrial proteome resources</h3>
+<p>A repost of Vamsi Mootha announces mitochondrial proteomes from the MitoCarta Tree of Life Consortium, describing them as high-accuracy. This could be a useful comparative-biology reference, but the truncated excerpt leaves species coverage, access, and validation details unspecified.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2105798586709815425">MitoTOL announcement</a></p>
+</article>
+</section>
+
+<section id="tools" aria-labelledby="tools-heading">
+<h2 id="tools-heading">Research toolbox</h2>
+<p class="meta">Brief resource pointers. Most supplied excerpts do not contain implementation details, benchmarks, or evidence of a new release.</p>
+<ul class="briefs">
+<li><strong>Immunoinformatics wrappers:</strong> Anshul Kundaje shares a collection from @iskander wrapping multiple predictors, explicitly including NetMHCpan. The full tool list, interface, and licensing are not provided. <a href="https://x.com/anshulkundaje/status/2105757800639152204">Source post</a></li>
+<li><strong>Bioinformatics Copilot 2.0:</strong> Software for transcriptomic analysis; a separate post describes version 1.0 as LLM-powered. The supplied material does not explain what changed in 2.0 or how either version was evaluated. <a href="https://x.com/razoralign/status/2105681597114819050">Source post</a></li>
+<li><strong>BiomiX:</strong> Automated multiomics analysis and integration. Supported modalities, evaluation results, and release changes are not specified. <a href="https://x.com/razoralign/status/2105681569386266968">Source post</a></li>
+<li><strong>OrthoBrowser:</strong> A resource for gene-family analysis and visualization, with no further methodological or release details in the excerpt. <a href="https://x.com/razoralign/status/2105681516131123616">Source post</a></li>
+<li><strong>BioPipelines:</strong> “Accessible Computational Protein and Ligand Design for Chemical Biologists” points to molecular-design workflows. Implementation and validation details are unavailable. <a href="https://x.com/razoralign/status/2105681502839456031">Source post</a></li>
+<li><strong>mulea:</strong> An R package for enrichment analysis across multiple ontologies using an empirical false discovery rate. The excerpt does not explain the error-control procedure or provide benchmarks. <a href="https://x.com/razoralign/status/2105681484187349334">Source post</a></li>
+<li><strong>GenoFig:</strong> An application for visualization and comparison of genomic regions, highlighted in a title-level resource post. <a href="https://x.com/razoralign/status/2105659128291230109">Source post</a></li>
+<li><strong>eOmics:</strong> An R package for omics data analysis. Specific functions, supported assays, and evidence of improvement are not described. <a href="https://x.com/razoralign/status/2105649839077986424">Source post</a></li>
+</ul>
+</section>
+
+<section id="perspectives" aria-labelledby="perspectives-heading">
+<h2 id="perspectives-heading">Methods &amp; perspectives</h2>
+<article>
+<h3>Aging as a problem of maintaining cell identity</h3>
+<p>A Japanese-language commentary describes a review that frames aging through declining cellular identity and failure to maintain differentiation programs, rather than cellular damage alone. It points to competing transcriptional regulation as an explanatory model. The review’s title and full argument are not supplied; this is a conceptual perspective, not an established replacement for other aging mechanisms.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2105657910244381127">Commentary</a></p>
+</article>
+<article>
+<h3>Self-blinking probes for chromatin imaging</h3>
+<p>Nature Reviews Molecular Cell Biology highlights HoT self-blinking probes as a chromatin-imaging method. The announcement does not describe probe chemistry, imaging performance, or experimental scope.</p>
+<p class="links"><a href="https://x.com/NatRevMCB/status/2105710991237677077">Method announcement</a></p>
+</article>
+<article>
+<h3>Who should lead synthetic-cell governance?</h3>
+<p>A Nature Reviews Molecular Cell Biology commentary titled “Technological prominence alone does not justify leadership in SynCell governance” challenges technology-led authority in the field. The announcement supplies no further arguments or recommendations.</p>
+<p class="links"><a href="https://x.com/NatRevMCB/status/2105257499838628226">Commentary announcement</a></p>
+</article>
+</section>
+
+<section id="language" aria-labelledby="language-heading">
+<div class="label">Daily reading</div>
+<h2 id="language-heading">Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Ein Jahr Befüllungspflicht für die E-Patientenakte: Ein Blick, vieles unklar</h3>
+<p class="meta">heise online · 01.10.2026 · <a href="https://www.heise.de/news/Ein-Jahr-Befuellungspflicht-fuer-die-E-Patientenakte-Ein-Blick-vieles-unklar-11473343.html">Artikel lesen</a></p>
+<p>Ein Jahr nach Einführung der Befüllungspflicht zieht heise eine gemischte Bilanz der elektronischen Patientenakte. Rund 73 Millionen gesetzlich Versicherte haben eine ePA erhalten; wie viele sie tatsächlich selbst nutzen, bleibt jedoch unklar. Die digitale Medikationsliste kann Ärzten und Apothekern helfen, Wechselwirkungen früher zu erkennen. Gleichzeitig erschweren Anmeldeprobleme und technische Ausfälle vielen Versicherten den Zugang zu ihren Gesundheitsdaten.</p>
+<p>Der Beitrag hinterfragt vor allem die Aussagekraft der offiziellen Erfolgszahlen. Millionen hochgeladener Dokumente zeigen noch nicht, wie intensiv die Akten im Behandlungsalltag genutzt werden. Auch Schwankungen im Dashboard der Gematik lassen sich teilweise auf unvollständige Datenlieferungen und technische Umstellungen zurückführen. Mehrere Ausfälle im September verdeutlichen zudem, wie abhängig Praxen, Apotheken und Krankenhäuser von einzelnen zentralen Diensten der Telematikinfrastruktur sind.</p>
+<p>Zusätzliche Bedeutung bekommt der Zugang zur eigenen Akte durch die geplante Weitergabe von ePA-Daten an das Forschungsdatenzentrum Gesundheit, die voraussichtlich 2027 beginnen soll. Wer dies nicht möchte, muss widersprechen. Damit verbindet der Artikel die technische Bestandsaufnahme mit einer praktischen Frage: Wie können Versicherte ihre Daten kontrollieren, wenn bereits die Anmeldung Schwierigkeiten bereitet?</p>
+<p><strong>Warum lesen:</strong> Der Artikel zeigt an einem konkreten deutschen Digitalisierungsprojekt, warum hohe Nutzungszahlen, verlässliche Infrastruktur und tatsächliche Selbstbestimmung nicht dasselbe sind.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Il déchiffre une lettre de 217 ans adressée à un général de Napoléon grâce à l’IA</h3>
+<p class="meta">Numerama · 1 octobre 2026 · <a href="https://www.numerama.com/tech/2344971-il-dechiffre-une-lettre-de-217-ans-adressee-a-un-general-de-napoleon-grace-a-lia.html">Lire l’article</a></p>
+<p>Numerama raconte comment l’ingénieur Carter Church a utilisé GPT-6 Astra pour déchiffrer une lettre destinée au général Marmont, à l’époque napoléonienne. Selon son témoignage, environ six heures ont suffi pour passer d’une reproduction numérisée à un message lisible. Le premier obstacle était matériel : reconnaître des signes manuscrits dont les formes varient, sans confondre une simple variation d’écriture avec un symbole distinct. Le courrier emploie ensuite un chiffrement homophonique, dans lequel plusieurs signes peuvent représenter la même lettre, ce qui complique l’analyse des fréquences.</p>
+<p>L’article souligne que cette réussite repose aussi sur des connaissances et des méthodes antérieures à l’IA générative. Un tableau établi par un historien de la cryptographie fournissait déjà une partie des correspondances. Pour compléter cette clé, le programme utilisé a exploré différentes solutions grâce au recuit simulé : il évaluait leur ressemblance avec du français et acceptait parfois une dégradation temporaire afin de ne pas rester bloqué sur une mauvaise piste. L’intérêt du cas tient donc surtout à l’enchaînement des tâches, de la transcription à la recherche documentaire et au déchiffrement.</p>
+<p>Le texte retrouvé décrit les positions et les effectifs de forces françaises et alliées face à l’Autriche. Les recoupements historiques rapportés permettent de situer le courrier à la fin de mars 1809, plutôt qu’en 1807. Selon Church, un spécialiste de la cryptographie historique a confirmé le déchiffrement ; la clé et le programme ont également été publiés pour rendre le résultat examinable. Le récit montre ainsi un usage concret de l’IA dans l’étude des archives, tout en rappelant la contribution indispensable des travaux existants et de la vérification humaine.</p>
+<p><strong>Pourquoi lire :</strong> Un exemple accessible qui relie histoire française, cryptographie et IA sans réduire la découverte à une prouesse automatique.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>chiffrement homophonique</strong> — procédé qui peut attribuer plusieurs symboles à une même lettre pour dissimuler sa fréquence d’apparition.</li>
+<li><strong>recuit simulé</strong> — méthode d’optimisation qui accepte parfois une solution moins bonne pour sortir d’une impasse et poursuivre la recherche.</li>
+<li><strong>clé de déchiffrement</strong> — ensemble de correspondances ou de paramètres permettant de retrouver un message lisible à partir d’un texte chiffré.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 宮崎駿から新海誠まで、ジブリと現代日本アニメに通底する「信州的想像力」</h3>
+<p class="meta">nippon.com · 2026-09-30 · <a href="https://www.nippon.com/ja/in-depth/b21002/">記事を読む</a></p>
+<p>宮崎駿の作品を、長野県・諏訪地方の自然や信仰、縄文文化との関係から読み解く評論。諏訪大社の御柱祭や考古学者・藤森栄一の思想を手がかりに、宮崎の自然観の背景を探る。富士見町の山荘での交流が『千と千尋の神隠し』の着想につながったことや、『もののけ姫』の登場人物名に地名が取り入れられていることなど、作品と土地を結ぶ具体例も紹介する。</p>
+<p>視野は宮崎吾朗や米林宏昌、さらに庵野秀明、細田守、新海誠へと広がる。吾朗が信州大学で学んだ景観設計などの知識はジブリ関連施設に生かされ、『思い出のマーニー』の屋敷には軽井沢の別荘というモデルがある。筆者は、こうしたつながりを単なる舞台探しにとどめず、日本アニメに受け継がれる「信州的想像力」を考える入口として提示している。ただし、その見方は完成した理論ではなく、今後掘り下げるための仮説として位置付けられている。</p>
+<p><strong>読む理由：</strong> 身近なアニメ作品を地域の信仰や思想史と結び付けて読み直しながら、文化評論の語彙や論の進め方に触れられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>縄文農耕論（じょうもんのうこうろん）</strong> — 縄文時代の暮らしに、狩猟採集だけでなく初期の農耕もあったとする説。</li>
+<li><strong>景観設計（けいかんせっけい）</strong> — 地形や植栽、建物などの関係を考え、屋外空間を計画すること。</li>
+<li><strong>通奏低音（つうそうていおん）</strong> — 本来は音楽の伴奏を支える低音で、比喩的には全体を通じて底に流れる共通の考えや性質を指す。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh">
+<h3>中文 — 法专家：中国在固定式电池市场占据着绝对主导地位</h3>
+<p class="meta">RFI 中文 · 2026-10-01 · <a href="https://www.rfi.fr/cn/欧洲/20261001-法专家-中国在固定式电池市场占据着绝对主导地位">https://www.rfi.fr/cn/欧洲/20261001-法专家-中国在固定式电池市场占据着绝对主导地位</a></p>
+<p>法国兰斯附近一座大型电池储能设施举行启用仪式，让电网如何应对风能、太阳能发电波动的问题受到关注。据报道，这座由TagEnergy运营的设施采用140个特斯拉电池集装箱，投资超过1亿欧元，自今年5月起已投入运营。它既能帮助调节电网频率，也能在电力供应充裕时充电、在晚间用电高峰时放电，减少可再生能源的浪费。</p>
+<p>报道指出，随着电池成本下降，法国正在推进更多大型储能项目，但产业发展也面临设备来源的问题。受访企业负责人认为，中国目前在固定式电池市场占据绝对主导地位，法国本土设备供应仍然不足。不过，Neoen计划于2028年投用的一座大型储能设施，将采用日本电产集团在法国生产的电池，显示本地生产开始出现新的进展。</p>
+<p><strong>为什么读：</strong> 这篇报道从法国电网的实际需求切入，把储能技术、能源转型与中国在电池产业中的地位联系起来，适合练习科技与经济新闻阅读。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>固定式电池储能 (gùdìngshì diànchí chǔnéng)</strong> — 在固定地点安装电池系统，储存电能并在需要时释放，区别于车载等移动用途。</li>
+<li><strong>电网频率 (diànwǎng pínlǜ)</strong> — 电网中交流电每秒周期性变化的次数，其稳定程度与供需平衡密切相关。</li>
+<li><strong>装机容量 (zhuāngjī róngliàng)</strong> — 已安装设备的额定功率总和；用于储能系统时，不等同于电池能够储存的电量。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X excerpts; many biology entries are truncated or title-only. Linked resources and performance claims were not independently verified. Shortened resource links are preserved as supplied. Resurfacing resources are not treated as new publications or releases.</p>
+<p>News · Edition 2026-10-02 · Run 2026-10-02-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

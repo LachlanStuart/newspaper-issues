@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #d8d0c3;
+      --accent: #7a3e2f;
+      --link: #1f5f99;
+      --tag: #ece3d7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+    }
+    .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 6px 0 4px;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1;
+      color: var(--accent);
+    }
+    .date {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 2px rgba(31, 41, 51, 0.04);
+    }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.17rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 16px 0;
+      border-top: 1px solid rgba(216, 208, 195, 0.7);
+    }
+    article:first-of-type { border-top: 0; padding-top: 4px; }
+    p { margin: 8px 0; }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--tag);
+      color: #554238;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+    }
+    .language-section {
+      margin-top: 34px;
+      border-top: 4px double var(--rule);
+      padding-top: 8px;
+    }
+    .language-card h3 {
+      color: var(--accent);
+    }
+    ul { margin-top: 8px; }
+    .notes {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Monday, June 22, 2026 · Run 2026-06-22-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI &amp; Computational Research</h2>
+
+        <article>
+          <h3><a href="https://x.com/hardmaru/status/2068884466056225025">Sakana Fugu frames multi-agent LLM orchestration as an “orchestration model”</a></h3>
+          <div class="meta">X AI Research</div>
+          <p>Hardmaru describes Sakana Fugu as an LLM-based orchestration system trained to route tasks across a swappable pool of models and agents. The post emphasizes benchmark comparisons against restricted frontier systems and resilience through model-pool substitution.</p>
+          <div class="tags">
+            <span class="tag">multi-agent</span>
+            <span class="tag">LLM routing</span>
+            <span class="tag">orchestration</span>
+            <span class="tag">benchmarks</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2068805151150817700">Close relatives used as signal for biobank-scale demographic inference</a></h3>
+          <div class="meta">X AI Research</div>
+          <p>A shared paper, “From Nuisance to Signal: Leveraging Close Relatives in Biobank-Scale Demographic Inference,” points to computational genomics work on demographic inference from large biomedical datasets. The provided fragment includes only the tweet and shortened URL, not the expanded paper link.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">biobank</span>
+            <span class="tag">statistical inference</span>
+            <span class="tag">methods</span>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Biology, Genomics &amp; Bioinformatics</h2>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068703202758074801">Ovo open-source ecosystem standardizes de novo protein-design workflows</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>Ovo is described as an end-to-end platform for de novo protein design, combining Nextflow orchestration, web/CLI/Python interfaces, SQL-backed data tracking, scaffold and binder-design pipelines, filtering and QC metrics, visualization, and plugin extensibility. The thread highlights reproducible RFdiffusion/MPNN/AlphaFold-style campaigns across laptop, HPC, and cloud environments.</p>
+          <div class="tags">
+            <span class="tag">protein design</span>
+            <span class="tag">open source</span>
+            <span class="tag">workflows</span>
+            <span class="tag">bioinformatics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068349718598680843">SplitSeek-Pro predicts protein split and circular-permutation sites</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>SplitSeek-Pro uses a graph/message-passing model that combines ESM-2 sequence features, physicochemical descriptors, and 3D residue-neighborhood information to score residue-level splittability. The reported work includes pretraining on pseudo-labels, fine-tuning on circular-permutation evidence, wet-lab validation in enzymes and NanoLuc, and analysis suggesting score landscapes recover cooperative structural fragments.</p>
+          <div class="tags">
+            <span class="tag">protein engineering</span>
+            <span class="tag">deep learning</span>
+            <span class="tag">structural bioinformatics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068846923076006049">Finding stable clusterings of single-cell RNA-seq data</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>This thread highlights a method for assessing scRNA-seq clustering stability by generating clusterings across sampled cells, comparing same-size clusterings against the full dataset using misclassification error distance or minimal matching distance, and estimating per-cluster stability from cluster misclassification error rate distributions.</p>
+          <div class="tags">
+            <span class="tag">single-cell</span>
+            <span class="tag">clustering</span>
+            <span class="tag">transcriptomics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068667822721622281">Hot-spring Obelisk-like RNA replicons expand diversity of RNA life-like elements</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>A retweeted Nature Japan item points to a Nature Communications paper, “Identification of hot spring Obelisk-like RNA replicons.” The available text says the work identifies a new lineage of Obelisk-like RNA life-like factors in hot springs, expanding known diversity.</p>
+          <div class="tags">
+            <span class="tag">RNA</span>
+            <span class="tag">genomics</span>
+            <span class="tag">microbiology</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068643571440509228">Echo characterizes desynchronization of gene expression and chromatin accessibility</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>The item appears to concern multimodal regulatory dynamics during cell-state transitions, specifically desynchronization between gene expression and chromatin accessibility. Only title-level detail was available in the provided data.</p>
+          <div class="tags">
+            <span class="tag">gene regulation</span>
+            <span class="tag">chromatin accessibility</span>
+            <span class="tag">multi-omics</span>
+            <span class="tag">cell states</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068643550880022686">Hidden State Genomics analyzes sparse-autoencoder feature activity in genomic language models</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>“Hidden State Genomics: Graph-Based Analysis of Sparse Auto-Encoder Feature Activity in Genomic Language Models” points to interpretability analysis for genomic foundation models. The fragment provides only the title, but the topic is squarely in bio-specific model interpretability.</p>
+          <div class="tags">
+            <span class="tag">genomic language models</span>
+            <span class="tag">interpretability</span>
+            <span class="tag">sparse autoencoders</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068643515400368347">GEMINI genetically encoded assembly recorder resolves cellular history</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>“GEMINI: Genetically encoded assembly recorder temporally resolves cellular history” appears to describe a synthetic or cell-biology recording system for reconstructing temporal cellular histories. Details were limited to the title in the provided fragment.</p>
+          <div class="tags">
+            <span class="tag">synthetic biology</span>
+            <span class="tag">cellular recording</span>
+            <span class="tag">cell biology</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068643474816274638">DEVIL scales differential gene-expression testing to millions of cells across patients</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>DEVIL is presented as a scalable, fast, and accurate method for differential gene-expression testing from millions of cells across multiple patients. The title suggests practical relevance for large single-cell cohorts and patient-level omics analysis.</p>
+          <div class="tags">
+            <span class="tag">single-cell</span>
+            <span class="tag">differential expression</span>
+            <span class="tag">omics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068643372387250586">scPair boosts single-cell multimodal analysis using implicit feature selection and atlases</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>scPair appears to be a method for multimodal single-cell analysis that leverages implicit feature selection and single-cell atlases. Only title-level detail was provided, but the item suggests a practical tool for atlas-informed analysis.</p>
+          <div class="tags">
+            <span class="tag">single-cell</span>
+            <span class="tag">multi-omics</span>
+            <span class="tag">atlases</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068594865961930847">MetaNet supports reproducible omics network analysis</a></h3>
+          <div class="meta">X Bio Research</div>
+          <p>MetaNet is described as a scalable and integrated tool for reproducible omics network analysis. Details in the provided data are limited to the title, but the item is relevant to biological data analysis workflows.</p>
+          <div class="tags">
+            <span class="tag">omics</span>
+            <span class="tag">network analysis</span>
+            <span class="tag">bioinformatics</span>
+          </div>
+        </article>
+      </section>
+
+      <section class="language-section">
+        <h2>Language Practice</h2>
+
+        <article class="language-card" lang="de">
+          <h3>Deutsch — Corona-Aufarbeitung: Die Kunst des Wegsehens</h3>
+          <div class="meta">Deutschlandfunk Kultur · 2026-06-22 · <a href="https://www.deutschlandfunkkultur.de/corona-aufarbeitung-die-kunst-des-wegsehens-100.html">Artikel öffnen</a></div>
+          <p>Der Beitrag aus dem „Politischen Feuilleton“ greift die Debatte um die Aufarbeitung der Corona-Jahre auf. Schon der Titel legt den Schwerpunkt auf Verdrängung, blinde Flecken und die Frage, warum politische und gesellschaftliche Fehler nur zögerlich offen benannt werden.</p>
+          <p>Für Deutschlernende ist das Stück interessant, weil es aktuelle Erinnerungspolitik, öffentliche Verantwortung und gesellschaftliche Selbstkritik in einem kompakten Kommentarformat verbindet. Der Beitrag ist kurz genug für eine konzentrierte Lese- oder Hörübung, bietet aber anspruchsvolles Vokabular aus Politik, Medien und Gesellschaft.</p>
+          <p><strong>Warum lesen:</strong> Ein aktueller, pointierter Kommentar zu einem Thema, das in Deutschland weiterhin politisch und gesellschaftlich nachwirkt.</p>
+        </article>
+
+        <article class="language-card" lang="fr">
+          <h3>Français — Face au taux élevé de suicide chez les jeunes, Séoul mise sur l'intelligence artificielle</h3>
+          <div class="meta">RFI · 2026-06-21 · <a href="https://www.rfi.fr/fr/asie-pacifique/20260621-face-au-taux-%C3%A9lev%C3%A9-de-suicide-chez-les-jeunes-s%C3%A9oul-mise-sur-l-intelligence-artificielle">Article</a></div>
+          <p>RFI analyse le plan national annoncé par la Corée du Sud pour répondre à une crise de santé mentale particulièrement aiguë chez les jeunes. Selon l’article, le nombre de suicides parmi les moins de 30 ans est passé de 273 à 396 entre 2016 et 2025, tandis que le recours des mineurs à des traitements psychiatriques a fortement augmenté. Le gouvernement veut diviser presque par deux le taux de suicide des jeunes d’ici dix ans, en mobilisant quinze ministères et en intégrant l’intelligence artificielle pour détecter des signaux de détresse.</p>
+          <p>Le papier replace cette stratégie technologique dans un contexte social plus large : pression scolaire, compétition pour les meilleures universités, poids du « Suneung » et marché du travail difficile. L’anthropologue Benjamin Joinau décrit une culture où la honte liée à la santé mentale reste très forte, ce qui rend la prévention plus complexe. L’article montre ainsi que l’IA est présentée comme un outil d’alerte, mais que le malaise dépasse largement la question technique.</p>
+          <p><strong>Pourquoi lire :</strong> un article utile pour travailler le vocabulaire de la santé publique, de l’éducation et des politiques technologiques, tout en découvrant un enjeu social majeur en Corée du Sud.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>signaux de détresse</strong> — indices comportementaux ou psychologiques pouvant révéler une situation de souffrance ou de danger.</li>
+            <li><strong>Suneung</strong> — examen national sud-coréen d’entrée à l’université, déterminant pour l’avenir scolaire et social.</li>
+            <li><strong>état d’urgence</strong> — dispositif politique exceptionnel déclaré face à une crise jugée grave et prioritaire.</li>
+          </ul>
+        </article>
+
+        <article class="language-card" lang="ja">
+          <h3>日本語 — AIに頼ると技術が落ちる？ 医師・エンジニアたちの懸念、検証結果は……Natureも警鐘</h3>
+          <div class="meta">ITmedia NEWS · 2026-06-22 · <a href="https://www.itmedia.co.jp/news/articles/2606/22/news041.html">記事を開く</a></div>
+          <p>AIツールの普及によって、専門家が長年培ってきた技能が衰えるのではないかという懸念を、Natureの報道や複数の研究をもとに紹介している記事です。医療分野では、AI支援に慣れた内視鏡専門医が、AIなしで検査した際に病変発見率を落とした例が取り上げられています。</p>
+          <p>プログラミングの分野でも、AIアシスタントを使ったエンジニアが、作業後の理解度テストで自力作業のグループを下回ったという実験が紹介されています。記事は、生成AIが単なる便利ツールにとどまらず、思考や解釈まで代替し得る点を問題視し、AIの限界を理解しながら使う必要性を指摘しています。</p>
+          <p><strong>読む理由：</strong> AI時代の「便利さ」と「専門能力の維持」のバランスを考えるための、実例が多い読み物です。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>生成AI（せいせいエーアイ）</strong> — 文章・画像・コードなどを作り出す人工知能。</li>
+            <li><strong>内視鏡（ないしきょう）</strong> — 体内を観察するための医療用カメラや検査器具。</li>
+            <li><strong>病変（びょうへん）</strong> — 病気によって体の組織に起きた異常な変化。</li>
+          </ul>
+        </article>
+
+        <article class="language-card" lang="zh">
+          <h3>中文 — 台湾外长：法国总统马克龙希望欧盟与台湾合作主权AI</h3>
+          <div class="meta">RFI 中文 · 2026-06-20 · <a href="https://www.rfi.fr/cn/%E4%B8%93%E6%A0%8F%E6%A3%80%E7%B4%A2/%E8%A6%81%E9%97%BB%E5%88%86%E6%9E%90/20260620-%E5%8F%B0%E6%B9%BE%E5%A4%96%E9%95%BF-%E6%B3%95%E5%9B%BD%E6%80%BB%E7%BB%9F%E9%A9%AC%E5%85%8B%E9%BE%99%E5%B8%8C%E6%9C%9B%E6%AC%A7%E7%9B%9F%E4%B8%8E%E5%8F%B0%E6%B9%BE%E5%90%88%E4%BD%9C%E4%B8%BB%E6%9D%83ai">阅读全文</a></div>
+          <p>这篇要闻分析围绕台湾外长林佳龙的说法展开：法国总统马克龙据称希望欧盟与台湾合作，在非洲协助建立“主权AI”。文章把这一议题放在七国集团峰会、欧洲再工业化、AI算力与资料中心建设的背景下讨论，凸显台湾半导体与ICT产业链在欧洲战略布局中的角色。</p>
+          <p>报道还提到近期台法产业互动，包括法国国民议会议员访台、马约特岛作为进入非洲市场门户的设想，以及台湾企业在德国、法国、中东欧等地的投资布局。文章的核心不是单一外交表态，而是台欧在供应链、人工智慧、再工业化与“去风险化”之间的连接。</p>
+          <p><strong>为什么读：</strong> 这篇文章结合台湾、法国、欧盟、非洲与AI产业链，适合练习科技外交和供应链政治相关中文词汇。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>主权AI (zhǔquán AI)</strong> — 指由国家或地区自主掌握资料、算力、模型和技术治理能力的人工智慧体系。</li>
+            <li><strong>再工业化 (zài gōngyèhuà)</strong> — 重新增强本土制造业和产业能力，常见于欧洲经济与安全政策讨论。</li>
+            <li><strong>供应链去风险化 (gōngyìngliàn qù fēngxiǎnhuà)</strong> — 降低对单一国家、企业或关键来源依赖，以减少政治和经济风险。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h2>Source Notes</h2>
+        <p class="notes">Several X Bio Research items were available only as retweets or title-level fragments, so summaries are correspondingly limited. The X AI Research biobank item included only the tweet and a shortened external URL, not the expanded paper link. No quiet failure notes were reported for this run.</p>
+      </section>
+    </main>
+  </div>
+
+
+
+</body>
+</html>

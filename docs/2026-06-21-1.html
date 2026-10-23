@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #ded7ca;
+      --accent: #7c3aed;
+      --accent-soft: #eee7ff;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .dateline {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    p {
+      margin: 8px 0;
+    }
+    a {
+      color: #4f46e5;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+    .tagline {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #4c1d95;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 0 22px;
+    }
+    .compact article {
+      padding: 12px 0;
+    }
+    .language {
+      border-top: 5px solid var(--accent);
+    }
+    .language article {
+      font-family: Georgia, "Times New Roman", "Noto Serif CJK JP", "Noto Serif CJK SC", serif;
+    }
+    .language h3 {
+      font-size: 1.1rem;
+    }
+    ul {
+      margin-top: 8px;
+    }
+    .notes {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: transparent;
+      border-style: dashed;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dateline">Sunday, June 21, 2026 · Run 2026-06-21-1</div>
+    </header>
+
+    <section>
+      <h2>AI Safety, Governance & Rationality</h2>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/AgKnBSxsFvuRCsEye/the-cookie-monster-explains-ai-safety">The Cookie Monster Explains AI Safety</a></h3>
+        <div class="source">LessWrong</div>
+        <p>A humorous AI-safety explainer uses <em>Cookie Monster and the Cookie Tree</em> as an analogy for frontier labs, misuse risks, red lines, jailbreaks, reward misspecification, and coordination failures.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/zoYXpdaMgFT43Wc24/how-transparent-is-diffusiongemma-and-why-it-matters">How transparent is DiffusionGemma (and why it matters)</a></h3>
+        <div class="source">LessWrong</div>
+        <p>A research writeup audits Google DeepMind’s DiffusionGemma, finding monitorability similar to Gemma while distinguishing easier variable transparency from harder-to-reconstruct algorithmic transparency in text diffusion models.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/AWKkDLDnShemNCSzZ/the-invisible-side-of-ai-governance">The Invisible Side of AI Governance</a></h3>
+        <div class="source">LessWrong</div>
+        <p>A practitioner argues that much high-impact AI governance work happens outside public view: through executive-branch relationships, private memos, international fora, and trusted-advisor channels.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/nhb8AyEcQGjQetgi5/the-llm-shoggoth-meme-is-weirder-than-you-think">The LLM shoggoth meme is weirder than you think</a></h3>
+        <div class="source">LessWrong</div>
+        <p>An essay traces the LLM shoggoth meme through Lovecraft’s original image, then uses it to discuss AI succession, personhood, and the problem of creating unworthy successors.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/BmqzjcD4tGvy3bim8/google-can-t-math-parsecs">Google Can't Math Parsecs</a></h3>
+        <div class="source">LessWrong</div>
+        <p>A short bug report says Google’s calculator appears to use the wrong value for parsecs in arithmetic, likely confusing arcseconds in degrees with radians.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/J8L3HoPYAj52x9gCA/would-anybody-here-be-interested-in-a-mistake-postmortem">Would anybody here be interested in a “mistake postmortem” discussion group?</a></h3>
+        <div class="source">LessWrong</div>
+        <p>A rationality-community proposal suggests a discussion group for analyzing personal mistakes deeply enough to extract reusable decision-making principles.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Machine Learning & Technical Research</h2>
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11784">Margin-Enforcing Projection</a></h3>
+        <div class="source">科学空间 / Spaces AC</div>
+        <p>A technical article introduces Margin-Enforcing Projection, an operation that divides a vector into two specified parts and enforces a chosen minimum gap between them. The idea may be relevant to optimization, geometry, and machine-learning constraints.</p>
+        <span class="tagline">math · optimization · machine learning</span>
+      </article>
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11782">A Tour of MoE, Part 9: The Debate over Gate Normalization</a></h3>
+        <div class="source">科学空间 / Spaces AC</div>
+        <p>The latest entry in a Mixture-of-Experts series examines router and gate normalization choices, from standard Softmax routing to newer alternatives motivated by load balancing and loss-free designs.</p>
+        <span class="tagline">Mixture-of-Experts · LLM systems</span>
+      </article>
+      <article>
+        <h3><a href="https://x.com/aaron_defazio/status/2068378065911341565">Neural raw-signal fusion for faster medical imaging</a></h3>
+        <div class="source">X AI Research</div>
+        <p>Aaron Defazio discusses using neural networks to fuse raw scanner signals, citing fastMRI-era work where ResNets produced high-clarity MRI reconstructions. Follow-up discussion points toward training faster scans against slower or higher-sampling-rate targets, and even using MRI or CT targets to improve ultrasound-like raw-signal prediction.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/OpenMed_AI/status/2067866671126036915">Beneficial RL research on small trait datasets</a></h3>
+        <div class="source">X AI Research</div>
+        <p>OpenMed highlights research on “beneficial RL,” reporting that training on a small amount of beneficial-trait data improves a range of alignment-related behaviors. The provided item was truncated and did not expose the underlying paper URL.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio AI, Genomics & Medical Research</h2>
+      <div class="grid compact">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068350722161479861">SteerAF steers AlphaFold2/OpenFold toward alternative protein conformations</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>SteerAF perturbs MSA features at inference time to amplify non-default distogram peaks and recover alternative conformational states, with interpretability through sparse MSA/PSSM shifts mapped to functional residues.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068350565415842108">Emyx proposes efficient all-atom protein generation for enzyme active-site scaffolding</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>Emyx is described as a 140M-parameter conditional flow-matching model for all-atom protein generation under motif and ligand constraints, emphasizing enzyme-design benchmarks, sterics, novelty, and lower reported training compute.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068350329805263360">ClonoDeep mines immune repertoires for SARS-CoV-2 and HIV broadly neutralizing antibodies</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>ClonoDeep combines public antibody clonotype mining with sequence-only deep learning to prioritize broadly neutralizing antibody candidates, including reported experimental validation for SARS-CoV-2 and HIV-related discovery from non-HIV repertoires.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068350225048334588">Framework quantifies novelty and efficiency in generative genome design</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A genome-design evaluation framework separates evolutionary novelty from design efficiency. Applied to synthetic ΦX174 bacteriophage genomes, it suggests Evo 2 likelihood predicts viability largely by staying near natural evolutionary space.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068349567008186454">BIOINF-farma prioritizes vaccine antigens by antigenicity and recombinant developability</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>BIOINF-farma is presented as a vaccine-candidate prioritization pipeline combining B-cell antigenicity scoring with recombinant expression and developability estimates.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2068349408308330616">NT-ABDiff uses noisy-template-aware diffusion for antibody sequence–structure design</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>NT-ABDiff extends antibody diffusion modeling with reliability-aware template gating and multi-template cross-attention, aiming to use retrieved CDR templates when useful and suppress them when noisy.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/pkoo562/status/2068436576674234800">Interpreting and steering pathology foundation models</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>Peter Koo shares collaborative work on interpretation and counterfactual steering for digital pathology foundation-model features, developed with pathologist input.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068313458379288713">Universal Cell Embeddings foundation model for cell biology</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A title-level item points to “Universal Cell Embeddings: A Foundation Model for Cell Biology,” directly relevant to virtual-cell and single-cell foundation-model work.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Single-Cell, Nanopore & Genome Engineering Tools</h2>
+      <div class="grid compact">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068293938088448487">Transformers in single-cell omics review</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A review item on transformer methods in single-cell omics and new perspectives for the field.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068293890290180480">Phoenix unifies cell-type and trajectory-associated pathway analysis in single-cell data</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A title-only item for a single-cell analysis tool focused on pathways associated with cell types and trajectories.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068313428100362">Genomic network analysis characterizes genetic architecture and trait-specific biology</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A genomics and network-biology item on characterizing genetic architecture and identifying trait-specific biology.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068313336274698629">noMapper: mapping-free NLP-based sequence search in nanopore long reads</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>noMapper is described as a mapping-free, NLP-inspired technique for sequence search in nanopore long-read data.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068313325101093112">HERRO: telomere-to-telomere phased genome assembly from error-corrected simplex nanopore reads</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A genome-assembly method for telomere-to-telomere phased assemblies using error-corrected simplex nanopore reads.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068313313612910633">Squigualiser visualizes raw nanopore signal data</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>An interactive visualization tool for raw nanopore signal data.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068272999564972254">TadA-Bench: million-variant wet-lab enzyme-engineering dataset</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>TadA-Bench is described as a 31-round, million-variant wet-lab enzyme-engineering dataset with benchmark value for protein ML.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068273432132022442">Evolutionary VAE for multi-objective enzyme engineering</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A retweeted item highlights multi-objective enzyme engineering with an evolutionary VAE, including reported experimental validation and an Apache 2.0 release.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068272988169130122">R2 retrotransposon system targets DNA insertion in plant engineering</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A genome-engineering item describes development of the R2 retrotransposon as a targeted DNA insertion approach for plant engineering.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2068272962986533220">RNA structure programs endogenous ADAR for precise RNA editing</a></h3>
+          <div class="source">X Bio Research</div>
+          <p>A title-level item on using RNA structure to program endogenous ADAR for precise and efficient RNA editing.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Futurism, Forecasting & Culture</h2>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/meNbYuX9367p43nmX/against-planet-eating-nanoreplicators">Against Planet-Eating Nanoreplicators</a></h3>
+        <div class="source">LessWrong</div>
+        <p>A long-form futurism post argues that self-replicating nanoassemblers are unlikely to be magical planet-conversion machines, because large-scale colonization faces constraints from material composition, energy, logistics, and thermodynamics.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/PgLJpLqqHfpgRC4Ks/animal-futures-forecasting-tournament">Animal Futures Forecasting Tournament</a></h3>
+        <div class="source">LessWrong</div>
+        <p>An announcement for a Metaculus forecasting tournament on animal advocacy strategy, alternative proteins, octopus farming, and frontier-AI-related animal welfare questions.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/JtkR9aDd3m2CeRi3J/unchickenous-apricot-berry-cake">Unchickenous Apricot Berry Cake</a></h3>
+        <div class="source">LessWrong</div>
+        <p>A practical food post adapts a fruit cake recipe using precision-fermented egg whites to make an eggless cake that closely matches the original texture.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/J4Lnxi3uJhR8GiGsm/how-are-there-0-studies-maybe-1-on-sex-concordant-hormone">How are there 0 studies (maybe 1) on sex-concordant hormone therapy?</a></h3>
+        <div class="source">LessWrong</div>
+        <p>The author asks why there appears to be almost no modern research on birth-sex-concordant hormone therapy for gender dysphoria, despite historical indications that such approaches were tried and usually ineffective.</p>
+      </article>
+    </section>
+
+    <section class="language">
+      <h2>Language Practice</h2>
+
+      <article lang="de">
+        <h3>Deutsch — Ebola und die globale Ungerechtigkeit des Gesundheitswesens</h3>
+        <div class="source">Deutsche Welle · 2026-06-20 · <a href="https://www.dw.com/de/ebola-und-die-globale-ungerechtigkeit-des-gesundheitswesens/a-77630484">https://www.dw.com/de/ebola-und-die-globale-ungerechtigkeit-des-gesundheitswesens/a-77630484</a></div>
+        <p>Der DW-Artikel nimmt den Fall eines US-amerikanischen Missionsarztes zum Ausgangspunkt, der sich in der Demokratischen Republik Kongo mit Ebola infizierte und zur Behandlung nach Berlin gebracht wurde. An diesem Beispiel zeigt der Text, wie groß der Abstand zwischen hochspezialisierter Versorgung in Europa und der Realität vieler Gesundheitssysteme in Ausbruchsregionen ist.</p>
+        <p>Im Mittelpunkt steht nicht nur ein experimentelles Medikament, sondern die Frage, warum wirksame Ebola-Bekämpfung mehr braucht als einzelne Hightech-Therapien: verlässliche Kliniken, geschultes Personal, Kühlketten, Überwachung, Diagnostik und öffentliche Gesundheitsarbeit. Der Artikel erinnert daran, dass frühere Ausbrüche auch durch Isolation, Kontaktnachverfolgung und Aufklärung eingedämmt wurden.</p>
+        <p>Zugleich warnt DW vor den Folgen gekürzter internationaler Hilfen. Wenn Gesundheitszentren schließen, Vorräte schrumpfen und Personalverträge auslaufen, wird lokale Seuchenabwehr schwächer — mit Risiken, die nicht an Landesgrenzen haltmachen.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet einen konkreten Ebola-Fall mit einer größeren Debatte über globale Gesundheitsgerechtigkeit, Entwicklungshilfe und Seuchenvorsorge.</p>
+      </article>
+
+      <article lang="fr">
+        <h3>Français — IA et littérature : Hervé Le Tellier et Abel Quentin face à la grande dépossession</h3>
+        <div class="source">ActuaLitté · 2026-06-20 · <a href="https://actualitte.com/article/132124/interviews/ia-et-litterature-herve-le-tellier-et-abel-quentin-face-a-la-grande-depossession">https://actualitte.com/article/132124/interviews/ia-et-litterature-herve-le-tellier-et-abel-quentin-face-a-la-grande-depossession</a></div>
+        <p>ActuaLitté réunit les positions d’Hervé Le Tellier et d’Abel Quentin sur l’intelligence artificielle générative, en déplaçant le débat au-delà de la simple question technique : il s’agit de savoir ce que les humains veulent encore écrire, juger et faire eux-mêmes. L’article situe cette discussion dans un contexte très actuel : réglementation européenne des modèles d’IA, tensions autour du droit d’auteur, coûts énergétiques des centres de données et inquiétudes dans les métiers de la création.</p>
+        <p>Abel Quentin défend l’idée de « sanctuaires » : non pas des refuges fermés, mais des espaces où préserver l’intelligence humaine, la lenteur, la critique et le pacte de confiance entre auteur, éditeur et lecteur. Hervé Le Tellier, lui, se dit très pessimiste : venu des mathématiques, de l’Oulipo et de l’informatique, il estime que la menace ne réside pas seulement dans l’imitation du style, mais dans la substitution du geste d’écrire et du sens même de la signature.</p>
+        <p>L’entretien croisé aborde aussi l’école, les professions menacées, l’attention, le vrai et le faux, ainsi que la possibilité d’un usage limité de l’IA pour vérifier des hypothèses plutôt que produire de la fiction à la place de l’auteur. C’est un texte utile pour lire en français un débat culturel dense, où littérature, technologie et démocratie se rejoignent.</p>
+        <p><strong>Pourquoi lire :</strong> Pour comprendre comment deux écrivains français formulent une critique nuancée mais inquiète de l’IA générative dans le champ littéraire.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>IA générative</strong> — technologie capable de produire du texte, des images ou d’autres contenus à partir de modèles entraînés sur de grandes masses de données.</li>
+          <li><strong>sanctuarisation</strong> — action de protéger un domaine ou une pratique contre certaines transformations jugées dangereuses.</li>
+          <li><strong>droit d’auteur</strong> — ensemble de règles qui protègent les œuvres et encadrent leur reproduction, leur diffusion ou leur utilisation.</li>
+        </ul>
+      </article>
+
+      <article lang="ja">
+        <h3>日本語 — 「ゲームを殺すな運動」EUでの法案化は見送りに。運動の代表者は“想定内の結果”として、次の一手へ</h3>
+        <div class="source">AUTOMATON · 2026-06-17 · <a href="https://automaton-media.com/articles/newsjp/20260617-450088">https://automaton-media.com/articles/newsjp/20260617-450088</a></div>
+        <p>欧州委員会は、欧州市民イニシアチブ「Stop Destroying Videogames（Stop Killing Games）」が求めていた、サービス終了後も購入済みゲームを遊べるようにするための新たな立法提案を、現時点ではおこなわないと発表した。運動側は、オンラインゲームの終了後にプライベートサーバーやオフライン代替手段などを用意するよう義務づけることを求め、100万件を超える有効署名を集めていた。</p>
+        <p>記事では、欧州委員会が見送りの理由として、著作権や各種知的財産権、企業の機密情報、運用コスト、サイバーセキュリティ上のリスクなどを挙げたことが説明されている。一方で、既存のEU消費者保護法の枠組みによる情報開示や返金などの救済、さらにゲーム終了時の扱いを定める業界行動規範の検討も示されている。</p>
+        <p>運動の代表者側は今回の判断を「想定内」と受け止め、今後は欧州議会で検討されるDigital Fairness Actに主張を反映させる方向へ動くという。ゲーム保存、消費者権利、ライブサービス型ゲームのビジネスモデルが交差する問題として、EUの今後の議論が注目される。</p>
+        <p><strong>読む理由：</strong> ゲームの「購入」と「利用権」の境界、そしてデジタル消費者保護の今後を日本語で追える記事だから。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>欧州市民（おうしゅうしみん）イニシアチブ</strong> — EU市民が一定数の署名を集め、欧州委員会に政策提案を求められる制度。</li>
+          <li><strong>知的財産権（ちてきざいさんけん）</strong> — 著作物、技術、デザインなどを保護する権利の総称。</li>
+          <li><strong>行動規範（こうどうきはん）</strong> — 業界や組織が守るべきルールや指針をまとめたもの。</li>
+        </ul>
+      </article>
+
+      <article lang="zh">
+        <h3>中文 — 中国鹅肝产业迅猛崛起 动物福利人士表示关切</h3>
+        <div class="source">DW 中文 · 2026-06-20 · <a href="https://www.dw.com/zh/中国鹅肝产业迅猛崛起-动物福利人士表示关切/a-77637962">https://www.dw.com/zh/中国鹅肝产业迅猛崛起-动物福利人士表示关切/a-77637962</a></div>
+        <p>这篇报道关注中国鹅肝产业近年的快速扩张：鹅肝在中国从高端餐饮食材逐渐变成更常见、价格相对亲民的菜品，带动养殖户和食品企业扩大产能。文中提到，一些行业分析师估计，中国鹅肝产量已逼近法国，甚至可能很快成为全球第一大生产国。</p>
+        <p>报道也写到中国生产商正尝试进入东南亚、中东、韩国、日本、俄罗斯等海外市场，但出口仍受海关、检疫和化学物质检测等监管门槛限制。与此同时，法国业界担心中国低成本、大规模生产会在新兴市场形成竞争压力。</p>
+        <p>文章的另一条主线是动物福利争议。鹅肝生产依赖对鸭鹅进行强制喂食，动物福利人士长期反对这种做法；中国生产商则认为国内反对声音有限，且全球需求仍在增长。报道还提到补贴、劳动强度、自动化喂食以及走私等问题，使这篇文章不仅是食品产业报道，也涉及农业全球化、监管和伦理。</p>
+        <p><strong>为什么读：</strong> 题材具体但牵涉产业升级、动物福利、出口监管和中法食品竞争，适合练习经济与社会类中文报道。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>强制喂食 (qiángzhì wèishí)</strong> — 为制造肥大肝脏而对鸭鹅进行高强度人工喂食的做法。</li>
+          <li><strong>动物福利 (dòngwù fúlì)</strong> — 关注动物饲养、运输、屠宰等过程中是否避免痛苦和虐待的伦理与监管议题。</li>
+          <li><strong>出口监管门槛 (chūkǒu jiānguǎn ménkǎn)</strong> — 产品进入海外市场前必须满足的检疫、证明、海关等制度要求。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h2>Quiet Source Notes</h2>
+      <p>No new reportable items were found for Hazy Research, Kasra Blog, Nathan Chen Blog, or Queer Festival Heidelberg in the provided fragments. Some included X Bio Research entries were title-only because the normalized data did not include expanded linked-page metadata.</p>
+    </section>
+  </div>
+
+
+
+</body>
+</html>

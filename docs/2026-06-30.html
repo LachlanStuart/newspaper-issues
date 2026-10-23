@@ -1,0 +1,326 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #24211d;
+      --muted: #6f675d;
+      --rule: #ded6c9;
+      --accent: #7a3f2a;
+      --accent-soft: #f0dfd6;
+      --link: #164f86;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      font-size: 0.78rem;
+      margin-bottom: 6px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+    .date {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 1rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 24px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    section.language-section {
+      background: #fffaf2;
+      border-color: #d8c7b2;
+    }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.55rem;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.12rem;
+      line-height: 1.3;
+    }
+    article {
+      padding: 16px 0;
+      border-top: 1px solid var(--rule);
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 4px;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 0 0 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    p {
+      margin: 0.65em 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(22,79,134,0.25);
+    }
+    a:hover {
+      border-bottom-color: var(--link);
+    }
+    .tagline {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+    .brief {
+      border-top: 0;
+      padding: 14px;
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+    }
+    .language-item {
+      padding-top: 14px;
+    }
+    .language-item h3 {
+      font-size: 1.2rem;
+    }
+    .language-item ul {
+      margin-top: 0.4em;
+    }
+    footer {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.86rem;
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Tuesday, June 30, 2026 · Run 2026-06-30-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research &amp; Infrastructure</h2>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2071652984195629558">Trainable sparse attention without changing the Transformer architecture</a></h3>
+        <p class="meta">Stanford AI Lab · Transformers, sparse attention</p>
+        <p>Stanford AI Lab highlighted work asking whether a standard Transformer can be converted into a trainable sparse-attention model without introducing a new architecture. The item is notable for focusing on sparsity as a training and efficiency technique while preserving the familiar Transformer design.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/vikhyatk/status/2071781298960748716">DeepGEMM FP8 dense port to CuTeDSL benchmarked against BF16 matmuls</a></h3>
+        <p class="meta">GPU kernels · FP8, BF16, CuTeDSL</p>
+        <p>Vik reported benchmark results from a CuTeDSL port of DeepGEMM FP8 dense kernels. The port ran faster than DeepGEMM on many shapes, while BF16 matrix multiplies were still faster than DeepGEMM for the tested workload shapes — a useful low-level datapoint for inference and training kernel work.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/giffmana/status/2071674684525904025">Open-source pretraining stacks compared against Megatron-LM derivatives</a></h3>
+        <p class="meta">LLM pretraining infrastructure · Open source</p>
+        <p>Lucas Beyer raised the question of whether any serious open-source LLM pretraining codebase is not ultimately derived from Megatron-LM. The discussion points to how much modern open pretraining infrastructure still appears to orbit Megatron-style systems.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio, Genomics &amp; Scientific Machine Learning</h2>
+
+      <div class="grid">
+        <article class="brief">
+          <h3><a href="https://x.com/proteinrosh/status/2071756485525160014">Biohub launches Kaggle challenge for AI-powered 3D cell tracking</a></h3>
+          <p>CZ Biohub announced a Kaggle challenge for machine-learning experts and scientists focused on AI-powered cell tracking in 3D, a core measurement task for quantitative cell biology.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/DdelAlamo/status/2071665427021705686">Diffusion guidance over structural-model ensembles for bulk biophysical data</a></h3>
+          <p>Diego del Alamo highlighted a published study using diffusion guidance on ensembles of structural models, especially relevant for data sources that measure bulk properties such as HDX, NMR, SAXS, and EPR.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2071161051350282585">NISE reports zero-shot de novo design of drug-binding proteins</a></h3>
+          <p>NISE is described as a neural iterative selection–expansion loop alternating ligand-aware sequence design with protein–ligand co-structure prediction. Reported examples include exatecan binders with nanomolar affinity after in silico maturation and apixaban binders reaching picomolar-scale affinity.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2071160012345679878">Contact-Network Responsiveness atlas maps human protein structural response properties</a></h3>
+          <p>A summarized study introduces Contact-Network Responsiveness, a structure-derived framework applied to more than 22,000 human AlphaFold models. It converts hydrophobic non-local contact networks into density and topology descriptors, with links to intrinsic disorder and graph-dependent response behavior.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071727938748436784">ARISE integrates spatial multi-omics with RNA-anchored shared-edge topology</a></h3>
+          <p>ARISE builds a shared-edge topology by intersecting RNA feature-similarity and spatial-proximity graphs, then encodes auxiliary modalities on that scaffold using hierarchical fusion and spatial coherence regularization.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071726525439934596">pygenoscape visualizes continuous genetic-distance landscapes</a></h3>
+          <p>pygenoscape is a Python package for spatial interpolation and visualization of genetic-distance landscapes. It accepts distance matrices or aligned nucleotide sequences, applies PCoA, and interpolates coordinates over geography.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/anshulkundaje/status/2071759652367511709">Enhancer–promoter condensate preprint questions dominant regulatory-contact models</a></h3>
+          <p>Anshul Kundaje amplified a thread on a new Engreitz lab preprint arguing against a model with significant enhancer–promoter condensate formation, suggesting a different view of regulatory contacts.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071723148136075269">Harmonic torsional diffusion for protein–ligand flexible docking</a></h3>
+          <p>“Harmonic Torsional Diffusion for Protein-Ligand Flexible Docking” was announced as a spotlight paper, making it a relevant item for drug-discovery and molecular docking methods.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071723131862126654">CREAT uses CRISPR genome trimming to identify dispensable regions</a></h3>
+          <p>CREAT is described as a CRISPR-based genome-trimming strategy for systematic identification of dispensable genomic regions and rapid genome reduction.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/anshulkundaje/status/2071639156166439128">Human Cell Atlas preprint frames cell atlases as coordinate systems for biology</a></h3>
+          <p>A new Human Cell Atlas preprint was described as part of the effort to make cell atlases function as coordinate systems for biology, with broad implications for cell-state modeling.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071517774443425963">SPLASH/SPLASH2 supports scalable reference-free discovery from raw sequencing reads</a></h3>
+          <p>SPLASH and SPLASH2 were highlighted as statistical, reference-free genomic algorithms for scalable, unsupervised discovery directly from raw sequencing reads.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071517732601041220">D-SPIN builds gene-regulatory-network models from multiplexed scRNA-seq</a></h3>
+          <p>D-SPIN constructs gene-regulatory-network models from multiplexed single-cell RNA-seq data to reveal organizing principles of cellular regulation.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071683952130322509">Framework for interpreting attention mechanisms in genomic transformers</a></h3>
+          <p>A highlighted paper, “Interpreting Attention Mechanisms in Genomic Transformer Models: A Framework for Biological Insights,” focuses on interpretability for genomic sequence models.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071683967993184352">GhostBuster uses deep learning for literature-unbiased gene prioritization</a></h3>
+          <p>GhostBuster is described as a deep-learning-based, literature-unbiased gene-prioritization tool for gene annotation prediction.</p>
+        </article>
+
+        <article class="brief">
+          <h3><a href="https://x.com/razoralign/status/2071683982916522307">HALE targets haplotype-aware long-read error correction</a></h3>
+          <p>HALE was highlighted as a haplotype-aware long-read error-correction method for genomics and assembly workflows.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+
+      <article class="language-item" lang="de">
+        <h3>Deutsch — Total War: Medieval 3 - Das Strategiespiel schneidet sich eine große Scheibe bei Crusader Kings ab</h3>
+        <p class="meta">GameStar · 2026-06-30 · <a href="https://www.gamestar.de/artikel/total-war-medieval-3-crusader-kings-3,3455512.html">https://www.gamestar.de/artikel/total-war-medieval-3-crusader-kings-3,3455512.html</a></p>
+        <p>GameStar fasst neue Informationen aus einem Entwicklerstream zu <em>Total War: Medieval 3</em> zusammen. Im Mittelpunkt steht ein deutlich verändertes Figurensystem: Statt klassischer, klar getrennter Agenten, Diplomaten oder Generäle sollen Adelsfamilien und Dynastien eine größere Rolle spielen. Charaktere entwickeln sich nicht mehr über einfache Skilltrees, sondern über Eigenschaften, Erfahrungen und vererbbare Merkmale.</p>
+        <p>Interessant ist vor allem der stärkere Einschlag in Richtung Hofpolitik und Intrigen. Dynastien können Einfluss über die Grenzen des eigenen Reiches hinaus haben, etwa wenn Verwandte in Nachbarregionen Machtpositionen erreichen. Auch innenpolitisch sollen Familien gegeneinander arbeiten, über Krisen abstimmen und im Extremfall rebellieren können, wenn sie dauerhaft übergangen werden.</p>
+        <p>Der Artikel betont zugleich, dass <em>Medieval 3</em> weiterhin ein <em>Total War</em> bleiben soll: Man spielt nicht eine Familie wie in <em>Crusader Kings</em>, sondern ein Reich. Die neuen Systeme könnten aber dafür sorgen, dass Expansion, Stabilität und Diplomatie persönlicher und unberechenbarer werden. Da sich das Spiel noch früh in der Entwicklung befindet, können sich viele Details bis zur Veröffentlichung noch ändern.</p>
+        <p><strong>Warum lesen:</strong> Der Text ist eine gute Lektüre für alle, die verstehen wollen, wie ein großes Strategiespiel historische Politik, Rollenspielelemente und klassische Echtzeitschlachten miteinander verbinden könnte.</p>
+      </article>
+
+      <article class="language-item" lang="fr">
+        <h3>Français — Google va finalement lancer ses fonctionnalités IA sur son moteur de recherche en France « cet été »</h3>
+        <p class="meta">Le Monde · 2026-06-30 · <a href="https://www.lemonde.fr/pixels/article/2026/06/30/google-va-finalement-lancer-ses-fonctionnalites-ia-sur-son-moteur-de-recherche-en-france-cet-ete_6717014_4408996.html">https://www.lemonde.fr/pixels/article/2026/06/30/google-va-finalement-lancer-ses-fonctionnalites-ia-sur-son-moteur-de-recherche-en-france-cet-ete_6717014_4408996.html</a></p>
+        <p>Google s’apprête à déployer en France ses nouvelles fonctions d’intelligence artificielle intégrées à son moteur de recherche. Selon l’article du Monde, les utilisateurs français devraient y accéder « cet été », après un retard lié à des obstacles réglementaires et aux relations avec les éditeurs de presse.</p>
+        <p>Deux nouveautés sont au cœur de ce lancement : les « AI Overviews », qui affichent des réponses synthétiques générées par Gemini au-dessus des liens classiques, et « AI Mode », une interface plus conversationnelle proche des assistants comme ChatGPT, Claude ou Gemini. La France faisait partie des rares marchés où ces fonctions n’étaient pas encore disponibles, alors qu’elles avaient déjà été largement déployées ailleurs.</p>
+        <p>L’article permet de comprendre un tournant important pour la recherche en ligne : Google ne se contente plus de classer des pages, mais propose directement des réponses produites par IA. Cela pose des questions sur la visibilité des sites, la place des médias dans les résultats de recherche et l’évolution des habitudes des internautes.</p>
+        <p><strong>Pourquoi lire :</strong> pour suivre l’arrivée en France d’une transformation majeure de Google Search et ses enjeux pour les utilisateurs comme pour les éditeurs.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>AI Overviews</strong> — résumés automatiques générés par l’IA et affichés en tête des résultats de recherche.</li>
+          <li><strong>mode conversationnel</strong> — interface où l’utilisateur échange avec un système comme dans une discussion, plutôt que par simples mots-clés.</li>
+          <li><strong>éditeurs de presse</strong> — entreprises ou groupes qui publient des journaux, magazines ou sites d’information.</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="ja">
+        <h3>日本語 — 人気の理由は日本が舞台になったからだけではない？「Forza Horizon 6」は万人の期待をちょうどいい解釈でまとめ上げた車ゲーだ</h3>
+        <p class="meta">4Gamer.net · 2026-06-29 · <a href="https://www.4gamer.net/games/948/G094864/20260629025/">https://www.4gamer.net/games/948/G094864/20260629025/</a></p>
+        <p>「Forza Horizon 6」を、日本が舞台になった話題性だけでなく、幅広いプレイヤーに向けて設計された“遊びやすい車ゲーム”として紹介する記事。東京シティ、渋谷、大黒PA、榛名山、伊豆スカイライン、立山黒部アルペンルートなど、日本の風景やカーカルチャーをどうゲーム内に落とし込んでいるかに注目している。</p>
+        <p>記事では、初心者向けの難度設定、クラウドゲーミングでの始めやすさ、写真撮影や車の収集、イベント報酬など、レースに詳しくない人でも楽しめる要素を具体的に説明している。一方で、内装メーターの作り込みや年代別ソート、ハンドルコントローラー利用時の視点設定など、車好き向けの細部にも触れている。</p>
+        <p>日本を舞台にしたオープンワールドの魅力と、シリーズらしい気軽なドライブ体験がどう結びついているかを読むのに向いた一本。ゲーム紹介としてだけでなく、日本の車文化が海外制作の大型タイトルでどう解釈されているかを考える材料にもなる。</p>
+        <p><strong>読む理由：</strong> 日本のカーカルチャー表現、オープンワールド設計、クラウドゲーミング対応を一度に読めるゲーム記事だから。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>車文化（くるまぶんか）</strong> — 車の使い方、集まり方、改造、走行場所などを含む文化的な広がり。</li>
+          <li><strong>難度設定（なんどせってい）</strong> — ゲームの難しさをプレイヤーに合わせて調整する仕組み。</li>
+          <li><strong>クラウドゲーミング</strong> — 手元の高性能機器ではなく、サーバー側でゲームを動かして配信する遊び方。</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="zh-Hans">
+        <h3>中文 — 当监控镜头进入生活，外佣如何习惯“雇主的眼睛”</h3>
+        <p class="meta">端传媒 · 2026-06-30 · <a href="https://theinitium.com/20260630-hongkong-domestic-helpers-and-home-surveillance-cameras-zh-hans">https://theinitium.com/20260630-hongkong-domestic-helpers-and-home-surveillance-cameras-zh-hans</a></p>
+        <p>这篇报道从香港外佣 Sophia 的日常经验切入：她与雇主幼童同房，夜里床边的家居监控镜头亮着红光，既被解释为照看儿童的工具，也让同处一室的照顾者感到自己持续处于观看之下。报道把这个具体场景放回香港家庭空间狭小、外佣住宿与劳动界线模糊的现实中讨论。</p>
+        <p>文章指出，智能家居监控镜头在有小孩或长者的家庭中愈来愈普遍；对住家外佣而言，工作场所同时也是生活空间，镜头因此不只是安全设备，也可能成为管理、监督与权力关系的一部分。报道可见部分内容已触及科技便利、照护需求、隐私边界和移工劳动处境之间的张力。</p>
+        <p><strong>为什么读：</strong> 这是一篇适合练习社会议题中文阅读的报道，能看到香港家庭、移工劳动与日常监控技术如何交错。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>家居监控镜头 (jiājū jiānkòng jìngtóu)</strong> — 安装在家庭空间内、用于远端观看或记录影像的监控设备。</li>
+          <li><strong>外佣 (wàiyōng)</strong> — 香港常用说法，指受雇在家庭中从事家务、照护等工作的外籍家务工。</li>
+          <li><strong>隐私边界 (yǐnsī biānjiè)</strong> — 个人生活不应被他人任意观看、记录或干预的界线。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      Source notes: no quiet failures were reported for this run.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #faf8f3;
+      --ink: #20201d;
+      --muted: #68665f;
+      --accent: #8b2f2f;
+      --rule: #d8d2c6;
+      --card: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 10px 18px;
+      margin-bottom: 38px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section { margin: 0 0 48px; }
+    section > h2 {
+      margin: 0 0 22px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+    article {
+      padding: 0 0 24px;
+      margin: 0 0 24px;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.3rem;
+      line-height: 1.28;
+    }
+    h3 a { color: var(--ink); }
+    p { margin: 9px 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .source, .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    .tags {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 28px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 1.9rem;
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -10px 0 30px;
+    }
+    .language-block {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: clamp(20px, 4vw, 34px);
+      margin-bottom: 26px;
+    }
+    .language-block h3 {
+      font-size: 1.35rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 10px;
+      margin-bottom: 14px;
+    }
+    .language-block ul {
+      margin: 8px 0 0;
+      padding-left: 1.35rem;
+    }
+    .language-block li { margin: 5px 0; }
+    .language-block[lang="ja"],
+    .language-block[lang="zh"] {
+      font-family: Georgia, "Noto Serif CJK JP", "Noto Serif CJK SC",
+        "Yu Mincho", "Songti SC", serif;
+    }
+    footer {
+      margin-top: 56px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.88rem;
+    }
+    footer details summary { cursor: pointer; }
+    footer p { margin-bottom: 0; }
+    @media (min-width: 760px) {
+      .story-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0 30px;
+      }
+      .story-grid article:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Sunday, August 16, 2026</p>
+    </header>
+
+    <section>
+      <h2>Artificial Intelligence &amp; Computing</h2>
+
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11854">Beyond Cross-Entropy: What Other Loss Functions Can Language Models Use?</a></h3>
+        <p class="source">科学空间 / Spaces AC</p>
+        <p>Cross-entropy has long been the standard loss for pretraining and fine-tuning large language models, but it is not the only possible choice. This technical article examines alternative language-modeling objectives and considers how replacing cross-entropy could change training behavior and model performance.</p>
+        <p class="tags">Machine learning · Language models · Loss functions</p>
+      </article>
+
+      <div class="story-grid">
+        <article>
+          <h3><a href="https://x.com/YouJiacheng/status/2088704110015259097">CAKE treats the compiler as part of the agent harness</a></h3>
+          <p>The newly released CAKE paper describes a system in which the compiler is not merely a fixed black box invoked by an agent, but a component of the agent harness itself. The available post is truncated, so further methodological details and the paper link are not visible.</p>
+          <p class="tags">Agents · Compilers · Kernels</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rasbt/status/2088631263737364818">How keyed token-sampling watermarks work</a></h3>
+          <p>Sebastian Raschka illustrates his reading of Claude’s text-watermarking method: a secret key and the preceding context influence which of several similarly likely next tokens is selected. Repeating those keyed choices creates a statistically unusual pattern that can be detected across a sufficiently long passage.</p>
+          <p>The scheme works during inference without retraining. Raschka also raises the question of whether it could be activated selectively by region rather than applied globally.</p>
+          <p class="tags">Watermarking · Language models · Inference</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Drug Discovery</h2>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2088655813560975835">Boltz-1 study separates decodable features from causally steerable representations</a></h3>
+        <p>A mechanistic-interpretability study probes Boltz-1 across its Pairformer trunk and diffusion module. Geometry remains strongly decodable through diffusion, while aspects of sequence chemistry—including amino-acid identity, signal peptides, and disulfide residues—fade.</p>
+        <p>Interventions on the trunk’s single representation can steer helix and coil content, but a highly predictive β-strand direction fails to increase strand formation. The result is a useful warning: linear decodability does not necessarily imply causal control. When labels are available, supervised probes also outperform individual sparse-autoencoder features in this study.</p>
+        <p class="tags">Mechanistic interpretability · Protein structure · Diffusion models</p>
+      </article>
+
+      <div class="story-grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2088655554856231398">iHaptenAb connects hapten design with antibody performance</a></h3>
+          <p>iHaptenAb is a structured database spanning 589 small-molecule targets, 1,678 immunizing haptens, 2,090 antibodies, and 6,718 immunoassay evaluations curated from 1,060 publications. It links the complete target-to-hapten-to-immunogen-to-antibody workflow and standardizes assay and conjugation metadata.</p>
+          <p>RDKit and quantum-chemical descriptors make the collection useful for comparative hapten analysis, antibody discovery, QSAR, and machine-learning studies. Its reported affinity distribution may, however, reflect publication bias toward successful assays.</p>
+          <p class="tags">Antibody discovery · Cheminformatics · Immunoassays</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2088655442675384635">EGRL predicts RNA–protein interactions in cold-start settings</a></h3>
+          <p>EGRL is a heterogeneous graph-neural-network framework for RNA–protein interaction prediction. It combines relation-aware message passing with a generator that adds probabilistic soft edges for previously unseen RNAs or proteins, using RNA-FM and ESM2 sequence embeddings.</p>
+          <p>On NPInter2, its reported molecule-held-out scores are 0.867 AUROC and 0.861 AUPR. Performance is lower but remains viable under stricter sequence-cluster splits, which more meaningfully test generalization beyond closely related molecules.</p>
+          <p class="tags">RNA regulation · Graph neural networks · Foundation models</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2088655282843087021">VLSR localizes molecular substructures before reasoning</a></h3>
+          <p>Visual Latent Structural Reasoning first locates chemically meaningful regions in two-dimensional molecular depictions, then reasons about edits and property effects in a fixed-depth latent workspace. Training uses auxiliary region supervision derived from RDKit, but those annotations are not required at inference time.</p>
+          <p>On a scaffold-controlled benchmark containing 625,936 examples, the method reportedly improves classification and regression over image- and SMILES-based baselines while reaching roughly 9.6 times the throughput of a comparable textual-reasoning system. A zero-shot, protein-conditioned ligand-affinity comparison also suggests transfer to drug-discovery tasks.</p>
+          <p class="tags">Drug discovery · Vision-language models · Molecular properties</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BrianHie/status/2088642752242442691">Brian Hie on safety as generative biology improves</a></h3>
+          <p>Following work that produced functional AI-generated bacteriophage genomes, Brian Hie shares a separate essay about the biosafety and biosecurity implications of increasingly capable generative-biology systems. He argues that the field’s trajectory deserves concern and urgency, while retaining room for optimism.</p>
+          <p class="tags">Biosecurity · Biosafety · Generative biology</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="language-intro">Edited reading selections are preserved in their original languages.</p>
+
+      <article class="language-block" lang="de">
+        <h3>Deutsch — <a href="https://www.deutschlandfunkkultur.de/techno-parade-rave-the-planet-in-berlin-zu-ende-gegangen-100.html">Techno-Parade „Rave the Planet“ in Berlin zu Ende gegangen</a></h3>
+        <p class="meta">Deutschlandfunk Kultur · 15.08.2026 · <a href="https://www.deutschlandfunkkultur.de/techno-parade-rave-the-planet-in-berlin-zu-ende-gegangen-100.html">Artikel lesen</a></p>
+        <p>Zehntausende Menschen haben in Berlin an der fünften Ausgabe der Techno-Parade „Rave the Planet“ teilgenommen. Die Strecke führte auf der Straße des 17. Juni zwischen Brandenburger Tor und Siegessäule entlang. Die Veranstaltung versteht sich als Nachfolgerin der Loveparade und möchte elektronische Musikkultur mit einem Zeichen für gesellschaftlichen Zusammenhalt verbinden.</p>
+        <p>Wegen eines islamistischen Terroranschlags am Rande des Berliner Christopher Street Day drei Wochen zuvor begann die Parade mit einer Schweigeminute. Zugleich galten verstärkte Sicherheitsmaßnahmen: Rund 1.500 Polizistinnen und Polizisten waren im Einsatz.</p>
+        <p><strong>Warum lesen:</strong> Der kurze Beitrag verbindet Berliner Clubkultur mit aktuellen Fragen zu öffentlichem Zusammenhalt, Erinnerung und Sicherheit.</p>
+      </article>
+
+      <article class="language-block" lang="fr">
+        <h3>Français — <a href="https://www.rfi.fr/fr/europe/20260816-le-liechtenstein-ouvre-la-succession-au-tr%C3%B4ne-aux-femmes">Le Liechtenstein ouvre la succession au trône aux femmes</a></h3>
+        <p class="meta">RFI · 16 août 2026 · <a href="https://www.rfi.fr/fr/europe/20260816-le-liechtenstein-ouvre-la-succession-au-tr%C3%B4ne-aux-femmes">Lire l’article</a></p>
+        <p>La Maison princière du Liechtenstein a décidé d’ouvrir la succession au trône aux femmes. Jusqu’ici réservée aux hommes, la couronne reviendra désormais à l’aîné des enfants, quel que soit son genre. Annoncée le jour de la fête nationale, cette réforme introduit donc la primogéniture absolue dans l’une des dernières monarchies européennes à ne pas appliquer ce principe.</p>
+        <p>Le changement reste pour l’instant surtout symbolique : le prince héréditaire Aloïs, qui gère les affaires courantes depuis 2004, a quatre enfants et sa fille n’occupe que la deuxième place dans l’ordre de succession. RFI replace aussi cette décision dans le contexte social conservateur de la principauté, où les femmes n’ont obtenu le droit de vote qu’en 1984 et où l’avortement demeure interdit. Une éventuelle dépénalisation pourrait prochainement être examinée par le Parlement, mais le prince a déjà évoqué la possibilité d’y opposer son veto.</p>
+        <p><strong>Pourquoi lire :</strong> Un article bref qui permet d’aborder à la fois les institutions monarchiques et l’évolution des droits des femmes en Europe.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>primogéniture absolue</strong> — règle selon laquelle l’aîné des enfants hérite du trône sans distinction de genre</li>
+          <li><strong>ordre de succession</strong> — classement des personnes susceptibles d’accéder au trône</li>
+          <li><strong>dépénalisation</strong> — suppression des sanctions pénales associées à un acte</li>
+          <li><strong>droit de veto</strong> — pouvoir permettant de bloquer l’adoption ou l’entrée en vigueur d’une décision</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="ja">
+        <h3>日本語 — <a href="https://www.itmedia.co.jp/news/article/2608/16/2000000555/">「Claude」の“見えない透かし”、Anthropicが仕組みを説明　「完全な書き直しなら消える」</a></h3>
+        <p class="meta">ITmedia NEWS · 2026年8月16日 · <a href="https://www.itmedia.co.jp/news/article/2608/16/2000000555/">記事を読む</a></p>
+        <p>Anthropicは、Claudeが生成する文章に、人間には知覚できない電子透かしを埋め込む仕組みを説明した。秘密鍵と直前の文脈を使って次の単語の選択に統計的なパターンを残す方式で、文字や余分なトークンを追加しないため、文章の品質、生成速度、利用料金への影響はほとんどないという。EU AI Actの透明性義務への対応だが、日本を含む世界各地のモデルと製品に適用する方針だ。</p>
+        <p>透かしは、提供予定の専用APIで単語の並びを調べ、Claudeが関与した可能性を測る。選択できる表現が少ない数式、事実記述、プログラムコードや短文では検出しにくい一方、長い文章ほど判定の確度が高まる。軽い編集では消えにくいが、全ての単語を書き換えれば消える可能性がある。また、Claudeが文章を生成したのか、大幅に編集しただけなのかまでは区別できない。</p>
+        <p><strong>読む理由：</strong> AI生成物の透明性を高める技術の仕組みと限界を、EUの規制との関係も含めて具体的に理解できる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>電子透かし（でんしすかし）</strong> — コンテンツの出所や生成元を識別するため、知覚しにくい形で埋め込む情報やパターン。</li>
+          <li><strong>秘密鍵（ひみつかぎ）</strong> — 暗号技術で非公開のまま管理され、署名や検証などに使われるデータ。</li>
+          <li><strong>エントロピー</strong> — 生成時に選べる候補の多さや、結果の予測しにくさを表す尺度。</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="zh-Hans">
+        <h3>中文 — <a href="https://www.bbc.com/zhongwen/articles/cn7n5zxmmr1o/simp">时隔20年，台湾前总统陈水扁女儿陈幸妤再次成为媒体焦点</a></h3>
+        <p class="meta">BBC 中文 · 2026-08-14 · <a href="https://www.bbc.com/zhongwen/articles/cn7n5zxmmr1o/simp">阅读原文</a></p>
+        <p>台湾前总统陈水扁之女陈幸妤的离婚消息近日曝光，使她时隔多年再次成为舆论焦点。媒体聚集在她经营的牙科诊所外追访，也让台湾社会重新审视她二十多年来所承受的新闻关注，以及政治人物家属的私人生活应在多大程度上受到报道。</p>
+        <p>陈幸妤过去因父亲担任总统及家人卷入司法案件，多次遭记者围堵，甚至在海外参加牙医考试时也被追访。一些媒体人如今承认，当年紧迫盯人的采访方式并不妥当。传播学者指出，她目前已经脱离公众人物范畴，离婚又不涉及公共利益，新闻媒体应在知情权与个人隐私之间划出更清楚的界线。</p>
+        <p><strong>为什么读：</strong> 文章以台湾政治人物家属的经历为切入点，讨论媒体伦理、公共利益与隐私权之间的张力。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>媒体伦理 (méitǐ lúnlǐ)</strong> — 新闻采访与报道应遵守的道德规范和专业原则</li>
+          <li><strong>紧迫盯人 (jǐnpò dīngrén)</strong> — 原为体育用语，此处指记者持续而密集地跟踪采访对象</li>
+          <li><strong>私领域 (sī lǐngyù)</strong> — 不属于公共事务、应由个人自主决定是否公开的生活范围</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      <details>
+        <summary>Source note</summary>
+        <p>One source, LessWrong — Larry Dial, could not be collected because its feed returned an HTTP 429 rate-limit response. Several other monitored sources had no new material for this edition.</p>
+      </details>
+      <p>News Daily · Run 2026-08-16-1</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

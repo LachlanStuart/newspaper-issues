@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2328;
+      --muted: #667085;
+      --rule: #d9d0c3;
+      --accent: #7a3e1d;
+      --tag-bg: #efe7dc;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--accent);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    main {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 10px 30px rgba(31, 35, 40, 0.06);
+      padding: 28px;
+    }
+    section {
+      margin-bottom: 34px;
+    }
+    section:last-child {
+      margin-bottom: 0;
+    }
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+    }
+    article {
+      padding: 16px 0;
+      border-bottom: 1px solid #eee6db;
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+      line-height: 1.25;
+    }
+    h3 a {
+      color: var(--ink);
+      text-decoration-color: rgba(122, 62, 29, 0.45);
+      text-underline-offset: 3px;
+    }
+    h3 a:hover {
+      color: var(--accent);
+      text-decoration-color: var(--accent);
+    }
+    p {
+      margin: 0 0 10px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: #5f4b3b;
+      border-radius: 999px;
+      padding: 3px 8px;
+    }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      margin-top: 8px;
+    }
+    .notes {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      background: #faf7f1;
+      border: 1px solid #eadfce;
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .notes p + p {
+      margin-top: 8px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      margin-top: 22px;
+    }
+    @media (max-width: 640px) {
+      .page {
+        padding: 20px 12px 34px;
+      }
+      main {
+        padding: 20px 16px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Monday, June 8, 2026 · Run 2026-06-08-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI &amp; Machine Learning</h2>
+
+        <article>
+          <h3><a href="https://x.com/Jianlin_S/status/2063837108360696301">MuonR constrains Muon updates with double rotations</a></h3>
+          <p>Jianlin Su points to a technical note, “Steepest Descent on Manifolds: 6. Muon + Double Rotation,” introducing MuonR, a variant of the Muon optimizer. The method constrains weight updates through left and right rotation matrices, aiming to preserve singular-value distributions and improve training stability.</p>
+          <div class="tags">
+            <span class="tag">optimization</span>
+            <span class="tag">training</span>
+            <span class="tag">deep learning</span>
+          </div>
+          <div class="source">Source: X AI Research</div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Bioinformatics &amp; Genomics</h2>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2063717819783733698">scMTG models single-cell temporal dynamics with Markov transition generators</a></h3>
+          <p>scMTG is presented as a generative framework for reconstructing cell-state transitions and dynamic gene-regulatory programs from unpaired single-cell time-series data. It combines a parameter-shared autoencoder with time-indexed Markov transition generators to learn a shared low-dimensional representation and conditional transitions between adjacent time points.</p>
+          <div class="tags">
+            <span class="tag">single-cell</span>
+            <span class="tag">gene regulation</span>
+            <span class="tag">generative modeling</span>
+            <span class="tag">time series</span>
+          </div>
+          <div class="source">Source: X Bio Research</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2063717553307037862">CREP fine-tunes Enformer for cis-regulatory element prediction</a></h3>
+          <p>CREP, the Cis-Regulatory Element Predictor, is described as a fine-tuned version of Enformer trained on high-quality regulatory annotations across multiple human cell types. It aims to predict unified cis-regulatory element identities directly from sequence, reusing Enformer’s long-range sequence representations while producing discrete and interpretable regulatory predictions.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">gene regulation</span>
+            <span class="tag">cis-regulatory elements</span>
+            <span class="tag">Enformer</span>
+          </div>
+          <div class="source">Source: X Bio Research</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cutleraging/status/2063852468337857016">DREAM repressive activity linked to somatic mutation, lifespan, and disease</a></h3>
+          <p>A research item highlights work connecting DREAM repressive activity with somatic mutation, lifespan, and disease. The available fragment includes only the headline and a shortened link, so methodological and result details are limited.</p>
+          <div class="tags">
+            <span class="tag">aging</span>
+            <span class="tag">somatic mutation</span>
+            <span class="tag">disease</span>
+            <span class="tag">gene regulation</span>
+          </div>
+          <div class="source">Source: X Bio Research</div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Editorial Notes</h2>
+        <div class="notes">
+          <p>Some source items were omitted because they were product announcements, hiring posts, shallow commentary, already-covered registry entries, or lacked enough usable technical context in the provided data.</p>
+          <p>For the DREAM item, the available information was limited to a headline-level description.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Generated for News from provided source report fragments.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

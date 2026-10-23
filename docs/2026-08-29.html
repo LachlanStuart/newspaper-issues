@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fffdf8;
+      --ink: #20201e;
+      --muted: #6b6861;
+      --rule: #d9d3c7;
+      --accent: #234f71;
+      --soft: #f3efe6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ece8df;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      padding: 3rem clamp(1.1rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.2rem 0 1.4rem;
+      margin-bottom: 2.5rem;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 2.8rem 0 1.2rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+    }
+    h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.16rem;
+      line-height: 1.3;
+    }
+    article {
+      padding: 1.1rem 0 1.2rem;
+      border-bottom: 1px solid var(--rule);
+      break-inside: avoid;
+    }
+    article:last-child { border-bottom: 0; }
+    p { margin: 0.55rem 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    .source {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 2rem;
+    }
+    .tagline {
+      max-width: 700px;
+      margin: 1rem auto 0;
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 0.5rem;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > p {
+      color: var(--muted);
+      font-style: italic;
+    }
+    .language-card {
+      margin: 1.5rem 0;
+      padding: 1.35rem 1.5rem;
+      border: 1px solid var(--rule);
+      background: var(--soft);
+    }
+    .language-card h3 {
+      font-size: 1.3rem;
+    }
+    .language-card ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.4rem;
+    }
+    .notes {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 720px) {
+      main { padding-top: 1.5rem; }
+      .grid { grid-template-columns: 1fr; }
+      .language-card { padding: 1rem; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p class="date">Saturday, August 29, 2026</p>
+      <p class="tagline">Today’s research digest: continual learning, video pretraining, optimization, regulatory genomics, spatial biology, and scalable bioinformatics.</p>
+    </header>
+
+    <section>
+      <h2>Artificial Intelligence &amp; Robotics</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/wightmanr/status/2093478472350138383">Continual learning for robots without forgetting prior behaviors</a></h3>
+          <p>Research shared by Ross Wightman examines how a robot can acquire a new behavior without losing skills it has already learned—a central problem in continual learning known as catastrophic forgetting. The available post is truncated, so methodological details and a canonical paper link are not available.</p>
+          <p class="source">Source: X · Ross Wightman</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/YouJiacheng/status/2093339546813706738">Muon’s reinforcement-learning performance may hinge on batch size and gradient noise</a></h3>
+          <p>You Jiacheng argues that Muon’s mixed reputation in reinforcement learning may reflect batch size and gradient noise rather than a weakness inherent to RL. The discussion connects optimizer behavior with behavioral diversity, entropy regularization, reverse-KL mode dropping, and the possibility that sufficiently varied RL traces could benefit from Muon much as pretraining data does.</p>
+          <p class="source">Source: X · You Jiacheng</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/wightmanr/status/2093393686847783051">LeVJEPA aims for stable, efficient end-to-end video pretraining</a></h3>
+          <p>LeVJEPA is presented as an efficient and stable method for end-to-end video representation pretraining, with a claimed new Pareto frontier. The supplied post is truncated, leaving its architecture and evaluation results unavailable.</p>
+          <p class="source">Source: X · Ross Wightman</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/wightmanr/status/2093390961766543544">timm 1.0.29 updates NaFlexViT and multimodal pipelines</a></h3>
+          <p>The latest release of the widely used computer-vision library continues work on NaFlexViT and associated data-pipeline components. Related infrastructure has also been added to OpenCLIP to support multimodal NaFlex pipelines.</p>
+          <p class="source">Source: X · Ross Wightman</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2093382208924913808">Gene–context interactions improve polygenic prediction</a></h3>
+          <p>A research item reports that modeling gene–context interactions at individual loci can improve polygenic prediction. Further methodological detail was not exposed in the supplied source material.</p>
+          <p class="source">Source: X · gen0m1cs</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Genomics &amp; Computational Biology</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093507592601694650">Deep learning maps lineage-specific regulatory elements in human evolution</a></h3>
+          <p>A sequence-to-function framework predicts chromatin accessibility across personalized genomes from modern humans, archaic hominins, and great apes. It finds that lineage-specific cis-regulatory elements tend to be shorter, less conserved, and less pleiotropic than conserved elements, with enrichment near neurodevelopmental pathways.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093508189564318089">Proteus infers gene expression from cell-free DNA—with uncertainty</a></h3>
+          <p>Proteus is a probabilistic model for inferring RNA-seq-like, gene-level expression distributions from standard-depth cell-free DNA whole-genome sequencing. Its companion method, Triton, profiles fragmentation and inferred chromatin organization, including promoter depletion, +1-nucleosome patterns, fragment-length heterogeneity, and altered nucleosome phasing.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093556919785095475">STARNet infers spatial gene-regulatory networks</a></h3>
+          <p>STARNet is a method for reconstructing spatially resolved gene-regulatory networks from spatial multi-omics data, bringing network inference into the tissue context where regulatory activity occurs.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093556893574893789">Systema tests perturbation prediction beyond systematic variation</a></h3>
+          <p>Systema evaluates genetic perturbation-response models beyond systematic variation. It targets a consequential weakness in existing virtual-cell and perturbation-prediction benchmarks: models can appear capable while exploiting broad, recurring patterns rather than learning specific responses.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093556859890446463">MAPA uses language models to consolidate pathway analysis</a></h3>
+          <p>MAPA applies large language models to redundancy-aware pathway analysis and biological interpretation. Its goal is to turn overlapping pathway results into more coherent and useful explanations.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093556814336200963">scSet learns patient-level representations from single-cell data</a></h3>
+          <p>scSet is a diffusion-based autoencoder that derives patient-level representations from collections of single-cell measurements, potentially supporting comparisons and predictive analyses across disease cohorts.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093556380129190254">scPAISO quantifies alternative polyadenylation in single cells</a></h3>
+          <p>scPAISO identifies and quantifies alternative polyadenylation sites from single-cell RNA sequencing, enabling study of post-transcriptional regulation at cellular resolution.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093492983886975175">LexicMap scales sequence alignment to millions of prokaryotic genomes</a></h3>
+          <p>LexicMap uses a fixed probe set to query gene sequences, supporting fast, memory-efficient alignment against collections containing millions of prokaryotic genomes—a practical advance for searching very large microbial datasets.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093555621715186109">MOSN emerges as a sex-specifically spliced neuronal gene in mosquitoes</a></h3>
+          <p>Researchers highlighted MOSN as a newly identified, conserved, neuron-specific gene with sex-specific splicing in mosquitoes. Further details were truncated in the available source material.</p>
+          <p class="source">Source: X · RazorAlign</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p>Edited daily reading selections, preserved in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Nvidia will 12,9 Milliarden US-Dollar ausgeben, um den wohl größten App-Store für KI aufzukaufen</h3>
+        <p class="source">GameStar · 29.08.2026 · <a href="https://www.gamestar.de/artikel/nvidia-hugging-face-uebernahme-12-9-milliarden-dollar,3458793.html">Artikel lesen</a></p>
+        <p>Einem Medienbericht zufolge hat sich Nvidia mit Hugging Face auf eine Übernahme im Wert von 12,9 Milliarden US-Dollar geeinigt. Eine offizielle Bestätigung steht noch aus. Nvidia ist bereits seit 2023 an dem Betreiber einer wichtigen Plattform für KI-Modelle beteiligt; ein früheres Angebot zur Ausweitung der Investition soll Hugging Face aus Sorge vor einem zu dominanten Einzelinvestor abgelehnt haben.</p>
+        <p>Mit der Übernahme könnte Nvidia früh erkennen, welche KI-Architekturen an Bedeutung gewinnen, und zugleich seinen Wettbewerbsvorteil gegenüber Unternehmen mit eigenen KI-Chips ausbauen. Hugging Face meldete zuletzt 13 Millionen Nutzer und mehr als zwei Millionen öffentlich verfügbare Modelle – damit wäre die Plattform für Nvidia sowohl eine bedeutende Informationsquelle als auch ein Zugang zu potenziellen Kunden.</p>
+        <p><strong>Warum lesen:</strong> Der kompakte Beitrag zeigt, weshalb Hugging Face für Nvidias KI-Strategie weit mehr als nur eine große Modellsammlung wäre.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Présidentielle 2027 : le piège du choc générationnel, entre promesses aux jeunes et peur d’irriter les retraités</h3>
+        <p class="source">Le Monde · 29 août 2026 · <a href="https://www.lemonde.fr/politique/article/2026/08/29/presidentielle-2027-le-piege-du-choc-generationnel-entre-promesses-aux-jeunes-et-peur-d-irriter-les-retraites_6759541_823448.html">lire l’article</a></p>
+        <p>À huit mois de l’élection présidentielle, l’article analyse la difficulté des candidats à promettre un avenir meilleur aux jeunes tout en évitant de mécontenter les retraités. Le vieillissement démographique renforce en effet le poids électoral des plus de 65 ans : les retraités représentent environ un tiers des personnes en âge de voter et pourraient compter pour jusqu’à 40 % des suffrages exprimés lors des scrutins nationaux.</p>
+        <p>Le débat dépasse toutefois la seule stratégie électorale. La dégradation des finances publiques et l’importance des pensions et des dépenses de santé posent la question du partage des efforts entre générations. Alors que les dépenses consacrées aux personnes âgées augmentent mécaniquement, celles destinées aux jeunes risquent de diminuer, notamment dans l’éducation. L’idée, longtemps taboue, de demander une contribution supplémentaire aux retraités commence ainsi à s’installer dans le débat politique.</p>
+        <p><strong>Pourquoi lire :</strong> Une analyse utile pour comprendre comment la démographie, le budget de l’État et les rapports entre générations pourraient structurer la présidentielle française de 2027.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>gérontocratie</strong> — système dans lequel les personnes âgées détiennent une part prépondérante du pouvoir politique ou social</li>
+          <li><strong>veto générationnel</strong> — capacité supposée d’une génération nombreuse à bloquer des réformes contraires à ses intérêts</li>
+          <li><strong>équité intergénérationnelle</strong> — recherche d’une répartition juste des ressources, des droits et des efforts entre les différentes générations</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 個人開発者が10年かけて完成させたメトロイドヴァニア「Divinum」，Steamでリリース</h3>
+        <p class="source">4Gamer · 2026年8月29日 · <a href="https://www.4gamer.net/games/037/G103741/20260828048/">記事を読む</a></p>
+        <p>Sigil GamesがPC向けゲーム「Divinum」をSteamで発売した。独学の個人開発者Vladislav氏が10年をかけて完成させた作品で，スタイリッシュな戦闘と探索を組み合わせたハック＆スラッシュ型のメトロイドヴァニアだ。</p>
+        <p>通常価格は税込1800円。発売から14日間は10％引きの税込1620円で購入できる。記事ではゲームの画面やリリース記念トレイラーも紹介されており，長期にわたる個人制作がどのような作品に結実したのかを確かめられる。</p>
+        <p><strong>読む理由：</strong> 10年を費やした個人ゲーム開発という背景と，作品のジャンルや販売情報を簡潔に把握できる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>個人開発者（こじんかいはつしゃ）</strong> — 企業の大規模なチームではなく，主に一人で作品やソフトウェアを作る開発者。</li>
+          <li><strong>メトロイドヴァニア</strong> — 広いマップを探索し，新しい能力を得ながら行動範囲を広げていくゲームジャンル。</li>
+          <li><strong>ハック＆スラッシュ</strong> — 多数の敵との戦闘や装備品の収集・強化を繰り返して楽しむゲーム形式。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh-Hans">
+        <h3>中文 — 当游戏走向全面数字化，我们的记忆与欲望流向何处 ……</h3>
+        <p class="source">端传媒 · 2026-08-29 · <a href="https://theinitium.com/20260829-game-on-when-games-get-digitalized-zh-hans/">阅读文章</a></p>
+        <p>从整理出租屋里的实体卡带写起，作者翻看自己为不同主机购买的游戏：有准备与伴侣共同游玩的新作，也有因为帧数问题而搁置的作品，还有从香港带回、印着“原装行货”的旧收藏。实体游戏因此不只是软件载体，也保存了购买地点、人际关系和特定生活阶段的痕迹。</p>
+        <p>文章以个人经验追问游戏全面数字化之后的变化：玩家的支付能力和社会烙印被带入虚拟世界，转化为数值优势及虚拟身体的行动能力。当收藏、消费与记忆逐渐脱离卡带等实体媒介，我们拥有游戏、回忆游戏以及在游戏中表达欲望的方式，也随之改变。</p>
+        <p><strong>为什么读：</strong> 从日常收藏切入数字游戏经济，适合思考虚拟财产、消费身份与个人记忆之间的关系。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>实体媒介 (shítǐ méijiè)</strong> — 用来储存或传递内容的有形载体，例如游戏卡带和光盘。</li>
+          <li><strong>帧数 (zhēnshù)</strong> — 画面每秒显示的影像帧数量，通常会影响游戏的流畅度。</li>
+          <li><strong>数值优势 (shùzhí yōushì)</strong> — 玩家通过装备、等级或付费内容获得的量化能力优势。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer class="notes">
+      <p><strong>Source note:</strong> Some research posts were available only in truncated form or with unresolved shortened links. Summaries above therefore stay within the supplied text and link to the corresponding posts.</p>
+      <p>News Daily · Run 2026-08-29-1</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

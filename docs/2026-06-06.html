@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --paper: #fffaf0;
+      --ink: #24211c;
+      --muted: #6f6659;
+      --rule: #d8cbbb;
+      --accent: #7a3f1d;
+      --accent-soft: #ead8c7;
+      --tag-bg: #efe5d8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    h1 {
+      margin: 8px 0 6px;
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+
+    .summary {
+      max-width: 780px;
+      margin: 20px auto 0;
+      font-size: 1.08rem;
+      color: #3a332b;
+    }
+
+    main {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 8px 24px rgba(50, 35, 20, 0.08);
+      padding: 26px;
+    }
+
+    section {
+      margin: 0 0 34px;
+    }
+
+    section:last-child {
+      margin-bottom: 0;
+    }
+
+    h2 {
+      font-size: 1.55rem;
+      line-height: 1.2;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+      margin: 0 0 16px;
+      color: var(--accent);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    article {
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 16px;
+    }
+
+    .grid article {
+      border: 1px solid var(--rule);
+      background: rgba(255,255,255,0.42);
+      padding: 16px;
+      border-radius: 10px;
+    }
+
+    h3 {
+      font-size: 1.13rem;
+      line-height: 1.28;
+      margin: 0 0 8px;
+    }
+
+    h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    h3 a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+
+    p {
+      margin: 0 0 10px;
+    }
+
+    .link {
+      font-size: 0.92rem;
+      overflow-wrap: anywhere;
+    }
+
+    .link a {
+      color: var(--accent);
+    }
+
+    .tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--tag-bg);
+      color: #5d4b3d;
+      border: 1px solid #dfd0bd;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .lead {
+      border: 2px solid var(--accent-soft);
+      background: #fff7eb;
+      padding: 18px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+
+    .lead h3 {
+      font-size: 1.35rem;
+    }
+
+    .note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      border-top: 1px solid var(--rule);
+      margin-top: 30px;
+      padding-top: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        padding: 18px 12px 36px;
+      }
+
+      main {
+        padding: 18px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">Daily Research Newspaper</div>
+      <h1>News</h1>
+      <div class="date">2026-06-06</div>
+      <p class="summary">
+        Today’s edition is heavy on protein and genomic foundation models, with a useful cluster around agentic design loops,
+        leak-aware evaluation, antibody engineering, molecular switches, and regulatory sequence modeling.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Front Page</h2>
+
+        <article class="lead">
+          <h3>
+            <a href="https://x.com/proteinrosh/status/2062193389538259294">
+              ESMFold2 scaling depends on perturbing pair representations, with API/default fixes pending
+            </a>
+          </h3>
+          <p>
+            Roshan Rao notes that reproducing ESMFold2 scaling behavior depends on several stochastic settings that are not yet exposed cleanly in the public API:
+            random LM dropout masks, random LM input masks, MSA subsampling, and MSA column masking. The team is working on open-source/API fixes and better defaults,
+            with exact settings currently documented in the supplement.
+          </p>
+          <p>
+            This is the kind of detail that matters if ESMFold2 is being used downstream for binder-design behavior or benchmark comparisons: the “model” is not just
+            the weights, but also the perturbation recipe around inference/training-like sampling.
+          </p>
+          <p class="link"><a href="https://x.com/proteinrosh/status/2062193389538259294">https://x.com/proteinrosh/status/2062193389538259294</a></p>
+          <div class="tags">
+            <span class="tag">protein models</span>
+            <span class="tag">reproducibility</span>
+            <span class="tag">ESMFold2</span>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Agentic Biology & Design Loops</h2>
+        <div class="grid">
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2061792214389580199">
+                AgentPLM: protein language models with reasoning-augmented decoding and tool calls
+              </a>
+            </h3>
+            <p>
+              AgentPLM reframes protein sequence design as an agentic loop: the model can pause during decoding, call biophysical oracles such as ESMFold, FoldX,
+              or AutoDock Vina, then continue generation with updated context. Its Reasoning-Augmented Decoding adds tool-call actions and uses structural
+              self-consistency as an uncertainty trigger.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2061792214389580199">https://x.com/BiologyAIDaily/status/2061792214389580199</a></p>
+            <div class="tags">
+              <span class="tag">protein design</span>
+              <span class="tag">agentic AI</span>
+              <span class="tag">PLMs</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2062185295999889863">
+                PROBE: probing-guided molecular optimization for LLM agents in structure-based drug design
+              </a>
+            </h3>
+            <p>
+              PROBE proposes a “probe before you edit” workflow for LLM-guided molecular optimization. It builds pocket-specific site maps, diagnoses editable
+              molecular sites, runs analog perturbations, and constructs an EditManual to reduce objective interference between binding affinity and druggability.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2062185295999889863">https://x.com/BiologyAIDaily/status/2062185295999889863</a></p>
+            <div class="tags">
+              <span class="tag">drug design</span>
+              <span class="tag">LLM agents</span>
+              <span class="tag">molecular optimization</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2061792037524095345">
+                Site4Drug: AI-agent target-site selection for drug discovery
+              </a>
+            </h3>
+            <p>
+              Site4Drug focuses on deciding where to intervene on a protein, not only what molecule binds. It ranks targetable regions with constraints,
+              evidence summaries, risk flags, and a decision log, while also recommending modality from the same evidence.
+            </p>
+            <p>
+              The interesting bit is upstream auditability: accessibility, topology, PTMs, motifs, domains, and feasibility signals are surfaced before the
+              project commits to a target site.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2061792037524095345">https://x.com/BiologyAIDaily/status/2061792037524095345</a></p>
+            <div class="tags">
+              <span class="tag">target selection</span>
+              <span class="tag">drug discovery</span>
+              <span class="tag">AI agents</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/kavi_deniz/status/2039358526313947538">
+                Tamarind Bio assay portal connects computational protein design to wet-lab validation
+              </a>
+            </h3>
+            <p>
+              Tamarind Bio announced an assay portal with partners including A-Alpha Bio, Adaptyv Bio, and Ginkgo. The pitch is lab-in-the-loop validation for
+              protein and antibody design: binding affinity, developability, expression, stability, model specialization, and assay-derived training data.
+            </p>
+            <p class="link"><a href="https://x.com/kavi_deniz/status/2039358526313947538">https://x.com/kavi_deniz/status/2039358526313947538</a></p>
+            <div class="tags">
+              <span class="tag">wet lab</span>
+              <span class="tag">protein design</span>
+              <span class="tag">validation loops</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Protein Interfaces, Antibodies & Binding Sites</h2>
+        <div class="grid">
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2062185628780085437">
+                ProSiteHunter: sequence-only prediction of protein-DNA, protein-RNA, PPI, and antibody-antigen binding sites
+              </a>
+            </h3>
+            <p>
+              ProSiteHunter proposes a unified sequence-based framework for residue-level binding-site prediction across protein-DNA, protein-RNA,
+              protein-protein, and antibody-antigen interfaces. It combines task-adapted PLM features, structure-related embeddings, predicted geometry,
+              physicochemical/statistical features, multi-source fusion, and interaction-learning blocks.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2062185628780085437">https://x.com/BiologyAIDaily/status/2062185628780085437</a></p>
+            <div class="tags">
+              <span class="tag">binding sites</span>
+              <span class="tag">protein interfaces</span>
+              <span class="tag">PLMs</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2062185544751448443">
+                DeepRank-Ab: graph-based scoring for antibody-antigen complex ranking
+              </a>
+            </h3>
+            <p>
+              DeepRank-Ab targets a very practical antibody-modeling failure mode: good antibody-antigen poses may be sampled but ranked poorly. The work builds
+              a curated decoy benchmark from SAbDab/HADDOCK3, trains continuous DockQ prediction, and finds that atom-level interface graphs plus Voronoi contact
+              features and antibody-specific annotations improve ranking.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2062185544751448443">https://x.com/BiologyAIDaily/status/2062185544751448443</a></p>
+            <div class="tags">
+              <span class="tag">antibodies</span>
+              <span class="tag">structure prediction</span>
+              <span class="tag">ranking</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2059994414194491437">
+                AbLingua: scaling antibody language models for structure-aware antibody engineering
+              </a>
+            </h3>
+            <p>
+              AbLingua pretrains antibody language models with overlapping tripeptide units to better capture local cooperative interactions and CDR conformations.
+              The work scales an antibody-specific encoder up to 1.7B parameters on 1.4B antibody sequences from OAS, aiming at structure-aware representations
+              for antibody engineering.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2059994414194491437">https://x.com/BiologyAIDaily/status/2059994414194491437</a></p>
+            <div class="tags">
+              <span class="tag">antibodies</span>
+              <span class="tag">foundation models</span>
+              <span class="tag">therapeutics</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2061791867914596815">
+                SwitchCraft: programmatic design of state-switching proteins
+              </a>
+            </h3>
+            <p>
+              SwitchCraft designs proteins that switch between functional states in response to ligands or binding contexts. Users specify multiple states and
+              differentiable constraints, then optimize one sequence through Boltz-1 across all state contexts, with losses for motifs, binding, anti-binding,
+              conformational change, and related objectives.
+            </p>
+            <p>
+              This one is especially biological-circuit-adjacent: explicit multistate, ligand-responsive switching rather than static structure generation.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2061791867914596815">https://x.com/BiologyAIDaily/status/2061791867914596815</a></p>
+            <div class="tags">
+              <span class="tag">molecular switches</span>
+              <span class="tag">protein design</span>
+              <span class="tag">biological circuits</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Drug Discovery Evaluation, Phenotypes & ADMET</h2>
+        <div class="grid">
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2062185419308249418">
+                HonestAffinity: leak-aware evaluation changes whether protein/pocket priors help affinity models
+              </a>
+            </h3>
+            <p>
+              HonestAffinity argues that ESM-2 protein embeddings and pocket-position markers can help on familiar PDBbind/CASF-style splits but hurt under
+              stricter leak-proof LP-PDBBind tiers. The broader point is deployment-conditioned model choice: priors that help on familiar annotated targets may
+              mislead under strict generalization.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2062185419308249418">https://x.com/BiologyAIDaily/status/2062185419308249418</a></p>
+            <div class="tags">
+              <span class="tag">affinity prediction</span>
+              <span class="tag">data leakage</span>
+              <span class="tag">evaluation</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2060386371827884091">
+                PhAME: phenotype-aware molecular editing with latent diffusion
+              </a>
+            </h3>
+            <p>
+              PhAME frames hit-to-lead as latent-space molecular editing that steers compounds toward high-dimensional phenotypic targets, such as transcriptomic
+              or morphology profiles, while staying close to a seed molecule. It uses compositional classifier-free guidance to combine phenotype and similarity
+              constraints.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2060386371827884091">https://x.com/BiologyAIDaily/status/2060386371827884091</a></p>
+            <div class="tags">
+              <span class="tag">phenotypic screening</span>
+              <span class="tag">diffusion models</span>
+              <span class="tag">hit-to-lead</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2059994131112567191">
+                Mapping the avoid-ome: open-science predictive ADMET targets
+              </a>
+            </h3>
+            <p>
+              The “avoid-ome” frames ADMET attrition as a recurring set of protein liabilities behind absorption, distribution, metabolism, excretion, and toxicity
+              failures. The useful takeaway is that better predictive ADMET needs consistent mechanistic data at least as much as it needs better ML models.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2059994131112567191">https://x.com/BiologyAIDaily/status/2059994131112567191</a></p>
+            <div class="tags">
+              <span class="tag">ADMET</span>
+              <span class="tag">toxicology</span>
+              <span class="tag">drug discovery</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Genomics, RNA & Regulatory Models</h2>
+        <div class="grid">
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2059993137146478828">
+                Carbon: long-context generative DNA language models up to roughly 786 kbp
+              </a>
+            </h3>
+            <p>
+              CARBON introduces decoder-only generative DNA language models at 3B and 8B scale using non-overlapping 6-mer tokens, long-context training, and
+              YaRN extrapolation. The 8B model reaches 131,072 tokens, corresponding to roughly 786 kbp of DNA context.
+            </p>
+            <p>
+              The emphasis on data curation, tokenization, objectives, and context length makes it relevant for long-range regulatory sequence modeling, not just
+              generic “bigger genomics model” news.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2059993137146478828">https://x.com/BiologyAIDaily/status/2059993137146478828</a></p>
+            <div class="tags">
+              <span class="tag">genomics</span>
+              <span class="tag">DNA language models</span>
+              <span class="tag">long context</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/naturemethods/status/2049576849529815493">
+                Orthus: RNA foundation model trained with splicing isoforms and orthologous transcripts
+              </a>
+            </h3>
+            <p>
+              Nature Methods highlights Orthus, an RNA foundation model pretrained via contrastive learning over splicing isoforms and orthologous transcripts.
+              The model targets RNA representation learning using evolutionary and isoform relationships rather than plain sequence modeling alone.
+            </p>
+            <p class="link"><a href="https://x.com/naturemethods/status/2049576849529815493">https://x.com/naturemethods/status/2049576849529815493</a></p>
+            <div class="tags">
+              <span class="tag">RNA</span>
+              <span class="tag">transcriptomics</span>
+              <span class="tag">foundation models</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/naturemethods/status/2041247457711899128">
+                CREsted toolbox for modeling and designing cell-type-specific enhancers
+              </a>
+            </h3>
+            <p>
+              CREsted is a Nature Methods toolbox for analysis, modeling, and design of cell-type-specific enhancers. It is directly relevant to regulatory-sequence
+              modeling and enhancer design workflows.
+            </p>
+            <p class="link"><a href="https://x.com/naturemethods/status/2041247457711899128">https://x.com/naturemethods/status/2041247457711899128</a></p>
+            <div class="tags">
+              <span class="tag">enhancers</span>
+              <span class="tag">gene regulation</span>
+              <span class="tag">tools</span>
+            </div>
+          </article>
+
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2059992671754813789">
+                ViroBench evaluates nucleotide foundation models on viral genomics and biosecurity behavior
+              </a>
+            </h3>
+            <p>
+              ViroBench is a benchmark for nucleotide foundation models on viral genomics. It covers biological understanding tasks and generation-related
+              biosecurity risk, built from curated viral sequences with taxonomy, host, genome, and phenotype metadata.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2059992671754813789">https://x.com/BiologyAIDaily/status/2059992671754813789</a></p>
+            <div class="tags">
+              <span class="tag">viral genomics</span>
+              <span class="tag">biosecurity</span>
+              <span class="tag">benchmarking</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Systems Biology & Proteome-Scale Modeling</h2>
+        <div class="grid">
+          <article>
+            <h3>
+              <a href="https://x.com/BiologyAIDaily/status/2059995462179193029">
+                ProteomeLM models whole proteomes for PPI and gene essentiality prediction
+              </a>
+            </h3>
+            <p>
+              ProteomeLM is a transformer over entire proteomes rather than single proteins or local windows. It uses pretrained protein embeddings to learn
+              organism-level constraints and predict protein-protein interactions and gene essentiality across taxa, including microbial essentiality settings.
+            </p>
+            <p class="link"><a href="https://x.com/BiologyAIDaily/status/2059995462179193029">https://x.com/BiologyAIDaily/status/2059995462179193029</a></p>
+            <div class="tags">
+              <span class="tag">gene essentiality</span>
+              <span class="tag">protein interactions</span>
+              <span class="tag">systems biology</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <p class="note">
+        Source: X Bio Research. No source-stage failure notes were reported for this aggregation run.
+      </p>
+    </main>
+  </div>
+</body>
+</html>

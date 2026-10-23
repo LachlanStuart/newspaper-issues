@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #6b7280;
+      --line: #ded7c9;
+      --accent: #7c3aed;
+      --accent-soft: #ede9fe;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      padding-bottom: 20px;
+      margin-bottom: 26px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    header .meta {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 2px rgba(31, 41, 51, 0.05);
+    }
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--line);
+      font-size: 1.6rem;
+      letter-spacing: -0.02em;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    article:last-child { border-bottom: 0; padding-bottom: 0; }
+    .item-meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 8px;
+    }
+    .summary { margin: 0.35rem 0 0; }
+    a {
+      color: #5b21b6;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--accent-soft);
+      color: #4c1d95;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+    }
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .notice {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+      background: #fafafa;
+      border-left: 4px solid var(--line);
+      padding: 10px 12px;
+      margin-top: 16px;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 4px solid var(--ink);
+      padding-top: 8px;
+    }
+    .language-practice section {
+      background: #fff;
+    }
+    .lang-block h3 {
+      font-size: 1.1rem;
+      margin-top: 0;
+    }
+    .lang-block p {
+      margin: 0.75rem 0;
+    }
+    .lang-block ul {
+      margin-top: 0.4rem;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      margin-top: 28px;
+    }
+    @media (max-width: 760px) {
+      section { padding: 18px; }
+      .two-col { grid-template-columns: 1fr; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="meta">Thursday, June 18, 2026 · Run ID: 2026-06-18-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research</h2>
+
+        <article>
+          <h3><a href="https://x.com/ID_AA_Carmack/status/2067437937713717609">Carmack reviews visual representation learning via temporal differences</a></h3>
+          <div class="item-meta">X AI Research</div>
+          <p class="summary">John Carmack reviews <em>You Don’t Need Strong Assumptions: Visual Representation Learning via Temporal Differences</em>, a self-supervised representation-learning paper that uses sequential video-frame pairs instead of augmentation pairs. His notes touch on weak-prior scaling, the frame encoder plus motion encoder setup, stride choices, collapse-avoidance concerns, comparisons to SigReg/JEPA-style prediction, and limits around larger video datasets.</p>
+          <div class="tags">
+            <span class="tag">paper review</span>
+            <span class="tag">representation learning</span>
+            <span class="tag">self-supervised learning</span>
+            <span class="tag">video</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/OpenMed_AI/status/2067371682407330044">LifeSciBench benchmark for AI support in life-science research</a></h3>
+          <div class="item-meta">X AI Research</div>
+          <p class="summary">OpenMed retweets OpenAI’s introduction of LifeSciBench, described as a benchmark for measuring and improving how well AI supports real-world life-science research. The provided item is truncated, so details beyond the benchmark framing are not visible.</p>
+          <div class="tags">
+            <span class="tag">benchmark</span>
+            <span class="tag">life sciences</span>
+            <span class="tag">evaluation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/Jianlin_S/status/2067163928338264452">MoE gate normalization debate</a></h3>
+          <div class="item-meta">X AI Research</div>
+          <p class="summary">Jianlin Su shares “MoE (9): The Gate Normalization Debate,” a technical note in an MoE series focused on normalization choices for mixture-of-experts gating.</p>
+          <div class="tags">
+            <span class="tag">mixture of experts</span>
+            <span class="tag">architecture</span>
+            <span class="tag">technical note</span>
+          </div>
+        </article>
+
+        <div class="notice">Source note: product launches, hiring/events, shallow model-comparison takes, memes, and previously reported registry items were excluded.</div>
+      </section>
+
+      <section>
+        <h2>AI for Biology, Medicine, and the Lab</h2>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067147315752968654">TCRDiff uses conditional diffusion for antigen-specific TCR design with MAGE-A3 validation</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">TCRDiff is a conditional discrete diffusion framework for designing paired TCR CDR3αβ sequences conditioned on peptide–MHC targets and V-gene context. The standout result: four of five designed TCRs activated reporter T cells against the MAGE-A3 epitope while reducing activation against the known Titin cross-reactive peptide.</p>
+          <div class="tags">
+            <span class="tag">immunotherapy</span>
+            <span class="tag">protein design</span>
+            <span class="tag">diffusion models</span>
+            <span class="tag">wet-lab validation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2067148388135834012">HBDesigner designs buried hydrogen-bond networks for stable and specific protein assemblies</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">HBDesigner is a deep-learning framework for installing connected buried hydrogen-bond networks in protein cores and interfaces. The summary reports computational benchmarks against ProteinMPNN and Rosetta MC HBNet, plus experimental validation in monomers, homodimers, and heterodimers, including high thermal stability and improved binding specificity through designed polar networks.</p>
+          <div class="tags">
+            <span class="tag">protein design</span>
+            <span class="tag">deep learning</span>
+            <span class="tag">protein engineering</span>
+            <span class="tag">wet-lab validation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067370877579313485">OmicOS proposes an agent-facing operating layer for omics analysis</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">OmicOS is described as an omics ecosystem infrastructure and agent system for the AI era: an executable, state-aware layer over omics tools. OmicVerse V2 is presented as providing scalable AnnDataOOM-compatible Rust backends and agent-friendly Python algorithms for single-cell, spatial, bulk, and multi-omics analysis; RebuildR ports R/Bioconductor methods to Python under output-equivalence gates.</p>
+          <div class="tags">
+            <span class="tag">omics</span>
+            <span class="tag">agents</span>
+            <span class="tag">single-cell</span>
+            <span class="tag">spatial omics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067370468022353941">SECTOR learns spatiotemporal organization in spatial transcriptomics using structural entropy</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">SECTOR is presented as a structural-entropy-based method for clustering and pseudotime ordering in spatial transcriptomics. It optimizes a differentiable structural entropy objective on a fused spatial–expression graph, using spatial total variation regularization to favor coherent tissue domains while retaining graph connectivity for pseudotime reconstruction.</p>
+          <div class="tags">
+            <span class="tag">spatial transcriptomics</span>
+            <span class="tag">single-cell</span>
+            <span class="tag">graph methods</span>
+            <span class="tag">pseudotime</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2067405334621356497">OpenAI introduces LifeSciBench for evaluating AI support in real-world life-science research</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">A second LifeSciBench mention, via Anshul Kundaje, describes OpenAI’s benchmark for measuring and improving how well AI supports real-world life-science research. The normalized item is a truncated retweet, so further benchmark details are not available here.</p>
+          <div class="tags">
+            <span class="tag">benchmarks</span>
+            <span class="tag">life-science AI</span>
+            <span class="tag">evaluation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2067302140901720537">Orion aims at lab automation with computer-using agents</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">Orion is described as work toward lab automation with computer-using agents that can control a lab computer. The available text is truncated, but the item points to an AI-agent approach to laboratory workflows.</p>
+          <div class="tags">
+            <span class="tag">lab automation</span>
+            <span class="tag">agents</span>
+            <span class="tag">AI for science</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067368421277475139">Nature publication of AMIE conversational medical AI highlighted</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">A retweeted announcement says AMIE, a conversational medical AI system, is now published in <em>Nature</em>. The normalized item is truncated, but it identifies a peer-reviewed paper on conversational medical AI and clinical interaction capabilities.</p>
+          <div class="tags">
+            <span class="tag">medical AI</span>
+            <span class="tag">clinical AI</span>
+            <span class="tag">medicine</span>
+            <span class="tag">agents</span>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Genomics, Synthetic Biology, and Biosecurity</h2>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067370174211391822">MGA assembles haplotype-mixed genomes from long accurate reads</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">MGA is a tool for haplotype-mixed assembly of long and accurate reads. The summary says it extends block-generation operations, uses a multiplex de Bruijn graph to improve contiguity and reduce phase switches, and performs graph operations such as detouring, dewhirling, decoupling, tip repair, and short-edge contraction.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">assembly</span>
+            <span class="tag">long reads</span>
+            <span class="tag">tools</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2067299546523480509">RIPPLE couples reaction–diffusion circuits in a synthetic biology platform</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">RIPPLE is introduced as a synthetic platform that couples reaction–diffusion circuits. The normalized item is truncated, but the available text points to a biological-circuits preprint.</p>
+          <div class="tags">
+            <span class="tag">synthetic biology</span>
+            <span class="tag">biological circuits</span>
+            <span class="tag">preprint</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2067294157283225889">DNA synthesis screening letter sparks concrete AI-biosecurity discussion</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">A retweeted thread notes that leaders of OpenAI, Anthropic, and Google DeepMind signed a letter urging Congress to mandate DNA synthesis screening, while also raising concerns about chatbot-related biosecurity framing. The item is truncated, but it is a concrete policy and safety discussion around DNA synthesis screening.</p>
+          <div class="tags">
+            <span class="tag">biosecurity</span>
+            <span class="tag">DNA synthesis</span>
+            <span class="tag">policy</span>
+            <span class="tag">AI safety</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067209276440154309">NanoSimFormer simulates nanopore sequencing signal data with transformers</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">NanoSimFormer is titled as “An end-to-end Transformer-based simulator for nanopore sequencing signal data.” The normalized item contains only the title and link text, but the topic is a genomics-relevant transformer tool for nanopore signal simulation.</p>
+          <div class="tags">
+            <span class="tag">nanopore</span>
+            <span class="tag">genomics</span>
+            <span class="tag">transformers</span>
+            <span class="tag">simulation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2067368497743823202">Prime assembly uses a Gibson-like strategy for large DNA insertions</a></h3>
+          <div class="item-meta">X Bio Research</div>
+          <p class="summary">Prime assembly is described in a <em>Nature Biotechnology</em> research highlight as using a Gibson-like strategy for large DNA insertions. The item is brief, but the topic is a concrete genome-engineering method.</p>
+          <div class="tags">
+            <span class="tag">genome editing</span>
+            <span class="tag">DNA insertion</span>
+            <span class="tag">synthetic biology</span>
+          </div>
+        </article>
+
+        <div class="notice">Source note: several included retweets were truncated in the provided normalized data, so summaries are limited to the available text. Previously reported Boltz and binder-evaluation posts were skipped.</div>
+      </section>
+
+      <div class="language-practice">
+        <section>
+          <h2>Language Practice</h2>
+          <p class="notice">Native-language reading snippets from language-practice sources are preserved without translation.</p>
+
+          <div class="two-col">
+            <article class="lang-block" lang="de">
+              <h3>Deutsch — EU-Parlament beschließt gelockerte Regeln für Gentechnik</h3>
+              <div class="item-meta">tagesschau.de · 17.06.2026 · <a href="https://www.tagesschau.de/ausland/europa/eu-gentechnik-lockerungen-100.html">https://www.tagesschau.de/ausland/europa/eu-gentechnik-lockerungen-100.html</a></div>
+              <p>Das Europaparlament hat für gelockerte Regeln bei bestimmten gentechnisch veränderten Pflanzen gestimmt. Betroffen sind sogenannte Neue Genomische Techniken wie Crispr-Cas: Produkte aus solchen Pflanzen sollen im Supermarkt künftig nicht mehr verpflichtend als gentechnisch verändert gekennzeichnet werden müssen; auch aufwendige Umwelt- und Risikoprüfungen sollen für diese Kategorie entfallen.</p>
+              <p>Befürworter sehen darin eine Chance, schneller Pflanzen zu entwickeln, die besser mit Dürren zurechtkommen oder weniger Dünger benötigen. Kritiker warnen dagegen vor mangelnder Transparenz für Verbraucher und vor Problemen bei der Rückverfolgbarkeit, etwa wenn sich veränderte Pflanzen unbeabsichtigt auf andere Felder ausbreiten.</p>
+              <p>Politisch ist das Thema auch in Deutschland umstritten: Das Bundesumweltministerium kritisierte die Einigung, während andere Ministerien die Lockerungen unterstützten. Die neuen Regeln sollen voraussichtlich ab Mitte 2028 angewendet werden.</p>
+              <p><strong>Warum lesen:</strong> Der Artikel eignet sich gut, um aktuelle EU-Politik, Verbraucherschutz und Wissenschaftsdebatten auf Deutsch zu verfolgen.</p>
+            </article>
+
+            <article class="lang-block" lang="fr">
+              <h3>Français — Espionnage par IA : Vladimir Poutine « considère Internet comme une menace »</h3>
+              <div class="item-meta">France 24 · 2026-06-17 · <a href="https://www.france24.com/fr/europe/20260617-espionnage-ia-vladimir-poutine-consid%C3%A8re-internet-comme-menace">https://www.france24.com/fr/europe/20260617-espionnage-ia-vladimir-poutine-consid%C3%A8re-internet-comme-menace</a></div>
+              <p>France 24 revient sur la méfiance croissante de Vladimir Poutine envers Internet et les systèmes de vidéosurveillance connectés. Selon l’article, qui s’appuie notamment sur le Financial Times et sur un entretien avec la chercheuse Ksenia Ermoshina, les services de sécurité russes auraient temporairement désactivé un dispositif chargé de protéger Poutine et son entourage, par crainte qu’il puisse devenir un outil d’espionnage.</p>
+              <p>Le sujet met en lumière un paradoxe sécuritaire : les caméras « intelligentes » et l’analyse vidéo par IA servent à surveiller la population et à renforcer le contrôle de l’État, mais elles peuvent aussi exposer les dirigeants si elles sont piratées ou reliées à Internet. L’article explique que Moscou dispose d’un très vaste réseau de caméras, régulièrement présenté comme un outil d’ordre public, mais vulnérable dès qu’il dépend d’infrastructures connectées.</p>
+              <p>L’entretien élargit ensuite la question aux coupures d’Internet en Russie, devenues plus fréquentes lors d’événements politiques, de déplacements officiels ou dans les régions proches de l’Ukraine. Pour Ksenia Ermoshina, Poutine voit désormais le réseau comme une menace directe : une « ombre numérique » et des périodes de silence en ligne accompagneraient certains de ses déplacements.</p>
+              <p><strong>Pourquoi lire :</strong> un bon article pour travailler le vocabulaire de la surveillance, de l’IA et de la sécurité politique en contexte européen.</p>
+              <p><strong>Vocabulaire utile</strong></p>
+              <ul>
+                <li><strong>vidéosurveillance connectée</strong> — réseau de caméras reliées à Internet ou à des systèmes d’analyse automatisée.</li>
+                <li><strong>analyse vidéo par IA</strong> — traitement automatique de grandes quantités d’images pour repérer des mouvements, des visages ou des schémas.</li>
+                <li><strong>coupure d’Internet</strong> — interruption volontaire ou imposée de l’accès au réseau dans une zone donnée.</li>
+              </ul>
+            </article>
+
+            <article class="lang-block" lang="ja">
+              <h3>日本語 — G7サミット 重要鉱物や石油備蓄協力などで成果文書発表</h3>
+              <div class="item-meta">NHKニュース · 2026-06-18 · <a href="https://news.web.nhk/newsweb/na/na-k10015153011000">https://news.web.nhk/newsweb/na/na-k10015153011000</a></div>
+              <p>フランスで開かれたG7サミットで、重要鉱物の備蓄に向けた協力の枠組みや、石油備蓄制度の充実などを盛り込んだ2つの成果文書が取りまとめられました。NHKは、これらが日本側の提案も踏まえた内容だと伝えています。</p>
+              <p>記事は、エネルギーや産業に欠かせない資源をめぐり、主要7か国がどのように協力体制を作ろうとしているかを読む入口になります。G7、資源・エネルギー、フランスという注目ワードが付いており、経済安全保障や供給網の話題に関心がある学習者にも向いています。</p>
+              <p><strong>読む理由：</strong> 国際政治と資源政策が交わる時事語彙を、日本語ニュースの文体で確認できるため。</p>
+              <p><strong>語彙メモ</strong></p>
+              <ul>
+                <li><strong>重要鉱物（じゅうようこうぶつ）</strong> — 半導体や電池などの産業に欠かせない、供給が重要視される鉱物資源。</li>
+                <li><strong>石油備蓄（せきゆびちく）</strong> — 緊急時に備えて国や企業が石油を蓄えておく仕組み。</li>
+                <li><strong>成果文書（せいかぶんしょ）</strong> — 国際会議などで合意内容や方針をまとめて発表する文書。</li>
+              </ul>
+            </article>
+
+            <article class="lang-block" lang="zh-Hans">
+              <h3>中文 — 解读｜你的跨国签证，如何成为一门暴利生意？</h3>
+              <div class="item-meta">端传媒 · 2026-06-18 · <a href="https://theinitium.com/20260618-international-visa-vfs-empire-zh-hans/">https://theinitium.com/20260618-international-visa-vfs-empire-zh-hans/</a></div>
+              <p>这篇文章从签证外包服务公司 VFS 的用户经验切入，讨论跨国旅行、留学和移民过程中，申请人为何常常面对排队、预约困难、资讯不透明与额外收费。文中举例，一名在北京申请英国签证的网友因迟到二十分钟，被告知若不购买贵宾服务就必须重新预约，引发她对 VFS 与英国签证外包制度的质疑。</p>
+              <p>文章进一步把这种个人挫败放到更大的制度背景中：许多国家将签证申请前端服务外包给商业公司，申请人却很难分清哪些费用是必要程序、哪些只是被推销的附加服务。Reddit 等平台上也充满类似抱怨，包括预约名额稀缺、客服难以联系、网站体验差，以及 VIP 服务被强力推荐等。</p>
+              <p>适合想练习现代中文新闻语体的读者：题材结合移民、全球化、行政外包和平台化服务，也能看到网络投诉语言如何进入严肃报道。</p>
+              <p><strong>为什么读：</strong> 它把许多人熟悉的签证焦虑，放进跨国行政服务商业化的结构中理解。</p>
+              <p><strong>词汇笔记</strong></p>
+              <ul>
+                <li><strong>签证外包 (qiānzhèng wàibāo)</strong> — 政府把签证申请的部分流程交给商业机构处理。</li>
+                <li><strong>贵宾服务 (guìbīn fúwù)</strong> — 需额外付费、声称可提供更快或更舒适体验的服务。</li>
+                <li><strong>信息不透明 (xìnxī bù tòumíng)</strong> — 规则、费用或流程不清楚，使用者难以判断是否公平。</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      News · Generated from provided source report fragments only.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

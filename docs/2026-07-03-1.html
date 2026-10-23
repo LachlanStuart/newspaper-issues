@@ -1,0 +1,364 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #d9d2c7;
+      --accent: #7c3aed;
+      --accent-soft: #eee7ff;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: -0.04em;
+    }
+    .dateline {
+      margin-top: 8px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 2px 12px rgba(31, 41, 51, 0.04);
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.55rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin: 18px 0 6px;
+      font-size: 1.12rem;
+    }
+    article {
+      padding: 12px 0 14px;
+      border-bottom: 1px solid #ece6dd;
+    }
+    article:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    p {
+      margin: 7px 0;
+    }
+    a {
+      color: #4f46e5;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 999px;
+      padding: 1px 8px;
+      margin: 2px 3px 2px 0;
+    }
+    .lede {
+      font-size: 1.05rem;
+      color: #344054;
+    }
+    .language-section {
+      background: #fbfaff;
+      border-color: #d8ccff;
+    }
+    .language-section h2 {
+      border-bottom-color: #d8ccff;
+    }
+    .language-card {
+      background: white;
+      border: 1px solid #e6ddff;
+      border-radius: 12px;
+      padding: 16px;
+      margin: 14px 0;
+    }
+    .language-card h3 {
+      margin-top: 0;
+      color: #442178;
+    }
+    ul {
+      margin-top: 6px;
+    }
+    .notes {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dateline">Friday, July 3, 2026 · Run 2026-07-03-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research</h2>
+      <p class="lede">Today’s AI research stream focuses on more efficient inference and training, richer reward supervision for robots, data-mixture questions in vision-language models, and statistical genomics.</p>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2072738185751224784">QuasiMoTTo scales inference compute with correlated samples</a></h3>
+        <p>Stanford AI Lab highlights QuasiMoTTo, a method aimed at reducing wasted inference-time compute. Instead of drawing many independent parallel samples that may rediscover the same solutions, it uses correlated samples to make test-time scaling more useful.</p>
+        <div class="tags"><span class="tag">inference</span><span class="tag">test-time compute</span><span class="tag">sampling</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2072742813767184636">Freeform Preference Learning for robot reward supervision</a></h3>
+        <p>Freeform Preference Learning lets annotators describe axes of preference in natural language rather than supplying only a single binary preference between trajectories. The approach learns rewards conditioned on those axes and reports better robot policies.</p>
+        <div class="tags"><span class="tag">robotics</span><span class="tag">reward learning</span><span class="tag">preferences</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/tilderesearch/status/2072721105480298855">Aurora: a leverage-aware spectral optimizer for language-model MLPs</a></h3>
+        <p>Tilde released Aurora on arXiv, presenting it as a spectral optimizer designed for MLP matrices in language models. The thread reports pretraining-efficiency gains, strong modded nanoGPT speedrun results among spectral optimizers, and larger advantages for wider MLPs.</p>
+        <div class="tags"><span class="tag">optimizers</span><span class="tag">language models</span><span class="tag">training efficiency</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/giffmana/status/2072758965809627230">DCVLM analyzes vision-language data mixtures across scales</a></h3>
+        <p>Lucas Beyer comments on DCVLM as a vision-language counterpart to DCLM, centered on how data mixtures behave across model scales. The summary notes that filtering performs poorly, data-type mixing matters, and the best small-scale mixture may not match the best mid-scale mixture.</p>
+        <div class="tags"><span class="tag">VLM</span><span class="tag">data mixtures</span><span class="tag">scaling</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/gen0m1cs/status/2072907435145142514">Common and rare variants improve polygenic risk prediction</a></h3>
+        <p>A Nature Communications publication, “Integrating common and rare variants improves polygenic risk prediction,” was highlighted as a statistical-genomics method result relevant to computational biology modeling.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">polygenic risk</span><span class="tag">computational biology</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio, Medicine & Computational Biology</h2>
+      <p class="lede">The bio research feed is especially dense today: structural mining, peptide engineering, molecular safety benchmarks, cryo-EM model building, virtual cells, chromatin regulation, and open-data policy all appear.</p>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072661717243597002">Metal-coordination mining discovers new metalloenzyme functions at AlphaFold scale</a></h3>
+        <p>A pipeline mines atomic-level active-site geometry rather than sequence similarity to discover FeII/αKG-dependent radical halogenases. Applied to InterPro and the AlphaFold2 database, it narrows roughly 220 million sequences to 946 candidates, expands known halogenase families, and experimentally validates AspX and BtnX.</p>
+        <div class="tags"><span class="tag">enzyme discovery</span><span class="tag">structural bioinformatics</span><span class="tag">AlphaFold</span><span class="tag">biocatalysis</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072661534669701485">SCARSE uses ESM-2 embeddings for low-resource peptide engineering</a></h3>
+        <p>SCARSE targets peptide-engineering campaigns with only 20–500 labeled peptides. It combines frozen ESM-2 embeddings with Gaussian-process regression or extremely randomized trees, and the summary emphasizes strong low-label active-learning performance across substitution, indel, antimicrobial, cell-penetrating, and toxicity datasets.</p>
+        <div class="tags"><span class="tag">peptide engineering</span><span class="tag">active learning</span><span class="tag">protein language models</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072661366616522972">MolSafeEval benchmarks safety risks in AI-generated molecules</a></h3>
+        <p>MolSafeEval evaluates whether generated molecules are toxic, reactive, or hazardous, not just novel or optimized. It builds a hazardous-molecule knowledge graph and uses an RDKit plus retrieval-augmented LLM pipeline across generation, property optimization, target-based design, and text-to-molecule tasks.</p>
+        <div class="tags"><span class="tag">drug discovery</span><span class="tag">molecular generation</span><span class="tag">safety</span><span class="tag">benchmark</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072659790409691387">Protein generative models reframed as evolutionary dynamics tools</a></h3>
+        <p>A review connects protein generative models to explicit evolutionary processes. It emphasizes Direct Coupling Analysis landscapes, population-genetic simulations, and Generative Substitution Models that combine mutation proposals with score-based acceptance to simulate mutation, selection, drift, and epistasis.</p>
+        <div class="tags"><span class="tag">protein evolution</span><span class="tag">generative models</span><span class="tag">epistasis</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072659650764488910">Pepti-drift designs antigen-conditioned peptides with toxicity repulsion</a></h3>
+        <p>Pepti-drift is a one-step antigen-conditioned peptide generator that steers latent peptides toward antigen-matched binders while repelling them from toxicity- and hemolysis-associated regions. It uses frozen ESM-2 encoders, a learned drift field, and non-autoregressive decoding.</p>
+        <div class="tags"><span class="tag">peptide design</span><span class="tag">drug discovery</span><span class="tag">safety</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072659524163359161">CryoACE builds atomic models directly from cryo-EM density maps</a></h3>
+        <p>CryoACE is described as an atom-centric generative framework for automated model building in cryo-EM maps, including heterogeneous dynamic ensembles. It combines density features, sequence/MSA information, Q-score and local-resolution prediction, and diffusion guidance.</p>
+        <div class="tags"><span class="tag">cryo-EM</span><span class="tag">structural biology</span><span class="tag">diffusion models</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072659116086980821">Tabular in-context learners tested for biomolecular property prediction</a></h3>
+        <p>A benchmark evaluates whether tabular foundation models such as TabPFN3 and TabICL can transfer to biomolecular property prediction with fixed molecular or protein representations. With ESMC embeddings on ProteinGym assays, they reportedly beat several conventional baselines in multiple settings, though small-molecule ADMET and out-of-distribution results are more mixed.</p>
+        <div class="tags"><span class="tag">few-shot learning</span><span class="tag">protein fitness</span><span class="tag">ADMET</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2072658934536810502">ResFF combines molecular mechanics with an equivariant neural residual force field</a></h3>
+        <p>ResFF predicts molecular energy as an analytic covalent molecular-mechanics baseline plus a compact equivariant neural residual. Reported strengths include generalization on drug-like molecules, improved torsional and intermolecular energetics, stable OpenMM simulations, and practical throughput, with limitations around long-range electrostatics, polarization, charged systems, and coordination chemistry.</p>
+        <div class="tags"><span class="tag">molecular dynamics</span><span class="tag">force fields</span><span class="tag">equivariant models</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/DdelAlamo/status/2072669017446179011">AF-Cluster retweet highlights alternative protein conformations from MSA subsampling</a></h3>
+        <p>A retweeted note says AF-Cluster can recover alternative protein conformations through MSA subsampling, while cautioning that sequence similarity is not a reliable proxy for conformational distance. Details in the provided item were limited.</p>
+        <div class="tags"><span class="tag">protein conformations</span><span class="tag">AlphaFold</span><span class="tag">structural biology</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/sokrypton/status/2072663495032639869">FlashPPI2 points to proteome-scale PPI predictions across 130,000 genomes</a></h3>
+        <p>A retweeted note says FlashPPI2 was used to predict protein–protein interactions across hundreds of millions of proteins from 130,000 genomes on SeqHub. The item was truncated, but it points to large-scale PPI discovery from predicted protein data.</p>
+        <div class="tags"><span class="tag">PPI</span><span class="tag">proteomics</span><span class="tag">genomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2072688356442685761">Open biological data generation as infrastructure for competitive open models</a></h3>
+        <p>Anshul Kundaje argues that competitive open-source AI models depend on large open-data generation efforts, warning that health and medical data hoarding could worsen in the AI era. The thread calls for carefully designed open biological and medical data generation supported by grants and organizations such as Biohub.</p>
+        <div class="tags"><span class="tag">open data</span><span class="tag">bio-AI policy</span><span class="tag">health data</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072777264581005451">HT-recruit points to discovery of protein domains involved in gene regulation</a></h3>
+        <p>A retweet says HT-recruit was used repeatedly to discover new protein domains involved in gene regulation and test many mutants. The normalized item was truncated, but the topic fits functional genomics and gene-regulatory domain discovery.</p>
+        <div class="tags"><span class="tag">gene regulation</span><span class="tag">protein domains</span><span class="tag">functional genomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2072776164004040716">Combinatorial chromatin reader, writer, and eraser interactions</a></h3>
+        <p>An Arc Institute item retweeted by Anshul Kundaje highlights how cells control gene expression through combinatorial interactions among readers, writers, and erasers of chromatin marks. Details in the provided text were limited.</p>
+        <div class="tags"><span class="tag">chromatin</span><span class="tag">gene regulation</span><span class="tag">epigenomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/cutleraging/status/2072861449806856553">Replication stress stabilizes CTCF-dependent chromatin loops</a></h3>
+        <p>A Nature-study announcement reports that replication stress stabilizes CTCF-dependent chromatin loops. Though the item is truncated, it is a concrete result in chromatin architecture, genome organization, and gene regulation.</p>
+        <div class="tags"><span class="tag">chromatin</span><span class="tag">CTCF</span><span class="tag">genome organization</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2072644743767711884">Whole-cell particle-based digital twins of living cells</a></h3>
+        <p>A retweeted item says a lab built whole-cell, particle-based digital twins of living cells reconstructed directly from data. The provided text is truncated, but it clearly sits in virtual-cell and whole-cell modeling territory.</p>
+        <div class="tags"><span class="tag">virtual cells</span><span class="tag">whole-cell modeling</span><span class="tag">digital twins</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2072396291586568319">Researchers created a cell with most hallmarks of life</a></h3>
+        <p>A New York Times item retweeted by Anshul Kundaje says researchers have created a cell with most of the hallmarks of life. The normalized item gives no technical detail beyond the headline, but it may be a notable synthetic-cell result.</p>
+        <div class="tags"><span class="tag">synthetic biology</span><span class="tag">synthetic cells</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2072782374639964631">Pathogen ORFeome screen covers thousands of viral and secreted proteins</a></h3>
+        <p>A retweeted note says a pathogen ORFeome paper screens roughly 4,000 viral and secreted proteins in collaboration with the Stark lab. The assay details and findings were not available in the provided fragment.</p>
+        <div class="tags"><span class="tag">pathogens</span><span class="tag">ORFeome</span><span class="tag">functional genomics</span></div>
+      </article>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+      <p class="lede">Native-language reading snippets selected for practice.</p>
+
+      <div class="language-card" lang="de">
+        <h3>Deutsch — Infineon eröffnet neue Chipfabrik in Dresden</h3>
+        <p class="meta">Tagesschau · 2026-07-02 · <a href="https://www.tagesschau.de/wirtschaft/unternehmen/infineon-chipfabrik-dresden-100.html">https://www.tagesschau.de/wirtschaft/unternehmen/infineon-chipfabrik-dresden-100.html</a></p>
+        <p>Infineon nimmt in Dresden eine neue „Smart Power Fab“ in Betrieb und will damit seine Produktionskapazität am Standort verdoppeln. Die Fabrik wurde drei Monate früher als geplant fertig, kostete rund fünf Milliarden Euro und gilt als eines der modernsten Halbleiterwerke weltweit.</p>
+        <p>Der Artikel erklärt, welche Rolle die Fabrik für Europas Chipstrategie spielt: Gefertigt werden Leistungshalbleiter für KI-Rechenzentren, Windräder, Solaranlagen, Elektroautos und Industrieanlagen. Das Projekt wird über den European Chips Act mit 920 Millionen Euro gefördert und soll dazu beitragen, Europa unabhängiger von Chipimporten zu machen.</p>
+        <p>Zugleich kommen kritische Stimmen zu Wort, die die Höhe der Subventionen infrage stellen, weil der Chipmarkt ohnehin wachse. Für Dresden und Sachsen bedeutet das Werk jedoch eine weitere Stärkung des „Silicon Saxony“ und rund 1.000 neue Arbeitsplätze.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet Wirtschaft, Technologiepolitik und die Frage, wie Europa im globalen Wettbewerb um Halbleiter unabhängiger werden will.</p>
+      </div>
+
+      <div class="language-card" lang="fr">
+        <h3>Français — Guerre en Ukraine : la Russie au défi du brouillage de Starlink</h3>
+        <p class="meta">France 24 · 2026-07-02 17:59 · <a href="https://www.france24.com/fr/europe/20260702-guerre-ukraine-russie-d%C3%A9fi-brouillage-starlink-reseau-spacex">https://www.france24.com/fr/europe/20260702-guerre-ukraine-russie-d%C3%A9fi-brouillage-starlink-reseau-spacex</a></p>
+        <p>France 24 revient sur une vidéo qui montrerait la destruction, par les forces ukrainiennes, d’un dispositif russe destiné à brouiller les signaux Starlink. L’article explique pourquoi ce réseau satellitaire est devenu un élément central de l’effort de guerre ukrainien : il permet de maintenir des communications haut débit sur le terrain, notamment pour transmettre des images, coordonner des unités ou piloter des drones.</p>
+        <p>Le papier s’intéresse aussi à la difficulté technique que représente le brouillage de Starlink. Le système repose sur une constellation de satellites et des antennes paraboliques mobiles, ce qui le rend plus résilient que des infrastructures de communication classiques. La Russie chercherait donc à développer ou déployer des moyens de guerre électronique capables d’en limiter l’usage sur le front.</p>
+        <p>Pour les lecteurs de français, l’article est utile parce qu’il combine vocabulaire militaire, technologie spatiale et enjeux géopolitiques contemporains, avec des explications assez concrètes sur le fonctionnement du réseau et son importance en Ukraine.</p>
+        <p><strong>Pourquoi lire :</strong> Un bon article pour comprendre comment la guerre électronique et les réseaux satellitaires transforment le conflit en Ukraine.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>brouillage</strong> — action de perturber ou d’empêcher la réception d’un signal radio, GPS ou Internet.</li>
+          <li><strong>guerre électronique</strong> — ensemble de techniques militaires visant à intercepter, perturber ou protéger les communications et les signaux adverses.</li>
+          <li><strong>constellation de satellites</strong> — groupe de satellites travaillant ensemble pour fournir un service, ici une connexion Internet.</li>
+        </ul>
+      </div>
+
+      <div class="language-card" lang="ja">
+        <h3>日本語 — ヨーロッパ司法裁判所 グーグルへの巨額制裁金を支持する判決</h3>
+        <p class="meta">NHKニュース · 2026-07-02 · <a href="https://www3.nhk.or.jp/news/html/20260702/k10015167471000.html">https://www3.nhk.or.jp/news/html/20260702/k10015167471000.html</a></p>
+        <p>IT大手グーグルが、スマートフォン向け基本ソフトとアプリをセットで提供していたことなどをめぐり、ヨーロッパ委員会が競争法違反として40億ユーロ余りの制裁金を科した問題で、ヨーロッパ司法裁判所がその判断を支持しました。</p>
+        <p>記事は、EUの競争政策と巨大IT企業のビジネスモデルがぶつかる典型的な事例として読めます。スマートフォン市場でのアプリ配布、検索サービス、OSの支配力が、どのように「競争を妨げる行為」と見なされるのかを考える手がかりになります。</p>
+        <p><strong>読む理由：</strong> EUのデジタル規制と巨大IT企業への監視を、日本語の短いニュース文で確認できる記事です。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>制裁金（せいさいきん）</strong> — 法律や規則に違反した企業などに科される金銭的な罰。</li>
+          <li><strong>競争法（きょうそうほう）</strong> — 企業間の公正な競争を守るための法律やルール。</li>
+          <li><strong>基本ソフト（きほんソフト）</strong> — スマートフォンやパソコンを動かす中心的なソフトウェア。OSとも呼ばれる。</li>
+        </ul>
+      </div>
+
+      <div class="language-card" lang="zh">
+        <h3>中文 — 德副总理：对华采取“更有力路线”</h3>
+        <p class="meta">DW 中文 · 2026-07-02 · <a href="https://www.dw.com/zh/%E5%BE%B7%E5%89%AF%E6%80%BB%E7%90%86%E5%AF%B9%E5%8D%8E%E9%87%87%E5%8F%96%E6%9B%B4%E6%9C%89%E5%8A%9B%E8%B7%AF%E7%BA%BF/a-77805260">https://www.dw.com/zh/德副总理对华采取更有力路线/a-77805260</a></p>
+        <p>德国副总理克林拜尔在柏林表示，德国正在落实对中国“更有力”的政策路线，尤其是在基础设施、国防等具有战略重要性的领域，更多依靠欧洲本地生产。文章把这一表态放在德中经济关系、供应链安全与欧盟对华政策的背景下讨论。</p>
+        <p>德国总理默茨则强调，德国并不只看到对中国供应的依赖，也看到中国对欧盟市场的依赖。他说，欧盟拥有4.5亿消费者，是许多国家的重要销售市场；在面对产能过剩、补贴、汇率低估等不公平贸易行为时，德国和欧盟需要共同防御。</p>
+        <p>文章还提到，德国经济部长赖歇近期在布鲁塞尔会见中国商务部长王文涛，双方讨论重启经济合作委员会等议题。德国方面一方面希望深化与中国合作，另一方面要求更公平的竞争条件、可靠供应链与更平衡的贸易关系。</p>
+        <p><strong>为什么读：</strong> 这篇短文适合观察德国新政府如何用中文媒体语境表述“去风险”、产业政策与对华经贸关系的微妙转向。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>战略重要性 (zhànlüè zhòngyàoxìng)</strong> — 指对国家安全、产业基础或长期竞争力具有关键影响的领域。</li>
+          <li><strong>本地生产 (běndì shēngchǎn)</strong> — 在目标市场或区域内部制造产品，以降低外部供应风险。</li>
+          <li><strong>产能过剩 (chǎnnéng guòshèng)</strong> — 生产能力超过市场需求，可能导致低价出口和贸易摩擦。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Source Notes</h2>
+      <p class="notes">No source failures were reported for this run. Some social-media fragments were truncated in the provided data; those items are marked where details were limited.</p>
+    </section>
+
+    <footer>
+      News · Generated from provided source report fragments only
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

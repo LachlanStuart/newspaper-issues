@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #202321;
+      --muted: #626862;
+      --rule: #d8d7cf;
+      --accent: #245b4b;
+      --soft: #eef3ef;
+      --language: #f4f0e7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+
+    .page {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 24px 12px 20px;
+      margin-bottom: 34px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .date {
+      margin-top: 13px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .standfirst {
+      max-width: 760px;
+      margin: 25px auto 0;
+      font-size: 1.1rem;
+      color: #3d423e;
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    .section-title {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      font-family: system-ui, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .subsection-title {
+      margin: 30px 0 14px;
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 30px;
+    }
+
+    article {
+      break-inside: avoid;
+      border-bottom: 1px solid var(--rule);
+      padding: 5px 0 23px;
+      margin-bottom: 22px;
+    }
+
+    article h3 {
+      margin: 0 0 9px;
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+
+    article p {
+      margin: 0 0 10px;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover { text-decoration-thickness: 2px; }
+
+    .source-link {
+      display: inline-block;
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 650;
+    }
+
+    .tags {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    .language-practice {
+      margin-top: 58px;
+      border-top: 6px double var(--ink);
+      padding-top: 28px;
+    }
+
+    .language-intro {
+      max-width: 760px;
+      color: var(--muted);
+      margin: -7px 0 28px;
+    }
+
+    .language-card {
+      background: var(--language);
+      border: 1px solid #ded7c8;
+      padding: 24px;
+      margin: 0 0 25px;
+    }
+
+    .language-card h3 {
+      font-size: 1.45rem;
+      margin: 0 0 6px;
+    }
+
+    .language-card .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      margin-bottom: 17px;
+    }
+
+    .language-card p:last-child,
+    .language-card ul:last-child {
+      margin-bottom: 0;
+    }
+
+    .language-card h4 {
+      margin: 18px 0 5px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .language-card ul {
+      margin-top: 6px;
+      padding-left: 22px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    footer p { margin: 5px 0; }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 24px, 1080px);
+        padding-top: 18px;
+      }
+
+      .grid { grid-template-columns: 1fr; }
+
+      header { padding-left: 0; padding-right: 0; }
+
+      .language-card { padding: 18px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="date">Wednesday, August 12, 2026 · Run 2026-08-12-1</div>
+      <p class="standfirst">
+        Today’s research edition spans efficient model architectures, controllable generation,
+        biological discovery agents, spatial omics, protein modeling, drug discovery, and the
+        importance of independently checking AI-generated scientific code.
+      </p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 class="section-title" id="ai-research">Artificial Intelligence &amp; ML Systems</h2>
+      <div class="grid">
+        <article>
+          <h3>Popcorn benchmarks 222 open ML kernel implementations</h3>
+          <p>
+            Tilde has released Popcorn, a collection of verified machine-learning kernels assembled
+            from 1,373,020 benchmark runs across 222 open implementations. Blackwell GPU evaluations
+            are planned, and the project is open to community contributions.
+          </p>
+          <a class="source-link" href="https://x.com/tilderesearch/status/2087263038550552739">Read the Tilde Research post</a>
+          <div class="tags">ML systems · GPU kernels · benchmarks · tools</div>
+        </article>
+
+        <article>
+          <h3>Tensor factorization makes a categorical joint distribution tractable</h3>
+          <p>
+            A technical note describes representing the joint distribution of categorical variables
+            as a tensor and factorizing it under a parameterization that keeps both log likelihood and
+            the normalization constant tractable.
+          </p>
+          <a class="source-link" href="https://x.com/mgostIH/status/2087480256227639535">Read the technical note</a>
+          <div class="tags">Probabilistic modeling · tensor factorization</div>
+        </article>
+
+        <article>
+          <h3>Passing hidden states may bypass the discrete-token bottleneck</h3>
+          <p>
+            A highlighted generation method communicates hidden states between autoregressive steps
+            rather than relying solely on discrete tokens. It is described as adding approximately
+            zero autoregressive decoding cost, though speculative decoding needs modifications and
+            the supervision may overlap with multi-token prediction.
+          </p>
+          <a class="source-link" href="https://x.com/YouJiacheng/status/2087194476485976136">Read You Jiacheng’s discussion</a>
+          <div class="tags">Autoregressive generation · hidden states · speculative decoding</div>
+        </article>
+
+        <article>
+          <h3>Muse Glimmer is designed around an unusually small KV cache</h3>
+          <p>
+            Sebastian Raschka examines Muse Glimmer, a dense 30B multimodal model with grouped-query
+            attention, sliding-window attention in a 1:3 global-to-local pattern, gated attention,
+            Gemma-style RMSNorm, and a 32-to-2 query/KV-head ratio. He estimates a BF16 KV-cache cost
+            of 52 KiB per token, compared with 64 KiB for Qwen3.6 27B and 840 KiB for Gemma 4 31B,
+            while cautioning that the available performance comparisons mix first-party and
+            independent results.
+          </p>
+          <a class="source-link" href="https://x.com/rasbt/status/2087180773497421926">Read the architecture analysis</a>
+          <div class="tags">Multimodal models · KV cache · hybrid attention · GQA</div>
+        </article>
+
+        <article>
+          <h3>Code-authored draft scenes offer tighter control over generated video</h3>
+          <p>
+            One controllable-video workflow uses code to construct a low-fidelity skeleton of the
+            intended actions, objects, and timing, then sends that draft to a video model for
+            photorealistic rendering. The division separates exact scene and temporal control from
+            visual synthesis.
+          </p>
+          <a class="source-link" href="https://x.com/mattshumer_/status/2087313728219816293">See the workflow</a>
+          <div class="tags">Video generation · controllable generation · multimodal systems</div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-research">
+      <h2 class="section-title" id="bio-research">Biology, Medicine &amp; Scientific Computing</h2>
+
+      <h3 class="subsection-title">Research agents, evaluation &amp; governance</h3>
+      <div class="grid">
+        <article>
+          <h3>M3A evaluates agentic AI for multimodal multi-omics discovery</h3>
+          <p>
+            The Multimodal Multiomic Agentic framework supplies a standardized environment for
+            evaluating LLM-driven biological reasoning in autonomous and copilot modes, with
+            persistent multimodal data states and step-level telemetry. A key caveat is that its
+            preprocessed datasets, targeted prompts, and standardized deliverables encode substantial
+            human expertise even during nominally autonomous runs.
+          </p>
+          <a class="source-link" href="https://x.com/razoralign/status/2087306575891615916">Read the research summary</a>
+          <div class="tags">Agentic AI · multi-omics · evaluation · biological discovery</div>
+        </article>
+
+        <article>
+          <h3>Scientific coding agents can hide hallucinated biology in validation scripts</h3>
+          <p>
+            A researcher reports that an AI-generated validation script applied the roughly 3.8 Å
+            spacing associated with protein Cα atoms to RNA C4′ distances, where the relevant value
+            is closer to 6 Å. The bad constant caused valid RNA backbones to be rejected. The lesson:
+            independently verify not only generated analyses, but also every reference value embedded
+            in them.
+          </p>
+          <a class="source-link" href="https://x.com/rishabh16_/status/2087240084252930391">Read the cautionary example</a>
+          <div class="tags">AI safety · scientific coding · RNA · validation</div>
+        </article>
+
+        <article>
+          <h3>Anticipatory governance proposed for synthetic-cell research</h3>
+          <p>
+            <em>Nature Reviews Molecular Cell Biology</em> has highlighted an article on shaping
+            anticipatory governance for synthetic-cell research. The available source identifies the
+            topic but does not provide enough detail to assess or summarize its specific proposals.
+          </p>
+          <a class="source-link" href="https://x.com/NatRevMCB/status/2087493632421155108">View the journal’s post</a>
+          <div class="tags">Synthetic cells · governance · bioethics</div>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">Genomics, chromatin &amp; spatial omics</h3>
+      <div class="grid">
+        <article>
+          <h3>scAmp detects focal amplifications and ecDNA from single-cell data</h3>
+          <p>
+            scAmp is a probabilistic method for single-cell copy-number profiles from assays such as
+            scWGS and scATAC-seq. It assigns gene-level probabilities of amplification on
+            extrachromosomal DNA and is reported to improve specificity over bulk-genome approaches.
+            It can also distinguish current ecDNA from chromosomal amplifications that were
+            extrachromosomal in the past.
+          </p>
+          <a class="source-link" href="https://x.com/razoralign/status/2087306106771321137">Read about scAmp</a>
+          <div class="tags">Cancer genomics · single-cell analysis · ecDNA · copy number</div>
+        </article>
+
+        <article>
+          <h3>Preprint investigates remote memory and chromatin metaplasticity</h3>
+          <p>
+            William Greenleaf has highlighted a bioRxiv preprint produced with the Schnitzer lab on
+            remote memory and chromatin metaplasticity. The supplied post establishes chromatin-based
+            storage of memory-related information as the central subject, but does not include enough
+            detail to characterize the experiments or findings.
+          </p>
+          <a class="source-link" href="https://x.com/WJGreenleaf/status/2087280497378685046">View the preprint announcement</a>
+          <div class="tags">Chromatin · gene regulation · memory · preprint</div>
+        </article>
+
+        <article>
+          <h3>STORM adds effect sizes and power analysis to spatial multi-omics</h3>
+          <p>
+            STORM detects spatial dependence in transcriptomic and proteomic measurements using a
+            robust, efficient nonparametric test of local deviations. Beyond detection, it estimates
+            interpretable spatial effect sizes, supports power calculations across locations and
+            biological replicates, and permits formal comparisons between groups.
+          </p>
+          <a class="source-link" href="https://x.com/razoralign/status/2087306352117116930">Read about STORM</a>
+          <div class="tags">Spatial omics · statistics · experimental design</div>
+        </article>
+
+        <article>
+          <h3>FOCUS unifies preprocessing and registration for spatial omics</h3>
+          <p>
+            FOCUS is an open-source Python framework that carries multimodal spatial data from raw
+            experimental files through preprocessing, alignment, and resolution-matched registration
+            into a unified MuData object. It currently supports spatial transcriptomics,
+            mass-spectrometry imaging, Raman imaging, and brightfield or fluorescence microscopy.
+          </p>
+          <a class="source-link" href="https://x.com/razoralign/status/2087300736774488129">Read about FOCUS</a>
+          <div class="tags">Spatial omics · data integration · open-source tools</div>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">Proteins, interactions &amp; structural biology</h3>
+      <div class="grid">
+        <article>
+          <h3>ProtJEPA distills ten biological modalities into a sequence-only model</h3>
+          <p>
+            ProtJEPA trains an ESMC-600M student to predict a joint representation assembled from ten
+            frozen teacher modalities, while requiring only protein sequence at inference. Target
+            whitening substantially reduces representation collapse. On Pfam-family-held-out “dark
+            proteins,” it reports gains over ESMC in GO retrieval, enzyme classification, low-label
+            localization, drug–target prediction, and disorder prediction; ablations indicate that
+            whitening and masked-teacher fusion are both essential.
+          </p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2087462843562197069">Read the ProtJEPA summary</a>
+          <div class="tags">Protein language models · multimodal learning · representation learning</div>
+        </article>
+
+        <article>
+          <h3>BioEmu samples membrane-protein states quickly but weights them inaccurately</h3>
+          <p>
+            A benchmark compares BioEmu-generated ensembles with molecular dynamics for rhomboid
+            membrane proteases. BioEmu rapidly samples observed open and closed GlpG gate
+            conformations, but under-samples conformational extremes and assigns different apparent
+            state populations. Without explicit membrane context, 5.6% of full-length samples place
+            the soluble domain implausibly deep in the bilayer, supporting the use of membrane-aware
+            physical filters.
+          </p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2087462749798637870">Read the benchmark summary</a>
+          <div class="tags">Protein dynamics · membrane proteins · molecular dynamics</div>
+        </article>
+
+        <article>
+          <h3>MAPPIE maps partner-specific functions across human protein interactions</h3>
+          <p>
+            MAPPIE represents each protein–protein interaction separately by combining frozen ESM-2
+            embeddings for both partners in a 128-dimensional latent space. Its atlas covers 199,137
+            human interactions. Domain-interface-guided model selection produces neighborhoods that
+            recover known biological annotations and may help propose functions for low-degree
+            interactions and proteins in the “dark interactome.”
+          </p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2087463002748711066">Read the MAPPIE summary</a>
+          <div class="tags">Protein interactions · functional genomics · systems biology</div>
+        </article>
+
+        <article>
+          <h3>Scop3P connects PTMs, variants, peptides, and protein conformations</h3>
+          <p>
+            Scop3P-Toolkit normalizes post-translational modifications, proteomics peptides, genetic
+            variants, experimental structures, and AlphaFold models onto canonical UniProt
+            coordinates. Its workflows cover structure comparison, peptide mapping, mutation effects,
+            residue-network alignment, and linked 2D/3D topology views. A RET kinase example shows how
+            multiple conformations can expose PTM and disease-variant context missed by one predicted
+            structure.
+          </p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2087463110873407731">Read the toolkit summary</a>
+          <div class="tags">Variant interpretation · proteomics · PTMs · protein structure</div>
+        </article>
+      </div>
+
+      <h3 class="subsection-title">Drug discovery, molecular prediction &amp; computation</h3>
+      <div class="grid">
+        <article>
+          <h3>RAVEN combines frozen random graph features with physics fingerprints</h3>
+          <p>
+            RAVEN uses 32 independently initialized, frozen heterogeneous graph encoders to create
+            randomized atomistic views, then combines them with a deterministic 788-dimensional
+            interaction fingerprint and neural/tree readers. On a similarity-isolated PDBbind split,
+            the fused binding-affinity model reports Pearson <em>r</em> = 0.800 and RMSE = 1.240 pK,
+            with <em>r</em> = 0.845 on the protected CASF-2016 subset.
+          </p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2087464210540441861">Read the RAVEN summary</a>
+          <div class="tags">Binding affinity · graph models · physics features · benchmarking</div>
+        </article>
+
+        <article>
+          <h3>HMG-MRL combines atoms, motifs, and physicochemical descriptors</h3>
+          <p>
+            HMG-MRL integrates an atom–bond bipartite graph, overlapping functional and scaffold
+            motifs, and RDKit descriptors using cross-attention and contrastive alignment. It reports
+            the best mean result on eight of nine scaffold-split MoleculeNet benchmarks, including
+            BACE, BBBP, ClinTox, ESOL, and FreeSolv. Attention-guided masking indicates that selected
+            molecular regions matter more than random regions, though this is still a model-level
+            interpretability test.
+          </p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2087463878682870017">Read the HMG-MRL summary</a>
+          <div class="tags">Molecular properties · cheminformatics · graph neural networks</div>
+        </article>
+
+        <article>
+          <h3>SparkleDock scales flexible docking across hundreds of GPUs</h3>
+          <p>
+            SparkleDock redesigns LightDock’s glowworm-swarm optimization around agent-level GPU
+            parallelism and maps its dominant DFIRE distance calculation onto FP64 Tensor Cores. It
+            reports 9.7× speedup on one A100 and 18.9× on one H100 against a 40-thread LightDock-Rust
+            baseline while preserving docking accuracy, together with strong scaling to 512 A100
+            GPUs. Runtime and memory models support MPI load balancing and out-of-core execution.
+          </p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2087464074405978515">Read the SparkleDock summary</a>
+          <div class="tags">Molecular docking · GPU computing · high-performance computing</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice · Lectures du jour · 毎日の読み物 · 每日阅读</h2>
+      <p class="language-intro">
+        Edited reading selections in their original languages, preserved without translation.
+      </p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Diese Verpackungen gibt es bald nicht mehr</h3>
+        <div class="byline">
+          Tagesschau · 12.08.2026 ·
+          <a href="https://www.tagesschau.de/wirtschaft/verbraucher/neue-regeln-eu-verpackungsverordnung-100.html">https://www.tagesschau.de/wirtschaft/verbraucher/neue-regeln-eu-verpackungsverordnung-100.html</a>
+        </div>
+        <p>
+          In der EU treten die ersten Bestimmungen einer neuen Verpackungsverordnung in Kraft. Sie
+          begrenzen unter anderem bestimmte langlebige Chemikalien in Lebensmittelverpackungen. Bis
+          2030 sollen nahezu alle Verpackungen recycelbar sein; zugleich kritisieren
+          Wirtschaftsvertreter die komplexen Vorschriften und noch offene Rechtsfragen.
+        </p>
+        <p>
+          Weitere Änderungen werden den Alltag deutlicher verändern: Übermäßig große Versandkartons
+          sollen eingeschränkt werden, und Verpackungen wie Ketchup-Tütchen, Plastiknetze für Obst
+          oder Mini-Shampooflaschen in Hotels sollen ab 2030 verschwinden. Außerdem sind europaweite
+          Pfandsysteme für Einwegbehälter aus Kunststoff und Metall sowie mehr Mehrweglösungen
+          vorgesehen. Damit will die EU die enorme Abfallmenge senken, die zuletzt durchschnittlich
+          178 Kilogramm Verpackungsmüll pro Person und Jahr betrug.
+        </p>
+        <p><strong>Warum lesen:</strong> Der Artikel erklärt anschaulich, wie europäische Umweltpolitik bald beim Einkaufen, Reisen und Onlinebestellen spürbar wird.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Éclipse : en Europe, la course contre la montre pour se procurer des lunettes</h3>
+        <div class="byline">
+          France 24 · 12 août 2026 ·
+          <a href="https://www.france24.com/fr/europe/20260812-%C3%A9clipse-en-europe-la-course-contre-la-montre-pour-se-procurer-des-lunettes">https://www.france24.com/fr/europe/20260812-%C3%A9clipse-en-europe-la-course-contre-la-montre-pour-se-procurer-des-lunettes</a>
+        </div>
+        <p>
+          À quelques heures de l’éclipse solaire du 12 août, les lunettes de protection certifiées
+          sont devenues difficiles à trouver dans plusieurs pays européens. En Espagne, où le
+          phénomène sera total dans une partie du nord du pays, musées, pharmacies, opticiens et
+          kiosques sont pris d’assaut. Une campagne nationale devait distribuer gratuitement deux
+          millions de paires, mais de nombreux points de vente sont déjà en rupture de stock.
+        </p>
+        <p>
+          La demande dépasse également les prévisions en France, en Belgique et au Portugal. Certains
+          commerçants organisent des réapprovisionnements de dernière minute, tandis que les prix
+          peuvent fortement varier. Cette pénurie soulève surtout un enjeu de sécurité : regarder le
+          Soleil sans protection adaptée peut provoquer des lésions oculaires irréversibles, et les
+          autorités espagnoles ont retiré du marché plusieurs modèles jugés dangereux.
+        </p>
+        <p><strong>Pourquoi lire :</strong> Un reportage très actuel qui associe phénomène astronomique, engouement collectif, pénuries commerciales et prévention sanitaire à l’échelle européenne.</p>
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>lésion oculaire</strong> — atteinte ou dommage subi par une partie de l’œil</li>
+          <li><strong>rupture de stock</strong> — situation dans laquelle un produit n’est temporairement plus disponible à la vente</li>
+          <li><strong>réapprovisionnement</strong> — arrivée de nouvelles marchandises destinée à reconstituer un stock épuisé ou insuffisant</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — ドコモのシェアサイクル 都内でのサービスを再開</h3>
+        <div class="byline">
+          NHKニュース · 2026年8月12日 ·
+          <a href="https://news.web.nhk/newsweb/na/nd-20260812de43496">記事を読む</a>
+        </div>
+        <p>
+          NTTドコモの子会社は、システムの不具合によって全国で一時停止していたシェアサイクルについて、東京都内でのサービスを12日に再開したと発表しました。
+        </p>
+        <p>
+          都内は同社のシェアサイクル利用者が最も多い地域です。都市交通を支えるデジタルサービスが、システム障害から段階的に復旧する動きを伝えています。
+        </p>
+        <p><strong>読む理由：</strong> 身近な交通サービスとITシステムの関係を扱い、現代社会でよく使われる語彙を学べます。</p>
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>共有自転車（きょうゆうじてんしゃ）</strong> — 複数の利用者が必要な時間だけ借りて使う自転車サービス。一般に「シェアサイクル」と呼ばれる。</li>
+          <li><strong>不具合（ふぐあい）</strong> — 機械やシステムが正常に動かない状態。</li>
+          <li><strong>段階的復旧（だんかいてきふっきゅう）</strong> — 停止した機能やサービスを、地域や範囲を分けて順番に元へ戻すこと。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — 自嘲加炫技，《影之刃零》30秒新片子暗示了什么突破？</h3>
+        <div class="byline">
+          机核 · 2026-08-12 ·
+          <a href="https://www.gcores.com/articles/218023">https://www.gcores.com/articles/218023</a>
+        </div>
+        <p>
+          国产动作游戏《影之刃零》于8月12日开启全平台预售，并将公开售价、电脑配置以及一段11分钟实机演示。预热短片没有沿用以往突出高速连段与打击感的宣传方式，而是借角色沐小葵的一句“你终于来了，你又慢了”，回应游戏延期与长期打磨的话题。
+        </p>
+        <p>
+          文章认为，短片中的角色建模、面部捕捉和表情细节已有明显提升，同时尝试从沐小葵的戏份推测剧情重构的方向。结尾出现的机械热气球则强化了游戏的“武侠朋克”风格，也引出了作品是否会加入高空载具和立体探索空间的猜想。不过，这些玩法目前仍未得到官方确认。
+        </p>
+        <p><strong>为什么读：</strong> 文章从一支30秒短片切入，适合了解国产武侠动作游戏如何结合技术展示、叙事悬念与宣发策略。</p>
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>实机演示 (shíjī yǎnshì)</strong> — 直接在游戏程序中运行并录制的玩法展示，用来区别预渲染宣传片。</li>
+          <li><strong>面部捕捉 (miànbù bǔzhuō)</strong> — 记录演员面部动作，并将表情数据应用于数字角色的制作技术。</li>
+          <li><strong>预渲染 (yù xuànrǎn)</strong> — 提前计算并生成画面的制作方式，通常不代表游戏设备实时运行的效果。</li>
+          <li><strong>武侠朋克 (wǔxiá péngkè)</strong> — 将传统武侠意象与机械、工业或架空科技元素结合的美术与世界观风格。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      <p><strong>Source note:</strong> Some research resources were available only through their associated X posts, which are linked above.</p>
+      <p>News Daily · Newspaper date: August 12, 2026</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

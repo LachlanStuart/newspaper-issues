@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --paper: #fffdf8;
+      --ink: #24211c;
+      --muted: #6f675d;
+      --line: #ded4c5;
+      --accent: #7a3f8f;
+      --accent-soft: #efe3f4;
+      --bio: #1f6f58;
+      --ai: #355ca8;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    main {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+
+    .paper {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(55, 43, 25, 0.10);
+      padding: 30px;
+    }
+
+    header {
+      border-bottom: 3px double var(--line);
+      margin-bottom: 26px;
+      padding-bottom: 18px;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .dek {
+      max-width: 760px;
+      margin: 18px auto 0;
+      font-size: 1.08rem;
+      color: #3c352d;
+    }
+
+    section {
+      margin: 30px 0;
+    }
+
+    h2 {
+      border-bottom: 1px solid var(--line);
+      font-size: 1.55rem;
+      margin: 0 0 14px;
+      padding-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+
+    h3 {
+      font-size: 1.12rem;
+      margin: 0 0 5px;
+      line-height: 1.25;
+    }
+
+    article {
+      border-bottom: 1px solid #ebe3d8;
+      padding: 14px 0;
+    }
+
+    article:last-child {
+      border-bottom: 0;
+    }
+
+    p {
+      margin: 6px 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+
+    .tagline {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      margin-top: 5px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px 28px;
+    }
+
+    .compact article {
+      padding: 11px 0;
+    }
+
+    .callout {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 14px 16px;
+      margin: 18px 0 6px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+
+    .section-label {
+      display: inline-block;
+      border-radius: 999px;
+      color: white;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-bottom: 7px;
+      padding: 2px 8px;
+      text-transform: uppercase;
+    }
+
+    .label-ai { background: var(--ai); }
+    .label-bio { background: var(--bio); }
+    .label-tools { background: #8a5a22; }
+    .label-ideas { background: #7a3f8f; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      margin-top: 34px;
+      padding-top: 16px;
+    }
+
+    details {
+      margin-top: 10px;
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 650;
+    }
+
+    ul {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+
+    @media (max-width: 640px) {
+      .paper {
+        padding: 20px;
+      }
+
+      main {
+        padding: 12px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <div class="paper">
+      <header>
+        <h1>News</h1>
+        <div class="subtitle">Sunday, 7 June 2026 · Run 2026-06-07-1</div>
+        <p class="dek">
+          Today’s issue is heavy on LessWrong interpretability and biological ML: activation verbalizers, residual-stream time geometry, single-cell imputation audit trails, spatial foundation models, GRNs, protein-structure search, and a handful of practical AI tooling updates.
+        </p>
+      </header>
+
+      <section>
+        <h2>Front Page Picks</h2>
+
+        <article>
+          <span class="section-label label-bio">Bio / Omics</span>
+          <h3>SPARE proposes auditable recovery of single-cell RNA-seq zeros</h3>
+          <p>
+            SPARE, short for Selective Partition-Aware Recovery of Expression, is a single-cell RNA-seq zero-recovery method with an unusually explicit provenance story. It tracks whether matrix entries were measured non-zeros, selected observed zeros, untouched zeros, or marker-vetoed zeros, then keeps that intervention map through recovery and audit steps.
+          </p>
+          <p>
+            The interesting part is not just “better imputation”; it is leakage control and accountability in downstream analyses, which matters a lot if recovered expression values are going to feed models or biological claims.
+          </p>
+          <p><a href="https://x.com/razoralign/status/2063413932384293090">https://x.com/razoralign/status/2063413932384293090</a></p>
+        </article>
+
+        <article>
+          <span class="section-label label-ai">AI Interpretability</span>
+          <h3>Can activation verbalizers surface an internal chain of thought?</h3>
+          <p>
+            A LessWrong post evaluates whether activation verbalizers can expose a model’s single-forward-pass reasoning. The early read: they may be useful, but are not yet reliable enough to treat as transparent access to internal chain-of-thought.
+          </p>
+          <p>
+            This is worth tracking because it sits right at the uncomfortable boundary between interpretability, elicitation, and “are we just making another model tell us plausible stories?”
+          </p>
+          <p><a href="https://www.lesswrong.com/posts/QQQAcKuWK6k98FivY/can-activation-verbalizers-surface-an-internal-chain-of-1">https://www.lesswrong.com/posts/QQQAcKuWK6k98FivY/can-activation-verbalizers-surface-an-internal-chain-of-1</a></p>
+        </article>
+
+        <article>
+          <span class="section-label label-bio">Spatial Biology</span>
+          <h3>SciCore-Omics: tri-modal foundation model for spatial biology</h3>
+          <p>
+            SciCore-Omics is described as a tri-modal foundation model joining histology, spatial transcriptomics, and language. The key question is whether it can actually reason over spatial context, rather than merely aligning separate image, omics, and text embeddings.
+          </p>
+          <p>
+            If the spatial reasoning is real, this is directly in the “multimodal biological foundation model” lane.
+          </p>
+          <p><a href="https://x.com/razoralign/status/2063304840860844183">https://x.com/razoralign/status/2063304840860844183</a></p>
+        </article>
+      </section>
+
+      <section>
+        <h2>AI, Interpretability & Evals</h2>
+        <div class="grid compact">
+          <div>
+            <article>
+              <h3>Frontier models still lag humans at robust belief-state tracking</h3>
+              <p>
+                A current-model rerun of a Theory-of-Mind benchmark finds meaningful improvement, but still a gap to human performance on robust belief-state tracking.
+              </p>
+              <p class="tagline">Useful for thinking about agent collaboration, hidden state, and the gap between fluent social text and stable mental-state modeling.</p>
+              <p><a href="https://www.lesswrong.com/posts/L7pBM9RCnsoJJenkJ/frontier-models-still-lag-behind-humans-at-robust-belief">https://www.lesswrong.com/posts/L7pBM9RCnsoJJenkJ/frontier-models-still-lag-behind-humans-at-robust-belief</a></p>
+            </article>
+
+            <article>
+              <h3>Analysis of metastable states in transformer activation space</h3>
+              <p>
+                This technical sequence opener tests a mathematical theory of attention against trained transformers. It reports metastable token clusters, while also finding failures in the proposed energy mechanism.
+              </p>
+              <p class="tagline">Interesting precisely because it is not a clean victory lap: some observed structure, some theory failure.</p>
+              <p><a href="https://www.lesswrong.com/posts/Kf8zkKnDajfGGHG7w/analysis-of-metastable-states-in-the-transformer-activation">https://www.lesswrong.com/posts/Kf8zkKnDajfGGHG7w/analysis-of-metastable-states-in-the-transformer-activation</a></p>
+            </article>
+
+            <article>
+              <h3>The residual stream has a geometry of time</h3>
+              <p>
+                A preliminary interpretability writeup argues that transformers may store persistent context in a compact, low-dimensional subspace of the residual stream.
+              </p>
+              <p class="tagline">Potentially relevant to how transformer “memory” is represented across sequence positions.</p>
+              <p><a href="https://www.lesswrong.com/posts/jkEnRkokmzvvKNzzB/the-residual-stream-has-a-geometry-of-time-1">https://www.lesswrong.com/posts/jkEnRkokmzvvKNzzB/the-residual-stream-has-a-geometry-of-time-1</a></p>
+            </article>
+          </div>
+
+          <div>
+            <article>
+              <h3>Against corrigibility</h3>
+              <p>
+                An alignment post challenges whether corrigibility is straightforwardly desirable, especially once “human oversight” gets cashed out as specific institutions and power-holders.
+              </p>
+              <p class="tagline">The political/institutional framing is the point: corrigible to whom, under what legitimacy, and with what failure modes?</p>
+              <p><a href="https://www.lesswrong.com/posts/rQTzSuBDLoAbhyS6g/against-corrigibility-1">https://www.lesswrong.com/posts/rQTzSuBDLoAbhyS6g/against-corrigibility-1</a></p>
+            </article>
+
+            <article>
+              <h3>ProgramBench evaluates whole-repository generation with language choice</h3>
+              <p>
+                ProgramBench is presented as a coding-agent benchmark for whole-repository generation, with agents also able to choose which programming language to use.
+              </p>
+              <p class="tagline">A concrete benchmark target for agentic coding beyond single-file puzzle tasks.</p>
+              <p><a href="https://x.com/StanfordAILab/status/2063395831823368461">https://x.com/StanfordAILab/status/2063395831823368461</a></p>
+            </article>
+
+            <article>
+              <h3>Generative modeling for unpaired scientific data-to-data translation</h3>
+              <p>
+                Stanford AI Lab highlighted work on generative models for scientific settings that need unpaired data-to-data mappings, such as untreated cells to post-intervention cells.
+              </p>
+              <p class="tagline">The “data-to-data” framing is more relevant to perturbation biology than the usual noise-to-data generative setup.</p>
+              <p><a href="https://x.com/StanfordAILab/status/2063281274605670497">https://x.com/StanfordAILab/status/2063281274605670497</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Single-Cell, Spatial Biology & Gene Regulation</h2>
+
+        <article>
+          <h3>HyperNiche models heterophilic cellular niches with hypergraph neural networks</h3>
+          <p>
+            HyperNiche is a method for learning heterophilic cellular niches using hypergraph neural networks. The framing is apt: real tissue neighborhoods often involve mixed cell types and higher-order relations, not just pairwise similarity graphs.
+          </p>
+          <p><a href="https://x.com/razoralign/status/2063304829221712008">https://x.com/razoralign/status/2063304829221712008</a></p>
+        </article>
+
+        <article>
+          <h3>ADAPERT targets robust transcriptional response prediction</h3>
+          <p>
+            ADAPERT, “Learning Adaptive Perturbation-Conditioned Contexts for Robust Transcriptional Response Prediction,” is a perturbation-response modeling item aimed at predicting transcriptional effects under interventions.
+          </p>
+          <p>
+            That makes it central virtual-cell territory: perturbations, gene expression, and robustness under changing contexts.
+          </p>
+          <p><a href="https://x.com/razoralign/status/2063304818375201037">https://x.com/razoralign/status/2063304818375201037</a></p>
+        </article>
+
+        <article>
+          <h3>CeSpGRN infers cell-specific gene regulatory networks from single-cell multi-omics and spatial data</h3>
+          <p>
+            CeSpGRN is described as a method for inferring cell-specific gene regulatory networks from single-cell multi-omics and spatial data. Cell-specific GRNs are closer to actionable regulatory biology than generic clustering, and the spatial/multi-omics context may help disambiguate regulation.
+          </p>
+          <p><a href="https://x.com/razoralign/status/2063304577349509128">https://x.com/razoralign/status/2063304577349509128</a></p>
+        </article>
+
+        <article>
+          <h3>TADShop benchmarks 43 methods for topologically associating domain detection</h3>
+          <p>
+            TADShop is a Nature Methods benchmark of 43 computational methods for identifying topologically associating domains. TAD calls matter for enhancer–gene linkage, chromatin organization, regulatory genomics, and sequence-to-function model interpretation.
+          </p>
+          <p><a href="https://x.com/naturemethods/status/2062644462023491591">https://x.com/naturemethods/status/2062644462023491591</a></p>
+        </article>
+
+        <article>
+          <h3>Deep-Phase final Cell paper expands label-free phase imaging</h3>
+          <p>
+            Deep-Phase is now online in Cell, with the final version reportedly expanding the earlier preprint across labeling conditions. The collected note is truncated, but the signal is a peer-reviewed update for an AI/microscopy method relevant to cell-state measurement and phenotyping.
+          </p>
+          <p><a href="https://x.com/razoralign/status/2062956026685698424">https://x.com/razoralign/status/2062956026685698424</a></p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Protein Structure, Drug Discovery & Genomics Resources</h2>
+        <div class="grid compact">
+          <div>
+            <article>
+              <h3>Pearl foundation model reports new protein–ligand cofolding results</h3>
+              <p>
+                Genesis Molecular AI reports new results for Pearl, its foundation model for protein–ligand cofolding, in the context of OpenBind. The details are truncated in the source fragment, but the model-capability claim is directly relevant to drug discovery and protein–ligand modeling.
+              </p>
+              <p><a href="https://x.com/razoralign/status/2063066418082713716">https://x.com/razoralign/status/2063066418082713716</a></p>
+            </article>
+
+            <article>
+              <h3>Folddisco searches structural motifs across the protein universe</h3>
+              <p>
+                Nature Biotechnology highlights Folddisco for structural motif search across large protein-structure collections. Fast motif search over predicted structures is useful for function discovery, annotation, and mining beyond sequence similarity.
+              </p>
+              <p><a href="https://x.com/anshulkundaje/status/2062976171529392431">https://x.com/anshulkundaje/status/2062976171529392431</a></p>
+            </article>
+          </div>
+
+          <div>
+            <article>
+              <h3>ArchaeaHQ curates 21,644 archaeal genomes</h3>
+              <p>
+                ArchaeaHQ is a curated archaeal genome resource built from 21,644 genomes. This is useful for comparative genomics, evolutionary biology, and potentially for reducing bacterial/eukaryotic bias in model training or evaluation.
+              </p>
+              <p><a href="https://x.com/miangoar/status/2063502167944626220">https://x.com/miangoar/status/2063502167944626220</a></p>
+            </article>
+
+            <article>
+              <h3>Liquid biopsies in oncology review from Nature Reviews Genetics</h3>
+              <p>
+                Nature Reviews Genetics flags a new review on advancing liquid biopsy applications in oncology. Not an AI-methods item, but relevant to cancer genomics, monitoring, translational biomarkers, and medicine-facing genomics strategy.
+              </p>
+              <p><a href="https://x.com/NatureRevGenet/status/2062952993700663661">https://x.com/NatureRevGenet/status/2062952993700663661</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Tools & Practical Research Infrastructure</h2>
+
+        <article>
+          <span class="section-label label-tools">Local AI Tooling</span>
+          <h3>mlx-audio v0.4.4 adds local TTS, ASR, VAD, and OpenAI-compatible audio serving</h3>
+          <p>
+            mlx-audio v0.4.4 adds 15+ TTS, ASR, and VAD models, faster long-form transcription, word timestamps, realtime server-side VAD turns, and expanded OpenAI-compatible audio-server support for local Apple Silicon inference.
+          </p>
+          <p>
+            Useful if local speech inference and serving become part of the agent stack.
+          </p>
+          <p><a href="https://x.com/Prince_Canuma/status/2063284707186319860">https://x.com/Prince_Canuma/status/2063284707186319860</a></p>
+        </article>
+
+        <article>
+          <span class="section-label label-tools">Visualization</span>
+          <h3>LIVIA: browser-based local interaction visualization and analysis tool</h3>
+          <p>
+            LIVIA, Local Interaction Visualization and Analysis, is a browser-based tool for assessing and visualizing local interactions. The tweet text was truncated in collection, but it was boosted by protein/omics researchers, so it may be worth a quick look for structural or molecular interaction inspection.
+          </p>
+          <p><a href="https://x.com/sokrypton/status/2063013250837479447">https://x.com/sokrypton/status/2063013250837479447</a></p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Math, Policy & Long-Form Ideas</h2>
+        <div class="grid compact">
+          <div>
+            <article>
+              <span class="section-label label-ideas">Math</span>
+              <h3>The Diamond Lemma</h3>
+              <p>
+                A mathematical explainer on the diamond lemma for simplification systems, with examples such as Abelian sandpiles where the final state is independent of simplification order.
+              </p>
+              <p class="tagline">Relevant to rewrite systems, confluence, and the general “does the order of local reductions matter?” question.</p>
+              <p><a href="https://www.lesswrong.com/posts/HfApZDaBbcwDxKrgt/the-diamond-lemma">https://www.lesswrong.com/posts/HfApZDaBbcwDxKrgt/the-diamond-lemma</a></p>
+            </article>
+
+            <article>
+              <span class="section-label label-ideas">Futurism</span>
+              <h3>Exponential Solitude</h3>
+              <p>
+                A long-form Fermi paradox essay arguing that accelerating technological progress and interstellar distances make contact with other civilizations effectively impossible.
+              </p>
+              <p><a href="https://www.lesswrong.com/posts/TeEgPdo3HovdbcW29/exponential-solitude">https://www.lesswrong.com/posts/TeEgPdo3HovdbcW29/exponential-solitude</a></p>
+            </article>
+          </div>
+
+          <div>
+            <article>
+              <span class="section-label label-ideas">EA / Politics</span>
+              <h3>Coming around to political donations</h3>
+              <p>
+                A reflective EA-flavored case for when individual political donations may be unusually high-impact, drawing on lessons from past campaign giving.
+              </p>
+              <p class="tagline">Less about generic “donate to politics” advice, more about when campaigns can create unusually leveraged opportunities.</p>
+              <p><a href="https://www.lesswrong.com/posts/5CNEgYtqqY44ZNkT7/coming-around-to-political-donations">https://www.lesswrong.com/posts/5CNEgYtqqY44ZNkT7/coming-around-to-political-donations</a></p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <p>
+          Source notes: Hazy Research, Kasra Blog, Nathan Chen Blog, Queer Festival Heidelberg, and 科学空间 / Spaces AC had no genuinely new reportable items for this issue. There were no quiet pipeline failure notes.
+        </p>
+      </footer>
+    </div>
+  </main>
+
+
+
+</body>
+</html>

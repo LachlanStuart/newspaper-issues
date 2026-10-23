@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201d;
+      --muted: #696862;
+      --accent: #8b2f2f;
+      --rule: #d8d4ca;
+      --card: #ffffff;
+      --tag: #efede6;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+
+    .newspaper {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 12px 18px;
+      margin-bottom: 34px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .edition {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 38px 0;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 0 0 20px;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--ink);
+    }
+
+    .lead-grid,
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 20px 22px;
+    }
+
+    article h3 {
+      margin: 0 0 9px;
+      font-size: 1.2rem;
+      line-height: 1.28;
+    }
+
+    article p {
+      margin: 0 0 12px;
+    }
+
+    article p:last-child {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration-thickness: 2px;
+    }
+
+    .source-link {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    .tags {
+      margin-top: 13px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 3px 4px 0 0;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--tag);
+    }
+
+    .language-practice {
+      border-top: 4px double var(--ink);
+      padding-top: 30px;
+      margin-top: 54px;
+    }
+
+    .language-intro {
+      max-width: 760px;
+      color: var(--muted);
+      margin: -8px 0 24px;
+    }
+
+    .language-card {
+      margin-bottom: 22px;
+      padding: 24px 26px;
+    }
+
+    .language-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .byline {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.84rem;
+      margin-bottom: 14px;
+    }
+
+    .language-card ul {
+      margin-bottom: 0;
+    }
+
+    .language-card .reason {
+      margin-top: 15px;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 46px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .lead-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newspaper {
+        width: min(100% - 20px, 1120px);
+        padding-top: 18px;
+      }
+
+      article,
+      .language-card {
+        padding: 18px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="newspaper">
+    <header>
+      <h1>News</h1>
+      <div class="edition">Saturday, July 11, 2026 · Research &amp; Ideas Edition</div>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 class="section-title" id="ai-research">AI Research</h2>
+      <div class="lead-grid">
+        <article>
+          <h3>Testing what models really know about recent events</h3>
+          <p>A project estimates language models’ effective knowledge cutoffs by asking about surprising events from successive months, then locating the point where reliable knowledge drops away. The method offers an empirical alternative to relying on vendors’ stated cutoff dates.</p>
+          <p><a class="source-link" href="https://x.com/giffmana/status/2075701313917083870">Read the research thread on X</a></p>
+          <div class="tags">
+            <span class="tag">Evaluation</span>
+            <span class="tag">Knowledge cutoffs</span>
+            <span class="tag">LLMs</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>Activation probes may produce better-calibrated forecasts</h3>
+          <p>Goodfire and EternisAI examined how LLM forecasters use evidence and represent uncertainty in World Cup predictions. While the models were overconfident, autonomously trained activation probes reportedly yielded substantially better-calibrated forecasts. The work presents interpretability as a practical way to inspect what task-specific reinforcement learning teaches a model.</p>
+          <p><a class="source-link" href="https://x.com/GoodfireAI/status/2075611273061175479">Read the research thread on X</a></p>
+          <div class="tags">
+            <span class="tag">Interpretability</span>
+            <span class="tag">Forecasting</span>
+            <span class="tag">Calibration</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>AI Picbreeder explores open-ended cultural evolution</h3>
+          <p>AI Picbreeder combines VLM and LLM agents with evolutionary algorithms to investigate novelty, serendipity, memory, and the balance between exploration and exploitation. Ten breeder agents draw from a shared archive, mutate and cross candidates, and publish selected results while critic agents evaluate the emerging phylogenetic tree.</p>
+          <p><a class="source-link" href="https://x.com/hardmaru/status/2075585438837051680">See the experiment on X</a></p>
+          <div class="tags">
+            <span class="tag">Open-ended learning</span>
+            <span class="tag">Evolutionary algorithms</span>
+            <span class="tag">Multi-agent systems</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-modeling">
+      <h2 class="section-title" id="bio-modeling">Biology, Cells &amp; Mechanistic Models</h2>
+      <div class="story-grid">
+        <article>
+          <h3>Mechanistic perturbation models need time and sequence context</h3>
+          <p>Anshul Kundaje argues that causal models of transcriptional responses will require temporal dynamics and sequence-anchored cis-regulatory information—not merely endpoint expression. The discussion points to combinatorial perturbations at varying dosages and experimental designs that probe both cis and trans regulation.</p>
+          <p><a class="source-link" href="https://x.com/anshulkundaje/status/2075669200933359874">Read the discussion on X</a></p>
+        </article>
+
+        <article>
+          <h3>scJET generates full-gene single-cell profiles</h3>
+          <p>scJET divides expression profiles into vector patches used as Transformer tokens, then learns to recover clean cellular states from corrupted inputs. It supports unconditional, conditional, and trajectory-based generation while seeking to preserve global manifolds, local neighborhoods, and gene-level expression programs.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2075704898507960585">View the scJET item on X</a></p>
+        </article>
+
+        <article>
+          <h3>CyCLOPS reconstructs cell-cycle chromatin dynamics</h3>
+          <p>CyCLOPS is a temporal deconvolution framework for reconstructing genome-wide chromatin occupancy and transcription from synchronized cell populations at high temporal resolution. It also estimates replication timing to correct copy-number effects, producing a dynamic atlas of genes and replication origins across the cell cycle.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2075695742371745987">View the CyCLOPS item on X</a></p>
+        </article>
+
+        <article>
+          <h3>MOSANIC maps communication within tissue</h3>
+          <p>MOSANIC represents tissue as a heterogeneous graph of cells, genes, and metabolites. Using frozen scVI, ESM-2, and ChemBERTa representations, a graph Transformer propagates information over biologically typed edges to infer communication networks from spatial transcriptomics and identify potentially vulnerable hubs.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2075694857470058968">View the MOSANIC item on X</a></p>
+        </article>
+
+        <article>
+          <h3>Single-cell analysis turns toward transcript isoforms</h3>
+          <p>A review surveys isoform-resolved single-cell transcriptomics, including ScISOr-ATAC for jointly measuring chromatin accessibility and full-length transcript isoforms. It also covers CRISPR–dCas13d perturbations paired with long-read single-cell RNA sequencing to identify splicing-regulatory elements and their transcript consequences.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2075692071344877946">Read about the review on X</a></p>
+        </article>
+
+        <article>
+          <h3>Gene Program Negotiation describes cellular decision states</h3>
+          <p>This framework reconstructs cell-specific interactions among concurrently active transcriptional programs. It measures coherence, conflict, diversity, dominance, and activity before classifying cells into states such as Consensus, Competition, Dominance, Negotiation, and Low Activity.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2075687127594258605">View the framework on X</a></p>
+        </article>
+
+        <article>
+          <h3>Finding the right complexity for biological neural networks</h3>
+          <p>A systematic study tests biologically informed neural networks on one-dimensional advection–diffusion–reaction equations. Moderately expressive architectures reportedly outperform excessive complexity, while reliable operator recovery depends on balancing data-fitting and PDE-residual losses alongside suitable learning rates and batch sizes.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2075690200031011248">Read the study summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>Bringing CRISPR screens into spatial tissue contexts</h3>
+          <p>A new review highlighted by <em>Nature Reviews Molecular Cell Biology</em> examines how CRISPR screens can be extended into tissue space, allowing perturbation effects to be interpreted alongside spatial organization and native cellular context.</p>
+          <p><a class="source-link" href="https://x.com/NatRevMCB/status/2075534320761262154">See the review announcement on X</a></p>
+        </article>
+
+        <article>
+          <h3>A multi-omics encyclopedia of human cells</h3>
+          <p>A widely shared resource announcement describes a Single Cell Atlas integrating several single-cell omics modalities. The available report does not specify its scale, exact modalities, or access details, but the resource may be useful for cell annotation, atlas construction, and biological foundation models.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2075757761963733265">View the resource announcement on X</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="language-intro">Daily reading selections preserved in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Suchtgefahr: EU-Kommission ermahnt Marc Zuckerbergs Meta</h3>
+        <p class="byline">Deutsche Welle · 10.07.2026 · <a href="https://www.dw.com/de/eu-kommission-meta-facebook-instagram-eu-tiktok-bytedance-bruessel-mark-zuckerberg/a-77909102">Artikel öffnen</a></p>
+        <p>Die EU-Kommission wirft Meta vor, die Suchtgefahr von Facebook und Instagram nicht angemessen bewertet und Minderjährige unzureichend geschützt zu haben. Kritisiert werden unter anderem automatisch startende Videos, Push-Benachrichtigungen, endlose Feeds und stark personalisierte Empfehlungen. Wirksame Instrumente zur Begrenzung der Bildschirmzeit und leicht zugängliche Kindersicherungen fehlten nach Ansicht der Kommission.</p>
+        <p>Brüssel fordert Meta auf, Autoplay standardmäßig abzuschalten, verpflichtende Nutzungspausen einzuführen und die Algorithmen weniger stark an zuletzt betrachteten Inhalten auszurichten. Meta verweist auf seine „Teen Accounts“, doch die EU hält deren Schutzmechanismen für zu leicht deaktivierbar. Sollte der Konzern keine ausreichenden Änderungen vornehmen, könnte eine Geldbuße von bis zu sechs Prozent seines weltweiten Jahresumsatzes folgen.</p>
+        <p class="reason"><strong>Warum lesen:</strong> Der Artikel bietet einen aktuellen Einblick in den Konflikt zwischen europäischer Digitalregulierung, dem Geschäftsmodell sozialer Netzwerke und dem Schutz junger Nutzer.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Lutte contre le racisme et l'antisémitisme : les livres négationnistes bientôt sanctionnés ?</h3>
+        <p class="byline">ActuaLitté · 10 juillet 2026 · <a href="https://actualitte.com/article/132610/politique-publique/lutte-contre-le-racisme-et-l-antisemitisme-les-livres-negationnistes-bientot-sanctionnes">Lire l’article</a></p>
+        <p>Le gouvernement français a présenté un projet de loi visant à renforcer la lutte contre le racisme et l’antisémitisme, notamment face à la progression des contenus haineux en ligne. Le texte modifierait le Code pénal ainsi que la loi de 1881 sur la liberté de la presse, qui s’applique aussi à l’édition. Il prévoit entre autres le doublement de l’amende maximale lorsqu’un crime ou un délit est accompagné d’écrits racistes, xénophobes, antireligieux, sexistes ou LGBTphobes.</p>
+        <p>Le projet cherche surtout à combler une lacune juridique concernant les ouvrages négationnistes. La législation actuelle sanctionne la « contestation » de crimes contre l’humanité, mais ne vise pas aussi explicitement le fait de les nier, de les minimiser ou de les banaliser de manière outrancière. Cette nuance aurait permis à certains textes présentés comme historiques ou scientifiques d’échapper aux poursuites. Le Conseil d’État estime que les nouvelles dispositions ne portent pas une atteinte disproportionnée à la liberté d’expression ; le Sénat doit désormais examiner le projet en première lecture.</p>
+        <p class="reason"><strong>Pourquoi lire :</strong> L’article explique clairement comment le droit de la presse, la liberté d’expression et la régulation du secteur du livre s’articulent face aux publications négationnistes.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>négationnisme</strong> — discours qui nie ou minimise des crimes historiques établis, en particulier la Shoah</li>
+          <li><strong>circonstance aggravante</strong> — élément qui justifie une sanction plus sévère pour une infraction</li>
+          <li><strong>incrimination</strong> — définition juridique d’un comportement comme infraction punissable</li>
+          <li><strong>inéligibilité</strong> — interdiction temporaire ou définitive de se présenter à une élection</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 『めっちゃカメレオン』アプデで新マップ｢HIKAKINミュージアム｣実装。あのHIKAKINとのコラボマップ</h3>
+        <p class="byline">AUTOMATON · 2026-07-11 · <a href="https://automaton-media.com/articles/newsjp/20260711-454477/">記事を読む</a></p>
+        <p>お絵描きかくれんぼゲーム『めっちゃカメレオン』に、YouTuberのHIKAKINとのコラボマップ「HIKAKINミュージアム」が追加された。プレイヤーが自分のキャラクターを好きな色に塗り、物陰やマップ内のオブジェクトに紛れてハンターから逃げるオンラインゲームで、絵を使った巧妙な偽装が特徴となっている。</p>
+        <p>新マップはHIKAKINに関連する展示を集めたミュージアム風の空間で、本人や兄のSEIKINの写真、「みそきん」などのアイテム、特別な仕掛けが用意されている。バージョン2.6.0ではこのほか、不具合の修正、ハンターの視野角調整、日本・韓国・東アジアのリージョンタグ追加も実施された。同作は発売後急速に人気を集め、記事によれば7月5日までに売上1500万本を達成している。</p>
+        <p class="reason"><strong>読む理由：</strong> 日本発のインディーゲームと人気動画クリエイターのコラボを通じて、オンラインゲーム文化の現在を読める。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>偽装（ぎそう）</strong> — 本来の姿や正体が分からないように見せかけること</li>
+          <li><strong>当たり判定（あたりはんてい）</strong> — ゲーム内で物体や攻撃が接触したかを決める処理</li>
+          <li><strong>視野角（しやかく）</strong> — ゲーム画面上で一度に見渡せる範囲を示す角度</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh-Hans">
+        <h3>中文 — 广西水灾：一座建于“大跃进”时期的水库，为何未能抵挡极端洪水？</h3>
+        <p class="byline">BBC 中文 · 2026-07-10 · <a href="https://www.bbc.com/zhongwen/articles/ce8kxgwjer4o/simp">阅读原文</a></p>
+        <p>广西南宁横州市六蓝水库在暴雨中出现两处约50米宽的缺口，洪水冲向下游村庄。截至7月9日上午，灾害已造成26人死亡、7人失联。水库建于1958年至1960年，采用均质土坝结构；这种坝体造价和维护成本较低，但一旦洪水漫过坝顶，流水可能迅速冲走土层并形成溃口。</p>
+        <p>六蓝水库此前曾被纳入除险加固和标准化管理项目，相关工程于2025年完工。然而，仅一年后，极端降雨使一天内的入库水量逼近水库总库容，即使泄洪闸全部开启，水位仍持续上涨。事故原因尚待官方调查，但事件再次引发外界对中国大量老旧水库、工程设计标准及极端天气应对能力的关注。</p>
+        <p class="reason"><strong>为什么读：</strong> 文章结合水利工程原理与历史背景，解释老旧基础设施在极端天气下为何仍可能失守。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>均质土坝 (jūnzhì tǔbà)</strong> — 主要以性质相近的土料分层压实筑成的水坝。</li>
+          <li><strong>漫顶 (màndǐng)</strong> — 水位超过坝顶、使水流从坝体顶部越过的现象。</li>
+          <li><strong>除险加固 (chúxiǎn jiāgù)</strong> — 排除工程安全隐患并增强结构稳定性的整治措施。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-07-11-1 · Compiled July 11, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f3;--ink:#252b30;--muted:#626970;--accent:#185b70;--line:#d8d6ce}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:960px;margin:auto;padding:24px}
+header{padding-top:44px;border-bottom:3px double var(--ink)}
+h1{font-size:3.5rem;letter-spacing:-.04em;margin:0;line-height:1.1}
+.kicker,.date,nav,.source,footer{font-family:system-ui,sans-serif}
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;color:var(--muted)}
+.date{color:var(--muted);font-size:.95rem}
+nav{font-size:.85rem;margin-top:20px;display:flex;gap:10px 20px;flex-wrap:wrap}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.7rem;border-bottom:1px solid var(--line);padding-bottom:10px;margin:30px 0 20px}
+h3{font-size:1.2rem;line-height:1.4;margin:0 0 8px}
+article{margin:0 0 27px}
+p{margin:8px 0 12px}
+.source{font-size:.78rem;color:var(--muted);margin:0 0 7px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.language{border-top:3px double var(--ink);margin-top:36px;padding-top:12px}
+.language article{padding:20px 0;border-bottom:1px solid var(--line)}
+.language h3{font-size:1.35rem}
+.language [lang="ja"],.language [lang="zh-Hans"]{line-height:1.9}
+ul{padding-left:24px}
+footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-bottom:40px}
+footer h2{font-size:1rem;margin-top:0}
+@media(max-width:650px){.grid{grid-template-columns:1fr}h1{font-size:2.8rem}main,header,footer{padding:20px}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<div class="kicker">The daily newspaper</div>
+<h1>News</h1>
+<p class="date"><time datetime="2026-10-04">Sunday, October 4, 2026</time></p>
+<p>Today’s reading: the limits of AI belief audits, practical training resources, and a call for stronger evidence in computational biology.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; mathematical methods</a>
+<a href="#biology">Computational biology</a>
+<a href="#practice">AI safety in practice</a>
+<a href="#ideas">Ideas &amp; institutions</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="ai">
+<h2>AI &amp; mathematical methods</h2>
+<article>
+<p class="source">LessWrong · Interpretability</p>
+<h3><a href="https://www.lesswrong.com/posts/yYk5iwGqcn6XKLnWw/reducing-synthetic-markers-makes-some-sdf-false-facts">When false facts evade linear belief probes</a></h3>
+<p>Research on implanted false beliefs finds that reducing synthetic-text markers can make some false facts linearly indistinguishable from pretraining-acquired knowledge. Yet evading these probes does not ensure consistent downstream reasoning—a limitation for audits that use probes to assess what a model believes.</p>
+</article>
+<div class="grid">
+<article>
+<p class="source">Sebastian Raschka · X AI Research</p>
+<h3><a href="https://x.com/rasbt/status/2106369670680871031">Implementing RLVR and GRPO from scratch</a></h3>
+<p>A tutorial walks through reinforcement learning with verifiable rewards and Group Relative Policy Optimization: sampling responses, computing rewards and advantages, implementing sequence log probabilities and the GRPO loss, and assembling a training loop. It also covers MATH-500 evaluation, stability, and memory requirements.</p>
+<p><a href="https://t.co/K1cSuA01iG">YouTube version</a></p>
+</article>
+<article>
+<p class="source">科学空间 / Spaces AC</p>
+<h3><a href="https://spaces.ac.cn/archives/11917">Does Shampoo ultimately lead to Muon?</a></h3>
+<p>“Slow Is Fast, Part 1” opens a discussion of the relationship between two optimizer families used in model training. The author describes Muon as competitive but not a complete replacement for Adam, while Shampoo-style methods continue to develop. The available excerpt does not reach the argument or conclusion.</p>
+</article>
+<article>
+<p class="source">科学空间 / Spaces AC · Also shared by Jianlin Su</p>
+<h3><a href="https://spaces.ac.cn/archives/11928">Equality-constrained optimization through perturbation analysis</a></h3>
+<p>An introduction contrasts finding stationary points of unconstrained smooth functions with using Lagrange multipliers when equations constrain the solution. The title promises a perspective based on small changes, but the supplied excerpt stops before the derivation.</p>
+<p><a href="https://x.com/Jianlin_S/status/2106351425651700029">Jianlin Su’s related post</a> · <a href="https://t.co/RWkcXdvyCm">Shared resource link</a></p>
+</article>
+<article>
+<p class="source">You Jiacheng · X AI Research</p>
+<h3><a href="https://x.com/YouJiacheng/status/2106388599138820374">Can privileged transition models undermine on-policy RL?</a></h3>
+<p>You Jiacheng questions an approach that uses a privileged prompted model to keep transitions within a constrained set. He suggests it resembles RL with expert initialization and may overly restrict transitions, compromising the on-policy property. The underlying work is not identified in the supplied post.</p>
+</article>
+<article>
+<p class="source">LessWrong · Bayesian statistics</p>
+<h3><a href="https://www.lesswrong.com/posts/Azn6WWQb8HRNjxH9A/singular-learning-theory-comprehensive-3">The regular foundations of singular learning theory</a></h3>
+<p>Part three of this tutorial develops regular Bayesian asymptotics, including Laplace approximations, the Bernstein–von Mises theorem, and point estimators. These provide groundwork for singular learning theory; the available extraction did not preserve the equations reliably.</p>
+</article>
+</div>
+</section>
+
+<section id="biology">
+<h2>Computational biology</h2>
+<article>
+<p class="source">Sergey Ovchinnikov &amp; Anshul Kundaje · X Bio Research</p>
+<h3><a href="https://x.com/sokrypton/status/2106415058263888175">Protein watermarks: insertion is not the same as persistence</a></h3>
+<p>Following the SynthID Bio announcement, Sergey Ovchinnikov argues that the central challenge is whether a watermark survives protein sequence redesign. Anshul Kundaje <a href="https://x.com/anshulkundaje/status/2106492573716234464">calls for a direct response to removal critiques</a>, distinguishing an interesting pilot algorithm from demonstrated biosecurity utility. The supplied posts offer a robustness critique, not a complete experimental evaluation or author response.</p>
+</article>
+<article>
+<p class="source">Peter Koo · X Bio Research</p>
+<h3><a href="https://x.com/pkoo562/status/2106375686831374625">Developers should run the basic controlled experiments</a></h3>
+<p>Peter Koo argues that AI-biology developers should not leave sanity checks to later community studies. His recommendation: calibrate claims to the evidence, test alternative interpretations, and investigate sources of variability. This is methodological guidance rather than a new benchmark result.</p>
+</article>
+<div class="grid">
+<article>
+<p class="source">X Bio Research · Single-cell models</p>
+<h3><a href="https://x.com/razoralign/status/2106528080689021146">RAGCell turns retrieved knowledge into supervision</a></h3>
+<p>RAGCell is described as using LLMs to build cell-level and feature-level knowledge databases, then aligning cell representations with text embeddings. The posts claim improved transfer of biological knowledge and lower training cost, but provide no quantitative benchmarks or cost measurements.</p>
+</article>
+<article>
+<p class="source">X Bio Research · Gene regulation</p>
+<h3><a href="https://x.com/razoralign/status/2106527847758393723">SCITRAM simulates regulatory cascades</a></h3>
+<p>The Single-Cell Integrated TRAnscription regulation Modeler is presented as a standalone tool for predicting master transcription factors. It reconstructs a gene regulatory network from single-cell transcriptomics and models cascades after in-silico transcription-factor activation. Validation results were not supplied.</p>
+</article>
+<article>
+<p class="source">X Bio Research · Genomic graphs</p>
+<h3><a href="https://x.com/razoralign/status/2106527553947341260">RASTRO scores branching paths without a reference genome</a></h3>
+<p>RASTRO evaluates candidate extensions in unitig graphs. RASTRO-S uses a sample-specific n-gram model and bits-per-base surprisal; RASTRO-L uses the Evo2 DNA language model for autoregressive scoring. Both operate without reference genomes or assembled contigs. Comparative accuracy is not provided.</p>
+</article>
+<article>
+<p class="source">X Bio Research · Genotype imputation</p>
+<h3><a href="https://x.com/razoralign/status/2106527266088128951">QuImputer puts missing genotypes into an optimization objective</a></h3>
+<p>QuImputer encodes allele-frequency priors and signed linkage disequilibrium in a reduced QUBO/Ising objective, with only missing genotypes as variables. The objective supports exhaustive classical search, quantum approximate optimization simulation, or quantum hardware. Hardware execution is reported, but practical advantage over classical imputation is not demonstrated in the announcement.</p>
+</article>
+<article>
+<p class="source">X Bio Research · Sequence alignment</p>
+<h3><a href="https://x.com/razoralign/status/2106526866882609489">CRAIC makes alignment uncertainty inspectable</a></h3>
+<p>Conserved-Region Alignment by Iterative Convergence is described as a free desktop workbench for building and inspecting multiple sequence alignments. Its focus is stress-testing ambiguous regions rather than treating one alignment as definitive, with potential implications for phylogenetic reliability.</p>
+</article>
+<article>
+<p class="source">X Bio Research · Brief announcements</p>
+<h3><a href="https://x.com/razoralign/status/2106402432934920240">HipHap: a haplotype-assignment preprint</a></h3>
+<p>The HIgh-Performance HAPlotype assigner is introduced in a truncated announcement. The available text does not establish input requirements, performance, or implementation details.</p>
+<h3><a href="https://x.com/razoralign/status/2106359872380109101">CyteType: multi-agent cell annotation</a></h3>
+<p>A research announcement presents multi-agent AI for evidence-based annotation in single-cell transcriptomics. Only the study title was available; architecture and evaluation results were not supplied.</p>
+</article>
+</div>
+</section>
+
+<section id="practice">
+<h2>AI safety in practice</h2>
+<div class="grid">
+<article>
+<p class="source">LessWrong · Organization building</p>
+<h3><a href="https://www.lesswrong.com/posts/APRgDaNQjF4DWQhHg/mats-cg-pitch-week-what-happened-what-we-learned">What MATS × CG Pitch Week learned</a></h3>
+<p>A founder-support program retrospective emphasizes identifying first users, specifying concrete deliverables, establishing technical feasibility, and explaining why a project needs a new organization. Practical reading for prospective founders and fellowship organizers.</p>
+</article>
+<article>
+<p class="source">LessWrong · Technical education</p>
+<h3><a href="https://www.lesswrong.com/posts/a7Lds5i5rfEE2doFa/inside-the-ml4good-technical-ai-safety-bootcamp-what-to-1">Inside the ML4Good bootcamp</a></h3>
+<p>A participant describes the application process, eight-day curriculum, costs, and career guidance, including why the program may be useful even to people already working in technical AI safety.</p>
+</article>
+<article>
+<p class="source">LessWrong · Careers</p>
+<h3><a href="https://www.lesswrong.com/posts/wSGdahLyfnxrqKopm/hiring-in-the-ai-safety-ecosystem">A candidate’s view of AI safety hiring</a></h3>
+<p>An account of the 2026 nontechnical hiring cycle offers advice to applicants and employers on work tests, communication, and application processes, particularly for generalist, operations, and policy roles.</p>
+</article>
+<article>
+<p class="source">LessWrong · Law &amp; governance</p>
+<h3><a href="https://www.lesswrong.com/posts/KtAug62dYRgAS8sqJ/what-i-learnt-co-leading-an-ai-safety-bootcamp-for-legal-and">Teaching technical safety to governance practitioners</a></h3>
+<p>A bootcamp co-leader reflects on teaching frontier AI safety to legal and governance professionals. The account connects technical literacy to procurement, contracts, and the ability to scrutinize vendor claims.</p>
+</article>
+<article>
+<p class="source">LessWrong · Risk communication</p>
+<h3><a href="https://www.lesswrong.com/posts/dYWH9cjH9mJHiEPES/high-p-doom-but-relaxed-working">High p(doom), sustainable working</a></h3>
+<p>A personal reflection argues that communication about existential AI risk should include counterarguments, emotional support, and recognition of progress—not only alarming forecasts—to help make work in the field sustainable.</p>
+</article>
+</div>
+</section>
+
+<section id="ideas">
+<h2>Ideas &amp; institutions</h2>
+<div class="grid">
+<article>
+<p class="source">LessWrong · Strategy</p>
+<h3><a href="https://www.lesswrong.com/posts/WyeYJ7cmeiSrXeCnM/you-can-t-use-it-without-becoming-like-me">Innovations an adversary cannot easily copy</a></h3>
+<p>Using Russia–Ukraine military adaptation as its example, this essay argues that some innovations resist imitation because adopting them would undermine an adversary’s institutions or political objectives.</p>
+</article>
+<article>
+<p class="source">LessWrong · Ethics</p>
+<h3><a href="https://www.lesswrong.com/posts/ke3BF2aZLeGobCRLJ/intent-vs-impact-vs-expectation-and-alternatives">Beyond intent versus impact</a></h3>
+<p>An argument for judging harmful actions through reasonably foreseeable outcomes and available alternatives, rather than treating intent and impact as the only relevant considerations.</p>
+</article>
+<article>
+<p class="source">LessWrong · Writing</p>
+<h3><a href="https://www.lesswrong.com/posts/3a2Zxnvt7DJ9HFnHF/why-i-didn-t-write">Why I didn’t write</a></h3>
+<p>A personal essay examines how comparison with established writers, vulnerability, privacy concerns, and uncertain rewards can inhibit writing—and how writing without pressure for a particular outcome can help.</p>
+</article>
+</div>
+</section>
+
+<section class="language" id="languages">
+<h2>Language practice</h2>
+<article lang="de">
+<h3>Deutsch — Franz von Assisi: Vom Bettelmönch zur globalen Ikone</h3>
+<p class="source">Deutsche Welle · 02.10.2026 · <a href="https://www.dw.com/de/franz-von-assisi-vom-bettelm%C3%B6nch-zur-globalen-ikone/a-79424653">Zum Artikel</a></p>
+<p>Franz von Assisi verzichtete auf Wohlstand und gesellschaftliches Ansehen – und wurde dennoch zu einer weltweit verehrten Gestalt. Anlässlich seines 800. Todesjahres zeichnet Brenda Haas nach, wie aus dem Sohn eines reichen Tuchhändlers ein Wanderprediger wurde, der sich Armen und Kranken widmete. Kriegserfahrungen und religiöse Erlebnisse prägten seinen Wandel; später machte ihn nicht zuletzt die Kunst weit über Italien hinaus bekannt.</p>
+<p>Im Mittelpunkt steht jedoch nicht nur seine Lebensgeschichte, sondern die Frage, wie unterschiedlich sein Erbe ausgelegt wurde. Die Kulturhistorikerin Amanda Minervini erläutert, wie Mussolinis Regime den Heiligen politisch vereinnahmte: Seine Wunden wurden zum Sinnbild heldenhaften Opfers umgedeutet, während seine Friedensideale in den Hintergrund rückten. Der Artikel stellt dieser Instrumentalisierung seine Begegnung mit einem muslimischen Sultan während der Kreuzzüge gegenüber.</p>
+<p>Eine weitere Spur führt zur heutigen Umweltbewegung. Franziskus’ Vorstellung einer Verbundenheit aller Geschöpfe machte ihn zum Schutzpatron der Ökologie und zum Bezugspunkt für die Umwelt-Enzyklika von Papst Franziskus. So verbindet der Beitrag mittelalterliche Religionsgeschichte mit aktuellen Fragen nach Konsum, Gemeinschaft und dem Umgang mit der Natur.</p>
+<p><strong>Warum lesen:</strong> Der Artikel zeigt anschaulich, wie eine historische Persönlichkeit zugleich religiöses Vorbild, kulturelle Ikone und Werkzeug politischer Interessen werden kann.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Comment les traductions françaises ont transformé Les Mille et Une Nuits</h3>
+<p class="source">ActuaLitté · 02/10/2026 · <a href="https://actualitte.com/article/134372/enquetes/comment-les-traductions-francaises-ont-transforme-les-mille-et-une-nuits">https://actualitte.com/article/134372/enquetes/comment-les-traductions-francaises-ont-transforme-les-mille-et-une-nuits</a></p>
+<p>Traduire un classique, est-ce transmettre une œuvre ou la recréer pour un nouveau public ? Dans cette enquête signée Amel Aït-Hamouda, l’histoire des versions françaises des <em>Mille et Une Nuits</em> devient une réflexion sur les choix culturels des traducteurs. Au début du XVIIIe siècle, Antoine Galland adapte les récits aux attentes françaises : il atténue certains passages, réduit la place des vers et intègre des histoires racontées par Hanna Diab, notamment <em>Aladin</em> et <em>Ali Baba</em>. Son immense succès impose ainsi une image de l’Orient façonnée en partie par les goûts européens.</p>
+<p>Les traductions suivantes proposent des réponses très différentes au problème de la fidélité. Joseph-Charles Mardrus accentue l’exotisme et l’érotisme à destination du public de la Belle Époque. René R. Khawam privilégie au contraire les manuscrits anciens, quitte à exclure des contes devenus incontournables pour les lecteurs. L’article souligne le dilemme : retrouver un état ancien du recueil peut aussi effacer une partie de son histoire et de sa réception.</p>
+<p>Enfin, la version de Jamel Eddine Bencheikh et André Miquel, publiée dans la Pléiade en 2005 et 2006, cherche à conjuguer rigueur savante et richesse littéraire. Fondée sur l’édition arabe de Bûlâq, elle conserve la diversité des registres, les poèmes et les contrastes du texte. Ce parcours montre pourquoi la question d’une traduction « authentique » reste complexe pour un ensemble de récits transformé au fil des siècles.</p>
+<p><strong>Pourquoi lire :</strong> Une entrée concrète dans les débats sur la traduction, qui permet aussi de comprendre comment les lecteurs français ont construit leur imaginaire de l’Orient.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>philologie</strong> — étude des textes, de leur transmission et de leurs variantes à partir des documents disponibles.</li>
+<li><strong>appareil critique</strong> — ensemble des notes, commentaires et indications savantes qui accompagnent une édition.</li>
+<li><strong>orientalisme</strong> — ici, manière dont les arts et les lettres européens représentent l’Orient, souvent en le chargeant d’exotisme.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — ナラティブ探索ADV『[AFANTASIA]』発表。失った記憶の手がかりを求めて少年が町を探索する、スタジオサザンカのパブリッシング参入第1弾</h3>
+<p class="source">AUTOMATON · 2026-10-03 · <a href="https://automaton-media.com/articles/newsjp/20261003-471587/">記事を読む</a></p>
+<p>東京のスタジオサザンカがインディーゲームのパブリッシング事業に参入し、第1弾としてブラジルの開発スタジオnoidnoidnoidによる『[AFANTASIA]』を発表した。PC向けにSteamで配信予定で、日本語表示にも対応する。配信時期はまだ決まっていない。販売元が決まったことで開発体制が確保され、今後は制作を加速させるという。</p>
+<p>主人公は、故郷の町テンポの桟橋で目覚めた記憶喪失の少年。頭の中に響く「イントルージョン」という謎の声に導かれ、町を調べながら失った記憶を探していく。住民の記憶や後悔を自分のことのように追体験し、最後には町に残るか都会へ向かうか、自分が何者になるかという選択に向き合う物語だ。</p>
+<p>スタジオサザンカを設立した小澤健司氏は、創作のアイデアが浮かばず、想像する力を失ったように感じる状態が本作のテーマだと説明している。シュルレアリスム的な美術に加え、創作者の行き詰まりという題材に正面から取り組む姿勢が、販売を担当する決め手になったという。</p>
+<p><strong>読む理由：</strong> 日本とブラジルのゲーム制作のつながりを知りながら、記憶や想像力を扱う作品紹介とゲーム業界の語彙を読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>パブリッシング</strong> — 開発したゲームを市場に届けるため、販売や宣伝などを担う事業。</li>
+<li><strong>ナラティブ</strong> — 物語の内容だけでなく、探索や選択を通してプレイヤーが体験する語りのあり方。</li>
+<li><strong>シュルレアリスム</strong> — 夢や無意識などを重視し、現実の常識を超えた表現を目指す芸術運動。</li>
+</ul>
+</article>
+
+<article lang="zh-Hans">
+<h3>中文 — 专访《反对普京的无名先生》导演博伦斯坦：荒谬的宣传，与被洗脑的人</h3>
+<p class="source">端传媒 · 2026-10-03 · <a href="https://theinitium.com/20261002-international-mr-nobody-against-putin-zh-hans/">https://theinitium.com/20261002-international-mr-nobody-against-putin-zh-hans/</a></p>
+<p>当战争宣传进入学校，普通教师如何面对？纪录片《反对普京的无名先生》以俄罗斯小城教师帕沙·塔兰金的视角，观察军国主义宣传对日常生活的影响。配合影片在台湾上映，端传媒访问联合导演大卫·博伦斯坦。报道导语也交代，俄罗斯一家地方法院已禁止这部影片在境内传播。</p>
+<p>这篇访谈的切入点不止于俄罗斯。博伦斯坦曾在川渝地区生活近十年，也拍摄过探讨中国房地产泡沫的纪录片。根据公开导语，访谈涉及纪录片的创作与作者身份、文化转译、中俄宣传话语，以及传媒环境变化与全球右翼崛起之间的关系。以上概述依据页面可见内容；完整访谈需免费注册后阅读。</p>
+<p><strong>为什么读：</strong> 从台湾上映的纪录片切入，练习用中文理解政治宣传、影像创作与跨文化表达之间的关系。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>军国主义 (jūnguó zhǔyì)</strong> — 将军事力量与战争动员置于国家和社会生活核心的思想及政策倾向。</li>
+<li><strong>文化转译 (wénhuà zhuǎnyì)</strong> — 在不同文化背景之间重新解释和呈现经验，使另一群体能够理解其意义。</li>
+<li><strong>宣传话语 (xuānchuán huàyǔ)</strong> — 为影响公众认知和态度而组织使用的概念、叙事与表达方式。</li>
+</ul>
+</article>
+</section>
+</main>
+
+<footer>
+<h2>Source notes</h2>
+<p>This edition is based on the supplied source reports. Social-media research summaries reflect the provided posts, not independent review of linked papers; shortened links are retained as supplied. Spaces AC summaries rely on truncated feed excerpts. Inconsistent grant and funded-team counts in the MATS retrospective are omitted.</p>
+<p>No new items were available from Hazy Research, Kasra Blog, Nathan Chen Blog, or Queer Festival Heidelberg. Hazy Research supplied links without article content; the festival material was archival.</p>
+<p>News · Edition 2026-10-04 · Run 2026-10-04-1</p>
+</footer>
+
+
+
+</body>
+</html>

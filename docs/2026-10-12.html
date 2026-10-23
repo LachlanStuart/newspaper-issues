@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --ink: #242b30; --muted: #606b70; --paper: #faf8f3; --rule: #d9d7cf; --accent: #155c66; }
+* { box-sizing: border-box; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 17px/1.65 Georgia, "Times New Roman", serif; }
+main, header, footer { max-width: 960px; margin: auto; padding: 24px 28px; }
+header { padding-top: 44px; border-bottom: 3px solid var(--ink); }
+h1 { margin: 0; font-size: clamp(2.6rem, 7vw, 4rem); line-height: 1.1; letter-spacing: -.04em; }
+h2 { margin: 0 0 24px; font-size: 1.7rem; line-height: 1.3; }
+h3 { margin: 0 0 10px; font-size: 1.25rem; line-height: 1.4; }
+p { margin: 10px 0; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.meta, nav, .links, footer { font-family: system-ui, sans-serif; font-size: .85rem; }
+.meta { color: var(--muted); }
+nav { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+section { padding: 24px 0; }
+article { margin-bottom: 26px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+article:last-child { margin-bottom: 0; }
+.links { margin-top: 12px; }
+.practice { margin-top: 24px; padding-top: 32px; border-top: 3px solid var(--ink); }
+.practice article { padding-top: 18px; }
+ul { padding-left: 24px; }
+li { margin-bottom: 8px; }
+footer { color: var(--muted); border-top: 1px solid var(--rule); padding-bottom: 40px; }
+@media (max-width: 560px) { main, header, footer { padding-left: 20px; padding-right: 20px; } body { font-size: 16px; } }
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<p class="meta">Monday, October 12, 2026</p>
+<h1>News</h1>
+<p>AI research, biological discovery, and daily reading in four languages.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; Computing</a>
+<a href="#molecular">Molecular Design &amp; Simulation</a>
+<a href="#genomics">Genomics &amp; Cellular Methods</a>
+<a href="#languages">Language Practice</a>
+</nav>
+</header>
+
+<main>
+<section id="ai" aria-labelledby="ai-heading">
+<h2 id="ai-heading">AI &amp; Computing</h2>
+<article>
+<h3>MASS turns successful agent teamwork into training data</h3>
+<p>Sakana AI’s Multi-Agent Self-Supervision alternates between evolving multi-agent communication workflows and fine-tuning their shared model on successful team trajectories. After two cycles with a 27B open-weight model, the authors report <strong>1.2–1.6× better performance per output token</strong> on MLR-Bench, ScienceAgentBench and DSBench. Multi-agent traces reportedly provided better training data than single-agent traces—a promising link between workflow optimization and model improvement.</p>
+<p class="links"><a href="https://x.com/hardmaru/status/2109385496237678844">Source post</a> · <a href="https://t.co/kRvqLHxpOM">Paper</a> · <a href="https://t.co/rTEQ5mJxS8">Blog</a></p>
+</article>
+<article>
+<h3>NVFP4 versus MXFP4 in real B200 inference workloads</h3>
+<p>Songlin Yang shares a comparison by @realcezarc of the two low-precision formats on a B200 GPU. It is a resource for inference practitioners, but the supplied post cuts off before its recommendation: no performance figures or preferred format can be established from the excerpt.</p>
+<p class="links"><a href="https://t.co/A20TnjlzNb">Comparison</a> · <a href="https://x.com/SonglinYang4/status/2109437868104159550">Source post</a></p>
+</article>
+<article>
+<h3>Is engram overfitting an architectural problem—or ordinary data repetition?</h3>
+<p>A shared observation suggests engram/n-gram components may amplify overfitting when training data repeats. Lucas Beyer offers a different interpretation: clear epoch boundaries and high parameterization can produce ordinary overfitting, with engram and mixture-of-experts architectures making that regime cheaper to reach. Without the underlying experiment and plots, this remains a methodological debate rather than a verified architectural finding.</p>
+<p class="links"><a href="https://x.com/giffmana/status/2109262070285795404">Beyer’s commentary</a> · <a href="https://x.com/SonglinYang4/status/2109206063107248591">Original observation</a></p>
+</article>
+</section>
+
+<section id="molecular" aria-labelledby="molecular-heading">
+<h2 id="molecular-heading">Molecular Design &amp; Simulation</h2>
+<article>
+<h3>CheMoDesign makes chemical modifications part of protein design</h3>
+<p>CheMoDesign repurposes Boltz-2 without retraining to generate proteins around specified chemical groups, including post-translational modifications and noncanonical amino acids. The supplied research summary describes experimental demonstrations of modification-dependent binding, chemically switchable affinity and covalent target capture.</p>
+<p>One modified design reportedly bound CA IX at approximately 45 nM and inhibited it by about 98% at 1 µM, with weak CA XII binding. These results point toward programmable chemical recognition, but are biochemical and cellular demonstrations—not evidence of therapeutic efficacy.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2109259943308091777">Research summary</a></p>
+</article>
+<article>
+<h3>High structural confidence fails to deliver better aptamer binding</h3>
+<p>A preprint combines AlphaFold 3 modeling with microscale thermophoresis to redesign a biofilm-inhibiting DNA aptamer targeting <i>Streptococcus mutans</i> GbpC. None of five redesigned sequences improved on the parent: measured binders weakened from approximately 8.1 µM to 20.7–37.7 µM, while two constructs showed no detectable binding.</p>
+<p>Most strikingly, a motif-only construct scored an ipTM of 0.93 yet did not bind detectably. The negative results underline that <strong>structural confidence is not binding affinity</strong> and suggest the broader aptamer architecture matters.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2109259335251406874">Research summary</a></p>
+</article>
+<article>
+<h3>Why allosteric ligand poses may be harder to predict</h3>
+<p>A study comparing five co-folding models reports consistently worse ligand-pose prediction at allosteric than orthosteric sites. Its proposed explanation is weaker ligand-induced “frustration quenching”: flatter local energy landscapes may accommodate several plausible contact geometries instead of sharply favoring one pose.</p>
+<p>Analyses using MISATO associate stronger frustration quenching with better prediction. This offers a biophysical hypothesis for a shared model limitation, but does not establish that energy landscapes alone explain the gap.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2109259491724378117">Research summary</a></p>
+</article>
+<article>
+<h3>MD-LLM-2 generates molecular trajectories with explicit probabilities</h3>
+<p>MD-LLM-2 represents molecular dynamics as sequences of discrete structural tokens, conditioning generation on sequence, temperature and molecular history. Normalized token probabilities provide explicit likelihoods for those tokenized trajectories.</p>
+<p>The supplied summary reports transfer to 12 held-out protein domains: median radius of gyration was within 1 Å of molecular-dynamics references for 10 domains. Small-system tests also examined thermodynamic and kinetic behavior. These are useful initial checks, though agreement on ensemble size or selected trajectories is not comprehensive validation of protein kinetics.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2109259720376860686">Research summary</a></p>
+</article>
+</section>
+
+<section id="genomics" aria-labelledby="genomics-heading">
+<h2 id="genomics-heading">Genomics &amp; Cellular Methods</h2>
+<article>
+<h3>SORT separates shared and sample-specific spatial gene programs</h3>
+<p>SORT jointly factorizes multiple spatial-transcriptomic sections into a common transcriptional space, distinguishing sample-specific, group-shared and region-associated expression programs. Orthogonality constraints aim to reduce redundancy, while graph total variation preserves spatial coherence and boundaries. The supplied description outlines a route to more interpretable spatial atlases, but includes no quantitative benchmarks.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2109393708852621789">Method overview</a></p>
+</article>
+<article>
+<h3>GLARE adapts NTv3 to hierarchical transposable-element annotation</h3>
+<p>GLARE fine-tunes the NTv3 genomic language model on curated Repbase and PanTEon sequences. It predicts 32 transposable-element superfamilies and derives their corresponding 11 orders under the RepeatMasker taxonomy, keeping labels consistent across hierarchy levels. Accuracy and cross-species generalization results were not included in the supplied posts.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2109393239866568957">Method overview</a></p>
+</article>
+<article>
+<h3>LoGicAl carries calling uncertainty into allele-frequency estimates</h3>
+<p>LoGicAl estimates ancestry-specific allele frequencies in admixed samples using a likelihood-based approach. It combines probabilistic local ancestry with genotype likelihoods and accommodates uncertainty in ancestry calling, genotyping and statistical phasing. The description outlines iterative allele-dosage estimation, but provides no validation metrics.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2109393460159713548">Method overview</a></p>
+</article>
+<article>
+<h3>Brief: Droplet-MT announced for human-tissue lineage tracing</h3>
+<p>An announcement introduces Droplet-MT for scalable single-cell multiomic lineage tracing in normal and cancerous human tissues. The available excerpt is truncated, leaving assay design, dataset size and performance unspecified.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2109499482853523466">Announcement</a></p>
+</article>
+</section>
+
+<section id="languages" class="practice" aria-labelledby="languages-heading">
+<h2 id="languages-heading">Language Practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Vor 15 Jahren: Der Tod von Dennis Ritchie und das Rätsel seiner Dissertation</h3>
+<p class="meta">heise online · 12.10.2026 · <a href="https://www.heise.de/news/Vor-15-Jahren-Der-Tod-von-Dennis-Ritchie-und-das-Raetsel-seiner-Dissertation-11483545.html">Artikel lesen</a></p>
+<p>Dennis Ritchie prägte mit Unix und der Programmiersprache C die Computerwelt, blieb als Mensch aber selbst seiner Familie teilweise ein Rätsel. Zum Jahrestag seines Todes zeichnet Detlef Borchers anhand von Erinnerungen seiner Geschwister und Weggefährten ein persönliches Porträt des zurückgezogen lebenden Forschers. Im Mittelpunkt steht eine überraschende Lücke in seiner akademischen Laufbahn: Ritchie verfasste 1968 eine Dissertation über subrekursive Funktionshierarchien, reichte sie jedoch nie offiziell in Harvard ein.</p>
+<p>Warum er darauf verzichtete, bleibt ungeklärt. Der Artikel stellt unterschiedliche Erklärungen gegenüber: Möglicherweise scheiterte die Abgabe an den aufwendigen und teuren Anforderungen an ein gebundenes Druckexemplar; vielleicht war der Titel für Ritchie auch schlicht unwichtig, weil er bereits bei Bell Labs arbeitete. Zugleich führt die wiederentdeckte Arbeit in die Technikgeschichte des wissenschaftlichen Schreibens: Brian Kernighan und weitere Beteiligte untersuchten, wie sich die anspruchsvolle mathematische Typografie damals mit Schreibmaschinen herstellen ließ.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag verbindet Computergeschichte mit einem biografischen Rätsel und zeigt eine wenig bekannte Seite eines einflussreichen Informatikers.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Ce signal a traversé 10 milliards d’années-lumière, et on a retrouvé son origine</h3>
+<p class="meta">Numerama · 11 octobre 2026 · <a href="https://www.numerama.com/sciences/2350081-ce-signal-a-traverse-10-milliards-dannees-lumiere-et-on-a-retrouve-son-origine.html">https://www.numerama.com/sciences/2350081-ce-signal-a-traverse-10-milliards-dannees-lumiere-et-on-a-retrouve-son-origine.html</a></p>
+<p>Quelques millisecondes d’émission, mais un voyage de plus de dix milliards d’années : Numerama présente le sursaut radio rapide FRB 20240304B, capté en mars 2024. Une étude publiée dans Science a permis de retrouver sa galaxie d’origine grâce à plusieurs instruments, dont le radiotélescope MeerKAT et le télescope spatial James Webb. Celui-ci a repéré la galaxie en infrarouge et permis d’en mesurer la distance. Surprise : cette galaxie jeune, où les étoiles se formaient intensément, était beaucoup moins massive que les chercheurs ne l’avaient prévu.</p>
+<p>Cette découverte aide à départager les explications possibles de ces mystérieux signaux. La fusion de vieilles étoiles à neutrons paraît peu compatible avec les caractéristiques de la galaxie observée. Les chercheurs privilégient plutôt un magnétar, une étoile à neutrons dotée d’un champ magnétique extrêmement puissant, née après l’explosion d’une étoile massive. Aucun magnétar n’a toutefois été observé directement dans cette galaxie : il s’agit d’une hypothèse favorisée par les indices, non d’une identification certaine. L’article explique ainsi comment une émission très brève peut renseigner les astronomes sur les phénomènes physiques à l’œuvre dans l’Univers lointain.</p>
+<p><strong>Pourquoi lire :</strong> Une lecture de vulgarisation qui relie une découverte spectaculaire à la manière dont les scientifiques comparent leurs hypothèses aux observations.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>sursaut radio rapide</strong> — émission d’ondes radio très brève, généralement de quelques millisecondes, provenant de l’espace.</li>
+<li><strong>spectrographe</strong> — instrument qui décompose la lumière selon ses longueurs d’onde pour étudier les propriétés d’un objet céleste.</li>
+<li><strong>magnétar</strong> — étoile à neutrons caractérisée par un champ magnétique exceptionnellement intense.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — ポンペイ近郊で東大の発掘隊が追う初代ローマ皇帝の別荘：火山灰の下から現れる2000年の謎</h3>
+<p class="meta">nippon.com · 2026-10-09 · <a href="https://www.nippon.com/ja/japan-topics/g02643/">記事を読む</a></p>
+<p>イタリア南部のソンマ・ヴェスヴィアーナ遺跡で、東京大学のチームが初代ローマ皇帝アウグストゥスの別荘跡を探している。2002年に始まった調査では、当初見つかった建物が皇帝の時代より新しく、一度は関係が否定された。しかし2019年、その下からさらに古い大型建造物が現れた。建物を襲った火砕流が西暦79年の噴火によるものと判明し、大きな浴場の存在をうかがわせる7基のかまども確認されたことで、有力者の別荘だった可能性が高まっている。ただし、所有者が皇帝だったと証明されたわけではない。</p>
+<p>記事は、皇帝の別荘探しだけでなく、災害と復興の歴史にも目を向ける。この遺跡では、噴火で被災した古い建物を基礎として新しい建物が造られており、人々が土地を放棄せず暮らしを再建した過程を調べられる。繰り返される災害と人間社会の関係を考えるうえでも、重要な研究現場だという。</p>
+<p>さらに、発掘隊の仕事を映したジャンフランコ・ロージ監督のドキュメンタリー『ポンペイ、雲の下に生きる』も紹介する。土を掘り、記録を残し、資料を分析する地道な作業が、古代文明の理解につながっていく。日本の研究者とイタリアの地域社会との協力を通じて、考古学の現場を具体的に知ることができる。</p>
+<p><strong>読む理由：</strong> 日本とイタリアを結ぶ発掘調査から、古代ローマの謎、火山災害、映画という異なる話題を一緒に楽しめる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>遺構（いこう）</strong> — 過去の建物や施設のうち、地面や地中に残された跡。</li>
+<li><strong>火砕流（かさいりゅう）</strong> — 噴火で生じた高温の火山灰や岩片などが、ガスとともに地表を流れ下る現象。</li>
+<li><strong>災害考古学（さいがいこうこがく）</strong> — 遺跡や出土品から、過去の災害と人々の暮らしや復興との関係を調べる研究分野。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 欧盟传最早12月锐减中国进口混动汽车 学者：估计欧方让步尚未公布</h3>
+<p class="meta">联合早报 · 2026-10-12 · <a href="https://www.zaobao.com.sg/news/china/story20261012-9820373">https://www.zaobao.com.sg/news/china/story20261012-9820373</a></p>
+<p>中欧新一轮贸易磋商结束后，欧盟据报正考虑采取保障措施，限制来自中国的混动汽车。报道援引彭博社消息称，相关计划拟将进口量从2026年预计约80万辆降至每年约40万辆；若欧方达成共识，最早可能于12月实施。这仍是消息人士披露的计划，并非已经生效的政策。</p>
+<p>报道的重点不只是进口数量，还包括谈判中尚未公开的交换条件。新加坡国立大学东亚研究所高级研究员陈波认为，不能仅凭欧方释放的信息，就断定中国作出了单方面的大幅让步；他推测，中方可能选择自行管理对欧出口。南京大学学者朱锋则强调，欧洲担忧本地制造业受到冲击，而中国若要维持长期稳定的中欧经贸关系，也需要考虑这些产业关切。</p>
+<p><strong>为什么读：</strong> 这篇报道把汽车产业竞争与中欧贸易谈判联系起来，也适合练习辨别中文新闻中的已知事实、消息人士说法和学者研判。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>混动汽车 (hùn dòng qì chē)</strong> — 使用内燃机和电动机两类动力的汽车。</li>
+<li><strong>保障措施 (bǎo zhàng cuò shī)</strong> — 为应对进口激增对本地产业造成的损害或威胁，而采取的临时贸易限制措施。</li>
+<li><strong>关税配额 (guān shuì pèi é)</strong> — 按进口数量设置不同关税待遇的制度，超过规定额度的部分通常适用更高税率。</li>
+</ul>
+</article>
+</section>
+</main>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X posts and summaries; linked papers and resources were not independently verified. Shortened resource links are retained as supplied. Missing benchmark data and truncated excerpts are noted with the relevant items.</p>
+<p>News Daily · October 12, 2026 · Edition 2026-10-12-1</p>
+</footer>
+
+
+
+</body>
+</html>

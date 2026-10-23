@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201d;
+      --muted: #68675f;
+      --accent: #315b52;
+      --line: #d9d5ca;
+      --card: #ffffff;
+      --tag: #e9efec;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    .page {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 40px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+    .edition {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    section { margin: 44px 0; }
+    .section-title {
+      margin: 0 0 22px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-family: system-ui, sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .lead-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 5px;
+      padding: 22px;
+    }
+    article h3 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+      line-height: 1.25;
+    }
+    article p { margin: 10px 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: #183f37; }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 15px;
+    }
+    .tag {
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: var(--tag);
+      color: #39544e;
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 34px;
+      border-top: 5px double var(--ink);
+    }
+    .language-intro {
+      max-width: 700px;
+      color: var(--muted);
+      margin: -8px 0 28px;
+    }
+    .language-card {
+      margin-bottom: 24px;
+      padding: 26px;
+    }
+    .language-card h3 {
+      font-size: 1.4rem;
+    }
+    .language-card .source-line {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+    .language-card h4 {
+      margin: 22px 0 6px;
+      font-family: system-ui, sans-serif;
+      font-size: 1rem;
+    }
+    .language-card ul {
+      margin-top: 6px;
+      padding-left: 22px;
+    }
+    .why {
+      margin-top: 16px;
+      padding-left: 14px;
+      border-left: 3px solid var(--accent);
+    }
+    .quiet-notes {
+      margin-top: 50px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .quiet-notes h2 {
+      margin: 0 0 8px;
+      font-size: 0.9rem;
+      color: var(--ink);
+    }
+    footer {
+      margin-top: 34px;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+    }
+    @media (max-width: 720px) {
+      .page { width: min(100% - 22px, 980px); padding-top: 20px; }
+      .lead-grid { grid-template-columns: 1fr; }
+      article, .language-card { padding: 18px; }
+      section { margin: 34px 0; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="edition">Friday, August 14, 2026 · Run 2026-08-14-1</div>
+    </header>
+
+    <section aria-labelledby="bio-ai-heading">
+      <h2 class="section-title" id="bio-ai-heading">Biology, Medicine &amp; Molecular AI</h2>
+      <div class="lead-grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2087894113530388796">OptiPrime mechanistically models prime-editing outcomes and pegRNA performance</a></h3>
+          <div class="source">Biology AI Daily on X</div>
+          <p>OptiPrime combines learned, sequence-dependent pseudorates with an ODE model of prime-editor binding, flap synthesis, mismatch-repair engagement, and downstream repair. It was trained jointly on 297,962 outcomes across 40 experimental contexts and outperformed earlier predictors on newly generated data.</p>
+          <p>Its mechanistic breakdown supports MMR-evasive silent-edit selection and transfer to PE3 and twinPE. Prospective tests improved editing of CFTR and COL7A1 variants, installation of IL2RB in primary T cells, and brain editing in a Kif1a mouse model. An accompanying web server integrates ClinVar, dbSNP, genome annotations, and silent-edit enumeration.</p>
+          <div class="tags">
+            <span class="tag">prime editing</span>
+            <span class="tag">gene therapy</span>
+            <span class="tag">mechanistic ML</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2087894292039913874">Protein-language-model information depends strongly on layer and dataset</a></h3>
+          <div class="source">Biology AI Daily on X</div>
+          <p>Layer-wise probing of 13 protein language models across 15 tasks and 11 datasets finds that the final layer is optimal only about 18% of the time. Residue-level performance generally improves with depth, while many protein-level tasks peak at intermediate layers and then decline.</p>
+          <p>Dataset composition matters more to layer choice than whether the task is classification or regression, and only 15–20% of the training data may be needed to identify a near-optimal layer. Performance also falls on tested artificial proteins, warning that representations learned from natural evolutionary sequence space may not transfer reliably to designed proteins.</p>
+          <div class="tags">
+            <span class="tag">protein language models</span>
+            <span class="tag">interpretability</span>
+            <span class="tag">generalization</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2087890188093845934">AbAgKer predicts antibody affinity and dissociation kinetics from sequence</a></h3>
+          <div class="source">Biology AI Daily on X</div>
+          <p>AbAgKer combines antibody- and antigen-specific language-model embeddings with modules that emphasize CDRs and predicted epitope residues. Bidirectional cross-attention and a mixture-of-experts interaction model then estimate binding behavior.</p>
+          <p>Semi-supervised self-distillation over a larger unlabeled interaction set improved affinity prediction on a heavy-chain-clustered benchmark, with reported Pearson and Spearman correlations of roughly 0.68 and 0.65. A frozen affinity encoder also transferred to a small 272-pair dataset for moderately correlated <em>k</em><sub>off</sub> prediction.</p>
+          <div class="tags">
+            <span class="tag">antibodies</span>
+            <span class="tag">drug discovery</span>
+            <span class="tag">binding kinetics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2087887333102354435">MR-MoL feeds chemical rationales into molecular property prediction</a></h3>
+          <div class="source">Biology AI Daily on X</div>
+          <p>MR-MoL turns task-specific GNN masking attributions into ranked textual explanations of which scaffolds, BRICS fragments, and functional groups increase or decrease a predicted molecular property. Those rationales and learned graph tokens are supplied to a Llama-3.1-8B backbone.</p>
+          <p>Across eight MoleculeNet tasks, the system led the evaluated general-purpose molecular LLMs. Tests involving reversed direction tags, removed rankings, and shuffled substructures suggest that it uses the evidence rather than merely its presentation. Aggregate attributions also recover familiar chemical relationships involving polarity, solubility, lipophilicity, and blood–brain barrier permeability.</p>
+          <div class="tags">
+            <span class="tag">molecular AI</span>
+            <span class="tag">interpretability</span>
+            <span class="tag">property prediction</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2087887873295220847">RASSCCoL rapidly designs small-molecule-binding proteins</a></h3>
+          <div class="source">Biology AI Daily on X</div>
+          <p>RASSCCoL uses cavity-volume constraints, side-chain repacking, docking, structural refolding checks, and active learning to design chemically complementary pockets without optimizing the protein backbone.</p>
+          <p>Researchers tested 13 designs spanning five ligands: all expressed and were stable, while several achieved affinities from submicromolar to low micromolar. Apo crystal structures closely matched the intended pockets. Demonstrations included a two-pocket FRET construct and a Nile-red/Nile-blue-binding protein for live-cell imaging; active learning recovered most top docking candidates after searching less than 5% of the full space.</p>
+          <div class="tags">
+            <span class="tag">protein design</span>
+            <span class="tag">biosensors</span>
+            <span class="tag">active learning</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <h2 class="section-title" id="language-heading">Language Practice · Lectures du jour · 毎日の読み物 · 每日阅读</h2>
+      <p class="language-intro">Selected native-language reading snippets, preserved in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3><a href="https://www.gamestar.de/artikel/steam-tipp-security-51,3457951.html">Deutsch — Steam-Tipp: Ich habe 16 Tage lang als Security für die Area 51 gearbeitet – und dann ist die Stadt explodiert. Upps.</a></h3>
+        <div class="source-line">GameStar · 14.08.2026 · <a href="https://www.gamestar.de/artikel/steam-tipp-security-51,3457951.html">Artikel lesen</a></div>
+        <p>In „Security 51“ übernimmt die Autorin den Wachdienst am Eingang von Area 51. Ähnlich wie in „Papers, Please“ muss sie Dokumente prüfen und mithilfe verschiedener Scanner nach körperlichen oder paranormalen Auffälligkeiten suchen. Die Regeln ändern sich täglich, bauen aufeinander auf und können sich gegenseitig überschreiben – dadurch wird die scheinbar einfache Einlasskontrolle schnell zu einer anspruchsvollen Denksportaufgabe.</p>
+        <p>Fehler haben Folgen: Unentdeckte Infizierte lassen ein tödliches Virus in der Stadt aggressiver werden. Zusätzlich entscheidet die Spielerin über Isolation, Experimente und Außeneinsätze, während sie Gesundheit, Hunger und Ausrüstung verwaltet. Besonders motivierend findet die Autorin den „Nur noch eine Schicht“-Sog sowie die Möglichkeit, nach einem gescheiterten Durchlauf zu einem früheren Tag zurückzukehren und andere Entscheidungen auszuprobieren.</p>
+        <p class="why"><strong>Warum lesen:</strong> Der kurzweilige Erfahrungsbericht stellt ein ungewöhnliches Indie-Spiel vor und verbindet Spielmechanik, schwarzen Humor und persönliche Eindrücke.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3><a href="https://www.lemonde.fr/pixels/article/2026/08/13/spotify-va-identifier-les-artistes-ia-et-les-exclure-de-ses-recommandations_6745803_4408996.html">Français — Spotify va identifier les artistes « IA » et les exclure de ses recommandations</a></h3>
+        <div class="source-line">Le Monde · 13 août 2026 · <a href="https://www.lemonde.fr/pixels/article/2026/08/13/spotify-va-identifier-les-artistes-ia-et-les-exclure-de-ses-recommandations_6745803_4408996.html">Lire l’article</a></div>
+        <p>Spotify prévoit de lancer à la mi-septembre un badge « AI Persona » afin de signaler les profils d’artistes correspondant à des personnages générés par intelligence artificielle. La plateforme explique répondre aux auditeurs qui découvrent parfois tardivement que l’artiste présenté comme une personne réelle est en fait une création artificielle. Ce dispositif complétera les crédits détaillant l’usage de l’IA dans la production musicale et le badge d’authenticité déjà proposé par Spotify.</p>
+        <p>Les administrateurs de ces profils pourront les déclarer eux-mêmes, mais Spotify compte aussi mener ses propres recherches et apposer les badges nécessaires. Les morceaux attribués à ces personnages seront écartés des recommandations éditoriales et personnalisées, sauf pour les utilisateurs qui choisissent de suivre directement le profil concerné. L’entreprise ne révèle toutefois pas la proportion de musique générée par IA dans son catalogue, contrairement à Deezer, qui indiquait en juillet que ces productions représentaient plus de la moitié des morceaux déposés quotidiennement sur sa plateforme.</p>
+        <p class="why"><strong>Pourquoi lire :</strong> Un aperçu concis des nouvelles règles par lesquelles les plateformes musicales tentent de rendre les créations artificielles plus visibles sans les interdire.</p>
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>recommandation éditoriale</strong> — sélection de contenus mise en avant par les équipes d’une plateforme, plutôt que par le seul comportement de l’utilisateur</li>
+          <li><strong>crédits IA</strong> — informations précisant la manière dont l’intelligence artificielle a participé à la création d’un morceau</li>
+          <li><strong>profil d’authenticité vérifiée</strong> — compte dont l’identité ou la nature a été contrôlée selon les critères de la plateforme</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3><a href="https://www.4gamer.net/games/906/G090647/20260813028/">日本語 — ヴァンダーブーム邸が舞台のRusty Lake最新作「Servant of the Lake」が8月13日にリリース。パズルを解いてオルダスとウィリアムの野望を手助けしよう</a></h3>
+        <div class="source-line">4Gamer · 2026年8月14日 · <a href="https://www.4gamer.net/games/906/G090647/20260813028/">記事を読む</a></div>
+        <p>Rusty Lakeの新作「Servant of the Lake」が、PC、iOS、Android向けに配信された。2016年の作品「Rusty Lake: Roots」より数十年前のヴァンダーブーム邸を舞台にしたポイント＆クリック型のアドベンチャーゲームで、プレイヤーは屋敷の使用人として三日三晩にわたる仕事をこなす。</p>
+        <p>仕事には、ヴァンダーブーム家の人々の世話だけでなく、オルダスとウィリアム兄弟が企てる錬金術の計画への協力も含まれる。アイテムの拾得や使用、扉やダイヤルの操作を通してパズルを解く一方、明確なヒントがない場面もあるという。シリーズ特有のシュールな表現やブラックユーモアに加え、一族の祖先たちの実態が描かれる点も見どころだ。</p>
+        <p class="why"><strong>読む理由：</strong> 謎解きゲームの仕組みと、不穏な物語世界を紹介する語彙を自然な日本語で学べる。</p>
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>錬金術（れんきんじゅつ）</strong> — 金属の変成や不老不死の薬の創造などを目指した古い学問・技術。</li>
+          <li><strong>拾得（しゅうとく）</strong> — 落ちている物などを拾って手に入れること。</li>
+          <li><strong>解法（かいほう）</strong> — 問題やパズルを解くための方法。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3><a href="https://www.dw.com/zh/%E7%89%B9%E6%9C%97%E6%99%AE%E5%AF%B9%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%BC%80%E5%BE%81%E6%9C%80%E9%AB%98100%E5%85%B3%E7%A8%8E-%E9%99%8D%E4%BD%8E%E5%AF%B9%E5%A4%96%E5%9B%BD%E4%BE%9D%E8%B5%96/a-78361268">中文 — 特朗普对无人机开征最高100%关税 降低对外国依赖</a></h3>
+        <div class="source-line">DW 中文 · 2026-08-14 · <a href="https://www.dw.com/zh/%E7%89%B9%E6%9C%97%E6%99%AE%E5%AF%B9%E6%97%A0%E4%BA%BA%E6%9C%BA%E5%BC%80%E5%BE%81%E6%9C%80%E9%AB%98100%E5%85%B3%E7%A8%8E-%E9%99%8D%E4%BD%8E%E5%AF%B9%E5%A4%96%E5%9B%BD%E4%BE%9D%E8%B5%96/a-78361268">阅读原文</a></div>
+        <p>美国总统特朗普宣布对进口无人机及零组件加征关税：涉及国家安全敏感用途的产品税率最高达100%，普通小型无人机税率为25%，来自欧盟、日本、韩国、瑞士、列支敦士登及台湾的相关产品适用15%税率，英国产品则适用10%。华府称，外国制无人机在美国市场占比较高，而美国本土产能不足，已经构成供应链和国家安全风险。</p>
+        <p>中国是全球最大的无人机制造国，大疆据报道占美国商用无人机市场约七成，因此新措施可能对中国厂商产生显著影响。报道还介绍了白宫针对商品经第三国转运、规避对华关税的指控，以及美国利用原产地规则和人工智能系统加强海关审查的做法。这些措施出台之际，中美领导人预计将在9月下旬会面，双边贸易紧张仍未消退。</p>
+        <p class="why"><strong>为什么读：</strong> 文章结合无人机技术、国家安全和中美贸易政策，适合积累科技产业与国际经贸领域的中文表达。</p>
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>从价关税 (cóngjià guānshuì)</strong> — 按进口商品申报价值的一定比例征收的关税。</li>
+          <li><strong>原产地规则 (yuánchǎndì guīzé)</strong> — 用来判定商品实际生产地及其适用税率的一套标准。</li>
+          <li><strong>转运 (zhuǎnyùn)</strong> — 货物经第三国或地区重新运输，有时被用于改变贸易路径或规避关税。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="quiet-notes" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Source note</h2>
+      <p>The configured X AI-research list could not be collected after three attempts, and one additional configured X list also failed. Today’s research section therefore includes only the successfully collected biology-research items.</p>
+    </aside>
+
+    <footer>News Daily · August 14, 2026</footer>
+  </main>
+
+
+
+</body>
+</html>

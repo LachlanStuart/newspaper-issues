@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202b30;--muted:#59666d;--accent:#16666d;--rule:#d5dcd9;--paper:#fffef9}
+*{box-sizing:border-box}
+body{margin:0;background:#eeefea;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:960px;margin:28px auto;padding:36px 48px;background:var(--paper)}
+header{border-top:5px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 0 22px}
+h1{font-size:3.4rem;letter-spacing:-.05em;margin:0;line-height:1.1}
+.dateline,.deck,nav,.meta,footer{font-family:system-ui,sans-serif}
+.dateline{color:var(--muted);font-size:.88rem;margin:10px 0}
+.deck{margin:12px 0 0}
+nav{padding:18px 0;font-size:.9rem}
+nav a{margin-right:18px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.65rem;border-bottom:2px solid var(--rule);padding-bottom:8px;margin:32px 0 18px}
+h3{font-size:1.22rem;line-height:1.35;margin:0 0 8px}
+article{margin:0 0 25px}
+p{margin:8px 0 12px}
+.meta{font-size:.85rem;color:var(--muted)}
+ul{padding-left:23px}
+li{margin-bottom:12px}
+.practice{border-top:4px solid var(--ink);margin-top:42px;padding-top:8px}
+.practice article{border-bottom:1px solid var(--rule);padding:15px 0 25px}
+.practice article:last-child{border-bottom:0}
+[lang="ja"],[lang="zh-Hans"]{line-height:1.9}
+footer{border-top:1px solid var(--rule);padding-top:16px;font-size:.8rem;color:var(--muted);margin-top:30px}
+@media(max-width:640px){main{margin:0;padding:24px 20px}h1{font-size:2.8rem}nav a{display:inline-block;margin-bottom:6px}}
+@media print{body{background:white}main{margin:0;max-width:none;padding:0}article{break-inside:avoid}nav{display:none}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<p class="dateline"><time datetime="2026-10-15">Thursday, 15 October 2026</time></p>
+<p class="deck">AI methods, biological modeling and research tools — followed by daily reading in German, French, Japanese and Chinese.</p>
+</header>
+
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; computing</a>
+<a href="#biology">Biology &amp; genomics</a>
+<a href="#briefs">Research briefs &amp; tools</a>
+<a href="#languages">Language practice</a>
+</nav>
+
+<section id="ai">
+<h2>AI &amp; computing</h2>
+<article>
+<h3>Next-Concept Modeling reports faster coarse-to-fine text generation</h3>
+<p>Rather than producing a finished sequence in one pass, Next-Concept Modeling begins with a rough sketch and adds detail. Stanford AI Lab reports comparable or better quality than strong diffusion baselines at <strong>10–31× higher speed</strong> across unconditional generation, summarization, translation and downstream reasoning. The supplied announcement includes neither experimental settings nor a paper URL, leaving the comparison’s scope unclear.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2110517407395860570">Stanford AI Lab announcement</a></p>
+</article>
+
+<article>
+<h3>CausalSmith checks both proofs and what they actually claim</h3>
+<p>CausalSmith automates theoretical causal-inference research using Lean to verify proofs. A separate claim-alignment audit checks whether the formal statements match the paper’s claims — addressing the distinction between a correct proof and a proof of the intended result.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2110503481559970260">Announcement</a> · <a href="https://t.co/9I2yZpZPsI">SAIL blog link</a></p>
+</article>
+
+<article>
+<h3>Two approaches to simplifying robot learning</h3>
+<p><strong>DexAgent</strong> turns a single human egocentric video into training data for dexterous manipulation, using an agentic framework and a self-evolving tool library. The announcement supplies no evaluation results.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2110502387597365360">DexAgent announcement</a> · <a href="https://t.co/mqpjPKXoGm">SAIL blog link</a></p>
+<p>Separately, You Jiacheng argues that strong observation conditioning can make <strong>simple regression</strong> sufficient for VLA and WAM systems, enabling one-pass inference and simpler reinforcement learning. This is a methodological argument, not a demonstrated performance comparison; no experiments are linked in the supplied post.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2110567885995483358">Regression discussion</a></p>
+</article>
+
+<article>
+<h3>On-policy sampling and the origins of sparsity</h3>
+<p>You Jiacheng highlights research attributing sparsity to on-policy sampling, with the caveat that per-parameter Fisher quantities must be extremely non-uniform. A follow-up contrasts sparse E<sub>y∼π</sub>[h<sub>i</sub>(y)²] with a non-sparse dataset expectation, and describes supervised fine-tuning through an unbounded effective signal q/π − b. The paper title and shortened link’s destination are not supplied.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2110588377473122351">Main discussion</a> · <a href="https://x.com/YouJiacheng/status/2110594277306986852">Technical follow-up</a> · <a href="https://t.co/z5kW790ydM">Shared resource</a></p>
+</article>
+
+<article>
+<h3>TPU kernels: easier fusion, different bottlenecks</h3>
+<p>Tri Dao contrasts TPU and GPU optimization: fewer TPU cores simplify some parallelism concerns, while large vector memory makes fusion easier. Lower vector-unit throughput, however, makes operations outside matrix multiplication more important to optimize. This is a qualitative engineering note rather than a benchmark.</p>
+<p class="meta"><a href="https://x.com/tri_dao/status/2110501861258314023">Tri Dao’s analysis</a></p>
+</article>
+
+<article>
+<h3>Clinical-brief demo refuses silent cloud fallback</h3>
+<p>An OpenMed walkthrough on synthetic data refuses a model-backed brief when the requested local model is missing instead of silently switching to the cloud. A deterministic local path masks contact details and cites exact source-note spans for every sentence. The follow-up explicitly identifies fixture NER/NLI components: <strong>this is not a qualified summarizer for real patients.</strong></p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2110354938899710333">OpenMed demonstration</a> · <a href="https://t.co/auPjgrrpr8">Technical walkthrough</a></p>
+</article>
+</section>
+
+<section id="biology">
+<h2>Biology &amp; genomics</h2>
+<article>
+<h3>EVEE prioritization reportedly helps reclassify a hearing-loss variant</h3>
+<p>Goodfire says its EVEE interpretability system scored 4.2 million ClinVar variants and flagged <strong>MEPE c.209_212del</strong>. The team then assembled evidence that reportedly led to reclassification as “likely pathogenic.” The reported outcome concerns evidence-supported variant interpretation; it does not show that model scores alone establish causality.</p>
+<p class="meta"><a href="https://x.com/GoodfireAI/status/2110406931047493894">Goodfire report</a> · <a href="https://t.co/16nzrnhctI">Variant</a> · <a href="https://t.co/eNTzgLKuJe">EVEE methodology</a></p>
+</article>
+
+<article>
+<h3>scChronos predicts missing populations, not individual cell trajectories</h3>
+<p>scChronos treats missing snapshots in single-cell time series as target-conditioned population distributions. Observed snapshots become cluster-representative embeddings; a global branch attends across reference snapshots while a local branch captures nearby temporal transitions. This offers a different framing from propagating individual cells through time, though no quantitative evaluation is supplied.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2110504205345825106">scChronos overview</a></p>
+</article>
+
+<article>
+<h3>ALBIS links spatial-transcriptomics scales through shared ground truth</h3>
+<p>ALBIS simulates 3D tissue with domain-dependent cell-type composition and explicit coordinates for individual RNA molecules. The same molecular ground truth produces subcellular, cellular and multicellular observations, creating a framework for comparing analysis methods across measurement scales. Benchmark results are not included.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2110503898658263519">ALBIS overview</a></p>
+</article>
+
+<article>
+<h3>Better perturbation models may need deeper, more informative measurements</h3>
+<p>Responding to Arjun Raj’s concern about inadequate measurement even of single perturbations, Anshul Kundaje argues for more cells per condition and more informative perturbation choices. He cites targeted reprogramming with two to four transcription factors and separately highlights the lack of continuous-time measurements after perturbation. These are experimental-design arguments, not new benchmark findings.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2110372866504196288">Perturbation-data discussion</a></p>
+</article>
+
+<article>
+<h3>RNA abundance is not regulatory activity</h3>
+<p>In a discussion of RNA–protein correlations, Kundaje points to MSN2/4 as an example where RNA levels poorly predict regulatory activity across conditions. An accompanying reply highlights signaling-dependent changes in protein localization. For transcriptome-based models, the distinction is important: predicting abundance is not the same as predicting a functional regulatory state.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2110483784076599748">Regulatory-activity discussion</a></p>
+</article>
+
+<article>
+<h3>TF-MoDISco optimization reports 5–15× speed gains</h3>
+<p>A repost of Jacob Schreiber reports automated optimization of the regulatory-genomics interpretation tool, with speed improvements rising with task complexity and <strong>2–3× memory savings</strong>. The excerpt is truncated; benchmark conditions, implementation details and output-equivalence checks are unavailable.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2110439744807330176">Performance report</a></p>
+</article>
+
+<h3>Regulatory research watch</h3>
+<ul>
+<li><strong>Weak pioneer-factor binding sites:</strong> a repost highlights Zeitlinger Lab work using deep learning to systematically map low-affinity sites. The excerpt does not identify the biological system, validation or conclusions. <a href="https://x.com/razoralign/status/2110502766938591559">Research post</a></li>
+<li><strong>CRISPR and hidden regulatory states:</strong> a repost of Kanishka Dey connects perturbations with cis- and gene-program-level genetic architecture. The phenotype, experimental design and supporting results are missing from the truncated text. <a href="https://x.com/anshulkundaje/status/2110439505643860067">Research post</a></li>
+<li><strong>TF-pair Perturb-seq:</strong> a post describes transcription-factor-pair activation, multiomic readouts and transformer modeling intended to predict unseen cases. The excerpt ends before specifying those cases or reporting results. <a href="https://x.com/razoralign/status/2110390241756688573">Research post</a></li>
+</ul>
+</section>
+
+<section id="briefs">
+<h2>Research briefs &amp; tools</h2>
+<p class="meta">Short pointers where the supplied material supports only a limited description; resource highlights are not necessarily new releases.</p>
+<ul>
+<li><strong>zPocket:</strong> Tally Portnoi and Nate Gruver’s pocket-prediction tool uses co-folding features. No repository, benchmarks or validation details are supplied. <a href="https://x.com/anshulkundaje/status/2110480538494714316">Announcement</a></li>
+<li><strong>False positives in lncRNA screens:</strong> Nature Methods highlights detection, monitoring and mitigation, but the post does not supply specific controls or recommendations. <a href="https://x.com/naturemethods/status/2110435894393971110">Article pointer</a></li>
+<li><strong>TCR–antigen specificity:</strong> a Nature Methods article examines research bottlenecks; the supplied post does not identify them or describe remedies. <a href="https://x.com/naturemethods/status/2110460295210471574">Article pointer</a></li>
+<li><strong>bioAFM-DB:</strong> a databank for atomic force microscopy data. Dataset scale, supported formats and access details are not supplied. <a href="https://x.com/naturemethods/status/2110424056151597454">Announcement</a></li>
+<li><strong>Figeno:</strong> a resurfaced resource for multi-region genomic figures with long-read support. No release change is described. <a href="https://x.com/razoralign/status/2110432291461947507">Resource post</a></li>
+<li><strong>Genome Explorer:</strong> a genome-browser resource, with no feature description or release information in the supplied text. <a href="https://x.com/razoralign/status/2110432137891782924">Resource post</a></li>
+<li><strong>MultiOmicsXplorer:</strong> a tool for browsing, accessing and analyzing multi-omics data. Supported datasets and methods are unspecified. <a href="https://x.com/razoralign/status/2110390328176103884">Resource post</a></li>
+<li><strong>goloco:</strong> a web application described as deriving genome-scale information from small experiments. Its inference method, required measurements and validation are not provided. <a href="https://x.com/razoralign/status/2110390335298031873">Resource post</a></li>
+<li><strong>Approximate Bayesian inference:</strong> work titled “Efficient approximate Bayesian inference for large, heterogeneous biological datasets” is linked, but no methodological or performance details are supplied. <a href="https://x.com/razoralign/status/2110390880595251487">Research post</a></li>
+<li><strong>“Revealing the invisible transcriptome”:</strong> Nature Reviews Molecular Cell Biology announces an article without further detail about RNA species, measurement methods or findings. <a href="https://x.com/NatRevMCB/status/2110375751027753152">Article pointer</a></li>
+</ul>
+</section>
+
+<section id="languages" class="practice">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — ZEIT-Journalistin Anne Kunze äußert sich zu Herausgabe von Tonmaterial an LKA</h3>
+<p class="meta">Deutschlandfunk Kultur · 14.10.2026 · <a href="https://www.deutschlandfunkkultur.de/zeit-journalistin-anne-kunze-aeussert-sich-zu-herausgabe-von-tonmaterial-an-lka-102.html">Zum Artikel</a></p>
+<p>Die ZEIT wehrt sich gegen die Sicherstellung von Recherchematerial ihrer Journalistin Anne Kunze. Ermittler verlangten Tonaufnahmen für den Podcast „House of Block“, der den Sorgerechtsstreit und strafrechtliche Vorwürfe rund um die Hamburger Unternehmerfamilie behandelt. Kunze zufolge geht es um etwa 160 Stunden Rohmaterial. Um drohenden Durchsuchungen zuvorzukommen, übergaben Zeitung und Autorin die Aufnahmen versiegelt.</p>
+<p>Der Beitrag rückt den Konflikt zwischen Strafverfolgung und journalistischem Quellenschutz in den Mittelpunkt. Die ZEIT kündigt rechtliche Gegenwehr an; der Vorsitzende des Deutschen Journalisten-Verbandes, Mika Beuster, kritisiert die Sicherstellung. Aus seiner Sicht dürfen vertrauliche journalistische Recherchen nicht einfach als gewöhnliches Beweismaterial behandelt werden: Wer sich Journalisten anvertraut, müsse auf den Schutz seiner Informationen zählen können.</p>
+<p><strong>Warum lesen:</strong> Die kurze Meldung macht an einem konkreten deutschen Medienfall deutlich, warum Quellenschutz und Pressefreiheit auch bei strafrechtlichen Ermittlungen umstrittene Fragen aufwerfen.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Hongrie: le soulagement après la loi abrogeant des mesures anti-LGBTQ+</h3>
+<p class="meta">RFI · 15 octobre 2026 · <a href="https://www.rfi.fr/fr/europe/20261015-hongrie-le-soulagement-apr%C3%A8s-la-loi-abrogeant-des-mesures-anti-lgbtq">Lire le reportage</a></p>
+<p>À Budapest, RFI recueille les réactions à une nouvelle loi supprimant des restrictions anti-LGBTQ+ adoptées sous Viktor Orban. Votée par le parti du Premier ministre Péter Magyar, elle doit entrer en vigueur dans les prochains jours. Les anciennes mesures interdisaient notamment d’aborder l’homosexualité ou l’identité de genre à l’école et à la télévision avant 22 heures, et limitaient la présentation des livres consacrés à ces sujets dans les librairies.</p>
+<p>Le reportage montre les conséquences concrètes de ces restrictions à travers un recueil de contes inclusifs. Un libraire indépendant avait renoncé à l’exposer en vitrine, craignant une amende, tout en refusant de l’emballer sous cellophane. Le livre est désormais de nouveau visible. Dans les médias publics, un responsable associatif autrefois exclu des émissions témoigne également d’un changement : son organisation est invitée à s’exprimer et constate un accueil plus favorable.</p>
+<p>RFI replace ces évolutions dans leur contexte européen : les dispositions entrées en vigueur en juillet 2021, présentées par le gouvernement Orban comme une protection des mineurs, étaient contestées par Bruxelles pour leur caractère discriminatoire et leur atteinte à la liberté de l’information. Leur suppression marque ainsi, selon le reportage, une mise en conformité avec le droit européen.</p>
+<p><strong>Pourquoi lire :</strong> Un reportage concret qui relie les droits des minorités, la vie des librairies et la place des associations dans les médias à une évolution politique européenne.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>abrogation</strong> — suppression officielle d’une règle juridique, qui cesse alors de s’appliquer.</li>
+<li><strong>interdit d’antenne</strong> — exclu des interventions ou des apparitions à la radio ou à la télévision.</li>
+<li><strong>mise en conformité</strong> — adaptation d’une loi ou d’une pratique aux règles juridiques applicables.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — “コネクテッドカー”はGoogleやMetaにどれだけ情報を送っている？　21車種30アプリを調査</h3>
+<p class="meta">ITmedia NEWS · 2026-10-15 · <a href="https://www.itmedia.co.jp/news/article/2610/15/2000002258/">記事を読む</a></p>
+<p>インターネットにつながる自動車は、利用者の情報をどこへ送っているのか。記事は、米ノースイースタン大学の研究者らが21車種と車両連携アプリ30種類を調べた研究を紹介する。調査した車両のうち19台で、GoogleやAmazonなどの第三者企業へのデータ送信が確認された。ただし、送信先には広告・分析企業だけでなく、地図や音楽配信、クラウドなどのサービス提供企業も含まれる。</p>
+<p>アプリでは、30種類中7種類が車両識別番号、メールアドレス、電話番号、位置情報のいずれかを第三者に送っていた。車両識別番号が個人の連絡先やネット上の行動履歴と結び付くと、利用者の追跡につながる恐れがある。また、携帯電話回線を遮断した実験では、一部の車両がWi-Fiに切り替えてデータ送信を続けようとする挙動も観測された。</p>
+<p>研究チームへの回答で、自動車メーカー14社は、確認された送信がサービス契約の範囲内だと説明した。一方、ホンダはデータ削除の要請と、位置情報の送信を止めるアプリ修正に対応したという。便利な遠隔操作機能を使うために、どこまでデータ提供に同意しなければならないのかという、消費者の選択の難しさが浮かび上がる。</p>
+<p><strong>読む理由：</strong> 身近な自動車を入り口に、便利な通信サービスと個人情報保護の関係を具体的な調査結果から考えられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>車両識別番号（しゃりょうしきべつばんごう）</strong> — 一台ごとの車両を特定する固定の番号で、VINとも呼ばれる。</li>
+<li><strong>第三者（だいさんしゃ）</strong> — ここでは、自動車メーカーや利用者以外で、データの送信先となる企業。</li>
+<li><strong>セルラー通信（せるらーつうしん）</strong> — 携帯電話の基地局を介して行う無線通信。</li>
+</ul>
+</article>
+
+<article lang="zh-Hans">
+<h3>中文 — 安迪·伯纳姆：十年前英国脱欧公投俄罗斯“显然”曾搞局</h3>
+<p class="meta">BBC 中文 · 2026-10-12 · <a href="https://www.bbc.com/zhongwen/articles/cm70pwyl0qxwo/simp">https://www.bbc.com/zhongwen/articles/cm70pwyl0qxwo/simp</a></p>
+<p>据BBC中文报道，英国首相安迪·伯纳姆在播客访问中表示，他上任后曾查问俄罗斯是否干预2016年脱欧公投，得到肯定答复。他认为，英国政府过去应对过于被动，也未充分向公众说明外国势力试图破坏政治进程的程度。不过，他没有披露相关活动的具体类型或规模；脱欧倡议团体则反驳，不能据此认定干预改变了公投结果。</p>
+<p>报道回顾了英国国会2020年的相关调查：当时的报告没有明确判定俄罗斯是否试图影响脱欧公投结果，但批评历届政府未全面评估威胁。俄罗斯方面否认干预其他国家的选举。这里值得区分的是，“存在干预活动”与“干预决定了投票结果”并不是同一项主张。</p>
+<p>文章也将争议延伸至德国、法国及人工智能生成的虚假资讯。伯纳姆称，他访德时曾与德国总理默茨讨论俄罗斯干预问题；BBC事实查核则曾追踪冒充记者和新闻机构的假影片。英国政府表示，将通过设立新中心、加强国家安全相关权力及提升机构应对能力来处理威胁。</p>
+<p><strong>为什么读：</strong> 这篇报道把欧洲政治与人工智能造假联系起来，适合练习辨别新闻中的指控、反驳与证据边界。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>公投 (gōng tóu)</strong> — 由选民直接投票决定某项重大公共议题的制度。</li>
+<li><strong>深度伪造 (shēn dù wěi zào)</strong> — 运用人工智能合成或修改影像、声音，使人物看似说过或做过实际上没有发生的事。</li>
+<li><strong>事实查核 (shì shí chá hé)</strong> — 利用原始资料及其他可验证证据，核实公开说法或传播内容是否准确。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> This edition uses only the supplied source reports. Research coverage draws on X posts, several of which are truncated or title-only; linked pages and performance claims were not independently verified. Shortened resource links are preserved as supplied.</p>
+<p>News · 15 October 2026 · Run 2026-10-15-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

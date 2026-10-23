@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #666a70;
+      --paper: #fffdf8;
+      --accent: #8b2f2f;
+      --rule: #d8d2c7;
+      --panel: #f5f1e9;
+      --link: #174f87;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ebe7de;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    main {
+      width: min(980px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.2rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.07);
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 1.4rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 2.5rem 0;
+    }
+    section > h2 {
+      margin: 0 0 1.2rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    article {
+      padding: 0.2rem 0 1.4rem;
+      margin-bottom: 1.4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      margin-bottom: 0;
+    }
+    article h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.3rem;
+      line-height: 1.25;
+    }
+    article p {
+      margin: 0.55rem 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover, a:focus {
+      color: var(--accent);
+    }
+    .source-line {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.83rem;
+    }
+    .tags {
+      margin-top: 0.8rem;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 0.3rem 0.3rem 0;
+      padding: 0.12rem 0.45rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.72rem;
+    }
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 2rem;
+    }
+    .language-block {
+      margin: 2.5rem 0;
+    }
+    .language-block > h2 {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .language-block article {
+      padding: 1.25rem clamp(1rem, 3vw, 1.7rem);
+      background: var(--panel);
+      border: 1px solid var(--rule);
+    }
+    .language-block h3 {
+      font-size: 1.35rem;
+    }
+    .language-block ul {
+      margin-top: 0.5rem;
+      padding-left: 1.4rem;
+    }
+    .language-block li {
+      margin: 0.35rem 0;
+    }
+    .notice {
+      color: var(--muted);
+      font-style: italic;
+      font-size: 0.92rem;
+    }
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Monday, July 13, 2026</p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 id="ai-research">Artificial Intelligence</h2>
+
+      <article>
+        <h3><a href="https://x.com/Jianlin_S/status/2076508303581188337">Taylor expansions of LogSumExp and softmax</a></h3>
+        <p>Jianlin Su shares a technical note deriving Taylor expansions for LogSumExp and softmax, two functions central to neural-network attention and classification.</p>
+        <div class="tags">
+          <span class="tag">softmax</span>
+          <span class="tag">LogSumExp</span>
+          <span class="tag">mathematical analysis</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2076229257697886292">Speculative decoding released for Qwen3.5-27B</a></h3>
+        <p>A speculative-decoding approach has been released with a draft model for Qwen3.5-27B and a reference implementation. It is a potentially useful contribution to faster language-model inference, although the available source excerpt omits the remaining technical details and direct resource link.</p>
+        <div class="tags">
+          <span class="tag">speculative decoding</span>
+          <span class="tag">inference</span>
+          <span class="tag">language models</span>
+          <span class="tag">open source</span>
+        </div>
+      </article>
+    </section>
+
+    <section aria-labelledby="bio-research">
+      <h2 id="bio-research">Computational Biology &amp; Genomics</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2076465088341639353">SPARC reconstructs trajectories across ordered single-cell conditions</a></h3>
+        <p>SPARC is a graph-based framework for reconstructing directional trajectories across ordered single-cell conditions. It builds a graph in a shared latent space, applies global shortest-path optimization under biological constraints, and derives path-based pseudotime, bottleneck clusters, and temporal gene behavior.</p>
+        <p>The method could help researchers model state progression and regulatory dynamics across experimental conditions.</p>
+        <div class="tags">
+          <span class="tag">single-cell</span>
+          <span class="tag">trajectory inference</span>
+          <span class="tag">gene regulation</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2076464752277246399">Panomap maps raw nanopore signals to pangenome graphs</a></h3>
+        <p>Panomap is presented as a signal-space mapper that works directly on pangenome variation graphs. It extends hash-based seed-and-chain nanopore signal mapping by indexing graph-embedded paths, chaining anchors within paths, and merging chains that correspond to shared graph regions.</p>
+        <p>The approach is designed to address reference bias in nanopore mapping by representing genomic variation through a pangenome graph rather than a single linear reference.</p>
+        <div class="tags">
+          <span class="tag">genomics</span>
+          <span class="tag">pangenome</span>
+          <span class="tag">nanopore</span>
+          <span class="tag">sequence mapping</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2076506688207929649">LYNX introduced for multimodal spatial biology</a></h3>
+        <p>LYNX is introduced as a deep generative framework for multimodal spatial biology, bringing generative modeling to spatially resolved biological data. The available post is truncated, so its architecture, evaluation results, and linked resources cannot be assessed from the supplied information.</p>
+        <div class="tags">
+          <span class="tag">spatial biology</span>
+          <span class="tag">multimodal omics</span>
+          <span class="tag">generative models</span>
+        </div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2076463754959802860">scDiagnostics checks the reliability of single-cell annotations</a></h3>
+        <p>scDiagnostics systematically evaluates single-cell cell-type annotations. It checks whether matched cell types have similar expression distributions in reduced-dimensional space and applies anomaly-detection methods to flag query cells that deviate from their assigned reference type.</p>
+        <p>The tool provides a quality-control layer for testing annotation reliability instead of accepting transferred labels at face value.</p>
+        <div class="tags">
+          <span class="tag">single-cell</span>
+          <span class="tag">cell-type annotation</span>
+          <span class="tag">quality control</span>
+          <span class="tag">anomaly detection</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice</h2>
+
+      <section class="language-block" lang="de" aria-labelledby="german-reading">
+        <h2 id="german-reading">Deutsch — tägliche Lektüre</h2>
+        <article>
+          <h3>EU sieht Suchtgefahr bei Facebook und Instagram</h3>
+          <p class="source-line">Tagesschau · 10.07.2026 · <a href="https://www.tagesschau.de/ausland/europa/eu-meta-suchtgefahr-100.html">Artikel lesen</a></p>
+
+          <p>Die EU-Kommission wirft dem Meta-Konzern vor, dass Facebook und Instagram für Kinder und Jugendliche ein zu hohes Suchtpotenzial bergen. Kritisiert werden unter anderem personalisierte Algorithmen, häufige Benachrichtigungen, automatisch abgespielte Inhalte und das endlose Scrollen. Nach Ansicht der Kommission reichen Metas bisherige Schutzmaßnahmen nicht aus.</p>
+
+          <p>Meta soll die beanstandeten Funktionen ändern und wirksamere Pausen sowie bessere Schutzmechanismen einführen. Eine konkrete Frist gibt es allerdings nicht. Sollte der Konzern die Vorwürfe nicht entkräften oder die Probleme nicht beheben, droht eine Geldbuße von bis zu sechs Prozent seines weltweiten Jahresumsatzes. Der Fall dürfte zugleich die Debatte über gesetzliche Altersgrenzen für soziale Medien in Deutschland und anderen europäischen Ländern verstärken.</p>
+
+          <p><strong>Warum lesen:</strong> Der Artikel bietet einen verständlichen Einstieg in die europäische Debatte über Plattformregulierung, Jugendschutz und suchtförderndes Design.</p>
+        </article>
+      </section>
+
+      <section class="language-block" lang="fr" aria-labelledby="french-reading">
+        <h2 id="french-reading">Français — lecture quotidienne</h2>
+        <article>
+          <h3>La France « n’est pas prête » : le constat alarmant du Haut Conseil pour le climat</h3>
+          <p class="source-line">France 24 · 9 juillet 2026 · <a href="https://www.france24.com/fr/france/20260709-france-pas-pr%C3%AAte-constat-alarmant-haut-conseil-climat-canicule-juillet-r%C3%A9chauffement-clim">Lire l’article</a></p>
+
+          <p>Dans son huitième rapport annuel, le Haut Conseil pour le climat estime que la France reste insuffisamment préparée aux conséquences du réchauffement. Publié alors qu’une nouvelle vague de chaleur touche le pays, le document appelle les pouvoirs publics à « changer d’échelle » afin de mieux protéger la population et de réduire la dépendance aux énergies fossiles.</p>
+
+          <p>Les émissions françaises de gaz à effet de serre ont diminué de 2,1 % en 2025, puis de 4,8 % au premier trimestre 2026, mais le Haut Conseil juge que les politiques climatiques demeurent insuffisantes. Il met aussi en garde contre la « maladaptation » : des réponses qui paraissent réduire la vulnérabilité à court terme, mais risquent de l’aggraver durablement.</p>
+
+          <p><strong>Pourquoi lire :</strong> L’article présente clairement les écarts entre les objectifs climatiques français, les progrès déjà réalisés et la préparation concrète du pays aux chaleurs extrêmes.</p>
+
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>changer d’échelle</strong> — renforcer très nettement l’ampleur, la rapidité ou les moyens d’une politique</li>
+            <li><strong>maladaptation</strong> — mesure d’adaptation qui crée ou accentue finalement une vulnérabilité au changement climatique</li>
+            <li><strong>décarbonation</strong> — réduction progressive des émissions de dioxyde de carbone liées aux activités économiques</li>
+            <li><strong>neutralité carbone</strong> — équilibre entre les gaz à effet de serre émis et ceux retirés de l’atmosphère</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="language-block" lang="ja" aria-labelledby="japanese-reading">
+        <h2 id="japanese-reading">日本語 — 毎日の読み物</h2>
+        <article>
+          <h3>科学技術・イノベーション白書 基礎研究の成果を社会実装へ</h3>
+          <p class="source-line">NHKニュース · 2026年7月13日 · <a href="https://news.web.nhk/newsweb/na/na-k10015175221000">記事を読む</a></p>
+
+          <p>政府は、ことしの「科学技術・イノベーション白書」を閣議決定しました。白書は、前年にノーベル賞を受賞した2人の日本人研究者の事例を取り上げ、基礎研究で得られた成果を社会課題の解決へ結びつけることの重要性を示しています。</p>
+
+          <p>記事の中心となるのは、研究成果を実際の製品、サービス、制度などに生かす「社会実装」という考え方です。科学的な発見にとどまらず、それを社会で役立つ形へ発展させるための取り組みに焦点を当てています。</p>
+
+          <p><strong>読む理由：</strong> 日本の科学政策を題材に、研究と社会のつながりを表す重要な語彙を学べます。</p>
+
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>社会実装（しゃかいじっそう）</strong> — 研究や技術の成果を、社会で実際に利用できる形にすること。</li>
+            <li><strong>基礎研究（きそけんきゅう）</strong> — すぐに実用化することより、現象や原理の解明を主な目的とする研究。</li>
+            <li><strong>閣議決定（かくぎけってい）</strong> — 内閣が重要な政策や方針について正式に決定すること。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section class="language-block" lang="zh" aria-labelledby="chinese-reading">
+        <h2 id="chinese-reading">中文 — 每日阅读</h2>
+        <article>
+          <h3>25年后的老无双：《真·三国无双2 with 猛将传 Remastered》试玩体验报告</h3>
+          <p class="source-line">机核 · 2026-07-13 · <a href="https://www.gcores.com/articles/216966">阅读文章</a></p>
+
+          <p>这篇试玩报告讨论光荣特库摩如何用 UE5 重制一款诞生于 PS2 时代的动作游戏。新版全面提升人物建模、材质、光照和同屏敌兵数量，却保留了原作鲜明的武将造型、动作模组、关卡节奏与金属风格配乐。作者认为，它呈现的并非简单的怀旧滤镜，而是老玩家记忆中那个摆脱硬件限制后的《真·三国无双2》。</p>
+
+          <p>重制版没有把老《无双》的高难度彻底改造成轻松“割草”：玩家仍须管理血量、无双槽和战场资源，规划据点与敌将的攻略顺序。与此同时，新增的闪避、精准防御、弹反和肩越式弓箭操作提供了现代化的反制手段；全程中文配音也成为试玩中的一大亮点。文章借此探讨了经典游戏复刻时，忠于原作与适应当代玩家之间的平衡。</p>
+
+          <p><strong>为什么读：</strong> 既是一篇信息具体的动作系统评测，也提供了观察游戏复刻、玩家记忆与技术升级关系的有趣视角。</p>
+
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>硬直 (yìngzhí)</strong> — 游戏角色受击或出招后暂时无法行动的状态。</li>
+            <li><strong>弹反 (dànfǎn)</strong> — 在攻击命中的瞬间精准防御，并使对手失衡或露出破绽的机制。</li>
+            <li><strong>无敌帧 (wúdí zhēn)</strong> — 角色在一小段动画帧内不会受到伤害的时间窗口。</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-07-13-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

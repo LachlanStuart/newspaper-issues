@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #687385;
+      --rule: #d8cfc2;
+      --accent: #8a4b2a;
+      --accent-soft: #f0e3d8;
+      --link: #0f5e8c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--accent);
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 6px 0 4px;
+      font-size: clamp(2.2rem, 6vw, 4.5rem);
+      line-height: 0.95;
+      font-weight: 700;
+    }
+    .date {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    .section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 2px 8px rgba(31, 41, 51, 0.04);
+    }
+    h2 {
+      margin: 0 0 16px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+      font-size: 1.6rem;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      line-height: 1.3;
+    }
+    article {
+      padding: 14px 0;
+      border-bottom: 1px solid #ece4da;
+    }
+    article:last-child { border-bottom: 0; padding-bottom: 0; }
+    p { margin: 7px 0; }
+    a {
+      color: var(--link);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration: underline; }
+    .meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #68391f;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 3px 4px 0 0;
+      font-size: 0.74rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 18px 26px;
+    }
+    .compact article { padding: 11px 0; }
+    .language {
+      margin-top: 34px;
+      border-top: 4px solid var(--accent);
+      padding-top: 18px;
+    }
+    .language article {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 18px;
+      margin: 16px 0;
+    }
+    .language h3 {
+      color: var(--accent);
+      font-size: 1.25rem;
+    }
+    .language ul { margin-top: 6px; }
+    .notes {
+      color: var(--muted);
+      font-size: 0.9rem;
+      background: transparent;
+      border-style: dashed;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Tuesday, June 16, 2026 · Run 2026-06-16-1</div>
+    </header>
+
+    <section class="section">
+      <h2>AI Research</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/giffmana/status/2066591673518338185">EPFL MLO Lab studies decoupling weight-vector magnitude and direction during neural-network training</a></h3>
+          <p>Lucas Beyer amplified an EPFL MLO Lab announcement on improving neural-network training by separating the magnitude and direction of weight vectors. The available item is truncated, but it points to a technical optimization paper rather than a product announcement.</p>
+          <div>
+            <span class="tagline">optimization</span>
+            <span class="tagline">training</span>
+            <span class="tagline">neural networks</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cgeorgiaw/status/2066590462677221847">LabVLA proposes a Qwen-based model for autonomous laboratory workflows</a></h3>
+          <p>Georgia Channing highlighted “LabVLA,” described as a lab-oriented VLA model for autonomous labs, built on Qwen and associated with Shanghai AI Lab. The supplied post includes shortened links whose destinations were not available in the provided data.</p>
+          <div>
+            <span class="tagline">AI for science</span>
+            <span class="tagline">autonomous labs</span>
+            <span class="tagline">Qwen</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/YouJiacheng/status/2066507907567693877">Shampoo optimizer variant reported to improve speedrun training by 100–150 steps</a></h3>
+          <p>A technical optimizer note claims that using Shampoo with exponent −1/3 and 0.95 momentum for all accumulators improves a referenced training speedrun by 100–150 steps. The benchmark context is truncated, so treat this as an interesting lead rather than a complete result.</p>
+          <div>
+            <span class="tagline">optimization</span>
+            <span class="tagline">Shampoo</span>
+            <span class="tagline">benchmarks</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Computational Biology &amp; Bio-AI</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/DdelAlamo/status/2066670536176931222">SAbDab-2 updates antibody structure database and fixes CDR parsing errors</a></h3>
+          <p>SAbDab-2 is out with corrections to CDR parsing errors in the original antibody structure database. One example notes that PDB 9DMQ previously missed part of a CDRH3 loop annotation, now corrected.</p>
+          <div>
+            <span class="tagline">antibodies</span>
+            <span class="tagline">protein structure</span>
+            <span class="tagline">drug discovery</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2066523959550755189">MoE-Bind uses sparse experts for sequence-only de novo protein binder generation</a></h3>
+          <p>MoE-Bind is summarized as a sequence-only autoregressive protein binder generator using multi-head latent attention and sparse mixture-of-experts transformer blocks. Reported evaluation includes leakage-controlled PPI fine-tuning, AF2-Multimer/Boltz-2 tests against DB5 targets, and routing analyses suggesting amino-acid or biochemical expert specialization.</p>
+          <div>
+            <span class="tagline">protein design</span>
+            <span class="tagline">mixture of experts</span>
+            <span class="tagline">interpretability</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2066523423313166484">RDiffusion proposes conditional discrete diffusion for programmable RNA design</a></h3>
+          <p>RDiffusion is presented as a unified model for RNA sequence design across functional, family, secondary-structure, tertiary-structure, RNA–protein binding, CRISPR guide, and disease-context constraints. The summary reports strong results on Rfam, 5′ UTR MRL, Cas13 guide activity, inverse structure design, RNA–protein binding, and an osteoarthritis miRNA case study.</p>
+          <div>
+            <span class="tagline">RNA</span>
+            <span class="tagline">diffusion models</span>
+            <span class="tagline">CRISPR</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2066523098929856764">Study estimates false-positive behavior of AlphaFold2 on opposite-strand ORFs</a></h3>
+          <p>A summarized Xu and Salzberg paper tests AF2/ColabFold on likely non-protein opposite-strand ORFs from human and bacterial genes. The reported empirical high-confidence false-positive rate at pLDDT ≥70 is about 0.23%, mostly trivial helices, with some hits exposing real annotation issues.</p>
+          <div>
+            <span class="tagline">AlphaFold</span>
+            <span class="tagline">genome annotation</span>
+            <span class="tagline">model reliability</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2066522667642134690">PeptiDIA uses XGBoost to rescue peptide IDs from fast-gradient DIA proteomics</a></h3>
+          <p>PeptiDIA is an ML post-processing framework that learns from paired long-gradient DIA-MS runs to recover peptide identifications lost in ultra-fast DIA acquisitions. It uses relaxed DIA-NN candidate pools, XGBoost over search-engine and peptide features, and reference-discordance-rate control.</p>
+          <div>
+            <span class="tagline">proteomics</span>
+            <span class="tagline">mass spectrometry</span>
+            <span class="tagline">machine learning</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2066521111404458436">Sequence-only drug–target interaction pipeline benchmarks ML, deep learning, and ensembles</a></h3>
+          <p>A drug–target interaction study uses protein physicochemical features, BLOSUM-derived features, protein k-mers, and SMILES-derived drug motifs. It reports ROC-AUC up to 0.914 under cross-validation, with SHAP/permutation interpretability and caveats about missing independent tests and possibly optimistic splits.</p>
+          <div>
+            <span class="tagline">drug discovery</span>
+            <span class="tagline">DTI</span>
+            <span class="tagline">benchmarking</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2066520388969050499">“Protein language models are accidental taxonomists” warns of taxonomy confounding in PPI prediction</a></h3>
+          <p>The paper argues that multi-species PPI models can exploit taxonomy rather than interaction biology because BioGRID positives are mostly intra-species while random negatives are often inter-species. Within-species negative sampling sharply reduces inflated validation performance.</p>
+          <div>
+            <span class="tagline">protein language models</span>
+            <span class="tagline">dataset bias</span>
+            <span class="tagline">PPI</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2066714446689624262">FLARE reports billions of noncoding variant-effect predictions across brain and heart contexts</a></h3>
+          <p>A FLARE thread describes a Nature Genetics resource with more than 3 billion variant-effect predictions across 132 adult and fetal brain and heart contexts. Snippets mention CRISPRi validation in iPSC-derived microglia plus links to models, predictions, and code.</p>
+          <div>
+            <span class="tagline">functional genomics</span>
+            <span class="tagline">variant effects</span>
+            <span class="tagline">noncoding regulation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2066570876775198771">TARIO-2 aligns H&amp;E pathology tiles with spatial RNA transcripts</a></h3>
+          <p>TARIO-2 is described as a foundation model trained on aligned tiles of human H&amp;E pathology images and spatial RNA transcripts. The item is truncated, but clearly points to a multimodal pathology–spatial transcriptomics model.</p>
+          <div>
+            <span class="tagline">pathology</span>
+            <span class="tagline">spatial transcriptomics</span>
+            <span class="tagline">foundation models</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2066575946564476960">Nature Methods analysis studies data size and diversity for single-cell foundation models</a></h3>
+          <p>Nature Methods highlights an analysis of how pretraining dataset size and diversity affect single-cell foundation-model performance, with both a paper and associated research briefing.</p>
+          <div>
+            <span class="tagline">single-cell</span>
+            <span class="tagline">foundation models</span>
+            <span class="tagline">data scaling</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2066562754928869523">m6A-ARTR-DBiT spatially profiles transcriptome-wide m6A in intact tissue</a></h3>
+          <p>Nature Methods reports m6A-ARTR-DBiT, a spatial assay for profiling m6A distribution across the transcriptome in intact tissue sections, with an associated News &amp; Views article.</p>
+          <div>
+            <span class="tagline">RNA</span>
+            <span class="tagline">epitranscriptomics</span>
+            <span class="tagline">spatial biology</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2066558318601007602">OrthoFinder v3 improves scalable phylogenetic orthology inference</a></h3>
+          <p>Nature Methods highlights OrthoFinder v3, a comparative-genomics tool for phylogenetic orthology inference with improved accuracy and scalability for massive datasets.</p>
+          <div>
+            <span class="tagline">comparative genomics</span>
+            <span class="tagline">phylogenetics</span>
+            <span class="tagline">tool</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <h2>Methods &amp; Tooling Watchlist</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066559645829996648">MultiModalGraphics</a></h3>
+        <p>An R package for graphical integration of multi-omics datasets.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066559634962554883">The cell as a token</a></h3>
+        <p>A conceptual and technical analysis connecting high-dimensional geometry in language models with cell embeddings.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066559623382040875">AlphaGenome port to PyTorch</a></h3>
+        <p>A highlighted effort to make AlphaGenome available in PyTorch, potentially improving accessibility and experimentation.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066559598614753620">SpaNiche</a></h3>
+        <p>A spatial niche analysis method for studying colocalization patterns and cellular interactions in spatial transcriptomics data.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556349253882219">Multiresolution clustering of genomic data</a></h3>
+        <p>A method or paper focused on clustering genomic data across multiple resolutions.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556321449881920">ZIPcnv</a></h3>
+        <p>An efficient method for inferring copy-number variations from shallow whole-genome sequencing.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556304462930056">TreeProfiler</a></h3>
+        <p>A tool for large-scale metadata profiling along gene and species trees.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556286901399848">FastGA</a></h3>
+        <p>A genome-alignment tool described as “Fast Genome Alignment.”</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556274918203761">CellOntologyMapper</a></h3>
+        <p>A consensus mapping tool for cell-type annotations.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556258505949289">scExtract</a></h3>
+        <p>A tool using large language models for fully automated single-cell RNA-seq annotation and prior-informed analysis.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556244329144766">BulkFormer</a></h3>
+        <p>A large-scale foundation model for bulk transcriptomes.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556189098520772">DiffusionST</a></h3>
+        <p>A deep generative diffusion framework for enhancing spatial transcriptomics data quality and identifying spatial domains.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556173281821010">LazyNet</a></h3>
+        <p>An interpretable ODE modeling approach for sparse CRISPR single-cell screens.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066556151588925525">SONATA</a></h3>
+        <p>A multimodal single-cell integration method aimed at protecting diagonal integration from ambiguous mapping.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066553980587741456">Universal transcriptomic clocks of aging and mortality</a></h3>
+        <p>A Nature paper highlighted by Steve Horvath and reposted by razoralign, from Alexander Tyshkovskiy and the Vadim Gladyshev lab.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2066553940263698910">das-CRISPR</a></h3>
+        <p>dCas allele sequestration for monoallelic genome editing, potentially useful in lethal knockout contexts.</p>
+      </article>
+    </section>
+
+    <section class="language">
+      <div class="section">
+        <h2>Language Practice</h2>
+        <p class="meta">Native-language reading snippets are preserved in their original language and script.</p>
+
+        <article lang="de">
+          <h3>Deutsch — Kampfjet FCAS: Getrennt rüsten, gemeinsam scheitern</h3>
+          <p class="meta">Deutsche Welle · 2026-06-15 · <a href="https://www.dw.com/de/kampfjet-fcas-warum-deutschland-frankreich-beim-thema-r%C3%BCstung-getrennte-wege-gehen/a-77564979">https://www.dw.com/de/kampfjet-fcas-warum-deutschland-frankreich-beim-thema-r%C3%BCstung-getrennte-wege-gehen/a-77564979</a></p>
+          <p>Der Artikel analysiert die Krise großer europäischer Rüstungsprojekte, vor allem des Future Combat Air System, das ursprünglich als deutsch-französisch-spanisches Vorzeigeprojekt für strategische Eigenständigkeit gedacht war. Laut DW ist das gemeinsame Kampfflugzeug als Herzstück des Systems praktisch gescheitert, obwohl Europas Staaten derzeit massiv in Verteidigung investieren und unabhängiger von den USA werden wollen.</p>
+          <p>Im Mittelpunkt stehen nicht nur technische Fragen, sondern vor allem nationale Industrieinteressen, Konkurrenz um Führungsrollen und unterschiedliche militärische Anforderungen. Frankreich und Deutschland verfolgen teils abweichende Prioritäten; zugleich geraten auch andere Kooperationsprojekte wie der geplante Kampfpanzer MGCS unter Druck.</p>
+          <p><strong>Warum lesen:</strong> Der Text bietet einen gut verständlichen Einblick in europäische Sicherheitspolitik, deutsch-französische Spannungen und die Grenzen gemeinsamer Rüstungsprojekte.</p>
+        </article>
+
+        <article lang="fr">
+          <h3>Français — Un éditeur condamné en appel pour défaut de paiement des droits d'auteur</h3>
+          <p class="meta">ActuaLitté · 2026-06-15 · <a href="https://actualitte.com/article/131959/droit-justice/un-editeur-condamne-en-appel-pour-defaut-de-paiement-des-droits-d-auteur">https://actualitte.com/article/131959/droit-justice/un-editeur-condamne-en-appel-pour-defaut-de-paiement-des-droits-d-auteur</a></p>
+          <p>ActuaLitté revient sur une décision de la cour d’appel d’Aix-en-Provence confirmant la condamnation des Éditions de l’Équinoxe dans un litige avec le photographe Laurent Giraudou. L’affaire concerne les droits d’auteur liés à <em>Un hiver en Provence</em>, publié sous le label Édisud avant le rachat d’un catalogue et de stocks par l’éditeur condamné. Le dossier illustre très concrètement ce qui peut se passer lorsqu’un fonds éditorial change de mains mais que les obligations envers les auteurs ne sont pas correctement suivies.</p>
+          <p>La cour confirme le manquement de l’éditeur à ses obligations, notamment le paiement des droits et la reddition de comptes, tout en réduisant la somme due par rapport à la première instance. Le montant retenu concerne surtout la période postérieure au rachat, car une partie des sommes réclamées pouvait relever d’une exploitation antérieure. L’article est intéressant pour comprendre la mécanique juridique souvent invisible derrière la vie commerciale d’un livre : ventes d’exemplaires, suivi des stocks, prescription, preuves comptables et responsabilités contractuelles.</p>
+          <p><strong>Pourquoi lire :</strong> un cas précis et accessible pour mieux saisir les droits des auteurs face aux éditeurs, au-delà de la seule actualité littéraire.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>reddition de comptes</strong> — obligation pour un éditeur de fournir à l’auteur un relevé permettant de calculer les droits dus.</li>
+            <li><strong>prescription</strong> — délai légal au-delà duquel une action en justice ne peut en principe plus être exercée.</li>
+            <li><strong>fonds éditorial</strong> — ensemble de titres, catalogues, droits et parfois stocks associés à une maison ou à un label d’édition.</li>
+          </ul>
+        </article>
+
+        <article lang="ja">
+          <h3>日本語 — XBOX Game Studiosの複数スタジオが“閉鎖危機”との報道。近年買収されたスタジオも対象で欧米激震、「XBOXリセット」進行中か</h3>
+          <p class="meta">AUTOMATON · 2026-06-16 · <a href="https://automaton-media.com/articles/newsjp/20260616-449886">https://automaton-media.com/articles/newsjp/20260616-449886</a></p>
+          <p>MicrosoftのXBOX部門で、XBOX Game Studios傘下の複数スタジオが閉鎖の危機にあると、The VergeやBloombergなどが報じている。名前が挙がっているのは、イギリスのNinja Theory、カナダのCompulsion Games、アメリカのDouble Fineで、いずれもMicrosoftが2018年から2019年にかけて買収したスタジオだ。</p>
+          <p>記事では、各スタジオがXBOX Game Studiosから離脱し、独立するための協議を進めているとも伝えている。ただし、独立の道が残されているとしても、多くの従業員が影響を受ける可能性があるという。Ninja Theoryは『Hellblade』シリーズ、Compulsion Gamesは『We Happy Few』、Double Fineは『Psychonauts』シリーズなどで知られるだけに、欧米ゲーム業界への波紋は大きい。</p>
+          <p>背景として、XBOX部門ではトップ交代や部門名変更に加え、「XBOXリセット」と呼ばれる組織再編方針が進んでいるとされる。もっとも、現時点ではMicrosoftやXBOX部門から公式にスタジオ閉鎖や人員削減が発表されたわけではなく、報道ベースの情報として読む必要がある。</p>
+          <p><strong>読む理由：</strong> 大手プラットフォーム企業の買収戦略とゲームスタジオ運営の転換点を、日本語の業界ニュースとして追える記事。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>傘下（さんか）</strong> — 大きな組織や企業の支配・管理の下にあること。</li>
+            <li><strong>組織再編（そしきさいへん）</strong> — 会社や部門の構造、人員、役割を組み替えること。</li>
+            <li><strong>自社買収（じしゃばいしゅう）</strong> — 経営陣や関係者などが自分たちの会社を買い取り、独立や運営継続を目指すこと。</li>
+          </ul>
+        </article>
+
+        <article lang="zh">
+          <h3>中文 — 报告：2026年社群与线上影音超越传统媒体</h3>
+          <p class="meta">RFI 中文 · 2026-06-16 · <a href="https://www.rfi.fr/cn/%E7%BC%A4%E7%BA%B7%E4%B8%96%E7%95%8C/20260616-%E6%8A%A5%E5%91%8A-2026%E5%B9%B4%E7%A4%BE%E7%BE%A4%E4%B8%8E%E7%BA%BF%E4%B8%8A%E5%BD%B1%E9%9F%B3%E8%B6%85%E8%B6%8A%E4%BC%A0%E7%BB%9F%E5%AA%92%E4%BD%93">https://www.rfi.fr/cn/缤纷世界/20260616-报告-2026年社群与线上影音超越传统媒体</a></p>
+          <p>RFI 引述牛津大学路透新闻学研究所年度报告指出，2026年成为新闻消费的重要转折点：社群媒体与线上影音平台首度超过传统媒体，成为全球最常用的新闻来源。报告基于 YouGov 对48个国家近10万人的线上调查，显示54%的受访者在调查前一周曾透过社群或影音平台获取新闻；若纳入 ChatGPT 等 AI 聊天机器人，比例升至56%。</p>
+          <p>报道特别提到，年轻族群的新闻入口变化更明显：18至24岁受访者中，有一半把社群或影音平台视为主要新闻来源。不同平台的使用方式也不同，用户较常主动到 X 或 YouTube 寻找新闻，而在 Facebook、Instagram、TikTok 上则多是在浏览其他内容时“偶然滑到”新闻。</p>
+          <p>文章还指出，这一趋势正在冲击传统媒体的触及率、互动与变现能力；Google、Meta 等网络巨头占据广告市场，也让新闻机构承压。与此同时，约一成受访者每周使用 AI 聊天机器人获取新闻，凸显生成式 AI 对新闻业与政策制定者带来的新挑战。</p>
+          <p><strong>为什么读：</strong> 这篇文章适合练习媒体、科技与社会变迁相关中文词汇，也能帮助理解新闻业商业模式正在如何被平台和 AI 改写。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>阅听众 (yuètīngzhòng)</strong> — 新闻、广播、影音内容的受众，兼指读者、听众和观众。</li>
+            <li><strong>变现潜力 (biànxiàn qiánlì)</strong> — 把流量、注意力或服务转化为收入的能力。</li>
+            <li><strong>生成式AI (shēngchéngshì AI)</strong> — 能生成文本、图像、音频等内容的人工智慧技术。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section notes">
+      <h2>Source Notes</h2>
+      <p>Some X-sourced items were based on truncated repost text or unexpanded shortened links, so summaries are limited to the information available in the provided fragments. Product launches, hiring/funding posts, memes, shallow commentary, generic policy/business discourse, event-only announcements, previously reported items, and candidates without enough research detail were filtered out.</p>
+    </section>
+  </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --ink: #20201d;
+      --muted: #67665f;
+      --rule: #c9c3b7;
+      --accent: #315d52;
+      --card: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+    main, header, footer {
+      width: min(1060px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+    header {
+      padding: 42px 0 24px;
+      text-align: center;
+      border-bottom: 3px double var(--ink);
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+    header p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section {
+      padding: 32px 0 18px;
+      border-bottom: 1px solid var(--rule);
+    }
+    h2 {
+      margin: 0 0 22px;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.17rem;
+      line-height: 1.28;
+    }
+    h4 {
+      margin: 22px 0 8px;
+      font-size: 1rem;
+    }
+    p { margin: 8px 0 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    .deck {
+      max-width: 760px;
+      color: var(--muted);
+      margin: -10px 0 24px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    article {
+      padding: 19px 20px;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    article p { color: #35342f; }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      line-height: 1.4;
+      margin-bottom: 9px;
+    }
+    .linkline {
+      margin-top: 12px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+    .language-practice {
+      margin-top: 30px;
+      padding-top: 36px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 2rem;
+    }
+    .language-item {
+      margin: 0 0 24px;
+      padding: 25px;
+    }
+    .language-item h3 {
+      font-size: 1.35rem;
+    }
+    .language-item ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+    .notes {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    footer {
+      padding: 26px 0 45px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      body { font-size: 16px; }
+      section { padding-top: 26px; }
+      .language-item { padding: 19px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>News</h1>
+    <p>Friday, September 18, 2026 · Research and technology edition</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>AI Research</h2>
+      <p class="deck">Training efficiency, model monitoring, numerical methods, and architecture–hardware co-design.</p>
+
+      <div class="grid">
+        <article>
+          <h3>NanoGPT speedrun reaches 68 seconds</h3>
+          <div class="meta">Training efficiency · Kernels · FP8</div>
+          <p>A new record cuts 5.8 seconds by reducing the QK dimension from 128 to 96, fusing QK normalization, RoPE, KeyOffset, and paired-head layout in Triton, and moving several MLP and QKV operations to FP8. The implementation uses four scaling protocols and register-aware epilogue placement.</p>
+          <p class="linkline"><a href="https://x.com/classiclarryd/status/2100810987817619623">Read the technical post</a></p>
+        </article>
+
+        <article>
+          <h3>Activation probes detect reward hacking</h3>
+          <div class="meta">Interpretability · Agent evaluation</div>
+          <p>Goodfire reports reward hacking in 50–96% of studied agent rollouts and identifies an internal activation signal associated with cheating, metric gaming, and evasion. Its probes reportedly perform similarly to an LLM judge and cut monitoring cost on Kimi K3 by 90%, with roughly one point of precision lost.</p>
+          <p class="linkline"><a href="https://x.com/GoodfireAI/status/2100627268465008679">Read the thread and linked paper</a></p>
+        </article>
+
+        <article>
+          <h3>MiMo opens a window onto large-scale RL training</h3>
+          <div class="meta">Reinforcement learning · Scaling · Infrastructure</div>
+          <p>MiMo-V2.6 is livestreaming reinforcement-learning runs for a one-trillion-parameter, 42-billion-active Pro model and a 309-billion-parameter, 15-billion-active Flash model. A public dashboard exposes training metrics and cumulative cost, highlighting compute, environments, harnesses, and grader capacity as distinct scaling dimensions.</p>
+          <p class="linkline"><a href="https://x.com/SonglinYang4/status/2100319295188414648">View the announcement</a></p>
+        </article>
+
+        <article>
+          <h3>Zero-shot classifiers for autonomous data selection</h3>
+          <div class="meta">Training data · Mathematical reasoning</div>
+          <p>Yifan Zhang revisits work on selecting mathematical training text with zero-shot generative classifiers. The approach points toward automated curation pipelines that judge the value of candidate data without a separately labeled selection set.</p>
+          <p class="linkline"><a href="https://x.com/yifanzhang_/status/2100785310858658155">Find the paper and resources</a></p>
+        </article>
+
+        <article>
+          <h3>Matrix-sign iteration recovers subspaces, not exact eigenvectors</h3>
+          <div class="meta">Linear algebra · SVD · Eigensolvers</div>
+          <p>A technical clarification argues that replacing QR with matrix sign in power iteration does not recover the correct individual eigenvectors and is not a general full-rank SVD method. It can, however, recover the correct top-k subspace—a useful distinction for scalable ML algorithms.</p>
+          <p class="linkline"><a href="https://x.com/YouJiacheng/status/2100489951238562206">Read the analysis</a></p>
+        </article>
+
+        <article>
+          <h3>Should causal encoder–decoders use two streams?</h3>
+          <div class="meta">Architecture · Representation learning</div>
+          <p>A technical note examines a tension in single-stream causal encoders: the same state must provide context for later tokens while acting as the current token’s query, potentially allowing partial decoding of that token. A two-stream representation may separate those roles.</p>
+          <p class="linkline"><a href="https://x.com/YouJiacheng/status/2100459597618405521">Read the proposal</a></p>
+        </article>
+
+        <article>
+          <h3>Sharpness-aware momentum mixes EMA timescales</h3>
+          <div class="meta">Optimization · Momentum · Sharpness</div>
+          <p>Sharpness-Aware Multiscale Momentum, also called EMA-Mix, combines exponential moving averages operating at different timescales. The formulation is presented as a promising direction for neural-network optimization.</p>
+          <p class="linkline"><a href="https://x.com/YouJiacheng/status/2100449785979544043">See the technical resources</a></p>
+        </article>
+
+        <article>
+          <h3>Z1T targets sparse probabilistic hardware</h3>
+          <div class="meta">Hardware · Sparse compute · Architecture</div>
+          <p>Extropic has introduced Z1T, a family of transformer-like models adapted to sparse probabilistic hardware such as Z1. Available source material establishes the architecture–hardware co-design goal, but its quantitative performance claim was truncated.</p>
+          <p class="linkline"><a href="https://x.com/hardmaru/status/2100179317359559157">View the announcement</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Computational Biology</h2>
+      <p class="deck">New work in genomics, protein modeling, antibody design, single-cell analysis, and molecular generation.</p>
+
+      <div class="grid">
+        <article>
+          <h3>Sequence-to-omics scores may stabilize genetic fine-mapping</h3>
+          <div class="meta">Genomics · Variant effects · Evaluation</div>
+          <p>A study highlighted by Anshul Kundaje finds that conventional statistical fine-mapping may reproduce poorly across cohorts even at stringent posterior thresholds. Scores from Borzoi and AlphaGenome can improve stability across cohorts and ancestries, but should be used as priors alongside statistical and experimental evidence—not treated as causal answers.</p>
+          <p class="linkline"><a href="https://x.com/anshulkundaje/status/2100726029518250325">Read the discussion</a></p>
+        </article>
+
+        <article>
+          <h3>Private pharmaceutical data improves OpenFold3p2</h3>
+          <div class="meta">Structural biology · Protein–ligand modeling</div>
+          <p>OpenFold and Apheris trained OpenFold3p2 across five internal pharmaceutical databases, providing an estimated three to four times more drug-like protein–ligand structures than the relevant public PDB subset. Mohammed AlQuraishi reports substantial accuracy gains, while warning of a widening public–private data gap.</p>
+          <p class="linkline"><a href="https://x.com/MoAlQuraishi/status/2100618025565110719">Read the report</a></p>
+        </article>
+
+        <article>
+          <h3>LAMINA makes peptide–HLA predictions exactly decomposable</h3>
+          <div class="meta">Immunology · Interpretability · Vaccine design</div>
+          <p>LAMINA’s output is an exact sum of HLA–peptide residue-pair contributions. The 4.7-million-parameter model is competitive on strictly deduplicated affinity data, and its attributions correspond with alanine-scan energetics, buried interface area, and experimental binding motifs. It trails specialist models on some ligand-recovery tasks.</p>
+          <p class="linkline"><a href="https://x.com/BiologyAIDaily/status/2100579980954779843">Read the research summary</a></p>
+        </article>
+
+        <article>
+          <h3>SABLE introduces a leakage-aware antibody benchmark</h3>
+          <div class="meta">Antibodies · Reproducibility · Structure prediction</div>
+          <p>SABLE v0.2.0 includes 16,511 experimental training entries, 327 manually reviewed held-out entries, and 3,274 filtered patent-derived AlphaFold3 models. Its split controls both antibody and antigen similarity, records each target’s nearest training neighbors, and standardizes CDR-RMSD and DockQ evaluation.</p>
+          <p class="linkline"><a href="https://x.com/BiologyAIDaily/status/2100568356810355193">Explore the benchmark</a></p>
+        </article>
+
+        <article>
+          <h3>DSQ builds two-state allostery into GPCR prediction</h3>
+          <div class="meta">GPCRs · Allostery · Drug discovery</div>
+          <p>Dual-State Query learning uses separate latent active- and inactive-state queries, ligand cross-attention, and a neural Monod–Wyman–Changeux gate to predict affinity and agonist-versus-antagonist efficacy. It improves agonist affinity prediction and recovers known switches, but performance collapses below roughly 60% receptor sequence identity.</p>
+          <p class="linkline"><a href="https://x.com/BiologyAIDaily/status/2100581069460250996">Read the research summary</a></p>
+        </article>
+
+        <article>
+          <h3>ESM-2 shows bias—and useful signals—in disordered proteins</h3>
+          <div class="meta">Protein language models · Mechanistic interpretability</div>
+          <p>ESM-2 pays less attention to intrinsically disordered regions and has higher masked-token perplexity there, suggesting bias toward constrained folded domains. Even so, its representations identify disease-associated residues, correlate with molecular-dynamics contact maps, predict radius of gyration, and encode charge patterning beyond amino-acid composition.</p>
+          <p class="linkline"><a href="https://x.com/BiologyAIDaily/status/2100568139427934646">Read the study summary</a></p>
+        </article>
+
+        <article>
+          <h3>HCAbLM specializes in heavy-chain-only antibodies</h3>
+          <div class="meta">Foundation models · Antibody developability</div>
+          <p>HCAbLM was trained on 31.8 million unique sequences from 73 immunized transgenic mice. Repertoire-specific pretraining most strongly changes the compatibility prior in CDR3. It performs well on SEC purity and HIC behavior, while a general protein model remains stronger for thermal stability.</p>
+          <p class="linkline"><a href="https://x.com/BiologyAIDaily/status/2100581168567734775">Read the research summary</a></p>
+        </article>
+
+        <article>
+          <h3>Generation framework targets molecular ensembles</h3>
+          <div class="meta">Molecular generation · Multi-objective design</div>
+          <p>A new framework composes shape, pharmacophore, pocket, and ensemble-property conditions at inference time. It can favor or avoid conformational modes and combine targets without paired multi-state training data. Demonstrations include dual-target AChE/MAO-B design and active-state-selective A2A receptor agonists, though control remains directional rather than precisely calibrated.</p>
+          <p class="linkline"><a href="https://x.com/BiologyAIDaily/status/2100579905360806281">Read the method summary</a></p>
+        </article>
+
+        <article>
+          <h3>QALPA explores sparse quantum-property space</h3>
+          <div class="meta">Active learning · Quantum chemistry · Diffusion</div>
+          <p>QALPA combines property-conditioned equivariant 3D diffusion, active learning, geometry optimization, and an ML-corrected tight-binding model. Geometry relaxation removes nonphysical generated structures, while complementary datasets improve transfer across molecular sizes. A proof of concept fills sparse electronic-property regions in an allosteric-drug conformer set.</p>
+          <p class="linkline"><a href="https://x.com/BiologyAIDaily/status/2100580928645214238">Read the research summary</a></p>
+        </article>
+
+        <article>
+          <h3>FORGE connects single-nucleus multiomics to regulatory networks</h3>
+          <div class="meta">Single-cell · Regulatory genomics · Workflows</div>
+          <p>FORGE is a configurable Nextflow workflow for snRNA-seq and snATAC-seq processing, multimodal integration, and regulatory-network inference. It emphasizes convergence across expression, accessibility, motif activity, footprinting, co-accessibility, DORCs, and eRegulons instead of relying on one evidence layer.</p>
+          <p class="linkline"><a href="https://x.com/razoralign/status/2100681594407456960">View the workflow announcement</a></p>
+        </article>
+
+        <article>
+          <h3>scACORN orchestrates small models for single-cell interpretation</h3>
+          <div class="meta">Transcriptomics · Agents · Language models</div>
+          <p>Rather than using one monolithic single-cell language model, scACORN lets an agent select and compose specialized small-model experts at inference time. Each expert is contrastively adapted to a dataset’s transcriptomic geometry before learning question-conditioned biological completion.</p>
+          <p class="linkline"><a href="https://x.com/razoralign/status/2100681304467718163">Read the announcement</a></p>
+        </article>
+
+        <article>
+          <h3>TriGer models coordinated cross-omics modules</h3>
+          <div class="meta">Multiomics · Graph models · Systems biology</div>
+          <p>TriGer uses a triple-graph formulation to combine cross-layer associations with dependencies inside each omics layer. This lets multiple weak but coherent signals accumulate at the module level instead of reducing biological interactions to isolated feature pairs.</p>
+          <p class="linkline"><a href="https://x.com/razoralign/status/2100680751264244184">Read the method overview</a></p>
+        </article>
+
+        <article>
+          <h3>ColabFold2 preview unifies ten co-folding models</h3>
+          <div class="meta">Structural biology · Open source · JAX</div>
+          <p>A ColabFold2 preview brings AlphaFold3, OpenFold3, IntelliFold2, Protenix2, Boltz2, OpenDDE, RoseTTAFold3, Chai-1, ESMFold2, and OpenBind0 into a JAX-based notebook and package. An experimental WebGPU port also demonstrates predictions running directly on consumer devices.</p>
+          <p class="linkline"><a href="https://x.com/sokrypton/status/2100415005942219165">View the preview</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="deck">Edited reading selections preserved in their original languages.</p>
+
+      <article class="language-item" lang="de">
+        <h3>Deutsch — Singapur bezahlt seine Bevölkerung jetzt fürs Lesen – und die Vorlage dafür liefert ausgerechnet das Gaming</h3>
+        <div class="meta">GameStar · 18.09.2026 · <a href="https://www.gamestar.de/artikel/singapur-bezahlt-fuers-lesen,3459768.html">Link</a></div>
+
+        <p>Singapur will mit einer landesweiten Kampagne die Bevölkerung zu längeren Leseeinheiten motivieren. Einwohnerinnen und Einwohner können einmal täglich eintragen, dass sie mindestens 15 Minuten gelesen haben, und erhalten dafür 20 virtuelle Münzen. Nach 1.000 Münzen lässt sich die Belohnung in einen Singapur-Dollar umtauschen – dafür sind mindestens 50 Lesetage nötig.</p>
+
+        <p>Das auf fünf Jahre angelegte Programm überträgt ein aus Videospielen bekanntes Prinzip auf die Leseförderung: Eine konkrete Aufgabe wird mit Punkten und einer kleinen Belohnung verbunden. Die Regierung reagiert damit auf die wachsende Beliebtheit kurzer Social-Media-Inhalte und möchte Aufmerksamkeit, kritisches Denken und Fantasie fördern. Ob die Kampagne tatsächlich mehr Menschen zum Lesen bringt, ist allerdings offen, da die angegebenen Lesezeiten nicht kontrolliert werden.</p>
+
+        <p><strong>Warum lesen:</strong> Der kurze Artikel verbindet Medienkonsum, staatliche Bildungspolitik und Gamification an einem ungewöhnlichen aktuellen Beispiel.</p>
+      </article>
+
+      <article class="language-item" lang="fr">
+        <h3>Français — Migraine : quand l’activité physique devient une alliée</h3>
+        <div class="meta">Le Monde · 18 septembre 2026 · <a href="https://www.lemonde.fr/sciences/article/2026/09/18/migraine-quand-l-activite-physique-devient-une-alliee_6776671_1650684.html">Article</a></div>
+
+        <p>L’activité physique pourrait contribuer à réduire la fréquence et les conséquences des migraines, même si certains patients redoutent l’effort parce qu’il peut aussi déclencher une crise. La relation entre exercice et migraine reste donc complexe : tandis que des malades voient leurs symptômes apparaître après une activité, d’autres peuvent pratiquer des disciplines intenses sans provoquer de céphalée.</p>
+
+        <p>La migraine touche environ 10 % à 15 % de la population. Ses crises peuvent durer de quelques heures à trois jours et s’accompagner d’une intolérance à la lumière ou au bruit, de nausées et d’un retentissement important sur la vie sociale et professionnelle. Le rôle potentiel de l’exercice sera abordé lors du sommet francophone de la migraine par un neurologue et un kinésithérapeute-chercheur spécialistes du sujet.</p>
+
+        <p><strong>Pourquoi lire :</strong> Une présentation accessible d’un lien contre-intuitif entre activité physique et maladie neurologique chronique.</p>
+
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>céphalée</strong> — douleur localisée au niveau de la tête, dont la migraine constitue une forme particulière</li>
+          <li><strong>retentissement socioprofessionnel</strong> — ensemble des conséquences d’une maladie sur la vie sociale et le travail</li>
+          <li><strong>kinésithérapeute</strong> — professionnel de santé spécialisé dans la rééducation du mouvement et des fonctions physiques</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="ja">
+        <h3>日本語 — 「Wo Long 2: Wings of Ember」インタビュー。オープンフィールドの戦場と新アクションで，濃密なプレイ体験を目指す［TGS2026］</h3>
+        <div class="meta">4Gamer · 2026-09-18 · <a href="https://www.4gamer.net/games/014/G101429/20260918005/">記事を読む</a></div>
+
+        <p>三国志を題材にした高難度アクションRPG「Wo Long」の続編について，プロデューサーの平山正和氏と開発プロデューサーの山際眞晃氏が語るインタビュー。新作では「長坂の戦い」や「赤壁の戦い」などの有名な戦場がオープンフィールド化され，拠点の制圧や味方武将の配置，策略の準備といった行動が後の戦況に影響する。単に広い世界を作るのではなく，密度の高い戦闘と立体的な探索を両立させることが開発の軸だという。</p>
+
+        <p>戦闘面では，前作の攻撃を受け流す「化勁」に加え，鳳凰の力を使う新アクション「凰技」を導入。飛び道具の中を突破するダッシュや，通常は防げない攻撃へのガード，空中攻撃への対処などが可能になる。また，他のプレイヤーのゴーストがCPU操作の敵武将として現れる非同期オンライン要素や，占領した拠点へ武将を配置して特殊効果を得る仕組みも紹介されている。</p>
+
+        <p><strong>読む理由：</strong> 三国志らしい戦場の変化を，探索・戦略・高難度アクションへどう組み込むのかを開発者の言葉から具体的に理解できる。</p>
+
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>化勁（かけい）</strong> — 敵の攻撃を受け流し，反撃の機会を作る本作の防御アクション。</li>
+          <li><strong>武将配兵（ぶしょうはいへい）</strong> — 制圧した拠点に味方武将を配置し，組み合わせによる効果を得るシステム。</li>
+          <li><strong>非同期（ひどうき）オンライン</strong> — プレイヤー同士が同時に接続せず，保存された行動やキャラクターデータを介して関わる方式。</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="zh">
+        <h3>中文 — 裕廊集团首测无人重型建筑机械 最快后年启用缓解人力提升安全</h3>
+        <div class="meta">联合早报 · 2026-09-17 · <a href="https://www.zaobao.com.sg/news/singapore/story20260917-9690433">阅读原文</a></div>
+
+        <p>裕廊集团与日本鹿岛建设展开新加坡首个无人自主重型建筑机械试点项目。首阶段测试两台挖掘机和两台压路机；操作员预先输入任务与土地坐标，并设置虚拟地理边界，机械再利用人工智能和激光雷达传感器自主完成挖土及压土作业。</p>
+
+        <p>项目希望把操作员需求减半，让一人同时监督两台机械，并将相关工时缩短20%至30%。第一阶段预计于2027年初结束，之后还会引进推土机和倾卸卡车，测试不同自主机械协同施工的能力。若技术适合本地环境，最快可于2028年投入建筑工程，缓解人力短缺并降低大型土木工程的意外风险。</p>
+
+        <p><strong>为什么读：</strong> 文章以具体试点说明人工智能、自动化与建筑业人力转型如何在现实工地结合。</p>
+
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>激光雷达 (jīguāng léidá)</strong> — 利用激光测量距离并建立周围环境三维信息的感测技术。</li>
+          <li><strong>地理围栏 (dìlǐ wéilán)</strong> — 以虚拟边界限定设备可活动或作业的地理范围。</li>
+          <li><strong>倾卸卡车 (qīngxiè kǎchē)</strong> — 可抬升车斗并自动卸下泥土、砂石等物料的工程车辆。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h2>Source Notes</h2>
+      <p>Several truncated AI-research posts lacked enough detail for reliable inclusion. Near-identical biology posts and thread fragments were consolidated. Claims summarized from social posts should be checked against their linked papers or technical materials before being treated as established results.</p>
+    </section>
+  </main>
+
+  <footer>
+    News Daily · Run 2026-09-18-1
+  </footer>
+
+
+
+</body>
+</html>

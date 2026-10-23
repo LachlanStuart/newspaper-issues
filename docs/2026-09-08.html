@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #faf8f3;
+      --ink: #20201e;
+      --muted: #66645f;
+      --rule: #d8d3c9;
+      --accent: #315b52;
+      --card: #fffefa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    main {
+      width: min(940px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 34px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font: 0.85rem/1.4 system-ui, sans-serif;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section { margin: 42px 0; }
+    section > h2 {
+      margin: 0 0 20px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.55rem;
+    }
+    article {
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:first-of-type { padding-top: 0; }
+    article h3 {
+      margin: 0 0 7px;
+      font-size: 1.22rem;
+      line-height: 1.3;
+    }
+    p { margin: 8px 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .source {
+      color: var(--muted);
+      font: 0.82rem/1.45 system-ui, sans-serif;
+    }
+    .caveat {
+      color: var(--muted);
+      font-style: italic;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 12px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 1.85rem;
+      border-bottom-width: 1px;
+    }
+    .language-block {
+      margin: 35px 0;
+    }
+    .language-block > h3 {
+      margin: 0 0 14px;
+      font: 700 1.3rem/1.3 system-ui, sans-serif;
+    }
+    .reading {
+      padding: 22px;
+      border: 1px solid var(--rule);
+      background: var(--card);
+    }
+    .reading h4 {
+      margin: 0 0 8px;
+      font-size: 1.28rem;
+      line-height: 1.35;
+    }
+    .reading ul {
+      margin: 8px 0 0;
+      padding-left: 24px;
+    }
+    footer {
+      margin-top: 50px;
+      padding-top: 14px;
+      border-top: 1px solid var(--ink);
+      color: var(--muted);
+      text-align: center;
+      font: 0.78rem/1.5 system-ui, sans-serif;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p class="date">Tuesday, September 8, 2026 · Run 2026-09-08-1</p>
+    </header>
+
+    <section>
+      <h2>AI Hardware &amp; Model Engineering</h2>
+
+      <article>
+        <h3><a href="https://x.com/vikhyatk/status/2096875080282464545">A technical guide looks past NVIDIA’s “CUDA core” and “Tensor core” labels</a></h3>
+        <p>A shared reference explains NVIDIA streaming-multiprocessor microarchitecture using more precise concepts than the company’s familiar marketing terminology. It is aimed at readers who want a clearer mental model of how GPU hardware executes AI workloads.</p>
+        <p class="source">Source: X · Technical reference and discussion</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/vikhyatk/status/2097075397372588053">An A100 is not always the same A100</a></h3>
+        <p>The A100 name covers at least five materially different configurations: 40 GB and 80 GB PCIe cards, a 40 GB SXM version, an 80 GB 400-watt SXM version, and an 80 GB 500-watt SXM CTS model. Memory, form factor, and power limits matter when comparing benchmarks or renting compute.</p>
+        <p class="source">Source: X · NVIDIA infrastructure note</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/giffmana/status/2096673537578672199">Pangram documentation discusses model training and dataset composition</a></h3>
+        <p>A shared technical write-up reportedly describes how the Pangram model works, how it was trained, and what its dataset contains.</p>
+        <p class="caveat">The available post was truncated, so the specific methodological disclosures were not visible in this run.</p>
+        <p class="source">Source: X · Model documentation</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Genomics</h2>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2096975628562276463">PocketScope searches the human proteome for similar drug-binding cavities</a></h3>
+        <p>PocketScope combines frozen ESM-C residue embeddings with explicit physicochemical features to retrieve similar cavities across 37,682 AlphaFold human-protein structures. It reportedly found 29 of 30 documented pharmacological off-targets within its top 20 results and slightly outperformed Foldseek on ChEMBL co-target pairs. Interactive, GPU-scale search could make the method useful for off-target discovery and polypharmacology.</p>
+        <p class="source">Source: X · Biology AI Daily</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2096975157848117432">Sparse causal circuits shed light on ESM-2 mutation scoring</a></h3>
+        <p>A mechanistic-interpretability study uses sparse autoencoders, integrated gradients, and activation patching to identify latent-token features that causally influence ESM-2 mutation-effect scores. In a DNAJA1 case study, compact circuits emphasized residues in structural contact with harmful mutations.</p>
+        <p class="caveat">The reported analysis is limited to one protein and selected model layers.</p>
+        <p class="source">Source: X · Biology AI Daily</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2096975740826947649">PCIPG infers protein complexes from structure and noisy interaction networks</a></h3>
+        <p>PCIPG combines residue-level structural encoding, graph attention over protein-interaction networks, and probabilistic reconstruction of incomplete interactomes. Reported results improve complex detection across yeast and human datasets, help complete sparse networks, and produce residue scores enriched at conserved binding interfaces.</p>
+        <p class="source">Source: X · Biology AI Daily</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2097068595499135221">Enhancer proximity may predict whether transcription is possible—not how much occurs</a></h3>
+        <p>A highlighted Drosophila brain study reports that enhancer–promoter proximity marks transcriptional competence but does not determine transcriptional output.</p>
+        <p class="caveat">The available excerpt did not include experimental design or quantitative results.</p>
+        <p class="source">Source: X · Gene-regulation research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2097057267892015466">PhenoSeq predicts active genes from microscopy images</a></h3>
+        <p>PhenoSeq is presented as a method for inferring which genes are active in a cell from its microscope image, linking cellular imaging with gene-expression prediction and virtual-cell modeling.</p>
+        <p class="caveat">Architecture, dataset, and validation details were not included in the supplied excerpt.</p>
+        <p class="source">Source: X · Multimodal biology</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2096992426816930057">G2PT applies hierarchical transformers to genotype-to-phenotype translation</a></h3>
+        <p>G2PT is described as a mechanistic framework for translating genotype into phenotype with hierarchical transformers.</p>
+        <p class="caveat">No benchmarks or further methodological details were available in this run.</p>
+        <p class="source">Source: X · Genomics research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2096992413017653518">CellOracle models cell identity through regulatory networks and simulated perturbations</a></h3>
+        <p>CellOracle combines gene-regulatory-network inference with in-silico gene perturbation to investigate the mechanisms that establish cell identity. The shared excerpt did not provide new release or performance details.</p>
+        <p class="source">Source: X · Virtual-cell research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2096903473338220754">Review surveys programmable enzymes for targeted gene insertion</a></h3>
+        <p><em>Nature Reviews Genetics</em> has announced an article on programmable enzymes for targeted gene insertion, a central problem in genome engineering and therapeutic editing.</p>
+        <p class="caveat">The announcement did not identify the enzyme classes or insertion strategies covered.</p>
+        <p class="source">Source: X · Nature Reviews Genetics</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2097068919907598789">Report points to viruses with a functional furin-cleavage site in wild bats</a></h3>
+        <p>A circulated report says viruses carrying a functional furin-cleavage site have been found in wild bats, potentially making the finding relevant to disease surveillance and biosecurity.</p>
+        <p class="caveat">The supplied text did not identify the viral lineage, experiments, or implications, so the claim cannot be assessed further here.</p>
+        <p class="source">Source: X · Virology report</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2096974947616948425">Nested-WGCNA seeks compact modules inside larger co-expression networks</a></h3>
+        <p>Nested-WGCNA is described as a method for finding compact gene clusters within larger, opaque co-expression modules, with potential use in regulatory-module discovery.</p>
+        <p class="caveat">The available excerpt contained no dataset or validation details.</p>
+        <p class="source">Source: X · Systems biology</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+
+      <div class="language-block" lang="de">
+        <h3>Deutsch — tägliche Lektüre</h3>
+        <div class="reading">
+          <h4><a href="https://www.gamestar.de/artikel/mount-blade-mit-samurai-neue-strategie-sandbox-auf-stea,3459227.html">Mount &amp; Blade mit Samurai: Neue Strategie-Sandbox auf Steam lässt euch Dörfer, Schreine und schließlich eine ganze Insel erobern</a></h4>
+          <p class="source">GameStar · 08.09.2026</p>
+          <p>Das von einem Solo-Entwickler geschaffene „Warlord: Awaji“ verbindet Echtzeitgefechte aus der Ego-Perspektive mit einer strategischen Kampagne im Japan des 14. Jahrhunderts. Im Auftrag des Kaisers sollen Spieler die Insel Awaji erobern, Lager und Stützpunkte errichten, Schreine besetzen, Soldaten anwerben und Vasallen befördern. Die verkleinerte, aber immer noch 256 Quadratkilometer große Spielwelt beruht auf realen Kartendaten; Tempel, Höhenunterschiede und andere geografische Merkmale orientieren sich an ihren historischen beziehungsweise tatsächlichen Vorbildern.</p>
+          <p>In der Demo ist bislang nur ein Sofortgefechts-Modus verfügbar. Dort beginnt man als einfacher Fußsoldat, erbeutet bessere Waffen und kann später zu Pferd gegen gegnerische Einheiten antreten. Der Autor lobt die dynamischen, an „Mount &amp; Blade“ erinnernden Kämpfe sowie die detaillierten Waffen und Rüstungen, weist aber auf die noch unpräzise Steuerung und offene Fragen zu Fortschritt, Verwaltung und Lagerbau hin. Die vollständige Veröffentlichung auf Steam ist für den 9. September vorgesehen.</p>
+          <p><strong>Warum lesen:</strong> Der Artikel bietet einen kompakten Einblick in ein ungewöhnliches Strategiespiel, das historische Recherche, reale Geodaten und eine offene Samurai-Spielwelt verbindet.</p>
+        </div>
+      </div>
+
+      <div class="language-block" lang="fr">
+        <h3>Français — lecture quotidienne</h3>
+        <div class="reading">
+          <h4><a href="https://www.lemonde.fr/economie/article/2026/09/08/mistral-ai-une-levee-de-fonds-a-3-milliards-d-euros-en-reponse-aux-doutes-sur-l-evolution-de-sa-strategie_6768110_3234.html">Mistral AI : une levée de fonds à 3 milliards d’euros en réponse aux doutes sur l’évolution de sa stratégie</a></h4>
+          <p class="source">Le Monde · 2026-09-08</p>
+          <p>Mistral AI annonce une levée de fonds de 3 milliards d’euros, présentée comme un record hors Bourse pour une entreprise technologique européenne. Cette opération porte la valorisation de la start-up française à 21 milliards d’euros, contre 11,7 milliards lors de son précédent tour de table en septembre 2025. Samsung conduit l’investissement, auquel participe également Scale-up Europe, un fonds lancé par la Commission européenne pour soutenir l’émergence de champions européens de l’intelligence artificielle.</p>
+          <p>Cette arrivée massive de capitaux intervient alors que la stratégie de Mistral AI suscite des interrogations. L’entreprise, longtemps décrite comme la meilleure chance européenne de rivaliser avec les grands laboratoires américains et chinois, est accusée par certains observateurs de se détourner de la création de modèles de pointe au profit des centres de données, de la fourniture de puissance de calcul et de l’hébergement de modèles tiers. Mistral AI affirme toutefois ne pas avoir abandonné ses ambitions technologiques initiales.</p>
+          <p><strong>Pourquoi lire :</strong> L’article éclaire à la fois les ambitions européennes en matière d’IA et le débat sur l’évolution du principal champion français du secteur.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>levée de fonds</strong> — opération par laquelle une entreprise obtient des capitaux auprès d’investisseurs</li>
+            <li><strong>valorisation</strong> — estimation de la valeur financière d’une entreprise</li>
+            <li><strong>tour de table</strong> — phase de financement réunissant un ou plusieurs investisseurs autour d’une entreprise</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="language-block" lang="ja">
+        <h3>日本語 — 毎日の読み物</h3>
+        <div class="reading">
+          <h4><a href="https://www.4gamer.net/games/030/G103035/20260908002/">窓辺の一鉢から屋上の楽園へ。室内園芸シム「Tiny Eden」がSteamで本日発売。発売直前にはウィッシュリスト15万件を突破した注目作</a></h4>
+          <p class="source">4Gamer — 2026年9月8日</p>
+          <p>未来都市の高層アパートを舞台にした、一人称視点の室内園芸シミュレーション「Tiny Eden」がSteamで発売された。窓辺に置かれた数個の鉢から栽培を始め、部屋やバルコニーへ植物を増やし、最終的には屋上の温室まで農園を広げていく。発売直前のウィッシュリスト登録数は15万件を突破した。</p>
+          <p>植物に合う容器を選ぶほか、コンポストと素材を組み合わせて土を作り、光や気温を調整する必要がある。成長に応じて環境を整え、水やりなどの細かな世話も行う。日本向け通常価格は1900円で、発売後2週間は10％オフのローンチセールが実施される。</p>
+          <p><strong>読む理由：</strong> 都市生活と園芸を組み合わせたゲームの仕組みを通して、栽培や販売に関する実用的な語彙を学べる。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>室内園芸（しつないえんげい）</strong> — 建物の中で植物を育てること。</li>
+            <li><strong>栽培（さいばい）</strong> — 植物を育て、収穫できるように管理すること。</li>
+            <li><strong>コンポスト</strong> — 生ごみや植物などを発酵・分解させて作る堆肥、またはそのための容器。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="language-block" lang="zh">
+        <h3>中文 — 每日阅读</h3>
+        <div class="reading">
+          <h4><a href="https://www.rfi.fr/cn/%E6%AC%A7%E6%B4%B2/20260907-%E9%A9%AC%E5%85%8B%E9%BE%99%E6%8E%A8%E5%8A%A8%E5%9C%A8%E6%95%B4%E4%B8%AA%E6%AC%A7%E7%9B%9F%E7%A6%81%E6%AD%A215%E5%B2%81%E4%BB%A5%E4%B8%8B%E4%BD%BF%E7%94%A8%E7%A4%BE%E4%BA%A4%E5%AA%92%E4%BD%93">马克龙推动在整个欧盟禁止15岁以下使用社交媒体</a></h4>
+          <p class="source">法国国际广播电台 · 2026-09-07</p>
+          <p>法国总统马克龙致信欧盟委员会主席冯德莱恩，要求欧盟制定统一法律，禁止15岁以下未成年人使用社交媒体。他把保护儿童免受社交平台影响列为第二任期末的重要议题，并准备在法国重新提出符合本国宪法及欧盟法律的法案。此前法国国会通过的类似法案已被法国宪法委员会否决。</p>
+          <p>欧盟成员国虽然普遍关注未成年人上网问题，但对最低使用年龄仍有分歧。欧盟专家委员会倾向于禁止13岁以下儿童使用社交媒体，并对13至18岁青少年实行分级限制；马克龙则主张统一设定15岁门槛，同时监管平台的“成瘾性功能”，例如要求平台默认启用更严格的安全设置和每日使用时间限制。</p>
+          <p><strong>为什么读：</strong> 文章以法国倡议为切入点，呈现欧盟如何在儿童保护、平台监管与成员国法律差异之间寻找统一方案。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>数字成年年龄 (shùzì chéngnián niánlíng)</strong> — 获准独立使用社交平台等数字服务的最低法定年龄。</li>
+            <li><strong>成瘾性功能 (chéngyǐnxìng gōngnéng)</strong> — 通过连续推荐、通知或奖励机制诱使用户反复使用平台的设计。</li>
+            <li><strong>宪法委员会 (xiànfǎ wěiyuánhuì)</strong> — 法国负责审查法律是否符合宪法的机构。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      News Daily · September 8, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

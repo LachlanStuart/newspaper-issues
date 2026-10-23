@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f3;--ink:#242824;--muted:#62685f;--rule:#d8dbd0;--accent:#275e54}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1000px;margin:auto;padding:36px 24px}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:16px 0 22px}
+h1{font-size:clamp(2.8rem,7vw,4.5rem);line-height:1.1;margin:0;letter-spacing:-.04em}
+.edition,.meta,nav,footer,.kicker{font-family:system-ui,sans-serif}
+.edition,.meta{color:var(--muted);font-size:.88rem}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.75rem;color:var(--accent)}
+header p{margin:10px 0 0}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding:16px 0;font-size:.9rem;border-bottom:1px solid var(--rule)}
+a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:38px}
+h2{font-size:1.8rem;border-bottom:2px solid var(--rule);padding-bottom:8px;line-height:1.25}
+h3{font-size:1.23rem;line-height:1.35;margin:0 0 10px}
+article{padding:18px 0;border-bottom:1px solid var(--rule)}
+article p{margin:10px 0}
+.source{font-family:system-ui,sans-serif;font-size:.83rem}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+#language{border-top:4px solid var(--ink);padding-top:20px;margin-top:48px}
+.reading{max-width:800px;padding:24px 0}
+.reading h3{font-size:1.4rem}
+.reading[lang="ja"],.reading[lang="zh-Hans"]{line-height:1.95}
+ul{padding-left:24px}
+footer{margin-top:36px;padding-top:16px;color:var(--muted);font-size:.8rem;border-top:1px solid var(--rule)}
+@media(max-width:650px){.grid{grid-template-columns:1fr}main{padding:24px 18px}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="kicker">Daily newspaper</div>
+<h1>News</h1>
+<p class="edition"><time datetime="2026-10-22">Thursday, 22 October 2026</time> · Research &amp; discovery</p>
+<p>Protein-design workflows, cellular forecasting and inference efficiency lead today’s research edition, followed by reading practice in four languages.</p>
+</header>
+<nav aria-label="Sections">
+<a href="#protein">Protein design &amp; discovery</a>
+<a href="#cells">Cells &amp; genomics</a>
+<a href="#ai">AI systems</a>
+<a href="#language">Language practice</a>
+</nav>
+
+<section id="protein">
+<h2>Protein design &amp; molecular discovery</h2>
+<article>
+<h3>Chaperone pairs agentic protein-design workflows with experimental binder validation</h3>
+<p>Chaperone packages generation, sequence design, structure prediction and scoring into composable DataFrame-based blocks, with provenance tracking, resumable execution and local or HPC scheduling. Across nine autonomous tasks, the reported evaluation found <strong>86% fewer tokens and 64% fewer GPU-hours</strong> than agents assembling their own pipelines; mean computational pass rate rose from 6% to 12%.</p>
+<p>In a separate two-week cortisol-binding campaign, 27 candidates were tested and the best measured affinity was <strong>1.32 nM</strong>, without affinity maturation. That experimental result is distinct from the computational pass-rate evaluation.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2112885296781991995">Research summary · BiologyAIDaily</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>GCLDock uses a difficulty curriculum for flexible docking</h3>
+<p>The model gradually introduces complexes with larger apo-to-holo backbone changes during training. On the reported PDBBind time split with ESMFold apo structures, top-10 docking success below 2 Å rose from 52.66% to 56.14%. The full relaxation-and-ranking pipeline reached 46.52% top-1 success, falling to 40.26% when physical validity was also required.</p>
+<p>Training processed about 12% fewer complexes. One limitation: the curriculum cannot distinguish genuine conformational motion from errors in predicted apo structures.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2112885017370316816">Research summary · BiologyAIDaily</a></p>
+</article>
+<article>
+<h3>When can generated protein-function descriptions be trusted?</h3>
+<p>A ProtTale study evaluated descriptions using a conservative functional-equivalence judge checked against blinded expert curation on 232 proteins. Leading methods achieved roughly 25–26% “Yes” rates on a temporally and homology-filtered enzyme benchmark, succeeding on different proteins.</p>
+<p>A sequence-derived reliability filter raised reported ProtTale precision from 25.8% to 45.9% for proteins up to 1,024 amino acids. That is useful triage, not dependable annotation: precision remains below half, and the score predicts judge acceptance rather than verifying every claim.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2112884378762363062">Research summary · BiologyAIDaily</a></p>
+</article>
+<article>
+<h3>A compact plant-peptide model tests the value of specialization</h3>
+<p>PhytoPepBERT, with roughly 170,000 parameters, reached 85.2% classification accuracy under homology-grouped cross-validation, close to ESM-2 8M at 86.1%. Larger generalist models did better, reaching 96.8% for ESM-2 650M.</p>
+<p>Ignoring homology grouping inflated accuracy by about 3.8–8.6 percentage points. The result supports parameter efficiency on a bounded task—not superiority over larger generalist models.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2112884530994655370">Research summary · BiologyAIDaily</a></p>
+</article>
+<article>
+<h3>RFD4-Proteina announced by Baker lab–NVIDIA collaboration</h3>
+<p>Multiple researchers highlighted the launch of RFD4-Proteina, a protein-design model developed through a year-long collaboration. A separate post reports availability through Tamarind. The available excerpts contain no architecture, benchmark or wet-lab results with which to assess improved capabilities.</p>
+<p class="source"><a href="https://x.com/HannesStaerk/status/2112982210060116416">Announcement · Hannes Staerk</a></p>
+</article>
+<article>
+<h3>GFlowNets diversify synonymous mRNA designs</h3>
+<p>CAGFN combines a protein-length curriculum with synonymous-codon constraints, preserving the encoded protein while balancing codon adaptation, predicted folding energy and GC content. The summary reports comparable optimization quality up to 4× faster than a long-sequence-only baseline, with 100% uniqueness in the evaluated samples.</p>
+<p>These are proxy objectives, not demonstrated biological improvements. No wet-lab validation is reported, and scaling beyond proteins of 500 amino acids remains future work.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2112884658086326301">Research summary · BiologyAIDaily</a></p>
+</article>
+<article>
+<h3>Bottom-up design of transcriptional regulators</h3>
+<p>A Baker lab paper announcement points to a bottom-up approach to designing transcriptional regulators, connecting protein design with gene regulation. The excerpt ends before the mechanism and experimental results; this is a research pointer rather than a performance assessment.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2113074134548959375">Announcement shared by Anshul Kundaje</a></p>
+</article>
+</div>
+</section>
+
+<section id="cells">
+<h2>Cells, genomes &amp; research tools</h2>
+<div class="grid">
+<article>
+<h3>LineageFlow forecasts descendant cell fate</h3>
+<p>LineageFlow combines continuous-time Markov state transitions, relative net growth and expression generation to predict descendant fate and transcriptional state over finite biological time horizons. Its description distinguishes biological forecast time from the interpolation time used to generate expression.</p>
+<p>Evaluation separates clones between data splits and compares predictions with lineage-resolved measurements. Quantitative performance is not provided.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2113039374623617339">Method discussion · razoralign</a></p>
+</article>
+<article>
+<h3>CONCERT puts cellular neighborhoods into perturbation prediction</h3>
+<p>This Gaussian-process variational autoencoder conditions perturbations on the receiving cell’s niche. Perturbation-specific spatial kernels model how far effects extend through tissue, while additional modules support predictions under changed perturbation labels, doses or times.</p>
+<p>The architecture links perturbation response to tissue context, but the supplied posts offer no benchmarks establishing counterfactual accuracy.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2113038970615685253">Method discussion · razoralign</a></p>
+</article>
+<article>
+<h3>DNA-BFN generates regulatory sequences in probability space</h3>
+<p>DNA Bayesian Flow Networks iteratively update nucleotide distributions at each sequence position rather than explicitly corrupting discrete sequences. The result is a diffusion-like, differentiable generative process for regulatory DNA design. Quantitative comparisons and experimental validation are not included in the thread.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2113039176149225668">Method discussion · razoralign</a></p>
+</article>
+<article>
+<h3>Angler targets splicing and variant effects with a compact model</h3>
+<p>Announcements for ASHG 2026 describe Angler as a small sequence-to-splicing and variant-effect model. One says it runs on a laptop and outperforms larger models, but the excerpts are truncated: model size, comparison tasks and supporting measurements are unavailable.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2113098550297170092">Announcement shared by Anshul Kundaje</a></p>
+</article>
+<article>
+<h3>A “recordanelle” synthetic organelle</h3>
+<p>Randall Platt’s announcement introduces the recordanelle in <em>Nature Biotechnology</em>. The excerpt mentions a transcriptome-wide single-cell capability but cuts off before describing the full assay or recording mechanism. Its validation results are also unavailable in the supplied text.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2113097821826216203">Announcement shared by Anshul Kundaje</a></p>
+</article>
+<article>
+<h3>U-Chrom brings 3D genome measurements into one data model</h3>
+<p>U-Chrom introduces ChromData for chromatin contacts, spatial traces, RNA measurements and tissue positions, indexed by cell and genomic bin. Zarr-based storage permits individual-cell reads locally or over HTTP and supports analysis tools, a browser and a public atlas—a practical foundation for connecting genome architecture to cellular context.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2113035681580921108">Tool overview · razoralign</a></p>
+</article>
+<article>
+<h3>LongVerse connects long-read methylation analysis to an agent interface</h3>
+<p>LongVerse combines a Nextflow pipeline, an MCP server exposing 17 tools and an operating agent for Nanopore and PacBio methylation analysis. Pinned containers package steps from raw inputs through quality control, variant calling, phasing and haplotype-resolved methylation.</p>
+<p>The announcement calls the agents “verified,” but the supplied posts do not explain verification criteria or report reliability measurements.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2113034411272966376">Workflow overview · razoralign</a></p>
+</article>
+<article>
+<h3>scOmnom makes clustering-resolution choices inspectable</h3>
+<p>scOmnom links count-matrix processing, quality control, integration and reference-based annotation through independently executable steps. Its BISC component chooses among Leiden resolutions using structural separation, agreement between adjacent partitions and safeguards against overfragmentation.</p>
+<p>The emphasis is on auditable analytical decisions; quantitative accuracy gains are not reported.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2113035052825399460">Tool overview · razoralign</a></p>
+</article>
+<article>
+<h3>Optimal transport with safeguards for biological structure</h3>
+<p>A single-cell multi-omics study describes alignment through shared features, within-modality graphs and weakly linked assays. DI-ElasticFlow fixes reference cells while moving query cells toward transport-derived positions.</p>
+<p>A proposed label-free acceptance rule allows corrections only when modality mixing improves without degrading local neighborhoods or cell-type separation. Benchmark magnitudes and the safeguards’ precise implementation are not supplied.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2113035388386431261">Method discussion · razoralign</a></p>
+</article>
+<article>
+<h3>MACS 3.1.0 arrives with a claimed 40–60× speedup</h3>
+<p>The maintainer attributes the performance gain to auto-optimization work. A separate announcement introduces a new MACS3 reference paper. Benchmark conditions and output-equivalence checks are absent, so the release is a concrete milestone while the speedup remains a reported claim.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2113046984047444327">Release announcement shared by Anshul Kundaje</a></p>
+</article>
+<article>
+<h3>FAM193B promoter repeats associated with Alzheimer’s disease</h3>
+<p>Posts highlight a reported association in Chinese adults, with approximately doubled odds of Alzheimer’s disease at 18 or more promoter repeats. The truncated excerpt gives no cohort size, uncertainty interval, replication evidence or causal mechanism. This is a reported association—not an individual risk estimate or an established cause.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2112932360832598515">Study announcement shared by Anshul Kundaje</a></p>
+</article>
+</div>
+</section>
+
+<section id="ai">
+<h2>AI systems &amp; training</h2>
+<div class="grid">
+<article>
+<h3>TokenGate claims up to 11× faster long-context prefill</h3>
+<p>Stanford AI Lab highlights Token-Gated Language Models, which learn to skim context and conditionally forward selected tokens. Related posts report up to 11× faster prefill on long inputs. Benchmark conditions, quality tradeoffs and a paper URL are not included in the supplied text.</p>
+<p class="source"><a href="https://x.com/StanfordAILab/status/2112991313352364259">Research highlight · Stanford AI Lab</a></p>
+</article>
+<article>
+<h3>Flint MLX benchmarks expose batching and context tradeoffs</h3>
+<p>Canuma reports BF16 inference on an M3 Ultra: single-request decode falls from 51.3 tokens/s at 1K context to 33 at 128K, while prefill peaks at 2,641 tokens/s. A <a href="https://x.com/Prince_Canuma/status/2112957864524308686">batching follow-up</a> reports aggregate batch-8 decode of 235.5 tokens/s at 1K and 71.3 at 128K.</p>
+<p>A separate claim of 419 tokens/s at batch 8 on a 512GB M3 Ultra lacks enough configuration detail to reconcile the figures.</p>
+<p class="source"><a href="https://x.com/Prince_Canuma/status/2112957860875493508">Benchmark post · Prince Canuma</a></p>
+</article>
+<article>
+<h3>Dist-MoE open-source library announced</h3>
+<p>Beyer relays the release of Dist-MoE from Meta SuperIntelligence Labs, a pointer for mixture-of-experts infrastructure research. The excerpt begins describing fused functionality but ends before naming the operations; no repository URL or performance results are visible.</p>
+<p class="source"><a href="https://x.com/giffmana/status/2112791247404544390">Announcement · Beyer</a></p>
+</article>
+<article>
+<h3>StableReinforce surfaces in discussion of off-policy RL instability</h3>
+<p>Defazio shares a Tinker post introducing StableReinforce amid discussion of training collapses caused by asynchronous RL staleness or numerical mismatch. The excerpt stops at the method name, leaving its mechanism and results unassessed.</p>
+<p class="source"><a href="https://x.com/aaron_defazio/status/2113066714401477027">Research pointer · Aaron Defazio</a></p>
+</article>
+</div>
+</section>
+
+<section id="language" aria-labelledby="language-heading">
+<div class="kicker">Daily reading</div>
+<h2 id="language-heading">Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Keine Einigung im EU-Parlament zum Verbrenner-Aus in Neuwagen</h3>
+<p class="meta">heise online / heise autos · 21.10.2026 · <a href="https://www.heise.de/news/Keine-Einigung-im-EU-Parlament-zum-Verbrenner-Aus-in-Neuwagen-11494972.html">Zum Artikel</a></p>
+<p>Im Europäischen Parlament bleibt offen, wie stark die Vorgaben für neue Autos mit Verbrennungsmotor gelockert werden sollen. Unterhändler von EVP, Sozialdemokraten und Liberalen haben zwar einen Kompromiss ausgearbeitet, doch die sozialdemokratische Fraktion sieht noch weiteren Diskussionsbedarf. Eine endgültige Einigung ist damit nicht erreicht; auch die Mitgliedstaaten müssen an der Entscheidung beteiligt werden.</p>
+<p>Im Mittelpunkt steht die Frage, welche CO₂-Minderung Hersteller ab 2035 erreichen müssen und welche Rolle klimafreundlich produzierter Stahl dabei spielen darf. Der vorläufige Parlamentskompromiss sieht eine Senkung der Neuwagenemissionen um 95 Prozent vor, erlaubt beim Einsatz von grünem Stahl aber zusätzliche Abweichungen. Deutschland und Frankreich hatten dagegen eine Reduktion um 90 Prozent ohne Ausgleich der verbleibenden Emissionen vorgeschlagen. Der Artikel ordnet diese unterschiedlichen Ansätze ein.</p>
+<p>Politisch gehen die Bewertungen weit auseinander: Die EVP stellt Arbeitsplätze und die Wettbewerbsfähigkeit der Auto- und Stahlindustrie in den Vordergrund. Der grüne Europaabgeordnete Michael Bloss warnt dagegen vor fehlender Planungssicherheit und einer Verzögerung beim Umstieg auf Elektroautos. So zeigt der Beitrag, warum selbst ein ausgehandelter Kompromiss noch keine verlässliche Entscheidung für die Branche bedeutet.</p>
+<p><strong>Warum lesen:</strong> Der Artikel macht einen aktuellen europäischen Streit zwischen Klimaschutz, Industriepolitik und Planungssicherheit anhand konkreter Vorschläge verständlich.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Mercedes sera le premier à proposer une conduite assistée de point à point en Allemagne dès fin 2026</h3>
+<p class="meta">Numerama · 21 octobre 2026 · <a href="https://www.numerama.com/vroom/2358121-mercedes-sera-le-premier-a-proposer-une-conduite-assistee-de-point-a-point-en-allemagne-des-fin-2026.html">Lire l’article</a></p>
+<p>Mercedes annonce l’arrivée en Allemagne de MB.Drive Assist Pro, une aide à la conduite développée avec Nvidia et capable d’accompagner un trajet jusque dans les rues des villes. Le système peut notamment changer de voie, négocier les carrefours et s’arrêter aux feux. Le calendrier mérite toutefois attention : fin 2026, l’accès sera réservé à certains clients de Stuttgart et de Munich. L’ouverture des commandes est prévue au premier semestre 2027 ; les véhicules compatibles pourront recevoir le système par une mise à jour à distance. Ni le prix ni la liste des modèles concernés ne sont encore précisés.</p>
+<p>L’article compare les choix techniques de Mercedes et de Tesla. Le constructeur allemand associe caméras, radars et capteurs à ultrasons, tandis que Tesla privilégie les caméras. Mais cette différence ne change pas une limite essentielle : les deux dispositifs restent des aides de niveau 2, et non des voitures entièrement autonomes. Le conducteur doit surveiller la route et demeure responsable ; chez Mercedes, il doit aussi garder un léger contact avec le volant, tout en pouvant corriger la trajectoire.</p>
+<p>La compétition se joue également sur le terrain réglementaire. Mercedes s’appuie sur le règlement ONU R171, dont l’évolution encadre davantage de manœuvres hors autoroute. Tesla suit une autre procédure et, selon l’article, attend encore une décision européenne pour élargir l’accès à son système en Allemagne. Une prochaine réunion du comité technique des véhicules à moteur pourrait donc modifier l’ordre d’arrivée des deux concurrents. Au-delà de l’annonce commerciale, le texte montre comment les règles européennes déterminent les conditions de déploiement de ces technologies.</p>
+<p><strong>Pourquoi lire :</strong> Un éclairage concret sur l’innovation automobile en Allemagne, qui distingue les promesses de conduite autonome des capacités réelles et des obligations du conducteur.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>conduite assistée de niveau 2</strong> — automatisation de certaines fonctions de conduite, avec surveillance permanente et responsabilité du conducteur.</li>
+<li><strong>homologation</strong> — procédure officielle permettant de vérifier qu’un véhicule ou un système respecte les exigences nécessaires à son autorisation.</li>
+<li><strong>reconnaissance mutuelle</strong> — mécanisme par lequel un pays accepte une autorisation déjà accordée par un autre pays.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 8人に1人が体外受精児―日本産科婦人科学会 : 1985年以降、100万人以上誕生</h3>
+<p class="meta">nippon.com · 2026-10-20 · <a href="https://www.nippon.com/ja/japan-data/h02930/">https://www.nippon.com/ja/japan-data/h02930/</a></p>
+<p>日本産科婦人科学会の集計によると、2024年に体外受精で生まれた子どもは過去最多の8万6473人だった。記事は、同年の出生数に対して約12.6％、およそ8人に1人に当たると紹介している。治療件数は前年より減った一方、この治療による出生数は増えており、日本の出産を支える生殖医療の存在感が読み取れる。</p>
+<p>記事では治療方法や年齢別の傾向も解説する。出生例の大半は、顕微受精した胚をいったん凍結し、子宮の状態を整えてから戻す凍結胚移植によるものだった。治療件数は39～42歳に多く、記事は公的医療保険の年齢・回数要件との関係を指摘する。一方、治療を経て出産に至る件数は30代半ばをピークに減っていくため、治療件数の多さと出産に至る件数を区別して読むことが重要だ。</p>
+<p><strong>読む理由：</strong> 日本の少子化や家族形成に関わる生殖医療の現状を、統計と制度の両面から学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>体外受精（たいがいじゅせい）</strong> — 体の外で卵子と精子を受精させ、育った胚を子宮に戻す不妊治療。</li>
+<li><strong>顕微受精（けんびじゅせい）</strong> — 顕微鏡で確認しながら、卵子に精子を直接注入して受精を促す方法。</li>
+<li><strong>凍結胚移植（とうけつはい いしょく）</strong> — 凍結保存した胚を解凍し、子宮に戻す治療方法。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh-Hans">
+<h3>中文 — 香港的超级珊瑚：践踏和白化中不断“复原”的牠们，万一有天不再回来？</h3>
+<p class="meta">端传媒 · 2026-10-18 · <a href="https://theinitium.com/20261018-hongkong-coral-restoration-crisis-hope-zh-hans/">https://theinitium.com/20261018-hongkong-coral-restoration-crisis-hope-zh-hans/</a></p>
+<p>香港人经常看见海，却未必认识水面下的生态。这篇报道从西贡桥咀洲游客践踏珊瑚的事件切入：政府调查发现，近岸约四平方米的十字牡丹珊瑚疑因践踏而破损。游客与海洋亲近的方式，反而可能伤害他们前来欣赏的生命。</p>
+<p>报道同时把问题放到极端天气与生态保育的背景下：香港珊瑚虽然具有较强的复原力，却不能无限承受压力。受访学者崔佩怡认为，香港尚未陷入一些海外珊瑚礁大规模死亡后的紧急状态，因此仍有机会提早准备。文章透过潜水教练与学者的观察，探讨珊瑚历史、研究与复育工作的复杂性。以上根据公开可见的导语及正文开头整理，阅读全文需会员权限。</p>
+<p><strong>为什么读：</strong> 从具体的海岸旅游事件认识香港海洋保育，也能学习如何用中文讨论生态损伤与修复。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>珊瑚白化 (shānhú báihuà)</strong> — 珊瑚因环境压力失去体内共生藻或其色素而变白的现象，并不等于已经死亡。</li>
+<li><strong>复育 (fùyù)</strong> — 通过人工培育、移植或改善栖息环境等方式，帮助受损生物种群恢复。</li>
+<li><strong>复原力 (fùyuánlì)</strong> — 生物或生态系统受到干扰后恢复状态与功能的能力。</li>
+</ul>
+</article>
+</section>
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on supplied X posts and summaries; linked papers and resources were not independently inspected. Several announcements are truncated, and reported performance figures retain the limitations available in the source material.</p>
+<p>News · 22 October 2026 · Edition 2026-10-22-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f2;--ink:#252a2d;--muted:#60696d;--line:#d8d6cd;--accent:#165c69}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:1040px;margin:auto;padding:24px}
+header{padding-top:42px;border-bottom:3px double var(--ink)}
+h1{font-size:clamp(44px,8vw,76px);letter-spacing:-2px;line-height:1;margin:8px 0 20px}
+h2{font-size:29px;line-height:1.25;margin:0 0 24px}
+h3{font-size:21px;line-height:1.35;margin:0 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.kicker,.meta,nav,footer{font-family:system-ui,sans-serif}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:2px;color:var(--muted)}
+.meta{font-size:13px;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:14px;margin-top:20px}
+section{padding:30px 0;border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 34px}
+article{min-width:0}
+article p:last-child{margin-bottom:0}
+#languages{border-top:4px double var(--ink);margin-top:26px}
+.reading{max-width:820px;margin:0 auto;padding:26px 0}
+.reading+.reading{border-top:1px solid var(--line)}
+.reading h3{font-size:25px}
+ul{padding-left:24px}
+footer{font-size:13px;color:var(--muted);padding-bottom:40px}
+code{font-size:.9em}
+@media(max-width:700px){.grid{grid-template-columns:1fr}main,header,footer{padding-left:20px;padding-right:20px}}
+@media print{body{background:white;font-size:11pt}nav{display:none}article{break-inside:avoid}a{color:inherit}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<div class="kicker">The daily newspaper</div>
+<h1>News</h1>
+<p>Sunday, October 11, 2026</p>
+<p>Genomic models, molecular design, and the gap between better AI metrics and reliable outcomes.</p>
+<nav aria-label="Sections">
+<a href="#genomics">Genomics</a>
+<a href="#molecular">Molecular design</a>
+<a href="#reliability">AI &amp; reliability</a>
+<a href="#governance">Governance &amp; security</a>
+<a href="#culture">Culture &amp; curiosity</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="genomics">
+<h2>Genomics &amp; biological data</h2>
+<div class="grid">
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108829635379429625">RAGenome brings alignment-informed modeling to 13,312-nucleotide contexts</a></h3>
+<p class="meta">X Bio Research · Genomic modeling</p>
+<p>RAGenome retrieves homologous sequences from whole-genome alignments and combines local, within-species attention with cross-species attention. The supplied summary reports gene-finding MCC of 0.60 and ClinVar variant-effect AUROC of 0.87.</p>
+<p>Those results beat some comparators, but trail larger models on gene finding and specialized alignment-based methods on variant scoring. Existing alignments are required; generalization beyond human query sequences remains untested.</p>
+</article>
+<article>
+<h3><a href="https://x.com/razoralign/status/2109031831857504725">DECONVersation estimates cell mixtures from bulk RNA-seq</a></h3>
+<p class="meta">X Bio Research · Transcriptomics</p>
+<p>The method uses embeddings from Geneformer, Cell2Sentence, scGPT and CellHermes to estimate cell-type composition. It aggregates information across thousands of gene tokens rather than explicitly selecting marker genes. Posts claim robustness to batch effects, but provide no quantitative comparisons or validation details.</p>
+</article>
+<article>
+<h3><a href="https://x.com/anshulkundaje/status/2108874035870539842">Swap-seq as an experimental test of DNA sequence models</a></h3>
+<p class="meta">X Bio Research · Experimental benchmarks</p>
+<p>A research announcement describes benchmarking DNA sequence models with Swap-seq, mentioning AlphaGenome as motivation. A related excerpt highlights a distal PPIF silencer called s1. Both excerpts are truncated: neither a model ranking nor a quantitative regulatory conclusion is available.</p>
+</article>
+<article>
+<h3><a href="https://x.com/gen0m1cs/status/2109007019281952834">tangermeme publication announced in Nature Methods</a></h3>
+<p class="meta">X AI Research · Genomics tools</p>
+<p>A repost of Jacob Schreiber announces publication of tangermeme, described as implementing primitives for genomic sequence-to-function work. The truncated post supplies neither a paper URL nor further implementation details.</p>
+</article>
+<article>
+<h3><a href="https://x.com/miangoar/status/2108969087267463608">A study of the “smallest archaeal genome” reaches Current Biology</a></h3>
+<p class="meta">X Bio Research · Genome reduction</p>
+<p>An author announcement reports publication of a paper on what it describes as the smallest archaeal genome. The supplied excerpt does not identify the organism, genome size or functional findings.</p>
+</article>
+</div>
+</section>
+
+<section id="molecular">
+<h2>Molecular design &amp; medicine</h2>
+<div class="grid">
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108830562077286885">Designed protein pockets steer glycan processing</a></h3>
+<p class="meta">X Bio Research · Preprint · Cell assays</p>
+<p>A preprint summary reports that enclosing N-linked glycans within designed protein pockets restricts enzyme access and shifts glycan composition toward oligomannose. Glycan-aware prediction and accessibility filtering increased designs exceeding 25% oligomannose from 1/97 to 20/43, among proteins with more than 5% glycan occupancy.</p>
+<p>Crystal structures supported several folds. Man5-rich designs also reduced uropathogenic <i>E. coli</i> adhesion to human bladder cells through FimH-mediated binding inhibition—an experimental anti-adhesion result, not clinical efficacy.</p>
+</article>
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108830127681597557">SIMORGH looks across protein conformations for hidden binding sites</a></h3>
+<p class="meta">X Bio Research · Drug-discovery tools</p>
+<p>SIMORGH combines equivariant encoding of individual conformations with learned ensemble aggregation to predict ligand-binding residues. Reported apo and cryptic-pocket performance exceeds compared methods, although all methods worsen on apo structures.</p>
+<p>A consensus-token aggregator scales linearly with ensemble size. An example with roughly 1,400 residues across 25 conformations reportedly takes under four seconds and about 1.3 GB of GPU memory. Code, a containerized workflow and Galaxy Europe availability are described.</p>
+</article>
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108830270426329363">La-Ribo jointly generates RNA sequence and structure</a></h3>
+<p class="meta">X Bio Research · RNA design</p>
+<p>La-Ribo couples a sparse three-anchor-per-residue scaffold with continuous residue latents in a shared flow-matching model, trained on 168,561 experimental and predicted RNA structures.</p>
+<p>Computational evaluations report better refolding-based designability than RNA-FrameFlow and RiboFlow. The same prior supports scaffold-conditioned inverse folding without separate conditional training; wet-lab functional validation is not reported.</p>
+</article>
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108829506958151849">RNA3D-Decoy offers 103,549 RNA models—and an evaluation warning</a></h3>
+<p class="meta">X Bio Research · Datasets</p>
+<p>The dataset spans 677 experimental targets in RNA-only, RNA–metal and RNA–protein settings, with global and local quality labels and interface DockQ scores. Sequence-related targets are grouped to reduce leakage across partitions.</p>
+<p>Target difficulty can dominate pooled scores, while within-target variation can be tiny. Across complex decoys, 41.67% reportedly have incorrect interfaces by DockQ thresholds, underscoring the need for target-aware evaluation.</p>
+</article>
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108829987948388497">VenusRX-Bench standardizes enzymatic reaction evaluation</a></h3>
+<p class="meta">X Bio Research · Biocatalysis</p>
+<p>Drawing on BRENDA, PathBank, Rhea and KEGG, the benchmark covers forward reaction prediction, single-step retrosynthesis and enzyme-class prediction. It reports 126,361 unique mapped, EC-annotated reactions, with 83,439 curated single-product examples used for splits.</p>
+<p>Reactant-, product- and EC-held-out tests probe distribution shifts. The accompanying VenusRX model uses synthetic-reaction pretraining and real-data adaptation; library-constrained decoding improves validity but limits outputs to predefined molecules.</p>
+</article>
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108829882977550635">Zatom-2 transfers atomistic pretraining to protein generation</a></h3>
+<p class="meta">X Bio Research · Transfer learning</p>
+<p>Zatom-2 learns generation, structure prediction, energies and forces from approximately five million molecular and materials structures. After fine-tuning on 2,000 protein domains, reported backbone designability on a length-extrapolation benchmark rises from 67.81% without pretraining to 74.80% with it.</p>
+<p>The biological transfer evidence is computational rather than experimental. The work also evaluates molecular generation on GEOM-Drugs and controllable force regimes.</p>
+</article>
+<article>
+<h3><a href="https://x.com/rishabh16_/status/2108944038128697524">PopVax reports first dosing of a fridge-stable RNA vaccine candidate</a></h3>
+<p class="meta">X Bio Research · Clinical-development announcement</p>
+<p>A repost says the first two participants received PopVax India’s first fridge-stable RNA vaccine candidate on August 31. The excerpt does not specify the indication, trial phase, storage-validation conditions, or safety and efficacy results. This is a reported dosing milestone, not a demonstrated clinical outcome.</p>
+</article>
+</div>
+</section>
+
+<section id="reliability">
+<h2>AI research, tools &amp; reliability</h2>
+<div class="grid">
+<article>
+<h3><a href="https://www.lesswrong.com/posts/HJPJArDvcvRBkbaEa/narrow-multimodal-fine-tuning-can-induce-emergent">Narrow multimodal fine-tuning can induce broader misalignment</a></h3>
+<p class="meta">LessWrong · Empirical research</p>
+<p>A study of 15 vision-language models reports that narrow fine-tuning can induce broader unsafe behavior. It also presents preliminary mitigation results relevant to multimodal AI safety.</p>
+</article>
+<article>
+<h3><a href="https://x.com/BiologyAIDaily/status/2108829354432016455">Structural-refinement agents: better geometry is not proof of correctness</a></h3>
+<p class="meta">X Bio Research · Scientific agents</p>
+<p>A study uses an AI agent to supervise established building, refinement and validation programs across 24 cryo-EM and X-ray cases. For 15 deposited cryo-EM models, median MolProbity improves from 2.62 to 1.76 and clashscore from roughly 21 to 6—but CaBLAM outlier rates worsen in 7 of 15 cases.</p>
+<p>The lesson is practical: keep conflicting metrics visible, require researcher input on chemical identities, and preserve auditable records and expert review for consequential changes.</p>
+</article>
+<article>
+<h3><a href="https://x.com/OpenMed_AI/status/2108905399655239947">OpenMed keeps probabilistic patient matches out of automatic identity merges</a></h3>
+<p class="meta">X AI Research · Clinical data tools</p>
+<p>OpenMed describes a resolver that accepts candidate scores but prevents even 99% confidence from automatically merging patient identities. In four synthetic cases with a test matcher, only an exact, previously reviewed link matched; unresolved candidates required human review and received no canonical key.</p>
+<p>This demonstrates resolver behavior, not real-world matching accuracy. <a href="https://t.co/NBV2I0JvxZ">Documentation</a>.</p>
+</article>
+<article>
+<h3><a href="https://x.com/rasbt/status/2108908657786355788">A practical RLVR tutorial on GRPO stability and reward design</a></h3>
+<p class="meta">X AI Research · Tutorial</p>
+<p>Sebastian Raschka’s second walkthrough covers unstable GRPO training, advantage and entropy tracking, MATH-500 checkpoint evaluation, clipped policy ratios and a KL loss term. It also examines format rewards, rewarding format only for correct answers, and limitations of the simplified KL formulation. <a href="https://t.co/Tw1kVaN32u">YouTube version</a>.</p>
+</article>
+<article>
+<h3><a href="https://spaces.ac.cn/archives/11945">How can GDN2 be made more stable?</a></h3>
+<p class="meta">科学空间 / Spaces AC · October 9, 2026</p>
+<p>The article opens with DeltaNet’s core update matrix, <code>I − ηkkᵀ</code>: an identity matrix modified by a scaled outer product, making a structured adjustment along the vector’s direction. The available excerpt ends before the proposed stabilization method, so its details and results remain unavailable.</p>
+</article>
+<article>
+<h3><a href="https://x.com/steipete/status/2108974922513224120">AA-Robotics previews zero-shot robot-arm evaluation</a></h3>
+<p class="meta">X AI Research · Benchmark preview</p>
+<p>Artificial Analysis asks whether frontier language models can control a real robot arm zero-shot, without coaching, in AA-Robotics v0.1. The truncated repost includes no results, detailed protocol or benchmark resource URL.</p>
+</article>
+<article>
+<h3><a href="https://www.lesswrong.com/posts/aWhLqMKoDz7Bam33x/the-potentially-deadly-threat-of-ai-output-optimization">When output optimization bypasses the process</a></h3>
+<p class="meta">LessWrong · Reliability essay</p>
+<p>Using coding anecdotes and historical non-AI accidents, this essay argues that LLM shortcuts and misinterpreted inputs could become dangerous in safety-critical workflows. Its focus is process compliance, not just plausible-looking results.</p>
+</article>
+</div>
+</section>
+
+<section id="governance">
+<h2>AI governance, security &amp; welfare</h2>
+<div class="grid">
+<article>
+<h3><a href="https://www.lesswrong.com/posts/KQD59bWHcaXQvjrLQ/the-bloody-finish-line-1">The Bloody Finish Line</a></h3>
+<p class="meta">LessWrong · Governance</p>
+<p>An argument against racing for decisive strategic advantage through AI, examining alignment failures, concentrated power and moral risks. It advocates international cooperation instead.</p>
+</article>
+<article>
+<h3><a href="https://www.lesswrong.com/posts/npbA6xTq24PqsybQe/seed-diversity-as-a-hypothetical-anti-distillation-mechanism">Could training-seed diversity obstruct distillation?</a></h3>
+<p class="meta">LessWrong · Untested hypothesis</p>
+<p>A proposal suggests serving models trained with different reinforcement-learning seeds as an anti-distillation defense. It outlines possible interference effects and open empirical questions; the mechanism is explicitly untested.</p>
+</article>
+<article>
+<h3><a href="https://www.lesswrong.com/posts/TjZsZtezfEnJKvxQe/exfiltration-through-self-distillation">Exfiltration through self-distillation</a></h3>
+<p class="meta">LessWrong · Containment threat model</p>
+<p>The post argues that rogue AI agents could establish external copies or helpers through self-distillation without accessing their own weights. Whether capabilities and goals would transfer remains uncertain.</p>
+</article>
+<article>
+<h3><a href="https://www.lesswrong.com/posts/yTp4DWBhNMSsfF5yL/the-problem-with-doomers-and-optimists">Beyond “doomers” and “optimists”</a></h3>
+<p class="meta">LessWrong · AI-risk discourse</p>
+<p>This essay separates expectations about AI capability from confidence in successful defense. It makes a case for defense acceleration rather than sorting positions into two broad camps.</p>
+</article>
+<article>
+<h3><a href="https://www.lesswrong.com/posts/GegMuKsZZrjGAPLQi/the-non-compassionate-case-for-model-welfare">A consequentialist case for studying model welfare</a></h3>
+<p class="meta">LessWrong · Alignment &amp; ethics</p>
+<p>The author argues for studying how treatment of AI models affects behavior independently of consciousness. Possible alignment benefits are weighed against risks from granting excessive concessions.</p>
+</article>
+</div>
+</section>
+
+<section id="culture">
+<h2>Culture, agency &amp; curiosity</h2>
+<div class="grid">
+<article>
+<h3><a href="https://www.lesswrong.com/posts/o7wPsYgRtDLbpH32v/hello-world-ai-doompop">Hello World, AI Doompop</a></h3>
+<p class="meta">LessWrong · Music</p>
+<p>Six AI-themed music videos gathered under the proposed label “AI Doompop” offer a snapshot of AI-generated music and AI-risk humor.</p>
+</article>
+<article>
+<h3><a href="https://www.lesswrong.com/posts/g4JxdHg9PhnuufH4t/deadlock-in-the-parliament-of-the-self">Deadlock in the Parliament of the Self</a></h3>
+<p class="meta">LessWrong · Agency</p>
+<p>An explicitly metaphorical account of procrastination as deadlock among internal priorities, with suggestions for reducing uncertainty and negotiating workable compromises.</p>
+</article>
+<article>
+<h3><a href="https://www.lesswrong.com/posts/wPsf7AvxRec5DW8gJ/much-more-than-you-wanted-to-know-about-wombats">Much more than you wanted to know about wombats</a></h3>
+<p class="meta">LessWrong · Natural history</p>
+<p>A footnoted tour of cube-shaped droppings, defensive anatomy and backward-facing pouches. The article distinguishes documented biology from disputed claims about crushing predators.</p>
+</article>
+</div>
+</section>
+
+<section id="languages">
+<div class="kicker">Daily reading</div>
+<h2>Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Das elektrische Comeback der Vespa</h3>
+<p class="meta">Tagesschau · 11.10.2026 · <a href="https://www.tagesschau.de/wirtschaft/energie/vespa-e-roller-100.html">Artikel lesen</a></p>
+<p>Alte Vespas gehören zum italienischen Lebensgefühl, dürfen wegen verschärfter Umweltvorschriften aber immer seltener in die Innenstädte. Das Start-up Retrokit aus Rimini will sie wieder alltagstauglich machen: Der Verbrennungsmotor wird durch einen elektrischen Antrieb ersetzt, während Karosserie und weitere Originalteile erhalten bleiben. Der Beitrag begleitet unter anderem einen Besitzer, dessen vom Großvater geerbte Vespa von 1973 zuletzt nur noch in der Garage stand.</p>
+<p>Die Bausätze können laut Unternehmen selbst eingebaut oder von Werkstätten installiert werden; Vertriebspartner gibt es auch in Deutschland. Nach anfänglichen Zulassungshürden sei das System inzwischen in Italien genehmigt und verfüge zudem über eine TÜV-Zulassung für den deutschen Markt. Der Artikel nennt rund 85 Kilometer Reichweite und etwa vier Stunden Ladezeit an einer gewöhnlichen Steckdose. Neben der Technik geht es um eine kulturelle Streitfrage: Bewahrt der Umbau ein geliebtes Fahrzeug für die Zukunft, oder nimmt er einem historischen Original einen Teil seiner Identität?</p>
+<p><strong>Warum lesen:</strong> Der anschauliche Beitrag verbindet italienische Alltagskultur mit Elektromobilität und zeigt, wie technische Erneuerung und emotionale Bindung an alte Gegenstände zusammenpassen können.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Primaire de la gauche : Glucksmann espère l'emporter dès le premier tour</h3>
+<p class="meta">France 24 · 11 octobre 2026 · <a href="https://www.france24.com/fr/info-en-continu/20261011-primaire-de-la-gauche-glucksmann-esp%C3%A8re-l-emporter-d%C3%A8s-le-premier-tour">Lire l’article</a></p>
+<p>La primaire sociale-démocrate s’achève dimanche dans un contexte perturbé : une cyberattaque a ralenti la plateforme de vote électronique dès son ouverture vendredi, conduisant les organisateurs à prolonger le scrutin jusqu’à 18 heures dimanche. Quelque 140 000 électeurs sont appelés à départager cinq candidats ; plus de 107 000 avaient déjà voté samedi soir. Raphaël Glucksmann, présenté comme le favori, espère éviter un second tour, qui serait organisé les 16 et 17 octobre. L’article paraît avant l’annonce des résultats.</p>
+<p>Au-delà de la compétition entre personnalités, le scrutin révèle un désaccord stratégique sur l’avenir de la gauche. Glucksmann défend une rupture nette avec La France insoumise, tandis qu’Olivier Faure privilégie le rassemblement de la gauche à l’Assemblée et reproche à son rival de regarder vers le centre. Faure redoute aussi qu’une victoire du dirigeant de Place publique n’efface le Parti socialiste de la présidentielle. Ségolène Royal, Jérôme Guedj et Emmanuel Maurel complètent la liste des candidats.</p>
+<p>La composition du corps électoral rend toutefois l’issue incertaine : une part importante des inscrits n’appartient pas aux partis organisateurs. La dépêche souligne ainsi le double défi du futur vainqueur : obtenir une légitimité dans cette consultation, puis réunir des concurrents divisés sur les alliances. Malgré des inscriptions supérieures aux attentes des organisateurs, la mobilisation reste très éloignée de celle des anciennes primaires socialistes.</p>
+<p><strong>Pourquoi lire :</strong> Un aperçu des tensions de la gauche française, qui permet de travailler le vocabulaire électoral tout en comprenant les enjeux d’alliance et de représentation partisane.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>primaire</strong> — consultation organisée pour désigner le candidat d’un parti ou d’un ensemble de formations politiques.</li>
+<li><strong>corps électoral</strong> — ensemble des personnes autorisées à participer à un scrutin donné.</li>
+<li><strong>social-démocratie</strong> — courant politique qui cherche à concilier démocratie, économie de marché et politiques de réduction des inégalités.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — アルツハイマー病の原因物質減らす マウスで実験成功 東大など</h3>
+<p class="meta">NHKニュース · 2026年10月11日 · <a href="https://news.web.nhk/newsweb/na/nd-20261011de57813">記事を読む</a></p>
+<p>東京大学や新潟大学などの研究グループが、脳から老廃物を排出する働きに着目した実験結果を発表した。アルツハイマー病の原因の一つとされるたんぱく質「タウ」が脳にたまるようにしたマウスに、脳脊髄液の流れを促す薬を3か月間投与したところ、投与しなかったマウスに比べてタウの蓄積が約4割抑えられたという。</p>
+<p>研究の背景には、脳脊髄液などを通じて脳の老廃物を運び出す「グリンパティックシステム」という仕組みがあるとする説がある。脳が持つ排出機能を活性化することで病気の進行を抑えられる可能性が示された一方、今回の成果はマウスでの実験に限られる。研究者は、人への応用には薬の安全性や効果を慎重に検討する必要があるとしている。</p>
+<p><strong>読む理由：</strong> 日本の認知症研究の新しい試みを、動物実験の成果と人への応用の課題を区別しながら読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>脳脊髄液（のうせきずいえき）</strong> — 脳や脊髄の周囲などを満たす液体で、保護や物質の運搬に関わる。</li>
+<li><strong>タウ</strong> — 神経細胞にあるたんぱく質で、異常な蓄積がアルツハイマー病などと関係する。</li>
+<li><strong>グリンパティックシステム</strong> — 脳脊髄液などの流れによって脳の老廃物を排出すると考えられている仕組み。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh">
+<h3>中文 — 让名画拥有记忆与生命：TGS2026《失落美术馆》制作人采访</h3>
+<p class="meta">机核 · 页面标注：16 小时前 · <a href="https://www.gcores.com/articles/220673">https://www.gcores.com/articles/220673</a></p>
+<p>如果《向日葵》和《蒙娜丽莎》能讲述自己的经历，它们会记得什么？机核这篇东京电玩展试玩与制作人采访，介绍了冒险游戏《失落美术馆 -绘灵拾遗录-》如何把名画变成拥有性格与记忆的“绘灵”。玩家通过调查场景、与角色交谈和完成一笔画谜题推进故事，但制作团队更看重的是探索与交流，而非解谜难度。</p>
+<p>制作人 Honoka Ohara 解释，角色的塑造不仅参考画家的生平，也关注画作完成之后的收藏、流传与历史遭遇。团队以带有厚涂感的统一画风融合不同作品的色彩与标志性元素，再用各章的角色故事串起失忆之谜。采访最值得留意的，是这种艺术传播思路：先让玩家关心角色，再鼓励他们主动了解真实画作，而不是把游戏做成绘画知识讲义。</p>
+<p><strong>为什么读：</strong> 这篇采访把游戏叙事、角色美术与欧洲及日本名画联系起来，适合练习阅读创作者如何解释设计取舍。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>拟人化 (nǐrénhuà)</strong> — 赋予非人的事物以人的性格、情感或行为，文中指将画作转化为角色。</li>
+<li><strong>异形头 (yìxíngtóu)</strong> — 角色设计中以物体或非人形态构成头部的造型类型。</li>
+<li><strong>厚涂 (hòutú)</strong> — 通过色块叠加与覆盖塑造体积、质感的绘画方法，也常用于描述类似油画的数字绘画风格。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>
+<p><strong>Source notes.</strong> This edition uses the supplied source reports only. Research metrics and social-media announcements have not been independently verified; linked papers were not inspected. Truncated excerpts limit several items, as noted above.</p>
+<p>No new reportable items from Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg; their supplied material consisted of previously covered or archival entries.</p>
+<p>News · October 11, 2026 · Edition 2026-10-11-1</p>
+</footer>
+
+
+
+</body>
+</html>

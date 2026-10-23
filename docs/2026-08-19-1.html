@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbfaf6;
+      --ink: #202522;
+      --muted: #667069;
+      --rule: #d8d9d2;
+      --accent: #245b49;
+      --card: #ffffff;
+      --practice: #f2f6f2;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main, header, footer {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header {
+      padding: 42px 0 24px;
+      border-bottom: 3px double var(--ink);
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.8rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .date {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 650;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section {
+      padding: 30px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    section > h2 {
+      margin: 0 0 22px;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+      gap: 18px;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    article h3 {
+      margin: 0 0 10px;
+      font-size: 1.16rem;
+      line-height: 1.3;
+    }
+    article p {
+      margin: 0.7em 0;
+    }
+    article p:last-child, article ul:last-child {
+      margin-bottom: 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    .source-link {
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 650;
+    }
+    .language-practice {
+      margin-top: 28px;
+      padding-top: 38px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > p {
+      color: var(--muted);
+      margin: -10px 0 24px;
+    }
+    .practice-grid {
+      display: grid;
+      gap: 22px;
+    }
+    .practice {
+      background: var(--practice);
+      padding: clamp(20px, 4vw, 32px);
+    }
+    .practice h3 {
+      font-size: 1.35rem;
+    }
+    .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.85rem;
+    }
+    .vocabulary {
+      padding-left: 1.25rem;
+    }
+    .notes {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+    }
+    .notes h2 {
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    footer {
+      padding: 24px 0 42px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>News</h1>
+    <p class="date">Wednesday, August 19, 2026</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="ai-systems">
+      <h2 id="ai-systems">AI Research &amp; Systems</h2>
+      <div class="grid">
+        <article>
+          <h3>DFlash 2 reports up to 4.6× faster Qwen decoding</h3>
+          <p>DFlash 2 reports running Qwen3.8-27B at 70 tokens per second on an M5 Max MacBook Pro—up to 4.6 times faster than autoregressive decoding. Its parallel-drafting approach includes block-diffusion techniques.</p>
+          <p><a class="source-link" href="https://x.com/steipete/status/2089957375499464910">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Muon reassessed for matrix factorization</h3>
+          <p>Research presented at TAG-DS examines the Muon optimizer in a matrix-factorization setting, extending discussion of the method beyond its more familiar use in large neural networks. Detailed findings were not available in the collected post.</p>
+          <p><a class="source-link" href="https://x.com/YouJiacheng/status/2089930513100521928">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Researchers adapt Muon to LoRA fine-tuning</h3>
+          <p>A new line of work ports Muon’s central optimization idea to LoRA-style low-rank fine-tuning. The available announcement does not expose the full method, but it connects the optimizer directly with parameter-efficient model adaptation.</p>
+          <p><a class="source-link" href="https://x.com/aaron_defazio/status/2089891883329921093">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Wire delay changes practical matrix-multiplication bounds</h3>
+          <p>Yaroslav Bulatov argues that PRAM-style analysis overlooks physical communication delays across chips. When wire delay is modeled, systolic arrays achieve a known lower bound for matrix multiplication, while Strassen multiplication fares worse even before constants and numerical stability enter the picture.</p>
+          <p><a class="source-link" href="https://x.com/yaroslavvb/status/2089868319667155411">Read the discussion on X</a></p>
+        </article>
+
+        <article>
+          <h3>An AI harness for optimization research</h3>
+          <p>A project has built a domain-specific harness around an AI model to automate substantial portions of first-order optimization research. The collected post was cut off before its methodology and results, but the project is notable for targeting a specialized research workflow rather than general assistance.</p>
+          <p><a class="source-link" href="https://x.com/aaron_defazio/status/2089835522319601720">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Equilibrium Forcing adapts video models during generation</h3>
+          <p>Equilibrium Forcing, or EqF, extends Equilibrium Matching with the aim of allowing a video generator to adapt while it generates. Methodological details were not visible in the supplied announcement.</p>
+          <p><a class="source-link" href="https://x.com/YouJiacheng/status/2089786732548125000">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Mojo is released under Apache 2.0</h3>
+          <p>Modular has open-sourced Mojo under the Apache 2.0 license. The programming language and compiler infrastructure are designed for high-performance AI workloads and portability across accelerator backends.</p>
+          <p><a class="source-link" href="https://x.com/clattner_llvm/status/2089758984328921148">Read the announcement on X</a></p>
+        </article>
+
+        <article>
+          <h3>Self-verification improves Terminal-Bench results at lower cost</h3>
+          <p>A result shared by Stanford AI Lab says that scaling self-verification with DeepSeek V4 Flash surpasses Claude Fable 5 on Terminal-Bench 2.1 while costing eleven times less. The full procedure was not included in the collected post.</p>
+          <p><a class="source-link" href="https://x.com/StanfordAILab/status/2089642076673634769">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>23,000 AI-generated pull requests reveal an experience gap</h3>
+          <p>An empirical analysis of 23,000 AI-generated pull requests reports that inexperienced developers opened twice as many of them as experienced developers. The remaining findings and methodology were not visible in the normalized source material.</p>
+          <p><a class="source-link" href="https://x.com/steipete/status/2089716777165234226">Read the post on X</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="biology">
+      <h2 id="biology">Computational Biology &amp; Drug Discovery</h2>
+      <div class="grid">
+        <article>
+          <h3>HI-JEPA learns molecular organization from nanoscale proximity</h3>
+          <p>HI-JEPA trains a joint-embedding predictive model on roughly 1.2 million protein-colocalization measurements from the ASCEND expansion-microscopy platform. It reports strong held-out interaction and complex-completion results, including for sequence-dissimilar proteins.</p>
+          <p>In a 5xFAD Alzheimer’s cortex case study, it prioritizes amyloid-β–AMPA-receptor assemblies without disease labels. The measured universe contains only 164 proteins, however, leaving broader transfer an important open question.</p>
+          <p><a class="source-link" href="https://x.com/BiologyAIDaily/status/2089717508811194540">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>AIDO Cell previews a cross-modal world model of the cell</h3>
+          <p>GenBio AI describes AIDO Cell as a world model spanning DNA, RNA, and protein modalities. Its intended use is to query intervention hypotheses computationally before choosing high-information experiments. This is a preview announcement without benchmarks or validation, so its scientific capabilities remain difficult to assess.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2089846071304618457">Read the preview on X</a></p>
+        </article>
+
+        <article>
+          <h3>AFilter flags strained AlphaFold 3 antibody predictions</h3>
+          <p>AFilter adds post-hoc quality control to AlphaFold 3 antibody and nanobody docking. It uses Rosetta interface-energy features to identify predictions whose incorrect epitopes are accommodated through distorted CDR geometry.</p>
+          <p>A random forest reportedly reaches 91.7% accuracy for nanobodies and 87.2% for antibodies on an external 2025-PDB set, with under 5% extra compute. Transfer to other complex predictors has not yet been tested.</p>
+          <p><a class="source-link" href="https://x.com/BiologyAIDaily/status/2089718158953517283">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>EpiTune fine-tunes ESM-2 for B-cell epitope prediction</h3>
+          <p>EpiTune directly fine-tunes ESM-2 for residue-level prediction using clustered and filtered IEDB data. Its 15-billion-parameter linear-epitope model reports a PR-AUC of 0.39 and ROC-AUC of 0.83, with especially large gains on antigens longer than 1,024 residues.</p>
+          <p>Conformational epitope prediction remains much weaker, with a PR-AUC of 0.08 and a substantially smaller dataset.</p>
+          <p><a class="source-link" href="https://x.com/BiologyAIDaily/status/2089718024807079960">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>Twelve molecular generators benchmarked across 176 targets</h3>
+          <p>A systematic study compares 12 generation and optimization methods using robustness, validity, diversity, drug-likeness, synthetic accessibility, docking, ADME, toxicity, and resource demands. No single model dominates.</p>
+          <p>FlowMol and Pocket2Mol offer stronger joint quality coverage, while PFM and MolJO achieve more favorable docking or Pareto compromises at the cost of other liabilities. The work argues that single-score leaderboards conceal important practical trade-offs.</p>
+          <p><a class="source-link" href="https://x.com/BiologyAIDaily/status/2089717104388014198">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>RetroMPA brings property-aware retrieval to retrosynthesis</h3>
+          <p>RetroMPA predicts missing reactants in a learned molecular-property space and retrieves valid molecules from a dictionary without retraining the underlying retrosynthesis model. Across eight model families, it reportedly improves top-1 exact-match accuracy on USPTO-50K by an average of 5.5 percentage points, with smaller gains on USPTO-Full.</p>
+          <p>Case studies and preliminary wet-lab tests suggest that some retrieved alternatives provide chemically sensible disconnections beyond benchmark matching.</p>
+          <p><a class="source-link" href="https://x.com/BiologyAIDaily/status/2089717232834064601">Read the research summary on X</a></p>
+        </article>
+
+        <article>
+          <h3>Binder-design comparisons face target-difficulty confounding</h3>
+          <p>Discussion of a protein-binder experiment cautions that methods received targets of different difficulty, making raw hit rates hard to compare. Genie 3 reportedly received the hardest targets and nevertheless performed unexpectedly well on TNFα.</p>
+          <p>The methods may have genuinely divergent failure modes, but small experimental samples could also exaggerate those differences.</p>
+          <p><a class="source-link" href="https://x.com/MoAlQuraishi/status/2089890131985526895">Read the discussion on X</a></p>
+        </article>
+
+        <article>
+          <h3>DNA-Diffusion generates regulatory sequences</h3>
+          <p>A paper titled “DNA-Diffusion” applies generative modeling to synthetic regulatory DNA intended to control chromatin accessibility and gene expression. The available source provides no details about the architecture, datasets, performance, or experimental validation.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2089711803135840656">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Sequencing-free spatial transcriptomics at single-molecule resolution</h3>
+          <p><cite>Cell</cite> highlighted a sequencing-free method described as delivering whole-genome spatial transcriptomics at single-molecule resolution. Methodological and quantitative details were absent from the supplied post, but the claimed combination of genome-scale coverage and spatial localization could be consequential for tissue and virtual-cell modeling.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2089930576002535583">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>Polaris annotates chromatin loops in bulk and single-cell Hi-C</h3>
+          <p>Polaris is presented as a universal tool for identifying chromatin loops across both bulk and single-cell Hi-C data. It could support analysis of 3D genome organization and gene regulation, although no benchmarks or implementation details were available in the collected post.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2089711865501008061">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>SpliceImpactR maps the effects of alternative exons</h3>
+          <p>SpliceImpactR is a new framework for mapping functional consequences of splicing, including alternative first, internal, and last exons. The available announcement does not expose its datasets, statistical approach, or validation results.</p>
+          <p><a class="source-link" href="https://x.com/razoralign/status/2089841311532908620">Read the post on X</a></p>
+        </article>
+
+        <article>
+          <h3>A five-million-person perturbation program sparks debate</h3>
+          <p>Sam Rodriques proposes a roughly $100 billion program involving around five million healthy volunteers, systematic dose-response testing of antibodies, RNA therapeutics, and endogenous peptides, and multiplexed physiological and behavioral biomarkers.</p>
+          <p>The proposal seeks large-scale human causal evidence for diseases with measurable biomarkers or strong models. Critics question whether the required measurement, manufacturing, evidence, and deployment systems could all be built within the same ten-year horizon.</p>
+          <p><a class="source-link" href="https://x.com/SGRodriques/status/2089819908830040082">Read the proposal and discussion on X</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice</h2>
+      <p>Edited daily reading selections in German, French, Japanese, and Chinese.</p>
+
+      <div class="practice-grid">
+        <article class="practice" lang="de">
+          <h3>Deutsch — Der legendäre Analogue Pocket kommt endlich zurück, aber leider ganz anders als erhofft</h3>
+          <p class="byline">GameStar · 19.08.2026 · <a href="https://www.gamestar.de/artikel/analogue-pocket-supreme-meinung,3458207.html">Link</a></p>
+
+          <p>Analogue bringt seinen lange schwer erhältlichen Premium-Handheld in Kooperation mit der Modemarke Supreme zurück. Geplant sind zwei Metallausführungen, darunter eine Variante mit 24-karätiger Vergoldung. Einen Preis nennt der Hersteller noch nicht; angesichts früherer Metallmodelle rechnet der Autor jedoch mit mindestens 500 US-Dollar zuzüglich Versand und Zoll. Die Vorbestellung soll am 20. August beginnen.</p>
+
+          <p>Der Artikel erklärt außerdem, weshalb der Analogue Pocket unter Retro-Fans so begehrt ist: FPGA-Chips bilden die ursprüngliche Handheld-Hardware nach, sodass echte Module für Game Boy, Game Boy Color und Game Boy Advance ohne klassische Software-Emulation laufen. Hinzu kommen ein hochauflösendes, beleuchtetes Display, Speicherfunktionen und optionale Adapter für weitere Systeme. Als günstigere Alternativen werden unter anderem der FunnyPlaying FPGBC, der ModRetro Chromatic und der Umbau eines originalen Game Boys vorgestellt.</p>
+
+          <p><strong>Warum lesen:</strong> Der Beitrag verbindet Retrospiel-Nostalgie mit verständlichen technischen Erklärungen und einer kritischen Einschätzung kostspieliger Sammlereditionen.</p>
+        </article>
+
+        <article class="practice" lang="fr">
+          <h3>Français — Sophie Adenot est devenue la première Française à sortir dans l’espace</h3>
+          <p class="byline">Le Monde · 18 août 2026 · <a href="https://www.lemonde.fr/sciences/article/2026/08/18/sophie-adenot-devient-la-premiere-francaise-a-sortir-dans-l-espace-suivez-l-evenement-en-video_6748734_1650685.html">https://www.lemonde.fr/sciences/article/2026/08/18/sophie-adenot-devient-la-premiere-francaise-a-sortir-dans-l-espace-suivez-l-evenement-en-video_6748734_1650685.html</a></p>
+
+          <p>Sophie Adenot, âgée de 44 ans, est devenue la première astronaute française à effectuer une sortie dans l’espace. En mission dans la Station spatiale internationale depuis la mi-février, elle est aussi la deuxième femme européenne à réaliser une telle opération, après l’Italienne Samantha Cristoforetti en 2022. Elle était accompagnée de l’astronaute américain Anil Menon.</p>
+
+          <p>Prévue pour durer environ six heures et demie, cette sortie extravéhiculaire avait pour objectif de remplacer une antenne indispensable aux communications à haut débit entre l’ISS et le centre de contrôle de Houston. L’intervention nécessitait de démonter l’ancien équipement, d’installer l’antenne de rechange puis d’effectuer des connexions électriques délicates en situation de microgravité. Deux autres astronautes restés à bord assuraient une partie de l’assistance technique, notamment la manipulation du bras robotique.</p>
+
+          <p>Ingénieure et ancienne pilote d’essai, Sophie Adenot s’inscrit dans la continuité de Claudie Haigneré, première Française à être allée dans l’espace, et de Thomas Pesquet, auteur de six sorties extravéhiculaires. L’article souligne aussi l’importante préparation collective qui précède ce type de mission : vérification des scaphandres et des outils, répétition des procédures et maîtrise des règles de sécurité.</p>
+
+          <p><strong>Pourquoi lire :</strong> Un récit accessible d’une première historique française, qui permet aussi de découvrir les contraintes techniques et humaines du travail à l’extérieur de l’ISS.</p>
+
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul class="vocabulary">
+            <li><strong>sortie extravéhiculaire</strong> — intervention réalisée par un astronaute à l’extérieur d’un véhicule ou d’une station spatiale</li>
+            <li><strong>sas</strong> — compartiment étanche permettant de passer progressivement d’un milieu pressurisé au vide spatial</li>
+            <li><strong>microgravité</strong> — état dans lequel les effets apparents de la pesanteur deviennent extrêmement faibles</li>
+            <li><strong>scaphandre spatial</strong> — combinaison pressurisée protégeant l’astronaute du vide, des températures extrêmes et du manque d’oxygène</li>
+          </ul>
+        </article>
+
+        <article class="practice" lang="ja">
+          <h3>日本語 — ウェブトゥーン作家が手掛けるボクセルシューティング「ワールドウォーV：ラストコール」を紹介。かわいい見た目とは裏腹の高難度［BIC2026］</h3>
+          <p class="byline">4Gamer · 2026年8月19日 · <a href="https://www.4gamer.net/games/034/G103422/20260818046/">https://www.4gamer.net/games/034/G103422/20260818046/</a></p>
+
+          <p>韓国のインディーゲームイベント「Busan Indie Connect Festival 2026」に出展された、Studio HORANGの新作PCゲーム「ワールドウォーV：ラストコール」を紹介するプレイレポート。ウェブトゥーン作家が手掛けた作品で、かわいらしい外観とは対照的な高い難度が特徴だ。</p>
+
+          <p>ステージは細かなボクセルで構成されたジオラマのような空間で、プレイヤーは斜め上から見下ろす視点で進んでいく。近くで見ると立体的なドット絵のように感じられる独特のビジュアルも見どころで、記事では多数の画像とともに会場でのプレイ体験を伝えている。</p>
+
+          <p><strong>読む理由：</strong> 韓国のインディーゲーム文化と、ウェブトゥーンの表現をゲームへ展開する試みを具体的に知ることができる。</p>
+
+          <p><strong>語彙メモ</strong></p>
+          <ul class="vocabulary">
+            <li><strong>裏腹（うらはら）</strong> — 見た目や予想とは反対の性質を持つこと</li>
+            <li><strong>俯瞰視点（ふかんしてん）</strong> — 対象を斜め上や真上から見下ろす画面の見せ方</li>
+            <li><strong>ボクセル（ぼくせる）</strong> — 立体空間を構成する小さな立方体状の単位</li>
+          </ul>
+        </article>
+
+        <article class="practice" lang="zh">
+          <h3>中文 — 半世纪TVB处境剧 喜剧笔触绘市井烟火</h3>
+          <p class="byline">联合早报 · 2026-08-19 · <a href="https://www.zaobao.com.sg/entertainment/story20260819-9509404">https://www.zaobao.com.sg/entertainment/story20260819-9509404</a></p>
+
+          <p>从《七十三》《真情》《皆大欢喜》到《爱·回家》系列，TVB处境剧已陪伴观众超过半个世纪。这类剧集通常采用固定演员和场景，每集围绕一个日常矛盾展开；轻松诙谐、独立成篇的结构，使观众不必紧追剧情，也能随时进入故事。文章借新剧《爱·回家之三代同糖》接档播出之机，回顾处境剧如何以柴米油盐和市井百态回应不同时代的社会议题。</p>
+
+          <p>监制罗永贤认为，处境剧的核心价值是“陪伴”：它让一家人吃晚饭时可以轻松一笑，也为现代家庭创造共同话题。面对微短剧、倍速播放和碎片化观影的竞争，他仍相信，贴近生活的内容与明快节奏足以留住观众。处境剧也是演员磨炼演技的“练兵场”，密集拍摄能训练镜头感、走位和临场配合，长期播映则有助角色深入民心。</p>
+
+          <p>新剧以跨世代公关公司为核心舞台，从日常生活和职场关系中寻找喜剧素材。演员们一方面要迅速建立默契、适应持续变化的剧本，另一方面也要面对长期饰演同类角色可能带来的定型与倦怠。文章由此呈现这种看似轻松的电视剧类型背后，高强度、长周期而且充满变数的制作生态。</p>
+
+          <p><strong>为什么读：</strong> 文章兼具香港电视文化史与影视制作观察，适合了解华语处境喜剧为何能够长期陪伴几代观众。</p>
+
+          <p><strong>词汇笔记</strong></p>
+          <ul class="vocabulary">
+            <li><strong>处境剧 (chǔjìngjù)</strong> — 以固定人物和场景为主、每集处理一个日常矛盾的喜剧类型，相当于英语的 sitcom。</li>
+            <li><strong>三机拍摄 (sānjī pāishè)</strong> — 同时使用三台摄影机从不同角度记录表演的电视制作方式，可提高拍摄效率。</li>
+            <li><strong>入屋 (rùwū)</strong> — 香港影视行业用语，指演员或角色广为家庭观众熟悉并深入民心。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="notes" aria-labelledby="editorial-notes">
+      <h2 id="editorial-notes">Source Notes</h2>
+      <p>Several short-form research posts were truncated during collection, and some destination links could not be resolved. Where this limited the available evidence, the summaries above say so explicitly and avoid extending claims beyond the supplied material.</p>
+    </section>
+  </main>
+
+  <footer>
+    News Daily · August 19, 2026 · Run 2026-08-19-1
+  </footer>
+
+
+
+</body>
+</html>

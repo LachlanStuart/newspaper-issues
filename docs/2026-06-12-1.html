@@ -1,0 +1,514 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2328;
+      --muted: #667085;
+      --rule: #d8d0c2;
+      --accent: #7a3e2c;
+      --accent-soft: #efe0d7;
+      --link: #1b5e8c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    a { color: var(--link); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { text-decoration-thickness: 2px; }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 18px 44px;
+    }
+    header {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 26px 28px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(40, 30, 20, 0.06);
+    }
+    .kicker {
+      color: var(--accent);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 6px 0 4px;
+      font-size: clamp(2.1rem, 5vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    .deck {
+      max-width: 800px;
+      margin: 18px auto 0;
+      color: #3d424a;
+      font-size: 1.08rem;
+    }
+    main {
+      margin-top: 22px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 2px 12px rgba(40, 30, 20, 0.05);
+    }
+    section {
+      padding: 24px 28px;
+      border-top: 1px solid var(--rule);
+    }
+    section:first-child { border-top: 0; }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.55rem;
+      letter-spacing: -0.02em;
+    }
+    .section-note {
+      margin: -4px 0 18px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px 24px;
+    }
+    article {
+      padding: 0 0 16px;
+      border-bottom: 1px solid #e8e1d7;
+    }
+    article.feature {
+      grid-column: 1 / -1;
+      background: linear-gradient(180deg, var(--accent-soft), rgba(239,224,215,0.35));
+      border: 1px solid #d7b9a8;
+      padding: 18px;
+    }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.12rem;
+      line-height: 1.25;
+    }
+    article.feature h3 { font-size: 1.38rem; }
+    p { margin: 0 0 9px; }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 10px;
+    }
+    .tag {
+      border: 1px solid #d8d0c2;
+      background: #faf7f0;
+      color: #5c6570;
+      border-radius: 999px;
+      padding: 2px 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.75rem;
+      white-space: nowrap;
+    }
+    .source {
+      margin-top: 10px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+    }
+    .brief-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px 24px;
+    }
+    .brief {
+      border-bottom: 1px solid #e8e1d7;
+      padding-bottom: 12px;
+    }
+    .brief h3 {
+      font-size: 1.04rem;
+    }
+    footer {
+      margin-top: 22px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      padding: 18px 28px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+    footer h2 {
+      color: var(--ink);
+      border-bottom: 1px solid var(--rule);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+    }
+    ul { margin-top: 8px; padding-left: 20px; }
+    @media (max-width: 760px) {
+      .grid, .brief-list { grid-template-columns: 1fr; }
+      article.feature { grid-column: auto; }
+      header, section, footer { padding-left: 18px; padding-right: 18px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Friday, June 12, 2026 · Run 2026-06-12-1</div>
+      <p class="deck">
+        Today’s edition is heavy on AI-for-biology: virtual-cell models, single-cell analysis,
+        biomolecular design, and genomics benchmarks. On the broader AI side, notable items include
+        OpenCLIP’s multimodal tooling update, preference-data debugging, robotics planning, and optimizer notes.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Lead Stories</h2>
+        <div class="grid">
+          <article class="feature">
+            <h3><a href="https://x.com/razoralign/status/2065225926548545935">HoloCell: a generative foundation model for single-cell multi-omics</a></h3>
+            <p>
+              HoloCell is described as an 860M-parameter model for holistic cellular modeling across
+              single-cell epigenomics, transcriptomics, and proteomics. The reported design uses
+              gene-anchored hierarchical tokens for cis-regulatory elements, genes, and proteins,
+              combines bidirectional attention with diffusion-based generation, and was pretrained on
+              roughly 468 million single-cell profiles.
+            </p>
+            <p class="source">Source: X Bio Research</p>
+            <div class="tags">
+              <span class="tag">virtual cells</span>
+              <span class="tag">single-cell</span>
+              <span class="tag">multi-omics</span>
+              <span class="tag">foundation models</span>
+            </div>
+          </article>
+
+          <article class="feature">
+            <h3><a href="https://x.com/wightmanr/status/2065116343704465872">OpenCLIP adds NaFlex, generative captioning variants, and modern text towers</a></h3>
+            <p>
+              Ross Wightman merged a broad OpenCLIP update covering NaFlex CLIP image towers for
+              variable-resolution and variable-aspect token-budget batching, NaFlex CLAP for
+              variable-duration audio-text training, generative image and audio captioning variants,
+              modern RoPE/SwiGLU/RMSNorm text towers, variable-length text, and Hugging Face ModernBERT
+              tower support.
+            </p>
+            <p class="source">Source: X AI Research</p>
+            <div class="tags">
+              <span class="tag">OpenCLIP</span>
+              <span class="tag">multimodal</span>
+              <span class="tag">vision-language</span>
+              <span class="tag">audio-language</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>AI for Biology and Genomics</h2>
+        <p class="section-note">New methods, models, and benchmarks for molecular biology, single-cell analysis, and genomics.</p>
+        <div class="grid">
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2065215196256432230">Promera unifies co-folding, filtering, and controllable biomolecular design</a></h3>
+            <p>
+              Promera is presented as an all-atom model for structure prediction, binder filtering,
+              and controllable biomolecular design. The thread claims strong performance on
+              protein-protein, antibody-antigen, and protein-ligand categories, with epitope/paratope
+              conditioning for targeted binder design across proteins, RNA, DNA, and small molecules.
+            </p>
+            <div class="tags">
+              <span class="tag">drug discovery</span>
+              <span class="tag">protein design</span>
+              <span class="tag">binder design</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2065224841209544803">BioNeuralNet uses GNNs for multi-omics disease modeling</a></h3>
+            <p>
+              BioNeuralNet is described as a graph-neural-network tool for converting multi-omics
+              networks into low-dimensional biological embeddings. Its DPMON disease-prediction
+              workflow combines adjacency networks, multi-omics data, and optional clinical covariates
+              across GCN, GAT, GraphSAGE, and GIN architectures.
+            </p>
+            <div class="tags">
+              <span class="tag">multi-omics</span>
+              <span class="tag">GNN</span>
+              <span class="tag">disease prediction</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/naturemethods/status/2065130957074551259">SAGE-net targets sequence-to-function modeling for personal genomes</a></h3>
+            <p>
+              Nature Methods highlighted SAGE-net, a scalable and efficient sequence-to-function
+              modeling framework for personal genome analysis.
+            </p>
+            <div class="tags">
+              <span class="tag">genomics</span>
+              <span class="tag">sequence modeling</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/gen0m1cs/status/2065272222466363619">Nature Methods study evaluates pre-training scale in genomics</a></h3>
+            <p>
+              A Nature Methods paper announcement describes a systematic evaluation of how increasing
+              pre-training affects downstream genomics and biology modeling. The available source text
+              was truncated, so details and the direct paper URL were not visible.
+            </p>
+            <div class="tags">
+              <span class="tag">genomics</span>
+              <span class="tag">pre-training</span>
+              <span class="tag">benchmarking</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2065214946049446090">Generative design of synthetic gene circuits</a></h3>
+            <p>
+              This work uses a conditional VAE to generate genetic-circuit topologies conditioned on
+              target dynamic functions such as signal adaptation. The thread says the authors simulate
+              RNA-sequence datasets, convert sequences into circuits with RNA interaction predictors,
+              and estimate both functional features and evolutionary stability.
+            </p>
+            <div class="tags">
+              <span class="tag">synthetic biology</span>
+              <span class="tag">gene circuits</span>
+              <span class="tag">RNA</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2065213804791869509">EpiBench benchmarks agentic epigenomics analysis</a></h3>
+            <p>
+              EpiBench is introduced as an agentic benchmark for practical epigenomics analysis, with
+              106 evaluations spanning CUT&amp;Tag/CUT&amp;RUN and ATAC-seq workflows. The normalized item
+              was truncated, but the scope is directly relevant to evaluating AI agents in biological
+              analysis pipelines.
+            </p>
+            <div class="tags">
+              <span class="tag">epigenomics</span>
+              <span class="tag">agents</span>
+              <span class="tag">ATAC-seq</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/razoralign/status/2065057630608068814">GLM-Missense applies genomic language modeling to variant impact</a></h3>
+            <p>
+              GLM-Missense is described as a fine-tuned genomic language model for missense variant
+              impact, intended to capture nucleotide-level information overlooked by some existing
+              approaches. The available item was truncated, limiting further detail.
+            </p>
+            <div class="tags">
+              <span class="tag">variant interpretation</span>
+              <span class="tag">language models</span>
+              <span class="tag">genomics</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/anshulkundaje/status/2065086821974121259">A useful caution on scaling laws in cell biology</a></h3>
+            <p>
+              Anshul Kundaje argues that the real question is not whether scaling laws exist in cell
+              biology, but whether scaled models deliver downstream value that justifies their cost
+              over simpler alternatives. The comment lands amid ongoing debate around virtual-cell and
+              single-cell foundation models.
+            </p>
+            <div class="tags">
+              <span class="tag">evaluation</span>
+              <span class="tag">scaling laws</span>
+              <span class="tag">virtual cells</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Single-Cell Methods and Biological Interpretation</h2>
+        <div class="brief-list">
+          <article class="brief">
+            <h3><a href="https://x.com/razoralign/status/2065224535507702082">ScEnsemble: hypergraph ensemble clustering for scRNA-seq</a></h3>
+            <p>
+              ScEnsemble represents cluster co-assignments as weighted hyperedges and partitions them
+              with consensus algorithms such as weighted CSPA, MCLA, and hypergraph spectral clustering.
+            </p>
+          </article>
+
+          <article class="brief">
+            <h3><a href="https://x.com/razoralign/status/2065214648253915299">scCRAFT+ integrates scRNA-seq with virtual adversarial learning</a></h3>
+            <p>
+              scCRAFT+ is a semi-supervised integration model that uses marker-gene information and
+              Virtual Adversarial Training to improve robustness to noisy or incomplete annotations.
+            </p>
+          </article>
+
+          <article class="brief">
+            <h3><a href="https://x.com/razoralign/status/2065057620147470437">DRVI seeks interpretable latent factors for cellular heterogeneity</a></h3>
+            <p>
+              DRVI is described as a single-cell interpretability method that disentangles cellular
+              heterogeneity into biological factors through structured latent representations.
+            </p>
+          </article>
+
+          <article class="brief">
+            <h3><a href="https://x.com/DdelAlamo/status/2065080768901103624">Sparse autoencoders probe AF3 and Boltz-2 denoising trajectories</a></h3>
+            <p>
+              A paper highlighted in the run trains sparse autoencoders on AlphaFold 3 versus Boltz-2
+              denoising trajectories, pointing toward interpretability for biomolecular structure-generation models.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>Structure, Regulation, and Biology Reviews</h2>
+        <div class="brief-list">
+          <article class="brief">
+            <h3><a href="https://x.com/naturemethods/status/2065139162991280328">Nature Methods perspective on macromolecular ensemble prediction</a></h3>
+            <p>
+              The Perspective focuses on challenges and methodological needs for moving beyond static
+              structure prediction toward dynamic macromolecular ensembles.
+            </p>
+          </article>
+
+          <article class="brief">
+            <h3><a href="https://x.com/razoralign/status/2065089945258401920">Regulatory network topology and gene-expression architecture</a></h3>
+            <p>
+              A Cell Genomics item points to work on regulatory network topology and the genetic
+              architecture of gene expression.
+            </p>
+          </article>
+
+          <article class="brief">
+            <h3><a href="https://x.com/NatureRevGenet/status/2065073408963121259">Seasonal temperature signals in flowering-time control</a></h3>
+            <p>
+              Nature Reviews Genetics posted a review on the molecular integration of seasonal
+              temperature signals in plant flowering-time regulation.
+            </p>
+          </article>
+
+          <article class="brief">
+            <h3><a href="https://x.com/razoralign/status/2065057642872234484">AEGIS genomic annotation extraction and integration resource</a></h3>
+            <p>
+              AEGIS is described as an annotation extraction and genomic integration resource for
+              downstream analysis workflows.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section>
+        <h2>AI Methods, Tooling, and Optimization</h2>
+        <div class="grid">
+          <article>
+            <h3><a href="https://x.com/GoodfireAI/status/2065118189986717902">Goodfire introduces predictive data debugging for preference datasets</a></h3>
+            <p>
+              Goodfire’s “predictive data debugging” is intended to reveal what a model will learn
+              from training data before training. In a DPO dataset analysis, the method reportedly
+              surfaced broken guardrails, hallucinations, and other unwanted preference-data patterns.
+            </p>
+            <div class="tags">
+              <span class="tag">alignment</span>
+              <span class="tag">DPO</span>
+              <span class="tag">training data</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/StanfordAILab/status/2065299105438396928">Selective test-time compute for robotics planning</a></h3>
+            <p>
+              A Stanford AI Lab retweet highlights a robotics planning result arguing that test-time
+              compute is not always worth its cost, and that selective allocation can recover
+              frontier-level planning performance. No direct paper or resource URL was visible in the item.
+            </p>
+            <div class="tags">
+              <span class="tag">robotics</span>
+              <span class="tag">planning</span>
+              <span class="tag">test-time compute</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/aaron_defazio/status/2065099393087504892">Muon hyperparameter PR improves a modded-nanoGPT speedrun</a></h3>
+            <p>
+              A report retweeted by Aaron Defazio says a PR to modded-nanoGPT adds better
+              hyperparameters, allowing Muon to hit the target loss after 3,250 steps. The benchmark
+              details were truncated in the available text.
+            </p>
+            <div class="tags">
+              <span class="tag">optimizers</span>
+              <span class="tag">Muon</span>
+              <span class="tag">nanoGPT</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/cgeorgiaw/status/2065056280243323231">Technical note: “How Muon Lost its Geometry”</a></h3>
+            <p>
+              Georgia Channing retweeted Arda Goreci’s technical note on Muon, framed as open-research
+              notes on the optimizer. The available source item was truncated, but it appears to be an
+              optimizer-method analysis.
+            </p>
+            <div class="tags">
+              <span class="tag">optimization</span>
+              <span class="tag">Muon</span>
+            </div>
+          </article>
+
+          <article>
+            <h3><a href="https://x.com/YouJiacheng/status/2064838349337330023">DRPO note argues for constraining Binary-TV directly</a></h3>
+            <p>
+              You Jiacheng commented on the DRPO release, arguing that constraining a lower bound does
+              not make sense, while constraining Binary-TV itself does. Only the shortened link was
+              visible in the provided data.
+            </p>
+            <div class="tags">
+              <span class="tag">reinforcement learning</span>
+              <span class="tag">objectives</span>
+              <span class="tag">DRPO</span>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <h2>Source Notes</h2>
+      <ul>
+        <li>
+          Several X AI Research items were truncated or lacked visible paper/resource URLs, so summaries are limited to the provided text.
+        </li>
+        <li>
+          Several X Bio Research retweet-based items also had limited summaries because the normalized text was truncated.
+        </li>
+      </ul>
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

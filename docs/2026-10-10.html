@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f3;--ink:#242925;--muted:#626a63;--line:#d9ddd3;--accent:#255c49}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:980px;margin:auto;padding:36px 26px 50px}
+header{border-top:5px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 0 24px}
+h1{font-size:3.6rem;letter-spacing:-.04em;line-height:1.1;margin:0 0 10px}
+h2{font-size:1.65rem;margin:0 0 22px;line-height:1.25}
+h3{font-size:1.22rem;line-height:1.4;margin:0 0 9px}
+p{margin:0 0 13px}
+.date,.kicker,.meta,nav,footer{font-family:system-ui,sans-serif}
+.date,.meta{font-size:.85rem;color:var(--muted)}
+.kicker{text-transform:uppercase;letter-spacing:.12em;font-size:.73rem;color:var(--accent);font-weight:700;margin-bottom:8px}
+.deck{max-width:760px;margin:16px 0 0;font-size:1.1rem}
+nav{display:flex;flex-wrap:wrap;gap:9px 22px;padding:16px 0;font-size:.87rem}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:32px;padding-top:25px;border-top:2px solid var(--line)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:25px 32px}
+article{min-width:0}
+article p:last-child{margin-bottom:0}
+.lead{font-size:1.08rem;margin-bottom:28px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.links{font-family:system-ui,sans-serif;font-size:.83rem}
+.briefs article{padding:15px 0;border-bottom:1px solid var(--line)}
+.briefs article:last-child{border-bottom:0}
+#languages{border-top:4px double var(--ink);margin-top:44px}
+.reading{margin-top:28px;padding-top:25px;border-top:1px solid var(--line)}
+.reading h3{font-size:1.35rem}
+.reading p,.reading ul{max-width:820px}
+.reading ul{padding-left:24px}
+footer{margin-top:40px;border-top:1px solid var(--line);padding-top:18px;font-size:.8rem;color:var(--muted)}
+@media(max-width:650px){main{padding:24px 18px 36px}.grid{grid-template-columns:1fr}h1{font-size:2.8rem}}
+@media print{body{background:white}main{max-width:none;padding:0}nav{display:none}article{break-inside:avoid}a{color:inherit}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<p class="kicker">Daily newspaper</p>
+<h1>News</h1>
+<div class="date"><time datetime="2026-10-10">Saturday, October 10, 2026</time></div>
+<p class="deck">Experimental design meets virtual cells; genomic models stretch their context; AI research examines training efficiency, decoding and verification.</p>
+</header>
+<nav aria-label="Sections">
+<a href="#biology">Biology &amp; experimental design</a>
+<a href="#genomics">Genomics &amp; regulation</a>
+<a href="#ai">AI methods &amp; systems</a>
+<a href="#briefs">Research pointers</a>
+<a href="#languages">Language practice</a>
+</nav>
+
+<section id="biology">
+<p class="kicker">Biology &amp; experimental design</p>
+<h2>From predicting cells to steering experiments</h2>
+<article class="lead">
+<h3>LabCompass uses inverse design to seek desired cell populations</h3>
+<p>LabCompass couples a generative model of experimental designs with a differentiable model of cellular responses. Desired phenotypes steer candidate generation, a learned prior favors plausible designs, and experimental measurements inform subsequent rounds.</p>
+<p>The authors report profiling <strong>78 million cells</strong> across the study and experimentally validating conditions that enrich megakaryocytic, erythroid, monocytic and early lymphoid populations in primary human blood stem and progenitor cells. Different recipes could produce similar target enrichments. The preprint proposes a practical test for virtual-cell models: can they guide successful experiments, rather than merely predict responses?</p>
+<p class="links">X Bio Research · <a href="https://x.com/fabian_theis/status/2108540029005856911">LabCompass research post</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>scStable probes robustness to between-sample variation</h3>
+<p>scStable generates synthetic samples that retain cell-level heterogeneity from a single-sample reference while adding between-sample variation estimated from bulk data. Reported uses include prioritizing stable differentially expressed genes and choosing clustering methods and hyperparameters.</p>
+<p>The posts claim better reproduction of observed variation than ZINB-WaVE, subsampling or Gaussian noise injection, but supply no benchmark magnitudes.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108623124355015111">scStable post</a></p>
+</article>
+<article>
+<h3>STAVelo brings spatial information into RNA velocity</h3>
+<p>A graph-attention encoder–decoder incorporates spatial information and learns representations of transcriptional kinetic parameters to infer RNA velocity. STAVelo then projects that velocity into tissue space.</p>
+<p>This is not direct measurement of cell movement, and the supplied descriptions do not establish quantitative performance.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108622883715264850">STAVelo post</a></p>
+</article>
+<article>
+<h3>VINTER joins histology with spatial molecular evidence</h3>
+<p>VINTER treats histology, measured gene expression and spatial neighborhoods as a unified sequence for generative interpretation. It connects the UNI pathology foundation model to a 7-billion-parameter language decoder, aligned on 1.45 million histology-caption pairs from 546 spatial-transcriptomic samples.</p>
+<p>No evaluation results or clinical validation are included in the supplied posts.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108622693436403810">VINTER post</a></p>
+</article>
+<article>
+<h3>HyperCom resolves communication signals at the cell level</h3>
+<p>HyperCom builds a hypergraph from known ligand–receptor interactions and expression in individual cells. Graph diffusion assigns continuous sender-to-receiver scores for each pair, enabling rankings without relying on cell-type averages.</p>
+<p>The posts describe physical-contact, spatial and multicondition validation without numerical results. These are inferred communication signals, not proof of causal signaling.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108622335087636923">HyperCom post</a></p>
+</article>
+<article>
+<h3>An immune-aging atlas spans 12.4 million cells</h3>
+<p>A repost announces an <em>Immunity</em> publication describing a human immune-aging pan-atlas of 12.4 million peripheral blood mononuclear cells from 2,609 people across eight global cohorts. The truncated excerpt does not provide biological findings, cohort composition or data-access details.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108666888855392320">Atlas announcement</a></p>
+</article>
+<article>
+<h3>Chai reports GSK wet-lab testing of zero-shot binders</h3>
+<p>Chai Discovery says GSK found binders for every tested target using its model-generated designs, without target-specific training. The claim accompanies a collaboration announcement.</p>
+<p>The post omits target counts and identities, designs tested, affinities, assay controls and per-design success rates. Coverage of all tested targets should not be read as success for every generated design.</p>
+<p class="links">X Bio Research · <a href="https://x.com/chaidiscovery/status/2108582927479316596">Chai Discovery announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="genomics">
+<p class="kicker">Genomics &amp; regulation</p>
+<h2>Long contexts and tissue-specific networks</h2>
+<div class="grid">
+<article>
+<h3>Cerberus uses state-space models for sequence-to-function prediction</h3>
+<p>The Cerberus preprint replaces transformer sequence mixing with state-space models. Posts report a <strong>786 kb input context</strong>, 8,361 human and 3,102 mouse output tracks, and an eight-model ensemble.</p>
+<p>Claims include improved QTL prediction and faster sequence mixing, but no quantitative accuracy or runtime comparisons are supplied. A related post notes the group's software migration from TensorFlow to PyTorch.</p>
+<p class="links">X Bio Research · <a href="https://x.com/anshulkundaje/status/2108631152638713879">Cerberus research post</a></p>
+</article>
+<article>
+<h3>Hydra-based genomic modeling targets finer nucleotide resolution</h3>
+<p>Albert Gu highlights a paper applying Hydra, a bidirectional Mamba architecture, to genomic prediction. He reports higher nucleotide resolution and improvements across several prediction tasks; datasets and numerical results are absent from the supplied post.</p>
+<p class="links">X AI Research · <a href="https://x.com/_albertgu/status/2108676008601866246">Research post</a> · <a href="https://t.co/rqflKHQLZh">Hydra resource</a></p>
+</article>
+<article>
+<h3>METANet combines motifs and expression to reconstruct TF networks</h3>
+<p>METANet integrates transcription-factor motifs, cis-regulatory element activity and expression-derived features to predict TF binding and reconstruct tissue-specific regulatory networks. Its XGBoost ensemble combines a tissue-specific motif feature with four feature sets derived from LASSO and BART regression in tissue-specific and tissue-aggregate contexts.</p>
+<p>The supplied posts describe the method but provide no quantitative evaluation.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108623360708276587">METANet post</a></p>
+</article>
+<article>
+<h3>strobealign v0.19.0 reports faster mapping and indexing</h3>
+<p>The release announcement reports faster mapping—especially for paired-end reads—approximately 20% faster indexing and lower RAM use. Benchmark conditions are not supplied, and the excerpt cuts off before fully describing the memory-use workload.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108667090089677045">Release announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="ai">
+<p class="kicker">AI methods &amp; systems</p>
+<h2>Stability, training efficiency and reproducibility</h2>
+<div class="grid">
+<article>
+<h3>GDN2 analysis examines asymmetric update matrices</h3>
+<p>Jianlin Su examines potential stability problems when GDN2 generalizes its update matrix from I−ηkkᵀ to I−ηkjᵀ, and discusses mitigation strategies. The analysis focuses on the mathematical consequences of changing the update dynamics.</p>
+<p class="links">X AI Research · <a href="https://x.com/Jianlin_S/status/2108539160776847698">Research post</a> · <a href="https://t.co/q0VYqiwy0e">Technical article</a></p>
+</article>
+<article>
+<h3>ThunderSyncRL claims up to 1.9× faster agentic RL</h3>
+<p>Stanford AI Lab shares ThunderSyncRL, described as synchronous reinforcement learning that accelerates agentic training by up to 1.9× while maintaining zero policy staleness. The supplied excerpts are truncated, leaving the scheduling method and benchmark conditions unavailable.</p>
+<p class="links">X AI Research · <a href="https://x.com/StanfordAILab/status/2108649420673990767">ThunderSyncRL post</a></p>
+</article>
+<article>
+<h3>Optimizer rankings may depend on batch size</h3>
+<p>Aaron Defazio shares research reporting a comprehensive sweep in which the best optimizer changes with batch size. The finding points to an important variable in optimizer comparisons, but the excerpt does not identify the optimizers, experimental setup or detailed results.</p>
+<p class="links">X AI Research · <a href="https://x.com/aaron_defazio/status/2108691714521415680">Optimizer research post</a></p>
+</article>
+<article>
+<h3>Mosaic constrains diffusion-language-model decoding</h3>
+<p>Stanford AI Lab shares Mosaic, a constrained-decoding framework for diffusion language models. An accompanying post connects the work to finite automata; the full construction and performance results are not available in the supplied excerpts.</p>
+<p class="links">X AI Research · <a href="https://x.com/StanfordAILab/status/2108606994668212232">Mosaic post</a></p>
+</article>
+<article>
+<h3>Can a weaker model verify a stronger model's trajectories?</h3>
+<p>A research post shared by Stanford AI Lab investigates using DeepSeek V4.1 Flash to verify Opus 5.5 trajectories. The excerpt ends before the findings, so it does not establish whether verification succeeded or improved performance.</p>
+<p class="links">X AI Research · <a href="https://x.com/StanfordAILab/status/2108601732293157309">Verification experiment</a></p>
+</article>
+<article>
+<h3>OpenMed reconstructs records as they appeared at decision time</h3>
+<p>OpenMed 3.0 documents snapshot-based reads that reconstruct a clinical record at an earlier decision point, supporting reproducible model inputs. A related synthetic example uses an append-only SQLite store to demonstrate corrections without overwriting prior values. The release is Apache 2.0.</p>
+<p class="links">X AI Research · <a href="https://x.com/OpenMed_AI/status/2108595848758071544">OpenMed post</a> · <a href="https://t.co/zQVwrikIiU">Query and provenance documentation</a></p>
+</article>
+</div>
+</section>
+
+<section id="briefs" class="briefs">
+<p class="kicker">Research pointers</p>
+<h2>Worth following, with details still missing</h2>
+<article>
+<h3>The cost of backdooring an open model</h3>
+<p>A shared post describes a ProjectDiscovery experiment asking how much it costs to hide a backdoor in a downloadable open model. The text stops before the cost, method or results, leaving a model-supply-chain security question rather than a reportable outcome.</p>
+<p class="links">X AI Research · <a href="https://x.com/steipete/status/2108407674119565527">ProjectDiscovery experiment pointer</a></p>
+</article>
+<article>
+<h3>Evo2HiC connects genome sequence and architecture</h3>
+<p>A repost identifies Evo2HiC as a multimodal foundation model for integrative analysis of genome sequence and architecture. The supplied material is limited to a title and resource pointer; model architecture, training data and performance cannot be assessed.</p>
+<p class="links">X Bio Research · <a href="https://x.com/razoralign/status/2108622035341791483">Evo2HiC announcement</a></p>
+</article>
+<article>
+<h3>RNA fingerprinting with Perturb-seq reaches <em>Cell</em></h3>
+<p>A repost from the Satija lab announces a <em>Cell</em> publication on RNA fingerprinting, developed with David Knowles and using Perturb-seq experiments. The truncated excerpt does not explain the method or findings.</p>
+<p class="links">X Bio Research · <a href="https://x.com/anshulkundaje/status/2108601607021793747">Publication announcement</a></p>
+</article>
+</section>
+
+<section id="languages">
+<p class="kicker">Language practice</p>
+<h2>Daily readings</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Hansemuseum Lübeck experimentiert mit Videospielen für Erwachsene</h3>
+<p class="meta">Deutschlandfunk Kultur · 10.10.2026 · <a href="https://www.deutschlandfunkkultur.de/hansemuseum-luebeck-experimentiert-mit-videospielen-fuer-erwachsene-102.html">Zum Artikel</a></p>
+<p>Mit der Ausstellung „Let's play Mittelalter“ spricht das Europäische Hansemuseum in Lübeck gezielt Erwachsene an, die gern Computerspiele mit mittelalterlichen Schauplätzen spielen. Statt die Räume nur betrachtend zu durchlaufen, erkunden die Gäste sie mit einem eigenen Avatar. Museumsleiterin Felicia Sternfeld bezeichnet diesen Ansatz als Experiment.</p>
+<p>Die Rahmenhandlung macht die Besuchenden zu Testpersonen für ein fiktives Computerspiel. Dabei begegnen ihnen sowohl romantisierte als auch gewalttätige Vorstellungen vom Mittelalter. Die Ausstellung will solche vertrauten Bilder nicht bloß nachstellen, sondern die dahinterliegenden Klischees hinterfragen – auch jene, die Videospiele weiterverbreiten.</p>
+<p><strong>Warum lesen:</strong> Die kurze Meldung zeigt, wie ein Museum Gaming nutzt, um Erwachsene für Geschichte und einen kritischeren Blick auf populäre Mittelalterbilder zu gewinnen.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Prix Bayeux 2026 : «Istâdegi», une exposition sur un peuple iranien qui résiste face à la guerre et au régime</h3>
+<p class="meta">RFI · 10 octobre 2026 · <a href="https://www.rfi.fr/fr/moyen-orient/20261010-prix-bayeux-2026-ist%C3%A2degi-une-exposition-sur-un-peuple-iranien-qui-r%C3%A9siste-face-%C3%A0-la-guerre-et-au-r%C3%A9gime">Lire l’article</a></p>
+<p>À l’Hôtel du Doyen, dans le cadre du Prix Bayeux, l’exposition «Istâdegi» rassemble les regards de quatre photographes iraniens sur une société éprouvée par la guerre et la répression. Son titre signifie à la fois «tenir debout» et «résister» en persan. L’article présente une démarche qui cherche à dépasser les images géopolitiques habituelles de l’Iran : les photographies montrent les ruines et le deuil, mais aussi les cafés, la jeunesse et les gestes par lesquels les habitants préservent une part de liberté.</p>
+<p>Les commissaires de l’exposition, les journalistes Julie Dungelhoeff et Mariam Pirzadeh, insistent sur les résistances ordinaires. Sortir sans voile, chanter en public ou afficher une relation interdite peuvent prendre une portée politique. Cette désobéissance se développe pourtant dans un contexte de difficultés économiques et de sanctions persistantes. Le reportage ne confond donc pas transformation des habitudes et disparition de la peur : il évoque aussi les traumatismes des témoins de la répression et le désespoir de ceux qui restent.</p>
+<p>Le texte interroge enfin les conditions du travail photographique. Certains auteurs cherchent à respecter les limites imposées pour continuer à documenter leur pays ; d’autres les franchissent au risque de la prison, ou prennent le chemin de l’exil. À travers ces choix, l’exposition défend une photographie à hauteur humaine, attentive à ce que les conflits laissent dans les vies plutôt qu’aux seuls bilans et rapports de force.</p>
+<p><strong>Pourquoi lire :</strong> Un reportage culturel ancré en France qui permet d’aborder l’Iran par le photojournalisme et d’explorer le vocabulaire de la résistance et de la représentation.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>commissaire d’exposition</strong> — personne responsable de la conception d’une exposition, du choix des œuvres et de leur présentation.</li>
+<li><strong>désobéissance civile</strong> — refus public et non violent de respecter une règle ou une loi jugée injuste.</li>
+<li><strong>corruption endémique</strong> — corruption durablement installée et largement répandue dans le fonctionnement d’une société ou de ses institutions.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 「男は狩り、女は採集」はどこまで本当？　約8割で女性も狩り、乳児連れの例も　過去100年の狩猟採集社会を調査</h3>
+<p class="meta">ITmedia NEWS · 2026-10-10 · <a href="https://www.itmedia.co.jp/news/article/2610/10/2000002038/">記事を読む</a></p>
+<p>狩猟は男性、植物の採集は女性という役割分担は、どこまで実態に合っているのか。この記事は、米シアトル・パシフィック大学などの研究者が2023年に発表した研究を紹介する。過去100年間の記録を調べたところ、対象となった63の狩猟採集社会のうち、79％に当たる50社会で女性による狩りの記録が見つかったという。これは調査対象の社会の割合であり、女性個人の参加率を示す数字ではない。</p>
+<p>女性の狩りは、採集の途中で偶然動物を捕まえる行為だけではなかった。記事によると、多くの社会で女性が計画的に狩りに出かけ、中型・大型の動物も捕らえていた。フィリピンのアグタ族や中央アフリカのアカ族では、多様な道具を使う例があり、同行者も夫、仲間、子ども、犬など幅広い。乳児を連れた事例も紹介され、性別だけで生活上の役割を一律に決めつける見方を考え直す材料になっている。</p>
+<p><strong>読む理由：</strong> 身近な性別役割のイメージを具体的な研究事例と照らし合わせながら、社会や人類の暮らしを論じる日本語に触れられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>狩猟採集社会（しゅりょうさいしゅうしゃかい）</strong> — 野生動物の狩りや植物の採集を主な食料獲得手段とする社会。</li>
+<li><strong>性別分業（せいべつぶんぎょう）</strong> — 性別によって仕事や生活上の役割を分けること。</li>
+<li><strong>学術誌（がくじゅつし）</strong> — 専門的な研究成果を論文として掲載する雑誌。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh-Hans">
+<h3>中文 — 出国打工的中国年轻人，在日本跌入“技能实习”困局</h3>
+<p class="meta">端传媒 · 2026-10-08 · <a href="https://theinitium.com/20261008-international-young-chinese-people-go-t-japan-to-work-under-titp-zh-hans/">https://theinitium.com/20261008-international-young-chinese-people-go-t-japan-to-work-under-titp-zh-hans/</a></p>
+<p>赴日工作原本意味着重新开始，但端传媒这篇报道关注的是期待落空后的劳动处境。公开可读的开篇以来自陕西的26岁技能实习生刘星为例：他在日本金泽的工厂切割金属板时受伤，操作指导不足，手套也未能挡住锋利的金属边。他向上司询问标准作业流程，却遭到羞辱性的回应。</p>
+<p>文章导语将职场霸凌、重度抑郁与安全防护不足并列，提醒读者，跨国打工的困难不只是语言与生活适应，也涉及工作现场如何培训、如何保护劳动者。开篇通过具体操作场景呈现这种落差，适合关注青年就业与劳工处境的读者；全文为会员内容，这里仅依据可见导语和开篇介绍。</p>
+<p><strong>为什么读：</strong> 从一名赴日中国青年的工厂经历切入，既能了解跨国劳动处境，也能学习劳动安全与生产管理的中文表达。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>技能实习生 (jìnéng shíxíshēng)</strong> — 在日本技能实习制度下，以学习工作技能为名义进入企业实习的外国劳动者。</li>
+<li><strong>标准作业流程 (biāozhǔn zuòyè liúchéng)</strong> — 将工作的操作步骤和要求明确规定下来的程序，常简称为SOP。</li>
+<li><strong>钣金加工 (bǎnjīn jiāgōng)</strong> — 对金属薄板进行切割、弯折、成形等处理的加工工艺。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X AI Research and X Bio Research reports. Many underlying excerpts are truncated; missing methods, benchmarks and results are noted with the relevant items. Linked papers and resources were not independently inspected. Shortened resource links are preserved as supplied.</p>
+<p>News · October 10, 2026 · Run 2026-10-10-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

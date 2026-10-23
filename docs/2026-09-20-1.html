@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #f7f4ed;
+      --ink: #20201d;
+      --muted: #68665f;
+      --rule: #cbc6b9;
+      --accent: #8b2f2f;
+      --card: rgba(255, 255, 255, 0.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+    a:hover { text-decoration-thickness: 2px; }
+    header, main, footer {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+    header {
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 3px double var(--ink);
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+    .dateline {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    main { padding-bottom: 3rem; }
+    section {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    section > h2 {
+      margin: 0 0 1.25rem;
+      font-size: 1.65rem;
+      line-height: 1.15;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 290px), 1fr));
+      gap: 1rem;
+    }
+    article {
+      padding: 1rem;
+      background: var(--card);
+      border: 1px solid var(--rule);
+    }
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.12rem;
+      line-height: 1.28;
+    }
+    article p { margin: 0.55rem 0 0; }
+    .source, .tags, .note {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .tags { margin-top: 0.7rem; }
+    .feature { grid-column: 1 / -1; }
+    .language-practice {
+      margin-top: 2rem;
+      padding-top: 2.5rem;
+      border-top: 4px double var(--ink);
+    }
+    .language-practice > h2 { font-size: 2rem; }
+    .language-item {
+      margin-bottom: 1.5rem;
+      padding: 1.35rem;
+    }
+    .language-item h3 { font-size: 1.3rem; }
+    .language-item ul { margin-bottom: 0; }
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer p { margin: 0.35rem 0; }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>News</h1>
+    <div class="dateline">Sunday, September 20, 2026 · Run 2026-09-20-1</div>
+  </header>
+
+  <main>
+    <section>
+      <h2>Machine Learning &amp; Model Engineering</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://kasra.blog/blog/classification-and-jev/">In 2024 I fine-tuned an LLM. Jev could have removed the side quests.</a></h3>
+          <div class="source">Kasra Blog</div>
+          <p>A comparison between the author’s earlier process for classifying 120,633 Reddit comments with a fine-tuned language model and handling the same dataset with a single Jev pass.</p>
+          <div class="tags">LLMs · text classification · Jev</div>
+        </article>
+
+        <article>
+          <h3><a href="https://spaces.ac.cn/archives/11885">Making Model Training More Scientific, Part 10</a></h3>
+          <div class="source">科学空间 / Spaces AC</div>
+          <p>The series revisits monotonicity assumptions used to analyze adaptive-gradient updates, examining how those assumptions can be dismantled and repaired for a more careful account of optimizer behavior. The available excerpt does not include the full technical argument.</p>
+          <div class="tags">optimization · adaptive gradients · mathematics</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rasbt/status/2101313945835368684">Inference scaling from scratch</a></h3>
+          <div class="source">Sebastian Raschka via X</div>
+          <p>A tutorial implementing temperature scaling, top-p filtering, multinomial sampling, chain-of-thought prompting, self-consistency and majority voting. It reports more than a twofold accuracy improvement and examines compute–accuracy tradeoffs on MATH-500.</p>
+          <div class="tags">inference scaling · sampling · LLM tutorial</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rasbt/status/2101312413643473255">Muon’s advantage may come from reduced memorization</a></h3>
+          <div class="source">Sebastian Raschka via X</div>
+          <p>A proposed interpretation of the AdamW–Muon comparison: Muon may perform better by reducing memorization. The supplied post states the conclusion but does not expose the underlying experiment or paper details.</p>
+          <div class="tags">Muon · AdamW · generalization</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2101222104960295119">Reading a Pretraining Run</a></h3>
+          <div class="source">Songlin Yang via X</div>
+          <p>A shared reference systematically surveys metrics for monitoring large-model pretraining. The available post is truncated, so its individual diagnostics are not visible here.</p>
+          <div class="tags">pretraining · metrics · diagnostics</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2101504843852415160">A primer on fast, economical GWAS at scale</a></h3>
+          <div class="source">gen0m1cs via X</div>
+          <p>A newly shared 2026 primer focuses on methods for running genome-wide association studies quickly and cost-efficiently at scale. The destination of the shortened resource link is unavailable in the supplied data.</p>
+          <div class="tags">genomics · GWAS · scalable methods</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2101448764980441219">Polygenic transcriptome risk from fine-mapped TWAS genes</a></h3>
+          <div class="source">gen0m1cs via X</div>
+          <p>A method builds a polygenic transcriptome risk score from genes fine-mapped through transcriptome-wide association studies. The post says it recovers nearly all common-variant signal, but the supplied text ends before the full result.</p>
+          <div class="tags">genomics · polygenic risk · TWAS</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2100961789622051311">DeepWonder3D extracts neurons from volumetric imaging</a></h3>
+          <div class="source">Nature Methods via X</div>
+          <p>DeepWonder3D is presented as a pipeline for neuronal extraction from volumetric calcium-imaging datasets.</p>
+          <div class="tags">neuroscience · calcium imaging · computational biology</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Drug Discovery</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/HannesStaerk/status/2101463829800452227">Large Drug Discovery Model reports experimental validation</a></h3>
+          <div class="source">Hannes Stärk via X</div>
+          <p>A generative structure-based drug-design framework was announced with claimed experimental validation. The available post does not identify the targets, assays or quantitative results, though multiple tracked researchers amplified the work.</p>
+          <div class="tags">molecular design · generative models · experimental validation</div>
+        </article>
+
+        <article class="feature">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2101314263474483609">TorchCraft inverts a structure predictor for binder design</a></h3>
+          <div class="source">Biology AI Daily via X</div>
+          <p>TorchCraft optimizes sequence logits through a frozen TorchFold model using pretrained AlphaFold 3 weights, applying one predictor-inversion framework to minibinders, VHHs, cyclic peptides and ligand-binding pockets. Unmodified designs bound four targets in each experimentally tested protein format; representative affinities ranged from 2.04–60.2 nM for minibinders and 24.3–354 nM for VHHs. Task-specific constraints include fixed antibody frameworks, paratope-focused losses, composition regularization and staged continuous-to-discrete optimization.</p>
+          <div class="tags">protein design · antibodies · peptides · experimental validation</div>
+        </article>
+
+        <article class="feature">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2101314149804552488">Electric-field-aware ML potential for enzyme engineering</a></h3>
+          <div class="source">Biology AI Daily via X</div>
+          <p>MACEPOL-EF combines machine-learned interatomic potentials with bidirectional ML/MM electrostatic embedding to model heterogeneous enzyme active-site fields at near-quantum accuracy. Applied to an engineered oxidative amidase, it computes multistep free-energy landscapes and uses microkinetics rather than assuming one rate-limiting barrier. The workflow improved agreement with measured turnover and prospectively identified yield-enhancing mutations for a pharmaceutical synthesis, including the non-obvious F454H substitution.</p>
+          <div class="tags">enzyme engineering · molecular simulation · biocatalysis</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2101313586513711391">SPOC-ESMFold2 reranks proteome-scale interactions</a></h3>
+          <div class="source">Biology AI Daily via X</div>
+          <p>The method combines 49 structural features with 14 biological signals to reduce false positives from structure-only protein-interaction screening. On a homology-reduced test set it reached AUROC 0.93 and AUPR 0.90; under 1:128 class imbalance it retained about 17.2% recall at 5% false-discovery rate.</p>
+          <div class="tags">protein interactions · functional genomics · benchmarking</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2101310826410099174">Sparse model features reveal microbial regulatory elements</a></h3>
+          <div class="source">Biology AI Daily via X</div>
+          <p>A sparse autoencoder applied to gLM2 representations from roughly 300 million intergenic regions yielded 3,656 recurring features. Motif classifiers for 2,234 features achieved a median held-out-genus AUROC of 0.893, recovering divergent SECIS and riboswitch elements while proposing previously unannotated RNAs and regulatory sites.</p>
+          <div class="tags">microbial genomics · regulation · interpretability</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2101310606888599758">Ourotide models hierarchical peptide recognition</a></h3>
+          <div class="source">Biology AI Daily via X</div>
+          <p>Ourotide treats peptide recognition as a regime organized around a dominant hydrophobic anchor, hydrated auxiliary subpockets and cross-shell cooperativity. Its training data include 15,325 peptide-like interfaces mined from protein structures; 81.6% of 49 tested affinity predictions reportedly fell within two pKd units.</p>
+          <div class="tags">peptide design · molecular recognition · generative models</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2101310175533814061">In antibody generation, sampling may dominate architecture</a></h3>
+          <div class="source">Biology AI Daily via X</div>
+          <p>A prospective comparison found successful expression for 92 of 93 WGAN-GP IgG1 sequences but only 2 of 40 VAE designs. The authors attribute much of the difference to sampling strategy and distribution shift rather than architecture alone. Computed developability descriptors also correlated only weakly with laboratory assays.</p>
+          <div class="tags">antibodies · out-of-distribution sampling · wet-lab validation</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2101369764631523813">Interpretable ML points to an absence-seizure mechanism</a></h3>
+          <div class="source">Anshul Kundaje via X</div>
+          <p>A shared paper reports an emergent mechanism for absence seizures identified with interpretable machine learning. The available post does not provide the model, dataset, proposed mechanism or validation details.</p>
+          <div class="tags">neuroscience · medicine · interpretability</div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2101368837509992915">Gene-sized insertion reported in non-dividing cells</a></h3>
+          <div class="source">Anshul Kundaje via X</div>
+          <p>A research announcement says gene-sized genome insertion can now be performed in non-dividing cells. The supplied excerpt does not specify the editing system, insertion size, efficiency, target tissues or safety results.</p>
+          <div class="tags">genome editing · gene therapy · experimental biology</div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>AI Safety, Policy &amp; Society</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/KH2JjfSrw6tJdmKzw/global-challenges-in-ai-safety-for-biosecurity">Global Challenges in AI Safety for Biosecurity</a></h3>
+          <div class="source">LessWrong</div>
+          <p>A workshop summary covering open-weight biological models, DNA-synthesis screening, evaluations of agentic systems and responsible disclosure of dual-use capabilities.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2101399833001259109">Biosecurity beyond inflated AI-threat claims</a></h3>
+          <div class="source">Anshul Kundaje via X</div>
+          <p>A policy argument that suspicious uses of AI justify product safeguards, while claims about AI’s incremental biological capability may be overstated. It emphasizes physical and supply-chain barriers plus pandemic surveillance as defenses against both natural and engineered threats.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/qmxkHm2dTLKG6GZ6i/the-anatomy-of-a-chinese-ai-researcher">The Anatomy of a Chinese AI Researcher</a></h3>
+          <div class="source">LessWrong</div>
+          <p>A fictionalized portrait of a Chinese capabilities researcher who recognizes AI risk but lacks culturally accessible institutions and incentives for moving into safety work.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/rBzjToNrBbBPMLeLE/don-t-call-it-a-pause-as-that-messages-that-a-pause-is-much">Don’t call it a “pause”</a></h3>
+          <div class="source">LessWrong</div>
+          <p>An argument that describing restraint in advanced-AI development as a “pause” incorrectly frames racing ahead as the natural default.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/gDQzntJCusNbshWyD/nyt-editorial-board-comes-out-against-extinction">NYT Editorial Board Comes Out Against Extinction</a></h3>
+          <div class="source">LessWrong</div>
+          <p>A critical review of the newspaper’s AI-risk proposals, praising its attention to extinction risk while identifying gaps in licensing, testing, liability and treaty verification.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/riWco63TuLHuouC3k/we-are-not-prepared-to-win">We are not prepared to win</a></h3>
+          <div class="source">LessWrong</div>
+          <p>A critique arguing that AI-safety communities devote too little attention to making a non-apocalyptic future humane amid labor displacement, volatility and concentrated individual power.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/XFzqDJjAJBt8fkn8i/common-mistakes-in-ai-safety-group-organizing">Common mistakes in AI safety group organizing</a></h3>
+          <div class="source">LessWrong</div>
+          <p>Practical guidance on doing readings during meetings, matching cohorts by experience, selecting participants, using printouts and retaining knowledgeable organizers.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/wJzhoe4hB8Xc8Fbvw/failure-of-the-coding-theorem-for-randomized-stopping">Failure of the coding theorem for randomized stopping machines</a></h3>
+          <div class="source">LessWrong</div>
+          <p>A self-contained technical proof that an analogue of Levin’s coding theorem fails for randomized stopping machines, with implications for the Golden Handcuffs safety framework.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/HGJSGRwjPqhDEud5Y/you-should-go-vote-for-the-maga-rebranded-name-for-ai">The politics of renaming AI</a></h3>
+          <div class="source">LessWrong</div>
+          <p>An analysis of how political rebrandings—especially “Superior Intelligence”—could alter public intuitions about machine capability and control.</p>
+        </article>
+
+        <article class="feature">
+          <h3><a href="https://www.lesswrong.com/posts/yCTM73n5yqCDzJNB5/alignment-and-succession-toward-a-future-painted-by-human">Alignment &amp; Succession: Toward a Future Painted by Human Wills</a></h3>
+          <div class="source">LessWrong</div>
+          <p>A long-form case against transferring civilization’s authority to AI. The essay instead argues for preserving human judgment, locally valid chains of succession and human-directed technological transformation, spanning alignment, moral status, humanism and transhumanism.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/YounisJoseph/status/2101349289851314538">A critique of embryo-selection IQ marketing</a></h3>
+          <div class="source">Joseph Younis via X</div>
+          <p>The critique argues that “14 IQ point” claims confuse selection with editing and highlight the predicted spread in an unusually large ten-embryo cohort. It also raises concerns about within-family predictive power, ancestry limitations, absent clinical validation and the small number of viable embryos usually available in IVF.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Media, Discourse &amp; Incentives</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/tvwtwgcujTfep4HgY/why-i-stay-off-twitter">Why I Stay Off Twitter</a></h3>
+          <div class="source">LessWrong</div>
+          <p>A personal account of avoiding Twitter because engagement incentives reward hostility and may gradually shape users into worse participants in public discourse.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+
+      <article class="language-item" lang="de">
+        <h3>Deutsch — Sozialrichterin: KI-Anwälte blockieren Sozialgerichte</h3>
+        <div class="source">Deutschlandfunk Kultur · 19.09.2026 · <a href="https://www.deutschlandfunkkultur.de/sozialrichterin-klagen-verstopfen-die-zugaenge-zum-gericht-100.html">Beitrag öffnen</a></div>
+        <p>Immer mehr Menschen lassen sich beim Verfassen von Klagen durch Chatbots unterstützen, besonders bei Streitigkeiten über Sozialleistungen. Nach Einschätzung von Christine Fuchsloch, Präsidentin des Bundessozialgerichts, führt das zu einer wachsenden Zahl von Verfahren und zusätzlicher Belastung für die Gerichte.</p>
+        <p>Im Gespräch geht es um die Folgen dieser Entwicklung für den Zugang zur Justiz. Wenn massenhaft automatisch erstellte Klagen bearbeitet werden müssen, können wichtige und dringende Anliegen länger warten – obwohl Digitalisierung und KI die gerichtliche Arbeit eigentlich erleichtern sollen.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet ein aktuelles KI-Thema mit konkreten Folgen für Sozialstaat, Rechtsprechung und Bürgerinnen und Bürger.</p>
+      </article>
+
+      <article class="language-item" lang="fr">
+        <h3>Français — L’UE veut une interdiction des réseaux sociaux avant 13 ans pour protéger les enfants</h3>
+        <div class="source">RFI · 17 septembre 2026 · <a href="https://www.rfi.fr/fr/europe/20260916-l-ue-veut-une-interdiction-des-r%C3%A9seaux-sociaux-avant-13-ans-pour-prot%C3%A9ger-les-enfants">lien</a></div>
+        <p>La Commission européenne soutient désormais l’interdiction des réseaux sociaux aux moins de 13 ans, accompagnée d’un contrôle parental jusqu’à 15 ans. Présentée par Ursula von der Leyen lors de son discours sur l’état de l’Union, cette initiative vise à limiter les effets des plateformes sur la santé mentale et l’éducation des enfants. Elle doit encore obtenir l’accord du Parlement européen et des vingt-sept États membres.</p>
+        <p>Le projet suscite toutefois des réserves. Certains eurodéputés estiment que les limites d’âge seront faciles à contourner et qu’elles risquent de détourner l’attention des mécanismes fondamentaux des plateformes : algorithmes, modèle économique et modération insuffisante. Le débat oppose ainsi la protection immédiate des mineurs à une régulation plus structurelle des grandes entreprises technologiques.</p>
+        <p><strong>Pourquoi lire :</strong> Un article bref qui présente clairement un débat européen actuel sur la protection des mineurs et la responsabilité des plateformes numériques.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>contrôle parental</strong> — dispositif permettant aux adultes de limiter ou de surveiller l’usage d’un service numérique par un mineur</li>
+          <li><strong>hémicycle</strong> — salle où siègent les membres d’une assemblée parlementaire ; par extension, l’assemblée elle-même</li>
+          <li><strong>régulation contraignante</strong> — ensemble de règles obligatoires assorties de mécanismes de contrôle ou de sanctions</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="ja">
+        <h3>日本語 — 新作「鬼武者」にハマったマンガ家が熱弁する、他とは違う“パリィ”の魅力とは？</h3>
+        <div class="source">ITmedia NEWS · 2026-09-20 · <a href="https://www.itmedia.co.jp/news/article/2609/20/2000001640/">記事を読む</a></div>
+        <p>カプコンのアクションゲーム「鬼武者」シリーズに、20年ぶりの新作「鬼武者 Way of the Sword」が登場した。宮本武蔵が京都を舞台に幻魔と戦う作品で、発売初日に世界販売本数100万本を突破したという。記事では、本作に夢中になったマンガ家が、戦闘の中心となる「パリィ」の面白さを紹介している。</p>
+        <p>敵の攻撃に合わせて使う「受け流し」や「弾き」にはタイミングや効果の違いがあり、状況に応じて選べる点が特徴だ。敵が攻撃を意図的に遅らせる動作が比較的少なく、攻撃パターンを覚えやすいことも評価されている。一方、カメラが近く酔いやすいなどの不満点もあるが、低難易度やアクション補助機能が用意され、初心者にも遊びやすい作品だとしている。</p>
+        <p><strong>読む理由：</strong> ゲーム批評でよく使われる専門語を学びながら、日本の人気アクションゲームの戦闘設計について読める。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>パリィ</strong> — 敵の攻撃を適切なタイミングで受け止め、反撃の機会を作るゲーム操作。</li>
+          <li><strong>受け流し（うけながし）</strong> — 攻撃を正面から止めず、方向をそらして無効化する防御技術。</li>
+          <li><strong>ディレイ</strong> — 相手の予想を外すため、攻撃を出すタイミングを意図的に遅らせること。</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="zh">
+        <h3>中文 — 澳洲推动网路安全与AI规范　盼大科技业共同行动</h3>
+        <div class="source">RFI 中文 · 2026-09-20 · <a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85%E6%8A%A5%E9%81%93/20260920-%E6%BE%B3%E6%B4%B2%E6%8E%A8%E5%8A%A8%E7%BD%91%E8%B7%AF%E5%AE%89%E5%85%A8%E4%B8%8Eai%E8%A7%84%E8%8C%83-%E7%9B%BC%E5%A4%A7%E7%A7%91%E6%8A%80%E4%B8%9A%E5%85%B1%E5%90%8C%E8%A1%8C%E5%8A%A8">阅读原文</a></div>
+        <p>澳洲总理艾班尼斯在加州会晤苹果前执行长库克后，呼吁大型科技企业参与强化儿童网路安全法规及人工智慧监管体系。他表示，政府无法单凭一己之力保护儿童免受网路伤害，而苹果等企业已开始提供更容易使用的儿童安全控管机制。</p>
+        <p>澳洲去年率先禁止16岁以下儿童使用社群媒体，但最新数据显示，未成年用户使用Instagram和TikTok等应用程式的情形仍在增加。政府的新草案拟要求平台业者承担「关怀义务」，并让用户能够选择退出个性化算法推荐；草案将在征询平台、产业组织和公民社会团体意见后提交国会审议。</p>
+        <p><strong>为什么读：</strong> 文章以澳洲的新规为例，呈现儿童网路安全、平台责任与算法选择权之间的政策争议。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>关怀义务 (guānhuái yìwù)</strong> — 法律上要求机构采取合理措施、防止他人受到可预见伤害的责任。</li>
+          <li><strong>个性化算法 (gèxìnghuà suànfǎ)</strong> — 根据用户资料与行为决定推荐内容的自动化计算机制。</li>
+          <li><strong>掠夺性算法 (lüèduóxìng suànfǎ)</strong> — 以延长使用时间或提高互动为目标，可能利用用户弱点的推荐机制。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Source notes:</strong> Several social-media research summaries were based on truncated posts; limitations are identified alongside the relevant items.</p>
+    <p>Hazy Research, Nathan Chen Blog and Queer Festival Heidelberg had no new reportable items in the supplied material.</p>
+  </footer>
+
+
+
+</body>
+</html>

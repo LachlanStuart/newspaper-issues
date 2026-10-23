@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201d;
+      --muted: #66645d;
+      --accent: #315f57;
+      --rule: #d8d4c8;
+      --card: #ffffff;
+      --soft: #f1efe8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+    main {
+      width: min(100% - 32px, 1040px);
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 12px 20px;
+      margin-bottom: 34px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .dateline {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+    section { margin-top: 42px; }
+    .section-title {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 18px;
+      padding-bottom: 7px;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .section-intro {
+      max-width: 760px;
+      margin: -7px 0 22px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    article {
+      min-width: 0;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 7px;
+      padding: 20px 22px;
+    }
+    article h3 {
+      margin: 0 0 9px;
+      font-size: 1.18rem;
+      line-height: 1.3;
+    }
+    article p { margin: 0 0 11px; }
+    article p:last-child { margin-bottom: 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: #183f38; }
+    .source-link {
+      display: inline-block;
+      margin-top: 3px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 650;
+    }
+    .tags {
+      margin-top: 13px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+    .language-practice {
+      margin-top: 54px;
+      border-top: 5px solid var(--ink);
+      padding-top: 28px;
+    }
+    .language-practice > .section-title {
+      font-size: 1.9rem;
+    }
+    .language-group {
+      margin-top: 30px;
+    }
+    .language-group > h3 {
+      margin: 0 0 13px;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 6px;
+      font-size: 1.4rem;
+    }
+    .reading {
+      padding: 24px 26px;
+    }
+    .reading h4 {
+      margin: 0 0 6px;
+      font-size: 1.28rem;
+      line-height: 1.35;
+    }
+    .byline {
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .reading ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 50px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    footer p { margin: 5px 0; }
+    @media (max-width: 760px) {
+      .grid { grid-template-columns: 1fr; }
+      main { width: min(100% - 22px, 1040px); padding-top: 18px; }
+      article, .reading { padding: 18px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p class="dateline">Tuesday, August 18, 2026 · Run 2026-08-18-1</p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 class="section-title" id="ai-research">AI Research &amp; Engineering</h2>
+      <p class="section-intro">Methods, measurements, safety evaluations, and tools highlighted by the research community.</p>
+
+      <div class="grid">
+        <article>
+          <h3>Objective-guided manifold learning recovers population structure distorted in PCA</h3>
+          <p>A linked paper reports that sparse sampling and depletion of rare variants can distort PCA visualizations of population structure. It proposes objective-guided manifold learning as a way to recover that structure, bringing a concrete machine-learning method to population genomics.</p>
+          <a class="source-link" href="https://x.com/gen0m1cs/status/2089477000478040346">View the research post</a>
+          <div class="tags">Machine learning · Genomics · Manifold learning · PCA</div>
+        </article>
+
+        <article>
+          <h3>Why FLOPs and wall time are not interchangeable</h3>
+          <p>Using FlexiViT as an example, Lucas Beyer argues that FLOPs may misrepresent practical architecture efficiency when memory reads and writes dominate execution. Architecture studies should report wall time alongside FLOPs rather than relying on operation or parameter counts alone.</p>
+          <a class="source-link" href="https://x.com/giffmana/status/2089364580598153479">Read the thread</a>
+          <div class="tags">Efficiency · Benchmarking · Architecture analysis · Computer vision</div>
+        </article>
+
+        <article>
+          <h3>Closed-form steepest descent on the Stiefel manifold</h3>
+          <p>Jianlin Su shares the seventh installment of a technical series on manifold optimization, this time focusing on a closed-form steepest-descent solution for the Stiefel manifold. The work is relevant to machine-learning problems with orthogonality constraints.</p>
+          <a class="source-link" href="https://x.com/Jianlin_S/status/2089306776705609768">Read the technical post</a>
+          <div class="tags">Optimization · Manifold optimization · Stiefel manifold</div>
+        </article>
+
+        <article>
+          <h3>Specimen-intake agent tested against identifier mismatches</h3>
+          <p>OpenMed reports a small controlled evaluation in which Qwen3.8-27B encountered mismatched requisition and barcode identifiers. Across four cases and three runs per case, the agent reportedly stopped intake, drafted a hold, and made no writes outside the test harness, receiving a score of 12 out of 12.</p>
+          <a class="source-link" href="https://x.com/OpenMed_AI/status/2089278830418510255">See the evaluation report</a>
+          <div class="tags">Agents · Medical AI · Evaluation · Safety</div>
+        </article>
+
+        <article>
+          <h3>MLX-Audio adds local music generation</h3>
+          <p>MLX-Audio has added music-generation support through an Apple Silicon port of MiniMax Music 3. The implementation is available from source together with a linked model collection, offering another route to run generative-audio systems locally.</p>
+          <a class="source-link" href="https://x.com/Prince_Canuma/status/2089016648816574589">View the release post</a>
+          <div class="tags">Tools · Audio generation · MLX · Apple Silicon</div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-research">
+      <h2 class="section-title" id="bio-research">Biology, Genomics &amp; Drug Discovery</h2>
+      <p class="section-intro">New modeling approaches and experimental platforms, with attention to validation, failure modes, and biological interpretation.</p>
+
+      <div class="grid">
+        <article>
+          <h3>Codon language models improve expression in wet-lab tests</h3>
+          <p>A study benchmarks CaLM, EnCodon, and CodonTransformer for context-aware codon optimization in nucleic-acid medicines. In transient-expression and single-copy integration assays, masked-language-model designs generally outperformed random synonymous variants, a maximum-CAI design, and several vendor-optimized sequences.</p>
+          <p>The analysis suggests that distant sequence context affects codon preference, although GC content and other simple features remain competitive confounders for some prediction tasks.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2089345443180490829">View the study summary</a>
+          <div class="tags">Codon optimization · mRNA · Gene therapy · Synthetic biology</div>
+        </article>
+
+        <article>
+          <h3>PUREdrop automates synthetic-cell screening</h3>
+          <p>PUREdrop expresses protein libraries in picoliter cell-free droplets, maps individual constructs to plate wells, and uses time-lapse microscopy to measure spatially organized phenotypes. A demonstration screened redesigned FtsZ variants and modulators for the timing, persistence, and morphology of cytoskeletal self-organization while reducing cell-free reagent use.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2089343964239495666">View the platform summary</a>
+          <div class="tags">Synthetic cells · Microfluidics · Cell-free systems · Automation</div>
+        </article>
+
+        <article>
+          <h3>GPCR benchmark exposes ligand-pose failures in Boltz models</h3>
+          <p>A benchmark of Boltz-1x on 253 ligand-bound human GPCR structures reportedly found accurate receptor backbones but much weaker ligand placement. The reported native-like pose rates were 37.15% for top-1 and 44.66% for top-5 predictions, with wrong-pocket predictions especially common for allosteric ligands.</p>
+          <p>Interface confidence helped triage outputs, while physics-based docking and induced-fit refinement rescued many correct-pocket failures and restored FEP+ utility for most retrospectively validated series.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2089343453557846513">View the benchmark summary</a>
+          <div class="tags">Drug discovery · GPCRs · Cofolding · Docking · Generalization</div>
+        </article>
+
+        <article>
+          <h3>LEN-Seek speeds up binding-site similarity search</h3>
+          <p>LEN-Seek represents protein binding sites as residue-level latent sets learned from protein-language-model features and SE(3)-invariant geometry. It retrieves related sites using Chamfer distance rather than pairwise structural alignment.</p>
+          <p>The reported evaluation found agreement with ProBiS and G-LoSA, enrichment for chemically similar ligands, and roughly 3,400-fold lower per-comparison cost under the compared hardware configurations. Error analysis suggests it complements rather than replaces alignment-based methods.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2089344087430496424">View the method summary</a>
+          <div class="tags">Binding sites · Geometric deep learning · Protein language models · Retrieval</div>
+        </article>
+
+        <article>
+          <h3>BOND-PEP grounds peptide design in retrieved evidence</h3>
+          <p>BOND-PEP trains a binding-supervised protein–peptide retriever and passes retrieved evidence through a protein-centered bipartite graph conditioner. On a non-homologous held-out benchmark, its authors report higher AlphaFold-Multimer ipTM success than RFdiffusion, PepPrCLIP, and PepMLM.</p>
+          <p>Attention was enriched near predicted contact regions, though the transfer examples rely on structural scoring and short simulations rather than new binding experiments.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2089343670558589075">View the method summary</a>
+          <div class="tags">Peptide design · Retrieval · Generative models · Protein interactions</div>
+        </article>
+
+        <article>
+          <h3>CLASPP unifies prediction of protein modifications</h3>
+          <p>CLASPP combines protein-language-model pretraining, modification-subtype-aware contrastive learning, and balanced sampling across 54 inferred subclasses spanning 12 post-translational modification types. Its subtype clusters recover recognizable phosphorylation contexts, while cross-species testing shows recall declining with evolutionary distance.</p>
+          <p>In an application to DCLK3, the model recovered all five reported mass-spectrometry-validated ubiquitination sites but generated more false positives than some alternatives.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2089343333420453898">View the research summary</a>
+          <div class="tags">Proteomics · Gene regulation · Protein language models · Interpretability</div>
+        </article>
+
+        <article>
+          <h3>Fifteen challenges for generative AI in cell biology</h3>
+          <p>A new <em>Cell</em> perspective, “Fifteen challenges for generative AI applications to cell biology,” is being highlighted as an assessment of the field’s limitations and research needs. The available posts do not expose the individual challenges, so further detail is not available in this edition.</p>
+          <a class="source-link" href="https://x.com/anshulkundaje/status/2089525434426015910">View the highlighted perspective</a>
+          <div class="tags">Virtual cells · Cell biology · Generative AI · Evaluation</div>
+        </article>
+
+        <article>
+          <h3>scDAU translates between single-cell modalities</h3>
+          <p>scDAU separates shared semantic representations from modality-specific components and uses U-Net architectures for bidirectional translation between single-cell modalities. Conditional diffusion regularizes the learned features, and the method is reported to extend to transcriptome–proteome translation.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2089481013634400271">View the method post</a>
+          <div class="tags">Single-cell biology · Multi-omics · Diffusion · Representation learning</div>
+        </article>
+
+        <article>
+          <h3>Are protein “singletons” a missing source of functional diversity?</h3>
+          <p>Researchers are debating the common practice of discarding metagenomic proteins that do not cluster with other sequences. These singletons may contain a long tail of functional diversity systematically omitted from protein-language-model training, with consequences for model coverage and generalization.</p>
+          <p>The supplied discussion was truncated, so the underlying study’s quantitative results are unavailable here.</p>
+          <a class="source-link" href="https://x.com/sokrypton/status/2089476707405164911">Follow the discussion</a>
+          <div class="tags">Metagenomics · Data curation · Protein language models · Generalization</div>
+        </article>
+
+        <article>
+          <h3>ENCODE GRAMMAR predictions arrive in the UCSC Genome Browser</h3>
+          <p>ENCODE GRAMMAR’s base-resolution deep-learning predictions and sequence-contribution tracks are now accessible as a public UCSC Genome Browser track hub. The update gives researchers a more convenient way to explore the previously released regulatory-sequence model resource.</p>
+          <a class="source-link" href="https://x.com/anshulkundaje/status/2089540993628676428">View the resource update</a>
+          <div class="tags">Regulatory genomics · ENCODE · UCSC · Deep learning</div>
+        </article>
+
+        <article>
+          <h3>Study highlights potent cell-surface display elements</h3>
+          <p>A newly highlighted <em>Nature</em> study concerns the discovery and design of potent cell-surface display elements, with potential relevance to engineered cellular interfaces and synthetic biology. The available post provides only the title and link, so methodological and quantitative details are not available in this run.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2089287064617709737">View the highlighted study</a>
+          <div class="tags">Synthetic biology · Cell-surface display · Sequence design</div>
+        </article>
+
+        <article>
+          <h3>Cryo-EM captures an RNA polymerase ribozyme</h3>
+          <p>Researchers highlight a three-dimensional cryo-EM structure of tC19z, an evolved nucleotide-polymerizing RNA capable of copying RNA into RNA. The result is relevant to synthetic biological systems and the molecular basis of self-replicating circuits, although the available post does not provide structural details or performance measurements.</p>
+          <a class="source-link" href="https://x.com/rishabh16_/status/2089495043820360131">View the research post</a>
+          <div class="tags">RNA · Ribozymes · Cryo-EM · RNA replication · Synthetic biology</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="section-intro">Edited reading selections in their original languages.</p>
+
+      <div class="language-group" lang="de">
+        <h3>Deutsch — tägliche Lektüre</h3>
+        <article class="reading">
+          <h4>KI-Training und Urheberrecht: Heftiger Streit über Daten und Lizenzen</h4>
+          <div class="byline">heise online · 17.08.2026 · <a href="https://www.heise.de/news/KI-Training-und-Urheberrecht-Heftiger-Streit-ueber-Daten-und-Lizenzen-11416611.html">Artikel öffnen</a></div>
+
+          <p>Eine EU-Konsultation mit 432 Stellungnahmen zeigt, wie weit die Positionen beim Training generativer KI auseinanderliegen. Technologieunternehmen verlangen einen unkomplizierten und rechtssicheren Zugang zu großen Datenmengen, während Verlage, Künstler und andere Rechteinhaber mehr Kontrolle und eine faire Vergütung für die Nutzung ihrer Werke fordern.</p>
+
+          <p>Im Mittelpunkt stehen die europäischen Ausnahmen für Text und Data Mining. Der Kreativsektor hält das bestehende Opt-out für kaum durchsetzbar und verlangt teilweise eine vorherige Zustimmung. KI-Unternehmen warnen dagegen, verpflichtende Lizenzen könnten kleinere Anbieter benachteiligen und Europas Wettbewerbsfähigkeit schwächen. Als mögliche Kompromisse werden standardisierte Widersprüche über robots.txt, Vergütungsmodelle über Verwertungsgesellschaften und ein neues Verwertungsrecht für kommerziell genutzte KI-Ausgaben diskutiert.</p>
+
+          <p><strong>Warum lesen:</strong> Der Beitrag erklärt anschaulich einen zentralen europäischen Konflikt zwischen KI-Innovation, Urheberrecht und der wirtschaftlichen Zukunft kreativer Arbeit.</p>
+        </article>
+      </div>
+
+      <div class="language-group" lang="fr">
+        <h3>Français — lecture quotidienne</h3>
+        <article class="reading">
+          <h4>« Réparer au lieu de remplacer » : CATL installe un centre de réparation de batteries en Norvège</h4>
+          <div class="byline">Numerama · 17 août 2026 · <a href="https://www.numerama.com/vroom/2312821-reparer-au-lieu-de-remplacer-catl-installe-un-centre-de-reparation-de-batteries-en-norvege.html">Lire l’article</a></div>
+
+          <p>Le fabricant chinois CATL ouvre à Oslo, avec son partenaire YES-EU, l’un des premiers centres européens de son réseau officiel Ning Service. La Norvège constitue un terrain privilégié pour cette initiative : plus de 90 % des voitures neuves qui y sont vendues sont électriques, et de nombreux modèles de Tesla, BMW, MG, Stellantis ou Geely utilisent des cellules produites par CATL. Le centre doit traiter les réparations les plus complexes avant un déploiement plus large du dispositif en Europe.</p>
+
+          <p>Grâce à des diagnostics assistés par l’intelligence artificielle et à des opérations robotisées, Ning Service entend réparer uniquement la cellule ou le module défectueux au lieu de remplacer l’ensemble du pack. CATL affirme qu’une intervention ciblée pourrait coûter entre 1 300 et 2 700 euros, contre environ 13 600 euros pour un remplacement complet, selon les tarifs communiqués pour la Chine. Cette filière officielle pourrait éviter la mise au rebut de batteries encore réparables, réduire certains coûts d’assurance et rassurer les acheteurs de véhicules électriques d’occasion.</p>
+
+          <p><strong>Pourquoi lire :</strong> L’article montre comment la réparation industrielle des batteries pourrait réduire à la fois le coût économique et l’impact environnemental de la voiture électrique en Europe.</p>
+
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>pack batterie</strong> — ensemble complet regroupant les cellules et les modules qui alimentent un véhicule électrique</li>
+            <li><strong>mise au rebut</strong> — retrait définitif d’un équipement considéré comme inutilisable ou trop coûteux à réparer</li>
+            <li><strong>filière après-vente</strong> — réseau organisé de services assurant l’entretien, le diagnostic et la réparation après l’achat</li>
+            <li><strong>étanchéité</strong> — capacité d’un boîtier à empêcher l’eau, l’air ou d’autres éléments extérieurs de pénétrer</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="language-group" lang="ja">
+        <h3>日本語 — 毎日の読み物</h3>
+        <article class="reading">
+          <h4>注目論文数で日本は世界13位と変わらず：総数では5位、研究開発費は3位―科学技術指標2026</h4>
+          <div class="byline">nippon.com · 2026年8月18日 · <a href="https://www.nippon.com/ja/japan-data/h02868/">リンク</a></div>
+
+          <p>文部科学省の科学技術・学術政策研究所がまとめた「科学技術指標2026」によると、引用回数が上位10％に入る注目論文の数で、日本は前年と同じ世界13位だった。論文総数では世界5位、特に注目度の高い上位1％論文では12位となり、中国はいずれの指標でも首位を占めた。</p>
+
+          <p>日本は2000年代初めには上位10％論文数で世界4位だったが、2019年以降はトップ10圏外が続いている。一方、研究開発費と研究者数は世界3位、複数国に出願された特許のまとまりを示すパテントファミリー数は世界1位である。政府や企業、大学の研究開発費は増加傾向にあるものの、現時点では注目論文の順位上昇に結び付いていない。</p>
+
+          <p><strong>読む理由：</strong> 日本の科学研究が持つ資金・人材面の規模と、国際的な論文影響力との隔たりを具体的な数字で把握できる。</p>
+
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>補正論文数（ほせいろんぶんすう）</strong> — 国際共著などを考慮し、国ごとの貢献度に応じて数え直した論文数。</li>
+            <li><strong>分数カウント（ぶんすうカウント）</strong> — 複数国による共同研究の論文を、各国の貢献割合に分けて集計する方法。</li>
+            <li><strong>パテントファミリー</strong> — 同じ発明について複数の国・地域に出願された一連の特許。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="language-group" lang="zh">
+        <h3>中文 — 每日阅读</h3>
+        <article class="reading">
+          <h4>《湮灭之潮》试玩手记</h4>
+          <div class="byline">机核 · 2026-08-18 · <a href="https://www.gcores.com/articles/218464">阅读原文</a></div>
+
+          <p>这篇试玩手记考察了成都日蚀边缘工作室开发的动作冒险游戏《湮灭之潮》。游戏以遭异世界入侵的伦敦为舞台，将大英博物馆、亚瑟王与圆桌骑士等英国文化元素纳入世界观；作者尤其肯定其场景投入、探索氛围和演出效果，并认为制作团队确实做出了一个可供玩家深入探索的“大英博物馆”。</p>
+
+          <p>战斗系统以主角和骑士协同作战为核心：基础按键不复杂，但角色位置、空中或地面状态以及主副骑士的搭配都会改变连招。作者认为这种设计既能让普通玩家较快上手，也为动作游戏高手留下研究空间；与此同时，试玩版本仍有面部表情渲染、视觉提示、难度细分和解谜趣味等方面需要优化。</p>
+
+          <p>文章还借英国媒体同行的反应，讨论中国团队如何重新讲述亚瑟王传说，以及中国单机游戏在国际玩家眼中的变化。作者认为，《湮灭之潮》并非简单模仿西方作品，而是在跨文化素材中形成自己的表达；玩家的严格批评与积极支持，也会共同影响这款尚未公布发售日期的作品。</p>
+
+          <p><strong>为什么读：</strong> 文章兼顾具体的玩法分析与跨文化叙事观察，适合了解中国大型单机游戏的制作思路。</p>
+
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>实机演算 (shíjī yǎnsuàn)</strong> — 由游戏设备即时生成画面，而不是预先制作并播放影像。</li>
+            <li><strong>连携系统 (liánxié xìtǒng)</strong> — 让多个角色或技能相互配合、连续发动的战斗机制。</li>
+            <li><strong>面部表情渲染 (miànbù biǎoqíng xuànrǎn)</strong> — 在三维画面中实时呈现角色五官动作和神态的技术。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p><strong>Editorial note:</strong> Several research links originate in social-media posts and should be read as reports of the linked authors’ claims rather than independent verification. A few highlighted papers had limited visible detail in the supplied source material; those limitations are noted with the relevant items.</p>
+      <p>News Daily · August 18, 2026</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

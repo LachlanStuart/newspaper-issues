@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f3e9;
+      --ink: #24221f;
+      --muted: #6b665e;
+      --rule: #c9c0af;
+      --accent: #8b2e2e;
+      --card: rgba(255, 255, 255, 0.45);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+    main {
+      width: min(920px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 20px 0 16px;
+      margin-bottom: 42px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h2 {
+      margin: 0 0 8px;
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 8px;
+      font-size: 1.75rem;
+    }
+    .intro {
+      margin: 0 0 34px;
+      color: var(--muted);
+      font-style: italic;
+    }
+    article {
+      margin: 26px 0;
+      border-bottom: 1px solid var(--rule);
+      padding: 0 0 28px;
+    }
+    article:last-child { border-bottom: 0; }
+    article h3 {
+      margin: 0 0 5px;
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+    .byline {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 5px double var(--ink);
+      padding-top: 30px;
+    }
+    .language-card {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      padding: 22px 24px 24px;
+    }
+    .language-card p:last-child,
+    .language-card ul:last-child {
+      margin-bottom: 0;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .vocabulary {
+      margin-top: 18px;
+    }
+    .vocabulary h4 {
+      margin: 0 0 5px;
+      font-size: 1rem;
+    }
+    .vocabulary ul {
+      margin-top: 5px;
+      padding-left: 22px;
+    }
+    aside {
+      margin-top: 46px;
+      border-top: 1px solid var(--rule);
+      padding-top: 18px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    aside h2 {
+      border: 0;
+      padding: 0;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    aside p { margin: 6px 0; }
+    footer {
+      margin-top: 34px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Monday, September 21, 2026 · Run 2026-09-21-1</p>
+    </header>
+
+    <section aria-labelledby="language-heading" class="language-practice">
+      <h2 id="language-heading">Language Practice</h2>
+      <p class="intro">Today’s reading selections in German, French, Japanese, and Chinese.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Hackerangriff auf Münchner Uni</h3>
+        <p class="byline">
+          Tagesschau · 20. September 2026 ·
+          <a href="https://www.tagesschau.de/inland/regional/bayern/hackerangriff-lmu-muenchen-100.html">Artikel lesen</a>
+        </p>
+        <p>Cyberkriminelle sind in das IT-System der Ludwig-Maximilians-Universität München eingedrungen. Sie konnten offenbar zahlreiche persönliche Daten von Studierenden einsehen, darunter Namen, Adressen, Geburtsdaten, Bankverbindungen, Angaben zur Krankenversicherung und Informationen zum bisherigen Bildungsweg. Prüfungsdaten und individuelle Studienleistungen sollen dagegen nicht betroffen sein.</p>
+        <p>Die Universität hat den betroffenen Immatrikulationsserver und vorsorglich weitere Systeme abgeschaltet. Noch ist unklar, wie viele Personen betroffen sind und ob die Daten tatsächlich gestohlen oder veröffentlicht wurden. Die LMU arbeitet mit Behörden und externen Fachleuten an der Aufklärung, verlängert betroffene Immatrikulationsfristen und warnt Studierende vor verdächtigen E-Mails und möglichen Betrugsversuchen.</p>
+        <p><span class="label">Warum lesen:</span> Der Artikel verbindet ein aktuelles deutsches Hochschulthema mit konkreten Fragen zu Datenschutz, IT-Sicherheit und den Folgen eines Cyberangriffs.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Élections en Allemagne : la survie de Friedrich Merz ne tient plus qu’à un fil</h3>
+        <p class="byline">
+          France 24 · 20 septembre 2026 ·
+          <a href="https://www.france24.com/fr/europe/20260920-elections-allemagne-friedrich-merz-cdu-mercklembourg-berlin-afd-deroute">Lire l’article</a>
+        </p>
+        <p>La CDU du chancelier Friedrich Merz a essuyé deux nouveaux revers lors des élections régionales à Berlin et en Mecklembourg-Poméranie-Occidentale. Dans la capitale, le parti conservateur a perdu plus de huit points et devrait quitter le gouvernement régional. Dans le nord-est du pays, son résultat est historique : avec 4,9 % des voix, il n’atteint pas le seuil nécessaire pour siéger au Parlement régional, tandis que l’AfD arrive en tête.</p>
+        <p>Ces défaites, qui suivent celle subie en Saxe-Anhalt, fragilisent directement Friedrich Merz. Selon un sondage cité par France 24, 70 % des électeurs locaux de la CDU considèrent sa personnalité comme un handicap. Les dirigeants régionaux du parti continuent néanmoins de le soutenir, notamment par crainte qu’un remplacement ne provoque des élections fédérales anticipées et une nouvelle progression de l’extrême droite. La prochaine grande échéance électorale, en Rhénanie-du-Nord-Westphalie au printemps 2027, pourrait encore favoriser Hendrik Wüst, principal rival interne du chancelier.</p>
+        <p><span class="label">Pourquoi lire :</span> Une analyse claire des rapports de force allemands et du vocabulaire employé pour décrire une crise politique et électorale.</p>
+        <div class="vocabulary">
+          <h4>Vocabulaire utile</h4>
+          <ul>
+            <li><strong>déconvenue électorale</strong> — résultat décevant ou échec subi lors d’un scrutin</li>
+            <li><strong>seuil électoral</strong> — pourcentage minimal de voix exigé pour obtenir une représentation parlementaire</li>
+            <li><strong>repoussoir électoral</strong> — personnalité ou élément susceptible de détourner les électeurs d’un parti</li>
+            <li><strong>élections anticipées</strong> — élections organisées avant la fin normale d’un mandat</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — ドイツ北東部州議選「極右」第1党 首相の政党は議席失う</h3>
+        <p class="byline">
+          NHKニュース · 2026年9月21日 ·
+          <a href="https://news.web.nhk/newsweb/na/nd-20260921de51516">記事を読む</a>
+        </p>
+        <p>ドイツ北東部のメクレンブルク・フォアポンメルン州で20日、州議会選挙の投票が行われました。一部の州で極右団体と認定されている政党「ドイツのための選択肢」が、第1党に躍進する見通しとなりました。</p>
+        <p>一方、メルツ首相が率いる中道右派の「キリスト教民主同盟」は議席を失う結果となりました。ドイツ東部での右派政党の伸長と、連邦政府を担う政党への支持の変化を示す選挙として注目されます。</p>
+        <p><span class="label">読む理由：</span> ドイツ政治の勢力図と、右派政党が支持を広げる動きを日本語の選挙報道から学べます。</p>
+        <div class="vocabulary">
+          <h4>語彙メモ</h4>
+          <ul>
+            <li><strong>州議会（しゅうぎかい）</strong> — ドイツを構成する各州の法律や政策を審議する議会。</li>
+            <li><strong>躍進（やくしん）</strong> — 勢力や成績を大きく伸ばすこと。</li>
+            <li><strong>極右（きょくう）</strong> — 政治的に非常に右派的な思想や勢力を指す表現。</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="language-card" lang="zh-Hans">
+        <h3>中文 — 美国科技巨头呼吁放缓AI发展速度——中国怎么看？</h3>
+        <p class="byline">
+          BBC 中文 · 2026年9月18日 ·
+          <a href="https://www.bbc.com/zhongwen/articles/c8y5z7y521eeo/simp">阅读文章</a>
+        </p>
+        <p>Anthropic执行长达里奥·阿莫迪主张放缓人工智能发展，OpenAI的萨姆·奥特曼和埃隆·马斯克也认同AI可能带来严重风险。不过，中美之间的科技竞争令国际合作更加困难：两国都把人工智能视为国家安全、经济增长和地缘政治博弈的重要领域。</p>
+        <p>文章指出，中国同样关注AI失控、深度伪造、隐私侵害和社会稳定等风险，并提出技术应始终处于人类控制之下。但与美国讨论中的“人类灭绝”等极端情境相比，中国的政策更强调可控性、滥用防范及社会后果，同时希望借助AI推动经济增长。专家认为，中美或可在防范网络攻击和非国家行为者滥用AI方面形成有限共识，但不太可能就限制模型开发速度达成协议。</p>
+        <p><span class="label">为什么读：</span> 文章从监管、产业和地缘政治三个角度比较中美AI风险观，有助于理解技术治理为何难以脱离国际竞争。</p>
+        <div class="vocabulary">
+          <h4>词汇笔记</h4>
+          <ul>
+            <li><strong>深度伪造 (shēndù wěizào)</strong> — 利用人工智能合成或篡改影像、声音，使虚假内容看起来真实的技术。</li>
+            <li><strong>具身智能 (jùshēn zhìnéng)</strong> — 让人工智能通过机器人等实体感知环境并采取行动的技术方向。</li>
+            <li><strong>关键基础设施 (guānjiàn jīchǔ shèshī)</strong> — 对社会运行至关重要的能源、通信、交通和金融等系统。</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <aside aria-labelledby="source-notes-heading">
+      <h2 id="source-notes-heading">Source notes</h2>
+      <p>The AI-research and biology-research social feeds were unavailable during this run because their timeline requests were denied. No items from those feeds are included.</p>
+    </aside>
+
+    <footer>
+      News Daily · September 21, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

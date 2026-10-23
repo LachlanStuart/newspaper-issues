@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f3;--ink:#252a30;--muted:#616870;--line:#d9d6ce;--accent:#235b68}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main,header,footer{max-width:960px;margin:auto;padding:24px}
+header{padding-top:42px;border-bottom:3px solid var(--ink)}
+.brand{font-size:3rem;line-height:1.1;margin:0;letter-spacing:-.04em}
+.date,.label,nav,.meta,footer{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.88rem}
+.label{font-size:.75rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent)}
+header p{margin:12px 0}
+nav{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem}
+a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-bottom:38px}
+h2{font-size:1.75rem;border-bottom:1px solid var(--line);padding-bottom:9px}
+h3{font-size:1.22rem;line-height:1.4;margin:0 0 10px}
+article{padding:18px 0;border-bottom:1px solid var(--line)}
+article p{margin:10px 0}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+.language-practice{border-top:3px solid var(--ink);padding-top:18px}
+.language-practice article{padding:24px 0}
+ul{padding-left:24px}
+li{margin:7px 0}
+footer{border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);padding-bottom:36px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}main,header,footer{padding-left:20px;padding-right:20px}.brand{font-size:2.5rem}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<p class="label">Daily newspaper</p>
+<h1 class="brand">News</h1>
+<p class="date"><time datetime="2026-10-03">Saturday, 3 October 2026</time></p>
+<p>Coding-agent evaluation, scrutiny of biological reasoning, and new tools for studying genomes.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI research</a>
+<a href="#biology">Biology &amp; genomics</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="ai">
+<h2>AI research</h2>
+<article>
+<h3>SWE-chat: 230,000 real-world prompts to coding agents</h3>
+<p>Stanford AI Lab highlights SWE-chat, a living dataset of human interactions with AI coding agents, reportedly available on Hugging Face. Its 230,000 prompts from real developers offer material for studying how people actually use coding assistants.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2106096953495036259">Stanford AI Lab · source post</a> · <a href="https://t.co/0yAZuUWQAf">Dataset resource (supplied shortened link)</a></p>
+</article>
+<article>
+<h3>Can future bug fixes test proactive coding agents?</h3>
+<p>Lucas Beyer describes a benchmark that gives an agent an earlier repository snapshot, asks it to find and fix bugs, and tests the work against unit tests from later bug-fix commits.</p>
+<p>The design raises two concerns: useful fixes outside the selected bugs may receive no credit, and the construction makes training contamination easier. Beyer also stresses that future repository history must be removed from evaluation environments; he has not checked whether the benchmark does this.</p>
+<p class="meta"><a href="https://x.com/giffmana/status/2105910335391596928">Lucas Beyer · source post</a></p>
+</article>
+<article>
+<h3>Looped language models aim for smaller parameters and KV caches</h3>
+<p>A research preview shared by Songlin Yang asks whether looped language models can match a standard Transformer with one-third as many parameters and a KV cache one-third the size. This is a proposed efficiency comparison, not an established result in the supplied material: the truncated excerpt includes no method, evaluation results or paper URL.</p>
+<p class="meta"><a href="https://x.com/SonglinYang4/status/2106240187760316793">Songlin Yang · source post</a></p>
+</article>
+</section>
+
+<section id="biology">
+<h2>Biology &amp; genomics</h2>
+<article>
+<h3>BioReason scrutiny: do biological inputs matter beyond the text?</h3>
+<p>Anshul Kundaje quotes an evaluation reporting that Evo2 and ESM3 contribute little to BioReason and BioReason-Pro performance on the tasks tested. Shuffling DNA reportedly barely changes BioReason’s disease-prediction accuracy; in evidence-conflict cases, the models follow text in 97.9% and 99.7% of cases, respectively.</p>
+<p>The central question is whether apparent biological reasoning depends on biological inputs at all. Kundaje also raises concerns about task definitions and prompt information leakage, while related discussion emphasizes experimental controls and confounding. These are reported evaluation findings and commentary; the underlying study and full protocols were not supplied.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2106054481184252378">Anshul Kundaje · source post</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>Minerva becomes available through Proto MCP</h3>
+<p>Brian Hie announces deployment of the Minerva language model and its interaction heads on Proto MCP. A linked example uses ChatGPT to revisit a non-coding RNA annotation, though the supplied post provides neither its results nor validation.</p>
+<p class="meta"><a href="https://x.com/BrianHie/status/2106102474994270306">Brian Hie · source post</a></p>
+</article>
+<article>
+<h3>Spatial Hi-C maps chromatin in mouse brains</h3>
+<p>Nature Methods highlights Spatial Hi-C for spatially resolved chromatin analysis in adult and developing mouse brains. The announcement points to a method for studying spatial genome organization, but does not specify resolution, throughput or comparative performance.</p>
+<p class="meta"><a href="https://x.com/naturemethods/status/2106056152396259497">Nature Methods · source post</a></p>
+</article>
+<article>
+<h3>ResolVI tackles spatial transcriptomics errors</h3>
+<p>ResolVI is highlighted by Nature Methods as a method for error and batch correction in spatial transcriptomics. The supplied text identifies its purpose, but includes no implementation details or benchmark results.</p>
+<p class="meta"><a href="https://x.com/naturemethods/status/2106050358938104149">Nature Methods · source post</a></p>
+</article>
+<article>
+<h3>Regulatory interplay in native chromatin</h3>
+<p>A Cell announcement shared by Kundaje points to research on robust interplay among enhancers, facilitators and promoters in native chromatin. The truncated post identifies the topic, but not the experimental system or detailed findings.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2106080989357515147">Source post · Cell study announcement</a></p>
+</article>
+<article>
+<h3>Human structural variation and neurodevelopment</h3>
+<p>A shared iScience study reports associations between neurodevelopment and genomic structural variations distinguishing archaic and modern humans. The excerpt does not identify the variants or explain the analysis, and does not establish causality.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2106047220172857541">Source post · iScience study</a></p>
+</article>
+<article>
+<h3>Review reading: programmable therapies and human evolution</h3>
+<p>Two Nature Reviews Genetics announcements offer reading pointers. Their supplied excerpts do not describe specific methods or conclusions.</p>
+<ul>
+<li><a href="https://x.com/NatureRevGenet/status/2106037091977032107">Next-generation programmable cell therapies for precision medicine</a> — programmable biology and cell therapy.</li>
+<li><a href="https://x.com/NatureRevGenet/status/2105970987334619283">Genomic insights into natural selection in recent human history</a> — human and evolutionary genomics.</li>
+</ul>
+</article>
+</div>
+</section>
+
+<section id="languages" class="language-practice">
+<p class="label">Daily reading</p>
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Gothic Online: Passend zum Remake wagt jetzt auch das größte Multiplayer-Projekt einen Neustart</h3>
+<p class="meta">GameStar · 03.10.2026 · <a href="https://www.gamestar.de/artikel/gothic-online-untold-chapters-gouc-neustart,3460469.html">https://www.gamestar.de/artikel/gothic-online-untold-chapters-gouc-neustart,3460469.html</a></p>
+<p>Das Fanprojekt Gothic Online: Untold Chapters nutzt das Gothic-Remake als Anlass für einen Neustart. Aktualisierte Technik, umgebaute Spielwelten und zahlreiche Erweiterungen sollen das gemeinsame Rollenspiel auf der Insel Khorinis erneuern. Dabei verfolgt das Team einen anspruchsvollen Spagat: Die Welt soll komplexer werden, neuen Spielern aber zugleich einen leichteren Einstieg ermöglichen. Statt nur eine vorgegebene Geschichte nachzuspielen, sollen die Beteiligten die Entwicklung der Schauplätze selbst mitprägen.</p>
+<p>Besonders deutlich wird die Neuausrichtung im Minental, dessen Landschaft und Lager sich bewusst am Remake orientieren. Laut dem öffentlich zugänglichen Artikelanfang begann das Team bereits vor dessen Veröffentlichung, Screenshots als Vorlage auszuwerten; später konnte es die neue Spielwelt direkt erkunden. Der Beitrag beleuchtet damit auch, wie eine Fangemeinschaft eine klassische deutsche Rollenspielreihe weiterentwickelt und zwischen vertrauter Umgebung und neuen Möglichkeiten vermittelt. Der vollständige Artikel ist hinter einer GameStar-Plus-Zugangsschranke verfügbar.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag bietet einen aktuellen Einblick in die Gothic-Fankultur und die Frage, wie gemeinschaftlich entwickelte Spielwelten zugleich vertraut und neu wirken können.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — En France, la sécheresse se poursuit et met à l’épreuve de nombreux réseaux d’eau potable</h3>
+<p class="meta">Le Monde · 3 octobre 2026 · <a href="https://www.lemonde.fr/planete/article/2026/10/03/en-france-la-secheresse-se-poursuit-et-met-a-l-epreuve-de-nombreux-reseaux-d-eau-potable_6787490_3244.html">https://www.lemonde.fr/planete/article/2026/10/03/en-france-la-secheresse-se-poursuit-et-met-a-l-epreuve-de-nombreux-reseaux-d-eau-potable_6787490_3244.html</a></p>
+<p>L’automne commence sans véritable répit pour les services chargés de distribuer l’eau potable. Après un été éprouvant, les faibles pluies de septembre n’ont pas permis de reconstituer les réserves : le cumul mensuel n’a atteint que 21 millimètres, soit un déficit de 70 % par rapport à la normale. Dans le pays de Saint-Malo, un responsable estime les stocks disponibles à soixante jours. Les crues récemment observées dans le Sud-Est ne doivent donc pas masquer les difficultés persistantes ailleurs en France.</p>
+<p>Les premiers paragraphes accessibles de cette enquête de Léa Sanchez montrent les conséquences concrètes de cette pénurie. Selon un bilan ministériel daté du 23 septembre, l’alimentation en eau d’un million de personnes demeure fragile. Plus de 83 000 habitants dépendent de solutions d’urgence, notamment de livraisons par camions-citernes ou de bouteilles ; environ 3 500 personnes subissent des interruptions organisées de la distribution. L’article met ainsi en relation le manque de pluie, l’épuisement des réserves et la continuité d’un service essentiel. La suite est réservée aux abonnés.</p>
+<p><strong>Pourquoi lire :</strong> Une lecture pour comprendre comment une sécheresse prolongée se transforme en problème quotidien de service public, tout en découvrant le vocabulaire de la gestion de l’eau.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>déficit pluviométrique</strong> — quantité de pluie inférieure à la valeur normalement attendue pour une période donnée.</li>
+<li><strong>nappe souterraine</strong> — réserve d’eau contenue dans les pores ou les fissures du sous-sol, susceptible d’alimenter des captages.</li>
+<li><strong>tour d’eau</strong> — organisation alternée de l’accès à l’eau selon les secteurs ou les horaires lorsque la ressource manque.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 荒れ地に植物を根づかせ，生態系を再生する。ソイルパンクなシミュレーションゲーム「The Regreening」，日本語対応デモをSteamで公開</h3>
+<p class="meta">4Gamer · 2026-10-03 · <a href="https://www.4gamer.net/games/999/G099914/20261003002/">記事を読む</a></p>
+<p>Positive Impact GamesとByteRockers' Gamesは10月1日、PC向け新作「The Regreening」のデモ版をSteamで公開した。4Gamerによると、デモ版のストアページには日本語対応が記載されており、日本語で試せる作品として紹介されている。</p>
+<p>本作は、荒廃した土地に植物を植え、失われた生態系を取り戻していくシミュレーションゲームだ。自然環境の再生を遊びの中心に据えた点が特徴で、記事の見出しでは「ソイルパンク」と表現されている。植物を育てることと環境全体の回復を結びつけた題材に関心がある人に向く新作ニュースだ。</p>
+<p><strong>読む理由：</strong> 自然の再生をテーマにしたゲームを知りながら、環境とゲーム紹介の両方で使われる語彙に触れられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>生態系（せいたいけい）</strong> — 生物どうしの関係と、それを取り巻く水・土・空気などを一つのまとまりとして捉えたもの。</li>
+<li><strong>自然環境（しぜんかんきょう）</strong> — 地形、水、土、生物など、人や生き物を取り巻く自然の条件。</li>
+<li><strong>デモ版（でもばん）</strong> — 製品の内容や操作を試すために公開される体験用の版。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 猫眼如何启发机器人的照相机技术发展</h3>
+<p class="meta">BBC 中文 · 2026-09-30 · <a href="https://www.bbc.com/zhongwen/articles/crz9zd51289jo/simp">https://www.bbc.com/zhongwen/articles/crz9zd51289jo/simp</a></p>
+<p>猫的眼睛为何在黑暗中看似发光？关键在于视网膜后方的脉络膜反光层：它能把漏过光感受器的光线反射回来，让眼睛再次捕捉光线。文章从英国“猫眼路钉”的发明故事切入，介绍这种动物视觉结构如何启发新一代相机设计。</p>
+<p>韩国科学技术院的研究团队在影像感测器后方加入高反射性的银材料，模仿猫眼的反光层。据报道，这使相机对可见光的吸收能力提升了52%。团队还借鉴猫的垂直瞳孔，设计能让目标从杂乱背景中更突出显现的光圈，希望将部分原本依赖电脑运算的辨识能力直接整合进相机。不过，目前这种光圈仍需手动更换，尚不能像猫眼一样自动适应光线变化。</p>
+<p>研究人员也从苍蝇、鹰和跳蛛的视觉系统寻找灵感，探索广阔视野、局部清晰成像和精确测距等不同能力。文章呈现的重点并不是一种相机取代所有现有设备，而是根据机器人、无人机等应用的具体需求，借鉴不同动物的眼睛结构。</p>
+<p><strong>为什么读：</strong> 从熟悉的猫眼现象进入光学与机器人技术，适合练习阅读解释科学原理、实验结果及技术局限的中文报道。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>脉络膜反光层 (mài luò mó fǎn guāng céng)</strong> — 某些动物视网膜后方的反射组织，能让光线再次经过感光区域，改善弱光下的视觉。</li>
+<li><strong>光感受器 (guāng gǎn shòu qì)</strong> — 眼睛中接收光线并将其转化为生物信号的感光细胞。</li>
+<li><strong>光圈 (guāng quān)</strong> — 相机镜头中控制光线进入的开口，其大小和形状会影响成像效果。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>
+<p><strong>Source notes.</strong> This edition uses the supplied source reports only. Research coverage is based on social-post excerpts, some truncated; linked studies and resources were not inspected, and shortened links were not expanded. Access limits for the language readings are noted within the snippets.</p>
+<p>News · Edition 2026-10-03-1</p>
+</footer>
+
+
+
+</body>
+</html>

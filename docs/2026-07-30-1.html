@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #64686d;
+      --paper: #fffdf8;
+      --accent: #245d4f;
+      --rule: #d9d5cc;
+      --panel: #f5f2ea;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #ece9e1;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    .newspaper {
+      width: min(1080px, calc(100% - 2rem));
+      margin: 1.5rem auto;
+      padding: clamp(1.25rem, 4vw, 3.5rem);
+      background: var(--paper);
+      box-shadow: 0 2px 18px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.2rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 2.5rem 0;
+    }
+
+    .section-heading {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.4rem;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    .deck {
+      max-width: 760px;
+      margin: -0.5rem 0 1.5rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 2rem;
+    }
+
+    article {
+      break-inside: avoid;
+      border-bottom: 1px solid var(--rule);
+      padding: 0 0 1.35rem;
+      margin: 0 0 1.5rem;
+    }
+
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+
+    article p {
+      margin: 0.55rem 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    .source-link {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .tags {
+      margin-top: 0.65rem;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      line-height: 1.45;
+    }
+
+    .language-practice {
+      border-top: 5px solid var(--ink);
+      padding-top: 1.75rem;
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .language-card {
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      padding: 1rem 1.1rem;
+    }
+
+    .language-card h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.1rem;
+    }
+
+    .language-card p {
+      margin: 0;
+      color: #4f5357;
+      font-size: 0.94rem;
+    }
+
+    .notes {
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .notes h2 {
+      color: var(--ink);
+      font-size: 1rem;
+      margin: 0 0 0.5rem;
+    }
+
+    .notes p {
+      margin: 0.4rem 0;
+    }
+
+    footer {
+      border-top: 1px solid var(--ink);
+      margin-top: 2rem;
+      padding-top: 0.8rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 720px) {
+      .story-grid,
+      .language-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newspaper {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="newspaper">
+    <header>
+      <h1>News</h1>
+      <p class="date">Thursday, July 30, 2026</p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 class="section-heading" id="ai-research">AI Research</h2>
+      <p class="deck">Research agents, generative environments, scaling behavior, and machine learning applied to genomics.</p>
+
+      <div class="story-grid">
+        <article>
+          <h3>Silico autonomously replicates three interpretability studies</h3>
+          <p>Goodfire reports that Silico reproduced key results from <em>Interpretability in the Wild</em>, ROME, and <em>Mixing Mechanisms</em> without access to the authors’ code. The system planned experiments, wrote code, orchestrated compute, and produced figures; an additional prompt extended the methods to new models. The experiment offers a substantive test of agent-driven research replication.</p>
+          <a class="source-link" href="https://x.com/GoodfireAI/status/2082495665943482515">Read the research thread on X</a>
+          <div class="tags">Interpretability · Research agents · Replication · Model editing</div>
+        </article>
+
+        <article>
+          <h3>Generative models build structured, playable Minecraft worlds</h3>
+          <p>A technical blog describes models trained on large-scale voxel data to generate structured Minecraft environments that can be explored and played. The work pushes generative modeling beyond static images and video toward interactive three-dimensional worlds.</p>
+          <a class="source-link" href="https://x.com/hardmaru/status/2082474329292632464">Read the post and linked resource on X</a>
+          <div class="tags">World models · Generative modeling · 3D environments</div>
+        </article>
+
+        <article>
+          <h3>Deconstructing scaling laws across optimization, architecture, and data</h3>
+          <p>A linked technical resource examines neural-network scaling laws through the interacting contributions of optimization, model architecture, and training data, offering a more granular view of where scaling behavior comes from.</p>
+          <a class="source-link" href="https://x.com/Jianlin_S/status/2082456978316816649">Read the post and linked resource on X</a>
+          <div class="tags">Scaling laws · Optimization · Architecture · Training data</div>
+        </article>
+
+        <article>
+          <h3>Machine learning predicts human structural variation</h3>
+          <p>Researchers are using machine learning to predict human structural variation and characterize the sequence features associated with it. The work connects predictive modeling with an effort to identify the genomic determinants of large-scale variation.</p>
+          <a class="source-link" href="https://x.com/gen0m1cs/status/2082636658847989972">Read the post and linked resource on X</a>
+          <div class="tags">Machine learning · Genomics · Structural variation</div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="computational-biology">
+      <h2 class="section-heading" id="computational-biology">Computational Biology &amp; Drug Discovery</h2>
+      <p class="deck">New models for protein design, binding prediction, peptide therapeutics, molecular glues, and structure evaluation.</p>
+
+      <div class="story-grid">
+        <article>
+          <h3>Catalytic-antibody pipeline reveals limits in preserving active-site geometry</h3>
+          <p>A preprint attempts to transplant experimentally supported enzyme active-site geometry into antibody CDR loops, then rebuild and redesign the scaffold with RFdiffusion3, LigandMPNN, and RoseTTAFold3. VHH scaffolds tolerated grafting better than two-chain Fv scaffolds, but refolding generally failed to recover the full non-covalent catalytic network—even after a missing covalent-bond specification was corrected. The negative results expose the brittleness of current generative protein-design systems when exact catalytic microenvironments matter.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2082484621602865298">Read the research summary on X</a>
+          <div class="tags">Protein design · Antibodies · Enzyme design · Evaluation</div>
+        </article>
+
+        <article>
+          <h3>HydrAffinity predicts protein–ligand affinity without docking</h3>
+          <p>HydrAffinity is a preparation-free affinity model intended as a fast virtual-screening prefilter. It combines pretrained ligand and protein representations through cascaded sparse mixture-of-experts modules and reports CASF-2016 accuracy competitive with interaction-based methods. Zero-shot screening is strong on DUDE-Z and LIT-PCBA, although performance deteriorates under extreme shifts in charge distribution.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2082484049394958348">Read the research summary on X</a>
+          <div class="tags">Binding affinity · Virtual screening · Mixture of experts · Benchmarks</div>
+        </article>
+
+        <article>
+          <h3>Vilya-2 models chemically diverse peptide interfaces</h3>
+          <p>Vilya-2 is an all-atom diffusion Transformer for local protein–ligand interface modeling. It uses a unified atomic graph rather than residue tokens, molecule-type labels, or multiple-sequence alignments. On Riptides, a post-2023 benchmark enriched for non-canonical cyclic peptides, it reports substantially higher interface recovery than template-assisted Boltz-2. Diverse sampling, ligand-focused confidence calibration, and physical-validity filtering are central to the approach.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2082483771191025834">Read the research summary on X</a>
+          <div class="tags">Peptide therapeutics · Diffusion models · Docking · Confidence calibration</div>
+        </article>
+
+        <article>
+          <h3>TriGlue jointly generates molecular glues and ternary-complex geometry</h3>
+          <p>TriGlue frames molecular-glue discovery as interface creation. Given an E3 ligase and an unbound target, it predicts a protein–protein interface and jointly generates a glue molecule and the rigid-body transformation needed to assemble the ternary complex. Its equivariant architecture combines virtual interface points with interface-conditioned flow matching. Reported ligand placement improves on several pocket-conditioned baselines, though absolute docking quality remains modest.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2082483233732874417">Read the research summary on X</a>
+          <div class="tags">Molecular glues · Targeted protein degradation · Flow matching · Geometric deep learning</div>
+        </article>
+
+        <article>
+          <h3>Persistent Manifold Learning spans ligand and protein interfaces</h3>
+          <p>This method represents binding interfaces with multiscale atomic-density level sets and graph-Laplacian descriptors, then combines those geometric and topological features with ESM-2 and ChemBERTa embeddings. A gradient-boosted predictor reports competitive affinity results for both metalloprotein–ligand complexes and protein–protein interactions. Its notable feature is a single interpretable representation that works across compact metal sites and broad protein interfaces.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2082483099397759476">Read the research summary on X</a>
+          <div class="tags">Binding affinity · Protein interactions · Topological data analysis · Representation learning</div>
+        </article>
+
+        <article>
+          <h3>Live antibody benchmark focuses on date cutoffs and leakage</h3>
+          <p>A new website compares 15 antibody–antigen structure-prediction variants on a shared set of targets released from September 2024 onward. Evaluation windows can be selected dynamically, and the project argues that each model’s PDB training cutoff should be displayed so users can investigate possible training overlap. The evolving leaderboard is open to additional models and feedback.</p>
+          <a class="source-link" href="https://x.com/HannesStaerk/status/2082604667377185086">View the announcement on X</a>
+          <div class="tags">Antibodies · Structure prediction · Benchmarks · Data leakage</div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genetics-disease">
+      <h2 class="section-heading" id="genetics-disease">Genetics &amp; Disease</h2>
+
+      <article>
+        <h3>Modulating X-inactivation escape probes sex-biased disease</h3>
+        <p><em>Nature Reviews Molecular Cell Biology</em> highlights research that experimentally changes the extent to which genes escape X-chromosome inactivation. The aim is to establish causal links between escape dosage and diseases that affect the sexes differently.</p>
+        <a class="source-link" href="https://x.com/NatRevMCB/status/2082413379512320498">Read the highlighted research on X</a>
+        <div class="tags">Gene regulation · X-inactivation · Genomics · Disease</div>
+      </article>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-heading" id="language-practice">Language Practice</h2>
+      <p class="deck">No verified reading selections were available for today’s language-practice edition.</p>
+
+      <div class="language-grid">
+        <div class="language-card" lang="de">
+          <h3>Deutsch — tägliche Lektüre</h3>
+          <p>GameStar war nicht erreichbar. Auch der Abruf der Ersatzquelle heise online scheiterte, daher konnte kein geeigneter Artikel verlässlich ausgewählt werden.</p>
+        </div>
+
+        <div class="language-card" lang="fr">
+          <h3>Français — lecture quotidienne</h3>
+          <p>Aucun article n’a pu être vérifié : Le Monde et la source de secours Numerama étaient inaccessibles.</p>
+        </div>
+
+        <div class="language-card" lang="ja">
+          <h3>日本語 — 毎日の読み物</h3>
+          <p>4Gamerへの接続と検索に失敗し、フォールバックのnippon.com 日本語からも記事を取得できませんでした。記事情報を検証できないため、今回は項目がありません。</p>
+        </div>
+
+        <div class="language-card" lang="zh-Hans">
+          <h3>中文 — 每日阅读</h3>
+          <p>端传媒及备用来源 BBC 中文均因连接失败而无法核实近期文章，因此本次未选取阅读项目。</p>
+        </div>
+      </div>
+    </section>
+
+    <aside class="notes" aria-labelledby="edition-notes">
+      <h2 id="edition-notes">Edition notes</h2>
+      <p>One configured biology-research X list could not be collected after repeated attempts, so that section reflects the material available from the remaining lists.</p>
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-07-30-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

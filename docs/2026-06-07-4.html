@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #24211c;
+      --muted: #6f675c;
+      --rule: #d8cfc0;
+      --accent: #6b3f20;
+      --tag-bg: #efe4d4;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    header .meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 16px;
+      color: var(--accent);
+      font-size: 1.55rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+    }
+    article {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.22rem;
+      line-height: 1.3;
+    }
+    a {
+      color: #214f8f;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    p {
+      margin: 8px 0;
+    }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+    }
+    .tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: #4f4335;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+    }
+    .notes {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+    }
+    .notes ul {
+      margin-top: 8px;
+      padding-left: 20px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      margin-top: 28px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="meta">Sunday, June 7, 2026 · Run 2026-06-07-4</div>
+    </header>
+
+    <section>
+      <h2>AI Alignment &amp; Research Programs</h2>
+      <article>
+        <div class="source">LessWrong Larry Dial</div>
+        <h3><a href="https://www.lesswrong.com/posts/uLk7xiQbAntb5h6PB/iliad-is-hiring">Iliad is Hiring</a></h3>
+        <p>Iliad is recruiting for operations, research, engineering, CTO, outreach, and curriculum/research roles connected to foundational AI alignment programs and research automation.</p>
+        <div class="tags">
+          <span class="tag">hiring</span>
+          <span class="tag">AI alignment</span>
+        </div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio-AI, Protein Design &amp; Drug Discovery</h2>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063593278138941815">ProtHMSO uses masked protein language models for multi-site protein sequence optimization</a></h3>
+        <p>Biology+AI Daily summarizes ProtHMSO, a heuristic protein sequence design framework that uses masked protein language models—mainly ESM-2—to propose context-aware single- and multi-site substitutions. The method can act as a standalone optimizer or as a mutation operator for genetic algorithms and MCTS, with tests on antimicrobial peptide design and ProteinGym/clinical variant benchmarks.</p>
+        <div class="tags">
+          <span class="tag">protein language models</span>
+          <span class="tag">protein design</span>
+          <span class="tag">directed evolution</span>
+          <span class="tag">benchmarking</span>
+        </div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063587255990816798">AlloGen designs conformation-selective binders with differential state scoring</a></h3>
+        <p>AlloGen targets binder design for allosteric systems by ranking or guiding generated binders with a learned differential selectivity score between desired and undesired receptor conformations. The scorer is an SE(3)-invariant interface graph transformer trained with DockQ grounding and paired InfoNCE fine-tuning, with reported out-of-distribution target performance and experimental validation on calmodulin.</p>
+        <div class="tags">
+          <span class="tag">protein design</span>
+          <span class="tag">allostery</span>
+          <span class="tag">binder design</span>
+          <span class="tag">generative AI</span>
+          <span class="tag">experimental validation</span>
+        </div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063588014131949869">Information Bonus metric asks when AlphaFold2 representations add value over protein language models</a></h3>
+        <p>A paper introduces Information Bonus, a task-level metric comparing frozen AlphaFold2 Evoformer representations with frozen ESM-2 embeddings under protein-level cross-validation. The thread highlights allostery as a positive-IB regime, binding affinity as negative-IB under the benchmark design, and warns about residue-level split artifacts that can inflate performance and reverse representation rankings.</p>
+        <div class="tags">
+          <span class="tag">protein ML</span>
+          <span class="tag">AlphaFold</span>
+          <span class="tag">representation learning</span>
+          <span class="tag">benchmarking</span>
+          <span class="tag">data leakage</span>
+        </div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063587871874060300">DegradoMap predicts PROTAC-mediated protein degradability from structure and E3 identity</a></h3>
+        <p>DegradoMap is a structure-aware graph neural network for early PROTAC target selection. It uses AlphaFold protein structures, E3 ligase identity, lysine-weighted pooling, cross-attention, and DepMap context features to predict degradability, while reporting target-unseen evaluation, E3-transfer behavior, recommendation metrics, calibration, and limitations from data imbalance.</p>
+        <div class="tags">
+          <span class="tag">drug discovery</span>
+          <span class="tag">PROTAC</span>
+          <span class="tag">GNN</span>
+          <span class="tag">targeted protein degradation</span>
+          <span class="tag">AlphaFold</span>
+        </div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063587691590291640">MOLE-RAG augments LLM molecular property prediction with chemistry retrieval and structural neighbors</a></h3>
+        <p>MOLE-RAG is a training-free framework for molecular property prediction that enriches LLM prompts with literature snippets, descriptors, functional groups, names, and structurally similar labeled examples. Across MoleculeNet tasks with scaffold splits, the strongest gains come from task-adaptive structural retrieval, with text retrieval and descriptor injection adding further context.</p>
+        <div class="tags">
+          <span class="tag">molecular property prediction</span>
+          <span class="tag">RAG</span>
+          <span class="tag">LLMs</span>
+          <span class="tag">cheminformatics</span>
+          <span class="tag">drug discovery</span>
+        </div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063587513441403242">AMREC treats invalid SMILES as recoverable molecular states for agentic molecule repair</a></h3>
+        <p>AMREC reframes invalid LLM-generated SMILES as corrupted molecular states and tries to recover chemically valid molecules while preserving target scaffolds and description-derived requirements. The system uses explicit requirement checking, mismatch tracking, planning, candidate exploration, persistent candidate pools, and trajectory-level selection.</p>
+        <div class="tags">
+          <span class="tag">molecular generation</span>
+          <span class="tag">agents</span>
+          <span class="tag">SMILES</span>
+          <span class="tag">cheminformatics</span>
+          <span class="tag">drug discovery</span>
+        </div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063593141954105566">SECS combines contrastive learning and evolutionary search for raw-spectra molecular structure elucidation</a></h3>
+        <p>SECS is an end-to-end computer-assisted structure elucidation system that maps raw multimodal spectra and molecules into a shared contrastive embedding space, then retrieves and refines candidate structures with a graph genetic algorithm. It supports NMR, IR, MS/HSQC subsets, reports calibrated confidence, detects misassigned structures, and is positioned for lab automation workflows.</p>
+        <div class="tags">
+          <span class="tag">computational chemistry</span>
+          <span class="tag">contrastive learning</span>
+          <span class="tag">structure elucidation</span>
+          <span class="tag">lab automation</span>
+        </div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2063587154023120964">AF Cache accelerates high-throughput AlphaFold PPI screening with cached MSAs and bucketing</a></h3>
+        <p>AF Cache is a Nextflow pipeline for large-scale AlphaFold2/3 protein–protein interaction screens. It caches monomer MSAs and, for AlphaFold2, buckets sequences by length to reduce repeated JAX compilation. A 100-protein all-against-all mitochondrial benchmark reports large MSA-stage speedups and a more than 50% reduction in AF2 prediction plus compilation GPU time.</p>
+        <div class="tags">
+          <span class="tag">AlphaFold</span>
+          <span class="tag">PPI</span>
+          <span class="tag">bioinformatics</span>
+          <span class="tag">HPC</span>
+          <span class="tag">workflow tools</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h2>Quiet Source Notes</h2>
+      <ul>
+        <li>Hazy Research, Kasra Blog, Nathan Chen Blog, Queer Festival Heidelberg, 科学空间 / Spaces AC, and X AI Research had no new reportable items in the supplied fragments for this run.</li>
+        <li>X Bio Research excluded additional items that were previously reported, duplicate fragments, or outside the source criteria.</li>
+      </ul>
+    </section>
+
+    <footer>
+      News daily aggregation generated from provided source fragments only.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

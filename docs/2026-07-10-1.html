@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --ink: #20201e;
+      --muted: #66635d;
+      --accent: #315f64;
+      --rule: #cbc5b9;
+      --card: #fffdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 44px 0 64px;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 22px 12px 20px;
+      margin-bottom: 38px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 42px 0;
+    }
+
+    section > h2 {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+
+    .section-intro {
+      max-width: 760px;
+      color: var(--muted);
+      margin: -8px 0 22px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+      gap: 18px;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 20px;
+    }
+
+    article h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      line-height: 1.3;
+    }
+
+    article p {
+      margin: 0.7em 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    .source-link {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 650;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 10px 5px 0 0;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 2px 8px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+    }
+
+    .language-practice {
+      border-top: 5px double var(--ink);
+      padding-top: 32px;
+      margin-top: 58px;
+    }
+
+    .language-practice > h2 {
+      font-size: 2rem;
+    }
+
+    .language-card {
+      margin: 22px 0;
+      padding: 24px;
+    }
+
+    .language-card h3 {
+      font-size: 1.35rem;
+    }
+
+    .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+    }
+
+    .language-card ul {
+      padding-left: 1.4rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 48px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      main {
+        width: min(100% - 20px, 1080px);
+        padding-top: 20px;
+      }
+
+      article,
+      .language-card {
+        padding: 17px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p class="date">Daily Newspaper · Friday, July 10, 2026</p>
+    </header>
+
+    <section>
+      <h2>AI Agents, Verification &amp; Applied Models</h2>
+      <p class="section-intro">New methods for verifying agents, learning from failures, transcribing multilingual speech, and protecting clinical data on personal devices.</p>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2075365812572205484">LLM-as-a-Verifier scales verification across coding, robotics, and medicine</a></h3>
+          <p>Stanford AI Lab highlights a verifier that provides fine-grained feedback across Terminal-Bench V2, SWE-Bench Verified, RoboRewardBench, and MedAgentBench. Beyond checking final answers, its feedback can estimate task progress and improve the sample efficiency of reinforcement learning.</p>
+          <span class="tag">Verification</span>
+          <span class="tag">Agents</span>
+          <span class="tag">Reinforcement learning</span>
+          <br>
+          <a class="source-link" href="https://x.com/StanfordAILab/status/2075365812572205484">Read the Stanford AI Lab post →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2075365636902129786">TRACE trains agents to repair capabilities exposed by failure</a></h3>
+          <p>TRACE asks an agent to diagnose which underlying capabilities caused its failures, then trains it to address those weaknesses. Stanford reports that a TRACE-trained Qwen3.6-27B reached 73.2% on SWE-bench Verified while using fewer than one-quarter as many training rollouts as competing GRPO and GEPA approaches.</p>
+          <span class="tag">Self-improvement</span>
+          <span class="tag">Software engineering</span>
+          <br>
+          <a class="source-link" href="https://x.com/StanfordAILab/status/2075365636902129786">Read the Stanford AI Lab post →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/Prince_Canuma/status/2075262451285709202">A compact model combines multilingual transcription and speaker diarization</a></h3>
+          <p>MOSS-Transcribe-Diarize-0.9B emits transcripts, speaker labels, and timestamps in one pass. The described system combines a Whisper-Medium encoder with a Qwen3-0.6B decoder, supports more than 90 languages and inputs of roughly 90 minutes, and offers hotword boosting. Local Python and Swift inference on Apple Silicon is available through mlx-audio.</p>
+          <span class="tag">Speech recognition</span>
+          <span class="tag">Local inference</span>
+          <br>
+          <a class="source-link" href="https://x.com/Prince_Canuma/status/2075262451285709202">View the release post →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/OpenMed_AI/status/2075209087810191403">OpenMed brings clinical de-identification to mobile and web apps</a></h3>
+          <p>OpenMed 1.8 extends its Apache-2.0 clinical de-identification SDK to Android, iOS, React Native, and browsers. Sensitive clinical text can therefore be processed on-device rather than sent to a remote service.</p>
+          <span class="tag">Medical AI</span>
+          <span class="tag">Privacy</span>
+          <span class="tag">Open source</span>
+          <br>
+          <a class="source-link" href="https://x.com/OpenMed_AI/status/2075209087810191403">View the OpenMed announcement →</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Scientific AI</h2>
+      <p class="section-intro">Today’s research spans synthetic DNA libraries, genomic causality, protein structures, drug-binding pockets, antibody ranking, and cross-scale models for biomanufacturing.</p>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2075211341590364257">Policy gradients design synthesis-ready stochastic DNA libraries</a></h3>
+          <p>Policy Gradients for Library Design optimizes pools of degenerate IUPAC oligos rather than costly deterministic sequence lists. It supports objectives for fitness, diversity, novelty, and generative-model matching. In experimental validation, the method produced an approximately one-million-sequence influenza-antibody CDRH3 library for about $700 and reportedly achieved stronger binder enrichment than a heuristic baseline.</p>
+          <span class="tag">Synthetic biology</span>
+          <span class="tag">Antibody discovery</span>
+          <br>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2075211341590364257">Read the research summary →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2075345768903565714">“Needles in the Haystack” finds signal dilution in perturbation benchmarks</a></h3>
+          <p>In single-cell perturbation prediction, most genes may remain unchanged, allowing mean predictions to score well under ordinary unweighted errors. The study proposes differentially expressed gene-aware measures—including weighted MSE and weighted delta R²—to focus evaluation on the smaller set of genes carrying the true perturbation response.</p>
+          <span class="tag">Single-cell RNA-seq</span>
+          <span class="tag">Evaluation</span>
+          <br>
+          <a class="source-link" href="https://x.com/razoralign/status/2075345768903565714">Read the study thread →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2075347065341968709">DNA-symmetric causal models join AlphaGenome and Evo 2</a></h3>
+          <p>A geometric causal framework uses deep functional-genomics models to represent outcomes and DNA language models to represent propensities. It combines geometric deep learning, Bayesian inference, and identification results from ergodic theory, with alternative estimators of genetic variant effects demonstrated on semisynthetic functional-genomics data.</p>
+          <span class="tag">Causal genomics</span>
+          <span class="tag">Variant effects</span>
+          <br>
+          <a class="source-link" href="https://x.com/razoralign/status/2075347065341968709">Read the research thread →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2075211075906331089">CANOPY models metabolic engineering across biological scales</a></h3>
+          <p>CANOPY integrates genes, proteins, metabolites, reactions, pathways, strains, transcriptomics, and fermentation experiments in a heterograph with 6.86 million nodes and 11.2 million typed edges. Frozen experiment embeddings improved held-out fermentation-titer prediction, reaching R² 0.413 versus 0.236 for the strongest reported tabular baseline. The workshop release is limited, however: proprietary LIMS records and trained weights are not planned for publication.</p>
+          <span class="tag">Metabolic engineering</span>
+          <span class="tag">Knowledge graphs</span>
+          <br>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2075211075906331089">Read the research summary →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2075211747318006131">SciReasoner grounds predictions in native scientific structures</a></h3>
+          <p>SciReasoner represents protein environments, molecular conformers, and periodic crystals with structure-aware tokens, allowing predictions to cite addressable structural evidence. Reported applications include low-homology protein-function prediction, retrosynthesis, pocket-based drug similarity, and materials properties. Structure ablations reduced performance, while protein attention for a DNA-binding term localized to experimentally defined binding residues and interfaces.</p>
+          <span class="tag">Protein function</span>
+          <span class="tag">Drug discovery</span>
+          <span class="tag">Interpretability</span>
+          <br>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2075211747318006131">Read the research summary →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2075210329253085435">Ligand-conditioned AlphaFold 3 ensembles expose cryptic pockets</a></h3>
+          <p>Across 16 classic cryptic-pocket systems, AlphaFold 3 conditioned on a cryptic-site ligand predominantly generated ligand-competent conformations and matched experimental bound-state distributions in every case. Ligand-free ensembles matched unbound distributions in 13. The study recommends many-seed ensembles plus independent clash and strain checks because model confidence does not guarantee a physically plausible pose.</p>
+          <span class="tag">AlphaFold 3</span>
+          <span class="tag">Cryptic pockets</span>
+          <br>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2075210329253085435">Read the research summary →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2075210767415255388">AbICL learns antibody-affinity rankings from antigen-specific examples</a></h3>
+          <p>AbICL treats antibody–antigen affinity ranking as episodic in-context learning: each query comparison attends to a small support set of labeled comparisons without gradient-based test-time tuning. Gains were strongest under antibody or antigen distribution shifts and among closely related mutants. On the balanced Local Perturbation task, reported AUROC increased from 0.647 without context to 0.872 with test-antigen context.</p>
+          <span class="tag">Antibody discovery</span>
+          <span class="tag">In-context learning</span>
+          <br>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2075210767415255388">Read the research summary →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2075210645323366482">Open library provides 32 million pentapeptide conformers</a></h3>
+          <p>The dataset covers all 3.2 million canonical pentapeptide sequences with up to ten standardized 3D conformers apiece. Its reproducible ChimeraX, Reduce, and RDKit pipeline includes auditable template and protonation metadata. Against 228 matching PDB pentapeptides, the best generated conformer achieved a median backbone RMSD of 1.12 Å, with 78% below 1.5 Å.</p>
+          <span class="tag">Open dataset</span>
+          <span class="tag">Peptides</span>
+          <span class="tag">Virtual screening</span>
+          <br>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2075210645323366482">Read the dataset summary →</a>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Research Tools &amp; Biomedical Automation</h2>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2075344873809690695">scSpark offers traceable interpretation of single-cell projects</a></h3>
+          <p>scSpark organizes annotations, embeddings, differential-expression tables, trajectories, communication networks, and enrichment results in a browser workspace. Six modules cover annotation, differential analysis, trajectories, cell–cell communication, functional interpretation, and AI-assisted interrogation while preserving links to the project’s precomputed objects.</p>
+          <span class="tag">Single-cell research</span>
+          <span class="tag">Traceability</span>
+          <br>
+          <a class="source-link" href="https://x.com/razoralign/status/2075344873809690695">Read the tool thread →</a>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/GabriCorso/status/2075350464413970792">Biomni biomedical research agent appears in <em>Science</em></a></h3>
+          <p>Biomni, an agent designed to assist with fragmented and manual biomedical-research workflows, has been published in <em>Science</em>. The available announcement does not provide enough detail to assess its tasks, benchmarks, or limitations, so the publication itself is the principal news here.</p>
+          <span class="tag">Biomedical agents</span>
+          <span class="tag">Research automation</span>
+          <br>
+          <a class="source-link" href="https://x.com/GabriCorso/status/2075350464413970792">View the publication announcement →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="section-intro">Daily edited reading selections in German, French, Japanese, and Chinese. The original language and script are preserved.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — EU-Parlament: Tech-Konzerne dürfen eure Chats doch wieder scannen – das sind die Details</h3>
+        <p class="byline">GameStar · 09.07.2026 · <a href="https://www.gamestar.de/artikel/eu-parlament-chatkontrolle-erlaubt,3456100.html">Artikel öffnen</a></p>
+
+        <p>Das Europäische Parlament hat eine umstrittene Ausnahmeregelung zur freiwilligen Chatkontrolle erneut verlängert. Damit dürfen Plattformbetreiber unverschlüsselte Inhalte ihrer Nutzer wieder automatisiert nach Hinweisen auf sexuellen Kindesmissbrauch durchsuchen und entsprechende Funde melden. Ende-zu-Ende-verschlüsselte Unterhaltungen, etwa bei WhatsApp oder Signal, sind laut dem Bericht ausdrücklich ausgenommen.</p>
+
+        <p>Die ursprünglich 2021 eingeführte Regelung war im April 2026 ausgelaufen, nachdem ein Antrag auf Fortsetzung zunächst abgelehnt worden war. Nach einem erneuten parlamentarischen Verfahren stimmten die Abgeordneten am 9. Juli doch für die Verlängerung. Befürworter sehen darin ein notwendiges Mittel zum Kinderschutz; Gegner warnen vor anlassloser Massenüberwachung und kritisieren auch das Verfahren, mit dem die Vorlage erneut zur Abstimmung kam.</p>
+
+        <p><strong>Warum lesen:</strong> Der Artikel erklärt kompakt einen aktuellen EU-Konflikt zwischen digitalem Kinderschutz, Datenschutz und dem Recht auf vertrauliche Kommunikation.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Douze morts dans un feu de forêt en Andalousie, un bilan qui dépasse celui de toute l’année 2025 en Espagne</h3>
+        <p class="byline">Le Monde · 10 juillet 2026 · <a href="https://www.lemonde.fr/international/article/2026/07/10/espagne-un-feu-de-foret-fait-douze-morts-en-andalousie-le-pays-frappe-par-une-vague-de-chaleur_6722244_3210.html">Lire l’article</a></p>
+
+        <p>Un incendie déclaré près d’Almeria, dans le sud de l’Espagne, a causé la mort de douze personnes, dont certaines ont été retrouvées dans leur véhicule. Ce seul sinistre dépasse déjà le bilan humain de l’ensemble des feux de forêt survenus en Espagne en 2025. Des habitants ont été évacués, plusieurs routes ont été coupées et des personnes souffrant de brûlures ou d’intoxication par les fumées ont dû être prises en charge.</p>
+
+        <p>Face à la propagation rapide des flammes, les autorités andalouses ont activé le deuxième niveau le plus élevé de leur plan d’urgence. Environ 150 pompiers, des camions-citernes et l’unité militaire d’urgence ont été mobilisés. Le drame intervient pendant une vague de chaleur et illustre la vulnérabilité croissante de l’Espagne, où l’allongement des épisodes caniculaires favorise des incendies plus destructeurs.</p>
+
+        <p><strong>Pourquoi lire :</strong> Un article bref mais dense pour comprendre le lien entre événements météorologiques extrêmes, gestion de crise et risque accru d’incendies en Europe du Sud.</p>
+
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>un sinistre</strong> — un événement catastrophique causant d’importants dommages humains ou matériels</li>
+          <li><strong>un camion-citerne</strong> — un véhicule équipé d’un grand réservoir, notamment utilisé pour transporter de l’eau</li>
+          <li><strong>la phase d’urgence</strong> — le niveau d’activation d’un dispositif officiel déterminant les moyens à engager face à une crise</li>
+          <li><strong>une intoxication par les fumées</strong> — une atteinte à la santé provoquée par l’inhalation de gaz ou de particules toxiques</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 「マーベル闘魂」，天空の女王「ストーム」プレイガイドを公開。画面に“風”を吹かせて挙動を操る，テクニカルなファイトスタイルが魅力</h3>
+        <p class="byline">4Gamer · 2026年7月10日 · <a href="https://www.4gamer.net/games/916/G091625/20260710001/">リンク</a></p>
+
+        <p>ソニー・インタラクティブエンタテインメントは、8月7日発売予定の対戦格闘ゲーム「MARVEL: Tōkon Fighting Souls」に登場するストームのキャラクターガイド動画を公開した。X-Menの一員であるストームは、風や雷を使った多彩な攻撃を得意とする。</p>
+
+        <p>最大の特徴は、画面全体に風を起こして技のリーチやジャンプの軌道を変えられる固有アクション「TEMPEST」だ。設置したオブジェクトや竜巻の動きも風で制御でき、必殺技の性能を高める使い方も可能だという。7月24日から26日まで実施されるオープンβテストを前に、そのテクニカルな戦い方を確認できる内容となっている。</p>
+
+        <p><strong>読む理由：</strong> 格闘ゲーム特有のシステムを紹介する文章を通じて、技の性質や操作感を説明する日本語に触れられる。</p>
+
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>固有ゲージ（こゆうゲージ）</strong> — 特定のキャラクターだけが持ち、専用能力の使用回数や強さを示す表示。</li>
+          <li><strong>設置技（せっちわざ）</strong> — 攻撃物などを画面上に配置し、時間差で効果を発生させる技。</li>
+          <li><strong>超必殺技（ちょうひっさつわざ）</strong> — ゲージなどを消費して発動する、通常より強力で演出も大きい技。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — 广播艺评：被青春欲滴的肢体勾勒的台湾痕迹</h3>
+        <p class="byline">RFI 中文 · 2026-07-08 · <a href="https://www.rfi.fr/cn/%E4%B8%93%E6%A0%8F%E6%A3%80%E7%B4%A2/%E6%96%87%E5%8C%96%E8%89%BA%E6%9C%AF/20260708-%E5%B9%BF%E6%92%AD%E8%89%BA%E8%AF%84-%E8%A2%AB%E9%9D%92%E6%98%A5%E6%AC%B2%E6%BB%B4%E7%9A%84%E8%82%A2%E4%BD%93%E5%8B%BE%E5%8B%92%E7%9A%84%E5%8F%B0%E6%B9%BE%E7%97%95%E8%BF%B9">阅读原文</a></p>
+
+        <p>这篇艺评从法国阿维尼翁表演艺术节写起，聚焦台湾君舞蹈剧场的作品《痕迹》。评论认为，作品没有刻意诉诸宏大的政治口号，而是把风声、水滴声、祈福、甜点以及骑车逛街等台湾日常经验，融入源自西方当代舞的肢体语言，让这种“舞蹈外语”逐渐带上鲜明的台湾口音。</p>
+
+        <p>文章也借舞者钟顺文兼任甜点师和舞蹈教师的经历，触及舞蹈职业的不稳定、身体青春受到高度重视以及艺术工作者必须在生计与舞台之间寻找平衡等现实。作者赞赏《痕迹》以细小动作、仪式、光影和节奏还原普通生活，在充满争论与焦虑的艺术节中留下朴素、安静而自信的空间。</p>
+
+        <p><strong>为什么读：</strong> 文章以富有画面感的中文讨论台湾在地经验如何转化为国际舞台语言，也呈现职业舞者鲜少受到关注的生存处境。</p>
+
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>肢体语言 (zhī tǐ yǔ yán)</strong> — 通过身体姿态、动作和节奏表达意义的非文字语言。</li>
+          <li><strong>编舞 (biān wǔ)</strong> — 设计舞蹈动作、结构及舞台调度的创作工作。</li>
+          <li><strong>在地性 (zài dì xìng)</strong> — 作品与特定地方的生活经验、文化及社会环境之间的联系。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      News · July 10, 2026 · Run 2026-07-10-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

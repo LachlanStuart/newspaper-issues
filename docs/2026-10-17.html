@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#222b30;--muted:#626b70;--paper:#fffdf8;--line:#dcded5;--accent:#215e64}
+*{box-sizing:border-box}
+body{margin:0;background:#f0f1eb;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:960px;margin:32px auto;padding:38px 48px;background:var(--paper)}
+header{border-top:5px solid var(--ink);border-bottom:1px solid var(--ink);padding:18px 0 22px}
+h1{font-size:3.5rem;line-height:1;margin:0 0 14px;letter-spacing:-2px}
+.dateline,.meta,nav,footer,.label{font-family:system-ui,sans-serif}
+.dateline,.meta{color:var(--muted);font-size:.85rem}
+header p{margin:12px 0 0}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin:20px 0;font-size:.9rem}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.65rem;margin:36px 0 18px;padding-bottom:9px;border-bottom:2px solid var(--ink)}
+h3{font-size:1.2rem;line-height:1.4;margin:0 0 8px}
+article{padding:18px 0;border-bottom:1px solid var(--line)}
+article p{margin:9px 0}
+.meta{margin:6px 0 12px}
+.language{margin-top:48px;border-top:5px double var(--ink)}
+.language article{padding:25px 0}
+ul{padding-left:24px}
+li{margin:7px 0}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--line);font-size:.8rem;color:var(--muted)}
+@media(max-width:640px){main{margin:0;padding:24px 20px}h1{font-size:2.8rem}body{font-size:16px}}
+@media print{body,main{background:white}main{margin:0;max-width:none;padding:0}article{break-inside:avoid}nav{display:none}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="dateline">Saturday, 17 October 2026 · Daily newspaper</div>
+<p>Today’s research reading: reliability in genomic AI, programmable biological systems, and new tools for interpreting models—followed by readings in German, French, Japanese and Chinese.</p>
+</header>
+<nav aria-label="Sections">
+<a href="#ai">AI research</a>
+<a href="#genomics">Genomics &amp; tools</a>
+<a href="#engineering">Biological engineering</a>
+<a href="#briefs">Research notices</a>
+<a href="#languages">Language practice</a>
+</nav>
+
+<section id="ai">
+<h2>AI research</h2>
+<article>
+<h3>MAI-Base-2 checkpoint data opens a scaling-law discussion</h3>
+<p>You Jiacheng reports that the MAI-Base-2 blog’s source contains intermediate-checkpoint validation losses for both its scaling ladder and large training run. A follow-up says a fit using log-loss residuals and a Huber threshold of 10<sup>−3</sup>—the classic Chinchilla Approach 3—can reproduce the fit under discussion. The supplied posts contain no numerical fit results.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2111161537171984801">Research post</a> · <a href="https://x.com/YouJiacheng/status/2111333039565656357">Method follow-up</a> · <a href="https://t.co/8FVJnyZhF3">Linked resource (shortened URL)</a></p>
+</article>
+<article>
+<h3>Copy-Paste Language Models focus on token copying</h3>
+<p>A research announcement introduces Copy-Paste Language Models, claiming better token copying improves downstream accuracy and chain-of-thought performance. A companion post connects the approach to pointer networks. The available excerpts are truncated: no paper link, implementation details or numerical results are supplied.</p>
+<p class="meta"><a href="https://x.com/SonglinYang4/status/2111316321317404824">Research announcement</a> · <a href="https://x.com/SonglinYang4/status/2111316218762367081">Pointer-network connection</a></p>
+</article>
+<article>
+<h3>TRACER combines bedside video with health records</h3>
+<p>Stanford AI Lab shares TRACER, a multimodal system intended to help clinicians understand changes in patient behavior over a hospital stay by combining bedside video and electronic health records. The supplied announcement does not describe its architecture or evaluation results.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2111171137904509129">Stanford AI Lab announcement</a> · <a href="https://t.co/pxLWMXOkl4">Technical blog (shortened URL)</a></p>
+</article>
+</section>
+
+<section id="genomics">
+<h2>Genomics &amp; research tools</h2>
+<article>
+<h3>gRely asks which variant-effect predictions deserve confidence</h3>
+<p>gRely scores the reliability of individual genomic variant-effect predictions using 1,161 features covering the variant, gene, tissue and prediction model. The supplied posts report discrimination even among small predicted effects; SHAP analyses point to chromatin context and agreement between model replicates, rather than effect size alone.</p>
+<p>A meta-model trained on Borzoi reportedly transfers to AlphaGenome and Enformer. Quantitative validation and calibration results are not supplied, leaving the strength of that transfer unassessed here.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2111274145061511467">gRely research thread</a></p>
+</article>
+<article>
+<h3>GenoCLAMP clusters motifs while aligning them</h3>
+<p>GenoCLAMP consolidates redundant genomic sequence motifs into merged matrix representations. Its greedy algorithm performs alignment during each clustering step, rather than afterward, keeping cluster scores tied to the final alignments. The supplied thread explains the method but gives no quantitative benchmarks.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2111273772091318767">GenoCLAMP research thread</a></p>
+</article>
+<article>
+<h3>DIPLER uses group-specific k-mers to recover loci</h3>
+<p>DIPLER identifies group-specific k-mers in whole-genome sequencing data, then assembles PacBio reads enriched for those markers. Filtering incidental shared k-mers and weakly supported reads is intended to recover a full locus directly from sequencing data. The supplied account does not identify the organism or locus, or report comparative performance.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2111273141267988573">DIPLER research thread</a></p>
+</article>
+<article>
+<h3>TF-MoDISco optimization reportedly merged</h3>
+<p>A new post reports that the optimized TF-MoDISco implementation has been merged, adding reported memory savings of 2–3× to previously reported speed improvements of 5–15×. That could matter for routine regulatory-model interpretation, but the truncated post does not establish a release version or installation details.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2111221505954927062">Software update</a></p>
+</article>
+<article>
+<h3>CLEAN DB offers enzyme-function predictions for over 55 million sequences</h3>
+<p>CLEAN DB provides searchable, exportable records with confidence-scored enzyme classifications, UniProt metadata and Rhea-linked reactions. The supplied digest reports approximately 95.95% precision for complete four-level EC assignments against curated Swiss-Prot annotations, with multifunction enzymes remaining harder.</p>
+<p>These are predicted annotations, not experimentally established functions. Additional mutation heatmaps use ESM-2 likelihood scores, indicating evolutionary compatibility rather than directly measured activity.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2111066357492310395">CLEAN DB research digest</a></p>
+</article>
+</section>
+
+<section id="engineering">
+<h2>Biological engineering &amp; molecular mechanisms</h2>
+<article>
+<h3>RNAverse brings sequence, structure and function together for RNA design</h3>
+<p>RNAverse combines large-scale RNA sequence pretraining with experimental structure-probing profiles and functional annotations. The supplied digest reports experimental activity in all 20 tested snoRNA designs and ligand-dependent responses in all 20 tested aptazymes, alongside aptamer-binding and translation-control experiments.</p>
+<p>The design modes have different requirements: scaffold inpainting supports zero-shot design, while a new aptamer class required fine-tuning and UTR optimization used additional predictors and search. These are reported preclinical results, not evidence of therapeutic efficacy.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2111066205771723127">RNAverse research digest</a></p>
+</article>
+<article>
+<h3>unZipro adapts inverse folding to crop genome editors</h3>
+<p>unZipro pairs a compact structure-based inverse-folding model with homolog-guided meta-learning to prioritize functional variants without task-specific experimental labels. The digest reports improved ProteinGym correlation and experimental gains in plant base editing, nuclease editing, prime editing and transcription-factor activity.</p>
+<p>Screening requirements vary by task; a headline of roughly ten candidates should not be treated as universal. Off-target assessments apply only to the tested systems and assays.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2111066611113463888">unZipro research digest</a></p>
+</article>
+<article>
+<h3>Separating enzyme activity from protein stability</h3>
+<p>A dual-graph framework combines a graph-based stability predictor with evolutionary fitness models to find variants whose activity effects cannot be explained by stability alone. The digest reports better recovery of stable-but-inactive variants and comparable performance from interpretable coevolution models and large protein language models.</p>
+<p>A second graph maps possible allosteric routes in proteins including glucokinase and PTEN. Those routes remain mechanistic hypotheses, not established causal pathways.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2111066469807333638">Dual-graph research digest</a></p>
+</article>
+<article>
+<h3>Protein design looks beyond isolated binders</h3>
+<p>A review argues for designing protein networks that amplify signals, make decisions and control cellular behavior. Examples include receptor clustering, sequence-specific DNA recognition, tunable dissociation and phosphorylation-triggered switches. Predictable network design still faces obstacles in conformational dynamics, kinetics, training data and quantitative functional validation.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2111066078722040187">Review digest</a></p>
+</article>
+<article>
+<h3>Fold’EM discussion raises an antibody-evaluation warning</h3>
+<p>Diego del Alamo describes Fold’EM as using electron-microscopy particle images directly to guide diffusion and suggests a possible extension to antibody sequence–structure co-design. He also doubts accurate sequence recovery and questions whether BoltzGen is the appropriate model.</p>
+<p>The concrete evaluation concern: global structural similarity metrics may miss heavy/light-chain misassignment at low resolution. The antibody-design extension is speculative, not a demonstrated capability.</p>
+<p class="meta"><a href="https://x.com/DdelAlamo/status/2111056451049345100">Fold’EM discussion</a></p>
+</article>
+</section>
+
+<section id="briefs">
+<h2>Research notices</h2>
+<article>
+<h3>Youthful gene expression without losing cell identity</h3>
+<p>A Nature Aging publication announcement describes a study seeking factors that shift old cells toward younger gene-expression patterns while preserving cellular identity. The excerpt supplies no factors, experimental systems or outcomes; it is a publication notice, not evidence of demonstrated rejuvenation.</p>
+<p class="meta"><a href="https://x.com/cutleraging/status/2111317638467190932">Publication announcement</a></p>
+</article>
+<article>
+<h3>A terminology proposal for cell types</h3>
+<p>Nature Reviews Genetics announces “Towards a rational terminology for cell types,” a topic relevant to consistent annotation and comparison of cell atlases. The supplied post gives only the title, not the proposed terminology.</p>
+<p class="meta"><a href="https://x.com/NatureRevGenet/status/2111103998841475561">Publication announcement</a></p>
+</article>
+</section>
+
+<section id="languages" class="language">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — AMLA-Leitlinien: Kritik an automatisiertem Geldwäsche-Profiling</h3>
+<p class="meta">heise online · 16.10.2026 · <a href="https://www.heise.de/news/Datenschuetzer-warnen-vor-Ueberwachungsstaat-durch-Geldwaesche-Algorithmen-11491362.html">Artikel lesen</a></p>
+<p>Wie weit darf die automatisierte Kontrolle von Bankkunden gehen? Die niederländische Bürgerrechtsorganisation Privacy First kritisiert Entwürfe der europäischen Geldwäschebehörde AMLA. Diese regen an, Algorithmen, maschinelles Lernen und KI zur Erkennung von Risiken zu prüfen. Zwar sind menschliche Aufsicht und Einspruchsmöglichkeiten vorgesehen; die Datenschützer befürchten dennoch eine weitreichende Überwachung durch private Unternehmen und fordern ein Verbot automatisierter Risikoprofile.</p>
+<p>Im Mittelpunkt steht ein grundlegender Zielkonflikt: Empfindlichere Systeme können mehr verdächtige Vorgänge erkennen, ziehen aber auch mehr unbescholtene Kunden in Kontrollen hinein. Der Artikel schildert Erfahrungen aus den Niederlanden, wo Banken hohe Summen und viel Personal für die Geldwäscheüberwachung einsetzen, deren tatsächlicher Nutzen laut Rechnungshof jedoch nur unzureichend bekannt ist. Hinzu kommen Hinweise auf diskriminierende Kontrollen, etwa gegenüber Menschen mit ausländisch klingenden Nachnamen und gegenüber Moscheen.</p>
+<p>Die Debatte betrifft die praktische Umsetzung der EU-Geldwäsche-Verordnung, die ab Juli 2027 angewendet werden soll. Der Beitrag zeigt, warum formale Schutzvorkehrungen allein die Kritiker nicht überzeugen: Aus Angst vor Strafen könnten Banken Risiken vorsorglich zu hoch einstufen und Kunden wiederholt zu ihren Transaktionen befragen.</p>
+<p><strong>Warum lesen:</strong> Der Artikel macht an einem konkreten europäischen Regulierungsprojekt verständlich, wie automatisierte Sicherheitskontrollen mit Datenschutz und Gleichbehandlung in Konflikt geraten können.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Des milliards de simulations de collision : Mistral s’associe au CERN pour créer un modèle d’IA de pointe pour la physique des particules</h3>
+<p class="meta">Numerama · 16 octobre 2026 · <a href="https://www.numerama.com/sciences/2354527-des-milliards-de-simulations-de-collision-mistral-sassocie-au-cern-pour-creer-un-modele-dia-de-pointe-pour-la-physique-des-particules.html">Lire l’article</a></p>
+<p>Mistral AI et le CERN ont signé le 15 octobre une déclaration d’intention pour développer un modèle d’intelligence artificielle consacré à la physique des particules. Baptisé Flare, ce projet doit s’appuyer sur des milliards de collisions simulées pour apprendre à interpréter les phénomènes étudiés au Grand collisionneur de hadrons, le LHC. Numerama souligne toutefois qu’aucun budget ni calendrier n’a été annoncé : il s’agit d’une ambition de recherche, pas encore d’un outil opérationnel.</p>
+<p>Le modèle aurait plusieurs fonctions : reconstruire les collisions à partir des signaux enregistrés, reconnaître les particules, détecter des événements inattendus et contribuer à l’évaluation de futurs détecteurs. Aujourd’hui, ces opérations mobilisent une succession d’algorithmes spécialisés, dont certains utilisent déjà l’IA. L’enjeu est donc moins d’introduire cette technologie au CERN que de réunir une partie du traitement dans un modèle commun, capable de prendre en charge des volumes de données plus importants.</p>
+<p>Cette coopération s’inscrit dans la préparation du LHC à haute luminosité, une version améliorée de l’accélérateur attendue vers 2030. Selon l’article, elle doit multiplier par dix le nombre de collisions, ce qui renforcera les besoins d’analyse. Le partenariat offre ainsi un exemple concret de la rencontre entre une entreprise française d’IA et une grande infrastructure scientifique européenne, tout en laissant ouvertes les questions de mise en œuvre.</p>
+<p><strong>Pourquoi lire :</strong> Pour comprendre ce que l’IA pourrait apporter à la recherche fondamentale, au-delà des assistants conversationnels et des annonces commerciales.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>modèle de fondation</strong> — modèle préentraîné sur de vastes ensembles de données, pouvant servir de base à plusieurs tâches spécialisées.</li>
+<li><strong>collisionneur</strong> — installation qui provoque des collisions entre des faisceaux de particules afin d’étudier la matière et ses interactions.</li>
+<li><strong>haute luminosité</strong> — en physique des accélérateurs, caractéristique permettant d’augmenter le nombre de collisions et donc la quantité de données expérimentales.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 『となりのトトロ』― “日本がきらい”だった宮崎駿の転換点</h3>
+<p class="meta">nippon.com · 2026-10-16 · <a href="https://www.nippon.com/ja/japan-topics/b21003/">記事を読む</a></p>
+<p>『となりのトトロ』の森は、宮崎駿のどのような自然観を映しているのか。この記事は、作品の成立と公開後の評価を振り返りながら、その創作を支えた「照葉樹林文化論」に目を向ける。企画段階では題材の地味さが障害となり、公開時の興行も大ヒットとはいかなかった作品が、映画賞やテレビ放送、関連グッズを通じて広く親しまれるようになった過程も紹介する。</p>
+<p>中心となるのは、日本の生活文化を東アジアの森林地帯に広がる文化と結び付けて考える学説と、宮崎との出会いだ。記事は中尾佐助の著書についての宮崎自身の文章を取り上げ、日本の歴史や国家への抵抗感を抱いていた彼が、国境を超えた文化のつながりに自分のルーツを見いだしたと読み解く。ただし、照葉樹林文化論には批判もあり、定説にはなっていないことも明記している。</p>
+<p>さらに、この関心が『もののけ姫』の森や人物設定にもつながったことを解説する。親しみやすいキャラクターの背後にある、自然・歴史・文化の捉え方を知ることで、二つの作品を別の角度から見直せる読み物になっている。</p>
+<p><strong>読む理由：</strong> 身近なジブリ作品を入口に、日本文化の起源をめぐる議論と宮崎駿の思想の変化を日本語で読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>照葉樹林（しょうようじゅりん）</strong> — カシやシイなど、表面につやのある葉を持つ常緑広葉樹を中心とする森林。</li>
+<li><strong>文化人類学（ぶんかじんるいがく）</strong> — 人間の暮らしや習慣、信仰などを調べ、文化の多様性や共通性を考える学問。</li>
+<li><strong>焼畑農業（やきはたのうぎょう）</strong> — 草木を焼いた土地で、その灰を利用して作物を育てる農業。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 《全面战争：幕府将军2》完全版差评如潮，世嘉回滚旧版本</h3>
+<p class="meta">机核 · 12 小时前（原页显示） · <a href="https://www.gcores.com/articles/221029">https://www.gcores.com/articles/221029</a></p>
+<p>据机核报道，《全面战争：幕府将军2》完全版推出后遭遇大量负面评价，玩家的不满包括对其使用“劣质AI”的指责。报道所列的国区与全球好评率分别仅为9%和15%。世嘉随后暂时下架完全版，并恢复原始版本的销售；已持有游戏的玩家在调查期间仍可继续游玩。</p>
+<p>世嘉与开发商 Creative Assembly 承认，新版本既没有满足玩家期待，也没有达到团队自身的质量标准，目前正在排查问题并推进改善。这则短讯呈现了玩家评价如何促使发行商调整销售安排，也提醒读者区分玩家对AI的指责与官方已经确认的质量问题。</p>
+<p><strong>为什么读：</strong> 篇幅简短，适合通过一次游戏版本争议，学习中文游戏媒体描述玩家反馈与厂商回应的方式。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>回滚 (huígǔn)</strong> — 将软件或服务恢复到先前版本；本文标题指恢复旧版本的销售安排。</li>
+<li><strong>国区 (guóqū)</strong> — 游戏平台按国家或地区划分的商店区域，此处指中国区。</li>
+<li><strong>完全版 (wánquánbǎn)</strong> — 游戏发行时使用的版本名称，通常强调内容整合或补充，但具体包含哪些内容须看官方说明。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X posts and digests; linked papers and resources were not independently inspected, and shortened links were not expanded. Claims and limitations reflect that material. No source failures were reported.</p>
+<p>News · 17 October 2026 · Edition 2026-10-17-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

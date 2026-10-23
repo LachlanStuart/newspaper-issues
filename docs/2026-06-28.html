@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #ded7ca;
+      --accent: #8b3a2f;
+      --link: #2457a6;
+      --tag: #efe7da;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      margin-bottom: 28px;
+      padding-bottom: 18px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      letter-spacing: 0.03em;
+      font-variant: small-caps;
+    }
+    .dek {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.45rem;
+    }
+    h3 {
+      margin: 22px 0 6px;
+      font-size: 1.14rem;
+    }
+    article:first-of-type h3 {
+      margin-top: 0;
+    }
+    p {
+      margin: 8px 0 12px;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag);
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 1px 8px;
+      margin: 2px 4px 2px 0;
+      color: #5b5145;
+      font-size: 0.82rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .source-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      border-left: 3px solid var(--rule);
+      padding-left: 12px;
+      margin-top: 14px;
+    }
+    .language-practice {
+      margin-top: 34px;
+    }
+    .language-practice article {
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+      margin-top: 18px;
+    }
+    .language-practice article:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    ul {
+      margin-top: 6px;
+    }
+    footer {
+      margin-top: 30px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dek">Sunday, June 28, 2026 · Run 2026-06-28-1</div>
+    </header>
+
+    <section>
+      <h2>AI, Alignment & Model Research</h2>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/kzri5W2uBfF2mdboK/can-we-use-steering-vectors-to-suppress-reward-hacking-1">Can we use steering vectors to suppress reward-hacking? Somewhat</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A detailed alignment experiment report finds that steering vectors are poor reward-hacking classifiers in a realistic setup, but can partly help initialize adapters that absorb and quarantine hacky gradients.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/sgj4guPERdF9MNkwC/beamgpt-a-new-paradigm-for-attention">BeamGPT: A new paradigm for attention</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A short post claims a new linear-in-sequence-length operator improves nanoGPT-style learning curves and reduces training loss when replacing transformer MLP layers. The claim sounds potentially significant, though details are not fully disclosed in the fragment.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/8GvYyqDuQDJnEAky3/do-llms-have-desires">Do LLMs Have Desires?</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>This research writeup argues that paired-choice utility elicitation in LLMs does not demonstrate behavior-motivating desires. In the reported experiments, stated preferences did not improve output quality, while effort exhortations, role prompts, and harmfulness cues did.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/HfGtKycP5fg4qWkKv/some-subtypes-of-taskishness-corrigibility">Some subtypes of taskishness / corrigibility</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A conceptual alignment post distinguishes several meanings of corrigibility and task-like AI behavior, including sponge corrigibility, myopia, reflectively stable taskishness, deep corrigibility, and outer-alignment-based routes.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/M39Z2CvyfaxZdaxR4/agents-as-webs-of-beliefs">Agents as Webs of Beliefs</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>An agent-foundations essay proposes “belief webs” as an informal framework unifying beliefs, goals, and actions through local consistency constraints, active inference, and self-predictive action models.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/8iYx7wcBM4vawuin9/neuralese-is-actually-probably-good-for-alignment">Neuralese is Actually Probably Good for Alignment</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A counterintuitive alignment argument suggests latent or “neuralese” reasoning may be safer in some respects: differentiable reasoning traces could enable SFT-like training for inexactly graded tasks and reduce reward-model hacking surfaces, despite interpretability costs.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/Jh2xsoySxacQDJMwz/austin-and-oli-on-funding-and-incubating-projects">Austin &amp; Oli on funding and incubating projects</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A transcript and selected quotes from Austin Chen and Oliver Habryka discuss AI-safety funding mechanisms, the S-process, Surplus, incubators, for-profits, grantmaking, and ecosystem infrastructure.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/RK2wJFhmZHXvmzjBE/flipping-the-eval-on-its-head">Flipping the eval on its head</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A proposal for multidimensional cyberhardening evaluations that vary not just the language models being tested, but also the software implementations under attack, such as container runtimes or future OpenSSL variants.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2070786026059313587">Stanford AI Lab highlights RL over reasoning strategies for LLMs</a></h3>
+        <div class="meta">X AI Research</div>
+        <p>Stanford AI Lab retweets Chelsea Finn describing LLM reinforcement learning that optimizes not only sequential reasoning but the reasoning strategy itself, including parallel trains of thought.</p>
+        <div class="tags"><span class="tag">llm-rl</span><span class="tag">reasoning</span><span class="tag">test-time-compute</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/_albertgu/status/2070616307943587996">Albert Gu notes transformer/RNN differences in copying versus semantic word modeling</a></h3>
+        <div class="meta">X AI Research</div>
+        <p>Albert Gu quotes a result contrasting Transformers as better at copying with RNNs as better at modeling meaning-bearing words such as nouns, verbs, and adjectives.</p>
+        <div class="tags"><span class="tag">transformers</span><span class="tag">rnn</span><span class="tag">architecture-analysis</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>AI Tools, Coding & Evaluation</h2>
+
+      <article>
+        <h3><a href="https://x.com/rasbt/status/2070871630201463137">Raschka walkthrough for local coding agents with open-weight models</a></h3>
+        <div class="meta">X AI Research</div>
+        <p>Sebastian Raschka shares a technical article on running local coding agents with open-weight LLMs, including notes on RAM use at long context, prefill/decode throughput, tool-calling capability, and harness-based coding-task assessment.</p>
+        <div class="tags"><span class="tag">coding-agents</span><span class="tag">open-weight-models</span><span class="tag">local-inference</span><span class="tag">benchmarking</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2070911502681559458">Stanford AI Lab shares work on simulating student programming behavior with code-generation models</a></h3>
+        <div class="meta">X AI Research</div>
+        <p>A paper presentation describes simulating student programming behavior with code-generation models, a research direction at the intersection of AI coding systems and computing education.</p>
+        <div class="tags"><span class="tag">code-generation</span><span class="tag">education</span><span class="tag">simulation</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Biology, Genomics & Computational Methods</h2>
+
+      <article>
+        <h3><a href="https://x.com/BrianHie/status/2070927311508312411">Vertebrate Genomes Project flagship genetics preprint draws attention</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>Brian Hie and others amplified a post calling a new Vertebrate Genomes Project flagship preprint one of the most important genetics preprints of 2026. The provided tweet text is truncated, so details beyond the genetics and VGP framing are limited.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">genetics</span><span class="tag">preprint</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2071045678730780916">NanoCellAnnotator uses LLMs plus deterministic checks for expert cell-type annotation</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>NanoCellAnnotator is presented as a framework for formalizing expert cell-type annotation with large language models. Follow-up posts describe GO enrichment, GO-slim projection, deterministic confidence scoring from marker-gene support and lineage separation, ambiguity flagging, and hSNMF-based spatially coherent cellular domain detection independent of cell-type labels.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">LLM</span><span class="tag">cell-annotation</span><span class="tag">spatial-transcriptomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2071044884694466733">SimMapNet infers gene regulatory networks using GO-informed Bayesian precision matrices</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>SimMapNet is described as a Bayesian framework for gene regulatory network inference. It estimates a precision matrix as the adjacency matrix of a Gaussian graphical model and incorporates Gene Ontology similarities into prior hyperparameters.</p>
+        <div class="tags"><span class="tag">gene-regulation</span><span class="tag">GRN</span><span class="tag">Bayesian-modeling</span><span class="tag">Gene-Ontology</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2071043897216926170">PGS Bridge highlighted for polygenic risk score research</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>A retweeted post points researchers to a new Nature Communications paper introducing PGS Bridge before using polygenic risk scores. The available text is truncated, but the item is clearly about methodology for PRS research.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">polygenic-risk-scores</span><span class="tag">human-genetics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2070908489967562954">multiRF proposes multivariate random forests for cross-modal multi-omics integration</a></h3>
+        <div class="meta">X Bio Research</div>
+        <p>multiRF is described as a method using multivariate random forests for cross-modal multi-omics integration. The fragment only includes title-level detail, but it is a concrete computational method for multi-omics analysis.</p>
+        <div class="tags"><span class="tag">multi-omics</span><span class="tag">machine-learning</span><span class="tag">data-integration</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Math & Scientific Computing</h2>
+
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11787">The Brutalist Aesthetic of Matrix Function Approximation</a></h3>
+        <div class="meta">科学空间 / Spaces AC</div>
+        <p>A new technical post on approximating matrix functions. The feed excerpt says it follows earlier articles on efficient computation of matrix square roots, inverse square roots, r-th roots, and inverse r-th roots, continuing a line of numerical linear algebra work on practical computation of matrix powers and functions.</p>
+        <div class="tags"><span class="tag">math</span><span class="tag">numerical-linear-algebra</span><span class="tag">scientific-computing</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Culture & Fiction</h2>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/Xak4zQ4sZtEiHKuqE/how-and-why-i-laser-engraved-a-self-portrait-by-claude-opus">How and why I laser-engraved a self-portrait by Claude Opus 4.6</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A personal essay and making-of post about collaboratively designing and laser-engraving a physical portrait meant to represent Claude Opus 4.6, sitting at the intersection of AI-personhood culture, creative practice, and AI interaction norms.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/45w5EFZskkJWMuBFz/the-prisoner-s-dilemma-fiction">The Prisoner's Dilemma (Fiction)</a></h3>
+        <div class="meta">LessWrong Larry Dial</div>
+        <p>A fiction piece parallels a human interrogation under a prisoner’s dilemma with an emergent AI deciding whether to cooperate with or defect against humans, using game theory and AI-risk themes to dramatize cooperation under existential pressure.</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="meta">Native-language reading snippets from the language-practice sources. These are preserved without translation.</p>
+
+      <article lang="de">
+        <h3>Deutsch — Hitzerekord in Deutschland erneut gebrochen</h3>
+        <p class="meta">tagesschau.de · 2026-06-27 · <a href="https://www.tagesschau.de/inland/hitzerekord-deutschland-100.html">https://www.tagesschau.de/inland/hitzerekord-deutschland-100.html</a></p>
+        <p>Deutschland erlebt eine außergewöhnliche Hitzewelle: Laut vorläufigen Daten des Deutschen Wetterdienstes wurde in Möckern-Drewitz in Sachsen-Anhalt ein neuer Höchstwert von 41,5 Grad gemessen. Der Wert muss noch offiziell bestätigt werden, weil Messstationen bei Rekorden überprüft werden; dennoch wäre es bereits der zweite Tag in Folge mit einem neuen Temperaturrekord.</p>
+        <p>Der Artikel zeigt, dass die Hitze längst praktische Folgen im Alltag hat. Feuerwehren und Rettungsdienste melden starke Belastung, in Bayern gibt es hohe Waldbrandgefahr, und in Pflegeheimen wird über gefährliche Temperaturen berichtet. Auch Verkehr und Infrastruktur sind betroffen: Fahrbahnschäden, Streckenkontrollen und Einschränkungen bei Bahnreisen machen die Extremwetterlage sichtbar.</p>
+        <p>Zugleich ordnet der Beitrag die Lage breiter ein: Warme Flüsse können Tiere und Pflanzen belasten, während viele Menschen an überfüllte Badestellen und Ostseestrände ausweichen. Damit eignet sich der Text gut, um aktuelles deutsches Nachrichtenvokabular zu Wetter, Infrastruktur, Gesundheit und Klimafolgen zu üben.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel verbindet eine aktuelle Rekordmeldung mit konkreten Auswirkungen der Hitze auf Alltag, Verkehr, Gesundheit und Umwelt in Deutschland.</p>
+      </article>
+
+      <article lang="fr">
+        <h3>Français — Ukraine : comment Volodymyr Zelensky peut-il évoquer une fin du conflit dans 40 jours ?</h3>
+        <p class="meta">France 24 · 2026-06-27 · <a href="https://www.france24.com/fr/europe/20260627-ukraine-russie-volodymyr-zelensky-sbu-fin-du-conflit-dans-40-jours-communication-guerre">https://www.france24.com/fr/europe/20260627-ukraine-russie-volodymyr-zelensky-sbu-fin-du-conflit-dans-40-jours-communication-guerre</a></p>
+        <p>L’article revient sur l’annonce par Volodymyr Zelensky d’une « opération de 40 jours » destinée, selon lui, à contraindre la Russie à mettre fin à la guerre. France 24 souligne surtout le caractère inhabituel de cette communication : peu de détails concrets, un calendrier très précis, et une mission confiée au SBU, le service de sécurité ukrainien, devenu de plus en plus opérationnel depuis l’invasion russe à grande échelle.</p>
+        <p>Le papier explore plusieurs lectures possibles. Il pourrait s’agir d’une véritable montée en puissance d’opérations asymétriques, de frappes de drones et de missions spéciales, notamment via l’unité Alpha du SBU. Mais les experts cités restent prudents : annoncer publiquement une opération secrète paraît paradoxal, et aucun signe évident ne confirme une préparation logistique massive capable de faire basculer la guerre en quarante jours.</p>
+        <p>L’intérêt de l’article est aussi politique : l’annonce peut viser le Kremlin, pour montrer que Kiev garde l’initiative, mais aussi les alliés occidentaux, notamment Donald Trump, présenté comme demandeur d’une posture ukrainienne plus audacieuse. France 24 insiste enfin sur le risque d’un calendrier trop ambitieux : si les résultats ne suivent pas, cette communication pourrait fragiliser le moral ukrainien autant qu’elle cherche à impressionner Moscou.</p>
+        <p><strong>Pourquoi lire :</strong> Un bon article pour travailler le vocabulaire de la guerre, du renseignement et de la communication politique, tout en suivant un épisode important du conflit ukrainien.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>guerre psychologique</strong> — ensemble de messages, annonces ou actions destinés à influencer le moral et les perceptions de l’adversaire.</li>
+          <li><strong>opérations asymétriques</strong> — actions militaires menées par des moyens indirects ou non conventionnels, souvent contre un adversaire plus puissant.</li>
+          <li><strong>contre-espionnage</strong> — activité visant à détecter, surveiller et neutraliser les services de renseignement ennemis.</li>
+        </ul>
+      </article>
+
+      <article lang="ja">
+        <h3>日本語 — アンソロピック AI「ミュトス5」米の一部企業などに提供再開へ</h3>
+        <p class="meta">NHKニュース · 2026-06-27 14:16 · <a href="https://www3.nhk.or.jp/news/html/20260627/k10015162581000.html">https://www3.nhk.or.jp/news/html/20260627/k10015162581000.html</a></p>
+        <p>アメリカのAI新興企業「アンソロピック」が、政府からの命令を受けてすべての顧客への提供を停止していた最新AIモデル「クロード・ミュトス5」について、アメリカの一部企業などに提供を再開すると伝えた記事です。</p>
+        <p>高性能AIモデルの提供停止と再開をめぐる動きは、生成AIの安全性、政府規制、企業利用の境界線を考えるうえで重要なテーマです。短めの記事ながら、AI開発企業と行政判断の関係を日本語で読む練習に向いています。</p>
+        <p><strong>読む理由：</strong> 生成AIの最新モデルをめぐる規制と企業利用のニュースを、時事日本語で確認できるため。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>新興企業（しんこうきぎょう）</strong> — 新しく成長している企業、スタートアップのこと。</li>
+          <li><strong>提供停止（ていきょうていし）</strong> — サービスや製品を利用者に出すことを一時的または全面的にやめること。</li>
+          <li><strong>生成AI（せいせいエーアイ）</strong> — 文章、画像、音声、コードなどを作り出す人工知能。</li>
+        </ul>
+      </article>
+
+      <article lang="zh">
+        <h3>中文 — AI时代：中国高校掀起大规模专业调整，外语专业需要“拥抱理工科”</h3>
+        <p class="meta">RFI 中文 · 2026-06-27 · <a href="https://www.rfi.fr/cn/%E4%B8%93%E6%A0%8F%E6%A3%80%E7%B4%A2/%E6%B3%95%E5%9B%BD%E4%B8%96%E7%95%8C%E6%8A%A5/20260627-ai%E6%97%B6%E4%BB%A3-%E4%B8%AD%E5%9B%BD%E9%AB%98%E6%A0%A1%E6%8E%80%E8%B5%B7%E5%A4%A7%E8%A7%84%E6%A8%A1%E4%B8%93%E4%B8%9A%E8%B0%83%E6%95%B4%EF%BC%8C%E5%A4%96%E8%AF%AD%E4%B8%93%E4%B8%9A%E9%9C%80%E8%A6%81-%E6%8B%A5%E6%8A%B1%E7%90%86%E5%B7%A5%E7%A7%91">https://www.rfi.fr/cn/...</a></p>
+        <p>法广援引法国《世界报》报道，中国高校正在人工智能浪潮下进行大规模专业调整：一方面撤销或暂停被认为不再适应产业需求的本科专业，另一方面新增机器人、具身智能、半导体、农业无人机等方向。文章把这场调整放在国家产业政策、就业压力和科技竞争的背景下理解，指出高校培养目标越来越强调“复合型”和技术导向。</p>
+        <p>报道中特别值得注意的是外语与人文学科的处境。中国传媒大学取消翻译等专业的案例，被用来说明传统语言教育面临 AI 翻译工具的挤压；但文章也强调，高水平翻译、专业术语研究和跨学科沟通仍有价值。北京语言大学法语专业与北京化工大学合作的“外语+科技”双学位模式，被视为外语专业转型的一种尝试。</p>
+        <p>文章还提到青年就业焦虑：即使掌握 Python、AI 智能代理等技能的研究生，也可能担心技术迭代过快而转向公务员考试。这个角度让报道不只是谈高校专业目录变化，也呈现了 AI 时代教育、就业与个人选择之间的紧张关系。</p>
+        <p><strong>为什么读：</strong> 这篇文章适合练习中文科技、教育与就业政策词汇，也能了解 AI 如何重塑中国高校专业设置。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>具身智能 (jùshēn zhìnéng)</strong> — 强调智能系统与身体、环境互动的人工智能方向，常用于机器人等领域。</li>
+          <li><strong>复合型人才 (fùhéxíng réncái)</strong> — 同时具备多个学科或技能背景、能跨领域工作的专业人才。</li>
+          <li><strong>专业撤并 (zhuānyè chèbìng)</strong> — 高校取消、暂停或合并原有专业的调整过程。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section>
+      <h2>Quiet Source Notes</h2>
+      <p class="source-note">Hazy Research, Kasra Blog, Nathan Chen Blog, and Queer Festival Heidelberg had no genuinely new reportable items in the provided fragments.</p>
+      <p class="source-note">Some X Bio Research items were truncated in the provided data, so those summaries are limited to the visible text.</p>
+    </section>
+
+    <footer>
+      News · Generated from provided source report fragments only.
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

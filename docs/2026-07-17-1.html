@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #20201d;
+      --muted: #67665f;
+      --paper: #faf8f2;
+      --card: #fffefb;
+      --rule: #d8d2c5;
+      --accent: #8a2d24;
+      --link: #245b78;
+      --tag: #eee9df;
+    }
+    * { box-sizing: border-box; }
+    html { background: #e9e5dc; }
+    body {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 2rem clamp(1rem, 4vw, 3.5rem) 4rem;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    header {
+      padding: 1.5rem 0 1.25rem;
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 3px double var(--ink);
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    main { display: block; }
+    section { margin-top: 3rem; }
+    .section-heading {
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.8rem;
+      line-height: 1.2;
+    }
+    .section-deck {
+      max-width: 760px;
+      margin: -0.55rem 0 1.5rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .lead-grid,
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem;
+    }
+    article {
+      break-inside: avoid;
+      padding: 1.15rem 1.25rem;
+      border: 1px solid var(--rule);
+      background: var(--card);
+    }
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.2rem;
+      line-height: 1.25;
+    }
+    article p { margin: 0.55rem 0; }
+    article a,
+    .source-line a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+    }
+    article a:hover { color: var(--accent); }
+    .read-link {
+      display: inline-block;
+      margin-top: 0.4rem;
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 650;
+    }
+    .tags {
+      margin-top: 0.8rem;
+      font-family: system-ui, sans-serif;
+      font-size: 0.74rem;
+      line-height: 1.8;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 0.22rem 0.22rem 0;
+      padding: 0.08rem 0.45rem;
+      border-radius: 999px;
+      background: var(--tag);
+      color: #555149;
+    }
+    .language-practice {
+      margin-top: 4rem;
+      padding-top: 1.5rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    .language-practice > .section-deck {
+      margin-top: 0.4rem;
+    }
+    .language-entry {
+      margin-top: 1.5rem;
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+    }
+    .language-entry h3 {
+      font-size: 1.35rem;
+    }
+    .source-line {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+    .language-entry ul {
+      margin: 0.5rem 0 0;
+      padding-left: 1.25rem;
+    }
+    .editorial-note {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer {
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 3px double var(--ink);
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 760px) {
+      body { padding: 1rem 0.85rem 2.5rem; }
+      .lead-grid, .story-grid { grid-template-columns: 1fr; }
+      article { padding: 1rem; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>News</h1>
+    <p>Friday, July 17, 2026 · Research &amp; Technology Edition</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="ai-heading">
+      <h2 class="section-heading" id="ai-heading">AI Research &amp; Engineering</h2>
+      <p class="section-deck">Long-context architectures, efficient inference, model evaluation, and mathematical methods.</p>
+
+      <div class="story-grid">
+        <article>
+          <h3>K3 and DeepSeek cross the one-million-token context barrier</h3>
+          <p>K3 and DeepSeek’s sparse-attention system have reportedly both reached context lengths of one million tokens, sharpening the question of which architecture can scale further. Architectural details were not available in the supplied thread.</p>
+          <a class="read-link" href="https://x.com/SonglinYang4/status/2077985527144530129">View the research thread →</a>
+          <div class="tags">
+            <span class="tag">long context</span>
+            <span class="tag">sparse attention</span>
+            <span class="tag">scaling</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>mlx-vlm 0.6.5 brings 1-bit inference and quantized-cache batching</h3>
+          <p>The MLX inference toolkit adds an optimized 1-bit decoding kernel, prefix caching compatible with KV-cache quantization during continuous batching, and non-blocking batch prefill. The release also integrates several text-only model families, adds SAM3 geometry prompts, and includes multimodal-model fixes.</p>
+          <a class="read-link" href="https://x.com/Prince_Canuma/status/2077879591146758627">See the release announcement →</a>
+          <div class="tags">
+            <span class="tag">inference</span>
+            <span class="tag">quantization</span>
+            <span class="tag">KV cache</span>
+            <span class="tag">MLX</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>CertJudge asks how model-based judges can be certified</h3>
+          <p>Stanford AI Lab highlights CertJudge, a research effort focused on the reliability of model-based evaluators: if an LLM is judging other systems, how can the judge itself be assessed or certified? Methodological details were not visible in the supplied post.</p>
+          <a class="read-link" href="https://x.com/StanfordAILab/status/2077801487292416092">View the announcement →</a>
+          <div class="tags">
+            <span class="tag">evaluation</span>
+            <span class="tag">LLM as a judge</span>
+            <span class="tag">reliability</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>A similarity measure derived from the rearrangement inequality</h3>
+          <p>Jianlin Su shares a technical note proposing a similarity measure based on the rearrangement inequality. The available source does not describe the construction or its experimental evaluation, but the method may be relevant to representation comparison and machine-learning similarity metrics.</p>
+          <a class="read-link" href="https://x.com/Jianlin_S/status/2077682266462105815">Open the technical note thread →</a>
+          <div class="tags">
+            <span class="tag">similarity metrics</span>
+            <span class="tag">mathematics</span>
+            <span class="tag">methods</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="drug-heading">
+      <h2 class="section-heading" id="drug-heading">AI for Drug Discovery</h2>
+      <p class="section-deck">Generative chemistry, macrocycle modeling, and molecular representation learning.</p>
+
+      <div class="story-grid">
+        <article>
+          <h3>conDitar-dev generates pocket-conditioned molecules while optimizing developability</h3>
+          <p>conDitar-dev combines a pretrained multiscale protein-pocket encoder, 3D ligand diffusion, and training-free optimization along the diffusion trajectory. Its aim is to improve ADMET properties without substantially sacrificing predicted binding affinity.</p>
+          <p>On a curated benchmark of 72 human targets, the underlying generator averaged a Vina Dock score of −8.85 kcal/mol. The study also reports experimental hits: two PD-L1 ligands with low-micromolar SPR affinities and selective CSF1R inhibitors reaching 200 nM IC<sub>50</sub>.</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2077764438103630140">Read the research summary →</a>
+          <div class="tags">
+            <span class="tag">molecular generation</span>
+            <span class="tag">diffusion</span>
+            <span class="tag">ADMET</span>
+            <span class="tag">wet-lab validation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>Vilya-1 models and designs chemically diverse macrocycles</h3>
+          <p>Vilya-1 is an all-atom diffusion model for sampling macrocycle conformations across peptidic and non-peptidic chemistries. It reportedly generated a sub-ångström ring conformation for 89.2% of 66 cyclic-peptide crystal structures and 93% of a 240-complex receptor-bound benchmark.</p>
+          <p>A learned confidence model ranks conformers more quickly than an ML potential, while fine-tuned heads address permeability, LogD, solubility, and related properties. The work also demonstrates conformational-preorganization scoring and multi-objective miniaturization of larger macrocycles.</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2077763468653167095">Read the research summary →</a>
+          <div class="tags">
+            <span class="tag">macrocycles</span>
+            <span class="tag">cyclic peptides</span>
+            <span class="tag">conformer generation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>MolMAE reconstructs molecular surface geometry and chemistry</h3>
+          <p>MolMAE learns molecular representations by masking corresponding functional-group regions across molecular surfaces, 3D graphs, and SMILES-derived tokens. It then reconstructs surface geometry and fields such as electrostatic and reactivity descriptors.</p>
+          <p>The model was pretrained on roughly 261,000 curated ChEMBL molecules. Reported scaffold-split results include an ESOL RMSE of 0.740 and ROC-AUC scores of 93.72% for BBBP and 85.86% for BACE, although gains vary by task.</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2077763221247942741">Read the research summary →</a>
+          <div class="tags">
+            <span class="tag">representation learning</span>
+            <span class="tag">molecular surfaces</span>
+            <span class="tag">property prediction</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>Ambrosia designs epigenetic reprogramming payloads in silico</h3>
+          <p>Ambrosia is presented as a method for computational design of epigenetic reprogramming payloads, placing it at the intersection of gene regulation, biological intervention design, and cellular reprogramming. Architecture, payload modality, evaluation, and validation details were not available in the supplied announcement.</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2077836857275252746">View the announcement →</a>
+          <div class="tags">
+            <span class="tag">epigenetics</span>
+            <span class="tag">cellular reprogramming</span>
+            <span class="tag">biological design</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="systems-heading">
+      <h2 class="section-heading" id="systems-heading">Mechanistic &amp; Single-Cell Biology</h2>
+      <p class="section-deck">Auditable model discovery, spatial measurement, and multimodal cell-atlas analysis.</p>
+
+      <div class="story-grid">
+        <article>
+          <h3>MEDA uses auditable biological constraints to discover mechanistic ODEs</h3>
+          <p>MEDA combines LLM agents with symbolic regression to discover biological ordinary differential equations. Agents convert literature-derived knowledge into inspectable variables, constraints, model grammars, seed families, and critique criteria before a constrained search begins.</p>
+          <p>The experiments emphasize that trajectory fit alone can favor mechanistically incorrect equations, while knowledge-guided formalization improves term recovery and expert-rated biological plausibility. Current limitations include a mostly polynomial grammar and a relatively small benchmark suite.</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2077764269064819163">Read the research summary →</a>
+          <div class="tags">
+            <span class="tag">systems biology</span>
+            <span class="tag">symbolic regression</span>
+            <span class="tag">scientific agents</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>Whole-transcriptome spatial imaging resolves isoforms in single cells</h3>
+          <p>A newly posted study reports whole-transcriptome-scale, isoform-resolved spatial imaging of individual cells in tissues. If borne out, the combination of spatial context and isoform-level resolution could offer a valuable view of gene regulation, though methodological and performance details were absent from the supplied post.</p>
+          <a class="read-link" href="https://x.com/cutleraging/status/2077942086595211752">View the study announcement →</a>
+          <div class="tags">
+            <span class="tag">spatial transcriptomics</span>
+            <span class="tag">isoforms</span>
+            <span class="tag">single cell</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>A three-state gene-expression model from single-cell multi-omics</h3>
+          <p>The shared work presents a three-state model of gene expression parameterized using single-cell multi-omic data. It is directly relevant to mechanistic modeling of gene regulation, although the available announcement does not provide an abstract, benchmark results, or further methodological details.</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2077837010669363618">View the announcement →</a>
+          <div class="tags">
+            <span class="tag">gene regulation</span>
+            <span class="tag">multi-omics</span>
+            <span class="tag">mechanistic modeling</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>AtlasAgent evaluates atlas-scale single-cell integration</h3>
+          <p>AtlasAgent is described as a vision-language-model and agent-guided framework for evaluating single-cell integration at atlas scale. Its evaluation protocol, datasets, and comparative results were not included in the available post.</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2077836873662411197">View the announcement →</a>
+          <div class="tags">
+            <span class="tag">cell atlases</span>
+            <span class="tag">multimodal AI</span>
+            <span class="tag">evaluation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>SAME aligns multimodal spatial-expression data</h3>
+          <p>SAME—Spatial Alignment of Multimodal Expression—uses topology-flexible transforms to integrate multimodal spatial data. The supplied announcement did not include benchmark or implementation details.</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2077836835120963770">View the announcement →</a>
+          <div class="tags">
+            <span class="tag">spatial omics</span>
+            <span class="tag">multimodal integration</span>
+            <span class="tag">computational biology</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genomics-heading">
+      <h2 class="section-heading" id="genomics-heading">Genomics Infrastructure &amp; Evaluation</h2>
+      <p class="section-deck">Federated modeling, reproducible analysis, and benchmarks for research agents.</p>
+
+      <div class="story-grid">
+        <article>
+          <h3>Chiron supports federated single-cell foundation models</h3>
+          <p>Chiron is described as decentralized infrastructure through which institutions can collaboratively train, monitor, publish, and reuse single-cell foundation models without exchanging raw data. The announcement points toward privacy-preserving, multi-institutional research, but provides no benchmark or implementation details.</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2077865502207348881">View the announcement →</a>
+          <div class="tags">
+            <span class="tag">federated learning</span>
+            <span class="tag">single cell</span>
+            <span class="tag">privacy</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>JanusX unifies GWAS and genomic-selection workflows</h3>
+          <p>JanusX is an integrated platform for decoding and harmonizing genotype, phenotype, and covariate inputs; performing quality control and sample matching; and producing standardized GWAS and genomic-selection outputs. It aims to reduce redundant file conversions and cross-tool sample-matching errors by generating shared analytical representations directly from genotype data.</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2077863577487335857">View the platform announcement →</a>
+          <div class="tags">
+            <span class="tag">GWAS</span>
+            <span class="tag">genomic selection</span>
+            <span class="tag">bioinformatics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>VariantBench tests agents on personal genomics</h3>
+          <p>VariantBench is introduced as a verifiable agent benchmark spanning variant discovery, statistical genetics, and personal genomics. Task counts, datasets, and baseline results were not present in the available post.</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2077847521016295438">View the benchmark announcement →</a>
+          <div class="tags">
+            <span class="tag">variant discovery</span>
+            <span class="tag">statistical genetics</span>
+            <span class="tag">AI agents</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <h2 id="language-heading">Language Practice · Lectures quotidiennes · 毎日の読み物 · 每日阅读</h2>
+      <p class="section-deck">Native-language reading selections, presented without translation.</p>
+
+      <article class="language-entry" lang="de">
+        <h3>Deutsch — Bayern reformiert seine staatlichen Kunstmuseen</h3>
+        <p class="source-line">Deutschlandfunk Kultur · 17. Juli 2026 · <a href="https://www.deutschlandfunkkultur.de/bayern-reformiert-seine-staatlichen-kunstmuseen-102.html">Link</a></p>
+        <p>Bayern will seine staatlichen Kunstmuseen grundlegend neu organisieren. Ab 2029 sollen sich 18 Häuser zu Verbünden unter dem gemeinsamen Dach der Bayerischen Staatsmuseen zusammenschließen. Dazu gehören Einrichtungen wie die Alte und Neue Pinakothek, das Museum Brandhorst und die Sammlung Schack sowie Kunstbestände an zahlreichen weiteren Standorten im Freistaat.</p>
+        <p>Nach den Plänen von Kunstminister Markus Blume sollen die Museen ihren bisherigen Behördenstatus verlieren und mehr Autonomie erhalten. Eine eigene Rechtspersönlichkeit sowie größere Spielräume bei Personal- und Finanzentscheidungen sollen ihre wirtschaftliche Handlungsfähigkeit stärken. Die Identität und in der Regel auch der Standort der einzelnen Häuser sollen erhalten bleiben; die bisherigen Bayerischen Staatsgemäldesammlungen würden in dieser Form jedoch aufgelöst.</p>
+        <p><strong>Warum lesen:</strong> Der kurze Beitrag zeigt an einem konkreten Beispiel, wie Bayern seine bedeutenden Kulturinstitutionen zwischen staatlicher Verantwortung und größerer Selbstständigkeit neu aufstellen will.</p>
+      </article>
+
+      <article class="language-entry" lang="fr">
+        <h3>Français — Réparer pour avancer : des jeunes en difficulté se remettent en selle en réparant des vélos</h3>
+        <p class="source-line">RFI · 17 juillet 2026 · <a href="https://www.rfi.fr/fr/podcasts/reportage-france/20260716-r%C3%A9parer-pour-avancer-des-jeunes-en-difficult%C3%A9-se-remettent-en-selle-en-r%C3%A9parant-des-v%C3%A9los">lien</a></p>
+        <p>Ce reportage s’intéresse à des jeunes en situation de décrochage scolaire, à quelques jours de la publication des résultats du baccalauréat. Éloignés du système éducatif traditionnel, ils découvrent une autre manière d’apprendre grâce à une formation pratique consacrée à la mécanique du vélo.</p>
+        <p>En réparant des bicyclettes, les participants acquièrent des compétences techniques, mais retrouvent aussi un cadre, de la confiance et une perspective d’avenir. L’initiative portée par Mathieu Bertrand montre comment une activité manuelle concrète peut devenir un outil de remobilisation et faciliter le retour vers une formation ou un projet professionnel.</p>
+        <p><strong>Pourquoi lire :</strong> Un reportage social accessible qui permet d’aborder la jeunesse, l’apprentissage professionnel et les solutions au décrochage scolaire.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>décrochage scolaire</strong> — interruption ou abandon progressif d’un parcours d’études avant l’obtention d’un diplôme</li>
+          <li><strong>remobilisation</strong> — processus qui aide une personne démotivée ou marginalisée à reprendre une activité et à construire un projet</li>
+          <li><strong>mécanique vélo</strong> — ensemble des techniques d’entretien, de diagnostic et de réparation des bicyclettes</li>
+        </ul>
+      </article>
+
+      <article class="language-entry" lang="ja">
+        <h3>日本語 — 欧州委員会、GoogleにAIアシスタントの相互運用と検索データ共有を命令──Googleは「安全性を損なう」と反発</h3>
+        <p class="source-line">ITmedia NEWS · 2026-07-17 · <a href="https://www.itmedia.co.jp/news/articles/2607/17/news063.html">https://www.itmedia.co.jp/news/articles/2607/17/news063.html</a></p>
+        <p>欧州委員会は、EUのデジタル市場法（DMA）に基づき、Googleに対する二つの具体的な措置を発表した。一つは、Googleの「Gemini」と同様に、他社のAIアシスタントもAndroidの主要機能へアクセスできるようにすること。利用者が音声で別のAIを呼び出し、アプリをまたぐ操作などを実行できる環境を目指す。</p>
+        <p>もう一つは、Google検索で得られる匿名化されたデータを、競合する検索サービスやAIチャットボットの事業者にも公正な条件で提供することだ。欧州委員会は競争促進を狙うが、Google側は、Androidの安全性や利用者のプライバシーを損ないかねないとして反発している。</p>
+        <p><strong>読む理由：</strong> AIサービスの競争を促すEU規制が、Androidの使い方や検索データの扱いをどのように変え得るかを具体的に理解できる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>相互運用（そうごうんよう）</strong> — 異なるサービスやシステムを連携させ、互いに機能を利用できるようにすること</li>
+          <li><strong>デジタル市場法（デジタルしじょうほう）</strong> — 大規模なデジタル事業者の公正な競争を促すEUの法律</li>
+          <li><strong>匿名化（とくめいか）</strong> — データから個人を特定できる情報を取り除く処理</li>
+        </ul>
+      </article>
+
+      <article class="language-entry" lang="zh-Hans">
+        <h3>中文 — “赢了官司输了舆论”：LV 诉茉莉奶白案，司法判决之后再被网络审判</h3>
+        <p class="source-line">BBC News 中文 · 2026年7月16日 · <a href="https://www.bbc.com/zhongwen/articles/cy0jnwzx5dzo/simp">https://www.bbc.com/zhongwen/articles/cy0jnwzx5dzo/simp</a></p>
+        <p>苏州市中级人民法院一审认定，中国茶饮品牌茉莉奶白侵犯路易威登七件“四叶花卉”图形商标专用权，判赔合计1030万元。然而，案件进入社交媒体后，许多网民以唐代“宝相花”等传统纹样作比较，质疑国际品牌是否可以垄断类似的公共文化符号，并以购买奶茶等方式声援茉莉奶白。</p>
+        <p>报道借此分析品牌纠纷中的“双重审判”：司法程序依据法律认定权利边界，网络舆论则受国货认同、民族情绪、平台流量和去中心化传播影响，迅速形成另一套不断变化的评判标准。受访学者认为，舆论监督有时能够推动改革，但算法放大对立、忽视事实以及水军操纵，也可能侵蚀公众知情权。茉莉奶白已表示将上诉，争议仍未结束。</p>
+        <p><strong>为什么读：</strong> 文章以一宗商标案切入，呈现传统文化、知识产权、消费心理与社交媒体舆论之间的复杂冲突。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>商标专用权 (shāngbiāo zhuānyòngquán)</strong> — 注册商标所有者依法享有的排他性使用权利。</li>
+          <li><strong>去中心化传播 (qù zhōngxīnhuà chuánbō)</strong> — 信息不再主要由传统媒体或权威机构把关，而由大量用户分散发布和扩散。</li>
+          <li><strong>舆论反噬 (yúlùn fǎnshì)</strong> — 某项行动引发强烈负面公众反应，反过来损害行动者的声誉或利益。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="editorial-note">
+      <strong>Source note:</strong> Several research announcements arrived as truncated social-media posts or without resolved paper links. Where methods, datasets, or results were unavailable, the summaries above are limited to the claims contained in the supplied material.
+    </aside>
+  </main>
+
+  <footer>
+    News Daily · Run 2026-07-17-1 · Newspaper date 2026-07-17
+  </footer>
+
+
+
+</body>
+</html>

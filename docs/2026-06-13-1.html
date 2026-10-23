@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2328;
+      --muted: #656d76;
+      --line: #d8d0c2;
+      --accent: #315c72;
+      --tag: #eef3f5;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.5;
+    }
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 32px 20px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    header .meta {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .lede {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 18px 20px;
+      margin-bottom: 28px;
+      font-size: 1.05rem;
+    }
+    section {
+      margin: 30px 0;
+    }
+    h2 {
+      border-bottom: 1px solid var(--line);
+      color: var(--accent);
+      font-size: 1.5rem;
+      margin: 0 0 16px;
+      padding-bottom: 6px;
+      letter-spacing: -0.02em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 18px;
+    }
+    article {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 16px 18px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    article h3 {
+      margin: 0 0 8px;
+      font-size: 1.13rem;
+      line-height: 1.25;
+    }
+    article h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    article h3 a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    p {
+      margin: 0.5rem 0;
+    }
+    .tags {
+      margin-top: 11px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--tag);
+      border: 1px solid #dbe5e8;
+      border-radius: 999px;
+      color: #47606a;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.74rem;
+      padding: 2px 8px;
+      white-space: nowrap;
+    }
+    .source-link {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      margin-top: 10px;
+    }
+    .source-link a {
+      color: var(--accent);
+    }
+    footer {
+      border-top: 1px solid var(--line);
+      margin-top: 36px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+    .quiet-notes {
+      background: rgba(255,255,255,0.45);
+      border: 1px dashed var(--line);
+      padding: 12px 14px;
+      margin-top: 14px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="meta">June 13, 2026 · Run 2026-06-13-1</div>
+    </header>
+
+    <div class="lede">
+      Today’s edition is dominated by biology and AI research: nanobody and peptide design, protein–ligand modeling, molecular simulation agents, interpretable protein language models, RNA and single-cell foundation models, and new approaches to multiomic regulatory modeling.
+    </div>
+
+    <section>
+      <h2>Drug Discovery, Molecular Design & Simulation</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065650120910311636">EasyNano optimizes epitope-targeted nanobody CDRs through differentiable ESMFold2 distograms</a></h3>
+          <p>EasyNano is a rapid nanobody CDR-redesign pipeline that optimizes CDR residue logits through an ESMFold2-Fast distogram proxy. It uses an explicit CDR-to-epitope proximity loss and a structure-prior mask intended to prevent framework pose drift, with reported ipTM gains for weak binders such as Ty1/RBD and KN035/PD-L1 while preserving constraints such as disulfides.</p>
+          <div class="tags"><span class="tag">antibody design</span><span class="tag">nanobodies</span><span class="tag">protein design</span><span class="tag">drug discovery</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065650120910311636">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649951506645252">E-CloudBind uses electron-density point clouds for robust protein–ligand affinity prediction</a></h3>
+          <p>E-CloudBind reframes affinity prediction around electron-density point clouds and density-overlap interaction graphs rather than atomic-distance cutoffs. Reported results emphasize robustness to crystallographic-resolution changes and AlphaFold2 structure substitution, with screening examples for PBP1A, SARS-CoV-2 Mpro and BCL-2.</p>
+          <div class="tags"><span class="tag">protein–ligand</span><span class="tag">binding affinity</span><span class="tag">virtual screening</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065649951506645252">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649655904706882">MDForge designs molecular-dynamics pipelines with LLM agents and sparse simulator feedback</a></h3>
+          <p>MDForge is an LLM-agent system for synthesizing complete molecular-dynamics workflows and improving them from sparse terminal simulator rewards. Its PRISM mechanism decomposes failures into structured diagnostics and typed critiques from force-field, sampling and analysis specialists, with benchmarks including SAMPL host–guest free-energy tasks and a prospective CB[7] binding case.</p>
+          <div class="tags"><span class="tag">molecular dynamics</span><span class="tag">LLM agents</span><span class="tag">free energy</span><span class="tag">computational chemistry</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065649655904706882">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649533963616262">APCyc designs cyclic peptides with automated, pocket-conditioned cyclization topology</a></h3>
+          <p>APCyc is a target-aware latent diffusion model for cyclic peptide design that treats cyclization chemistry and linkage sites as design variables. It predicts residue-level cyclization topology, injects linkage probabilities into an SE(3)-equivariant denoiser, and supports property-guided generation for affinity, permeability, protease resistance, solubility and immunogenicity.</p>
+          <div class="tags"><span class="tag">cyclic peptides</span><span class="tag">diffusion models</span><span class="tag">peptide design</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065649533963616262">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649791518797886">TheraPep-AI classifies therapeutic peptides with augmented negative sampling</a></h3>
+          <p>TheraPep-AI is a sequence-only multi-label classifier for 48 therapeutic peptide functions. The key idea is a hard synthetic-decoy ladder for negative sampling, aimed at lowering false positives; the report cites a 2.1% false-positive rate on peptide-like synthetic negatives while preserving useful multi-label performance and sparse-filter interpretability.</p>
+          <div class="tags"><span class="tag">therapeutic peptides</span><span class="tag">sequence modeling</span><span class="tag">interpretability</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065649791518797886">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065649327742288006">Post-hoc uncertainty estimator filters molecular diffusion model samples</a></h3>
+          <p>This work estimates uncertainty for pretrained 3D molecular diffusion models by perturbing denoiser parameters with a Laplace-style approximation and aggregating variance in noise predictions across denoising trajectories. On QM9, the score correlates with stability and validity better than diffusion NLL and can help test-time filtering, though the reported benefit does not transfer to GEOM-Drugs.</p>
+          <div class="tags"><span class="tag">molecular generation</span><span class="tag">uncertainty</span><span class="tag">model evaluation</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065649327742288006">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622231120822364">MolGram augments molecular language models with local n-gram memory</a></h3>
+          <p>MolGram adds conditional local n-gram memory to SMILES Transformers while retaining character tokenization. Using hash-based n-gram retrieval, contextual gating and local convolution, it reportedly improves molecule generation, forward reaction prediction and retrosynthesis across GPT and T5-style backbones.</p>
+          <div class="tags"><span class="tag">SMILES</span><span class="tag">retrosynthesis</span><span class="tag">reaction prediction</span><span class="tag">cheminformatics</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065622231120822364">Read the source post</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Protein Models, Enzymes & Biosecurity</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622529264533740">Sparse autoencoder features from ESMC predict enzyme function with interpretable concepts</a></h3>
+          <p>The paper uses sparse autoencoder features from ESMC-6B as interpretable protein signatures for EC-number prediction. Simple probes over SAE activations reportedly approach or exceed BLASTp on microbial SwissProt enzyme benchmarks, retain coverage for no-hit cases, and surface millions-scale dark enzyme-like candidates from ESM Atlas representatives.</p>
+          <div class="tags"><span class="tag">protein language models</span><span class="tag">enzymes</span><span class="tag">sparse autoencoders</span><span class="tag">metagenomics</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065622529264533740">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065621851540529431">Viral proteins reveal a dominant nativeness axis in protein language model embeddings</a></h3>
+          <p>A study of protein language model embeddings finds a strong principal-component “nativeness” axis aligned with reconstruction perplexity, placing viral proteins between cellular proteins and random or shuffled controls. The pattern appears across ESM, ProGen2 and EvoDiff families, while viral-specific information remains linearly accessible for detection and biosecurity-style evaluation.</p>
+          <div class="tags"><span class="tag">viral proteins</span><span class="tag">interpretability</span><span class="tag">biosecurity</span><span class="tag">representation learning</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065621851540529431">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622351426031675">DeepRHP learns latent design spaces for random heteropolymers as protein mimics</a></h3>
+          <p>DeepRHP is a semi-supervised hybrid VAE for random heteropolymer sequence ensembles, coupling sequence reconstruction with reconstruction of local hydrophilic–lipophilic balance features. It maps synthetic polymer libraries and reduced protein sequences into a shared latent space to suggest compositions resembling target membrane proteins such as Aquaporin Z.</p>
+          <div class="tags"><span class="tag">protein engineering</span><span class="tag">biomaterials</span><span class="tag">VAE</span><span class="tag">polymer design</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065622351426031675">Read the source post</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>RNA, Transcriptomics & Virtual Cells</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2065622110899499349">m6A-FORM is an RNA m6A foundation model for peak-aware site calling and regulator binding</a></h3>
+          <p>m6A-FORM is a transformer pretrained on millions of MeRIP-seq peak-derived RNA windows and fine-tuned for NER-style within-peak m6A site labeling. The model is also reused for m6A regulator binding and decay-outcome prediction, with attribution analyses connecting sites to RBP context and tissue-conserved methylation patterns.</p>
+          <div class="tags"><span class="tag">RNA</span><span class="tag">m6A</span><span class="tag">epitranscriptomics</span><span class="tag">foundation models</span></div>
+          <div class="source-link"><a href="https://x.com/BiologyAIDaily/status/2065622110899499349">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065611345136087195">TifBERT is a self-supervised foundation model for bulk RNA-seq representations</a></h3>
+          <p>TifBERT converts unordered expression profiles into sample-specific gene sequences using TF-IDF ordering, then pretrains with masked gene modeling over whole-transcriptome sliding windows. The method targets normalization-robust bulk RNA-seq representation learning without predefined landmark genes, external gene embeddings or projection-based compression.</p>
+          <div class="tags"><span class="tag">RNA-seq</span><span class="tag">transcriptomics</span><span class="tag">self-supervised learning</span><span class="tag">gene expression</span></div>
+          <div class="source-link"><a href="https://x.com/razoralign/status/2065611345136087195">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065611024833933333">OCOO-T proposes a simple flow-matching virtual cell model for perturbation response</a></h3>
+          <p>OCOO-T is a minimalist virtual-cell model for transcriptional perturbation-response prediction. It uses a plain Transformer stack directly on continuous gene-expression profiles and formulates perturbation response as continuous-time denoising conditioned on perturbation and cellular covariates.</p>
+          <div class="tags"><span class="tag">virtual cells</span><span class="tag">perturbation response</span><span class="tag">flow matching</span><span class="tag">transformers</span></div>
+          <div class="source-link"><a href="https://x.com/razoralign/status/2065611024833933333">Read the source post</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Single-Cell, Multiomics & Regulation</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065612103118172620">ANCHOR infers allelic and isoform structure from single-cell long-read RNA-seq</a></h3>
+          <p>ANCHOR is a haplotype-aware single-cell long-read RNA-seq method that discovers expressed heterozygous variants de novo, assigns molecules to parental haplotypes with a pair HMM, and aggregates UMI-level evidence with a beta-binomial model that can abstain under ambiguity. Isoforms are defined from observed splice structures rather than only reference transcript assignment.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">long-read sequencing</span><span class="tag">haplotypes</span><span class="tag">isoforms</span></div>
+          <div class="source-link"><a href="https://x.com/razoralign/status/2065612103118172620">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2065611768374976656">TMO learns cell-state-dependent regulatory lags from single-cell multiomic data</a></h3>
+          <p>Temporal Multi-Omics, or TMO, is a deep learning framework for signed, cell-state-conditional regulatory lags using asymmetric cross-modal attention. It projects RNA and ATAC into latent components, tokenizes each cell, and biases attention with a data-driven lag prior from sliding-window cross-correlation.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">multiomics</span><span class="tag">gene regulation</span><span class="tag">ATAC-seq</span></div>
+          <div class="source-link"><a href="https://x.com/razoralign/status/2065611768374976656">Read the source post</a></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatureRevGenet/status/2065515796017873228">Nature Reviews Genetics highlights single-cell four-omics with CHARM</a></h3>
+          <p>Nature Reviews Genetics posted a new online item titled “Single-cell four-omics with CHARM.” The available fragment provides only the title and link, but it appears to concern a multiomic single-cell method.</p>
+          <div class="tags"><span class="tag">single-cell</span><span class="tag">multiomics</span><span class="tag">genomics</span><span class="tag">methods</span></div>
+          <div class="source-link"><a href="https://x.com/NatureRevGenet/status/2065515796017873228">Read the source post</a></div>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      <p>Source coverage: X Bio Research provided the items in this edition.</p>
+      <div class="quiet-notes">
+        <strong>Quiet pipeline note:</strong> collection for the X AI Research source returned no items because the list timeline fetch failed with an unspecified query error.
+      </div>
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

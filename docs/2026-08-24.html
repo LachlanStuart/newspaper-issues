@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fffdf8;
+      --ink: #202020;
+      --muted: #666158;
+      --rule: #d8d1c5;
+      --accent: #86412d;
+      --panel: #f6f1e8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ece8df;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    main {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.1rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 28px rgba(40, 35, 25, 0.08);
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.3rem 0 1rem;
+      margin-bottom: 2.4rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 8vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+    header p {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 2.5rem 0;
+    }
+    section > h2 {
+      margin: 0 0 1.2rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+    article {
+      padding: 0 0 1.5rem;
+      margin: 0 0 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+    article h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.3rem;
+      line-height: 1.25;
+    }
+    article p {
+      margin: 0.6rem 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .tags {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+    .tag {
+      display: inline-block;
+      padding: 0.12rem 0.45rem;
+      margin: 0.1rem 0.2rem 0.1rem 0;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--panel);
+    }
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 1.5rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 1.8rem;
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -0.5rem 0 2rem;
+    }
+    .language-card {
+      padding: 1.4rem;
+      background: var(--panel);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    .language-card h3 {
+      font-size: 1.35rem;
+    }
+    .byline {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .language-card ul {
+      margin-top: 0.4rem;
+      padding-left: 1.3rem;
+    }
+    .source-note {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.78rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Monday, August 24, 2026</p>
+    </header>
+
+    <section>
+      <h2>Biomedical Research &amp; Data</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2091668022008455455">KRAKEN provides a provenance-tracked biomedical knowledge graph for multiomic research and agents</a></h3>
+        <p>KRAKEN—the Knowledge Research &amp; Analysis Kit for Evidence Networks—is a Biolink-compliant knowledge graph containing roughly 15 million nodes and 113 million edges. Developed within the ARPA-H PATH program, it combines Translator ecosystem content with resources such as RetMet, LIPID MAPS, the Polygenic Score Catalog, and NIH Common Data Elements.</p>
+        <p>The resource is available through a web interface, REST API, and Model Context Protocol server. Its tools support provenance-aware node discovery, multi-hop reasoning, subgraph extraction, and enrichment, making it potentially useful for both multiomic research and agent-assisted scientific workflows.</p>
+        <div class="tags"><span class="tag">knowledge graphs</span><span class="tag">multiomics</span><span class="tag">biomedical agents</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2091667549025182073">LongOmicsTraj supports topology-based queries over longitudinal omics trajectories</a></h3>
+        <p>LongOmicsTraj separates trajectory estimation from topology representation in longitudinal omics studies. It turns visit-level estimates into adjacent temporal changes and ordinal trajectory states, then builds a topology that researchers can query.</p>
+        <p>The framework can work with empirical summaries as well as estimates produced by mixed-effects models, generalized additive models, and polynomial regressions. It may be particularly useful for temporal multiomics and disease-focused longitudinal datasets.</p>
+        <div class="tags"><span class="tag">longitudinal data</span><span class="tag">trajectory analysis</span><span class="tag">multiomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2091480202350297448">Genomic analysis draws on a 170,000-person Pakistani biobank</a></h3>
+        <p>A shared Nature study reports genomic analysis of a Pakistani biobank comprising approximately 170,000 people. Large genomic resources from historically underrepresented populations can improve the breadth and relevance of human-genetics research. The available source excerpt does not specify the study’s phenotypes, sequencing strategy, or principal findings.</p>
+        <div class="tags"><span class="tag">population genomics</span><span class="tag">biobanks</span><span class="tag">human genetics</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Drug Discovery &amp; Biological Design</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2091533346044276931">EvoBind-multimer targets computational design of peptide-like molecular glues</a></h3>
+        <p>EvoBind-multimer is presented as an attempt to design molecular glues computationally rather than discovering them by chance. The work focuses on very short sequences of roughly six to ten amino acids, a potentially interesting direction for drug and protein design.</p>
+        <p>The available post is truncated, so its validation results and exact design protocol cannot be assessed from this report.</p>
+        <div class="tags"><span class="tag">molecular glues</span><span class="tag">peptide design</span><span class="tag">drug discovery</span></div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Methods &amp; Measurement</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2091376819740307810">Unvalidated aging clocks risk optimizing biomarkers rather than aging biology</a></h3>
+        <p>A concise methodological warning argues that selecting interventions with an unvalidated aging clock can create a proxy-optimization problem. Researchers may become increasingly effective at reversing the clock’s score without changing the underlying aging process. The point is a useful reminder that biomarker validation matters before a metric is treated as a target.</p>
+        <div class="tags"><span class="tag">aging</span><span class="tag">biomarkers</span><span class="tag">model evaluation</span></div>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="language-intro">Today’s edited reading selections, preserved in their original languages.</p>
+
+      <section lang="de">
+        <h2>Deutsch — tägliche Lektüre</h2>
+        <article class="language-card">
+          <h3>Deutsch — Neu bei Steam: Diese Woche erfüllt sich ein großer Traum für XCOM- und Star-Wars-Fans</h3>
+          <p class="byline">GameStar · 24.08.2026 · <a href="https://www.gamestar.de/artikel/neu-bei-steam,3458427.html">Link</a></p>
+          <p>GameStar stellt die wichtigsten neuen PC-Spiele der gamescom-Woche vor. Im Mittelpunkt steht das Rundentaktikspiel „Star Wars: Zero Company“, das von ehemaligen Firaxis-Entwicklern stammt und viele vertraute XCOM-Elemente übernimmt: Deckung, Aktionspunkte, Trefferwahrscheinlichkeiten und den optionalen dauerhaften Tod von Figuren. Zwischen den Einsätzen verwaltet man eine Basis, verbessert die Ausrüstung und entwickelt Beziehungen innerhalb einer ungewöhnlichen Truppe aus Mandalorianern, Droiden, Schmugglern und Jedi.</p>
+          <p>Daneben gibt der Artikel einen kompakten Überblick über weitere Neuerscheinungen. Dazu gehören der Koop-Shooter „Aliens: Fireteam Elite 2“, das historische Dämonen-Abenteuer „1666: Amsterdam“, das actionreichere Prequel „Resonance: A Plague Tale Legacy“ sowie mehrere Strategie-, Rollen- und Abenteuerspiele. Die Wochenübersicht hilft damit sowohl bei der Suche nach großen Veröffentlichungen als auch nach kleineren Geheimtipps.</p>
+          <p><strong>Warum lesen:</strong> Eine abwechslungsreiche Wochenvorschau für alle, die neue PC-Spiele entdecken und zugleich aktuelles Deutsch aus der Spielekultur lesen möchten.</p>
+        </article>
+      </section>
+
+      <section lang="fr">
+        <h2>Français — lecture quotidienne</h2>
+        <article class="language-card">
+          <h3>Français — Des scientifiques découvrent l’étoile la plus rapide de notre galaxie</h3>
+          <p class="byline">Le Monde · 20 août 2026 · <a href="https://www.lemonde.fr/sciences/article/2026/08/20/des-scientifiques-decouvrent-l-etoile-la-plus-rapide-de-notre-galaxie_6750973_1650684.html">Lien</a></p>
+          <p>Des astronomes ont identifié S301, l’étoile connue la plus rapide de la Voie lactée. Elle gravite autour de Sagittarius A*, le trou noir supermassif situé au centre de notre galaxie, et atteint environ 25 000 kilomètres par seconde lors de son passage au plus près. Son orbite, accomplie en seulement 8,7 ans, l’amène à une distance du trou noir équivalente à douze fois celle qui sépare la Terre du Soleil.</p>
+          <p>La détection a été rendue possible par le VLTI de l’Observatoire européen austral, qui combine la lumière de quatre grands télescopes pour obtenir une résolution exceptionnelle. Les chercheurs pensent que S301 appartenait autrefois à un système binaire disloqué par les forces de marée du trou noir. En suivant au moins deux orbites complètes de l’étoile, ils espèrent mesurer directement la rotation de Sagittarius A* et éprouver les prédictions de la relativité générale concernant la déformation de l’espace-temps.</p>
+          <p><strong>Pourquoi lire :</strong> Un article accessible qui relie une découverte spectaculaire aux méthodes modernes de l’astronomie et à un futur test de la théorie d’Einstein.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>trou noir supermassif</strong> — objet extrêmement dense, de plusieurs millions ou milliards de masses solaires, généralement situé au centre d’une galaxie</li>
+            <li><strong>interféromètre</strong> — dispositif combinant les signaux de plusieurs télescopes afin d’améliorer la précision des observations</li>
+            <li><strong>forces de marée</strong> — différences d’attraction gravitationnelle capables de déformer ou de disloquer un astre</li>
+            <li><strong>système binaire</strong> — ensemble de deux étoiles liées gravitationnellement et orbitant autour d’un centre commun</li>
+          </ul>
+        </article>
+      </section>
+
+      <section lang="ja">
+        <h2>日本語 — 毎日の読み物</h2>
+        <article class="language-card">
+          <h3>日本語 — Access Accepted第870回：天下を取ったはずの「Roblox」に何が？　健全化の代償として700億ドルもの企業価値を失った理由</h3>
+          <p class="byline">4Gamer · 2026年8月24日 · <a href="https://www.4gamer.net/games/036/G003691/20260824001/">リンク</a></p>
+          <p>世界最大級のゲームプラットフォーム「Roblox」の株価が急落し、ピーク時から約700億ドルの企業価値が失われた背景を分析する記事。2026年第2四半期の決算では成長鈍化が鮮明となり、発表直後に株価が約25％下落した。予約額の伸び率やアクティブユーザー数なども市場の期待を下回り、通期業績見通しの撤回が投資家の不安を強めたという。</p>
+          <p>一方、記事が重視するのは、この失速が大きな不祥事ではなく、Roblox自身による健全化策と法規制への対応に伴って起きた点だ。同社は、過度な課金を促す短命なゲームの露出を抑え、長く遊ばれる良質な体験を優先するよう推薦アルゴリズムを変更した。しかし、その結果として短期収益が落ち、EUのデジタルサービス法に対応するモデレーション費用も重くなる。利用者保護と持続的な成長を目指す改革が、短期的な成果を求める市場から逆に罰せられるという構造的なジレンマを描いている。</p>
+          <p><strong>読む理由：</strong> ゲーム、プラットフォーム規制、子どもの安全、企業経営が交差する問題を具体的な数字とともに考えられる。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>時価総額（じかそうがく）</strong> — 株価に発行済み株式数を掛けて算出する企業の市場価値</li>
+            <li><strong>収益化（しゅうえきか）</strong> — サービスやコンテンツから継続的に利益を得られる仕組みを作ること</li>
+            <li><strong>モデレーション</strong> — 投稿や利用者の行動を監視し、不適切な内容を削除・制限する運営作業</li>
+          </ul>
+        </article>
+      </section>
+
+      <section lang="zh">
+        <h2>中文 — 每日阅读</h2>
+        <article class="language-card">
+          <h3>中文 — 彭博社：R星对黑客泄漏来源“毫无头绪”，内部员工倍感疲惫</h3>
+          <p class="byline">机核 · 2026-08-24 · <a href="https://www.gcores.com/articles/218696">链接</a></p>
+          <p>据报道，Rockstar Games（R星）仍未查明近期大规模游戏视频泄漏的来源，也不清楚相关内容如何突破公司的安全措施。尽管事件尚未解决，原定于8月28日开展的网飞实机营销活动暂时不会延期，公司的宣传节奏也没有改变。</p>
+          <p>泄漏事件令R星内部进入高度戒备状态。公司此前已因类似事件大规模整改安全体系，如今再度出现漏洞，令不少员工感到愤怒和疲惫。其母公司已向纽约南区法院申请传票，希望微软与Discord提供相关账户资料，以协助确认泄漏者身份及责任归属。</p>
+          <p><strong>为什么读：</strong> 这篇短讯把游戏业的内容保密、平台账户追查与员工压力联系起来，适合快速了解大型游戏公司的危机应对。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>实机演示 (shíjī yǎnshì)</strong> — 直接使用真实游戏程序展示画面和玩法，而非预先制作的宣传动画。</li>
+            <li><strong>责任归属 (zérèn guīshǔ)</strong> — 确定某项事件或损失应由哪个人或组织承担责任。</li>
+            <li><strong>传票 (chuánpiào)</strong> — 由法院发出的法律文件，可要求有关人员出庭或提交指定资料。</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+
+    <aside class="source-note">
+      <strong>Source note:</strong> The AI-research social feed could not be collected after three attempts, so no items from that source appear in today’s edition.
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-08-24-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

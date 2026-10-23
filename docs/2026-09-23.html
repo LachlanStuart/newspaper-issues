@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201e;
+      --muted: #66645f;
+      --rule: #d8d4ca;
+      --accent: #234e70;
+      --panel: #f2efe7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    main, header, footer {
+      width: min(960px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+    header {
+      padding: 3rem 0 1.5rem;
+      border-bottom: 3px double var(--ink);
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    section > h2 {
+      margin: 0 0 1.3rem;
+      font-size: 1.7rem;
+      line-height: 1.2;
+    }
+    article {
+      margin: 0 0 1.8rem;
+    }
+    article:last-child { margin-bottom: 0; }
+    article h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.22rem;
+      line-height: 1.3;
+    }
+    article p {
+      margin: 0.4rem 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    .tags, .byline, .source {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+    }
+    .language-practice {
+      margin-top: 2.5rem;
+      padding: 2rem;
+      background: var(--panel);
+      border: 1px solid var(--rule);
+    }
+    .language-practice > h2 {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 0.7rem;
+    }
+    .language-practice article {
+      padding-bottom: 1.8rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .language-practice article:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+    .language-practice h3 {
+      font-size: 1.3rem;
+    }
+    .language-practice ul {
+      margin-top: 0.5rem;
+    }
+    .notes {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.83rem;
+    }
+    footer {
+      padding: 1.5rem 0 3rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <h1>News</h1>
+    <p>Wednesday, September 23, 2026</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Artificial Intelligence, Robotics &amp; ML Systems</h2>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2102627428074209384">Control-inspired steering for robot foundation models without retraining</a></h3>
+        <p>A new paper explores control-inspired ways to steer the behavior of a robot foundation model at test time, avoiding the need to retrain it.</p>
+        <p class="tags">Robotics · Foundation models · Control</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/tri_dao/status/2102549621847511546">HipKittens brings an educational GEMM ladder to AMD MI455</a></h3>
+        <p>HipKittens is running on AMD Helios MI455 hardware, accompanied by a progression of GEMM implementations designed to demonstrate GPU optimization techniques.</p>
+        <p class="tags">GPU kernels · AMD · GEMM · ML systems</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/yifanzhang_/status/2102418287900639621">A block-sparse attention architecture</a></h3>
+        <p>Yifan Zhang highlights a model architecture built around block-sparse attention. The available post does not identify the model or paper by title, so further architectural details are limited.</p>
+        <p class="tags">Architecture · Sparse attention · Language models</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/rasbt/status/2102394156731535413">MiMo-V2.6 gains may come more from training than architectural novelty</a></h3>
+        <p>Sebastian Raschka examines MiMo-V2.6, which uses a relatively conventional grouped-query-attention architecture and sliding-window attention with a 128-token window. He attributes much of its benchmark performance to changes in training: more agent tasks, multiple harnesses, execution-trace-aware grading, and reinforcement-learning updates using 25,088 trajectories and roughly 2.7–3.7 billion tokens.</p>
+        <p class="tags">Architecture · Post-training · Reinforcement learning · Agents</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/vikhyatk/status/2102372706658447712">Parakeet Ultra applies the Redux post-training pipeline at full precision</a></h3>
+        <p>Moondream Parakeet Ultra applies the post-training pipeline used for Parakeet Redux to NVIDIA Parakeet while retaining full-precision weights. Reported benchmarks indicate lower error rates and better noise tolerance. Ultra targets GPUs, while the 178&nbsp;MB Redux model is intended for CPU and Apple Silicon deployments.</p>
+        <p class="tags">Speech recognition · Post-training · Quantization · Inference</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Genomics</h2>
+
+      <article>
+        <h3><a href="https://x.com/BrianHie/status/2102524692171203019">Minerva searches genomic dark matter with genome language models</a></h3>
+        <p>Minerva combines genome-language-model representations with co-evolutionary mining to support systematic discovery across prokaryotic genomes. Its researchers report finding genetic elements associated with a previously unknown class of reverse-transcriptase mechanisms.</p>
+        <p class="tags">Genomics · Genome language models · Co-evolution</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2102446823294316662">IRIS reconstructs cell-signaling states and histories</a></h3>
+        <p>IRIS learns conserved representations from in vivo perturbation measurements, with the aim of reconstructing both current cellular signaling states and their histories. The method connects representation learning with mechanistic cell modeling and virtual-cell research.</p>
+        <p class="tags">Cell signaling · Perturbation biology · Representation learning</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2102447927427751945">MemBrain v2 streamlines cryo-electron tomography analysis</a></h3>
+        <p>MemBrain v2 provides a workflow for cryo-ET data that includes membrane segmentation, protein localization, and spatial analysis.</p>
+        <p class="tags">Computational biology · Cryo-ET · Segmentation · Research tools</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2102425711080603749">How DNA methylation produces downstream regulatory effects</a></h3>
+        <p>A new review surveys the mechanisms by which DNA methylation is translated into changes in gene regulation.</p>
+        <p class="tags">Gene regulation · Epigenetics · DNA methylation · Review</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2102436777776808216">TRACEBIND dispute raises benchmarking questions in ATAC-seq bias correction</a></h3>
+        <p>Anshul Kundaje argues that the TRACEBIND paper on Tn5-bias correction neither cites nor compares itself with ChromBPNet despite overlapping correction and footprinting goals. He says an updated ChromBPNet preprint will offer evidence disputing claims that seq2PRINT’s correction performs better.</p>
+        <p class="tags">Regulatory genomics · ATAC-seq · Bias correction · Benchmarking</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2102445968344191077">A model for genome-wide tandem-repeat instability</a></h3>
+        <p>A newly highlighted computational model aims to quantify tandem-repeat instability across the genome. The available post supplies only a paper title and link, leaving its methods and validation results unspecified.</p>
+        <p class="tags">Genomics · Tandem repeats · Computational methods</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2102359171672985729">From TWAS to virtual biology</a></h3>
+        <p>A new review traces transcriptome-wide association studies from biobank-scale genetics and inference in inaccessible tissues toward broader forms of virtual biology.</p>
+        <p class="tags">Human genetics · TWAS · Gene expression · Virtual biology</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2102456993391026406">FenixS–Ash1 enables red-light-induced heterodimerization</a></h3>
+        <p>FenixS and Ash1 form a compact optogenetic protein pair that heterodimerizes under red light, offering a new component for engineering light-controlled cellular systems.</p>
+        <p class="tags">Optogenetics · Protein engineering · Biological circuits</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2102414904561225863">How telomere attrition can protect against cancer</a></h3>
+        <p>A new review examines the mechanisms through which progressive telomere shortening may suppress cancer, connecting genome maintenance, aging, and tumor biology.</p>
+        <p class="tags">Telomeres · Cancer · Genome maintenance · Review</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+
+      <article lang="de">
+        <h3>Deutsch — Euer allerliebstes Command &amp; Conquer ist jetzt auf eine völlig neue Art spielbar</h3>
+        <p class="byline">GameStar · 23.09.2026 · <a href="https://www.gamestar.de/artikel/command-conquer-generals-in-ar,3459957.html">Artikel lesen</a></p>
+        <p>Eine inoffizielle Mod bringt „Command &amp; Conquer: Generäle – Die Stunde Null“ in die erweiterte Realität. Mit einer Meta Quest 3 erscheint das Strategiespiel als dreidimensionales Miniatur-Schlachtfeld im eigenen Wohnzimmer. Einheiten, Gelände und Effekte des Originals werden auf einem virtuellen Strategietisch dargestellt, während separate Bedienfenster den Bau und die Befehle steuern.</p>
+        <p>Die kostenlose Mod unterstützt bereits Kampagnen und Gefechte gegen die KI sowie Touch-Controller, Kartenzoom, Radar-Navigation und eine deutschsprachige Benutzeroberfläche. Mehrspielerpartien sowie Maus- und Tastatursteuerung fehlen bislang. Interessierte benötigen neben der VR-Brille auch das Originalspiel samt Erweiterung, da die Mod aus rechtlichen Gründen keine Karten, Videos oder sonstigen Spieldateien mitliefert.</p>
+        <p><strong>Warum lesen:</strong> Der kurze Artikel verbindet Spiele-Nostalgie mit einem anschaulichen Beispiel dafür, wie Augmented Reality klassische Strategiespiele verändern kann.</p>
+      </article>
+
+      <article lang="fr">
+        <h3>Français — Thélyson Orélien accusé d’avoir utilisé l’IA pour son livre « C’était ça ou mourir »</h3>
+        <p class="byline">Le Monde · 22 septembre 2026 · <a href="https://www.lemonde.fr/pixels/article/2026/09/22/thelyson-orelien-accuse-d-avoir-utilise-l-ia-pour-son-livre-c-etait-ca-ou-mourir_6780300_4408996.html">Lire l’article</a></p>
+        <p>Le premier roman de Thélyson Orélien, écrivain québécois d’origine haïtienne, est au cœur d’une polémique sur un éventuel recours à l’intelligence artificielle générative. Publié en France chez Grasset et remarqué lors de la rentrée littéraire, « C’était ça ou mourir » raconte le parcours de Jonas et aborde l’expérience humaine des migrants.</p>
+        <p>Les accusations ont été lancées sur le réseau social X par un compte anonyme affirmant s’appuyer sur Pangram, un outil de détection de textes produits par l’IA. La controverse agite les réseaux sociaux, les médias et la maison d’édition, mais l’auteur n’a pas abordé directement la question lors d’une rencontre publique organisée à la Maison de la poésie, à Paris. L’affaire pose plus largement la question de la fiabilité des détecteurs d’IA et de la place de ces technologies dans la création littéraire.</p>
+        <p><strong>Pourquoi lire :</strong> L’article éclaire une controverse récente où se croisent littérature, intelligence artificielle, authenticité artistique et fiabilité des outils de détection.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>rentrée littéraire</strong> — période, surtout à la fin de l’été, durant laquelle paraissent de nombreux nouveaux livres en France</li>
+          <li><strong>IA générative</strong> — système capable de produire du texte, des images ou d’autres contenus à partir de données apprises</li>
+          <li><strong>outil de détection</strong> — logiciel qui tente d’identifier si un contenu a été créé par une intelligence artificielle</li>
+        </ul>
+      </article>
+
+      <article lang="ja">
+        <h3>日本語 — インディーゲームの祭典「Day of the Devs」，12月9日開催「The Game Awards Digital Showcase 2026」への出展作品を募集中</h3>
+        <p class="byline">4Gamer · 2026年9月22日 · <a href="https://www.4gamer.net/games/991/G999110/20260922003/">リンク</a></p>
+        <p>インディーゲームを紹介する非営利団体「Day of the Devs」が、2026年12月9日に配信するオンラインイベントへの出展作品を募集している。応募締切は9月28日で、開発者の国や地域、経歴を問わず無料で応募できる。</p>
+        <p>選考では、ゲームの新規性や独自性、完成度、実際に遊べる状態かどうかなどが考慮される。過去のショーケースでは「UFO 50」「COCOON」「Animal Well」などが紹介されており、今回のイベントは「The Game Awards 2026」の前日に配信される予定だ。</p>
+        <p><strong>読む理由：</strong> インディーゲームが国際的なショーケースに選ばれる基準と、作品発表の仕組みを簡潔に知ることができる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>出展作品（しゅってんさくひん）</strong> — 展示会やイベントで紹介するために提出される作品。</li>
+          <li><strong>非営利団体（ひえいりだんたい）</strong> — 利益の分配を主な目的とせず、社会的・文化的な活動を行う組織。</li>
+          <li><strong>新規性（しんきせい）</strong> — 既存のものとは異なる、新しい特徴や発想を持つこと。</li>
+        </ul>
+      </article>
+
+      <article lang="zh">
+        <h3>中文 — 贝塞斯达接管黑曜石，动视负责《光环》新作开发</h3>
+        <p class="byline">机核 · 2026-09-23 · <a href="https://www.gcores.com/articles/220082">阅读原文</a></p>
+        <p>微软 Xbox 宣布裁员268人，影响 Halo Studios、旗下第一方工作室以及管理部门。这是此前公布的重组计划的一部分；与此同时，Xbox 也将调整工作室架构，把 World's Edge 与 Rare 纳入动视的管辖范围，并成立独立团队开发下一代《光环》。</p>
+        <p>贝塞斯达将接管黑曜石，双方除继续推进《禁闭求生》等现有项目外，还将合作开发新的《辐射》项目。King 将接管微软休闲游戏部门，Playground 与 Turn 10 则会合并，集中负责《极限竞速》和《神鬼寓言》系列。</p>
+        <p>部分工作室将走向独立运营：Compulsion、Double Fine 与 Undead Labs 已带回各自的知识产权、作品库和资金。另一方面，Xbox 正就 Ninja Theory 与 Arkane 的后续安排进行员工协商，相关调整可能持续至年底。</p>
+        <p><strong>为什么读：</strong> 这篇短讯集中呈现了 Xbox 大规模重组对知名游戏工作室、系列作品和员工的直接影响。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>第一方工作室 (dìyīfāng gōngzuòshì)</strong> — 由游戏平台公司直接拥有或控制、主要为该平台开发内容的工作室。</li>
+          <li><strong>架构重组 (jiàgòu chóngzǔ)</strong> — 重新划分企业内部的团队、管理关系和业务职责。</li>
+          <li><strong>知识产权 (zhīshi chǎnquán)</strong> — 作品、角色、品牌等受到法律保护的无形权利，游戏行业常简称为“IP”。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h2>Source Notes</h2>
+      <p>Some linked papers and resources were available only through unresolved shortened URLs, so the corresponding X posts are used as links. Closely related Minerva posts were consolidated. The duplicate IRIS report appearing in both AI and biology feeds was presented once.</p>
+    </section>
+  </main>
+
+  <footer>
+    News Daily · Run 2026-09-23-1
+  </footer>
+
+
+
+</body>
+</html>

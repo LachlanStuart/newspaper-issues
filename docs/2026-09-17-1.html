@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202124;
+      --muted: #666b73;
+      --paper: #fffdf8;
+      --page: #eeeae1;
+      --accent: #315b52;
+      --rule: #d8d2c5;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 24px auto;
+      padding: clamp(24px, 5vw, 60px);
+      background: var(--paper);
+      box-shadow: 0 2px 16px rgba(0,0,0,.08);
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 42px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 7vw, 4rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: .9rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    section { margin: 42px 0; }
+    section > h2 {
+      margin: 0 0 22px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--accent);
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+    article {
+      margin: 0 0 28px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+    article h3 {
+      margin: 0 0 7px;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    article p { margin: 8px 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .source {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: .86rem;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 32px;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      border-bottom-color: var(--ink);
+      font-size: 1.8rem;
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -10px 0 28px;
+    }
+    .language-block {
+      margin: 34px 0;
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--rule);
+    }
+    .language-block h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.35;
+    }
+    .language-block h4 {
+      margin: 22px 0 6px;
+      font-size: 1rem;
+    }
+    .language-block ul {
+      margin: 6px 0 0;
+      padding-left: 22px;
+    }
+    .language-block li { margin: 6px 0; }
+    .notes {
+      margin-top: 50px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: .83rem;
+    }
+    .notes h2 {
+      border: 0;
+      margin-bottom: 8px;
+      padding: 0;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+    .notes p { margin: 5px 0; }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: .78rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Thursday, September 17, 2026</p>
+    </header>
+
+    <section>
+      <h2>Structural Biology &amp; Model Evaluation</h2>
+
+      <article>
+        <h3><a href="https://x.com/sokrypton/status/2100409214149542167">ColabFold 1.6.3 speeds up prediction and broadens complex scoring</a></h3>
+        <p class="source">ColabFold update · X</p>
+        <p>ColabFold 1.6.3 reports a 2.5× speedup, direct installation through <code>pip</code>, and support for ipSAE and pDockQ2 scores. A preview of ColabFold2 shows a JAX-based interface spanning several structure and co-folding models, including AlphaFold3, OpenFold3, Boltz2, Chai1, ESMFold2, and OpenBind0.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/DdelAlamo/status/2100253725004550299">Combining co-folding representations improves complex prediction</a></h3>
+        <p class="source">Diego del Alamo · X</p>
+        <p>A new method combines learned representations from multiple predictors for antibody–antigen and protein–ligand complexes. Its reported gains indicate that co-folding models may encode complementary information, although the approach depends on learned mappings between their pair representations.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/DdelAlamo/status/2099867797241184611">How much do protein–ligand models memorize?</a></h3>
+        <p class="source">Diego del Alamo · X</p>
+        <p>Protein–ligand co-folding may benefit substantially from memorized structural patterns. The argument connects this behavior with memorized antibody CDR-loop conformations—another setting with little coevolutionary signal—and raises questions about how apparent generalization should be evaluated in biomolecular structure models.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2099854641093853544">Leakage-aware peptide benchmark finds simple descriptors remain strong</a></h3>
+        <p class="source">Biology AI Daily · X</p>
+        <p>A benchmark for peptide developability and binding affinity uses homology-controlled and paired graph-based splits to reduce leakage. XGBoost trained on 45 physicochemical descriptors often matches frozen deep embeddings, while fine-tuned ESM2 and Boltz-2 representations help most with thermodynamic stability.</p>
+        <p>Boltz-2 pair representations perform best for affinity ranking on held-out assay panels, but much of the signal is confounded by peptide molecular weight, and absolute potency remains poorly calibrated.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Drug &amp; Antibody Design</h2>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2099854992425562446">ShEPhERD–2 generates molecules from composable 3D interaction profiles</a></h3>
+        <p class="source">Biology AI Daily · X</p>
+        <p>ShEPhERD–2 is a 3D diffusion model conditioned on molecular shape, electrostatic potential, and directional pharmacophores. It supports variable-size generation, fixed substructures, pharmacophore prioritization, and inference-time AND/NOT composition for dual-target and selectivity objectives.</p>
+        <p>On MolGenBench hit-to-lead tasks, it reportedly performs strongly among ligand-based methods, though similarity to a desired interaction profile can come at the expense of docking quality.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2099854498290360729">GenCDR combines framework-first modeling with preference alignment</a></h3>
+        <p class="source">Biology AI Daily · X</p>
+        <p>GenCDR jointly generates antibody CDRs while conditioning on all framework regions, giving each loop full scaffold context and separating CDR likelihood from framework likelihood. Variants cover unpaired antibodies, paired heavy–light chains, and nanobodies.</p>
+        <p>Weighted preference optimization uses Boltz-2 interface scores and developability rules to steer generation. In an in-silico PD-L1 nanobody task, alignment substantially increased compliance with the chosen constraints while retaining language-model naturalness.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Protein Engineering &amp; Synthetic Biology</h2>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2099853857404948608">De novo enzymes gain designed allosteric control</a></h3>
+        <p class="source">Biology AI Daily · X</p>
+        <p>A design pipeline creates compact enzymes with active and inactive conformational states, then builds distal protein effectors that selectively stabilize one state. Two serine-hydrolase systems showed approximately fivefold and 2.6-fold activation, while another showed roughly eightfold inhibition.</p>
+        <p>A 1.7 Å crystal structure closely matched the designed inhibitory complex, supporting the proposed conformational-coupling mechanism and pointing toward programmable allostery for synthetic biological circuits.</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="language-intro">Today’s edited reading selections in German, French, Japanese, and Chinese.</p>
+
+      <article class="language-block" lang="de">
+        <h3>Deutsch — Studie: Datenschutz macht Europa wettbewerbsfähiger</h3>
+        <p class="source">heise online · 17.09.2026 · <a href="https://www.heise.de/news/Studie-Datenschutz-macht-Europa-wettbewerbsfaehiger-11456040.html">Link</a></p>
+
+        <p>Ein Grundsatzpapier des Forschungsprojekts „Plattform Privatheit“ widerspricht der verbreiteten Annahme, weniger Datenschutz führe automatisch zu mehr Innovation. Nach Einschätzung der beteiligten Wissenschaftler sind die DSGVO und andere Datenschutzstandards nicht die zentrale Ursache für Europas Schwierigkeiten im digitalen Wettbewerb. Statt pauschaler Deregulierung empfehlen sie datenschutzfreundliche Technologien, digitale Souveränität und vertrauenswürdige Innovationen.</p>
+
+        <p>Handlungsbedarf sehen die Autoren dennoch bei Bürokratie und Rechtsunsicherheit, die vor allem Start-ups sowie kleine und mittlere Unternehmen belasten. Pflichten sollten sich stärker am tatsächlichen Risiko der Datenverarbeitung orientieren, während Hersteller von Standardsoftware mehr Verantwortung übernehmen könnten. Gerade in sensiblen Bereichen wie Gesundheit, Finanzen und Verwaltung könne verlässlicher Datenschutz zu einem europäischen Qualitätsmerkmal und Wettbewerbsvorteil werden.</p>
+
+        <p><strong>Warum lesen:</strong> Der kurze Beitrag verbindet Datenschutz, KI und Europas wirtschaftliche Zukunft und eignet sich damit gut für eine aktuelle gesellschafts- und technologiepolitische Lektüre.</p>
+      </article>
+
+      <article class="language-block" lang="fr">
+        <h3>Français — Réparer la batterie plutôt que la changer : le spécialiste EV Clinic ouvre son premier atelier en France</h3>
+        <p class="source">Numerama · 16 septembre 2026 · <a href="https://www.numerama.com/vroom/2334161-reparer-la-batterie-plutot-que-la-changer-le-specialiste-ev-clinic-ouvre-son-premier-atelier-en-france.html">Lire l’article</a></p>
+
+        <p>EV Clinic, entreprise croate spécialisée dans la réparation des voitures électriques, vient d’ouvrir son premier atelier français au sud de Paris. Déjà présente dans plusieurs pays européens, elle intervient sur des composants que peu de garages acceptent de réparer, notamment les batteries haute tension, les moteurs électriques, les onduleurs et les chargeurs embarqués.</p>
+
+        <p>Au lieu de remplacer intégralement une batterie défectueuse, l’entreprise ouvre le pack, contrôle chaque cellule et ne change que celles qui sont hors service. Cette méthode peut fortement réduire la facture : EV Clinic cite le cas d’une Renault Zoé réparée pour 900 euros, alors que le constructeur demandait 18 000 euros pour une batterie neuve. L’offre concerne surtout les véhicules vieillissants dont la garantie a expiré, car une intervention indépendante peut compliquer une éventuelle prise en charge ultérieure par le constructeur.</p>
+
+        <p>Cette approche pourrait prolonger la durée de vie de voitures électriques dont le coût de réparation dépasse parfois la valeur marchande. EV Clinic propose aussi des opérations préventives, par exemple sur les silentblocs de certains modèles Tesla, mais Numerama rappelle que le réseau officiel reste préférable tant que la garantie du véhicule est encore valable.</p>
+
+        <p><strong>Pourquoi lire :</strong> Un article concret sur la réparabilité des voitures électriques, les économies possibles et les limites du recours à un atelier indépendant.</p>
+
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>batterie haute tension</strong> — batterie de traction qui stocke l’énergie nécessaire au fonctionnement d’un véhicule électrique</li>
+          <li><strong>pack batterie</strong> — ensemble formé par les cellules, modules, connexions et systèmes de contrôle d’une batterie</li>
+          <li><strong>onduleur</strong> — dispositif électronique qui convertit le courant continu de la batterie en courant alternatif pour alimenter le moteur</li>
+          <li><strong>silentbloc</strong> — pièce souple, généralement en caoutchouc, qui absorbe les vibrations et les mouvements entre deux composants mécaniques</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="ja">
+        <h3>日本語 — 「東京ゲームショウ」30年の軌跡：時代を映して進化する祭典</h3>
+        <p class="source">nippon.com · 2026-09-17 · <a href="https://www.nippon.com/ja/guide-to-japan/b00152/">記事を読む</a></p>
+
+        <p>1996年に始まった東京ゲームショウ（TGS）の30年間を、家庭用ゲーム機の世代交代やスマートフォンの普及、PCゲームとeスポーツの成長など、業界の変化とともに振り返る。初回は2日間で10万人を超える来場者を集め、2026年度には出展社が過去最多の1138社に達した。記事は、TGSが新作を紹介する見本市から、ゲームを文化産業として発信する場へ発展した過程を紹介している。</p>
+
+        <p>コロナ禍を機に公式配信が始まり、現在は会場とオンラインを組み合わせた開催が定着した。海外企業が出展社の過半数を占める一方、インディー開発者、教育機関、子ども向けの制作体験、障害のある人も遊べる機器なども扱われ、TGSは国際交流や人材育成、アクセシビリティを支える場にもなっている。</p>
+
+        <p><strong>読む理由：</strong> 日本のゲーム文化と産業が、技術革新や国際化によってどう変わったかを具体的に学べる。</p>
+
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>見本市（みほんいち）</strong> — 企業が新製品や技術を展示し、取引先や利用者に紹介する催し。</li>
+          <li><strong>汎用ゲームエンジン（はんようゲームエンジン）</strong> — 複数の作品や機器で利用できる、ゲーム開発用の共通基盤。</li>
+          <li><strong>多国籍化（たこくせきか）</strong> — 参加する人や企業の出身国が多様になること。</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="zh-Hans">
+        <h3>中文 — 炎王龙确认登场《怪物猎人荒野：凌越》：卡普空TGS发布会汇总</h3>
+        <p class="source">机核 · 2026-09-17 · <a href="https://www.gcores.com/articles/219819">阅读原文</a></p>
+
+        <p>卡普空在东京电玩展发布会上集中公开了多款游戏的新消息。其中，《怪物猎人荒野：凌越》的最新预告确认炎王龙回归；扩展内容还将加入新故事、新原野、新怪物和猎人动作，并增设“大师等级”任务。</p>
+
+        <p>发布会也展示了《识质存在》与《洛克人》的联动内容，包括追加服装、背景音乐及角色动作；《街头霸王6》公开深红毒蛇的装扮宣传片。此外，《龙之信条2：黑暗觉者》和由腾讯天美研发的动作手游《怪物猎人：旅人》也发布了新预告。</p>
+
+        <p><strong>为什么读：</strong> 一篇篇幅简洁、信息密集的游戏发布会汇总，适合熟悉中文游戏媒体常用表达。</p>
+
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>扩展内容 (kuòzhǎn nèiróng)</strong> — 在游戏本体之外新增的故事、区域、角色或玩法。</li>
+          <li><strong>实装 (shízhuāng)</strong> — 游戏行业用语，指某项功能或内容正式加入并开放使用。</li>
+          <li><strong>联动 (liándòng)</strong> — 不同作品或品牌之间展开的合作企划，常包含限定角色、服装或活动。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h2>Source notes</h2>
+      <p>The configured AI-research feed was unavailable for this run. One configured bio-research list also failed collection, so the research section reflects only the successfully received items.</p>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-09-17-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

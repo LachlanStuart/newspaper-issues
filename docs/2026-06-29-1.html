@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --paper: #fffdf8;
+      --ink: #222;
+      --muted: #666;
+      --line: #ddd6c8;
+      --accent: #284b63;
+      --accent-soft: #e7eef2;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 26px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+    }
+    header .meta {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 20px 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    h2 {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 1.45rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 7px;
+    }
+    h3 {
+      margin: 18px 0 6px;
+      font-size: 1.12rem;
+      color: #1f3544;
+    }
+    article {
+      padding: 10px 0 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 4px;
+    }
+    .source {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 2px 0 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+    a {
+      color: #0b5c8e;
+      text-decoration-thickness: 1px;
+    }
+    a:hover {
+      text-decoration-thickness: 2px;
+    }
+    .lead {
+      font-size: 1.02rem;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 4px solid var(--accent);
+      padding-top: 4px;
+    }
+    .language-practice section {
+      background: #fff;
+    }
+    .note {
+      background: var(--accent-soft);
+      border-left: 4px solid var(--accent);
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #2d3b43;
+      font-size: 0.94rem;
+    }
+    ul {
+      margin-top: 6px;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="meta">Monday, June 29, 2026 · Run 2026-06-29-1</div>
+    </header>
+
+    <section>
+      <h2>AI Systems</h2>
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2071236176858710422">Stanford AI Lab notes hybrid local/cloud routing systems for AI workloads</a></h3>
+        <div class="source">X AI Research</div>
+        <p class="lead">Stanford AI Lab amplified a note on hybrid local-plus-cloud AI systems, framing the problem as workload routing rather than simple usage rationing. The visible tweet text was truncated in the provided data, so no detailed method or paper link is available here, but the topic points to continuing interest in deciding when inference should run locally and when it should be sent to cloud models.</p>
+        <div class="tags">Tags: AI systems, routing, local models, cloud inference</div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Drug Discovery</h2>
+
+      <article>
+        <h3><a href="https://x.com/DdelAlamo/status/2071313675256758582">Minibinder benchmark questions whether structurally enabled targets map to druggability</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>Diego del Alamo highlighted a large-scale structure-based minibinder design benchmark reporting that a target’s structural “enablement” was uncorrelated with druggability. More than 30% of targets were reportedly hit only by off-target binders, making this a useful caution for protein-design workflows that treat apparent structural tractability as a proxy for drug-discovery usefulness.</p>
+        <div class="tags">Tags: protein design, drug discovery, benchmarking, binder design</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2071162242503188875">PlanarFold models RNA secondary-structure dynamics with 2D coarse-grained MD</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>PlanarFold is described as a two-dimensional coarse-grained molecular-dynamics framework for RNA secondary-structure dynamics. It combines per-timestep dynamic programming with MD potentials, samples conformational ensembles, and is reported to reproduce thermodynamic populations, exchange kinetics, co-transcriptional folding pathways, and force-extension behavior while running much faster than all-atom MD.</p>
+        <div class="tags">Tags: RNA, molecular dynamics, computational biology, biophysics</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2071161894652796928">MEET uses memory-efficient equivariant transformers for peptide–pocket design</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>MEET is presented as an E(3)-equivariant Transformer backbone for full-atom peptide–pocket generative modeling. It avoids materializing dense distance-bias tensors, uses memory-efficient attention, and is evaluated in a latent VAE plus diffusion pipeline for target-specific peptide design. Reported benchmarks show better predicted binding energy and physical validity than several peptide-design baselines, with near-linear memory scaling.</p>
+        <div class="tags">Tags: peptide design, drug discovery, diffusion models, equivariant networks</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2071160865345401225">SurfBind predicts antibody-specific epitopes from 3D molecular surfaces</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>SurfBind reframes epitope prediction as a surface-first, partner-aware learning problem. It uses SurfFormer++ over oriented surface point-cloud patches, antibody-aware cross-attention, and masked surface pretraining with geometric and physicochemical reconstruction objectives. The reported value is better antibody-specific epitope localization and constraints that can improve docking success.</p>
+        <div class="tags">Tags: antibodies, epitope prediction, geometric deep learning, immunology</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2071160753772712030">Sesame generates 3D molecules using protein-pocket and fragment density-map conditioning</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>Sesame is a diffusion-based 3D molecular generator for de novo ligand design and fragment-conditioned lead optimization. Protein pockets and partial ligands are represented as continuous spatial density maps, with a pairformer module injecting sampled density features into atom and pair representations. The method combines coordinate diffusion with categorical atom and bond diffusion and reports improved validity after trajectory finetuning.</p>
+        <div class="tags">Tags: drug discovery, molecular generation, diffusion models, structure-based design</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2071160526823125177">Molexar unifies multimodal molecular generation for drug-design constraints</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>Molexar is described as a compact autoregressive molecular foundation model that handles properties, fragments, pharmacophores, protein sequence, and 3D pocket conditioning through a shared prompt format. It introduces Fragment-SELFIES for fragment-tree molecular language and uses value-token embedding replacement for conditioning. Evaluations cover unconditional generation, fragment-constrained tasks, property control, CrossDocked target conditioning, and MolGenBench de novo and hit-to-lead settings.</p>
+        <div class="tags">Tags: drug discovery, molecular foundation models, cheminformatics, generative models</div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio-AI Evaluation, Robustness &amp; Multi-omics</h2>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2071160344706265392">Protein language model attributions fail to recover allergen epitopes</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>A study on allergenicity models finds that high protein-level accuracy does not guarantee biologically meaningful residue-level explanations. Multiple attribution methods for ESM-2-based allergen classifiers were near-random or worse at recovering experimentally annotated allergen epitopes, even when the attributions were faithful to classifier output under masking tests. The work separates model faithfulness from immunological faithfulness and argues for epitope-grounded validation before using saliency maps in safety screening or hypoallergen design.</p>
+        <div class="tags">Tags: interpretability, protein language models, allergenicity, bio-safety</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2071160234652123552">Strict LOCO-DMS benchmark exposes limits of antibody–antigen affinity prediction</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>A multi-scale antibody–antigen affinity prediction study evaluates models under leave-one-complex-out deep mutational scanning, a stricter generalization test. Single modalities did not beat a majority baseline, while a fused representation combining physicochemical, structural, ESM-2, SASA, and ΔΔG-style features performed best. The summary emphasizes uncertainty filtering, a thermodynamic noise ceiling, and weak cross-pathogen transfer.</p>
+        <div class="tags">Tags: antibodies, affinity prediction, deep mutational scanning, benchmarking</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2071376238976135199">Stability-driven multi-omics integration aims to avoid overinterpreting unstable latent components</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>A razoralign thread highlighted work on reproducible latent structure in multi-omics integration. The method uses sparse generalized canonical correlation analysis within repeated cross-validation and out-of-sample projections to assess latent-component reproducibility, feature-selection stability, sparse weight consistency, and disease-associated patterns. The headline finding is that only some latent components show reproducible biology, while higher-order components may be unstable and easy to overinterpret.</p>
+        <div class="tags">Tags: multi-omics, reproducibility, latent representations, disease</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2071373936504570058">“Glitch genes” links embedding geometry to fragility in single-cell foundation models</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>The “glitch genes” thread describes an analysis of gene-token embedding matrices from Geneformer, scGPT, and scFoundation. It looks for geometric anomalies and associates them with perturbation sensitivity, drawing an analogy to anomalous tokens in language models. The broader idea is that embedding outliers may flag functional fragility in biological foundation models.</p>
+        <div class="tags">Tags: single-cell, foundation models, interpretability, robustness</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2071373247053173202">Multi-omics-guided evolution probes limits of genetic recoding</a></h3>
+        <div class="source">X Bio Research</div>
+        <p>A razoralign thread highlighted work on genetic recoding limits using multi-omics-guided evolution. The approach identifies fitness-decreasing errors in synthetic genomes and uses genome editing plus directed evolution to debug synthetic chromosomal regions. The thread notes that synonymous codon changes can affect mRNA and protein production, translation efficiency, promoter induction, and fitness.</p>
+        <div class="tags">Tags: genomics, synthetic biology, multi-omics, genome editing</div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Source Notes</h2>
+      <p class="note">X AI Research noted that several potentially relevant retweets were truncated and lacked enough visible method detail to report. X Bio Research excluded many retweets, memes, generic commentary, and likely duplicates.</p>
+    </section>
+
+    <div class="language-practice">
+      <section lang="de">
+        <h2>Language Practice — Deutsch</h2>
+        <article>
+          <h3>Deutsch — Innenministerium konkretisiert den Cyberdome teilweise</h3>
+          <div class="source">heise online · 2026-06-29 · <a href="https://www.heise.de/news/Innenministerium-konkretisiert-den-Cyberdome-teilweise-11347190.html">https://www.heise.de/news/Innenministerium-konkretisiert-den-Cyberdome-teilweise-11347190.html</a></div>
+          <p>Das Bundesinnenministerium beschreibt den geplanten „Cyberdome“ nicht als einzelnes neues IT-System, sondern als offenes Ökosystem für nationales Monitoring, Automatisierung und Echtzeit-Informationsaustausch. Ziel ist, Cyberangriffe schneller zu erkennen und betroffene Branchen oder Organisationen unmittelbar zu warnen; IT-Sicherheitsprodukte sollen künftig sogar als „Cyberdome-ready“ gelten können.</p>
+          <p>Der Artikel ordnet die Pläne politisch ein: Während das BMI und das BSI auf mehr Konnektivität, Datensensorik und automatisierte Abwehr setzen, warnen Abgeordnete und Bundeswehr-Vertreter vor unklaren Zuständigkeiten und falschen Sicherheitsversprechen. Besonders deutlich wird die Spannung zwischen dem Wunsch nach schneller Reaktion, der Rolle von BKA, BSI und Bundeswehr sowie der Debatte über offensive Eingriffe gegen schädliche Server.</p>
+          <p><strong>Warum lesen:</strong> Der Text bietet einen guten Einstieg in die aktuelle deutsche Debatte über staatliche Cybersicherheit, Automatisierung und die Grenzen eines digitalen Schutzschirms.</p>
+        </article>
+      </section>
+
+      <section lang="fr">
+        <h2>Language Practice — Français</h2>
+        <article>
+          <h3>Français — La version PS5 de GTA 6 se vend-elle vraiment 8 fois plus que sur Xbox ? Microsoft réplique</h3>
+          <div class="source">Numerama · 2026-06-29 · <a href="https://www.numerama.com/pop-culture/2286979-la-version-ps5-de-gta-6-se-vend-elle-vraiment-8-fois-plus-que-la-xbox-microsoft-replique.html">https://www.numerama.com/pop-culture/2286979-la-version-ps5-de-gta-6-se-vend-elle-vraiment-8-fois-plus-que-la-xbox-microsoft-replique.html</a></div>
+          <p>Numerama revient sur une affirmation très commentée autour de GTA 6 : selon des données issues du programme d’affiliation IGN Finds and Commerce, les clics ou intentions d’achat favoriseraient PlayStation face à Xbox dans un ratio de 8 pour 1. L’article souligne que ce chiffre a vite été interprété comme une preuve que la version PS5 écraserait les précommandes Xbox, alors qu’il ne s’agit pas de données de vente globales.</p>
+          <p>Microsoft a réagi auprès de Windows Central en contestant cette lecture : selon l’entreprise, ces données ne représentent pas les précommandes réelles, et Xbox enregistrerait même des précommandes « record », sans toutefois publier de chiffres précis. Numerama explique que la PS5 peut raisonnablement être en avance, notamment parce que son parc installé est plus important, mais qu’un ratio aussi spectaculaire doit être pris avec prudence.</p>
+          <p>L’intérêt de l’article est aussi de montrer comment une donnée commerciale limitée — ici des liens affiliés — peut se transformer en récit médiatique plus large sur l’état de Xbox, dans un contexte déjà tendu pour Microsoft : hausse des prix des consoles, restructurations annoncées et concurrence forte à l’approche de la sortie de GTA 6.</p>
+          <p><strong>Pourquoi lire :</strong> pour pratiquer un français actuel sur le jeu vidéo, les plateformes et la manière dont les chiffres circulent dans les médias tech.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>liens affiliés</strong> — liens commerciaux qui peuvent rapporter une commission au site lorsqu’un lecteur clique ou achète.</li>
+            <li><strong>précommandes</strong> — achats ou réservations effectués avant la sortie officielle d’un produit.</li>
+            <li><strong>parc installé</strong> — nombre total de consoles ou d’appareils déjà possédés par les utilisateurs sur un marché donné.</li>
+          </ul>
+        </article>
+      </section>
+
+      <section lang="ja">
+        <h2>Language Practice — 日本語</h2>
+        <article>
+          <h3>日本語 — クールジャパン機構、累積赤字540億円　廃止含め検討へ</h3>
+          <div class="source">nippon.com · 2026-06-29 · <a href="https://www.nippon.com/ja/japan-data/h02825/">https://www.nippon.com/ja/japan-data/h02825/</a></div>
+          <p>日本のコンテンツや観光、伝統産品などを海外に広げる目的で設立された官民ファンド「クールジャパン機構」について、2025年度の事業報告で約157億円の純損失が出たことを伝える記事です。売上高は前年比で大きく減り、累積赤字は540億円に達したとされています。</p>
+          <p>同機構は2013年に発足し、政府が出資金の大部分を負担してきました。これまで海外案件や中長期案件に投資してきた一方、資金を回収できないまま撤退する事業も相次ぎ、投資効果への疑問が根強く出ていました。</p>
+          <p>経済産業省は過去に赤字改善の投資計画を示していましたが、目標を達成できませんでした。記事では、今後は他機関との統合や廃止を前提に、具体的な検討が進む見込みだと説明しています。</p>
+          <p><strong>読む理由：</strong> 日本の文化発信政策と公的資金の使い方を、数字を通じて考えられる記事です。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>官民（かんみん）ファンド</strong> — 政府と民間企業が資金を出し合って投資する仕組み。</li>
+            <li><strong>累積赤字（るいせきあかじ）</strong> — ある期間に積み重なった赤字の合計。</li>
+            <li><strong>純損失（じゅんそんしつ）</strong> — 収益から費用などを差し引いた結果、最終的に出た損失。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section lang="zh-Hans">
+        <h2>Language Practice — 中文</h2>
+        <article>
+          <h3>中文 — 欧洲热浪：世卫称逾1300人死亡，德国录得41.7°C高温</h3>
+          <div class="source">BBC News 中文 · 2026-06-29 · <a href="https://www.bbc.com/zhongwen/articles/c78yvn5zj8eo/simp">https://www.bbc.com/zhongwen/articles/c78yvn5zj8eo/simp</a></div>
+          <p>BBC报道，联合国世界卫生组织表示，席卷欧洲的初夏热浪可能已经造成超过1300起与高温相关的超额死亡。德国、波兰、捷克等国在周末继续刷新高温纪录，其中德国东部监测站录得41.7°C，捷克和波兰也分别出现超过40°C的极端高温。</p>
+          <p>文章指出，欧洲是全球暖化最快的洲，升温速度约为全球平均的两倍。世卫总干事谭德塞警告，过去被视为“百年一遇”的热浪，如今在气候变迁推动下几乎每年都会发生；欧洲许多住宅、学校和工作场所并非为这种温度设计，因此高温对健康和基础设施都构成压力。</p>
+          <p>报道还提到，各国已开始采取限制措施：法国部分公共活动取消或受限，荷兰音乐节因红色高温警报取消；法国卫生部门称，近期死亡人数明显高于预期，65岁以上长者受到的影响尤其突出。</p>
+          <p><strong>为什么读：</strong> 这篇文章把欧洲极端高温、公共卫生风险与气候变迁联系起来，适合练习气候与社会治理相关中文词汇。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>超额死亡 (chāo'é sǐwáng)</strong> — 实际死亡人数高于正常预期水平的部分，常用于公共卫生统计。</li>
+            <li><strong>热穹 (rè qióng)</strong> — 高压系统把热空气困在地表附近、导致持续高温的天气现象。</li>
+            <li><strong>热健康行动计划 (rè jiànkāng xíngdòng jìhuà)</strong> — 政府或公共卫生机构为减少高温伤害而制定的预警、救助和防护措施。</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+
+    <footer>
+      News · Generated from provided source reports only.
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

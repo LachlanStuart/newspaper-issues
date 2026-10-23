@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --ink: #1d2522;
+      --muted: #63706a;
+      --accent: #176b57;
+      --accent-soft: #dcebe5;
+      --rule: #cbd2cd;
+      --card: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    header, main, footer {
+      width: min(1080px, calc(100% - 36px));
+      margin-inline: auto;
+    }
+    header {
+      padding: 42px 0 25px;
+      border-bottom: 3px double var(--ink);
+      text-align: center;
+    }
+    .kicker {
+      margin: 0 0 5px;
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 750;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      font-weight: 600;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+    .date {
+      margin: 13px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+    }
+    main { padding-bottom: 42px; }
+    section { margin-top: 42px; }
+    .section-heading {
+      display: flex;
+      gap: 14px;
+      align-items: baseline;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--ink);
+    }
+    .section-heading h2 {
+      margin: 0;
+      padding-bottom: 7px;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .section-heading span {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+    article {
+      padding: 21px 22px;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    article h3 {
+      margin: 0 0 10px;
+      font-size: 1.2rem;
+      line-height: 1.28;
+    }
+    article p { margin: 0 0 12px; }
+    article p:last-child { margin-bottom: 0; }
+    .source-link {
+      display: inline-block;
+      margin-top: 3px;
+      font-family: system-ui, sans-serif;
+      font-size: 0.83rem;
+      font-weight: 650;
+    }
+    .language-section {
+      margin-top: 54px;
+      padding-top: 10px;
+      border-top: 5px solid var(--accent);
+    }
+    .language-intro {
+      max-width: 760px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.92rem;
+    }
+    .language-article {
+      margin-top: 20px;
+      padding: 25px 27px;
+    }
+    .language-article h3 { font-size: 1.35rem; }
+    .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+    .language-article ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+    .language-article li { margin-bottom: 6px; }
+    footer {
+      padding: 20px 0 38px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+    @media (max-width: 720px) {
+      body { font-size: 16px; }
+      .grid { grid-template-columns: 1fr; }
+      header { padding-top: 30px; }
+      article, .language-article { padding: 19px; }
+      .section-heading {
+        display: block;
+        padding-bottom: 7px;
+      }
+      .section-heading h2 { padding-bottom: 2px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <p class="kicker">Research and technology briefing</p>
+    <h1>News</h1>
+    <p class="date"><time datetime="2026-09-10">Thursday, September 10, 2026</time></p>
+  </header>
+
+  <main>
+    <section aria-labelledby="ai-systems">
+      <div class="section-heading">
+        <h2 id="ai-systems">AI Systems &amp; Architecture</h2>
+        <span>Training, inference and interpretability</span>
+      </div>
+      <div class="grid">
+        <article>
+          <h3>Per-example stochastic depth collides with batching</h3>
+          <p>Lucas Beyer reports that per-example stochastic depth produced theoretical FLOP savings but little practical benefit in LLM training or serving, because a batch must still execute every layer needed by any example. Dropping the same layers across an entire batch retained the speedup but substantially degraded results.</p>
+          <a class="source-link" href="https://x.com/giffmana/status/2097593327289790821">Read the technical discussion on X →</a>
+        </article>
+
+        <article>
+          <h3>Photon megakernels extend beyond low-batch decoding</h3>
+          <p>A technical thread argues that persistent megakernels can reorganize computation and data movement in ways hardware does not directly expose. Photon reportedly outperforms TensorRT on SigLIP workloads on H100, with discussion covering register-pressure spillovers, CPU launch contention, variable-length prefill, CUDA Graph limitations and compiler support across GPU generations.</p>
+          <a class="source-link" href="https://x.com/vikhyatk/status/2097789965359071627">Read the thread on X →</a>
+        </article>
+
+        <article>
+          <h3>A practical guide to activation probes</h3>
+          <p>Goodfire describes how activation probes can monitor behaviors such as offensive cyber intent, reward hacking and strategic deception. The guide focuses on implementation choices: where in the network to inspect, how to pool tokens, which probe architecture to use, how to construct datasets and how to test generalization.</p>
+          <a class="source-link" href="https://x.com/GoodfireAI/status/2097725314143273020">Read the guide on X →</a>
+        </article>
+
+        <article>
+          <h3>Survey maps the design space of looped Transformers</h3>
+          <p>Sebastian Raschka publishes an illustrated overview of looped Transformers and recurrent depth. It examines parameter reuse, compute and cost tradeoffs, relationships among recent architectures, and whether repeatedly applying the same layers may conceal intermediate reasoning traces.</p>
+          <a class="source-link" href="https://x.com/rasbt/status/2097677950262939931">Read the survey on X →</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="molecular-biology">
+      <div class="section-heading">
+        <h2 id="molecular-biology">Molecular AI &amp; Drug Discovery</h2>
+        <span>Genomes, structures and screening</span>
+      </div>
+      <div class="grid">
+        <article>
+          <h3>GPN-Star releases genome-wide variant-prioritization scores</h3>
+          <p>The newly published DNA language model includes precomputed predictions for every possible single-nucleotide variant in the human genome and five model organisms. Researchers describe it as an efficient, biology-informed alternative to much larger genomic language models for prioritizing variant effects.</p>
+          <a class="source-link" href="https://x.com/anshulkundaje/status/2097840966459949471">See the research announcement on X →</a>
+        </article>
+
+        <article>
+          <h3>PharmCast predicts 3D pharmacophores without conformer generation</h3>
+          <p>PharmCast maps molecular fingerprints and global descriptors to a 10,549-bit ensemble pharmacophore fingerprint. It reports sub-millisecond inference and screened 4.65 million compounds in 29.3 minutes. The surrogate is intended for ranking before conventional final analysis; accuracy weakens in sparsely represented chemistry, particularly above roughly 700 Da.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2097690029196038535">Read the research summary on X →</a>
+        </article>
+
+        <article>
+          <h3>QuickFold emerges from 297 agent-driven experiments</h3>
+          <p>A supervised LLM-agent loop completed 297 propose–implement–train–evaluate iterations on one L40S GPU, producing an 8.9-million-parameter, MSA-free RNA 3D predictor. QuickFold reportedly matches RhoFold+ and NuFold within seed noise on held-out metrics and folds a target in about 3.5 seconds. Its validation set is small, global-fold quality remains modest, and human judgment is still required for requirements and structural validity.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2097689937009402178">Read the research summary on X →</a>
+        </article>
+
+        <article>
+          <h3>PRIS links protein–RNA pose selection to aptamer screening</h3>
+          <p>PRIS combines a reranker for predicted protein–RNA complexes with a system that derives nucleotide preferences and screens RNA libraries from a chosen structure. It screened 129,248 MS2 hairpins in 11.95 seconds and recovered active NELF-E and GFP aptamers without experimental complex structures. Its sequence-obscured input is designed to reduce memorization.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2097689799520129205">Read the research summary on X →</a>
+        </article>
+
+        <article>
+          <h3>Interpreting Boltz-1’s structural representations</h3>
+          <p>A mechanistic study separates three information streams in the Boltz-1 Pairformer: token-local atomic detail, intra-chain geometry and inter-chain molecular arrangement. Apo–holo activation patching suggests that the diffusion module reconciles partially inconsistent constraints rather than merely decoding one coherent distance field.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2097689535799062736">Read the research summary on X →</a>
+        </article>
+
+        <article>
+          <h3>Graph attention exposes candidate allosteric mechanisms</h3>
+          <p>An edge-aware graph-attention workflow predicts subsequent molecular-dynamics frames, tests whether attended edges matter by masking them, and converts the signal into time-dependent residue communication networks. It recovers known folding determinants in Chignolin and identifies altered communication pathways in a distal drug-resistant mutant of HIV-1 protease.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2097689417288912930">Read the research summary on X →</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="single-cell">
+      <div class="section-heading">
+        <h2 id="single-cell">Single-Cell &amp; Spatial Biology</h2>
+        <span>Methods and infrastructure</span>
+      </div>
+      <div class="grid">
+        <article>
+          <h3>scAtlasPy brings randomized access to atlas-scale data</h3>
+          <p>scAtlasPy is designed for single-cell analysis beyond available memory. During import, it combines contiguous cell blocks into bounded windows, randomly permutes cells within each window and stores them with sparse expression records. The resulting layout supports randomized minibatches for large-scale analysis and model training without loading the entire atlas.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2097782298062225911">See the project discussion on X →</a>
+        </article>
+
+        <article>
+          <h3>scFLAME jointly learns clusters, hierarchies and markers</h3>
+          <p>scFLAME couples batch-adjustable negative-binomial factor analysis of raw scRNA-seq counts with a Gaussian-mixture latent prior. The probabilistic model learns embeddings and clusters together, identifies cluster-specific marker genes through a shared linear decoder and merges fine partitions into a hierarchy.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2097782068822622712">See the method discussion on X →</a>
+        </article>
+
+        <article>
+          <h3>CellART unifies segmentation and cell-type annotation</h3>
+          <p>CellART integrates staining images, spatial-transcriptomics measurements and scRNA-seq references. Instead of running segmentation and annotation as separate stages, it learns a shared high-resolution latent representation and performs both tasks within one probabilistic framework.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2097781491157897389">See the method discussion on X →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section" aria-labelledby="language-practice">
+      <div class="section-heading">
+        <h2 id="language-practice">Language Practice</h2>
+        <span>Original-language daily reading</span>
+      </div>
+      <p class="language-intro">Edited reading selections preserved in their source languages.</p>
+
+      <article class="language-article" lang="de">
+        <h3>Deutsch — Investitionspflicht für Streamingdienste droht zu scheitern</h3>
+        <p class="byline">Deutschlandfunk Kultur · 09.09.2026 · <a href="https://www.deutschlandfunkkultur.de/investitionspflicht-fuer-streamingdienste-droht-zu-scheitern-100.html">Originalbeitrag</a></p>
+        <p>Die Bundesregierung will Fernsehsender und Streamingdienste stärker an der Finanzierung europäischer Filmproduktionen beteiligen. Anbieter wie Netflix und Amazon Prime sollen dazu verpflichtet werden, mindestens acht Prozent ihres in Deutschland erzielten Jahresumsatzes in europäische Produktionen zu investieren.</p>
+        <p>Die EU-Kommission hält Teile des Gesetzentwurfs jedoch möglicherweise für unverhältnismäßig. Sie stellt sowohl die Höhe der Investitionsquote als auch weitere vorgesehene Quoten infrage und sieht einen möglichen Eingriff in die unternehmerische Freiheit. Damit gerät das medienpolitische Vorhaben von Kulturstaatsminister Weimer ins Wanken.</p>
+        <p><strong>Warum lesen:</strong> Der kurze Beitrag zeigt anschaulich, wie nationale Kulturförderung, europäisches Recht und die Marktmacht internationaler Streamingplattformen aufeinanderprallen.</p>
+      </article>
+
+      <article class="language-article" lang="fr">
+        <h3>Français — Mistral AI lève trois milliards d’euros et accélère son virage industriel</h3>
+        <p class="byline">RFI · 8 septembre 2026 · <a href="https://www.rfi.fr/fr/%C3%A9conomie/20260908-mistral-ai-l%C3%A8ve-trois-milliards-d-euros-et-acc%C3%A9l%C3%A8re-son-virage-industriel">Article original</a></p>
+        <p>La jeune entreprise française Mistral AI a réalisé une levée de fonds de trois milliards d’euros, la plus importante depuis sa création en 2023. Désormais valorisée à 21 milliards d’euros, elle entend dépasser son rôle initial de concepteur de modèles d’intelligence artificielle pour investir dans les infrastructures indispensables à leur entraînement et à leur fonctionnement : puces, centres de données et capacités de calcul.</p>
+        <p>Cette évolution répond à une ambition de souveraineté numérique européenne, même si Mistral reste dépendante de partenaires étrangers comme Nvidia et Microsoft. Avec Samsung parmi ses nouveaux investisseurs, l’entreprise cherche à renforcer son contrôle sur sa chaîne de valeur sans se couper des marchés mondiaux. Elle compte maintenant environ 1 000 salariés, conserve un capital majoritairement européen et vise un milliard d’euros de revenus annuels d’ici à la fin de 2026.</p>
+        <p><strong>Pourquoi lire :</strong> L’article éclaire les ambitions industrielles de Mistral AI et les limites concrètes de l’autonomie technologique européenne.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>levée de fonds</strong> — opération par laquelle une entreprise obtient des capitaux auprès d’investisseurs</li>
+          <li><strong>capacité d’entraînement</strong> — puissance informatique disponible pour développer et perfectionner des modèles d’intelligence artificielle</li>
+          <li><strong>chaîne de valeur</strong> — ensemble des activités et des acteurs nécessaires à la conception, à la production et à la commercialisation d’un produit</li>
+          <li><strong>souveraineté numérique</strong> — capacité d’un État ou d’une région à maîtriser ses technologies, ses infrastructures et ses données stratégiques</li>
+        </ul>
+      </article>
+
+      <article class="language-article" lang="ja">
+        <h3>日本語 — Anthropic在籍の研究者2人も同調──「AIが人類を滅ぼしかねないと本気で考えている」</h3>
+        <p class="byline">ITmedia NEWS · 2026-09-10 · <a href="https://www.itmedia.co.jp/news/article/2609/10/2000001342/">リンク</a></p>
+        <p>米AnthropicでAIの安全性を研究するエバン・ヒュービンガー氏とサミュエル・マークス氏が、急速なAI開発には人類規模の危険が伴うという見解を個人として表明した。ヒュービンガー氏は、AIが今後10年以内に全人類を死に至らせる確率を個人的に10％超と見積もり、超知能を確実に人間の意図と整合させる計画はまだ存在しないと指摘している。ただし、現在のAIモデルによるリスクは低く、主な懸念は再帰的自己改善によって生まれる将来の超知能だとしている。</p>
+        <p>マークス氏は、AI企業が深刻な危険を認識しながら開発を続ける背景に、商業上の動機と他社との競争があると説明した。AIを望ましい方向へ誘導する方法はあるものの、堅牢な安全性を保証する技術は確立されていないという。より安全な開発方法を探す時間を確保するため、開発速度の調整を望む研究者が多いことも紹介されている。</p>
+        <p><strong>読む理由：</strong> AI開発の最前線にいる研究者が、安全性・企業間競争・開発速度の問題をどのように捉えているかを学べる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>整合性（せいごうせい）</strong> — AIの目的や行動が、人間の意図や価値観と一致していること。</li>
+          <li><strong>再帰的自己改善（さいきてきじこかいぜん）</strong> — AIが自らの能力を改善し、その改善された能力でさらに改良を重ねる仕組み。</li>
+          <li><strong>堅牢性（けんろうせい）</strong> — 状況や入力が変化しても、システムが安全で安定した動作を維持できる性質。</li>
+        </ul>
+      </article>
+
+      <article class="language-article" lang="zh-Hans">
+        <h3>中文 — 纽约市校园AI禁令：关闭逾38款教育软体AI功能，影响近60万学生｜Whatsnew</h3>
+        <p class="byline">端传媒 · 2026-09-10 · <a href="https://theinitium.com/20260910-whatsnew-newyork-student-ai-ban-zh-hans/">原文链接</a></p>
+        <p>纽约市宣布，自2026至2027学年起，公立学校幼儿园至八年级学生将在课堂上暂停使用人工智能一年。超过38款教育软体的AI功能以及ChatGPT、Claude等生成式AI和陪伴型聊天机器人均在禁用范围内，预计影响近60万名学生；教师仍可利用AI制定教学计划。</p>
+        <p>新政策也限制学生的荧幕使用时间，并在部分高中试行指定AI工具。身心障碍学生、多语言学习者及参加电脑科学等职涯准备课程的学生可获豁免。由学生、教师、家长、工会、专家及民选官员组成的联盟将在一年内评估禁令和试点成效，为后续政策提出建议。</p>
+        <p><strong>为什么读：</strong> 这项大规模校园禁令呈现了教育界面对生成式AI时，在学习成效、儿童发展与技术应用之间的现实取舍。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>生成式人工智能 (shēngchéngshì réngōng zhìnéng)</strong> — 能依据提示自动生成文字、图像、声音或其他内容的人工智能系统。</li>
+          <li><strong>陪伴型聊天机器人 (péibànxíng liáotiān jīqìrén)</strong> — 以持续对话和情感互动为主要功能的人工智能程式。</li>
+          <li><strong>豁免 (huòmiǎn)</strong> — 因特殊条件而不受某项规定或限制约束。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer>
+    News Daily · Run 2026-09-10-1 · Source links lead to the original reports or discussions.
+  </footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f2;--ink:#242823;--muted:#62695f;--line:#d7dbcf;--accent:#28614d}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main,header,footer{max-width:1040px;margin:auto;padding:24px}
+header{padding-top:44px;border-bottom:3px solid var(--ink)}
+h1{font-size:3.6rem;line-height:1;margin:8px 0 18px;letter-spacing:-2px}
+.kicker,.date,nav,.meta,footer{font-family:system-ui,sans-serif}
+.kicker{color:var(--accent);font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:2px}
+.date,.meta{color:var(--muted);font-size:.85rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:22px;font-size:.9rem}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin:18px 0 42px}
+h2{font-size:1.65rem;border-bottom:1px solid var(--line);padding-bottom:10px;margin:22px 0}
+h3{font-size:1.23rem;line-height:1.35;margin:0 0 10px}
+p{margin:10px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 34px}
+article{min-width:0}
+.links{font-family:system-ui,sans-serif;font-size:.82rem}
+.brief{border-top:1px solid var(--line);padding-top:16px}
+.language{border-top:3px solid var(--ink);padding-top:14px}
+.reading{max-width:820px;margin:28px auto 38px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.reading h3{font-size:1.4rem}
+.reading[lang="ja"],.reading[lang="zh"]{line-height:1.95}
+ul{padding-left:24px}
+footer{border-top:1px solid var(--line);font-size:.8rem;color:var(--muted);padding-bottom:36px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}header,main,footer{padding-left:20px;padding-right:20px}h1{font-size:3rem}}
+@media print{body{background:white}nav{display:none}article{break-inside:avoid}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<div class="kicker">The daily newspaper</div>
+<h1>News</h1>
+<div class="date"><time datetime="2026-10-09">Friday, 9 October 2026</time></div>
+<p>Today’s research: genomic annotation at scale, better tests for biological models, and faster AI security monitors. Four native-language readings follow the research desk.</p>
+<nav aria-label="Sections">
+<a href="#genomics">Genomics &amp; cells</a>
+<a href="#design">Biological design</a>
+<a href="#evaluation">Models &amp; evaluation</a>
+<a href="#ai">AI systems &amp; tools</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="genomics">
+<h2>Genomics &amp; cells</h2>
+<div class="grid">
+<article>
+<h3>Carbon-A opens a vast catalogue of gene candidates</h3>
+<p>The Carbon Annotation Database and Carbon-A model reportedly identify <strong>566.34 million new gene candidates across 22,617 species</strong>. The release includes the model, training data, annotations and a technical report.</p>
+<p>The authors report wet-lab validation of some candidates in cats, chickens and Arabidopsis. Candidate functions remain unknown, and broader validation is pending: the catalogue is a starting point for discovery, not a list of confirmed functional genes.</p>
+<p class="links"><a href="https://x.com/cgeorgiaw/status/2108217685133656523">Release post</a> · <a href="https://x.com/anshulkundaje/status/2108220287364067357">Related announcement</a> · <a href="https://t.co/m82vLo5Qd8">Collection</a> · <a href="https://t.co/to1dTDOtcW">Blog</a></p>
+</article>
+<article>
+<h3>SpliceAI2 announces transcript reconstruction gains</h3>
+<p>Excerpts announcing the next generation of SpliceAI report perfect reconstruction of the top transcript for <strong>82% of held-out genes</strong>. Model weights and precomputed variant-effect predictions within protein-coding genes are also announced.</p>
+<p>The result is relevant to splicing and disease-variant interpretation, but the supplied fragments do not establish the full evaluation setup or resource-access details.</p>
+<p class="links"><a href="https://x.com/cutleraging/status/2108378557458358294">SpliceAI2 announcement</a></p>
+</article>
+<article class="brief">
+<h3>tangermeme reaches Nature Methods</h3>
+<p>The sequence-to-function toolkit is reported as published in <em>Nature Methods</em>. Anshul Kundaje highlights its role in sequence-to-omics interpretation and says his group will continue integrating interpretation tools into it.</p>
+<p class="links"><a href="https://x.com/pkoo562/status/2108309089512255957">Publication update</a></p>
+</article>
+<article class="brief">
+<h3>Mouse embryo lineage work reaches Cell</h3>
+<p>An announcement reports publication in <em>Cell</em> of work reconstructing a mouse-embryo cell-fate map. Related posts identify lineage reconstruction spanning E0 to E13.5 and announce two DNA Typewriter papers; the supplied excerpts do not explain the second paper.</p>
+<p class="links"><a href="https://x.com/cutleraging/status/2108385435546275998">Publication announcement</a></p>
+</article>
+<article class="brief">
+<h3>Virtual-cell investment is not one dataset</h3>
+<p>Roshan Rao clarifies that the announced $1.8 billion effort spans multiple technologies, organizational specialties and data-standardization work, including cryo-electron tomography. He also agrees that large-scale curation should serve causal understanding rather than indiscriminate data generation.</p>
+<p class="links"><a href="https://x.com/proteinrosh/status/2107960344622866607">Scope clarification</a></p>
+</article>
+<article class="brief">
+<h3>Tool shelf: gget</h3>
+<p>A resurfaced post highlights <strong>gget</strong> for efficient querying of genomic reference databases. This is a resource pointer, not a new release or benchmark.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2108145704044806555">Tool pointer</a></p>
+</article>
+</div>
+</section>
+
+<section id="design">
+<h2>Biological design &amp; translation</h2>
+<div class="grid">
+<article>
+<h3>Designing proteins and their encodings together</h3>
+<p>NuCaliby uses structure-conditioned nucleotide-level Potts models to jointly optimize amino-acid sequences and their coding DNA/RNA, instead of choosing codons after protein design. It allows inference-time control over codon adaptation, RNA motifs and predicted RNA folding.</p>
+<p>Tests on eight de novo backbones reportedly maintained expression and solubility comparable to baselines. Moderate codon-adaptation guidance increased median soluble yield by about <strong>24%</strong>.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108195349047443647">NuCaliby research summary</a></p>
+</article>
+<article>
+<h3>ML-assisted evolution improves AAV manufacturing</h3>
+<p>A study of extracellular-vesicle encapsulation of AAV9 gene-delivery vectors reports approximately <strong>41-fold improvement in overall manufacturing efficiency</strong> for ML-designed variants, versus roughly threefold for conventional directed evolution. An independent assessment covered 472 designs.</p>
+<p>Cleaner measurements and sequencing support mattered more than model complexity; linear regression remained competitive with neural models. These are manufacturing findings, not evidence of improved clinical safety or efficacy.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108196560140116055">Study summary</a></p>
+</article>
+<article>
+<h3>OFAntibody designs binding interfaces jointly</h3>
+<p>OFAntibody uses a shared all-atom architecture to model multiple antigen–antibody interfaces, with arm-specific hotspot conditioning. The post reports better computational nanobody ranking and fewer steric conflicts than designing binding arms independently and assembling them afterward.</p>
+<p>Bispecific energy-pass rates ranged from 8% to 60% across formats. The evidence described is computational, not demonstrated therapeutic activity.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108196795029565455">OFAntibody summary</a></p>
+</article>
+<article>
+<h3>Alzheimer’s challenge promises a wet-lab follow-through</h3>
+<p>Prima Mente and AlzData are organizing the Alzheimer’s Translation Challenge, linking AI model evaluation to experimental testing of therapeutic hypotheses. Shortlisted teams’ hypotheses will be tested in Prima Mente’s wet lab.</p>
+<p>Registration is open, with the competition scheduled to begin in spring 2027. Dataset specifications and detailed evaluation criteria are not available in the supplied material.</p>
+<p class="links"><a href="https://t.co/geQbcIsRjd">Challenge link</a> · <a href="https://x.com/GoodfireAI/status/2108274342950002977">Details post</a> · <a href="https://x.com/anshulkundaje/status/2108344665196093498">Related announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="evaluation">
+<h2>Biological models: what the tests actually show</h2>
+<div class="grid">
+<article>
+<h3>Harder negatives expose aptamer shortcuts</h3>
+<p>AntiCapt combines fine-tuned nucleotide language models with classifiers for sequence-only anticancer DNA aptamer prediction, editing and library scanning. Its dataset contains 1,021 experimentally validated anticancer aptamers.</p>
+<p>Reported AUC drops from <strong>0.944 against non-aptamers to about 0.891 against other aptamers</strong>. The comparison shows how easier controls can reward generic aptamer recognition rather than cancer-specific discrimination. Activity of newly designed sequences is not experimentally established in the supplied summary.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108196356661956830">AntiCapt summary</a></p>
+</article>
+<article>
+<h3>Flock tightens protein-interaction benchmarking</h3>
+<p>Flock contains 26,934 positive and 377,643 negative protein-interaction pairs, including 8,706 literature-derived negatives curated through an evidence-grounded LLM workflow. A separate evaluation set controls historical cutoffs, sequence similarity and interface similarity.</p>
+<p>The post reports a larger generalization drop for ESMFold2 than for an ESMC-based approach under these controls. Most negatives are still assembly-derived, rather than universal experimental evidence that two proteins cannot interact.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108195016720146512">Flock dataset summary</a></p>
+</article>
+<article>
+<h3>Atom-JEPA transfers 3D pretraining to ADMET</h3>
+<p>Atom-JEPA learns atom- and substructure-level representations from unlabeled 3D molecular structures. The supplied summary reports best or statistically indistinguishable-from-best performance on <strong>30 of 40 ADMET endpoints</strong>, rising to 31 with conformer averaging.</p>
+<p>Its different prediction errors could make it useful in ensembles. Prospective drug-development validation is not described.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108195441036923043">Atom-JEPA summary</a></p>
+</article>
+<article>
+<h3>Correct chemistry does not guarantee a correct pose</h3>
+<p>RGI-Toolkit adds a common differentiable-restraint layer to six biomolecular structure predictors, including AlphaFold3, Boltz-2 and OpenFold3. On 209 protein–ligand complexes, conformer restraints reportedly produced complete chirality and cis/trans agreement, while docking-pose accuracy remained largely unchanged.</p>
+<p>The distinction matters: chemically valid geometry is not proof of correct binding. Inconsistent restraints can also introduce strain and extra optimization costs.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108194691149861218">RGI-Toolkit summary</a></p>
+</article>
+<article>
+<h3>Protein representations help different kinds of shift</h3>
+<p>A frozen-encoder framework combines protein-language-model features with structural and coevolutionary representations to train lightweight fitness predictors. FLIP2 results reportedly show strong gains at unseen mutation positions, while structure-aware representations help more on unseen wild-type backbones.</p>
+<p>Trunk features sometimes hurt backbone-shift performance, and difficult enzyme landscapes remain unresolved. The useful representation depends on the expected distribution shift.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108196462777794655">Protein fitness study</a></p>
+</article>
+<article>
+<h3>Few-label fitness prediction through linear subspaces</h3>
+<p>The Linear Fitness Subspace study uses mutation-local changes in frozen protein embeddings rather than whole-sequence averages. A small set of supervised directions captures much of the predictive signal and supports a budgeted search method that reportedly beats several ProteinGym baselines.</p>
+<p>Matched-dimensionality and label-shuffling controls attribute gains to fitness alignment, not compression alone. Multi-mutant transfer largely captures additive effects and may miss strong epistasis; prospective wet-lab search is not described.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108195248442937606">Linear Fitness Subspace summary</a></p>
+</article>
+<article>
+<h3>Protein watermarks aim to survive model training</h3>
+<p>MARCO proposes structural watermarks that remain detectable in outputs of models trained on watermarked protein data. Computational tests across six models include perturbations and adaptive-removal attempts, with high recovery reported under tested conditions.</p>
+<p>There is no supplied wet-lab demonstration that these provenance signals survive physical realization, nor evidence establishing reliability in real-world misuse investigations.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2108195132533264717">MARCO summary</a></p>
+</article>
+</div>
+</section>
+
+<section id="ai">
+<h2>AI systems, security &amp; tools</h2>
+<div class="grid">
+<article>
+<h3>Goodfire claims faster, cheaper security monitors</h3>
+<p>Goodfire reports probe-based cybersecurity monitors for Kimi K3 and GLM 5.3 that are more accurate, <strong>50× faster and 50× cheaper</strong> than an optimized LLM judge. External red-teaming by FAR AI reportedly found substantially fewer universal jailbreaks.</p>
+<p>The thread credits kernel optimizations and a custom inference server with avoiding added inference latency or reduced throughput. Benchmark details are absent from the supplied text, limiting assessment of the comparison.</p>
+<p class="links"><a href="https://x.com/GoodfireAI/status/2108233339329257490">Goodfire thread</a> · <a href="https://t.co/oPqs87aGb6">Technical post</a></p>
+</article>
+<article>
+<h3>OpenMed preserves clinical disagreements and provenance</h3>
+<p>The Apache-2.0 OpenMed 3.0 release demonstrates reconciliation across clinical notes, FHIR, HL7, lab CSV and a retina DICOM report. Its synthetic patient workflow retains exact source references, unresolved conflicts and amendment history rather than guessing or overwriting facts.</p>
+<p>A follow-up describes offline ingestion through OMOP and a cohort snapshot in under two seconds. This is a fixture-based demonstration, not evidence of clinical extraction accuracy.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2108180619561677094">Release post</a> · <a href="https://t.co/oDub13Z9fb">Release and migration guide</a> · <a href="https://t.co/rMH0Y22DNO">Walkthrough</a> · <a href="https://t.co/zQVwrilg8s">Documentation</a></p>
+</article>
+<article>
+<h3>Pixel TPU throughput depends on operator form</h3>
+<p>A hands-on Pixel 9A report says G4 TPU matrix-multiplication performance is sensitive to compiler preferences. Expressing computation as 1×1 convolutions with constant parameters reportedly improves throughput, while other paths can time out.</p>
+<p>No reproducible benchmark is supplied. The parent post’s throughput figures are personal estimates, not official specifications.</p>
+<p class="links"><a href="https://x.com/mgostIH/status/2108272558680179001">Implementation report</a></p>
+</article>
+<article>
+<h3>3D scenes generated through Blender code</h3>
+<p>Matt Deitke describes language models producing scenes with a few hundred lines of Blender Python: constructing objects, placing cameras and lights, and applying procedural materials without texture files.</p>
+<p>The example illustrates code-mediated scene generation, not a controlled comparison against specialized 3D generators.</p>
+<p class="links"><a href="https://x.com/mattdeitke/status/2107900190439170271">Workflow demonstration</a></p>
+</article>
+<article class="brief">
+<h3>EigenDEXplore: coordinated exploration for robotic hands</h3>
+<p>The method is introduced as an alternative to independent per-joint Gaussian noise for hands with more than 20 degrees of freedom. The excerpt cuts off before explaining the mechanism or results; no paper URL is available in the supplied text.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2108276661221495122">Research announcement</a></p>
+</article>
+<article class="brief">
+<h3>DeLM: decentralized multi-agent coordination</h3>
+<p>DeLM claims accuracy gains of up to 17.5 percentage points. The announcement excerpt does not name the evaluation tasks or baselines, so the quantitative comparison cannot be assessed here.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2108276225705980108">DeLM announcement</a></p>
+</article>
+<article class="brief">
+<h3>Glimmer outlines distillation across training stages</h3>
+<p>A technical-presentation announcement mentions soft distillation from Spark along its training trajectory, beginning with pretraining and reasoning midtraining. The supplied excerpt ends before the next stage; the full recipe and results are unavailable.</p>
+<p class="links"><a href="https://x.com/giffmana/status/2108250240155533508">Presentation announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="languages" class="language">
+<div class="kicker">Reading room</div>
+<h2>Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Frankreichs Schulkrise: Viel Geld, wenig Vertrauen</h3>
+<p class="meta">Deutsche Welle · 09.10.2026 · <a href="https://www.dw.com/de/frankreichs-schulkrise-viel-geld-wenig-vertrauen/a-79600306">Artikel lesen</a></p>
+<p>Undichte Dächer, kaputte Heizungen und Unterrichtsausfall: Frankreichs Schüler machen mit Handyvideos und Demonstrationen auf schlechte Lernbedingungen aufmerksam. Die DW geht der Frage nach, warum diese Missstände trotz vergleichsweise hoher Bildungsausgaben bestehen. Eine zentrale Erklärung liegt in der Aufteilung der Verantwortung: Der Staat bezahlt Lehrkräfte und legt Lehrpläne fest, während unterschiedliche Gebietskörperschaften die Schulgebäude unterhalten müssen – mit sehr ungleichen finanziellen Möglichkeiten.</p>
+<p>Hinzu kommen problematische Prioritäten. Laut Artikel fließt vergleichsweise viel Geld in die Oberstufe, während die Ausgaben pro Grundschüler unter dem OECD-Durchschnitt liegen. Personal- und Pensionskosten binden einen großen Teil des Budgets. Auch die hohe Zahl vorgesehener Unterrichtsstunden hilft wenig, wenn Lehrkräfte fehlen und kurzfristige Ausfälle nur selten vertreten werden. Besonders betroffen sind Kinder aus ärmeren Familien; das Versprechen gleicher Bildungschancen wird dadurch zunehmend infrage gestellt.</p>
+<p>Die Regierung will kurzfristig mehr als 3.000 Vertretungslehrer organisieren. Gleichzeitig begrenzt die angespannte Haushaltslage ihren Handlungsspielraum: Zusätzlichen Mitteln im Haushaltsentwurf stehen geplante Stellenstreichungen wegen sinkender Schülerzahlen gegenüber. Der Beitrag zeigt außerdem, wie die Schulproteste vor der nächsten Präsidentenwahl zum politischen Konflikt zwischen Regierung und Opposition werden.</p>
+<p><strong>Warum lesen:</strong> Der Artikel erklärt anschaulich, wie Zuständigkeiten, Ausgabenprioritäten und soziale Ungleichheit eine Bildungskrise verschärfen können, die mit mehr Geld allein nicht gelöst ist.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Vital : une psy face au deuil d’un patient</h3>
+<p class="meta">ActuaLitté · 9 octobre 2026 · <a href="https://actualitte.com/article/134484/avant-parutions/vital-une-psy-face-au-deuil-d-un-patient">https://actualitte.com/article/134484/avant-parutions/vital-une-psy-face-au-deuil-d-un-patient</a></p>
+<p>Comment continuer à accompagner les autres lorsque la perte vous touche personnellement ? ActuaLitté présente <em>Vital</em>, premier roman d’Adeline Vanek, dont la narratrice est une psychologue installée dans le 11e arrondissement de Paris. Son quotidien professionnel bascule lorsqu’un de ses patients meurt lors des attentats du 13 novembre 2015. Celle qui accueille habituellement la souffrance d’autrui doit alors affronter la sienne.</p>
+<p>La thérapeute assiste aux obsèques, une décision que l’article présente comme une transgression déontologique, puis reçoit la compagne du jeune homme disparu. Ces rencontres interrogent les frontières entre implication personnelle et rôle professionnel. Adeline Vanek, elle-même psychologue clinicienne, s’inspire de sa pratique pour explorer cet attachement particulier entre soignant et patient. Cette présentation en avant-parution annonce le livre pour le 5 novembre 2026 aux éditions Le Soir venu.</p>
+<p><strong>Pourquoi lire :</strong> Une entrée dans un roman sur le deuil et les limites de la relation thérapeutique, ancré dans la mémoire des attentats parisiens.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>déontologie</strong> — ensemble des devoirs et règles éthiques propres à une profession.</li>
+<li><strong>psychologue clinicienne</strong> — professionnelle de la psychologie qui évalue et accompagne les difficultés psychiques des personnes.</li>
+<li><strong>avant-parution</strong> — présentation ou diffusion d’un extrait d’un ouvrage avant sa sortie officielle.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 「VOCALOID7」発表、11月11日発売へ。新たな「Megpoid」とともにお披露目、4年ぶり新ボカロ</h3>
+<p class="meta">AUTOMATON · 2026-10-09 · <a href="https://automaton-media.com/articles/newsjp/20261009-472735/">https://automaton-media.com/articles/newsjp/20261009-472735/</a></p>
+<p>ヤマハは10月9日、歌声合成ソフトウェアの新バージョン「VOCALOID7」を発表した。エディターは11月11日発売予定で、前作から約4年ぶりの更新となる。VOCALOID3〜6のボイスバンクを引き続き利用でき、通常価格は税込1万6500円。旧製品のユーザー向けにはアップグレード価格も設けられている。</p>
+<p>同時に発売される「VOCALOID7 Voicebank AI Megpoid」は、歌手・声優の中島愛さんの声をもとにした製品だ。AI技術に最適化され、ささやき声や力強い声など、複数のボイスタイプを切り替えて使えるという。ただし、VOCALOID7自体の新機能については、詳しい情報の公開がまだ待たれる。</p>
+<p>記事では「初音ミク V6」の対応予定にも触れている。クリプトン・フューチャー・メディアは、2027年のできるだけ早い時期に、VOCALOID7に対応した版を既存の「初音ミク V6」ユーザーへ無償提供する予定としている。新しい歌声表現だけでなく、手持ちの制作環境をどう移行できるかも読みどころだ。</p>
+<p><strong>読む理由：</strong> 日本の音楽・ネット文化を支える歌声合成技術について、表現の進化と既存製品への対応を具体的に読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>歌声合成（うたごえごうせい）</strong> — 音符や歌詞などの情報から、コンピューターで歌声を作り出す技術。</li>
+<li><strong>ボイスバンク（ぼいすばんく）</strong> — 特定の声で歌声を生成するために使う音声データやモデルの製品。</li>
+<li><strong>最適化（さいてきか）</strong> — 特定の技術や利用環境に合わせて、性能や表現が十分に発揮されるよう調整すること。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh">
+<h3>中文 — 口译与施压：《臺湾漫游录》作家杨双子德国新书活动卷入政治争议的前前后后</h3>
+<p class="meta">BBC 中文 · 2026-10-08 · <a href="https://www.bbc.com/zhongwen/articles/cmd7q5glg9llo/simp">https://www.bbc.com/zhongwen/articles/cmd7q5glg9llo/simp</a></p>
+<p>台湾作家杨双子赴德国宣传《臺湾漫游录》德文版，慕尼黑文学馆的一场活动却引出两层争议：是否受到中国领馆施压，以及现场口译是否完整传达了作者的政治表述。台湾驻慕尼黑代表处称，中方曾要求取消活动，并提出另行安排中国作家取代她；文学馆馆长向BBC否认这一说法，中国领馆也否认要求取消活动。BBC向台湾方面进一步查询，截稿前未获回复，相关说法仍存在明显分歧。</p>
+<p>口译问题则有活动录像可供核对。BBC发现，杨双子谈及台湾、中国及历史政治的部分内容被大幅压缩，一些德语讨论也没有完整传递给她。口译员曹昌振承认存在疏漏，愿意反省道歉，但否认因个人政治立场刻意删减内容，也否认自我审查。报道因此将可以观察到的翻译不足，与尚有争议的政治动机区分开来。</p>
+<p>争议并未中断德国巡回宣传。《臺湾漫游录》以日本殖民统治下的台湾为背景，通过两名女性的铁路旅行、美食体验与情感关系，探讨语言、权力及身份认同；其中一名主角本身就是口译员。这让现实中的翻译争议与小说主题形成值得细读的呼应。</p>
+<p><strong>为什么读：</strong> 这篇报道连接台湾文学、德国文化现场与翻译伦理，也适合练习辨别新闻中的指控、否认及核实结果。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>口译 (kǒu yì)</strong> — 将口头发言转换为另一种语言，既要传达信息，也要处理语气与语境。</li>
+<li><strong>自我审查 (zì wǒ shěn chá)</strong> — 因顾虑政治、社会或其他后果，主动删减或回避某些表达。</li>
+<li><strong>身份认同 (shēn fèn rèn tóng)</strong> — 个人或群体对自身文化、历史及社会归属的理解。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X AI Research and X Bio Research reports. Quantitative claims are attributed to those summaries; linked papers, code and resource destinations were not independently inspected. Shortened links are preserved as supplied. Incomplete announcements are marked in their entries. Duplicate announcements for Carbon-A and the Alzheimer’s Translation Challenge have been combined, retaining both source links.</p>
+<p>News · 9 October 2026 · Edition 2026-10-09-1</p>
+</footer>
+
+
+
+</body>
+</html>

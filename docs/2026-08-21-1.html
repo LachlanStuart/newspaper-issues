@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #202522;
+      --muted: #667069;
+      --rule: #d9ddd6;
+      --accent: #315c49;
+      --soft: #eef3ef;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eceeea;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .paper {
+      max-width: 1080px;
+      margin: 0 auto;
+      min-height: 100vh;
+      padding: 44px 56px 64px;
+      background: var(--paper);
+      box-shadow: 0 0 24px rgba(0,0,0,.06);
+    }
+    header {
+      text-align: center;
+      border-top: 4px double var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 18px 0 16px;
+      margin-bottom: 34px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .date {
+      margin-top: 10px;
+      color: var(--muted);
+      font: 600 .84rem/1.4 Arial, sans-serif;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    section { margin: 38px 0; }
+    h2 {
+      margin: 0 0 20px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--accent);
+      color: var(--accent);
+      font-size: 1.55rem;
+    }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.13rem;
+      line-height: 1.3;
+    }
+    h3 a, .practice h3 a {
+      color: var(--ink);
+      text-decoration-color: #9bad9f;
+      text-underline-offset: 3px;
+    }
+    a { color: #285c47; }
+    article {
+      break-inside: avoid;
+      margin-bottom: 24px;
+    }
+    article p { margin: 5px 0; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 34px;
+    }
+    .kicker, .meta {
+      color: var(--muted);
+      font: .78rem/1.45 Arial, sans-serif;
+    }
+    .kicker {
+      margin-bottom: 5px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .tags {
+      margin-top: 8px;
+      color: var(--muted);
+      font: .75rem/1.4 Arial, sans-serif;
+    }
+    .language-practice {
+      margin-top: 52px;
+      padding-top: 30px;
+      border-top: 5px double var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -10px 0 26px;
+    }
+    .practice {
+      margin: 0 0 34px;
+      padding: 22px 24px;
+      background: var(--soft);
+      border-left: 4px solid var(--accent);
+    }
+    .practice h3 {
+      font-size: 1.28rem;
+      margin-bottom: 5px;
+    }
+    .practice p { margin: 10px 0; }
+    .practice ul { margin-top: 8px; }
+    .notes {
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font: .82rem/1.55 Arial, sans-serif;
+    }
+    footer {
+      margin-top: 30px;
+      text-align: center;
+      color: var(--muted);
+      font: .75rem/1.4 Arial, sans-serif;
+    }
+    @media (max-width: 760px) {
+      .paper { padding: 28px 22px 48px; }
+      .grid { grid-template-columns: 1fr; }
+      .practice { padding: 18px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="paper">
+    <header>
+      <h1>News</h1>
+      <div class="date">Friday, August 21, 2026 · Run 2026-08-21-1</div>
+    </header>
+
+    <section>
+      <h2>AI Systems &amp; Research</h2>
+      <div class="grid">
+        <article>
+          <div class="kicker">Scaling laws · Mixture of experts</div>
+          <h3><a href="https://x.com/classiclarryd/status/2090485210370732532">Scaling laws closely predict a large MoE training run</a></h3>
+          <p>Marin reports that scaling laws predicted both the final loss and arbitrary intermediate points of a 67-billion-parameter mixture-of-experts run to within 1%. The team is now using a scaling ladder to simulate the trajectory of a newly started 535B MoE run.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Multimodal training</div>
+          <h3><a href="https://x.com/wightmanr/status/2090448962063077759">OpenCLIP adds MaMMUT contrastive-generative support</a></h3>
+          <p>OpenCLIP can now run MaMMUT’s image encoder and text decoder in separate contrastive and generative passes. The integration loads OpenMaMMUT weights, fixes pooling issues, and introduces a MaMMUT 2 variant with NaFlex vision transformers, modern text decoders, efficient cross-entropy options, and z-loss.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Open-source roadmap</div>
+          <h3><a href="https://x.com/wightmanr/status/2090490400079524172">OpenCLIP plans a unified suite of multimodal objectives</a></h3>
+          <p>The next major release is expected to bring CLIP and SigLIP image-text learning, CLAP audio-text learning, CoCa and MaMMUT captioning objectives, and GenLIP/GenLAP prefix-language-model objectives into one composable framework.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Continual learning</div>
+          <h3><a href="https://x.com/SonglinYang4/status/2090652538223886462">How recurrent models reuse experience within context</a></h3>
+          <p>New work frames in-context continual learning as the ability to accumulate experience and draw on it later in the same sequence. Only a truncated description was available, leaving the methods and results unclear.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Multi-agent systems</div>
+          <h3><a href="https://x.com/StanfordAILab/status/2090437681105064431">“Physics of Agents” examines interactions among deployed AIs</a></h3>
+          <p>Stanford AI Lab highlights research into how increasingly prevalent AI agents interact with and influence one another. The available post does not expose the specific models or experiments.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Retrieval &amp; representation</div>
+          <h3><a href="https://x.com/StanfordAILab/status/2090438281410543626">The Embedder’s Dilemma asks when an LLM should replace an embedding model</a></h3>
+          <p>The study addresses model selection for representation and retrieval workloads: when is a dedicated embedding model preferable, and when should a general language model be used instead? Methodological details were not included in the supplied post.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Scientific data</div>
+          <h3><a href="https://x.com/cgeorgiaw/status/2090376921909498313">PubCheF pairs about 2.5 million molecules with biological functions</a></h3>
+          <p>The Hugging Face dataset reportedly links molecular structures to biological functions extracted from publications, potentially supporting molecular machine learning and scientific-language-model training. Extraction and validation details were unavailable.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Clinical machine learning</div>
+          <h3><a href="https://x.com/gen0m1cs/status/2090530957325484345">DDx-PRS predicts differential diagnoses among psychiatric disorders</a></h3>
+          <p>DDx-PRS is presented as a tool that distinguishes psychiatric disorders using calibrated probabilities. The available description does not include its paper, cohorts, or evaluation results.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Biotechnology</h2>
+      <div class="grid">
+        <article>
+          <div class="kicker">Protein design · AI safety</div>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090413112289837211">Off-manifold collapse reveals reward hacking in protein language models</a></h3>
+          <p>Strong inference-time guidance can drive protein models toward low-complexity, difficult-to-fold sequences even as an optimized property oracle reports improvement. The study proposes a lightweight Mahalanobis-distance filter over ESM-2 activations to identify collapse and select more plausible candidates, although validation remains entirely computational.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Drug discovery</div>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2090412731405095185">Monroe combines molecular pretraining with probabilistic bioassay prediction</a></h3>
+          <p>Monroe freezes a molecular graph encoder pretrained on quantum-chemical descriptors, conformer denoising, and PubChem bioassays, then uses TabPFNv3 for in-context posterior-predictive inference from small labeled support sets. Reported evaluations span 28 Polaris ADMET and bioactivity tasks and 30 MoleculeACE activity-cliff tasks.</p>
+        </article>
+
+        <article>
+          <div class="kicker">DNA damage · Gene regulation</div>
+          <h3><a href="https://x.com/razoralign/status/2090648040277512456">Broken DNA may initiate transcription—and perhaps new proteins</a></h3>
+          <p>A shared study reports independent evidence that transcription can begin at DNA double-strand breaks, raising the possibility that resulting transcripts encode new proteins. Experimental details and the extent of protein validation were not present in the available post.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Autonomous laboratories</div>
+          <h3><a href="https://x.com/miangoar/status/2090559427334021461">Autonomous system closes the loop for enzyme engineering</a></h3>
+          <p>A preprint describes a system in which three agents share data and control laboratory work during enzyme design. The supplied material did not identify the enzyme target, optimization results, or degree of human intervention.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Virtual cells · Competition</div>
+          <h3><a href="https://x.com/anshulkundaje/status/2090527620794573226">2026 Virtual Cell Challenge opens for submissions</a></h3>
+          <p>The Arc Institute competition and leaderboard are now live. This year’s prospective benchmark focuses on predicting cellular perturbations across multiple contexts using challenge-specific data.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Single-cell models</div>
+          <h3><a href="https://x.com/razoralign/status/2090441674153730488">Benchmark tests whether zero-shot embeddings reconstruct cellular dynamics</a></h3>
+          <p>The study evaluates representations from single-cell foundation models on reconstruction of cellular dynamics. The supplied post did not identify the models, datasets, metrics, or findings.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Genomics, Cells &amp; Human Genetics</h2>
+      <div class="grid">
+        <article>
+          <div class="kicker">DNA foundation models</div>
+          <h3><a href="https://x.com/razoralign/status/2090414247566364984">SUCCEED evaluates large pretrained DNA models across genomics tasks</a></h3>
+          <p>SUCCEED is presented as a broad study of large, data-driven DNA models. Architecture, benchmark design, and quantitative results were not included in the available title-level description.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Cell-state resources</div>
+          <h3><a href="https://x.com/razoralign/status/2090455372192690446">A gene-program dictionary for human cells</a></h3>
+          <p>A newly shared resource may provide reusable representations of coordinated expression programs across human cell types, with potential applications in cell-state modeling and gene-regulatory research. Method and scale details were not available.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Review · Population biology</div>
+          <h3><a href="https://x.com/NatureRevGenet/status/2090402574574981165">Review surveys proteogenomics in human populations</a></h3>
+          <p>A new <em>Nature Reviews Genetics</em> article connects genomic variation with protein abundance and other proteomic phenotypes. The supplied announcement contained no abstract-level detail.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Family genetics</div>
+          <h3><a href="https://x.com/anshulkundaje/status/2090602849306825023">Large trio GWAS reported in Nature</a></h3>
+          <p>The family-based design may help separate direct genetic effects from parental or environmental confounding. The available post did not identify the traits, cohort size, or principal findings.</p>
+        </article>
+
+        <article>
+          <div class="kicker">Regeneration</div>
+          <h3><a href="https://x.com/anshulkundaje/status/2090330329643131106">ZFP36L2 coordinates stress-adaptive plasticity</a></h3>
+          <p>A <em>Nature</em> study reports that ZFP36L2 orchestrates stress-adaptive plasticity during regeneration. The tissue system, regulatory mechanism, and possible disease implications were absent from the truncated source material.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="language-intro">Edited daily reading selections in their original languages.</p>
+
+      <article class="practice" lang="de">
+        <h3><a href="https://www.deutschlandfunkkultur.de/festival-des-deutschen-films-in-ludwigshafen-eroeffnet-104.html">Deutsch — Festival des deutschen Films in Ludwigshafen eröffnet</a></h3>
+        <div class="meta">Deutschlandfunk Kultur · 20.08.2026</div>
+        <p>In Ludwigshafen hat die 22. Ausgabe des Festivals des deutschen Films begonnen. Bis zum 6. September werden auf der Parkinsel im Rhein insgesamt 74 Produktionen gezeigt; 13 davon treten im Wettbewerb um den Filmkunstpreis an.</p>
+        <p>Eröffnet wurde das Festival mit Till Endemanns Komödie „Plötzlich Schwiegervater“. Regisseur Volker Schlöndorff soll einen Ehrenpreis erhalten. Mit mehr als 135.000 Besucherinnen und Besuchern im vergangenen Jahr gilt die Veranstaltung nach der Berlinale als das besucherstärkste deutsche Filmfestival.</p>
+        <p><strong>Warum lesen:</strong> Die kurze Meldung bietet einen aktuellen Einblick in die deutsche Film- und Festivalkultur.</p>
+      </article>
+
+      <article class="practice" lang="fr">
+        <h3><a href="https://www.rfi.fr/fr/musique/20260821-le-sabar-tambour-messager-du-s%C3%A9n%C3%A9gal-et-coeur-battant-des-f%C3%AAtes-wolofs">Français — Le sabar, tambour-messager du Sénégal et coeur battant des fêtes wolofs</a></h3>
+        <div class="meta">RFI · 21 août 2026</div>
+        <p>Instrument emblématique de la culture wolof, le sabar accompagne les fêtes, les danses et les rituels au Sénégal. Les musiciens Lamine Sow et Pape Faye racontent une pratique souvent transmise au sein des familles depuis plusieurs générations. Le mot « sabar » peut désigner à la fois le tambour, une danse et la fête elle-même ; il recouvre aussi une famille d’instruments aux fonctions distinctes, comme le thiol à la sonorité grave ou le nder, tambour majeur chargé de diriger l’ensemble et d’exécuter les solos.</p>
+        <p>L’article décrit également la fabrication et l’accordage de ces tambours coniques recouverts d’une peau de chèvre. Des chevilles en bois et des lanières tressées permettent d’en régler la tension. Au-delà de son rôle musical, le sabar a longtemps constitué un véritable moyen de communication : des rythmes codés pouvaient transmettre à distance un appel ou une information précise. Cette tradition vivante s’ouvre aujourd’hui à d’autres univers, notamment au jazz, sans perdre son ancrage sénégalais.</p>
+        <p><strong>Pourquoi lire :</strong> Un aperçu accessible et riche d’une tradition musicale où l’instrument devient à la fois héritage familial, langage collectif et objet d’innovation.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>griot</strong> — membre d’une tradition ouest-africaine chargé de transmettre oralement l’histoire, les généalogies, la poésie et la musique.</li>
+          <li><strong>accordage</strong> — réglage de la tension ou de la hauteur sonore d’un instrument afin d’obtenir les sons souhaités.</li>
+          <li><strong>tambour majeur</strong> — instrument principal d’un ensemble de percussions, qui guide les autres musiciens et porte souvent les passages solistes.</li>
+        </ul>
+      </article>
+
+      <article class="practice" lang="ja">
+        <h3><a href="https://www.itmedia.co.jp/news/article/2608/21/2000000665/">日本語 — 「ロボットのChatGPTモーメントは近い」―─上場した中国ロボット大手Unitree CEO</a></h3>
+        <div class="meta">ITmedia NEWS · 2026年8月21日</div>
+        <p>中国の人型ロボット大手Unitreeの王興興CEOは、ロボットの頭脳が大規模普及の転換点となる「ChatGPTモーメント」に近づいているとの見方を示した。同社は上海市場への上場で注目を集め、上場初日に株価が約6倍へ急騰した一方、翌日には11％下落した。</p>
+        <p>王氏が想定する転換点は、ロボットを不慣れな環境に置いても、簡単な音声やテキストの指示だけで多くの作業をこなせるようになることだ。将来は、見知らぬ家庭に導入されたロボットが約80％のタスクを処理できるようになると期待しており、実現すれば産業の爆発的成長につながると述べている。</p>
+        <p><strong>読む理由：</strong> AIが画面上の生成技術から現実世界で動くロボットへ広がる可能性と、中国企業への投資熱を同時に読める記事だから。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>身体性AI（しんたいせいエーアイ）</strong> — 身体を持つ機械が、現実の環境を認識して行動するためのAI。</li>
+          <li><strong>世界モデル（せかいモデル）</strong> — 現実世界の仕組みや変化を内部で予測し、行動の判断に使うAIモデル。</li>
+          <li><strong>分岐点（ぶんきてん）</strong> — 技術や市場の流れが大きく変わり始める重要な時点。</li>
+        </ul>
+      </article>
+
+      <article class="practice" lang="zh">
+        <h3><a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20260820-%E4%B8%AD%E5%9B%BD%E7%BB%A7%E7%BB%AD%E4%BF%9D%E6%8C%81%E5%BE%B7%E5%9B%BD%E6%9C%80%E5%A4%A7%E8%B4%B8%E6%98%93%E4%BC%99%E4%BC%B4%E5%9C%B0%E4%BD%8D">中文 — 中国继续保持德国最大贸易伙伴地位</a></h3>
+        <div class="meta">RFI 中文 · 2026-08-20</div>
+        <p>德国联邦统计局数据显示，2026年上半年德国与中国的进出口贸易总额达到1255亿欧元，高于德国同美国及荷兰的贸易额。中国在2024年一度被美国取代后，去年重新成为德国第一大贸易伙伴，并继续保持这一位置。</p>
+        <p>不过，中德贸易结构并不对称：德国对华出口额为364亿欧元，中国仅列德国出口目的地第九位；德国从中国进口的商品则达到891亿欧元，远超其从美国和荷兰的进口额。与此同时，美国仍是德国商品最大的出口市场，但受关税上调影响，德国对美出口同比下降6.1%，汽车及零部件出口更下降17.2%。</p>
+        <p><strong>为什么读：</strong> 文章以具体数据呈现中德贸易的规模、结构性失衡，以及美国关税政策对德国出口产业的影响。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>贸易伙伴 (màoyì huǒbàn)</strong> — 与一国保持重要商品或服务贸易关系的国家或经济体</li>
+          <li><strong>进出口贸易总额 (jìn-chūkǒu màoyì zǒng'é)</strong> — 一定时期内进口额与出口额的合计</li>
+          <li><strong>季节调整 (jìjié tiáozhěng)</strong> — 剔除节假日、季节周期等规律性因素，以便比较经济数据的方法</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notes">
+      <strong>Source note:</strong> Several research posts were truncated in the supplied source data and did not expose resolved paper links, abstracts, or evaluation details. Those items are described only to the level supported by the available text.
+    </aside>
+
+    <footer>News Daily · August 21, 2026</footer>
+  </main>
+
+
+
+</body>
+</html>

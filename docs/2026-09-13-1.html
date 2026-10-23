@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #f7f4ed;
+      --ink: #20201d;
+      --muted: #68665f;
+      --rule: #cbc5b8;
+      --accent: #8b2e2e;
+      --card: rgba(255, 255, 255, 0.42);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.62;
+    }
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 22px 0 18px;
+      margin-bottom: 38px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section { margin: 0 0 46px; }
+    .section-title {
+      border-bottom: 1px solid var(--ink);
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      font-size: 1.55rem;
+      letter-spacing: 0.025em;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+    article {
+      min-width: 0;
+      background: var(--card);
+      border-top: 3px solid var(--ink);
+      padding: 18px 19px 20px;
+    }
+    article h3 {
+      margin: 0 0 8px;
+      font-size: 1.28rem;
+      line-height: 1.24;
+    }
+    article p { margin: 0.65em 0; }
+    article p:last-child { margin-bottom: 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      margin-bottom: 12px;
+    }
+    .tags {
+      margin-top: 14px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.76rem;
+    }
+    .tags span {
+      display: inline-block;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 3px 4px 0 0;
+    }
+    .language-section {
+      border-top: 5px double var(--ink);
+      padding-top: 28px;
+      margin-top: 56px;
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -9px 0 24px;
+    }
+    .language-entry {
+      background: transparent;
+      border-top: 1px solid var(--rule);
+      padding: 23px 4px 28px;
+    }
+    .language-entry:first-of-type { border-top: 3px solid var(--ink); }
+    .language-entry h3 {
+      font-size: 1.35rem;
+      margin-bottom: 7px;
+    }
+    .language-entry ul {
+      margin: 8px 0 0;
+      padding-left: 1.35rem;
+    }
+    .notice {
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      margin-top: 46px;
+      padding-top: 18px;
+    }
+    .notice h2 {
+      color: var(--ink);
+      font-size: 0.92rem;
+      margin: 0 0 6px;
+    }
+    .notice p { margin: 4px 0; }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      main { width: min(100% - 22px, 1080px); padding-top: 18px; }
+      header { margin-bottom: 28px; }
+      article { padding-left: 13px; padding-right: 13px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Sunday, September 13, 2026 · Run 2026-09-13-1</p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 class="section-title" id="ai-research">AI Research &amp; Training</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2098966635973370315">Causal-variant underestimation may limit sequence-to-function models</a></h3>
+          <p class="source">X AI Research · Genomics</p>
+          <p>A new preprint examines causal-variant underestimation as an overlooked source of weak performance in genomic sequence-to-function models.</p>
+          <p><a href="https://t.co/chJQGCOUfR">Preprint or supporting resource</a></p>
+          <div class="tags"><span>genomics</span><span>sequence modeling</span><span>evaluation</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/yifanzhang_/status/2098886268033945610">Recurrent Looped Transformer proposes unbounded reasoning depth</a></h3>
+          <p class="source">X AI Research · Model architecture</p>
+          <p>The proposed architecture repeatedly loops Transformer computation, aiming to support variable—or effectively unbounded—reasoning depth rather than a fixed computational path.</p>
+          <p><a href="https://t.co/yMWIWU4upo">Technical resource</a></p>
+          <div class="tags"><span>transformers</span><span>recurrence</span><span>reasoning</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/giffmana/status/2098681993156255952">SFT filtering method targets a stronger pass@k start for reinforcement learning</a></h3>
+          <p class="source">X AI Research · Training methods</p>
+          <p>A technical thread suggests recording each example’s loss before supervised fine-tuning, then withholding from backpropagation the examples that improve most against that baseline. The intended result is a better pass@k initialization for later reinforcement learning when k is greater than one.</p>
+          <div class="tags"><span>SFT</span><span>reinforcement learning</span><span>data selection</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2098943916880089520">Stanford to publish Deep Learning Alchemy course materials</a></h3>
+          <p class="source">X AI Research · Education</p>
+          <p>Stanford’s CS 312, <em>Deep Learning Alchemy</em>, plans to make its class recordings and materials publicly available.</p>
+          <p><a href="https://t.co/WkTUYJHzxA">Course resource</a></p>
+          <div class="tags"><span>deep learning</span><span>course</span><span>open materials</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="biology">
+      <h2 class="section-title" id="biology">Biology, Genomics &amp; Bioengineering</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2098989692490539472">Enhancer transcription may repress enhancer activity and weaken chromatin loops</a></h3>
+          <p class="source">X Bio Research · Gene regulation</p>
+          <p>A <em>Science</em> study investigates why enhancers produce non-coding RNAs. The accompanying account says transcription at the enhancer inhibits its activity and disrupts long-range chromatin loops.</p>
+          <p>Replacing the eRNA body with unrelated phage-λ sequence did not eliminate repression, suggesting that the act or architecture of transcription—not only the native RNA sequence—contributes to the effect.</p>
+          <div class="tags"><span>enhancers</span><span>eRNA</span><span>3D genome</span><span>chromatin</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2098955302330863917">The 3D folding of synthetic gene circuits may shape expression</a></h3>
+          <p class="source">X Bio Research · Synthetic biology</p>
+          <p>A <em>Science</em> report asks whether the physical folding of synthetic gene circuits affects their expression. Related commentary connects the work to upstream-dominance and eRNA-priming effects.</p>
+          <p>The available excerpt is incomplete, so it does not provide the experimental design or quantitative findings.</p>
+          <div class="tags"><span>synthetic biology</span><span>gene circuits</span><span>3D genome</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2098834096353051107">Bridge RNA and DNA structure govern programmable recombination direction</a></h3>
+          <p class="source">X Bio Research · Genome engineering</p>
+          <p>A <em>Nature</em> paper reports a structural mechanism through which bridge RNA and DNA architecture control the direction of recombination by mobile genetic elements. The supplied account identifies directionality as the central finding but offers no further mechanistic detail.</p>
+          <div class="tags"><span>bridge RNA</span><span>recombination</span><span>structural biology</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2098989886120632676">Identical steady states can conceal different cell-transition kinetics</a></h3>
+          <p class="source">X Bio Research · Cell dynamics</p>
+          <p>A highlighted study argues that indistinguishable steady-state cell distributions can hide different probability currents and transition kinetics. It presents attractor landscapes as potentially more informative than endpoints alone for understanding differentiation and drug response.</p>
+          <p>The available excerpts do not identify the paper or give quantitative results.</p>
+          <div class="tags"><span>cell dynamics</span><span>virtual cells</span><span>attractor landscapes</span></div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/miangoar/status/2098952835438198860">Preprint reports 25 novel phyla in the eukaryotic tree of life</a></h3>
+          <p class="source">X Bio Research · Phylogenomics</p>
+          <p>An August 2026 bioRxiv preprint by Tedersoo and colleagues is described as discovering 25 previously unrecognized phyla that fill gaps in the eukaryotic tree of life. The supplied post is truncated and includes no details about methods or datasets.</p>
+          <div class="tags"><span>phylogenomics</span><span>eukaryotes</span><span>biodiversity</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="language-intro">Daily reading selections in their original languages.</p>
+
+      <article class="language-entry" lang="de">
+        <h3>Deutsch — Ich räume gerade 5.000 virtuelle Gegenstände in Regale und liebe jede Sekunde davon</h3>
+        <p class="source">GameStar · 13.09.2026 · <a href="https://www.gamestar.de/artikel/steam-trend-sortierspiele,3459374.html">Artikel lesen</a></p>
+        <p>Auf Steam zeichnet sich ein Trend zu Spielen ab, in denen Tausende virtuelle Gegenstände sortiert und ordentlich in Regale gestellt werden. GameStar-Autorin Natalie Schermann beschreibt, warum sie ihre Feierabende trotz zahlreicher Neuerscheinungen gerade mit dieser scheinbar monotonen Beschäftigung verbringt.</p>
+        <p>Für sie schaffen Sortierspiele im hektischen Alltag eine beruhigende „Zen-Zone“. Der Beitrag ordnet den aktuellen Boom anhand von Titeln wie „A Little to the Left“, „Unpacking“ und „Shelves and Sorcery“ ein, in dem unter anderem Schwerter, Zaubertränke und verhexte Beeren in einem magischen Laden aufgeräumt werden.</p>
+        <p><strong>Warum lesen:</strong> Der persönliche Text beleuchtet einen ungewöhnlichen Spieletrend und die entspannende Wirkung bewusst einfacher Tätigkeiten.</p>
+      </article>
+
+      <article class="language-entry" lang="fr">
+        <h3>Français — Mostra de Venise : le film « Woman Unknown », de May el-Toukhy, Lion d’or d’une édition au palmarès très politique</h3>
+        <p class="source">Le Monde · 13 septembre 2026 · <a href="https://www.lemonde.fr/culture/article/2026/09/13/mostra-de-venise-le-film-woman-unknown-de-may-el-toukhy-lion-d-or-d-une-edition-au-palmares-tres-politique_6772181_3246.html">Lire l’article</a></p>
+        <p>Déjouant les pronostics, <em>Woman Unknown</em>, de la réalisatrice May el-Toukhy, a remporté le Lion d’or de la 83ᵉ Mostra de Venise. Mathilde Arcel, son interprète principale, a également reçu un prix d’interprétation féminine. Cette victoire marque la quatrième attribution du Lion d’or à une réalisatrice en sept éditions, alors que seuls deux des vingt et un films en compétition cette année étaient réalisés ou coréalisés par une femme.</p>
+        <p>L’intrigue se déroule au Danemark peu après la fin de l’occupation nazie. Une domestique s’apprête à changer de condition sociale en épousant son maître, mais un secret lié à son passé menace ses projets. Selon <em>Le Monde</em>, ce récit s’inscrit dans une édition particulièrement attentive aux choix moraux, à la tentation du mal et à la capacité des individus à remettre leur environnement en question pour mieux lui résister.</p>
+        <p><strong>Pourquoi lire :</strong> Pour découvrir le film couronné à Venise et réfléchir à la place des dilemmes moraux comme des réalisatrices dans le cinéma contemporain.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>déjouer les pronostics</strong> — obtenir un résultat contraire aux prévisions des observateurs</li>
+          <li><strong>palmarès</strong> — liste des œuvres et des artistes récompensés lors d’un concours ou d’un festival</li>
+          <li><strong>prix d’interprétation</strong> — distinction attribuée pour la performance d’une actrice ou d’un acteur</li>
+          <li><strong>changer de condition sociale</strong> — passer d’un milieu ou d’un rang social à un autre</li>
+        </ul>
+      </article>
+
+      <article class="language-entry" lang="ja">
+        <h3>日本語 — 名作RTS「StarCraft」の新作は物語主導型のオープンワールドシューターに。「STARCRAFT」，2030年発売</h3>
+        <p class="source">4Gamer · 2026年9月13日 · <a href="https://www.4gamer.net/games/042/G104234/20260913002/">記事を読む</a></p>
+        <p>名作RTS「StarCraft」の新作「STARCRAFT」が、開催中の「BlizzCon 2026」で発表された。新作はシリーズの原点であるリアルタイムストラテジーではなく、物語主導型のオープンワールドシューターとして制作され、2030年に発売される予定だ。</p>
+        <p>発表に合わせて、作品のティザーページとシネマティックトレイラーも公開された。現時点で記事が伝えている情報は限られているものの、長い歴史を持つシリーズが別ジャンルへ大きく方向転換する点が注目される。</p>
+        <p><strong>読む理由：</strong> 有名RTSシリーズの大胆なジャンル転換を伝える、同日発表の短いニュースとして読みやすい。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>物語主導型（ものがたりしゅどうがた）</strong> — ストーリーの進行や体験を中心に設計された形式</li>
+          <li><strong>リアルタイムストラテジー</strong> — 時間を止めずに資源管理や部隊への指示を行う戦略ゲームのジャンル</li>
+          <li><strong>シネマティックトレイラー</strong> — 映画のような映像表現で作品の世界観や雰囲気を紹介する予告映像</li>
+        </ul>
+      </article>
+
+      <article class="language-entry" lang="zh">
+        <h3>中文 — 中国军方敏感信息疑外泄 美AI巨头揭内情</h3>
+        <p class="source">DW 中文 · 2026-09-12 · <a href="https://www.dw.com/zh/%E4%B8%AD%E5%9B%BD%E5%86%9B%E6%96%B9%E4%BF%A1%E6%81%AF%E7%96%91%E9%81%AD%E5%A4%96%E6%B3%84-%E7%BE%8Eai%E5%B7%A8%E5%A4%B4%E6%8F%AD%E6%95%8F%E6%84%9F%E5%86%85%E5%B9%95/a-79245762">阅读文章</a></p>
+        <p>美国人工智能公司Anthropic在一份威胁情报报告中称，部分中国AI服务把用户请求暗中转发给其Claude模型处理。报告指控月之暗面让用户以为自己正在使用Kimi，实际上却把近30万次请求经由虚假账户网络转接给Claude；流入的数据据称包括中国军队基地附近的闭路监控录像。DeepSeek也被指采用类似方式，导致与俄罗斯官方机构有关的数据及登录凭据进入美方系统。</p>
+        <p>报告还列举了AI被用于电子战、防空压制、反鱼雷系统、网络渗透和监视活动的案例。其中，一名与中国科研机构有关联的使用者据称曾利用Claude开发软件，并把台湾的雷达、导弹阵地、空军基地等目标纳入模拟场景。中国外交部回应称不了解具体情况，同时反对歪曲事实及借此攻击抹黑中国。</p>
+        <p><strong>为什么读：</strong> 文章呈现生成式AI服务跨境调用所带来的数据泄露、军事应用与平台治理风险。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>请求重定向 (qǐngqiú chóngdìngxiàng)</strong> — 把用户提交的请求转交给另一套系统处理。</li>
+          <li><strong>模型蒸馏 (móxíng zhēngliú)</strong> — 让较小模型学习并模仿大型模型输出能力的训练方法。</li>
+          <li><strong>防空压制 (fángkōng yāzhì)</strong> — 通过干扰或打击削弱对方防空系统的军事行动。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notice" aria-labelledby="run-notes">
+      <h2 id="run-notes">Run notes</h2>
+      <p>Hazy Research, Kasra Blog, Nathan Chen Blog, Queer Festival Heidelberg, and 科学空间 / Spaces AC had no new reportable items.</p>
+      <p>The LessWrong Larry Dial feed was unavailable because the collector was rate-limited (HTTP 429).</p>
+      <p>Some linked research resources were supplied only as shortened URLs, and several source posts contained limited or truncated detail.</p>
+    </aside>
+  </main>
+
+
+
+</body>
+</html>

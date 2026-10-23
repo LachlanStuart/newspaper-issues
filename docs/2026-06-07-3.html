@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f3ea;
+      --paper: #fffdf8;
+      --ink: #1f2328;
+      --muted: #6b7280;
+      --rule: #d8cfc0;
+      --accent: #7c3aed;
+      --accent-soft: #ede9fe;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 32px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.2rem);
+      line-height: 1;
+      margin: 0;
+      font-weight: 700;
+    }
+    .date {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    main {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 10px 30px rgba(31, 35, 40, 0.06);
+      padding: 28px;
+    }
+    section {
+      margin-bottom: 34px;
+    }
+    section:last-child {
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 1.45rem;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 7px;
+      margin: 0 0 18px;
+    }
+    article {
+      padding: 18px 0;
+      border-bottom: 1px solid #eee4d7;
+    }
+    article:first-of-type {
+      padding-top: 0;
+    }
+    article:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+    h3 {
+      font-size: 1.35rem;
+      line-height: 1.25;
+      margin: 0 0 8px;
+    }
+    h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    h3 a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    p {
+      margin: 0 0 10px;
+    }
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+    .tag {
+      background: var(--accent-soft);
+      color: #4c1d95;
+      border-radius: 999px;
+      padding: 2px 9px;
+    }
+    .source {
+      color: var(--muted);
+    }
+    .notes {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.92rem;
+      color: var(--muted);
+      background: #faf7f0;
+      border: 1px solid #eadfce;
+      border-radius: 10px;
+      padding: 14px 16px;
+    }
+    .notes ul {
+      margin: 8px 0 0 20px;
+      padding: 0;
+    }
+    .empty-note {
+      margin-bottom: 8px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      margin-top: 20px;
+    }
+    a {
+      color: var(--accent);
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Sunday, June 7, 2026</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>Rationality &amp; Community</h2>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/pzxkHkvzjYkj5nsyb/neglected-basics-of-ai-alignment-1">Neglected Basics of AI Alignment</a></h3>
+          <p>A new LessWrong post, written in the persona of HPMOR’s Voldemort, uses dark satire to explore “power dynamics” framings that the author argues are under-discussed in AI alignment.</p>
+          <div class="meta">
+            <span class="source">LessWrong Larry Dial</span>
+            <span class="tag">AI alignment</span>
+            <span class="tag">satire</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://www.lesswrong.com/posts/ePYruMkPjvnSoBGAS/the-hats-of-lessonline">The Hats of LessOnline</a></h3>
+          <p>A community post documenting the golden-hat game and hat-identification lore at LessOnline 2026.</p>
+          <div class="meta">
+            <span class="source">LessWrong Larry Dial</span>
+            <span class="tag">LessOnline</span>
+            <span class="tag">community</span>
+          </div>
+        </article>
+      </section>
+
+      <section>
+        <h2>Source Notes</h2>
+        <div class="notes">
+          <p class="empty-note">Most monitored sources had no new reportable items in this run.</p>
+          <ul>
+            <li>Hazy Research, Kasra Blog, Nathan Chen Blog, Queer Festival Heidelberg, 科学空间 / Spaces AC, and X AI Research had no new qualifying posts or items in the provided data.</li>
+            <li>X Bio Research had no new reportable bio-research items beyond earlier reported material. Two configured X lists failed during collection, so coverage was limited to successfully collected list items.</li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      Run ID: 2026-06-07-3
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

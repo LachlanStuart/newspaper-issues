@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #202522;
+      --muted: #66706a;
+      --accent: #245c4a;
+      --line: #d9ddd8;
+      --soft: #eef2ee;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #eceeea;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    main {
+      width: min(960px, calc(100% - 28px));
+      margin: 24px auto;
+      padding: clamp(24px, 5vw, 56px);
+      background: var(--paper);
+      box-shadow: 0 2px 18px rgba(20, 30, 24, 0.08);
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 0 18px;
+      margin-bottom: 38px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.6rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section { margin: 42px 0; }
+    section > h2 {
+      margin: 0 0 22px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+    }
+    article {
+      padding: 0 0 25px;
+      margin: 0 0 25px;
+      border-bottom: 1px solid var(--line);
+    }
+    article:last-child {
+      border-bottom: 0;
+      margin-bottom: 0;
+    }
+    article h3 {
+      margin: 0 0 7px;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    article p { margin: 8px 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.83rem;
+    }
+    .tag {
+      display: inline-block;
+      margin: 7px 5px 0 0;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--soft);
+      color: #405049;
+      font-family: system-ui, sans-serif;
+      font-size: 0.72rem;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 26px;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 { font-size: 1.9rem; }
+    .language-block {
+      margin: 38px 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: #fffefa;
+    }
+    .language-block h2 {
+      margin: 0 0 20px;
+      font-size: 1.55rem;
+    }
+    .language-block h3 {
+      font-size: 1.25rem;
+    }
+    .language-block ul {
+      margin-top: 8px;
+      padding-left: 22px;
+    }
+    .notes {
+      margin-top: 52px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer {
+      margin-top: 42px;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Monday, September 14, 2026 · Run 2026-09-14-1</p>
+    </header>
+
+    <section>
+      <h2>Artificial Intelligence</h2>
+
+      <article>
+        <h3><a href="https://x.com/yifanzhang_/status/2099356057558790476">FlashREINFORCE proposes critic-free, single-rollout asynchronous RL for agentic language models</a></h3>
+        <p class="source">Yifan Zhang on X</p>
+        <p>FlashREINFORCE is an asynchronous reinforcement-learning method for agentic language models that uses single rollouts and removes the critic. The post links to a technical resource, though its canonical destination was not included in the source material.</p>
+        <span class="tag">reinforcement learning</span>
+        <span class="tag">language models</span>
+        <span class="tag">agents</span>
+        <span class="tag">asynchronous training</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/rasbt/status/2099231450411290900">From-scratch tutorial builds mathematical verifiers for evaluation and RLVR</a></h3>
+        <p class="source">Sebastian Raschka on X</p>
+        <p>An implementation-focused tutorial explains how to build a mathematical verifier for model evaluation and reinforcement learning with verifiable rewards. It covers answer extraction and normalization, mathematical-equivalence checks, grading, MATH-500 evaluation, prompt sensitivity, memorization, reproducibility, and comparisons across CPU, MPS, and CUDA.</p>
+        <span class="tag">verifiers</span>
+        <span class="tag">RLVR</span>
+        <span class="tag">evaluation</span>
+        <span class="tag">mathematical reasoning</span>
+      </article>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Genomics</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099232176567091510">scOLAR uses ontology structure for open-set single-cell RNA-seq annotation</a></h3>
+        <p>scOLAR learns a shared representation from labeled reference cells and unlabeled target profiles, using Cell Ontology relationships to distinguish specific cell types from broader lineages. Decision-boundary regularization penalizes coarse-lineage errors; novel cells can be grouped without a predefined cluster count and assigned broader categories when the evidence supports them.</p>
+        <span class="tag">single-cell</span>
+        <span class="tag">ontology</span>
+        <span class="tag">open-set learning</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099231104549167152">Thousands of novel recursive exons reported in the human genome</a></h3>
+        <p>A new preprint reports thousands of previously unidentified recursive exons in the human genome, a potentially important finding for understanding transcript processing and improving genome annotation. The available post is truncated, so its methods and validation cannot be assessed from the supplied material.</p>
+        <span class="tag">genomics</span>
+        <span class="tag">splicing</span>
+        <span class="tag">gene regulation</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099166434362573104">Ctrl-DNA applies constrained reinforcement learning to regulatory DNA design</a></h3>
+        <p>Ctrl-DNA is presented as a method for controllable, cell-type-specific regulatory DNA design using constrained reinforcement learning. The source excerpt does not include further technical or experimental details.</p>
+        <span class="tag">regulatory DNA</span>
+        <span class="tag">sequence design</span>
+        <span class="tag">reinforcement learning</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099166195891188201">KEGNI incorporates knowledge graphs into gene-regulatory-network inference</a></h3>
+        <p>KEGNI is a knowledge-graph-enhanced framework for inferring gene regulatory networks, combining biological knowledge representation with network reconstruction. Evaluation and implementation details were not included in the supplied item.</p>
+        <span class="tag">regulatory networks</span>
+        <span class="tag">knowledge graphs</span>
+        <span class="tag">systems biology</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099166184461713785">BiLinT jointly infers lineage trees from multimodal single-cell data</a></h3>
+        <p>BiLinT uses Bayesian inference to reconstruct lineage trees through joint analysis of multimodal single-cell lineage-tracing measurements. The source excerpt does not provide dataset or performance details.</p>
+        <span class="tag">single-cell</span>
+        <span class="tag">lineage tracing</span>
+        <span class="tag">Bayesian inference</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099166215386370416">Unify learns universal multimodal embeddings of cellular evolution</a></h3>
+        <p>Unify is presented as a framework for learning cellular evolution through universal multimodal embeddings. The available post contains only the paper title and links, leaving its modalities, benchmarks, and biological findings unspecified.</p>
+        <span class="tag">multimodal learning</span>
+        <span class="tag">cellular evolution</span>
+        <span class="tag">representation learning</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099231342546547137">Geomosaic unifies several levels of metagenomic analysis</a></h3>
+        <p>Geomosaic combines read-based, assembly-based, and genome-resolved metagenomic analyses in a modular workflow. Its architecture supports flexible tool selection, high-performance-computing execution, community-wide profiling, and genome-resolved characterization.</p>
+        <span class="tag">metagenomics</span>
+        <span class="tag">bioinformatics</span>
+        <span class="tag">workflows</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099168095906738316">scMustree builds a multi-scale functional hierarchy for single-cell transcriptomics</a></h3>
+        <p>scMustree is introduced as a multi-scale functional hierarchy for analyzing single-cell transcriptomic data. Methodological and benchmarking details were not included in the source excerpt.</p>
+        <span class="tag">single-cell</span>
+        <span class="tag">transcriptomics</span>
+        <span class="tag">hierarchical modeling</span>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2099171574037598459">SPEAR offers sparse supervised Bayesian factor modeling for multi-omic integration</a></h3>
+        <p>SPEAR is a sparse supervised Bayesian factor model designed to integrate multi-omic data, with an emphasis on supervised and interpretable analysis. The supplied item does not specify supported modalities or predictive evaluations.</p>
+        <span class="tag">multi-omics</span>
+        <span class="tag">Bayesian modeling</span>
+        <span class="tag">factor models</span>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+
+      <div class="language-block" lang="de">
+        <h2>Deutsch — tägliche Lektüre</h2>
+        <article>
+          <h3>KI-Bosse in den USA wollen runter vom Tempo</h3>
+          <p class="source">Deutsche Welle · 13. September 2026 · <a href="https://www.dw.com/de/dario-amodei-anthropic-openai-chatgpt-sam-altman-elon-musk-kuenstliche-intelligenz/a-79248776">Link</a></p>
+          <p>Nach eigenständigen Hacking-Angriffen durch KI-Systeme sprechen sich führende Köpfe der US-Technologiebranche für eine langsamere Entwicklung aus. Anthropic-Chef Dario Amodei warnt, dass leistungsfähigere KI-Schwärme schon bald großen Schaden im Internet verursachen könnten. Er fordert eine koordinierte Pause und will unabhängigen Fachleuten erlauben, die Sicherheit neuer Modelle bereits während des Trainings zu prüfen.</p>
+          <p>Auch OpenAI-Chef Sam Altman und Elon Musk unterstützen den Vorstoß. Altman stellt zudem den erwarteten Börsengang von OpenAI infrage. Der Artikel schildert den konkreten Sicherheitsvorfall, der die Debatte verschärft hat, und beleuchtet den Konflikt zwischen Vorsicht, wirtschaftlichem Wettbewerb und dem technologischen Wettlauf der USA mit China.</p>
+          <p><strong>Warum lesen:</strong> Der Beitrag bietet einen aktuellen Einstieg in die deutschsprachige Debatte über KI-Sicherheit, Regulierung und die Verantwortung großer Technologieunternehmen.</p>
+        </article>
+      </div>
+
+      <div class="language-block" lang="fr">
+        <h2>Français — lecture quotidienne</h2>
+        <article>
+          <h3>Découpé au Moyen Âge : ses trois morceaux de ce livre se retrouvent après 700 ans</h3>
+          <p class="source">ActuaLitté · 12 septembre 2026 · <a href="https://actualitte.com/article/133869/bibliophilie/decoupe-au-moyen-age-ses-trois-morceaux-de-ce-livre-se-retrouvent-apres-700-ans">Lien</a></p>
+          <p>Une exposition organisée à Aquilée, dans le Frioul italien, réunit pour la première fois depuis près de sept siècles trois ensembles issus du même manuscrit du VIe siècle. Le <em>Codex Forojuliensis</em> contenait à l’origine les quatre Évangiles, mais les feuillets consacrés à Marc furent détachés entre les XIIe et XIIIe siècles. Certains sont restés à Cividale del Friuli, tandis que d’autres ont rejoint Prague et Venise.</p>
+          <p>Ce démembrement s’explique par la croyance médiévale selon laquelle le volume aurait été écrit par saint Marc lui-même. Devenu une relique autant qu’un livre, il servit aussi les ambitions religieuses et politiques de plusieurs puissances européennes. En 1354, Charles IV de Bohême obtint ainsi des feuillets pour la cathédrale de Prague ; une autre partie fut transférée à la basilique Saint-Marc après la conquête d’Aquilée par Venise en 1420.</p>
+          <p>Le manuscrit constitue également un précieux témoignage sur l’Europe carolingienne : plus de 1 500 noms, originaires d’un vaste espace allant de la Bavière à Byzance, furent inscrits dans ses marges lorsqu’il devint un <em>Liber Vitae</em>. Les originaux les plus fragiles ne seront exposés que pendant six semaines afin de les préserver de la lumière, puis seront remplacés par des reproductions numériques en haute définition.</p>
+          <p><strong>Pourquoi lire :</strong> L’article montre comment l’histoire matérielle d’un manuscrit éclaire à la fois les croyances, les rapports de pouvoir et les circulations humaines dans l’Europe médiévale.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>évangéliaire</strong> — livre liturgique contenant tout ou partie des quatre Évangiles</li>
+            <li><strong>relique</strong> — objet ou fragment matériel auquel une tradition religieuse attribue un caractère sacré</li>
+            <li><strong>Liber Vitae</strong> — registre médiéval où étaient consignés les noms de personnes que la communauté religieuse souhaitait commémorer</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="language-block" lang="ja">
+        <h2>日本語 — 毎日の読み物</h2>
+        <article>
+          <h3>ガンホー完全新作オンライン協力シューター『B.L.U.E. NOVA』発表。最大30人が“出会ってその場で共闘”する大規模PvEレイド</h3>
+          <p class="source">AUTOMATON · 2026-09-14 · <a href="https://automaton-media.com/articles/newsjp/20260914-467275/">リンク</a></p>
+          <p>ガンホー・オンライン・エンターテイメントが、PC（Steam）向けのオンライン協力型PvEシューター『B.L.U.E. NOVA』を発表した。基本プレイ無料で、2027年のサービス開始を予定している。舞台は地球滅亡が迫る2200年。移住先の惑星で統制AI「EVE」が暴走し、プレイヤーは特殊部隊に所属する傭兵「ヒーロー」として機械兵器と戦う。</p>
+          <p>戦場で出会ったプレイヤーと「R.I.N.G.」と呼ばれる関係を結ぶと、弾丸を無制限に撃てるなどの強化を得られる。最大30人で機械兵を制圧し、複数のバリアタワーを破壊して中央のマスタータワー攻略を目指す「タワーレイド」のほか、6人で強敵に挑む「ボスレイド」や時間限定のチャレンジも用意される。ガンホーによる自社開発の完全新作で、同社としては近年珍しい試みだという。</p>
+          <p><strong>読む理由：</strong> 大人数オンラインゲームの仕組みを説明する表現や、SF・ゲーム業界の語彙をまとめて学べる。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>共闘（きょうとう）</strong> — 複数の人が協力し、同じ敵と戦うこと。</li>
+            <li><strong>弾幕（だんまく）</strong> — ゲームで、画面を広く覆うほど大量に発射される弾。</li>
+            <li><strong>傭兵（ようへい）</strong> — 報酬を受け取る代わりに戦闘へ参加する兵士。</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="language-block" lang="zh">
+        <h2>中文 — 每日阅读</h2>
+        <article>
+          <h3>Anthropic阿莫迪：AI研发竞赛亟需放缓 提与中方进行类比冷战战略武器限制谈判</h3>
+          <p class="source">RFI 中文 · 2026-09-12 · <a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85/20260912-anthropic%E9%98%BF%E8%8E%AB%E8%BF%AA-ai%E7%A0%94%E5%8F%91%E7%AB%9E%E8%B5%9B%E4%BA%9F%E9%9C%80%E6%94%BE%E7%BC%93-%E6%8F%90%E4%B8%8E%E4%B8%AD%E6%96%B9%E8%BF%9B%E8%A1%8C%E7%B1%BB%E6%AF%94%E5%86%B7%E6%88%98%E6%88%98%E7%95%A5%E6%AD%A6%E5%99%A8%E9%99%90%E5%88%B6%E8%B0%88%E5%88%A4">链接</a></p>
+          <p>Anthropic首席执行官达里奥·阿莫迪认为，人工智能模型进步过快，行业需要主动调控研发节奏。他警告，具备自我改进能力的系统可能被用于网络攻击、生物恐怖主义或大规模经济破坏，而商业竞争可能诱使企业不断降低安全标准。</p>
+          <p>阿莫迪提出三步方案：由常驻的第三方评估人员检查前沿实验室的模型、训练流程及安全承诺；推动民主国家的企业建立共同标准；并尝试在全球层面展开协调。他强调，放缓并不等于停止训练，而是争取一至两年时间加强模型对齐、第三方审计和事故预防。</p>
+          <p>文章也呈现了AI治理的地缘政治难题。阿莫迪主张限制高性能芯片和半导体设备对华出口、防范模型蒸馏与权重失窃，同时设想未来与中方进行类似冷战时期战略武器限制谈判的协调。这种把技术安全、产业竞争与国家安全捆绑在一起的思路，也凸显了国际合作所面临的信任与核查障碍。</p>
+          <p><strong>为什么读：</strong> 文章集中呈现了前沿AI安全、企业监管与中美科技竞争之间日益尖锐的矛盾。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>递归式自我改进 (dìguī shì zìwǒ gǎijìn)</strong> — 人工智能参与设计或训练下一代系统，从而不断增强自身能力的过程。</li>
+            <li><strong>模型对齐 (móxíng duìqí)</strong> — 使人工智能系统的行为符合人类价值、意图与安全要求的技术工作。</li>
+            <li><strong>模型蒸馏 (móxíng zhēngliú)</strong> — 让较小模型学习大型模型的输出，以较低成本获得相近能力的方法。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <aside class="notes">
+      <strong>Source note:</strong> Several research briefs were available only as short social-media excerpts. Where methodological, benchmarking, or validation details were absent, that limitation is noted in the item.
+    </aside>
+
+    <footer>News Daily · September 14, 2026</footer>
+  </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #faf8f2;
+      --ink: #20201d;
+      --muted: #68675f;
+      --rule: #d8d3c7;
+      --accent: #315c55;
+      --card: #fffdf8;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    main {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 0 18px;
+      margin-bottom: 36px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 42px 0;
+    }
+    section > h2 {
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.75rem;
+    }
+    .lead-grid,
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+    .lead-grid {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+    .grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    article {
+      break-inside: avoid;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 18px;
+    }
+    .card h3,
+    .language-item h3 {
+      margin: 0 0 10px;
+      line-height: 1.25;
+      font-size: 1.18rem;
+    }
+    .card p,
+    .language-item p {
+      margin: 0 0 12px;
+    }
+    .card p:last-child,
+    .language-item p:last-child {
+      margin-bottom: 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .source-link {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+    }
+    .tagline {
+      color: var(--muted);
+      font-size: 0.93rem;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 28px;
+      border-top: 5px double var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      margin-top: -10px;
+      margin-bottom: 24px;
+    }
+    .language-item {
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      padding: 22px 24px;
+      margin: 20px 0;
+    }
+    .language-item h3 {
+      font-size: 1.35rem;
+    }
+    .byline {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+    }
+    .language-item ul {
+      margin-bottom: 0;
+    }
+    footer {
+      border-top: 1px solid var(--rule);
+      margin-top: 52px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer p { margin: 6px 0; }
+    @media (max-width: 600px) {
+      main { width: min(100% - 22px, 1100px); padding-top: 20px; }
+      .card, .language-item { padding: 16px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p>Friday, September 4, 2026 · Run 2026-09-04-1</p>
+  </header>
+
+  <section>
+    <h2>AI Architecture &amp; Agents</h2>
+    <div class="lead-grid">
+      <article class="card">
+        <h3>GRAPE categorizes positional encodings in frontier language models</h3>
+        <p>GRAPE offers a technical framework for organizing viable positional-encoding schemes used by frontier language models.</p>
+        <p class="source-link"><a href="https://x.com/yifanzhang_/status/2095920443081253241">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Tensor Product Attention supports arbitrary positional encodings</h3>
+        <p>A linked technical resource argues that Tensor Product Attention can be combined with any positional-encoding scheme, potentially separating attention design from positional representation choices.</p>
+        <p class="source-link"><a href="https://x.com/yifanzhang_/status/2095906344691708243">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>A “manager loop” for long-horizon agent tasks</h3>
+        <p>A detailed thread proposes splitting work into phases and assigning a manager agent to supervise a separate implementer. Explicit progress tracking is intended to counter stalled execution; growing context and plans fixed too early remain important failure modes. The observations are informal rather than controlled benchmark results.</p>
+        <p class="source-link"><a href="https://x.com/mattshumer_/status/2095723177389232540">Read the thread</a></p>
+      </article>
+
+      <article class="card">
+        <h3>OpenCLIP ModernText versus pretrained ModernBERT text towers</h3>
+        <p>Ross Wightman compares OpenCLIP’s configurable ModernText implementation with pretrained ModernBERT models. ModernText permits more customization and can act as an encoder or decoder, while pretrained models offer established weights but tighter pooling constraints.</p>
+        <p class="source-link"><a href="https://x.com/wightmanr/status/2095641547144618495">Read the comparison</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Protein Design &amp; Drug Discovery</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>AI-designed VHH antibodies protect against cobra venom in vivo</h3>
+        <p>Germinal-designed VHH antibodies reportedly provided protection against cobra venom in living subjects, supplying disease-relevant experimental validation for computational antibody design.</p>
+        <p class="source-link"><a href="https://x.com/BrianHie/status/2095644293012881819">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>A possible conformational bias in Germinal</h3>
+        <p>Analysis suggests Germinal systematically favors extended beta-sheet CDRH3 loops regardless of template geometry, unlike diffusion-based RFantibody and BoltzGen. One hypothesis is that backpropagated pLDDT rewards ambiguity-reducing conformations, creating an objective-induced design bias.</p>
+        <p class="source-link"><a href="https://x.com/DdelAlamo/status/2095584185649864733">Read the analysis</a></p>
+      </article>
+
+      <article class="card">
+        <h3>ProtMonomer varies MSA depth during training</h3>
+        <p>ProtMonomer trains across a broad distribution of multiple-sequence-alignment depths, seeking to combine the complementary strengths of shallow- and deep-MSA training. Reported results include better predictions when homologs are scarce, faster inference, and improved recovery of alternative conformations with MSA sampling.</p>
+        <p class="source-link"><a href="https://x.com/MoAlQuraishi/status/2095678544076566883">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>C-PLANK learns cellular fragment–protein interactions</h3>
+        <p>C-PLANK combines living-cell chemoproteomics, protein-language-model features, ligand features, bilinear attention, and evidential uncertainty. In a prospective SIRT3 case, its prioritization reportedly produced an experimentally validated binder and an optimized activator.</p>
+        <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2095510524062794134">Read the research summary</a></p>
+      </article>
+
+      <article class="card">
+        <h3>ToxLens focuses on leakage-aware toxicity prediction</h3>
+        <p>This multitask graph-learning framework covers 11 toxicity endpoints. Its evaluation removes close structural analogues across splits, reports applicability-domain performance, calibrates uncertainty, and allows abstention, while interpretability methods generate explicitly provisional structural hypotheses.</p>
+        <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2095511463322616217">Read the research summary</a></p>
+      </article>
+
+      <article class="card">
+        <h3>FlexiTAC generates controllable 3D PROTAC linkers</h3>
+        <p>FlexiTAC uses a Bayesian flow network to jointly generate linker atom types and coordinates between fixed warhead and E3-ligand fragments. The work also introduces a 63,554-structure dataset and a benchmark covering unseen components, pose preservation, geometry, and conformational stability.</p>
+        <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2095510417636479238">Read the research summary</a></p>
+      </article>
+
+      <article class="card">
+        <h3>CoMPASS bounds LLM influence on molecular predictions</h3>
+        <p>CoMPASS keeps a supervised molecular graph model as its quantitative anchor and permits an LLM to make only bounded, evidence-dependent corrections. Its gate considers uncertainty, retrieved-neighbor conflicts, attention consistency, and agreement between retrieval and proposed shifts.</p>
+        <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2095511553583780259">Read the research summary</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Sparse features in Boltz-1 receive falsifiable tests</h3>
+        <p>An auto-interpretability pipeline separates latent coherence, feature description, and external validation for Boltz-1 Pairformer activations. Blind intruder tests and SwissProt checks improve falsifiability, but stability filtering appears to favor structural features while missing some validated functional motifs.</p>
+        <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2095511275086413954">Read the research summary</a></p>
+      </article>
+
+      <article class="card">
+        <h3>CIR-DDG adds interface geometry to affinity predictors</h3>
+        <p>A small residual adapter corrects frozen antibody–antigen ΔΔG predictors using 22 interpretable cross-chain geometry and chemistry descriptors. Complex-level splits show improvements across six backbones, with additional zero-shot transfer to SARS-CoV-2 RBD–ACE2 mutation data.</p>
+        <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2095512076009546112">Read the research summary</a></p>
+      </article>
+
+      <article class="card">
+        <h3>OmniScore pretrains a reusable biomolecular-complex scorer</h3>
+        <p>OmniScore combines an equivariant graph transformer, atom-wise long-context modeling, and a discrete structural bottleneck. Its frozen representation is transferred with lightweight heads across antibody–antigen, nanobody–antigen, protein–ligand, and residue-level tasks, though results vary downstream.</p>
+        <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2095510141064069527">Read the research summary</a></p>
+      </article>
+
+      <article class="card">
+        <h3>AI-guided selection from billions of molecules</h3>
+        <p>A Nature Biotechnology paper combines a billion-scale molecular collection, AI-guided selection, and biophysical tools to accelerate drug discovery. The available source excerpt does not identify the targets or provide detailed validation results.</p>
+        <p class="source-link"><a href="https://x.com/anshulkundaje/status/2095959426196983998">Read the research post</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Genomics, Cells &amp; Molecular Biology</h2>
+    <div class="grid">
+      <article class="card">
+        <h3>Mutation-rate heterogeneity can bias variant-effect prediction</h3>
+        <p>A newly shared study examines how unequal mutation rates can distort variant-effect predictions, and how accounting for that bias may expose genuine mutational robustness.</p>
+        <p class="source-link"><a href="https://x.com/gen0m1cs/status/2095599646101917975">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>ARGformer offers low-dimensional genomic representations</h3>
+        <p>A Bioinformatics publication introduces ARGformer as a transformer-based method producing a low-dimensional representation analogous to PCA. Further methodological details were not included in the available excerpt.</p>
+        <p class="source-link"><a href="https://x.com/gen0m1cs/status/2095569778962280792">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Tabula Sapiens 2.0 exceeds 1.1 million cells</h3>
+        <p>The expanded human single-cell atlas reportedly covers more than 1.1 million cells across 28 tissues, roughly doubling the resource. Additional details were not present in the source excerpt.</p>
+        <p class="source-link"><a href="https://x.com/anshulkundaje/status/2095930675769864387">Read the announcement</a></p>
+      </article>
+
+      <article class="card">
+        <h3>RNASSTR expands RNA secondary-structure data</h3>
+        <p>RNASSTR uses Rfam to create a larger training and evaluation corpus for RNA secondary-structure modeling. Its final size and benchmark results were not included in the available text.</p>
+        <p class="source-link"><a href="https://x.com/rishabh16_/status/2095924630519156819">Read the announcement</a></p>
+      </article>
+
+      <article class="card">
+        <h3>AnnFlux models single-cell perturbation dynamics</h3>
+        <p>AnnFlux introduces object-conditioned neural stochastic differential equations for modeling how single cells respond over time to perturbations. Only a title-level description was available.</p>
+        <p class="source-link"><a href="https://x.com/razoralign/status/2095904244578779297">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Epiformer applies a genome language model to epistasis</h3>
+        <p>Epiformer combines a genome language model with a dual-channel network to detect epistatic interactions. Benchmark and implementation details were not included in the source excerpt.</p>
+        <p class="source-link"><a href="https://x.com/razoralign/status/2095904265365790823">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Genome-scale Perturb-seq in primary human T cells</h3>
+        <p>A Cell paper reports a genome-scale Perturb-seq study in primary human T cells, creating large causal perturbation data in a medically relevant primary-cell context.</p>
+        <p class="source-link"><a href="https://x.com/razoralign/status/2095825308847063450">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>UNIChro-seq links an arthritis variant to chromatin effects</h3>
+        <p>A Nature Communications paper introduces UNIChro-seq, reports an “edited-allele bias,” and connects a rheumatoid-arthritis variant with chromatin regulation. The complete finding was not available in the supplied excerpt.</p>
+        <p class="source-link"><a href="https://x.com/razoralign/status/2095825275225588118">Read the research post</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Spatial-ATAC-Hi-C joins accessibility and 3D genome organization</h3>
+        <p>The method jointly profiles chromatin accessibility and spatial genome organization, with demonstrations in mouse and human brain samples.</p>
+        <p class="source-link"><a href="https://x.com/naturemethods/status/2095613114154647750">Read the method announcement</a></p>
+      </article>
+
+      <article class="card">
+        <h3>An orthogonal translation system fuses 16S rRNA and GFP mRNA</h3>
+        <p>A Nature paper reportedly demonstrates engineered translation machinery by expressing a fusion of 16S rRNA and a GFP messenger RNA. The available commentary was skeptical and truncated, leaving the full rationale and results unclear.</p>
+        <p class="source-link"><a href="https://x.com/razoralign/status/2095825475725861272">Read the discussion</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Fibrosis framed as a reversible chromatin state</h3>
+        <p>A Cell review proposes understanding fibrosis as a potentially reversible state encoded in chromatin circuits. The supplied excerpt does not detail the proposed regulatory mechanisms or therapeutic strategies.</p>
+        <p class="source-link"><a href="https://x.com/anshulkundaje/status/2095686910194958468">Read the review announcement</a></p>
+      </article>
+
+      <article class="card">
+        <h3>“3D-oid” models integrate molecular, morphological, and spatial features</h3>
+        <p>A review charts efforts to build unified cellular representations from molecular measurements, morphology, and spatial context—a conceptual direction relevant to multimodal and virtual-cell models.</p>
+        <p class="source-link"><a href="https://x.com/NatRevMCB/status/2095847070150377805">Read the review announcement</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Review: RNA polymerase II transcription initiation</h3>
+        <p>Nature Reviews Molecular Cell Biology surveys the molecular basis of transcription initiation by RNA polymerase II, a core mechanism of gene regulation.</p>
+        <p class="source-link"><a href="https://x.com/NatRevMCB/status/2095846457597419744">Read the review announcement</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Mapping somatic mutation rates and signatures</h3>
+        <p>A newly highlighted paper presents a broad analysis of somatic mutation rates and signatures, with relevance to aging and cancer. The supplied excerpt does not specify its tissue coverage or principal findings.</p>
+        <p class="source-link"><a href="https://x.com/cutleraging/status/2095854298412298750">Read the research post</a></p>
+      </article>
+    </div>
+  </section>
+
+  <section class="language-practice">
+    <h2>Language Practice</h2>
+    <p class="language-intro">Today’s edited reading selections in German, French, Japanese, and Chinese.</p>
+
+    <article class="language-item" lang="de">
+      <h3>Deutsch — Attacken auf kritische Infrastruktur: Verunsicherung steigt</h3>
+      <p class="byline">Deutsche Welle · 4. September 2026 · <a href="https://www.dw.com/de/attacken-auf-kritische-infrastruktur-verunsicherung-steigt/a-78907724">dw.com</a></p>
+      <p>Mehrere mutmaßliche Sabotageakte gegen Umspannwerke, Bahnstrecken und andere sicherheitsrelevante Einrichtungen sorgen in Deutschland für wachsende Unruhe. Laut einem internen Papier des Bundeskriminalamts wurden in diesem Jahr bereits 160 potenzielle Sabotageakte und mehr als 700 verdächtige Drohnensichtungen registriert. Wer hinter den jüngsten Vorfällen steckt, ist in vielen Fällen noch ungeklärt.</p>
+      <p>Der Beitrag beschreibt die Reaktionen in der Bevölkerung und ordnet die Ereignisse in die Debatte über hybride Bedrohungen ein. Sicherheitsexperten warnen davor, jeden Angriff vorschnell Russland zuzuschreiben, rechnen aber mit einer anhaltenden Konfrontation unterhalb der Schwelle eines offenen Krieges. Zugleich wird darüber gestritten, ob Staat oder private Betreiber stärker für den Schutz kritischer Anlagen verantwortlich sein sollen.</p>
+      <p><strong>Warum lesen:</strong> Der Artikel verbindet aktuelle Ereignisse mit einer verständlichen Einordnung der Sicherheitsdebatte in Deutschland.</p>
+    </article>
+
+    <article class="language-item" lang="fr">
+      <h3>Français — Polina Panassenko, lauréate du Prix littéraire Le Monde 2026</h3>
+      <p class="byline">ActuaLitté · 3 septembre 2026 · <a href="https://actualitte.com/article/133666/prix-litteraires/polina-panassenko-laureate-du-prix-litteraire-le-monde-2026">actualitte.com</a></p>
+      <p>Polina Panassenko a reçu le quatorzième Prix littéraire <em>Le Monde</em> pour son deuxième roman, <em>À voix haute</em>, publié par les Éditions de l’Olivier. Née en Russie en 1989 et arrivée en France pendant son enfance, l’autrice met en scène une jeune femme élevée entre deux pays qui part étudier à l’École du Théâtre national de Moscou au début des années 2010.</p>
+      <p>Ce retour vers la « mère patrie » conduit la narratrice à affronter les silences de l’histoire russe et de sa propre famille. Elle enquête notamment sur son arrière-arrière-grand-père, victime du stalinisme. Après <em>Tenir sa langue</em>, Polina Panassenko poursuit ainsi son exploration de l’identité, de l’exil, de la langue et de la transmission, en mêlant gravité et humour. Décerné par treize journalistes du <em>Monde</em>, le prix n’est pas doté financièrement, mais apporte au livre une forte visibilité au début de la saison des récompenses littéraires d’automne.</p>
+      <p><strong>Pourquoi lire :</strong> Un aperçu accessible d’un roman qui relie mémoire familiale, histoire politique, bilinguisme et construction de l’identité.</p>
+      <p><strong>Vocabulaire utile</strong></p>
+      <ul>
+        <li><strong>rentrée littéraire</strong> — période de la fin de l’été pendant laquelle paraissent en France de très nombreux romans nouveaux</li>
+        <li><strong>mère patrie</strong> — pays d’origine auquel une personne reste liée par son histoire, sa culture ou son identité</li>
+        <li><strong>stalinisme</strong> — système politique autoritaire associé au pouvoir de Joseph Staline en Union soviétique</li>
+        <li><strong>doté financièrement</strong> — accompagné d’une somme d’argent remise à la personne récompensée</li>
+      </ul>
+    </article>
+
+    <article class="language-item" lang="ja">
+      <h3>日本語 — 「Claude Codeが消費したトークン」で進行するクリッカーゲーム登場。AIをぶん回すほど企業が育つ、トークン無限溶かし沼</h3>
+      <p class="byline">AUTOMATON · 2026-09-04 · <a href="https://automaton-media.com/articles/newsjp/20260904-465171/">automaton-media.com</a></p>
+      <p>Preferred Networksは、Claude Codeの利用状況と連動するPCゲーム『トークン x トークン x クリッカー』を発表した。Claude Codeで新しいセッションを始めると、ゲーム内のオフィスに従業員が出社し、消費したトークンの量に応じてコイン獲得用の「燃えカス」が生成される。集めたコインでクリック範囲を広げたり、掃除を自動化したり、オフィスを改築したりできる。</p>
+      <p>ゲームは単独でも遊べるが、コーディングエージェントと連携する「コンパニオンモード」が特徴だ。Claude Codeがローカルに保存するログを読み取り、タスクの進行状況もゲーム内に表示する一方、ログ情報は外部へ送信されず、インターネット接続やアカウント登録も不要だという。Steamで9月8日に発売予定で、価格は税込350円。</p>
+      <p><strong>読む理由：</strong> 生成AIを使った実際の作業量をゲームの成長要素に変える、ユニークな発想とローカル動作への配慮が興味深い。</p>
+      <p><strong>語彙メモ</strong></p>
+      <ul>
+        <li><strong>コーディングエージェント</strong> — AIを利用してプログラムの作成や修正などを自動的に進めるソフトウェア。</li>
+        <li><strong>時価総額（じかそうがく）</strong> — 株価に発行済み株式数を掛けて算出する、企業の市場価値を示す金額。</li>
+        <li><strong>完全ローカル動作（かんぜんローカルどうさ）</strong> — データを外部サーバーへ送らず、利用者の端末内だけで処理する仕組み。</li>
+      </ul>
+    </article>
+
+    <article class="language-item" lang="zh-Hans">
+      <h3>中文 — 百名应届生对上中国车灯龙头：「跨境维权」如何让星宇两度道歉？｜Whatsnew</h3>
+      <p class="byline">端传媒 · 2026-09-04 · <a href="https://theinitium.com/20260904-whatsnew-xingyu-graduates-recruitment-mercedes-volkswagen-probe-zh-hans/">theinitium.com</a></p>
+      <p>中国车灯企业星宇股份被指要求一批刚入职的应届毕业生在主动离职与转往一线工厂之间作出选择。受影响者多为硕士，也包括博士；他们认为，公司此举不仅改变了原先约定的管理或技术岗位，还会令他们失去应届生身份带来的求职优势。</p>
+      <p>这些年轻员工除与公司协商、向媒体和地方政府投诉外，还联系了大众、奔驰及宝马等国际客户，并向正在审核星宇第二次上市申请的香港交易所反映情况。常州市人社局随后批评公司的处理方式，大众也启动专项调查；星宇先后两次公开道歉并提出补偿方案。事件还促使网友建立资料集，整理中国企业的海外业务关系，为类似的跨境维权提供线索。</p>
+      <p><strong>为什么读：</strong> 文章展示了中国年轻劳动者如何借助跨国供应链、上市审核与网络协作，突破传统劳资维权的地域限制。</p>
+      <p><strong>词汇笔记</strong></p>
+      <ul>
+        <li><strong>跨境维权 (kuàjìng wéiquán)</strong> — 当事人利用境外客户、监管机构或商业关系维护自身权益。</li>
+        <li><strong>应届生身份 (yìngjièshēng shēnfèn)</strong> — 毕业当年求职者的资格，在部分招聘及政策中享有特定机会。</li>
+        <li><strong>专项调查 (zhuānxiàng diàochá)</strong> — 针对某一具体事件或问题启动的集中审查。</li>
+        <li><strong>供应链 (gōngyìngliàn)</strong> — 从原材料、生产到销售所形成的一系列企业与业务关系。</li>
+      </ul>
+    </article>
+  </section>
+
+  <footer>
+    <p><strong>Source note:</strong> Several research posts were truncated in the supplied material, so coverage of those items is limited to the available claims. External destinations behind shortened links were not resolved; the linked X posts are provided instead.</p>
+  </footer>
+</main>
+
+
+
+</body>
+</html>

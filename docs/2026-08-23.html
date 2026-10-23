@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202124;
+      --muted: #666b73;
+      --paper: #fffdf8;
+      --accent: #245c4f;
+      --line: #d9d5ca;
+      --panel: #f5f2e9;
+      --link: #174f87;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ece9e1;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+    main {
+      width: min(940px, 100%);
+      margin: 0 auto;
+      padding: 3rem clamp(1.25rem, 5vw, 4rem);
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+    }
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 1.25rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.25rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section { margin: 2.75rem 0; }
+    section > h2 {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 0.35rem;
+      margin: 0 0 1.4rem;
+      font-size: 1.55rem;
+    }
+    article {
+      margin: 0 0 2rem;
+      padding-bottom: 1.7rem;
+      border-bottom: 1px solid var(--line);
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+    article h3 a { color: var(--ink); }
+    p { margin: 0.65rem 0; }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: var(--accent); }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .tags {
+      margin-top: 0.85rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 1.8rem;
+    }
+    .language-intro {
+      color: var(--muted);
+      margin-top: -0.7rem;
+      margin-bottom: 2rem;
+    }
+    .language-card {
+      padding: 1.35rem 1.45rem;
+      background: var(--panel);
+      border-left: 4px solid var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .language-card h3 {
+      font-size: 1.25rem;
+    }
+    .language-card ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.35rem;
+    }
+    .notes {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .notes h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+      font-size: 1rem;
+      border: 0;
+      margin-bottom: 0.5rem;
+    }
+    .notes ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Sunday, August 23, 2026</p>
+    </header>
+
+    <section>
+      <h2>Mathematics &amp; Machine Learning</h2>
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11864">Steepest Descent on Manifolds, Part 7: An Analytic Solution for the Stiefel Manifold</a></h3>
+        <p class="source">科学空间 / Spaces AC</p>
+        <p>This installment in a series on steepest descent for matrix manifolds tackles the difficult non-square case on the Stiefel manifold, whose points are matrices with orthonormal columns or rows. It develops an analytic treatment of the resulting constrained steepest-descent problem, extending earlier work on square matrices over the orthogonal manifold.</p>
+        <p>The article is a mathematically substantial contribution with potential relevance to manifold optimization and machine-learning optimization methods.</p>
+        <p class="tags">Mathematics · Machine learning · Optimization · Stiefel manifolds</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Scientific AI</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2091339409287438741">DNA-MFM combines DNA sequence and chromatin accessibility while resisting sparse-modality collapse</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>DNA-MFM is a self-supervised, DNA-centric multimodal foundation model that learns reusable region-level embeddings by integrating sequence representations with local and global chromatin-accessibility signals.</p>
+        <p>The work identifies a specific training failure: directly aligning sparse, peak-shaped regulatory measurements with dense sequence features can lead to sparse-modality collapse. Its collapse-resistant fusion approach is intended to preserve both sequence-derived and regulatory information within the same genomic window.</p>
+        <p class="tags">Genomics · Gene regulation · Foundation models · Multimodal learning</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2091338941970760187">GaugeFixer makes sequence–function model parameters identifiable at million-parameter scale</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>GaugeFixer is a Python package for resolving gauge-related parameter non-identifiability in biological sequence–function models. By exploiting the mathematical structure of gauge-fixing projections, it reportedly achieves log-linear compute scaling and linear memory scaling.</p>
+        <p>The method can transform models with millions of parameters in seconds rather than relying on costly standard matrix multiplication, helping make fitted sequence effects more consistently interpretable and comparable.</p>
+        <p class="tags">Sequence–function models · Interpretability · Software · Model identifiability</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/pkoo562/status/2091297498296148283">A versioned uncertainty layer for scientific papers read by AI</a></h3>
+        <p class="source">X Bio Research</p>
+        <p>A new perspective argues that scientific papers need a structured uncertainty layer so AI systems can distinguish conclusions from their qualifications and boundaries of support. The proposed records would be machine-assessable, not merely machine-readable.</p>
+        <p>AI could help draft these records, but authors, reviewers, curators, and domain experts would be able to revise, contest, and version them as evidence changes. The proposal addresses a growing concern as research agents increasingly consume and synthesize scientific literature.</p>
+        <p class="tags">Scientific literature · Uncertainty · Research agents · AI safety</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="language-intro">Today’s edited reading selections, preserved in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Niedersächsischer Datenschutzbeauftragter rügt Polizeigesetz</h3>
+        <p class="source">heise online · 22.08.2026 · <a href="https://www.heise.de/news/Niedersaechsischer-Datenschutzbeauftragter-ruegt-Polizeigesetz-11422863.html">Artikel lesen</a></p>
+        <p>Der niedersächsische Datenschutzbeauftragte Denis Lehmkemper warnt vor der geplanten Reform des Polizeigesetzes. Der Entwurf der Landesregierung soll unter anderem intelligente Videoüberwachung, biometrische Echtzeit-Fernidentifizierung, den Abgleich mit öffentlich verfügbaren Internetdaten sowie automatisierte Datenanalysen ermöglichen. Nach Einschätzung der Datenschutzbehörde könnten diese Instrumente erheblich in Grundrechte eingreifen; zudem fehlten klare technische und rechtliche Grenzen für den Einsatz von KI.</p>
+        <p>Besonders kritisch sieht Lehmkemper die geplante Zusammenführung bislang zweckgebunden gespeicherter Polizeidaten auf einer zentralen Analyseplattform. Davon könnten nicht nur Tatverdächtige, sondern auch Zeugen, Opfer und unbeteiligte Personen betroffen sein. Die Behörde fordert strengere Voraussetzungen für Videoüberwachung, lehnt die weitreichende biometrische Live-Erkennung ab und bemängelt, dass sich der Gesetzentwurf nicht ausreichend mit den Vorgaben der europäischen KI-Verordnung auseinandersetzt.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel zeigt anschaulich, wie neue KI- und Überwachungstechnik das Spannungsverhältnis zwischen Polizeiarbeit, Datenschutz und Grundrechten verschärft.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — De « Bordouse » à Bordeaux : cette carte de France montre les progrès de ChatGPT en un an et demi</h3>
+        <p class="source">Numerama · 22 août 2026 · <a href="https://www.numerama.com/tech/2314897-de-bordouse-a-bordeaux-cette-carte-de-france-montre-les-progres-de-chatgpt-en-un-an-et-demi.html">lien</a></p>
+        <p>En mars 2025, une carte de France produite par ChatGPT accumulait les villes inventées, les noms illisibles et les aberrations géographiques : Bordeaux devenait notamment « Bordouse », tandis que certaines grandes villes apparaissaient plusieurs fois ou dans la mauvaise région. Dix-sept mois plus tard, une nouvelle tentative donne une carte beaucoup plus vraisemblable. Les contours du pays et la position générale de métropoles comme Paris, Lille, Strasbourg, Lyon ou Marseille sont désormais reconnaissables.</p>
+        <p>L’amélioration reste cependant trompeuse dès que l’on examine les détails. Des villes sont encore dupliquées, le Luxembourg est démesurément grand et les routes, reliefs ou cours d’eau donnent une impression de précision sans correspondre fidèlement à la réalité. Numerama rappelle aussi que la comparaison n’est pas parfaitement scientifique : les deux images n’ont pas été créées avec le même modèle ni nécessairement avec les mêmes paramètres, et la seconde génération disposait de la première carte comme référence visuelle.</p>
+        <p>L’article replace ces progrès dans l’évolution rapide des générateurs d’images d’OpenAI et de Google, tout en soulignant une faiblesse persistante : ces systèmes reproduisent plus facilement les configurations fréquentes dans leurs données d’entraînement que les scènes inhabituelles. Le test d’un verre de vin rempli à ras bord illustre cette difficulté à transformer une consigne pourtant claire en une image rigoureusement cohérente.</p>
+        <p><strong>Pourquoi lire :</strong> Une démonstration concrète et nuancée des progrès spectaculaires de l’IA générative, mais aussi de son aptitude persistante à produire des détails convaincants et faux.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>générateur d’images</strong> — modèle d’intelligence artificielle capable de créer une image à partir d’une consigne textuelle ou visuelle</li>
+          <li><strong>prompt</strong> — instruction fournie à une IA afin d’orienter la réponse ou l’image produite</li>
+          <li><strong>jeu d’entraînement</strong> — ensemble de données utilisé pour apprendre à un modèle à reconnaître ou à générer certains motifs</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 便利じゃないロボットNICOBOがもたらす心の豊かさ : 「道具」ではなく、「相棒」としての存在</h3>
+        <p class="source">nippon.com · 2026年8月21日 · <a href="https://www.nippon.com/ja/japan-topics/g02619/">リンク</a></p>
+        <p>パナソニックの家庭用ロボット「NICOBO」は、クラウド上のAIや各種センサーを備えているものの、指示に従って仕事をする便利な道具ではない。片言の日本語や独自の「モコ語」を話し、返事をしないこともあれば、突然寝言やおならで周囲を笑わせることもある。「永遠の2歳児」という設計思想のもと、不完全で予測できない振る舞いによって、人の愛着や優しさを引き出している。</p>
+        <p>開発の背景には、単独では目的を達成できないからこそ人の助けを引き出す「弱いロボット」という考え方がある。記事は、正確さと再現性を重視してきた家電メーカーが、あえて生き物らしい揺らぎや余白を追求した過程を紹介する。今後はLLMも導入されるが、自然で完璧な会話ではなく、人の想像力を刺激する言葉を生み出すために使うという。</p>
+        <p><strong>読む理由：</strong> AIを高性能な道具としてだけでなく、人との関係や心の豊かさを生み出す存在として捉える日本発の発想が興味深い。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>弱いロボット（よわいロボット）</strong> — 自力ですべてを行わず、人の手助けや優しさを引き出すよう設計されたロボット。</li>
+          <li><strong>共生社会（きょうせいしゃかい）</strong> — 異なる人や存在が互いに関わり、支え合いながら暮らす社会。</li>
+          <li><strong>大規模言語モデル（だいきぼげんごモデル）</strong> — 大量の文章を学習し、言葉の理解や生成を行うAIモデル。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh-Hans">
+        <h3>中文 — 异乡人｜新加坡买𩠌难：追寻香港味道，却 Lost in Translation</h3>
+        <p class="source">端传媒 · 2026-08-23 · <a href="https://theinitium.com/20260823-strangers-hongkong-singapore-comfort-food-far-from-home-zh-hans/">阅读原文</a></p>
+        <p>一名从香港移居新加坡的作者，从日常买菜与下厨写起，记录自己如何在陌生的食材名称、超市布局和饮食习惯中重新寻找熟悉的香港味道。两个同属华人社会的城市看似饮食相近，真正生活其中时，却处处出现需要“翻译”的细节。</p>
+        <p>作者发现，新加坡超市里的中英文标签既熟悉又陌生：香港人常说的通菜，在当地可能标为“Kang Kong／蕹菜”；老抽则以“dark soy sauce”出现。买菜过程因而不只是寻找食材，也成为移居者理解新环境、建立生活秩序和安放乡愁的一种练习。</p>
+        <p><strong>为什么读：</strong> 文章以厨房和超市为切口，具体呈现香港移民在新加坡经历的语言、饮食与身份适应。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>买𩠌 (mǎi sòng)</strong> — 粤语说法，指购买下饭菜或做饭所需的食材。</li>
+          <li><strong>蕹菜 (wèngcài)</strong> — 一种常见叶菜，在香港通常称为“通菜”，也叫空心菜。</li>
+          <li><strong>电陶炉 (diàntáolú)</strong> — 利用电热元件加热炉面的烹饪设备，可搭配多种材质的锅具。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notes">
+      <h2>Source notes</h2>
+      <ul>
+        <li>Several monitored blogs and archives had no new material for this edition.</li>
+        <li>The LessWrong Larry Dial feed was unavailable because of rate limiting.</li>
+        <li>The X AI Research list could not be collected after multiple attempts.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-08-23-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

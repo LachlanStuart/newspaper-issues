@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #20252b;
+      --muted: #68727d;
+      --rule: #d9dee3;
+      --paper: #fffdf8;
+      --accent: #245a73;
+      --soft: #f2f5f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ece9e2;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.1rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      border-top: 4px double var(--ink);
+      border-bottom: 4px double var(--ink);
+      padding: 1.4rem 0 1.15rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+    .dateline {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section { margin: 2.8rem 0; }
+    section > h2 {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 1.35rem;
+      padding-bottom: 0.4rem;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .lead-grid,
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 2rem;
+    }
+    article {
+      padding: 0.15rem 0 1.5rem;
+      margin-bottom: 1.35rem;
+      border-bottom: 1px solid var(--rule);
+      break-inside: avoid;
+    }
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+    article p { margin: 0.55rem 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .source {
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 0.7rem;
+    }
+    .language-practice {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 6px double var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 2rem;
+    }
+    .language-intro {
+      color: var(--muted);
+      font-style: italic;
+      margin: -0.7rem 0 2rem;
+    }
+    .language-card {
+      padding: 1.5rem clamp(1rem, 3vw, 2rem);
+      margin: 0 0 2rem;
+      border: 1px solid var(--rule);
+      background: #fff;
+    }
+    .language-card h3 {
+      font-size: 1.45rem;
+      margin-bottom: 0.25rem;
+    }
+    .language-card .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.86rem;
+      margin-bottom: 1rem;
+    }
+    .language-card ul {
+      margin-top: 0.4rem;
+      padding-left: 1.4rem;
+    }
+    .language-card li { margin: 0.35rem 0; }
+    .quiet-notes {
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer {
+      border-top: 4px double var(--ink);
+      margin-top: 3rem;
+      padding-top: 1rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 720px) {
+      .lead-grid,
+      .story-grid { grid-template-columns: 1fr; }
+      main { padding-top: 1.2rem; }
+      section { margin: 2.2rem 0; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p class="dateline">Saturday, August 22, 2026 · Run 2026-08-22-1</p>
+  </header>
+
+  <section>
+    <h2>Drug Discovery &amp; Molecular Design</h2>
+    <div class="lead-grid">
+      <article>
+        <h3><a href="https://x.com/MoAlQuraishi/status/2090850300642902418">OpenBind launches an OpenFold3-derived model and plans a living protein–ligand dataset</a></h3>
+        <p>OpenBind’s first model is based on OpenFold3 but trained preferentially for small molecules. The series is designed to absorb new structures from both the consortium and the Protein Data Bank, while a parallel data effort aims to collect tens of thousands of protein–ligand structures and affinity measurements.</p>
+        <p>The pairing of an evolving open model with prospectively collected binding data could become a significant drug-discovery resource.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2090813657945133451">AlphaFold 3 maps useful TCR-mimic interfaces—but its affinity proposals fail in the lab</a></h3>
+        <p>In work on antibody fragments targeting NY-ESO-1/HLA-A*02:01, AlphaFold 3 recovered useful complex geometries for some systems, and higher ipTM scores generally tracked more accurate docking. Tetramer assays, CAR-T activation, and alanine scanning supported predicted epitopes and paratopes.</p>
+        <p>Yet mutations selected using favorable contact and hydrogen-bond metrics did not improve affinity experimentally. The result is a practical warning: plausible geometry can guide hypotheses without being sufficient for therapeutic optimization.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+    </div>
+
+    <div class="story-grid">
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2090814332259164200">mpTCRai connects mutation-driven TCR–pHLA structural changes to binding energetics</a></h3>
+        <p>mpTCRai combines protein-language-model representations and cross-attention to predict residue-level TCR–peptide–HLA geometry, then scores mutations around wild-type contact hotspots. On an A6-TCR/Tax system, its hotspot score correlated strongly with measured ΔΔG and recovered known cross-reactive peptide substitutions.</p>
+        <p>The method also screened nearly 16,000 CDR3β variants for HTLV-1 Tax targeting, though the nominated designs remain computational and need experimental validation.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2090814464916660377">cdrGPT generates scaffold-constrained antibody libraries for cancer targets</a></h3>
+        <p>cdrGPT generates heavy-chain CDRH3 loops within the zolbetuximab scaffold, using rejection-sampling fine-tuning against predicted affinity, developability, and immunogenicity proxies. From 50,000 generations, filtering produced 313 candidates; seven received AlphaFold 3 and molecular-dynamics checks. The framework was also retargeted to HER2 using trastuzumab.</p>
+        <p>All reported evidence is computational, so predicted affinity and structural stability still require wet-lab confirmation.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2090813992449302869">FAR-DPO raises the yield of feasible cyclic-peptide designs</a></h3>
+        <p>FAR-DPO builds preference pairs only after candidates pass cyclization, chirality, and Rosetta-energy gates, then applies tolerance-aware Pareto comparisons across binding, interface, and steric measures. Group-robust optimization emphasizes difficult pockets, while anchoring prevents preferred candidates from deteriorating relative to the reference model.</p>
+        <p>Applied to PepGLAD and PepFlow, the approach improved feasible and jointly qualified yields, including for the hardest quartile of targets.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2090813901927776305">PETA adapts virtual-screening models to each pocket at inference time</a></h3>
+        <p>PETA performs episodic, per-pocket adaptation of a DrugCLIP-like retrieval model without requiring labeled compounds from the screening library. It retrieves a structurally matched reference ligand, generates pocket-conditioned candidates, treats chemically invalid generations as reliable negatives, and updates only ligand-encoder LayerNorm parameters.</p>
+        <p>Reported tests show better early enrichment on DUD-E and LIT-PCBA, along with improved fine-grained ranking of congeneric compounds on FEP+ targets.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Cells, Genomics &amp; Biological Dynamics</h2>
+    <div class="story-grid">
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2090967183119806502">bulk2scDiff generates cellular-resolution expression distributions from pseudobulk RNA-seq</a></h3>
+        <p>bulk2scDiff represents cells in a pretrained SCimilarity latent space and separately embeds pseudobulk profiles as conditioning information. A diffusion model then generates distributions of single-cell latent profiles consistent with the aggregate transcriptomic measurement.</p>
+        <p>The method is positioned as a generative complement to conventional cell-type deconvolution.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2090966909932195953">PASTRI reconstructs stage-specific cell-state transitions from lineage trees</a></h3>
+        <p>PASTRI uses annotated cell phylogenies and adjacency relationships at multiple tree depths to infer constrained transition-rate matrices. Its goal is to recover stage-specific dynamics and produce quantitative, time-resolved maps of developmental or disease trajectories, rather than assuming one fixed transition process.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2090966614405787847">Modtector speeds mutation and reverse-transcription-stop signal mining</a></h3>
+        <p>Modtector extracts mutation and reverse-transcription-stop signals from aligned sequencing reads with a count-then-correct strategy that supports both signal types while reducing computational complexity. Its authors report processing a 22-GB HEK293 dataset in five minutes and achieving speedups above 50-fold on single-cell datasets.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2090750175015063734">Review surveys endogenous retroviruses in development and cell-fate specification</a></h3>
+        <p>A new <em>Nature Reviews Genetics</em> article examines how endogenous retroviral sequences participate in developmental regulation and cell-fate specification, linking transposable-element biology with regulatory evolution and cellular identity.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Research Methods, Benchmarks &amp; Evaluation</h2>
+    <div class="story-grid">
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2090412853157351576">Large benchmark tests Bayesian multitask models for multiparameter protein engineering</a></h3>
+        <p>A benchmark standardizes 27 protein-engineering datasets containing between two and sixteen measured properties, evaluating 2,592 combinations of Bayesian multitask architectures, sequence representations, and dimensionality-reduction methods.</p>
+        <p>A deterministic backbone with a Bayesian final layer delivered the best overall accuracy–calibration balance, while supervised PCA improved both prediction and uncertainty estimates. Simple one-hot encodings were often competitive with protein-language-model embeddings, underscoring the importance of assay quality and modeling regime.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/ShaamilKarim1/status/2090883724590432410">Clinical-trial prediction claim raises frontier-model leakage concerns</a></h3>
+        <p>A team reports training a deep model on 100,000 clinical trials, with an agent assembling biomedical evidence for each trial and claimed performance improvements across phases. Anshul Kundaje cautioned that a frontier model used to construct features might already know trial outcomes, leaking that information into the feature map.</p>
+        <p>A stronger evaluation would restrict testing to trials released after the frontier model’s training-data horizon and clearly document feature construction and leakage controls.</p>
+        <p class="source">Source: X Bio Research</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="language-practice">
+    <h2>Language Practice</h2>
+    <p class="language-intro">Daily reading selections in their original languages.</p>
+
+    <article class="language-card" lang="de">
+      <h3>Deutsch — Studie: Aufmerksamkeit kann Juckreiz lindern</h3>
+      <p class="byline">Tagesschau · 21.08.2026 · <a href="https://www.tagesschau.de/wissen/gesundheit/studie-aufmerksamkeit-juckreiz-100.html">https://www.tagesschau.de/wissen/gesundheit/studie-aufmerksamkeit-juckreiz-100.html</a></p>
+      <p>Eine neue Studie stellt die verbreitete Empfehlung infrage, sich bei Juckreiz möglichst schnell abzulenken. In drei Experimenten mit insgesamt 57 gesunden Freiwilligen löste ein Forschungsteam kleine Hautreaktionen mit Histamin aus. Wenn die Teilnehmenden ihre Aufmerksamkeit bewusst auf die betroffene Stelle richteten, fielen Quaddeln und Rötungen bei rund 90 Prozent von ihnen schwächer aus und klangen schneller ab.</p>
+      <p>Die Forschenden vermuten, dass unangenehme Empfindungen dem Gehirn wichtige Informationen liefern, mit denen es die Immunreaktion reguliert. Eine Betäubungscreme verringerte den beobachteten Effekt, was für ein Zusammenspiel von Sinneswahrnehmung und Aufmerksamkeit spricht. Die Ergebnisse lassen sich allerdings nicht ohne Weiteres auf andere Schmerzen oder Entzündungen übertragen und bedeuten nicht, dass Beschwerden allein durch Denken verschwinden.</p>
+      <p><strong>Warum lesen:</strong> Der Artikel erklärt anschaulich, wie eng Aufmerksamkeit, Nervensystem und körperliche Entzündungsreaktionen miteinander verbunden sein könnten.</p>
+    </article>
+
+    <article class="language-card" lang="fr">
+      <h3>Français — Un navire sud-coréen sur le départ pour la route maritime de l'Arctique</h3>
+      <p class="byline">France 24 · 22 août 2026 · <a href="https://www.france24.com/fr/info-en-continu/20260822-un-navire-sud-cor%C3%A9en-sur-le-d%C3%A9part-pour-la-route-maritime-de-l-arctique">lien</a></p>
+      <p>Le porte-conteneurs sud-coréen Panstar Acro doit relier Busan à plusieurs ports européens en passant par l'Arctique. Ce voyage d'environ 45 jours vise à évaluer la viabilité commerciale d'une route devenue plus navigable sous l'effet de la fonte des glaces. Elle pourrait raccourcir les distances de 30 à 40 % par rapport au passage par le canal de Suez et de près de moitié par rapport au détour par le cap de Bonne-Espérance.</p>
+      <p>Cette solution intéresse particulièrement les pays asiatiques confrontés aux perturbations des voies maritimes du Moyen-Orient. Son potentiel reste toutefois limité par une courte saison de navigation, la nécessité d'utiliser des navires adaptés aux régions polaires et leur capacité inférieure à celle des grands porte-conteneurs. L'itinéraire soulève aussi des questions géopolitiques liées aux services russes de navigation et aux sanctions occidentales.</p>
+      <p>Les défenseurs de l'environnement redoutent enfin que l'augmentation du trafic accélère la dégradation de la banquise. Plusieurs grands armateurs européens, dont CMA-CGM, MSC et Hapag-Lloyd, se sont déjà engagés à ne pas emprunter ces routes.</p>
+      <p><strong>Pourquoi lire :</strong> Un éclairage accessible sur les liens entre commerce mondial, tensions géopolitiques et réchauffement de l'Arctique.</p>
+      <p><strong>Vocabulaire utile</strong></p>
+      <ul>
+        <li><strong>porte-conteneurs</strong> — navire spécialement conçu pour transporter des marchandises placées dans des conteneurs standardisés</li>
+        <li><strong>navire classé polaire</strong> — bâtiment répondant à des normes techniques particulières pour naviguer dans des eaux couvertes de glace</li>
+        <li><strong>banquise</strong> — couche de glace flottante formée par le gel de l'eau de mer dans les régions polaires</li>
+      </ul>
+    </article>
+
+    <article class="language-card" lang="ja">
+      <h3>日本語 — TikTok 米司法省に4億ドル支払いで和解</h3>
+      <p class="byline">NHKニュース · 2026年8月22日 · <a href="https://news.web.nhk/newsweb/na/nd-20260822de45652">リンク</a></p>
+      <p>中国系の動画共有アプリ「TikTok」が、親の同意を得ずに子どもの個人情報を集めていたとしてアメリカ司法省に訴えられていた裁判で、TikTok側が4億ドル、日本円でおよそ636億円を支払うことで和解が成立した。司法省は2024年、TikTokと親会社のバイトダンスが、13歳未満の利用者のメールアドレスなどを収集・保持していたとして提訴していた。</p>
+      <p>訴えでは、親が情報の削除を求めても適切に対応しない場合が多く、社内規定も十分に整備されていなかったと指摘された。TikTok側は提訴後、年齢確認や保護者による監督を強化してきたとしている。司法省は、今回の和解によって長期訴訟による遅れを避け、アメリカの家庭がより強い保護措置を受けられると説明した。</p>
+      <p><strong>読む理由：</strong> 子どもの個人情報をめぐる法規制と、大手プラットフォームの責任を具体的に学べる記事だから。</p>
+      <p><strong>語彙メモ</strong></p>
+      <ul>
+        <li><strong>個人情報（こじんじょうほう）</strong> — 氏名やメールアドレスなど、個人を識別できる情報</li>
+        <li><strong>提訴（ていそ）</strong> — 裁判所に訴えを起こすこと</li>
+        <li><strong>和解（わかい）</strong> — 当事者が合意し、裁判上の争いを解決すること</li>
+      </ul>
+    </article>
+
+    <article class="language-card" lang="zh-Hans">
+      <h3>中文 — 台湾“三大公投”：时隔一年再公投，这次投什么？通过门槛为何？</h3>
+      <p class="byline">BBC 中文 · 2026-08-21 · <a href="https://www.bbc.com/zhongwen/articles/c0rdle4l1lvo/simp">https://www.bbc.com/zhongwen/articles/c0rdle4l1lvo/simp</a></p>
+      <p>台湾预计再次举行公投，议题包括把鞭刑纳入法律、将交通违规罚款专用于改善交通，以及废除“非核家园”能源政策。若经主管机关审议通过，三案将与地方选举合并投票。依现行规定，同意票不仅必须多于不同意票，还须达到全体有投票权人数的四分之一，约需近五百万票。</p>
+      <p>报道分别梳理三项提案的支持与反对理由，并追溯台湾近年来公投日益频繁的制度背景。受访学者指出，2017年修法降低了发动公投的门槛，立法院也能就重大政策提出公投；然而，复杂议题被压缩为简单的是非选择，加上讨论期较短，公投可能沦为政党动员或意识形态竞争，最终仍需回到国会协商。</p>
+      <p><strong>为什么读：</strong> 文章以三个争议鲜明的案例介绍台湾公投制度，也适合学习选举、法律与公共政策相关表达。</p>
+      <p><strong>词汇笔记</strong></p>
+      <ul>
+        <li><strong>通过门槛 (tōngguò ménkǎn)</strong> — 一项投票或提案获得通过所必须达到的最低条件。</li>
+        <li><strong>专款专用 (zhuānkuǎn zhuānyòng)</strong> — 指特定款项只能用于预先规定的用途。</li>
+        <li><strong>创制或复决 (chuàngzhì huò fùjué)</strong> — 公民提出新政策，或对既有法律与重大政策作最终决定的直接民主机制。</li>
+      </ul>
+    </article>
+  </section>
+
+  <aside class="quiet-notes" aria-label="Source notes">
+    <strong>Source note:</strong> The AI research social feed was unavailable after three collection attempts, so it contributed no items to this edition.
+  </aside>
+
+  <footer>
+    News Daily · Newspaper date: August 22, 2026
+  </footer>
+</main>
+
+
+
+</body>
+</html>

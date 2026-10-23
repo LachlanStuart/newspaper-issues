@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2428;
+      --muted: #66707a;
+      --rule: #ded6c8;
+      --accent: #8b3f2f;
+      --accent-soft: #f1e1dc;
+      --link: #155e75;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--accent);
+      font: 700 0.82rem/1.2 system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: clamp(2.2rem, 6vw, 4.4rem);
+      line-height: 0.95;
+      margin: 0;
+      font-weight: 800;
+    }
+    .date {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    main {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 12px 30px rgba(40, 30, 15, 0.08);
+      padding: clamp(18px, 3vw, 34px);
+    }
+    section {
+      margin: 0 0 34px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+    section:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    h2 {
+      font-size: 1.55rem;
+      margin: 0 0 16px;
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent-soft);
+      padding-bottom: 8px;
+    }
+    h3 {
+      font-size: 1.15rem;
+      margin: 0 0 6px;
+      line-height: 1.25;
+    }
+    article {
+      margin: 0 0 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px dotted var(--rule);
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    p {
+      margin: 0.45rem 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      margin: 4px 0 8px;
+    }
+    .tagline {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #6e2d20;
+      border-radius: 999px;
+      padding: 2px 9px;
+      margin: 4px 5px 0 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.75rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(285px, 1fr));
+      gap: 18px 24px;
+    }
+    .brief {
+      padding: 14px;
+      border: 1px solid var(--rule);
+      background: #fffaf0;
+      border-radius: 10px;
+    }
+    .brief article {
+      border: 0;
+      padding: 0;
+      margin: 0;
+    }
+    .language-practice {
+      background: #fbfbff;
+      border: 1px solid #d9dceb;
+      border-radius: 12px;
+      padding: clamp(14px, 2vw, 22px);
+    }
+    .language-practice h2 {
+      color: #34427a;
+      border-bottom-color: #d9dceb;
+    }
+    .language-item {
+      background: #ffffff;
+      border: 1px solid #e1e3ef;
+      border-radius: 10px;
+      padding: 16px;
+      margin-bottom: 18px;
+    }
+    .language-item h3 {
+      font-size: 1.25rem;
+    }
+    ul {
+      margin-top: 0.4rem;
+    }
+    .notes {
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Monday, July 6, 2026 · Run 2026-07-06-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research</h2>
+
+        <article>
+          <h3><a href="https://x.com/Jianlin_S/status/2073955900549955717">Weight averaging and learning-rate decay identity in convex optimization</a></h3>
+          <div class="meta">Jianlin Su · optimization, training</div>
+          <p>Jianlin Su shares “Revisiting Convergence Results in Convex Optimization (VII),” describing a new identity linking weight averaging with learning-rate decay. The discussion also covers why uniform averaging can underperform sliding averaging, and why schedule-free methods may not fully eliminate scheduling issues.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2073822815032168824">ICML paper: LLM polling can fail when models share correlated errors</a></h3>
+          <div class="meta">Stanford AI Lab · LLM evaluation, ensembling, ICML</div>
+          <p>Stanford AI Lab highlights an ICML paper arguing that LLMs may be better at predicting what other models will answer than at identifying truth. When models make the same mistakes, polling or ensembling cannot reliably recover the correct answer.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/_albertgu/status/2073917516792143919">dnaHNet ICML oral/poster presentation</a></h3>
+          <div class="meta">Albert Gu · ICML, sequence modeling, genomics</div>
+          <p>Albert Gu retweeted an ICML notice for dnaHNet, described in the available text as an oral and poster presentation. The normalized item appears to concern technical research, but the provided fragment does not include a paper link or method details.</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Computational Biology, Protein Design &amp; Drug Discovery</h2>
+
+        <article>
+          <h3><a href="https://x.com/DdelAlamo/status/2073821399467049386">OpenDDE: open-source co-folding reproduction claims strong antibody–antigen docking performance</a></h3>
+          <div class="meta">Diego del Alamo · protein modeling, antibodies, drug discovery, open source</div>
+          <p>OpenDDE is described as an Apache-licensed open-source reproduction of Isomorphic’s IsoDDE. It claims to approach IsoDDE and beat Protenix-v2 on antibody–antigen docking performance, making it relevant for antibody/antigen complex modeling and binder-discovery evaluation.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073773307909005408">SCALE benchmarks scFv–antigen cofolding and exposes weak within-target ranking by confidence scores</a></h3>
+          <div class="meta">Biology+AI Daily · antibodies, benchmark, protein folding, drug discovery</div>
+          <p>SCALE is a large benchmark for scFv–antigen complex folding built from 3,800 SAbDab-derived complexes and about 197,900 predictions from AlphaFold 2.3 Multimer, AlphaFold 3, Boltz-2, Chai-1, Pairmixer, and varied inference settings. The key finding is that near-native interfaces remain rare, and common confidence metrics often distinguish easy targets from hard ones better than they identify the best pose within a target ensemble.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073773169895498032">Ab-CASLR evaluates strict OOD antigen-to-antibody retrieval with CDR-aware late interaction</a></h3>
+          <div class="meta">Biology+AI Daily · antibodies, retrieval, protein language models, OOD evaluation</div>
+          <p>Ab-CASLR reframes antibody discovery as antigen-to-antibody retrieval under a strict antigen-cluster out-of-distribution split. It combines ESM-2 antigen embeddings, IgBert antibody embeddings, CDR-constrained slot attention, and late-interaction scoring. Reported diagnostics suggest that antibody-side CDR locality is doing much of the useful work, while antigen epitope grounding remains a bottleneck.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073773005105479948">FastBindRank distills Boltz-2 for ultra-large HDAC11 virtual screening</a></h3>
+          <div class="meta">Biology+AI Daily · drug discovery, virtual screening, distillation, Boltz-2</div>
+          <p>FastBindRank distills expensive Boltz-2 structure-based binding predictions into a lightweight Morgan-fingerprint MLP, then uses it to screen 122 million PubChem compounds for HDAC11. The workflow labels roughly 1% of PubChem with Boltz-2, ranks the full library, re-scores the top 100,000, filters for binding and drug-like properties, clusters for diversity, and reports two synthesized novel candidates with in vitro HDAC11 inhibition.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073772273249472801">Interface-seeded RFdiffusion designs chemically and phosphorylation-controlled oligomers</a></h3>
+          <div class="meta">Biology+AI Daily · protein design, synthetic biology, RFdiffusion, biological circuits</div>
+          <p>This work introduces an interface-seeded generative strategy for de novo functional oligomers: validated protein–protein interfaces are preserved while RFdiffusion samples symmetry-compatible protomers around them. Reported demonstrations include C3/C4 structures, ligand- and metal-triggered assemblies, reversible phosphorylation-controlled oligomerization, dual-gated redox/phosphorylation behavior, membrane-binding applications, and transcriptional activation in HEK293T cells.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073771600332390782">Perturbation analysis tests whether molecular LLMs generalize off the training manifold</a></h3>
+          <div class="meta">Biology+AI Daily · molecular AI, robustness, drug discovery, LLMs</div>
+          <p>A controlled molecular perturbation framework uses chemistry-valid graph edits to test robustness of molecular LLMs on QED regression, IUPAC-to-molecule generation, and molecule-to-IUPAC generation. The summary reports steep degradation even at small graph-edit distances, task-dependent sensitivity to atom versus bond edits, and partial robustness gains from nearest-neighbor in-context tuning.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073772873366561228">SA-MTP adds structure-aware graphs and label attention for multifunctional therapeutic peptide annotation</a></h3>
+          <div class="meta">Biology+AI Daily · therapeutic peptides, protein language models, graph neural networks</div>
+          <p>SA-MTP predicts multiple therapeutic peptide functions using probabilistic secondary-structure profiles, ESM-2 contact priors, graph attention, label-to-sequence cross-attention, FiLM modulation, and adaptive per-label thresholds. The item emphasizes improvements on imbalanced therapeutic-function labels and interpretability through structure-aware adjacency maps and residue attributions.</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Structural Biology, Enzymes &amp; Genomics</h2>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073773848299012506">CryoROLE recovers continuous inter-domain rotations from focused-refinement cryo-EM poses</a></h3>
+          <div class="meta">Biology+AI Daily · cryo-EM, structural biology, protein dynamics</div>
+          <p>CryoROLE is a lightweight computational tool for single-particle cryo-EM that computes per-particle relative orientations between rigid domains. It produces rotation landscapes for continuous inter-domain motions that may be missed by discrete classification, with validations summarized on human fatty acid synthase, INO80–hexasome, and ribosome datasets.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073773650348843105">TCR-FramePose decomposes TCR–pMHC docking and CDR3 geometry in a local-frame representation</a></h3>
+          <div class="meta">Biology+AI Daily · immunology, TCR, structural biology, cancer immunotherapy</div>
+          <p>TCR-FramePose represents TCR–pMHC pose as pMHC-referenced rigid bodies for the whole TCR variable domain, CDR3α, and CDR3β. The summary says it recovers class-associated and noncanonical docking modes, improves affinity-related geometric signals over conventional descriptors, and localizes key information to CDR3β orientation and offset.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073772639466983916">Enerzyme trains electrostatics-aware neural potentials for enzyme-catalysis mechanisms</a></h3>
+          <div class="meta">Biology+AI Daily · enzymes, neural potentials, computational chemistry, reaction mechanisms</div>
+          <p>Enerzyme and Enerzymette target reactive neural network potentials for enzyme QM-cluster mechanistic studies, demonstrated on SAM-dependent methyltransferases. Contributions include sub-1,000-configuration DFT labeling for enzyme-scale clusters, electrostatics-aware modular NNP design, charge supervision, dielectric alignment, and workflow automation for scans and NEB transition-state searches.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2073771932911350052">Evo2 likelihood is context-dependent as a bacterial fitness proxy</a></h3>
+          <div class="meta">Biology+AI Daily · genomics, DNA language models, variant-effect prediction</div>
+          <p>A quantitative evaluation of Evo2 zero-shot likelihood scoring across five E. coli datasets finds that likelihood–fitness calibration varies sharply by context. Stronger calibration appears for plasmid TEM-1 under antibiotic selection and some structural variants from thermal evolution, while promoter MPRA and chromosomal essential-gene DMS show near-zero calibration.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2073899542416970234">GenPerturb links perturbation transcriptomes to cis-regulatory elements using pretrained genomic models</a></h3>
+          <div class="meta">razoralign · gene regulation, Perturb-seq, genomic models, interpretability</div>
+          <p>GenPerturb uses pretrained sequence-to-expression models to connect perturbation-induced expression changes with candidate cis-regulatory elements. It prioritizes regulatory regions and transcription-factor motifs, computes perturbation-minus-control attribution tracks, and aims to enable sequence-level interpretation without matched chromatin data.</p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Single-Cell Models &amp; Cell-State Dynamics</h2>
+
+        <div class="grid">
+          <div class="brief">
+            <article>
+              <h3><a href="https://x.com/razoralign/status/2073899177361408468">U-Pert models unbalanced perturbation dynamics for cell-fate design</a></h3>
+              <div class="meta">single-cell, perturbation modeling, virtual cells</div>
+              <p>U-Pert is an unbalanced generative framework for learning perturbation-induced cell-state and cell-abundance dynamics from unpaired single-cell data. It couples transcriptomic transitions with abundance changes and supports inverse design for target gene-expression programs and cell-type compositions.</p>
+            </article>
+          </div>
+
+          <div class="brief">
+            <article>
+              <h3><a href="https://x.com/razoralign/status/2073897493864255740">MARVIN uses a structured latent population model for generative cell phenotyping</a></h3>
+              <div class="meta">single-cell, generative models, VAE</div>
+              <p>MARVIN is a semi-supervised variational autoencoder for cell phenotyping that represents cells as discrete populations with continuous intra-population variation through a Gaussian-mixture latent prior.</p>
+            </article>
+          </div>
+
+          <div class="brief">
+            <article>
+              <h3><a href="https://x.com/razoralign/status/2073897163051184551">PLNFGL estimates multi-condition gene networks from single-cell RNA-seq</a></h3>
+              <div class="meta">single-cell, gene networks, transcriptomics</div>
+              <p>PLNFGL, or Poisson Log-Normal Fused Graphical Lasso, estimates condition-specific gene networks from scRNA-seq data by addressing dropout and distribution mismatch and inferring multi-condition precision matrices.</p>
+            </article>
+          </div>
+
+          <div class="brief">
+            <article>
+              <h3><a href="https://x.com/razoralign/status/2073898026788347999">Gene Intelligence tokenizes single cells, metadata, and expressed genes for masked pretraining</a></h3>
+              <div class="meta">single-cell, foundation models, representation learning</div>
+              <p>Gene Intelligence encodes each cell as a token sequence with a cell token, metadata tokens, and expressed-gene tokens. It jointly predicts masked tokens and counts, with downstream uses including cell-type classification, doublet detection, and cell/gene/sample embeddings.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="language-practice">
+        <h2>Language Practice</h2>
+
+        <article class="language-item" lang="de">
+          <h3>Deutsch — CSD in Köln - gemeinsam gegen Queerfeindlichkeit</h3>
+          <div class="meta">Deutsche Welle · Veröffentlicht vor 17 Stunden | Zuletzt aktualisiert vor 15 Stunden · <a href="https://www.dw.com/de/csd-in-k%C3%B6ln-gemeinsam-gegen-queerfeindlichkeit-lgbtq/a-77836988">https://www.dw.com/de/csd-in-k%C3%B6ln-gemeinsam-gegen-queerfeindlichkeit-lgbtq/a-77836988</a></div>
+          <p>Die DW berichtet über die große Christopher-Street-Day-Parade in Köln, an der rund 250 Gruppen mit etwa 60.000 Teilnehmenden beteiligt waren. Nach Angaben der Veranstalter feierten rund 1,5 Millionen Besucherinnen und Besucher mit. Im Mittelpunkt steht nicht nur die bunte Atmosphäre, sondern auch die Sorge vor zunehmender Queerfeindlichkeit im Alltag.</p>
+          <p>Besonders interessant ist der politische Akzent des Artikels: Nordrhein-Westfalens Innenminister Herbert Reul nahm erstmals teil und betonte, der Staat müsse alle Menschen schützen, unabhängig von ihrer Lebensform. Auch Claudia Roth und Karl Lauterbach ordneten den CSD als wichtiges Signal für Demokratie und gleiche Rechte ein.</p>
+          <p>Der Beitrag verbindet lokale Eindrücke aus Köln mit einer breiteren gesellschaftlichen Debatte über LGBTQ+-Rechte, Sichtbarkeit und Diskriminierung in Deutschland und weltweit.</p>
+          <p><strong>Warum lesen:</strong> Der Text bietet aktuelle Deutschlandbezüge, gesellschaftspolitisches Vokabular und einen gut verständlichen Einstieg in die Debatte um Pride, Demokratie und Queerfeindlichkeit.</p>
+        </article>
+
+        <article class="language-item" lang="fr">
+          <h3>Français — Livres générés par IA : le rapport veut les exclure des aides, mais comment les détecter ?</h3>
+          <div class="meta">ActuaLitté · 2026-07-03 · <a href="https://actualitte.com/article/132456/politique-publique/livres-generes-par-ia-le-rapport-veut-les-exclure-des-aides-mais-comment-les-detecter">https://actualitte.com/article/132456/politique-publique/livres-generes-par-ia-le-rapport-veut-les-exclure-des-aides-mais-comment-les-detecter</a></div>
+          <p>L’article analyse un rapport parlementaire français consacré à l’intelligence artificielle et à la culture, avec un accent particulier sur le secteur du livre. Le texte recommande de mieux encadrer les ouvrages entièrement générés par IA : déclaration obligatoire de l’usage de ces outils, sanctions en cas de fausse déclaration, exclusion possible de certaines aides publiques et clarification du statut au regard du droit d’auteur.</p>
+          <p>ActuaLitté insiste surtout sur la difficulté pratique de cette doctrine : il n’existe pas aujourd’hui d’outil fiable permettant d’identifier automatiquement un contenu artificiel sans risque d’erreur. L’article distingue les productions entièrement automatisées des œuvres hybrides, où l’auteur humain intervient de manière significative, et évoque l’idée d’une déclaration graduée du niveau d’intervention de l’IA.</p>
+          <p>Le papier aborde aussi des questions très concrètes pour la filière : aides du Centre national du livre, ISBN, taux réduit de TVA, droit d’auteur et critères administratifs. Il montre que le principe politique semble assez clair, mais que son application dépendra de procédures capables de qualifier précisément la part de création humaine.</p>
+          <p><strong>Pourquoi lire :</strong> Pour comprendre comment la France tente de réguler les livres générés par IA sans disposer encore d’outils de détection vraiment fiables.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>obligation déclarative</strong> — règle imposant à un auteur ou éditeur de signaler officiellement certains usages, ici le recours à l’IA.</li>
+            <li><strong>œuvre hybride</strong> — création mêlant intervention humaine et assistance ou génération par intelligence artificielle.</li>
+            <li><strong>taux réduit de TVA</strong> — régime fiscal appliquant une taxe plus faible à certains biens, notamment les livres sous conditions.</li>
+          </ul>
+        </article>
+
+        <article class="language-item" lang="ja">
+          <h3>日本語 — Epic Games、「『フォートナイト』の機密情報リーク」で訴えた元アソシエイトプロデューサーと和解へ。“リーク永久封じ”で決着か</h3>
+          <div class="meta">AUTOMATON · 2026-07-06 · <a href="https://automaton-media.com/articles/newsjp/20260706-453415/">https://automaton-media.com/articles/newsjp/20260706-453415/</a></div>
+          <p>Epic Gamesが、『フォートナイト』の未公開情報を漏洩したとして訴えていた元業務委託スタッフとの間で、和解に向けた手続きを進めているという記事です。相手は過去にアソシエイトプロデューサーを務めていた人物で、SNSやDiscord上で未公開コラボ情報などを投稿していた疑いがあるとされています。</p>
+          <p>記事によると、Epic Gamesは裁判所に同意判決と恒久的差止命令を求める申立てを提出しました。内容は、同社の機密情報や営業秘密の所持・利用・開示などを今後も禁じるものとされ、正式な効力は裁判所の承認後に発生する見込みです。一方で、金銭的な賠償が和解案に含まれるかどうかは明らかになっていません。</p>
+          <p>さらに記事では、ゲーム業界でリーク行為に厳しい対応が取られている他の事例にも触れています。未発表コンテンツの流出はメーカーの損害だけでなく、サプライズ発表を待つユーザー体験にも影響するため、各社が情報管理と法的対応を強めている流れが読み取れます。</p>
+          <p><strong>読む理由：</strong> ゲーム業界におけるリーク、NDA、営業秘密をめぐる実務的な語彙と背景をまとめて読める記事です。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>機密情報（きみつじょうほう）</strong> — 社外に出してはいけない重要な内部情報。</li>
+            <li><strong>秘密保持契約（ひみつほじけいやく）</strong> — 業務で知った情報を外部に漏らさないと約束する契約。</li>
+            <li><strong>恒久的差止命令（こうきゅうてきさしとめめいれい）</strong> — 特定の行為を将来にわたって禁じる裁判所の命令。</li>
+          </ul>
+        </article>
+
+        <article class="language-item" lang="zh-Hans">
+          <h3>中文 — 端对谈｜从中国最高法院的认同，到华人彩虹游行，中国LGBTQ+的权益在变好吗？</h3>
+          <div class="meta">端传媒 · 2026-07-06 · <a href="https://theinitium.com/20260706-opinion-roundtable-lgbtq-in-china-zh-hans/">https://theinitium.com/20260706-opinion-roundtable-lgbtq-in-china-zh-hans/</a></div>
+          <p>这篇端传媒对谈从今年6月海外华人参与曼谷、东京等地骄傲游行的场景谈起，对照中国境内骄傲月线下活动取消、彩虹NGO微信公众号被封等情况，提出一个核心问题：中国LGBTQ+群体的权益处境是否真的在改善？</p>
+          <p>文章特别关注一则引发热议的官方信号：网传中国最高人民法院研究室在信访回复中提到，法律禁止基于性倾向、性别认同与性别表达的歧视，并称法院会平等保护性少数群体合法权益。端传媒称已向知情人核实此事，但相关信息随后在中国互联网上被审查删除，呈现出“承认”与“压制”并存的矛盾局面。</p>
+          <p>对谈邀请熟悉性别与法律、LGBTQ+判例的研究者，以及长期参与中国民间同志社群组织的行动者，讨论法院实践中的灰色空间、行动环境收紧后的新策略，以及在悲观之外仍可追问的行动可能。</p>
+          <p><strong>为什么读：</strong> 这篇文章适合练习中文公共议题阅读，也能理解法律、审查与社会运动在中国性少数议题中的复杂交错。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>性别认同 (xìngbié rèntóng)</strong> — 个体对自身性别的内在认知，不一定与出生时被指定的性别相同。</li>
+            <li><strong>信访回复 (xìnfǎng huífù)</strong> — 政府或司法机关对公民通过信访渠道提出建议、申诉或问题后的书面回应。</li>
+            <li><strong>灰色空间 (huīsè kōngjiān)</strong> — 法律或政策未完全明确、实践中仍有弹性或模糊操作余地的领域。</li>
+          </ul>
+        </article>
+      </section>
+
+      <section>
+        <h2>Quiet Notes</h2>
+        <p class="notes">Some product announcements, shallow commentary, personal posts, memes, duplicates, and low-signal or truncated retweets were excluded. A few included items are necessarily brief because the supplied source text contained limited detail.</p>
+      </section>
+    </main>
+  </div>
+
+
+
+</body>
+</html>

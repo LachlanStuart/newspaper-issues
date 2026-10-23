@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20211f;
+      --muted: #666861;
+      --accent: #8b2d2d;
+      --rule: #d8d4c9;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.6;
+    }
+    main {
+      width: min(940px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 38px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 8vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section {
+      margin-top: 42px;
+    }
+    section > h2 {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 20px;
+      padding-bottom: 7px;
+      font-size: 1.55rem;
+    }
+    article {
+      margin: 0 0 28px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      border-bottom: 0;
+    }
+    article h3 {
+      margin: 0 0 7px;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    article h3 a {
+      color: var(--ink);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+    article h3 a:hover,
+    a:hover {
+      color: var(--accent);
+    }
+    article p {
+      margin: 8px 0;
+    }
+    a {
+      color: var(--accent);
+      overflow-wrap: anywhere;
+    }
+    .source {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+    .tags {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    .language-practice {
+      margin-top: 54px;
+      padding-top: 8px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > h2 {
+      margin-top: 14px;
+    }
+    .language-practice article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      padding: 24px;
+      margin-bottom: 22px;
+    }
+    .language-practice article h3 {
+      font-size: 1.35rem;
+    }
+    .language-practice ul {
+      margin-top: 8px;
+      padding-left: 22px;
+    }
+    .notice {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer {
+      margin-top: 38px;
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Sunday, September 6, 2026 · Run 2026-09-06-1</p>
+    </header>
+
+    <section>
+      <h2>Machine Learning &amp; AI</h2>
+
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11882">Making Model Training More Scientific, Part 9: Classical Adaptive Gradient Algorithms</a></h3>
+        <p class="source">科学空间 / Spaces AC</p>
+        <p>After eight installments centered on stochastic gradient descent and learning rates, the series turns to adaptive-gradient algorithms. It traces the shared historical foundation of modern adaptive optimizers, beginning with influential work published in 2011, and examines the classical ideas from which later methods evolved.</p>
+        <p class="tags">Machine learning · Optimization · Adaptive gradients</p>
+      </article>
+
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11879">Making Model Training More Scientific, Part 8: Learning Rates for Multi-Stage Training</a></h3>
+        <p class="source">科学空间 / Spaces AC</p>
+        <p>This installment examines how to choose learning rates when model training is divided into multiple stages. It follows an earlier discussion of schedule-free learning rates, in which weight averaging attempts to replace conventional schedules while retaining the benefits of constant-rate training.</p>
+        <p class="tags">Machine learning · Optimization · Learning rates · Training</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/wightmanr/status/2096281963657310475">OpenCLIP experiment combines patch-size and sequence-length jitter</a></h3>
+        <p class="source">Ross Wightman via X</p>
+        <p>A small NaFlexViT CLIP model trained on CC12M combines FlexiViT-style patch-size jitter with NaFlex-style sequence-length jitter and includes a fixed-patch baseline for comparison. Supporting changes to timm and OpenCLIP add patch-jitter support, cached pseudoinverse matrices, and compatibility with pre-patchified NaFlex pipelines. <a href="https://t.co/V4xsFwh35H">Model and resources</a>.</p>
+        <p class="tags">Computer vision · Multimodal models · OpenCLIP · Training tools</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/Jianlin_S/status/2096170371280244896">AdaGrad convergence derived through optimal preconditioning</a></h3>
+        <p class="source">Jianlin Su via X</p>
+        <p>A technical note reconstructs AdaGrad’s derivation as a progression from convergence analysis, through minimization of the resulting upper bound, to the optimal preconditioning matrix. It offers a theory-focused view of one of the foundational adaptive-gradient methods. <a href="https://t.co/bmxSZwxbX4">Read the technical note</a>.</p>
+        <p class="tags">Optimization · AdaGrad · Theory</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Genomics &amp; Computational Biology</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2096384485474681124">VariantFlow accelerates selective analysis of large VCF and BCF datasets</a></h3>
+        <p class="source">RazorAlign via X</p>
+        <p>VariantFlow is a selective-execution engine for variant filtering, population-genomics summaries, and analytical export. It compiles queries so that only required fields are decoded. Reported benchmarks include an 8.5× speedup over VCFtools for chromosome-wide missingness analysis and gains of 123–273× over bcftools for indexed FILTER queries in favorable cases.</p>
+        <p class="tags">Genomics · Population genomics · Bioinformatics · Tools</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2096384216095470055">Framework audits cross-domain confidence in frozen single-cell representations</a></h3>
+        <p class="source">RazorAlign via X</p>
+        <p>A new audit framework tests whether confidence estimates learned from source data remain dependable on target single-cell datasets. The reported results show that raw maximum softmax probability can fail under domain shift, with errors caused both by incorrect rank ordering and systematic probability drift.</p>
+        <p class="tags">Single-cell biology · Foundation models · Uncertainty · Model evaluation</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2096278749423755602">Integrated map charts somatic mosaicism across human tissues</a></h3>
+        <p class="source">Anshul Kundaje via X</p>
+        <p>A bioRxiv preprint presents an integrated map of somatic mosaicism across tissues from 25 individuals. The available source excerpt does not provide additional methodological or cohort details, but the dataset may be useful for studying somatic variation, disease, and tissue biology.</p>
+        <p class="tags">Human genomics · Somatic mosaicism · Dataset · Preprint</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+
+      <article lang="de">
+        <h3><a href="https://www.tagesschau.de/wirtschaft/digitales/robotik-ifa-100.html">Deutsch — Sind Roboter wirklich die Zukunft?</a></h3>
+        <p class="source">Tagesschau · 04.09.2026 · <a href="https://www.tagesschau.de/wirtschaft/digitales/robotik-ifa-100.html">Artikel lesen</a></p>
+        <p>Auf der Berliner Technikmesse IFA demonstrieren humanoide Roboter, wie sie Gegenstände greifen, ihre Umgebung auswerten und dank künstlicher Intelligenz selbstständig auf Situationen reagieren können. Unternehmen sehen besonders im Fahrzeugbau, in der Logistik und in der Lebensmittelbranche konkrete Einsatzmöglichkeiten. Zugleich steht Deutschland unter Wettbewerbsdruck, weil chinesische Hersteller ihre Technik bereits in einem großen Heimatmarkt erproben und skalieren.</p>
+        <p>Fachleute halten humanoide Roboter langfristig für bedeutsam, warnen aber vor überzogenen Erwartungen. Vorführungen unter kontrollierten Bedingungen lassen sich noch nicht ohne Weiteres auf Wohnungen oder unübersichtliche Fabriken übertragen. Entscheidend seien Zuverlässigkeit, Sicherheit, Kosten, Regulierung und gesellschaftliche Akzeptanz. In absehbarer Zeit dürften Roboter daher eher einzelne Tätigkeiten automatisieren als ganze Berufe ersetzen oder als universelle Haushaltshilfen dienen.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel verbindet anschauliche Eindrücke von der IFA mit einer nüchternen Einordnung des technischen Fortschritts und des internationalen Wettbewerbs.</p>
+      </article>
+
+      <article lang="fr">
+        <h3><a href="https://www.france24.com/fr/europe/20260905-tirailleurs-algeriens-turcos-restes-allemagne-guerre-1870-abdallah-ben-lein-abdel-kadn-ben-ladsche">Français — « Ces tirailleurs se sont sacrifiés » : les restes de deux « turcos » algériens retrouvés en Allemagne</a></h3>
+        <p class="source">France 24 · 5 septembre 2026 · <a href="https://www.france24.com/fr/europe/20260905-tirailleurs-algeriens-turcos-restes-allemagne-guerre-1870-abdallah-ben-lein-abdel-kadn-ben-ladsche">Lire l’article</a></p>
+        <p>Plus de 150 ans après la bataille de Reichshoffen, les restes de deux tirailleurs algériens ont été identifiés dans les collections anatomiques de l’Université de Fribourg, en Allemagne. Abdallah ben Lein et Abdel-Kadn-Ben-Ladsche, soldats de l’armée française faits prisonniers pendant la guerre de 1870, étaient morts de leurs blessures dans des hôpitaux militaires allemands. Leur identification a été rendue possible par la réapparition, en 2019, d’un ancien inventaire complété par des registres de décès et des archives de la Croix-Rouge.</p>
+        <p>L’article replace leur parcours dans l’histoire des « turcos », surnom donné aux tirailleurs algériens engagés dans l’armée française. Plus de 6 000 d’entre eux participèrent aux combats de Reichshoffen, où les pertes furent considérables. Il examine aussi les conditions dans lesquelles les dépouilles des deux hommes ont été transférées à un institut d’anatomie, puis utilisées dans le cadre de la « craniologie », discipline prétendument scientifique nourrie par les théories raciales du XIXe siècle.</p>
+        <p>La découverte ouvre désormais la voie à la restitution des ossements et à un travail mémoriel franco-allemand. Elle permet surtout de redonner une identité et une histoire à deux soldats coloniaux longtemps réduits à des pièces de collection anatomique.</p>
+        <p><strong>Pourquoi lire :</strong> Ce récit croise histoire franco-allemande, mémoire coloniale et réflexion sur le traitement éthique des restes humains conservés par les institutions scientifiques.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>tirailleur algérien</strong> — soldat recruté en Algérie au sein d’unités d’infanterie de l’armée française.</li>
+          <li><strong>craniologie</strong> — ancienne étude des crânes, souvent détournée au XIXe siècle pour soutenir des classifications raciales sans fondement scientifique.</li>
+          <li><strong>ossements</strong> — ensemble des os d’une personne décédée, notamment dans un contexte funéraire ou archéologique.</li>
+        </ul>
+      </article>
+
+      <article lang="ja">
+        <h3><a href="https://news.web.nhk/newsweb/na/nd-20260906de48400">日本語 — 温風で文化財害虫駆除 日光東照宮の重要文化財建物で効果確認</a></h3>
+        <p class="source">NHKニュース · 2026年9月6日 · <a href="https://news.web.nhk/newsweb/na/nd-20260906de48400">記事を読む</a></p>
+        <p>世界遺産・日光東照宮にある国の重要文化財「下神庫」で、温風を使って建物の害虫を駆除する新技術の効果が確認されました。東京文化財研究所などの研究グループは、建物全体を密閉し、数日間にわたって温風を送り、内部を60度近くまで加熱しました。その後の調査で害虫が駆除され、建物にも異常がないことを確認しました。</p>
+        <p>この技術では、熱による損傷を防ぐため、温度だけでなく湿度もリアルタイムで調整します。文化財の害虫駆除に従来使われてきた主要なガスは、環境への配慮から製造が中止されています。研究者らは、温風による方法を文化財や人体、環境への負担が少ない新たな選択肢として全国に広げたいとしています。</p>
+        <p><strong>読む理由：</strong> 伝統的な木造文化財を現代の温湿度管理技術で守る、文化と科学が交わる話題です。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>害虫駆除（がいちゅうくじょ）</strong> — 建物や作物などに被害を与える虫を取り除くこと</li>
+          <li><strong>重要文化財（じゅうようぶんかざい）</strong> — 日本政府が歴史的・芸術的価値の高いものとして指定した文化財</li>
+          <li><strong>密閉（みっぺい）</strong> — 空気などが出入りしないよう、すき間なく閉じること</li>
+        </ul>
+      </article>
+
+      <article lang="zh">
+        <h3><a href="https://www.zaobao.com.sg/news/singapore/story20260905-9631844">中文 — 更好衔接中西医治理 健卫部拟推电子病例对接与用药指引</a></h3>
+        <p class="source">联合早报 · 2026-09-05 · <a href="https://www.zaobao.com.sg/news/singapore/story20260905-9631844">阅读文章</a></p>
+        <p>新加坡保健卫生部正研究如何加强中医与西医之间的衔接，包括制定中西药相互作用指引，以及推动双方的电子病历系统互通。调查显示，本地每五名成年人中就有一人每年看中医，其中近四成会针对同一种病症同时接受中西医治疗，但协调治疗和判断用药风险的责任往往落在病人身上。</p>
+        <p>卫生部门认为，中西医并行需要临床研究、专业教育和治理机制共同配合。拟议措施包括建立资格审核、事故通报与专业问责制度，统一电子医疗记录的诊断代码和资料栏位，并让医师查阅较完整的中西药用药史。医疗界也希望通过跨专业培训和共同讨论病例，减少信息断层及药物冲突风险。</p>
+        <p><strong>为什么读：</strong> 文章以新加坡的医疗实践为例，呈现传统医学纳入现代医疗体系时涉及的用药安全、数据互通与专业治理问题。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>药物相互作用 (yàowù xiānghù zuòyòng)</strong> — 两种或多种药物同时使用时，彼此改变药效或增加不良反应的现象。</li>
+          <li><strong>电子病历互通 (diànzǐ bìnglì hùtōng)</strong> — 不同医疗机构或系统之间能够交换、读取并使用病人的电子医疗记录。</li>
+          <li><strong>临床诊断代码 (línchuáng zhěnduàn dàimǎ)</strong> — 以标准化代码表示疾病或诊断结果，便于记录、交换和统计医疗资料。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notice">
+      <strong>Source note:</strong> LessWrong’s Larry Dial feed could not be collected because the server returned “429 Too Many Requests.” Hazy Research, Kasra Blog, Nathan Chen Blog, and Queer Festival Heidelberg had no new reportable items in the supplied material.
+    </aside>
+
+    <footer>
+      News Daily · September 6, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

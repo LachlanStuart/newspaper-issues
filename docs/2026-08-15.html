@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201e;
+      --muted: #68665f;
+      --accent: #8b2f2f;
+      --rule: #d8d3c8;
+      --panel: #f2efe7;
+      --link: #24577a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #e9e5dc;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+
+    .newspaper {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      padding: 2rem clamp(1rem, 4vw, 3.5rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 28px rgba(0, 0, 0, 0.08);
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 1rem 0 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .kicker {
+      margin: 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.15rem 0;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .date {
+      margin: 0.55rem 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    section {
+      margin-top: 2.6rem;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0 0 1.2rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .section-title::after {
+      content: "";
+      height: 1px;
+      flex: 1;
+      background: var(--rule);
+    }
+
+    .lead-grid,
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.1rem 2rem;
+    }
+
+    article {
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    article h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.22rem;
+      line-height: 1.25;
+    }
+
+    article p {
+      margin: 0.55rem 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent);
+    }
+
+    .tags,
+    .byline {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    .tags {
+      margin-top: 0.75rem;
+    }
+
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 5px double var(--ink);
+    }
+
+    .language-intro {
+      margin: -0.4rem 0 1.6rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .language-card {
+      margin: 0 0 1.5rem;
+      padding: clamp(1rem, 3vw, 1.6rem);
+      border: 1px solid var(--rule);
+      border-left: 4px solid var(--accent);
+      background: var(--panel);
+    }
+
+    .language-card h3 {
+      margin: 0 0 0.35rem;
+      font-size: 1.35rem;
+      line-height: 1.3;
+    }
+
+    .language-card h4 {
+      margin: 1rem 0 0.3rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    .language-card ul {
+      margin: 0.4rem 0 0.2rem;
+      padding-left: 1.3rem;
+    }
+
+    .language-card li {
+      margin: 0.35rem 0;
+    }
+
+    .source-notes {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    footer {
+      margin-top: 2.2rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 720px) {
+      .lead-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .newspaper {
+        padding-top: 1rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="newspaper">
+    <header>
+      <p class="kicker">Research, technology, and ideas</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-08-15">Saturday, August 15, 2026</time></p>
+    </header>
+
+    <section aria-labelledby="ai-research">
+      <h2 class="section-title" id="ai-research">AI &amp; Computational Research</h2>
+      <div class="lead-grid">
+        <article>
+          <h3><a href="https://x.com/GoodfireAI/status/2088298362730877139">Vision adapter experiment traces information loss between vision and language</a></h3>
+          <p>Goodfire reports that Silico trained a vision adapter for Qwen 3 8B that matched the official Qwen 3 VL 8B across several benchmarks. Its representation analysis points to coarse vision-to-language token mapping as a source of discarded information; increasing token granularity closed much of the TextVQA performance gap.</p>
+          <p class="tags">Multimodal AI · Interpretability · Vision-language models</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2088317742323511796">ORIAN proposes two approaches to local ancestry inference</a></h3>
+          <p>A recent preprint introduces ORIAN, a pair of computational-genomics methods for local ancestry inference. One method operates without reference populations, while the other incorporates them. Further methodological details were not present in the available excerpt.</p>
+          <p class="tags">Computational genomics · Statistical methods · Preprint</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-research">
+      <h2 class="section-title" id="bio-research">Biology &amp; Biotechnology</h2>
+      <div class="story-grid">
+        <article>
+          <h3><a href="https://x.com/BrianHie/status/2088298573008085375">ProteinDPO aligns protein generation with measured fitness</a></h3>
+          <p>Published in <em>Nature Methods</em>, ProteinDPO adapts preference optimization to steer protein-generating models toward experimentally measured fitness. The study demonstrates a vaccine-relevant application by adding stabilizing mutations to H5 hemagglutinin, an influenza-vaccine component.</p>
+          <p class="tags">Protein design · Preference optimization · Vaccines</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2088451512666124448">BenchBench tests frontier models on real biological reasoning</a></h3>
+          <p>A newly released benchmark finds that frontier AI models remain weak at real-world biological reasoning. The available announcement does not provide enough detail to assess the benchmark’s task design, construction, or model-by-model results.</p>
+          <p class="tags">AI evaluation · Biological reasoning · Reliability</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2088417154664472672">scDRP models single-cell perturbations and treatment effects</a></h3>
+          <p>scDRP uses a sparsity-regularized β-VAE to separate perturbation-induced features from perturbation-invariant ones. Under a conditional quantile-preservation assumption, it applies conditional optimal transport in latent space to infer counterfactual cell states and estimate treatment effects for individual cells.</p>
+          <p class="tags">Single-cell biology · Causal inference · Optimal transport</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2088417418209321200">CellConsensus creates a marker atlas for reference-free cell typing</a></h3>
+          <p>CellConsensus combines markers from 2,607 expert-curated sources with LLM-assisted mining of primary literature, covering healthy and malignant cell types. It can type cells without an annotated reference dataset by rank-normalizing raw counts and scoring them against consensus marker sets with a sparse matrix operation.</p>
+          <p class="tags">Cell annotation · Atlas · Literature mining · Cancer</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2088418102728097940">Neural-network architecture embeds multi-omics pathways directly</a></h3>
+          <p>A biology-informed architecture maps multi-omics inputs across gene, protein, and pathway modules, while adding fully connected hidden layers inside biological modules for greater expressivity. Encoding domain structure into the network is intended to improve prediction, interpretability, discovery, and extrapolation.</p>
+          <p class="tags">Multi-omics · Interpretable AI · Genomic prediction</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2088418488788656577">scDIVA separates cell identity from batch variation</a></h3>
+          <p>Designed for fine-grained tumor-immune label transfer, scDIVA adapts a domain-invariant variational autoencoder to single-cell RNA sequencing. Separate encoders represent cell type, batch, and residual variation; auxiliary classifiers promote a batch-invariant cell-type representation, while a shared decoder reconstructs expression.</p>
+          <p class="tags">Tumor immunology · Batch correction · Variational autoencoders</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2088318667570475399">PlasmidGPT learns from more than 153,000 Addgene sequences</a></h3>
+          <p>PlasmidGPT was trained on 153,208 plasmids from Addgene to annotate and classify existing plasmid sequences. The available post was truncated, leaving its additional capabilities and evaluation results unspecified.</p>
+          <p class="tags">Synthetic biology · Sequence modeling · Plasmid annotation</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2088407888574509240">A 57-million-cell atlas joins imaging, sequencing, and CRISPR screening</a></h3>
+          <p>A new preprint describes a multimodal atlas spanning 57 million cells and combining imaging with single-cell RNA sequencing. Related material identifies it as a large cell-line CRISPR screen, suggesting a substantial resource for studying perturbations and building models of cellular dynamics.</p>
+          <p class="tags">Multimodal atlas · CRISPR · Cell imaging · Virtual cells</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="language-intro">Selected native-language reading for today.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Hitze in Deutschland: Politik tatenlos, Bevölkerung machtlos</h3>
+        <p class="byline">Deutsche Welle · 14. August 2026 · <a href="https://www.dw.com/de/hitze-in-deutschland-politik-tatenlos-bev%C3%B6lkerung-machtlos/a-78370618">Link</a></p>
+        <p>Deutschland erlebt einen extremen Hitzesommer mit zahlreichen Todesfällen, Waldbränden, Ernteverlusten und starkem Niedrigwasser im Rhein. Der Artikel untersucht, weshalb die Bundesregierung dennoch vor allem mit kurzfristigen Maßnahmen reagiert und keinen Hitzegipfel einberufen hat. Klimaaktivisten werfen ihr vor, lediglich Symptome zu behandeln, statt eine langfristige Klimaschutzpolitik zu verfolgen.</p>
+        <p>Zugleich fragt die Reportage, warum die sichtbaren Folgen der Klimakrise kaum größere Proteste auslösen. Vertreter von Fridays for Future und ein Protestforscher nennen dafür zunehmende Anfeindungen, wirtschaftliche Sorgen, konkurrierende Krisen und veränderte Lebensumstände früherer Aktivisten. Obwohl sich laut einer aktuellen Studie 80 Prozent der Menschen in Deutschland wegen des Klimawandels sorgen, bleibt die öffentliche Mobilisierung deutlich schwächer als noch 2019.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet die aktuelle Hitzekrise mit einer aufschlussreichen Analyse darüber, wie politische Untätigkeit und gesellschaftliche Erschöpfung einander verstärken.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Piratage : la France 8e mondiale, le manga écrase tout</h3>
+        <p class="byline">ActuaLitté · 14 août 2026 · <a href="https://actualitte.com/article/133327/legislation/piratage-la-france-8e-mondiale-le-manga-ecrase-tout">Lire l’article</a></p>
+        <p>D’après le rapport 2025 de MUSO, le trafic mondial vers les sites pirates a diminué de 14,2 % en un an, mais l’édition échappe largement à cette tendance. Avec 5,06 milliards de visites tous secteurs confondus, la France occupe le huitième rang mondial. Pour les seuls contenus éditoriaux, elle se classe dixième avec 1,97 milliard de visites. Ces chiffres mesurent toutefois des sessions sur des sites identifiés comme pirates, et non le nombre de personnes ou d’œuvres consultées.</p>
+        <p>Le manga représente désormais plus de 73 % du piratage éditorial mesuré, loin devant les livres traditionnels, les livres audio ou la presse. ActuaLitté relie cette domination à la forte demande internationale, à la lenteur de certaines traductions officielles, aux catalogues incomplets et à la publication régulière de nouveaux chapitres. Les éditeurs tentent de réduire ce décalage grâce à la diffusion simultanée et multilingue, tandis que MUSO souligne aussi le rôle du morcellement de l’offre légale dans la persistance du piratage.</p>
+        <p><strong>Pourquoi lire :</strong> L’article permet de comprendre, chiffres à l’appui, pourquoi le manga occupe une place singulière dans le piratage culturel mondial.</p>
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>simultrad</strong> — traduction publiée presque simultanément avec la version originale d’une œuvre</li>
+          <li><strong>sérialisation</strong> — publication progressive d’une œuvre sous forme d’épisodes ou de chapitres successifs</li>
+          <li><strong>morcellement de l’offre</strong> — dispersion des contenus entre plusieurs plateformes, catalogues ou abonnements</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — アパートの住民を監視して“異常”を密告するゲーム『The Watcher』発表。見なかったことにもできるが、監視する自分もまた“監視されている”サイコスリラー</h3>
+        <p class="byline">AUTOMATON · 2026-08-15 · <a href="https://automaton-media.com/articles/newsjp/20260815-460336/">記事を読む</a></p>
+        <p>インディーゲームスタジオYesterday’s Sandwichが、一人称視点のサイコスリラー・監視シミュレーションゲーム『The Watcher』を発表した。舞台は全体主義国家「ノディア」にある奇妙な都市。プレイヤーはスパイ部屋からテレビカメラやモニター、盗聴器を使って向かいのアパートを監視し、住民の異常な行動を上層部へ報告するかどうか判断する。</p>
+        <p>写真や音声などの証拠を組み合わせることで、住民が隠している事実が明らかになるという。ただし、不審な出来事をあえて見逃すこともでき、その選択によって住民の運命が変化する。さらに、監視する主人公自身も何者かに見張られており、スパイ部屋を襲撃される可能性もある。PC（Steam）向けに配信予定で、日本語表示にも対応する予定だ。</p>
+        <p><strong>読む理由：</strong> 他者を監視して告発する側と、自らも監視される側が重なる独特の設定から、選択と疑念を軸にしたゲーム内容を知ることができる。</p>
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>全体主義（ぜんたいしゅぎ）</strong> — 国家や組織が個人の生活や思想を強く統制する政治的な考え方。</li>
+          <li><strong>盗聴器（とうちょうき）</strong> — 他人の会話をひそかに聞いたり録音したりするための装置。</li>
+          <li><strong>直接介入（ちょくせつかいにゅう）</strong> — 観察や報告だけでなく、出来事に自ら働きかけて影響を与えること。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — 苹果为中国市场训练了特供AI大模型 研究指中式审查正渗入美国AI模型答复</h3>
+        <p class="byline">法国国际广播电台 · 2026-08-14 · <a href="https://www.rfi.fr/cn/%E7%A7%91%E6%8A%80%E4%B8%8E%E6%96%87%E5%8C%96/20260814-%E8%8B%B9%E6%9E%9C%E4%B8%BA%E4%B8%AD%E5%9B%BD%E5%B8%82%E5%9C%BA%E8%AE%AD%E7%BB%83%E4%BA%86%E7%89%B9%E4%BE%9Bai%E5%A4%A7%E6%A8%A1%E5%9E%8B-%E7%A0%94%E7%A9%B6%E6%8C%87%E4%B8%AD%E5%BC%8F%E5%AE%A1%E6%9F%A5%E6%AD%A3%E6%B8%97%E5%85%A5%E7%BE%8E%E5%9B%BDai%E6%A8%A1%E5%9E%8B%E7%AD%94%E5%A4%8D">阅读原文</a></p>
+        <p>报道援引知情人士称，苹果已与阿里巴巴合作，为中国市场训练一款专用大语言模型。苹果过去主要依赖中国合作伙伴的模型，如今则希望更直接地掌控本地版人工智能体验。完成监管备案后，Apple智能预计将随iOS更新进入中国市场，通义千问以及百度的部分技术也可能被整合到中国版设备中。</p>
+        <p>这一安排反映苹果在中美市场采取的双轨策略：美国版结合苹果自身技术与Claude、ChatGPT等模型，中国版则必须适应本地监管要求和国产模型生态。报道指出，中国手机厂商已经凭借人工智能功能取得先机，中国版iPhone长期缺少相应功能，被视为影响苹果销量的因素之一。</p>
+        <p>文章还介绍了有关语言与训练数据偏差的研究：部分美国人工智能模型在用中文回答中国政治敏感问题时，更可能回避批评或重复官方立场。研究人员认为，这未必源于模型公司有意审查，而可能与中文训练语料中官方信息源占比较高有关。</p>
+        <p><strong>为什么读：</strong> 文章把苹果在华商业策略、人工智能监管与训练数据偏差联系起来，适合学习科技政策和生成式AI领域的中文表达。</p>
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>大语言模型 (dà yǔyán móxíng)</strong> — 以海量文本训练、能够理解并生成自然语言的人工智能模型。</li>
+          <li><strong>监管备案 (jiānguǎn bèi’àn)</strong> — 企业依照监管要求提交服务资料并完成登记审查的程序。</li>
+          <li><strong>训练语料 (xùnliàn yǔliào)</strong> — 用于训练语言模型的文本、对话及其他语言数据集合。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="source-notes" aria-label="Source notes">
+      <strong>Source note:</strong> Several research announcements were available only as truncated social-media excerpts, and direct paper or project links were not included in the supplied material. Their linked posts are provided above, and summaries avoid claims beyond the available text.
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-08-15-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

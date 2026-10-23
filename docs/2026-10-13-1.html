@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --ink: #202b31; --muted: #626e74; --accent: #17666a; --rule: #d8dfdb; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f4ef; color: var(--ink); font-family: Georgia, "Times New Roman", serif; line-height: 1.7; }
+main { max-width: 960px; margin: auto; padding: 40px 28px; }
+header { border-top: 5px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 20px 0; }
+h1 { font-size: 3.5rem; line-height: 1; margin: 0 0 14px; letter-spacing: -.04em; }
+h2 { font-size: 1.65rem; margin: 0 0 22px; }
+h3 { font-size: 1.25rem; line-height: 1.4; margin: 0 0 10px; }
+p { margin: 10px 0; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; overflow-wrap: anywhere; }
+.meta, nav, footer, .label { font-family: system-ui, sans-serif; font-size: .88rem; color: var(--muted); }
+nav { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 16px; }
+section { margin-top: 36px; }
+article { margin-bottom: 24px; padding-bottom: 24px; border-bottom: 1px solid var(--rule); }
+.label { text-transform: uppercase; letter-spacing: .08em; margin-bottom: 6px; }
+#language-practice { border-top: 3px solid var(--ink); padding-top: 26px; margin-top: 44px; }
+.reading { padding: 24px; background: #fffefb; border: 1px solid var(--rule); margin-top: 24px; }
+.reading[lang="ja"], .reading[lang="zh"] { line-height: 1.9; }
+ul { padding-left: 24px; }
+li { margin: 7px 0; }
+footer { border-top: 1px solid var(--ink); margin-top: 36px; padding-top: 16px; }
+@media (max-width: 600px) { main { padding: 24px 18px; } h1 { font-size: 2.8rem; } .reading { padding: 18px; } }
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="meta">Tuesday, 13 October 2026 · Daily newspaper</div>
+<nav aria-label="Sections">
+<a href="#ai">AI research &amp; systems</a>
+<a href="#biology">Biology &amp; medicine</a>
+<a href="#language-practice">Language practice</a>
+</nav>
+</header>
+
+<section id="ai" aria-labelledby="ai-heading">
+<h2 id="ai-heading">AI research &amp; systems</h2>
+
+<article>
+<div class="label">Inference</div>
+<h3>ReplaySSM targets the memory traffic behind hybrid SSM inference</h3>
+<p>ReplaySSM reportedly runs in GLM-5.3-Flash and Kimi-K3 and ships in TensorRT-LLM, vLLM, FlashInfer and SGLang. A companion post identifies repeated full-state writes to GPU memory in Mamba-2 and Gated DeltaNet as a bottleneck; Tri Dao also emphasizes caching choices and memory I/O as key to SSM inference optimization. The available excerpts do not include the complete algorithm or performance measurements.</p>
+<p><a href="https://x.com/SonglinYang4/status/2109725460787867816">ReplaySSM announcement</a> · <a href="https://x.com/SonglinYang4/status/2109835587654168919">Memory bottleneck discussion</a> · <a href="https://x.com/tri_dao/status/2109691017570201965">Tri Dao’s commentary</a></p>
+</article>
+
+<article>
+<div class="label">Robotics</div>
+<h3>RoboARCade evaluates agents controlling robots directly</h3>
+<p>Stanford AI Lab shares RoboARCade, described as a systematic evaluation and diagnostic effort for direct robotic control by agents. The supplied announcement is truncated, leaving the tasks, results and paper link unavailable.</p>
+<p><a href="https://x.com/StanfordAILab/status/2109806311798108250">Stanford AI Lab’s post</a></p>
+</article>
+
+<article>
+<div class="label">Evaluation</div>
+<h3>A generalization check: compare tasks used in post-training with those left out</h3>
+<p>Lucas Beyer highlights a figure comparing final-model performance on tasks used in post-training against tasks not used in that stage. The diagnostic aims to separate broader base-model improvement from benchmark-specific gains. Without the underlying measurements and task-selection details, the post alone does not establish that distinction.</p>
+<p><a href="https://x.com/giffmana/status/2109711411727536593">Lucas Beyer’s post</a></p>
+</article>
+
+<article>
+<div class="label">Clinical data tooling</div>
+<h3>OpenMed preserves missing dates rather than filling them in</h3>
+<p>In a synthetic OpenMed 3.0 demonstration, a clinical note provides only a month while the target OMOP schema requires a start day. The system withholds the row, marks the projection partial and records why. A related post describes row-level ETL lineage and explicit unmapped concepts—safeguards against unsupported values changing cohort membership, rather than evidence of clinical validation.</p>
+<p><a href="https://x.com/OpenMed_AI/status/2109630168734249312">Missing-date demonstration</a> · <a href="https://x.com/OpenMed_AI/status/2109683013340807337">Lineage and unmapped concepts</a> · <a href="https://t.co/vKF803LlpU">Documentation via supplied short link</a></p>
+</article>
+</section>
+
+<section id="biology" aria-labelledby="biology-heading">
+<h2 id="biology-heading">Biology &amp; medicine</h2>
+
+<article>
+<div class="label">Medical AI</div>
+<h3>Conversational diagnostic AI study announced in <i>The Lancet</i></h3>
+<p>A repost of @vivnat announces publication of a real-world clinical study of a conversational diagnostic AI system. The excerpt does not identify the system, study design, patient population or results: this is a publication notice, not evidence here of clinical effectiveness.</p>
+<p><a href="https://x.com/anshulkundaje/status/2109755995564171509">Study announcement</a></p>
+</article>
+
+<article>
+<div class="label">Neuroscience datasets</div>
+<h3>Human-brain microprotein atlas announced on Hugging Face</h3>
+<p>A repost of @EmmaScharfmann describes an atlas reportedly bringing together more than 1,000 human-brain microproteins. It offers a resource lead for brain biology and small-protein research, though the available excerpt supplies neither the dataset URL nor annotation and validation details.</p>
+<p><a href="https://x.com/anshulkundaje/status/2109810323117244502">Atlas announcement</a></p>
+</article>
+
+<article>
+<div class="label">Vaccines &amp; open science</div>
+<h3>Vaccine candidate highlighted for open release</h3>
+<p>A repost of @sohamsankaran describes open-sourcing a vaccine candidate that its authors characterize as broadly protective, with a preparedness motivation involving SARS-CoV-2. The truncated text does not establish the candidate’s identity, breadth of protection, supporting experiments or release terms.</p>
+<p><a href="https://x.com/rishabh16_/status/2109655813383979383">Vaccine-research announcement</a></p>
+</article>
+
+<article>
+<div class="label">Genetics reading list</div>
+<h3>Gene regulation at the maternal–fetal interface</h3>
+<p><i>Nature Reviews Genetics</i> announces “Gene regulation at the early human maternal–fetal interface,” a reading lead on human developmental regulation. Only the title and announcement are available, so specific mechanisms and conclusions cannot be summarized.</p>
+<p><a href="https://x.com/NatureRevGenet/status/2109652472864416255">Article announcement</a></p>
+</article>
+
+<article>
+<div class="label">Mitochondrial genetics</div>
+<h3>Inheritance and selection of the mitochondrial genome</h3>
+<p><i>Nature Reviews Genetics</i> recirculates an article on mitochondrial-genome inheritance and selection. The supplied excerpt identifies the topic but contains no substantive findings.</p>
+<p><a href="https://x.com/NatureRevGenet/status/2109589123837411556">Article notice</a></p>
+</article>
+
+<article>
+<div class="label">Genomic AI</div>
+<h3>Could causal-variant underestimation help explain model underperformance?</h3>
+<p>A repost of @mikejg84 proposes causal-variant underestimation as an overlooked contributor to sequence-to-function model underperformance. It is an evaluation hypothesis worth distinguishing from an established result: the truncated excerpt lacks the supporting analysis and enough context to identify precisely what is being underestimated.</p>
+<p><a href="https://x.com/razoralign/status/2109580867949781429">Evaluation hypothesis</a></p>
+</article>
+</section>
+
+<section id="language-practice" aria-labelledby="language-heading">
+<h2 id="language-heading">Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — 1.000 Dollar am Tag: Entwickler verschuldet sich, um Steam-Demo zu seinem KI-Spiel zu retten</h3>
+<p class="meta">GameStar · 13.10.2026 · <a href="https://www.gamestar.de/artikel/entwickler-verschuldet-sich-fuer-steam-demo,3461052.html">https://www.gamestar.de/artikel/entwickler-verschuldet-sich-fuer-steam-demo,3461052.html</a></p>
+<p>Eine erfolgreiche kostenlose Demo kann für ein kleines Entwicklerteam zum finanziellen Problem werden: Das zeigt laut GameStar die Fahrsimulation »BF17 gescheitert: Meine kleine Schwester am Steuer«. Als Beifahrer bringt man darin seiner jüngeren Schwester per Sprachanweisung das Autofahren bei. Damit die Figur in Echtzeit reagieren kann, verarbeitet Googles Sprachmodell Gemini die Eingaben. Der Dienst wird nach verarbeiteten Tokens abgerechnet – mit jedem zusätzlichen Spieler steigen also die laufenden Kosten, während die Demo keine Einnahmen erzielt.</p>
+<p>Laut dem Bericht kündigte das vierköpfige Team an, einen Kredit aufzunehmen, um die Demo weiter betreiben zu können. Die täglichen KI-Kosten beziffert GameStar bereits im Titel auf 1.000 Dollar. Eine vorzeitige Abschaltung der Demo bleibt wegen des finanziellen Drucks möglich; die Veröffentlichung des eigentlichen Spiels sei dennoch vorgesehen. Später sollen die KI-Kosten im Kaufpreis berücksichtigt werden.</p>
+<p>Neben der Finanzierung bereiten auch technische Nutzungsgrenzen Schwierigkeiten: Der große Andrang führt demnach zu langen Reaktionszeiten der Spielfigur. Das Team erwägt deshalb weitere KI-Dienste sowie lokale Modelle für leistungsfähige Rechner. Der Fall macht anschaulich, warum eine ungewöhnliche Spielidee mit externer KI nicht nur spielerisch, sondern auch wirtschaftlich und technisch funktionieren muss.</p>
+<p><strong>Warum lesen:</strong> Der Artikel verbindet eine kuriose Spielidee mit der konkreten Frage, wer die laufenden Kosten KI-gestützter Unterhaltung trägt.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Les députés pérennisent l’utilisation des tickets-restaurant dans les supermarchés</h3>
+<p class="meta">Le Monde · 13 octobre 2026 · <a href="https://www.lemonde.fr/economie/article/2026/10/13/les-deputes-perennisent-l-utilisation-des-tickets-restaurant-dans-les-supermarches_6793010_3234.html">Lire l’article</a></p>
+<p>Les députés ont adopté, le 12 octobre, une proposition de loi visant à installer durablement l’achat de produits alimentaires avec des titres-restaurant, y compris lorsque ces produits nécessitent une préparation. Ce dispositif, auquel les employeurs contribuent financièrement, concerne six millions de salariés. Le texte prévoit une prolongation de l’autorisation actuelle, puis sa pérennisation à partir du 1er janvier 2028 ; certaines catégories de produits resteraient exclues, selon des modalités à préciser par décret.</p>
+<p>L’article replace ce vote dans l’évolution des pratiques quotidiennes : avec le télétravail et les contraintes budgétaires, le déjeuner se prend davantage à domicile ou s’achète ailleurs qu’au restaurant. Une aide initialement associée au repas des salariés sert ainsi aussi aux courses alimentaires. Ce déplacement des dépenses explique les débats et les pressions économiques autour de la réforme. Cet aperçu repose sur le début accessible de l’article ; la suite est réservée aux abonnés.</p>
+<p><strong>Pourquoi lire :</strong> Un sujet concret pour comprendre comment les habitudes alimentaires et le pouvoir d’achat influencent le débat législatif français.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>titre-restaurant</strong> — moyen de paiement destiné à l’alimentation des salariés, financé en partie par leur employeur et soumis à des règles d’utilisation.</li>
+<li><strong>pérennisation</strong> — transformation d’une mesure provisoire en dispositif durable.</li>
+<li><strong>dérogation</strong> — exception autorisée à une règle générale, parfois pour une durée limitée.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 「Huni Kuin: Beya Xinã Bena」は，アマゾンの村人が絵を描き，声を当てた2Dアクション［BGS2026］</h3>
+<p class="meta">4Gamer · 2026-10-11 · <a href="https://www.4gamer.net/games/049/G104930/20261011002/">記事を読む</a></p>
+<p>ブラジルのゲームイベント「Brasil Game Show 2026」で紹介された「Huni Kuin: Beya Xinã Bena」は、アマゾンの先住民フニ・クインの人々と共同開発する横スクロールアクションだ。ブラジル西部のアクレ州に暮らす人々の神話を題材に、村人自身が絵や声の制作に参加している。先住民の文化を外から作品の素材にするだけでなく、当事者が制作に関わっている点が特徴だ。</p>
+<p>記事では、フニ・クインの人々と14年以上関わってきた人類学者のGuilherme Meneses氏への取材を通じて、この作品を紹介する。同氏は販売を担う団体APOTIに所属している。PC向けの発売予定は2027年第1四半期で、記事によるとSteamではデモ版も公開されている。ゲームと地域文化の接点に関心がある人に向いた現地レポートだ。</p>
+<p><strong>読む理由：</strong> 先住民自身が絵や声を通じて参加するゲームを題材に、文化と共同制作についての日本語を読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>先住民（せんじゅうみん）</strong> — 後から来た人々による支配や移住以前から、その土地に暮らし、独自の文化を受け継ぐ人々。</li>
+<li><strong>人類学（じんるいがく）</strong> — 人間の文化、社会、暮らしなどを調査し、その多様性を研究する学問。</li>
+<li><strong>横スクロール（よこスクロール）</strong> — キャラクターの移動に合わせて画面が左右に動く、ゲームの表示方式。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh">
+<h3>中文 — 欧盟拟设中国混动车进口配额 最快12月生效</h3>
+<p class="meta">DW 中文 · 2026-10-12 · <a href="https://www.dw.com/zh/欧盟拟设中国混动车进口配额-最快12月生效/a-79636608">https://www.dw.com/zh/欧盟拟设中国混动车进口配额-最快12月生效/a-79636608</a></p>
+<p>据德国之声援引彭博及《金融时报》报道，欧盟拟对中国混合动力汽车设置进口配额：2027年上限为35万辆，随后三年逐年增加，超过配额的车辆可能面临额外关税。中国商务部确认双方已就相关安排形成基本原则，但没有证实媒体披露的具体额度。因此，这篇报道需要区分已经公布的共识与仍来自媒体消息的方案细节。</p>
+<p>报道指出，为符合世界贸易组织的不歧视原则，拟议安排将覆盖来自多个国家的混动车进口，同时给予部分国家豁免。作为配套，中国将取消部分汽车部件关税，并降低部分消费品的关税；双方还将讨论稀土、永久磁铁等产品的出口管制与许可程序。汽车贸易谈判由此牵涉更广泛的市场准入和供应问题。</p>
+<p>欧盟官员及汽车业代表对谈判进展表示欢迎，但欧洲方面仍担忧对华贸易逆差扩大，以及本土汽车产业承受的竞争压力。文章也介绍了德国和法国推动更强硬贸易工具的背景，呈现出欧中关系中通过谈判缓和摩擦、同时保留反制手段的两条路线。</p>
+<p><strong>为什么读：</strong> 这篇报道把中国汽车出口与欧洲产业政策联系起来，适合练习辨认新闻中的政策术语、消息来源及尚未确定的安排。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>进口配额 (jìnkǒu pèié)</strong> — 对某类商品在一定时期内的进口数量或金额设定的限额，超过限额可能适用不同税率或其他限制。</li>
+<li><strong>不歧视原则 (bù qíshì yuánzé)</strong> — 世界贸易组织的基本原则，要求成员在相关规则下避免对不同贸易伙伴或进口与本国产品实行歧视性待遇。</li>
+<li><strong>贸易逆差 (màoyì nìchā)</strong> — 在一定时期内，进口总值超过出口总值的情况。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X excerpts; several are truncated or title-only, limiting assessment of methods and results. Shortened resource links have not been expanded. No source failures were reported.</p>
+<p>News · 13 October 2026 · Edition 2026-10-13-1</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

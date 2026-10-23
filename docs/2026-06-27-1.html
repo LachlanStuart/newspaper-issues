@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf8;
+      --ink: #202020;
+      --muted: #666;
+      --rule: #d8cfc0;
+      --accent: #7a2e1f;
+      --soft: #efe7da;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 32px auto;
+      padding: 34px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.07);
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.4rem;
+      letter-spacing: 0.03em;
+    }
+    .date {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    h2 {
+      margin-top: 34px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.45rem;
+    }
+    h3 {
+      margin-bottom: 4px;
+      font-size: 1.12rem;
+    }
+    article {
+      padding: 12px 0 16px;
+      border-bottom: 1px solid #eee4d6;
+    }
+    article:last-child {
+      border-bottom: none;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin: 2px 0 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    a {
+      color: #064f8a;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--soft);
+      color: #4c4033;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 2px 4px 2px 0;
+      font-size: 0.78rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .language-section {
+      margin-top: 42px;
+      padding-top: 20px;
+      border-top: 3px double var(--rule);
+    }
+    .language-card {
+      background: #fbf8f2;
+      border: 1px solid #eadfce;
+      border-radius: 10px;
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+    .language-card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    ul {
+      margin-top: 8px;
+    }
+    .notes {
+      margin-top: 34px;
+      padding: 14px 18px;
+      background: #f4efe7;
+      border-left: 4px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+    footer {
+      margin-top: 32px;
+      padding-top: 14px;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <div class="date">Saturday, June 27, 2026 · Run 2026-06-27-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research & Systems</h2>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2070736949254705303">Flow reversal steering uses VLA priors for robot behavior</a></h3>
+        <p class="meta">Stanford AI Lab / Chelsea Finn · Robotics, VLA, agents</p>
+        <p>Stanford AI Lab highlighted “flow reversal steering,” a robotics method described as turning a rough sense of a task, together with a vision-language-action prior, into successful robot behavior. The item is notable as another example of VLA priors being used to make robot control more general and task-directed.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/vikhyatk/status/2070709380895695120">QK norm reported to add decode cost at low batch size</a></h3>
+        <p class="meta">Vik · Inference, transformers, optimization</p>
+        <p>A concise inference-efficiency observation: QK norm may make decoding roughly 30% more expensive at low batch sizes, according to the post. The practical takeaway is that a stabilization or training-time design choice can have a meaningful serving-time cost in some regimes.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2070612892031095249">Auto-psych system has AI agents run the science loop</a></h3>
+        <p class="meta">Stanford AI Lab · AI scientist systems, agents, experimentation</p>
+        <p>Stanford AI Lab described Auto-psych, a system in which AI agents propose theories, build experiments, recruit real online participants, and improve from results. It fits the growing “AI scientist” theme, but with an emphasis on experimental methodology and human-participant studies.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/rasbt/status/2070518167399698490">Raschka tests 30B MoE coding models across agent harnesses</a></h3>
+        <p class="meta">Sebastian Raschka · Coding agents, open models, inference</p>
+        <p>Sebastian Raschka reported local tests of open-weight coding models in Qwen-Code, Codex, and Claude Code-style harnesses. His headline observation is that 30B MoE models can be a useful local sweet spot, reaching about 40 tokens per second on a Mac or DGX Spark. He also noted that Claude Code appeared to use about twice as many tokens as Codex in his tests.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2070437521612529731">Allen AI thread on hybrid transformer–RNN models</a></h3>
+        <p class="meta">Songlin Yang / Allen AI · Architectures, RNNs, transformers</p>
+        <p>A thread framed hybrid transformer–RNN models as a serious alternative to pure transformers, while raising open technical questions about their behavior. The item is part of the broader search for architectures that retain transformer strengths while improving efficiency or long-context behavior.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio, Genomics & AI for Science</h2>
+
+      <article>
+        <h3><a href="https://x.com/naturemethods/status/2070491624342278487">HiCFoundation models 3D genome and epigenomics from Hi-C data</a></h3>
+        <p class="meta">Nature Methods · Genomics, epigenomics, foundation models</p>
+        <p>Nature Methods highlighted <strong>HiCFoundation</strong>, a foundation model trained on Hi-C data for comprehensive 3D genome and epigenomics analysis, with an associated Research Briefing. The same item appeared in both the AI and bio research feeds, making it a clear cross-over story for machine learning in genomics.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2070558345082327142">PantheonOS: evolvable multi-agent framework for automatic genomics discovery</a></h3>
+        <p class="meta">razoralign repost · Genomics, agents, AI4Science</p>
+        <p>A repost highlighted <strong>PantheonOS: An Evolvable Multi-Agent Framework for Automatic Genomics Discovery</strong>. The available fragment is title-level only, but the topic is directly in the agentic AI-for-science lane: using multi-agent systems to automate parts of genomics discovery.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2070625881899601927">Bamsnap-LRS visualizes long-read sequencing alignments in batch</a></h3>
+        <p class="meta">razoralign repost · Long-read sequencing, transcriptomics, tools</p>
+        <p><strong>Bamsnap-LRS</strong> is described as an automated command-line tool for high-throughput long-read sequencing alignment visualization. It supports DNA, RNA, and Highlight modes for genomic alignments, spliced transcript structures, structural-variant evidence, phased SNP inspection, and publication-ready batch figures.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2070534142971064332">Review: data-driven discovery of dynamical models in biology</a></h3>
+        <p class="meta">Nature Reviews Physics via repost · Computational biology, dynamical systems</p>
+        <p>A repost pointed to a review titled <strong>“Data-driven discovery of dynamical models in biology.”</strong> The provided data is limited to the title, but the subject is important: learning interpretable or predictive dynamical models from biological data.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2070485484984480000">Nature reports large new genetic dataset from late Neanderthals</a></h3>
+        <p class="meta">Nature via repost · Ancient DNA, genomics, datasets</p>
+        <p>A Nature paper was described as presenting the largest collection of newly generated genetic data from late Neanderthals. Even with only a truncated source fragment available, this appears to be a significant ancient-genomics dataset with likely relevance for human evolutionary history.</p>
+      </article>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+
+      <div class="language-card" lang="de">
+        <h3>Deutsch — Komponist zwischen sozialer Utopie und Klangmagie</h3>
+        <p class="meta">Deutschlandfunk Kultur · 2026-06-27 · <a href="https://www.deutschlandfunkkultur.de/lange-nacht-hans-werner-henze-soziale-utopie-und-klangmagie-100.html">Link</a></p>
+        <p>Der Beitrag porträtiert Hans Werner Henze als Komponisten, der musikalische Formen konsequent mit gesellschaftlichen und politischen Utopien verband. Im Mittelpunkt steht ein Künstler, der sich nicht auf reine Klangkunst zurückziehen wollte, sondern Musik als Teil einer größeren kulturellen und sozialen Verantwortung verstand.</p>
+        <p>Die Sendung zeichnet nach, wie Henze zwischen künstlerischem Anspruch, politischer Streitbarkeit und pädagogischem Engagement arbeitete. Interessant ist dabei besonders der Spannungsbogen zwischen Klangmagie, Zeitgeschichte und dem Wunsch, Kunst als Mittel zur Veränderung der Welt zu begreifen.</p>
+        <p><strong>Warum lesen:</strong> Ein gehaltvoller Kulturbeitrag für alle, die deutsche Musikgeschichte, Kunst und Politik zusammen denken möchten.</p>
+      </div>
+
+      <div class="language-card" lang="fr">
+        <h3>Français — Hongrie: après le départ de Victor Orban, la promesse d'une Marche des fiertés plus «joyeuse» à Budapest</h3>
+        <p class="meta">RFI · 2026-06-27 · <a href="https://www.rfi.fr/fr/europe/20260627-hongrie-apr%C3%A8s-le-d%C3%A9part-de-victor-orban-la-promesse-d-une-marche-des-fiert%C3%A9s-plus-joyeuse-%C3%A0-budapest">Link</a></p>
+        <p>RFI revient sur la Marche des fiertés organisée à Budapest le 27 juin 2026, dans un climat présenté comme nettement plus détendu que l'année précédente. Après l'interdiction décidée sous Viktor Orban, l'événement est cette fois autorisé par la police et retrouve un format plus festif, avec parade, chars et DJ, selon Tamas Dombos, responsable de l'association LGBT+ Hatter.</p>
+        <p>L'article souligne toutefois que l'apaisement politique ne signifie pas la fin des inquiétudes. Les poursuites contre les organisateurs et le maire de Budapest ont été abandonnées, et le nouveau Premier ministre Peter Magyar a changé de ton par rapport au gouvernement précédent. Mais les associations attendent encore des réformes concrètes, notamment l'abrogation de lois restrictives visant les personnes LGBT+.</p>
+        <p>Le papier garde donc un équilibre intéressant entre récit d'une journée de célébration et analyse prudente de l'évolution politique hongroise. Des incidents récents, comme des drapeaux arc-en-ciel jetés dans le Danube, rappellent que l'acceptation sociale et juridique reste fragile.</p>
+        <p><strong>Pourquoi lire :</strong> Un bon article pour suivre les droits LGBT+ en Europe centrale à travers un vocabulaire politique, associatif et juridique actuel.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>Marche des fiertés</strong> — manifestation publique annuelle en faveur des droits et de la visibilité des personnes LGBT+.</li>
+          <li><strong>poursuites judiciaires</strong> — procédures engagées devant la justice contre une personne ou une organisation.</li>
+          <li><strong>mesures législatives</strong> — changements ou décisions relevant de la loi, votés ou modifiés par les institutions politiques.</li>
+        </ul>
+      </div>
+
+      <div class="language-card" lang="ja">
+        <h3>日本語 — IBM、世界初の「1nm未満」チップ技術を発表――3D構造「ナノスタック」でAIの処理を高速化</h3>
+        <p class="meta">ITmedia NEWS · 2026-06-26 · <a href="https://www.itmedia.co.jp/news/articles/2606/26/news059.html">Link</a></p>
+        <p>米IBMが、世界初とうたうsub-1nm（1nm未満）のチップ技術を発表した。0.7nm相当のノードで、爪ほどの大きさに約1000億個のトランジスタを集積できるとし、同社が2021年に発表した2nmチップの約2倍の密度になるという。2nm比で性能は最大50％向上、または電力効率は70％改善すると説明している。</p>
+        <p>中心技術は、3次元トランジスタ構造「nanostack（ナノスタック）」。従来の平面的な微細化に加え、Z軸方向にトランジスタを積み重ねることで、同じ面積により多くの回路を詰め込む発想だ。IBMは、生成AIやクラウド基盤、次世代デバイスの処理能力を底上げし、AIモデルの学習・推論の高速化にもつながるとしている。</p>
+        <p>記事では、チップ上のSRAMを40％スケーリングできる研究成果や、蘭ASMLの「High NA EUV」装置、日本の東京エレクトロンなどとの製造プロセス開発にも触れている。IBMは、早ければ今後5年で量産化への道筋が見えるとしており、半導体の微細化が物理的限界に近づく中での重要な技術ニュースとして読める。</p>
+        <p><strong>読む理由：</strong> AIの性能競争を支える半導体技術の最前線を、日本語の技術記事で学べるため。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>微細化（びさいか）</strong> — 半導体の回路や部品をより小さくして、集積度や性能を高めること。</li>
+          <li><strong>集積度（しゅうせきど）</strong> — 一定の面積にどれだけ多くの回路や素子を詰め込めるかを示す度合い。</li>
+          <li><strong>推論（すいろん）</strong> — 学習済みAIモデルが入力データから答えや予測を出す処理。</li>
+        </ul>
+      </div>
+
+      <div class="language-card" lang="zh">
+        <h3>中文 — 德国铁路瘫痪再度引发禁止华为的讨论</h3>
+        <p class="meta">德国之声 · 19 小时前 · <a href="https://www.dw.com/zh/%E5%BE%B7%E5%9B%BD%E9%93%81%E8%B7%AF%E7%98%AB%E7%97%AA%E5%86%8D%E5%BA%A6%E5%BC%95%E5%8F%91%E7%A6%81%E6%AD%A2%E5%8D%8E%E4%B8%BA%E7%9A%84%E8%AE%A8%E8%AE%BA/a-77721926">Link</a></p>
+        <p>德国铁路本周二因无线电通信系统故障出现全国范围停运，控制中心与列车司机一度失去联系，数千名乘客受影响。事件虽已被铁路高层初步排除为网络攻击，但仍迅速引发德国政界对关键基础设施安全的讨论。</p>
+        <p>报道重点在于，基民盟与绿党政治人物借此再次要求减少德国铁路及通信系统对中国制造零部件的依赖，尤其是华为等供应商在铁路通信和未来5G相关系统中的角色。文章也解释了GSM-R铁路通信系统的功能、技术背景，以及德国计划在2035年升级为基于5G的FRMCS系统。</p>
+        <p>文章把一次铁路故障放进欧盟安全政策的更大背景中：欧盟委员会正推动将限制华为、中兴等“有争议供应商”的建议转为更具强制性的法律规定，理由是担心第三方国家可能进行破坏或间谍活动。</p>
+        <p><strong>为什么读：</strong> 这篇文章适合练习德国/欧盟政治、安全政策与科技基础设施相关中文词汇。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>关键基础设施 (guānjiàn jīchǔ shèshī)</strong> — 对社会运行至关重要、出故障会造成重大影响的系统，如铁路、电网、通信网络。</li>
+          <li><strong>无线电通信系统 (wúxiàndiàn tōngxìn xìtǒng)</strong> — 通过无线电信号传递语音、指令或数据的通信系统。</li>
+          <li><strong>强制性法律规定 (qiángzhìxìng fǎlǜ guīdìng)</strong> — 具有约束力、相关方必须遵守的法律要求。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="notes">
+      <strong>Quiet source notes:</strong>
+      <p>Some AI and bio research feed items were omitted because they had already appeared in prior reported registries. No source failures were reported for this run.</p>
+    </section>
+
+    <footer>
+      News · Generated from provided source report fragments
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #d8d0c3;
+      --accent: #8a4b2a;
+      --accent-soft: #f0e1d6;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 20px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--accent);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    h1 {
+      margin: 8px 0 4px;
+      font-size: clamp(2rem, 5vw, 4rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+    .date {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(31, 41, 51, 0.04);
+    }
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.55rem;
+    }
+    article {
+      padding: 14px 0;
+      border-bottom: 1px solid #ece6dc;
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+    p {
+      margin: 0.45rem 0;
+    }
+    a {
+      color: #0b5cad;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 6px;
+    }
+    .tags {
+      margin-top: 8px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: var(--accent-soft);
+      color: #6f3a20;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.78rem;
+    }
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-style: italic;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 3px double var(--rule);
+      padding-top: 10px;
+    }
+    .language-practice section {
+      border-color: #c8d4e5;
+    }
+    .language-practice h2 {
+      color: #274c77;
+    }
+    .snippet h3 {
+      margin-top: 0;
+    }
+    .snippet ul {
+      margin-top: 0.4rem;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.84rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Thursday, July 9, 2026 · Run 2026-07-09-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research</h2>
+
+        <article>
+          <h3><a href="https://x.com/aaron_defazio/status/2075094565548392895">Adaptive Sharpness-Aware Minimization with a Polyak-type step-size schedule</a></h3>
+          <p>Aaron Defazio highlighted an ICML 2026 paper on adaptive sharpness-aware minimization using a Polyak-type step-size schedule. The work is framed as a more theory-grounded approach to scheduling in ML optimization.</p>
+          <div class="tags">
+            <span class="tag">optimization</span>
+            <span class="tag">training</span>
+            <span class="tag">ICML</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2075048364148756891">Proximal State Nudging estimates learnability to support human learning</a></h3>
+          <p>Stanford AI Lab pointed to work on “proximal state nudging,” a method meant to help people learn by estimating how learnable examples or states are. The item sits at the intersection of human-AI interaction, education, and technical modeling of learning dynamics.</p>
+          <div class="tags">
+            <span class="tag">human-AI interaction</span>
+            <span class="tag">learning</span>
+            <span class="tag">Stanford</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2075047408350732395">Distill to Detect audits hidden biases in fine-tuned LLMs</a></h3>
+          <p>Stanford AI Lab also surfaced Distill to Detect, or D2D, an auditing method designed to reveal hidden biases in fine-tuned large language models, including under constrained audit settings.</p>
+          <div class="tags">
+            <span class="tag">LLM auditing</span>
+            <span class="tag">bias</span>
+            <span class="tag">model evaluation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/steipete/status/2075048041204343260">OpenAI audit finds SWE-Bench Pro no longer reliable for frontier coding evaluation</a></h3>
+          <p>A retweeted OpenAI note says SWE-Bench Pro was audited and found to no longer reliably measure frontier coding capabilities. The item is a useful reminder that AI coding benchmarks can age quickly as model capabilities and benchmark exposure change.</p>
+          <div class="tags">
+            <span class="tag">benchmarks</span>
+            <span class="tag">coding agents</span>
+            <span class="tag">evaluation</span>
+          </div>
+        </article>
+
+        <p class="note">Source note: product announcements, hiring and funding posts, memes, shallow model-comparison takes, and recent duplicates were filtered out.</p>
+      </section>
+
+      <section>
+        <h2>Biology, Genomics &amp; Bio-AI</h2>
+
+        <article>
+          <h3><a href="https://x.com/TuXinming/status/2075069646290743487">BenchGuard used to audit DrugDiscoveryBench benchmark construction</a></h3>
+          <p>Xinming Tu reported that BenchGuard caught many issues during the construction of DrugDiscoveryBench, arguing for agentic auditing combined with expert review in future drug-discovery benchmarks.</p>
+          <div class="tags">
+            <span class="tag">drug discovery</span>
+            <span class="tag">benchmarks</span>
+            <span class="tag">agents</span>
+            <span class="tag">evaluation</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2075028171871986169">ORBIT reranks gene-set enrichment outputs into interpretable biological summaries</a></h3>
+          <p>ORBIT is described as an annotation-aware workflow that combines empirical enrichment, semantic reranking, and redundancy-aware representative-term selection. The goal is to turn gene-set enrichment results into clearer functional summaries, improving expected-class recovery over several common baselines while compressing redundant enriched terms into semantic neighborhoods.</p>
+          <div class="tags">
+            <span class="tag">bioinformatics</span>
+            <span class="tag">gene sets</span>
+            <span class="tag">functional enrichment</span>
+            <span class="tag">interpretability</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2075027637895090254">ECCO provides ensemble clustering and cluster optimization for omics data</a></h3>
+          <p>ECCO is an open-source Python UI for ensemble clustering of large-scale omics data. The thread says it supports zero-code integration of clustering methods, preprocessing and postprocessing, automatic selection of cluster numbers, and voting-based consensus over analyte co-occurrence across cluster solutions.</p>
+          <div class="tags">
+            <span class="tag">omics</span>
+            <span class="tag">clustering</span>
+            <span class="tag">single-cell</span>
+            <span class="tag">tools</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2075028535773950350">PACMOS projects samples into pretrained MOFA latent factor spaces</a></h3>
+          <p>PACMOS projects query samples into pretrained MOFA-based latent factor spaces for continuous and discrete molecular classifications, while preserving the pretrained latent structure and providing projection-quality control. Reported performance was strongest when expression and/or methylation data were included, with genomics-only projections performing poorly.</p>
+          <div class="tags">
+            <span class="tag">multi-omics</span>
+            <span class="tag">latent factors</span>
+            <span class="tag">methylation</span>
+            <span class="tag">classification</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2075027454272643256">JEPA-DNA grounds genomic foundation models with joint-embedding predictive architectures</a></h3>
+          <p>JEPA-DNA applies joint-embedding predictive architecture ideas to genomic sequence, learning latent embeddings rather than relying on next-token prediction. The motivation is to capture broader genomic structure in DNA-focused foundation models.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">foundation models</span>
+            <span class="tag">DNA</span>
+            <span class="tag">representation learning</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2074899403387896265">New open benchmarks for ab initio gene annotation from DNA sequence alone</a></h3>
+          <p>A retweeted thread announced open benchmarks for ab initio gene annotation from DNA sequence alone, including a gene-segmentation benchmark. The source text was truncated, but the item points to evaluation infrastructure for genomic language and modeling systems.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">gene annotation</span>
+            <span class="tag">benchmarks</span>
+            <span class="tag">DNA</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2075086045880983929">Inefficiently spliced introns highlighted as having a hidden regulatory role</a></h3>
+          <p>Anshul Kundaje highlighted a paper announcement arguing that inefficiently spliced introns have a hidden regulatory role. Though the source text was truncated, the central claim is a concrete gene-regulation result involving transcript processing.</p>
+          <div class="tags">
+            <span class="tag">gene regulation</span>
+            <span class="tag">splicing</span>
+            <span class="tag">introns</span>
+            <span class="tag">transcriptomics</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2074874148686614974">Anshul Kundaje warns virtual-cell objectives may be solved by shortcut models</a></h3>
+          <p>Kundaje argued that current proposed objectives may not deliver a true “virtual cell” and can be satisfied by shortcut models optimized for each task. He still supports pursuing important modeling tasks, but cautions against inflated “virtual cell” or “cellular world model” terminology without evidence.</p>
+          <div class="tags">
+            <span class="tag">virtual cells</span>
+            <span class="tag">evaluation</span>
+            <span class="tag">bio-AI safety</span>
+            <span class="tag">foundation models</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2074865669578137870">MutAtlas: PDB-scale multi-source in-silico protein mutation-effect benchmark</a></h3>
+          <p>A retweeted ICML 2026 announcement introduced MutAtlas, described as a PDB-scale, multi-source in-silico protein mutation-effect benchmark. It is relevant to protein engineering, structure-aware variant interpretation, and benchmark design.</p>
+          <div class="tags">
+            <span class="tag">protein ML</span>
+            <span class="tag">variant effects</span>
+            <span class="tag">benchmarks</span>
+            <span class="tag">ICML</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2074865680290295837">Transfer-seeded AlphaFold2 steering probes kinase-domain activation mechanisms</a></h3>
+          <p>A preprint announcement asks whether kinase domains share similar activation mechanisms and says the authors steer AlphaFold2 using “transfer seeding.” The focus is kinase activation, protein dynamics, and controlled structure prediction.</p>
+          <div class="tags">
+            <span class="tag">kinases</span>
+            <span class="tag">AlphaFold2</span>
+            <span class="tag">protein dynamics</span>
+            <span class="tag">disease biology</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/NatureRevGenet/status/2074883384602419400">Nature Reviews Genetics item on circadian genetics and health</a></h3>
+          <p>Nature Reviews Genetics highlighted a review titled “Time matters: circadian genetics and the molecular logic of human health and disease,” framing circadian genetics as important for precision medicine.</p>
+          <div class="tags">
+            <span class="tag">genetics</span>
+            <span class="tag">circadian biology</span>
+            <span class="tag">medicine</span>
+            <span class="tag">review</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2074899361306472463">DECIPHER v11.40 released for rare-disease genetics</a></h3>
+          <p>DECIPHER v11.40 was flagged as a new release of the rare-disease genetics resource, relevant for clinical genomics and variant interpretation workflows.</p>
+          <div class="tags">
+            <span class="tag">genetics</span>
+            <span class="tag">rare disease</span>
+            <span class="tag">clinical genomics</span>
+            <span class="tag">resources</span>
+          </div>
+        </article>
+
+        <p class="note">Source note: many seminars, hiring and funding posts, generic conference promos, and recent duplicates were filtered out. Several included retweets had truncated text, so some summaries are necessarily limited.</p>
+      </section>
+
+      <div class="language-practice">
+        <section lang="de">
+          <h2>Language Practice · Deutsch</h2>
+          <article class="snippet">
+            <h3>Deutsch — <a href="https://www.heise.de/news/Bundestag-wird-digitaler-Anwesenheitslisten-auf-Papier-verschwinden-11358795.html">Bundestag wird digitaler: Anwesenheitslisten auf Papier verschwinden</a></h3>
+            <p class="meta">heise online · 2026-07-09 · <a href="https://www.heise.de/news/Bundestag-wird-digitaler-Anwesenheitslisten-auf-Papier-verschwinden-11358795.html">https://www.heise.de/news/Bundestag-wird-digitaler-Anwesenheitslisten-auf-Papier-verschwinden-11358795.html</a></p>
+            <p>Der Bundestag will seine Anwesenheitserfassung modernisieren: Statt Papierlisten sollen die Abgeordneten künftig Chip-Ausweise nutzen, um ihre Teilnahme an Sitzungstagen zu dokumentieren. Dafür soll die Geschäftsordnung so geändert werden, dass sie digitale Verfahren erlaubt und nicht mehr ausdrücklich eine ausgelegte Liste verlangt.</p>
+            <p>Laut den zitierten Parlamentsvertretern spart die Umstellung mehr als 55.000 Blatt Papier und rund 1.000 Arbeitsstunden pro Jahr, weil der Abgleich mehrerer Listen entfällt. Ganz verschwinden soll die analoge Option aber nicht: Für Abgeordnete, die weiterhin unterschreiben möchten, soll an einem Eingang eine Papierliste bereitliegen.</p>
+            <p>Der Artikel erklärt auch, warum der Eintrag mehr als Formalität ist: Wer sich nicht einträgt, muss mit Abzügen bei der Kostenpauschale rechnen. Damit verbindet der kurze Text Digitalisierung, Parlamentspraxis und die Frage, wie alte Verwaltungsroutinen im politischen Alltag abgelöst werden.</p>
+            <p><strong>Warum lesen:</strong> Ein knapper, gut verständlicher Einblick in digitale Verwaltung im Bundestag — mit konkreten Zahlen zu Papier, Aufwand und finanziellen Folgen.</p>
+          </article>
+        </section>
+
+        <section lang="fr">
+          <h2>Language Practice · Français</h2>
+          <article class="snippet">
+            <h3>Français — <a href="https://www.numerama.com/tech/2292751-plus-intelligent-plus-naturel-plus-expressif-openai-devoile-deux-nouveaux-modeles-vocaux-pour-chatgpt.html">Plus intelligent, plus naturel, plus expressif : OpenAI dévoile deux nouveaux modèles vocaux pour ChatGPT</a></h3>
+            <p class="meta">Numerama · 2026-07-08 19:00 · <a href="https://www.numerama.com/tech/2292751-plus-intelligent-plus-naturel-plus-expressif-openai-devoile-deux-nouveaux-modeles-vocaux-pour-chatgpt.html">https://www.numerama.com/tech/2292751-plus-intelligent-plus-naturel-plus-expressif-openai-devoile-deux-nouveaux-modeles-vocaux-pour-chatgpt.html</a></p>
+            <p>Numerama présente les deux nouveaux modèles vocaux annoncés par OpenAI pour ChatGPT : GPT-Live-1 et GPT-Live-1 mini. L’objectif affiché est de rendre les échanges parlés avec l’IA plus fluides, moins mécaniques et plus proches d’une conversation humaine, notamment grâce à une meilleure gestion des interruptions, des silences et du rythme de parole.</p>
+            <p>L’article explique aussi l’intérêt de l’architecture « full-duplex », qui permettrait à l’IA d’écouter et de parler en même temps, au lieu de fonctionner comme un assistant vocal classique où chaque prise de parole est strictement séparée. OpenAI met également en avant une meilleure intégration avec ses modèles récents, ainsi qu’un choix de niveaux de « réflexion » selon la complexité de la demande.</p>
+            <p>Enfin, Numerama souligne l’arrivée de la traduction en temps réel dans ChatGPT Voice, démontrée par OpenAI avec une phrase traduite de l’anglais vers le hindi. Le papier reste prudent sur la précision réelle de cette fonction, mais montre bien la direction prise par les assistants vocaux : des interactions multilingues plus immédiates et plus naturelles.</p>
+            <p><strong>Pourquoi lire :</strong> un bon article pour suivre l’évolution concrète des interfaces vocales en IA générative, avec un vocabulaire utile autour de ChatGPT et de la conversation homme-machine.</p>
+            <p><strong>Vocabulaire utile</strong></p>
+            <ul>
+              <li><strong>architecture full-duplex</strong> — système de communication où deux interlocuteurs peuvent parler et écouter simultanément.</li>
+              <li><strong>mode vocal</strong> — fonction permettant d’interagir avec une IA par la voix plutôt que par texte.</li>
+              <li><strong>traduction en temps réel</strong> — traduction produite immédiatement pendant qu’une personne parle, sans attendre la fin complète de l’échange.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="ja">
+          <h2>Language Practice · 日本語</h2>
+          <article class="snippet">
+            <h3>日本語 — <a href="https://www.nippon.com/ja/japan-data/h02833/">“今どきシニア” は家族に依存せずにソロ活重視 ―博報堂調査 : 夫婦一緒意識も低下</a></h3>
+            <p class="meta">nippon.com · 2026-07-08 · <a href="https://www.nippon.com/ja/japan-data/h02833/">https://www.nippon.com/ja/japan-data/h02833/</a></p>
+            <p>博報堂生活総合研究所が1986年から10年ごとに実施している60〜74歳男女への調査をもとに、現代のシニア層の意識変化をまとめた記事。平均寿命の延びや雇用期間の延長を背景に、高齢期の暮らし方が大きく変わり、家族や地域コミュニティーへの帰属よりも「1人で自由に行動する」傾向が強まっているという。</p>
+            <p>調査では、「大家族で住みたい」や「趣味や地域の会などグループに参加している」といった項目が40年間で大きく減少。一方、「仲間とより1人で行動することが多い」は66.4%、「レストランやバーには1人で行きたい」は48.6%に達し、シニア世代にもソロ活志向が広がっていることが示されている。</p>
+            <p>夫婦関係についても、「一緒のお墓に入りたい」「共通の趣味を持ちたい」という意識が低下し、互いに干渉せずそれぞれを尊重する「卒婚」への関心も見られる。さらに「老人」「お年寄り」と考える年齢の境目も上がっており、70代後半になってようやく自分をシニアと捉える感覚が広がっている点が興味深い。</p>
+            <p><strong>読む理由：</strong> 日本の高齢社会を、家族観・夫婦観・個人主義の変化という身近な切り口から読める記事です。</p>
+            <p><strong>語彙メモ</strong></p>
+            <ul>
+              <li><strong>高齢期（こうれいき）</strong> — 年を重ねた後の人生段階、特に老後の時期。</li>
+              <li><strong>帰属（きぞく）</strong> — ある集団や組織の一員として結びついていること。</li>
+              <li><strong>卒婚（そつこん）</strong> — 離婚はせず、夫婦が互いに自立して別々の生活や価値観を尊重する考え方。</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="zh">
+          <h2>Language Practice · 中文</h2>
+          <article class="snippet">
+            <h3>中文 — <a href="https://www.dw.com/zh/%E7%BE%8E%E4%BC%8A%E5%86%B2%E7%AA%81%E5%8D%87%E7%BA%A7-%E4%BC%8A%E6%9C%97%E5%86%8D%E8%A2%AD%E5%B7%B4%E6%9E%97%E7%A7%91%E5%A8%81%E7%89%B9%E7%AD%89%E7%BE%8E%E5%86%9B%E5%9F%BA%E5%9C%B0/a-77883211">美伊冲突升级 伊朗再袭巴林、科威特等美军基地</a></h3>
+            <p class="meta">德国之声 · 2026-07-09 · <a href="https://www.dw.com/zh/%E7%BE%8E%E4%BC%8A%E5%86%B2%E7%AA%81%E5%8D%87%E7%BA%A7-%E4%BC%8A%E6%9C%97%E5%86%8D%E8%A2%AD%E5%B7%B4%E6%9E%97%E7%A7%91%E5%A8%81%E7%89%B9%E7%AD%89%E7%BE%8E%E5%86%9B%E5%9F%BA%E5%9C%B0/a-77883211">https://www.dw.com/zh/美伊冲突升级-伊朗再袭巴林科威特等美军基地/a-77883211</a></p>
+            <p>德国之声报道，美军再度空袭伊朗后，伊朗伊斯兰革命卫队宣布以飞弹和无人机攻击位于巴林、科威特的美军基地，并警告若美国继续动武，报复行动可能扩大到区域内其他美军设施。美国中央司令部则称，新一轮打击旨在削弱伊朗威胁霍尔木兹海峡航行自由的能力。</p>
+            <p>报道梳理了空袭涉及的伊朗南部港口城市、防空系统和无人机基地，以及当地停电、机场和铁路设施受损等情况。特朗普表示，他认为美伊停火协议“已经结束”，但同时又称不认为战事会全面重启；伊朗方面则指责美国违反停火谅解备忘录，并强调霍尔木兹海峡通航将由伊朗安排。</p>
+            <p>文章的重点不只是一次军事交火，而是停火机制、能源运输通道和伊朗内部路线分歧如何相互牵动。若冲突继续升级，霍尔木兹海峡这一全球能源运输要道可能再次成为国际市场和地区安全的焦点。</p>
+            <p><strong>为什么读：</strong> 这篇报道适合练习中文国际新闻中的军事、外交与能源安全词汇，也能了解中东局势如何牵动全球航运。</p>
+            <p><strong>词汇笔记</strong></p>
+            <ul>
+              <li><strong>伊斯兰革命卫队 (Yīsīlán Gémìng Wèiduì)</strong> — 伊朗重要军事与政治力量，常见于中东安全报道。</li>
+              <li><strong>霍尔木兹海峡 (Huò’ěrmùzī Hǎixiá)</strong> — 连接波斯湾与阿曼湾的关键航道，是全球能源运输要道。</li>
+              <li><strong>停火谅解备忘录 (tínghuǒ liàngjiě bèiwànglù)</strong> — 冲突双方就暂停交火达成的政治或外交文件，约束力通常弱于正式条约。</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      Quiet failure notes: none reported.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

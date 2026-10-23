@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #faf8f3;
+      --ink: #202421;
+      --muted: #68706a;
+      --accent: #285f54;
+      --rule: #d8d3c8;
+      --card: #fffefb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+
+    main {
+      width: min(960px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 3rem 0 4rem;
+    }
+
+    header {
+      text-align: center;
+      padding-bottom: 1.6rem;
+      border-bottom: 3px double var(--ink);
+    }
+
+    .kicker {
+      margin: 0;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.25rem 0;
+      font-size: clamp(2.2rem, 7vw, 4.8rem);
+      font-weight: 600;
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+
+    .date {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.92rem;
+    }
+
+    section {
+      margin-top: 2.6rem;
+    }
+
+    h2 {
+      margin: 0 0 1rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+    }
+
+    .lead {
+      font-size: 1.07rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    article {
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      background: var(--card);
+    }
+
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.16rem;
+      line-height: 1.3;
+    }
+
+    article p {
+      margin: 0;
+    }
+
+    a {
+      color: #174f73;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+    }
+
+    a:hover,
+    a:focus {
+      color: #8a3d22;
+    }
+
+    .tags {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 1.6rem;
+      border-top: 3px double var(--ink);
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.85rem;
+    }
+
+    .language-card {
+      padding: 1rem 1.1rem;
+      border-left: 3px solid var(--rule);
+      background: rgba(255, 255, 255, 0.35);
+    }
+
+    .language-card h3 {
+      margin: 0 0 0.35rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+
+    .language-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    footer p {
+      margin: 0.35rem 0;
+    }
+
+    @media (max-width: 680px) {
+      main {
+        width: min(100% - 1.2rem, 960px);
+        padding-top: 1.8rem;
+      }
+
+      .grid,
+      .language-grid {
+        grid-template-columns: 1fr;
+      }
+
+      article {
+        padding: 1rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="kicker">News</p>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-07-29">Wednesday, July 29, 2026</time> · Run 2026-07-29-1</p>
+    </header>
+
+    <section aria-labelledby="models-systems">
+      <h2 id="models-systems">Models, Optimization &amp; AI Systems</h2>
+      <div class="grid">
+        <article class="lead">
+          <h3><a href="https://x.com/tilderesearch/status/2082164467857858757">Online KL Shampoo approximates full-matrix AdaGrad</a></h3>
+          <p>Tilde introduces Online KL Shampoo, an optimizer that uses KL-optimal Kronecker factors to retain gradient-correlation history without the quadratic state required by full-matrix AdaGrad. Its inverse-square-root preconditioner uses a scaled, coupled Newton–Schulz procedure with no stale updates. In tests on models from 200 million to 1 billion parameters, Tilde reports 1.45× Muon’s parameter efficiency while preserving 98% of its training throughput.</p>
+          <p class="tags">Optimization · Language-model training · Scaling</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rasbt/status/2082098201247600765">Inside the 2.8-trillion-parameter Kimi K3 architecture</a></h3>
+          <p>Sebastian Raschka examines Kimi K3 as a scaled-up descendant of Kimi Linear. The design combines Kimi Delta Attention, multi-head latent attention, LatentMoE, attention-weighted residual connections, and NoPE in place of RoPE. Attention residuals are credited with consistent quality gains at an estimated 4% extra training cost and 2% extra inference cost.</p>
+          <p class="tags">Architecture · Mixture of experts · Attention</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/GoodfireAI/status/2082144030343966981">A direct weight edit repairs collapsed neuron labels</a></h3>
+          <p>Goodfire describes an RL-trained model in which 94% of neuron labels began with the word “texts.” A direct weight edit reduced that behavior to 5%, reportedly with limited side effects. Supervised fine-tuning performed better, but required a newly curated dataset, suggesting that targeted editing may be a cheaper intervention to try before retraining.</p>
+          <p class="tags">Model editing · Interpretability · Fine-tuning</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/_albertgu/status/2082210421801652406">Why text-to-speech evaluation remains difficult</a></h3>
+          <p>A technical guide highlighted by Albert Gu examines the ambiguity of quality in generative speech systems and the narrow slice of behavior captured by standard text-to-speech benchmarks.</p>
+          <p class="tags">Text to speech · Evaluation · Benchmarks</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/clattner_llvm/status/2082208711771357424">An LLM inference handbook for deployment fundamentals</a></h3>
+          <p>Chris Lattner shares Modular’s consolidated technical handbook on the concepts practitioners should understand before deploying a language model.</p>
+          <p class="tags">Inference · Deployment · Systems</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2082243249402433969">A long-form primer on causal inference</a></h3>
+          <p>A recently published primer offers a broad methodological reference for readers working with causal modeling and machine-learning research. The available source snapshot does not identify the resource’s canonical page.</p>
+          <p class="tags">Causal inference · Methodology</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="computational-genomics">
+      <h2 id="computational-genomics">Computational Genomics &amp; Research Tools</h2>
+      <div class="grid">
+        <article class="lead">
+          <h3><a href="https://x.com/pkoo562/status/2082244764389515587">Reusable framework adapts AlphaGenome to RNA tasks</a></h3>
+          <p>A Genomics × AI technical post presents reusable preprocessing and training code for adapting AlphaGenome to gene-expression, splice-site-usage, and splice-junction datasets. Researchers can freeze the pretrained sequence backbone and train a splicing-specific head, reducing compute while retaining strong performance. The post also documents practical lessons from unsuccessful experiments.</p>
+          <p class="tags">AlphaGenome · RNA splicing · Gene regulation · Tools</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2082243120398499921">CHARLIE resolves interruptions in pathogenic repeat expansions</a></h3>
+          <p>CHARLIE analyzes targeted sequencing data to detect and position interruptions within expanded tandem repeats. The unsupervised method works across sequencing platforms and repeat motifs and resolves interruptions at the level of individual reads—useful for studying repeat expansions implicated in neurological and other genetic diseases.</p>
+          <p class="tags">Tandem repeats · Sequencing · Genetic disease</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2082242818291155392">RIPPLE finds replicate-aware gradients in spatial transcriptomics</a></h3>
+          <p>RIPPLE is an R package for directional, cell-type-anchored inference of gene-expression gradients. It fits per-sample Poisson generalized linear models with total-count offsets, combines evidence across biological replicates only when effect directions agree, and reports signed gradient scores with adjusted false-discovery rates.</p>
+          <p class="tags">Spatial transcriptomics · Statistics · Cell signaling</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2082119704781427182">FastGxC maps context-specific eQTLs at scale</a></h3>
+          <p>FastGxC is presented as a scalable method for mapping context-specific expression quantitative trait loci from both bulk and single-cell RNA sequencing, with an emphasis on faster and more powerful analysis.</p>
+          <p class="tags">eQTL · Single-cell analysis · Computational biology</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2082119509658218801">Recovering cell-type regulatory processes from bulk sequencing</a></h3>
+          <p>A research method proposes high-resolution reconstruction of cell-type-specific transcriptional regulation from aggregate bulk-sequencing samples. Further methodological details were not present in the supplied source snapshot.</p>
+          <p class="tags">Regulatory genomics · Deconvolution · Gene expression</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2082003960051753275">High-resolution ancestry deconvolution for large genomic datasets</a></h3>
+          <p>A shared research resource presents a scalable approach to fine-grained ancestry deconvolution. The available post does not expose the linked paper’s title or additional technical details.</p>
+          <p class="tags">Ancestry · Deconvolution · Scalable methods</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="biology-medicine">
+      <h2 id="biology-medicine">Biology, Epigenomics &amp; Medicine</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2082221444398985263">Moving bivalent genes within the nucleus can activate them</a></h3>
+          <p>A highlighted study reports that experimentally repositioning bivalent genes within the nucleus can trigger their expression. The result supports an active regulatory role for subnuclear architecture, rather than treating nuclear organization as structural scaffolding alone.</p>
+          <p class="tags">Nuclear architecture · Epigenetics · Chromatin</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2082155676378480674">A cross-tissue atlas of the human aging methylome</a></h3>
+          <p>A large map of the aging epigenome draws on more than 15,000 DNA-methylation profiles spanning 17 human tissues. Detailed findings and validation results were not available in the supplied excerpt, but the scale suggests broad utility for aging and disease research.</p>
+          <p class="tags">Aging · DNA methylation · Epigenomics · Dataset</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2082127627557716051">Large GWAS studies gestational traits in Chinese pregnancies</a></h3>
+          <p>A genome-wide association study analyzed gestational phenotypes in as many as 121,579 Chinese pregnancies and reportedly identified 4,688 locus–trait associations. The available excerpt does not include phenotype-level findings, but the cohort adds valuable population diversity to medical-genomics research.</p>
+          <p class="tags">GWAS · Pregnancy · Population genetics</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="research-culture">
+      <h2 id="research-culture">Research Culture &amp; Publishing</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/sokrypton/status/2081693720110407756">An apparent AI-written peer review reportedly prompted rejection</a></h3>
+          <p>Sergey Ovchinnikov says an apparently AI-generated manuscript review became the basis for an editorial rejection. He points to markdown formatting, characteristic phrasing, illogical comments, and a reference to the wrong journal, and says he appealed. The account is anecdotal, but it illustrates a concrete risk from undisclosed AI use in scientific review: unreliable criticism can be amplified by editorial authority.</p>
+          <p class="tags">Peer review · Research integrity · AI governance</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <h2 id="language-heading">Language Practice</h2>
+      <p>No verified language-practice articles were available for this edition.</p>
+
+      <div class="language-grid">
+        <div class="language-card" lang="de">
+          <h3>Deutsch — tägliche Lektüre</h3>
+          <p>Für diesen Lauf konnte kein Artikel von <a href="https://www.heise.de/">heise online</a> oder der Ausweichquelle verlässlich ausgewählt werden.</p>
+        </div>
+
+        <div class="language-card" lang="fr">
+          <h3>Français — lecture quotidienne</h3>
+          <p>Aucun article récent de Numerama ou de la source de secours <a href="https://www.france24.com/fr/">France 24</a> n’a pu être vérifié pour cette édition.</p>
+        </div>
+
+        <div class="language-card" lang="ja">
+          <h3>日本語 — 毎日の読み物</h3>
+          <p>今回は、nippon.comまたは代替ソースの<a href="https://www3.nhk.or.jp/news/">NHKニュース</a>から記事を確認できなかったため、読み物はありません。</p>
+        </div>
+
+        <div class="language-card" lang="zh">
+          <h3>中文 — 每日阅读</h3>
+          <p>本期未能核实 BBC 中文或备用来源 <a href="https://www.rfi.fr/cn">RFI 中文</a> 的近期文章，因此没有选取阅读项目。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>Editorial note: Several linked social posts contained shortened links or truncated descriptions. Summaries above are limited to details present in the supplied source material, and the linked posts are retained as the available reference pages.</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

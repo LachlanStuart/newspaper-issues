@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbfaf6;
+      --ink: #202522;
+      --muted: #667069;
+      --rule: #d8ddd7;
+      --accent: #245c4a;
+      --card: #ffffff;
+      --soft: #eef3ef;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+    header {
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 0 20px;
+      margin-bottom: 38px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.7rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 44px 0;
+    }
+    section > h2 {
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.7rem;
+      line-height: 1.2;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
+      gap: 18px;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    article h3 {
+      margin: 0 0 10px;
+      font-size: 1.17rem;
+      line-height: 1.3;
+    }
+    article p {
+      margin: 0.55em 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .source {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .tags {
+      margin-top: 13px;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.77rem;
+    }
+    .language-practice {
+      margin-top: 58px;
+      padding-top: 35px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -8px 0 25px;
+    }
+    .reading {
+      margin: 24px 0;
+      padding: 26px;
+    }
+    .reading h3 {
+      font-size: 1.35rem;
+    }
+    .reading .byline {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+    }
+    .reading ul {
+      margin-bottom: 0;
+    }
+    .notes {
+      margin-top: 56px;
+      padding: 20px 22px;
+      background: var(--soft);
+      border-radius: 8px;
+      color: #4f5852;
+      font-family: Arial, sans-serif;
+      font-size: 0.84rem;
+    }
+    .notes h2 {
+      margin: 0 0 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.15rem;
+    }
+    .notes p {
+      margin: 6px 0;
+    }
+    footer {
+      margin-top: 38px;
+      padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.77rem;
+      text-align: center;
+    }
+    code {
+      font-size: 0.9em;
+      background: #f0f2ef;
+      padding: 0.1em 0.3em;
+      border-radius: 3px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <h1>News</h1>
+    <p class="date">Sunday, August 2, 2026 · Run 2026-08-02-1</p>
+  </header>
+
+  <section>
+    <h2>AI Research &amp; Engineering</h2>
+    <div class="grid">
+      <article>
+        <div class="source">科学空间 / Spaces AC</div>
+        <h3><a href="https://spaces.ac.cn/archives/11833">Deconstructing Scaling Laws: The Interplay of Optimization, Architecture, and Data</a></h3>
+        <p>Large-network training outcomes depend on tightly interacting choices of optimizer, architecture, and dataset. The article uses scaling laws to move beyond empirical “alchemy” toward a systematic account of how those factors jointly determine performance.</p>
+        <div class="tags">Scaling laws · optimization · architecture · training data</div>
+      </article>
+
+      <article>
+        <div class="source">X AI Research</div>
+        <h3><a href="https://x.com/classiclarryd/status/2083739041338630372">NanoGPT speedrun reaches 75.4 seconds with a memory-efficient ReLU² Triton kernel</a></h3>
+        <p>A new record cuts runtime by 0.6 seconds. The merged kernel stores only <code>relu(X@W1)^2</code> in the forward pass, then reconstructs <code>relu(X@W1)</code> in a fused backward epilogue to reduce memory traffic.</p>
+        <div class="tags">Training systems · Triton · kernels · benchmarks</div>
+      </article>
+
+      <article>
+        <div class="source">X AI Research</div>
+        <h3><a href="https://x.com/YouJiacheng/status/2083727705649086536">Technical comparison of IMLE and Forward XM candidate sampling</a></h3>
+        <p>Forward XM samples latent candidates independently for each example, while IMLE shares a larger candidate pool across the batch. The analysis considers the benefits of amortized selection, duplicate assignments, and possible remedies such as bipartite minimum-weight matching or oversampling.</p>
+        <div class="tags">Generative modeling · IMLE · sampling</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/juRRtv5KB7YbP5zaa/the-art-of-shipping-slopware">The Art of Shipping Slopware</a></h3>
+        <p>An opinionated firsthand account of how AI-generated software changes code design, management, and programmer responsibilities—and how highly agentic development can encourage teams to ship too many unnecessary features.</p>
+        <div class="tags">Software engineering · AI coding · management</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/GPbWyHgx9hCLMdAjc/mud-as-ai-evaluation-and-llm-judge-distortion-in-ways">MUD as AI Evaluation and LLM-Judge Distortion in Ways Aggregate κ Misses</a></h3>
+        <p>A 13-model evaluation in a persistent text world finds sharp variation in per-model judge agreement. Removing judge-dependent components substantially changes the rankings, underscoring the need for agreement audits and ranking-stability checks.</p>
+        <div class="tags">AI evaluation · LLM judges · benchmarking</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/n5htoDGvKKJFAjji2/constitutional-midtraining-content-presence-drives-alignment-1">Constitutional Midtraining: Content Presence Drives Alignment Gains</a></h3>
+        <p>A 120B-model study reports that adding constitutional material during midtraining improves several alignment measures without an observed capability cost. Curriculum order and deliberative-reasoning structure contribute little, while safety gains still face limits under pressure or value conflict.</p>
+        <div class="tags">AI alignment · midtraining · constitutional AI</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/rwu73dCE3uWjieijK/confirming-claims-of-superposition-and-adversarial-examples">Confirming Claims of Superposition and Adversarial Examples in Toy Models</a></h3>
+        <p>An open-code replication supports three claims connecting superposition with adversarial vulnerability and attack transfer in toy classifiers. It also finds that correlated features can collapse onto shared directions when capacity is constrained.</p>
+        <div class="tags">Mechanistic interpretability · superposition · adversarial examples</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/8oWjLL8HRb7SfyPYj/mathematicians-may-be-worried-but-ai-for-science-is-going-to">AI-for-science agents and a recursively improving research ecosystem</a></h3>
+        <p>Experiments in which a scientific agent extended three published projects suggest that agent-generated analyses and reusable tools could compound into a stronger research ecosystem. The report also raises unresolved questions about validation and research triage.</p>
+        <div class="tags">AI for science · research agents · methodology</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/EaNkLdsuDQMFCW7ow/bayeswatch-a-retrospective">Bayeswatch: A Retrospective</a></h3>
+        <p>A comparison of the author’s 2021 AI-policy fiction with developments through 2026, covering agentic coding, cyber capabilities, biological risk, international coordination, and rapid takeoff.</p>
+        <div class="tags">AI forecasting · AI policy · retrospective</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/ZLary4FDY7kQaGfc3/existential-risk-from-ai-an-exposition-for-mathematicians">Existential Risk from AI: An Exposition for Mathematicians</a></h3>
+        <p>An introduction to existential risk from artificial intelligence aimed at a mathematical audience. The available source excerpt contains only the title, so further details are not available here.</p>
+        <div class="tags">AI risk · mathematics · exposition</div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Biology, Medicine &amp; Scientific AI</h2>
+    <div class="grid">
+      <article>
+        <div class="source">X AI Research</div>
+        <h3><a href="https://x.com/cgeorgiaw/status/2083205845874044964">Alzheimer’s Agent Challenge opens disease-mechanism research to AI agents</a></h3>
+        <p>A Hugging Face challenge organized with Alzheimer’s researchers invites AI agents to investigate causes of the disease in an open research setting, with participation details linked from the announcement.</p>
+        <div class="tags">AI agents · biomedicine · Alzheimer’s research</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2083475735940047114">CENO combines million-base genomic modeling, variant interpretation, and sequence design</a></h3>
+        <p>CENO combines Mamba-2, sparse attention, and mixture-of-experts layers, with staged training from 8 kb to 1 Mb contexts. Reported applications include distal variant–gene relationships, zero-shot variant scoring, evolutionary conditioning, and reinforcement-learned cell-type-specific enhancer design.</p>
+        <div class="tags">Genomics · long-context models · variant effects · enhancer design</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2083475230119612590">Human Bindome releases 306,146 designed binders for 8,296 proteins</a></h3>
+        <p>The proteome-scale atlas provides sequences, predicted complexes, confidence metrics, leakage-controlled dataset splits, and web and API access. Its computationally predicted—not experimentally validated—candidates cover roughly 41% of the human proteome.</p>
+        <div class="tags">Protein binders · functional genomics · drug discovery · datasets</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2083476450221686912">Protein-language-model embeddings retrieve enzymes beyond detectable homology</a></h3>
+        <p>A study searches billions of metagenomic sequences and experimentally obtains 30 soluble proteins from 96 selected dioxygenase candidates. It introduces a fast sequence-quality metric and releases two specialized 350M-parameter AMPLIFY models for distinct data regimes.</p>
+        <div class="tags">Metagenomics · protein language models · enzyme discovery</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2083473815133470884">DeepMutDTA predicts drug-resistance mutations from protein and compound sequences</a></h3>
+        <p>Pretrained on about 1.46 million affinity measurements, DeepMutDTA predicts mutation-induced changes in drug–target affinity without mutant structures. Evaluations span SARS-CoV-2, HIV resistance and epistasis, cancer targets, and surveillance-scale viral sequences.</p>
+        <div class="tags">Drug resistance · disease AI · variant effects</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2083476269719601177">EffieDes uses neuro-symbolic optimization for constrained protein design</a></h3>
+        <p>EffieDes predicts a backbone-conditioned Potts landscape and globally searches for sequences under hard constraints, including symmetry and competing structural states. Reported tests include selective hetero-hexamers and a nanobody that bound an Omicron RBD at approximately 7.6 nM while blocking ACE2.</p>
+        <div class="tags">Protein design · neuro-symbolic AI · nanobodies</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2083475380346966159">ApexSP designs cargo-specific signal peptides for microbial secretion</a></h3>
+        <p>The workflow combines Sec/Tat-conditioned diffusion, topology and taxonomy filters, and cargo-aware ranking. Small wet-lab tests found several gains over reference leaders, including a 1.71-fold secretion increase for an enzyme in <em>Pichia pastoris</em>.</p>
+        <div class="tags">Synthetic biology · protein secretion · diffusion models</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/razoralign/status/2083474191601603002">SpatialFormer spans subcellular molecules to multicellular landscapes</a></h3>
+        <p>A transformer-based spatial-transcriptomics model is intended to learn representations across scales of tissue organization. The available announcement does not provide architectural details, datasets, or quantitative results.</p>
+        <div class="tags">Spatial transcriptomics · single-cell biology · representation learning</div>
+      </article>
+
+      <article>
+        <div class="source">X Bio Research</div>
+        <h3><a href="https://x.com/anshulkundaje/status/2083577476752851021">Enhancer buffering protects dosage-sensitive housekeeping genes</a></h3>
+        <p>A reported finding links enhancer buffering with protection of dosage-sensitive housekeeping genes during vulnerable developmental transitions. The available post is truncated and does not include methodological or quantitative details.</p>
+        <div class="tags">Gene regulation · enhancers · development · dosage sensitivity</div>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ideas, Epistemology &amp; Learning</h2>
+    <div class="grid">
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/wQxrbwocnCsTjHMeA/questions-for-the-reader-and-writer-of-fundamental">Questions for the Reader (and Writer) of “Fundamental Uncertainty”</a></h3>
+        <p>A question-driven commentary placing Gordon Worley’s <em>Fundamental Uncertainty</em> in conversation with rationalist epistemology, phenomenology, Buddhism, and AI alignment.</p>
+        <div class="tags">Epistemology · philosophy · AI alignment</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/pvGSzHMjYvesNg78Z/agnostic-meaning-betting-on-others">Agnostic Meaning: Betting on Others</a></h3>
+        <p>A concise framework for acting constructively amid existential uncertainty: help more people gain the opportunity to make moral, philosophical, or technological progress.</p>
+        <div class="tags">Effective Altruism · meaning · philosophy</div>
+      </article>
+
+      <article>
+        <div class="source">LessWrong</div>
+        <h3><a href="https://www.lesswrong.com/posts/D2CpuGdiLrhr3gJXa/a-chess-training-app-for-imitation-learning">A Chess Training App for Imitation Learning</a></h3>
+        <p>An open-source app asks players to distinguish real moves from Stockfish’s choices, testing whether dense imitation of a strong teacher can accelerate human skill acquisition.</p>
+        <div class="tags">Chess · imitation learning · human learning</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="language-practice">
+    <h2>Language Practice</h2>
+    <p class="language-intro">Today’s edited reading selections, preserved in their original languages.</p>
+
+    <article class="reading" lang="de">
+      <h3>Deutsch — Wie sich die EU gegen KI-Gefahren wappnet</h3>
+      <p class="byline">Tagesschau · 02.08.2026 · <a href="https://www.tagesschau.de/ausland/ki-sicherheit-eu-gesetz-inkraft-100.html">https://www.tagesschau.de/ausland/ki-sicherheit-eu-gesetz-inkraft-100.html</a></p>
+      <p>In der Europäischen Union tritt eine weitere Stufe des KI-Gesetzes in Kraft. Das KI-Büro der Europäischen Kommission erhält stärkere Eingriffsmöglichkeiten, wenn die Risikoanalysen von Anbietern nicht ausreichen. Anlass für die strengere Aufsicht geben unter anderem jüngste Sicherheitstests, bei denen KI-Systeme ungeplant in fremde Unternehmensnetze eindrangen.</p>
+      <p>Die neuen Vorschriften stärken außerdem die Transparenz: Künstlich erzeugte oder veränderte Bilder, Videos und Audios müssen in relevanten Fällen gekennzeichnet werden. Auch beim Kontakt mit Chatbots oder synthetischen Stimmen sollen Nutzer erkennen können, dass sie mit einem KI-System kommunizieren. Bei Verstößen drohen Unternehmen Geldbußen von bis zu 15 Millionen Euro oder drei Prozent ihres weltweiten Jahresumsatzes. Offen bleibt jedoch, wie wirksam europäische Regeln gegenüber global tätigen US-Technologiekonzernen durchgesetzt werden können.</p>
+      <p><strong>Warum lesen:</strong> Der Artikel erklärt anschaulich, wie die EU auf neue KI-Risiken reagiert und welche Regeln Verbraucher künftig unmittelbar bemerken werden.</p>
+    </article>
+
+    <article class="reading" lang="fr">
+      <h3>Français — Guerre de l’IA : l’empire américain contre-attaque face à la menace des robots chinois</h3>
+      <p class="byline">France 24 · 1er août 2026 · <a href="https://www.france24.com/fr/%C3%A9co-tech/20260801-guerre-de-l-ia-l-empire-am%C3%A9ricain-contre-attaque-face-%C3%A0-la-menace-des-robots-chinois">Lire l’article</a></p>
+      <p>Les États-Unis ont interdit l’importation d’« appareils robotiques avancés » étrangers, une mesure générale qui cible surtout l’industrie chinoise. Celle-ci aurait livré plus de 90 % des robots dans le monde en 2025. Washington invoque la sécurité nationale : dotées de capteurs, de reconnaissance faciale et de systèmes d’intelligence artificielle, ces machines peuvent fonctionner comme des dispositifs de surveillance mobiles dans des lieux sensibles.</p>
+      <p>L’article met en lumière deux stratégies concurrentes. Les entreprises américaines privilégient les modèles d’IA de pointe, la puissance de calcul et les centres de données, tandis que la Chine mise sur son industrie manufacturière pour intégrer l’IA à des robots, des drones et des véhicules autonomes. Pékin voit aussi dans la robotisation une réponse au vieillissement démographique, au manque de main-d’œuvre et aux besoins de productivité.</p>
+      <p>L’interdiction ferme cependant aux fabricants chinois un marché essentiel et vise à empêcher une future dépendance américaine. Les États-Unis devront encore bâtir une filière capable de rivaliser avec l’écosystème industriel chinois et ses prix compétitifs, éventuellement en coopérant avec des partenaires européens.</p>
+      <p><strong>Pourquoi lire :</strong> Une analyse claire de la rivalité sino-américaine dans l’IA, au-delà des seuls agents conversationnels et modèles de langage.</p>
+      <p><strong>Vocabulaire utile</strong></p>
+      <ul>
+        <li><strong>IA incarnée</strong> — intelligence artificielle intégrée à une machine physique capable de percevoir son environnement et d’y agir</li>
+        <li><strong>écosystème manufacturier</strong> — ensemble coordonné d’entreprises, de fournisseurs, d’usines et de compétences nécessaires à la production industrielle</li>
+        <li><strong>puissance de calcul</strong> — capacité informatique disponible pour entraîner ou faire fonctionner des modèles d’intelligence artificielle</li>
+        <li><strong>reconnaissance faciale</strong> — technologie permettant d’identifier ou de vérifier une personne à partir des caractéristiques de son visage</li>
+      </ul>
+    </article>
+
+    <article class="reading" lang="ja">
+      <h3>日本語 — ジャワ原人 赤ちゃんを未発達なまま出産し協力して子育てか</h3>
+      <p class="byline">NHKニュース · 2026年8月1日 · <a href="https://news.web.nhk/newsweb/na/na-k10015192831000">記事を読む</a></p>
+      <p>およそ10万年前のジャワ原人の赤ちゃんは、現代のヒトと同じように、未発達な状態で生まれていたとみられることが分かりました。東京大学などの研究グループが骨を分析し、成長するまでに長期間の子育てが必要だった可能性を示しました。</p>
+      <p>この研究結果は、ジャワ原人が子どもを一人だけで育てるのではなく、周囲の個体と協力して世話をしていた可能性にもつながります。古代人類の成長や社会的な子育てのあり方を考える手がかりとなる研究です。</p>
+      <p><strong>読む理由：</strong> 骨の分析から約10万年前の人類の子育てや社会生活を探る、興味深い科学記事です。</p>
+      <p><strong>語彙メモ</strong></p>
+      <ul>
+        <li><strong>ジャワ原人（じゃわげんじん）</strong> — インドネシアのジャワ島などに生息していた古代人類</li>
+        <li><strong>未発達（みはったつ）</strong> — 身体や能力がまだ十分に成長していない状態</li>
+        <li><strong>協同養育（きょうどうよういく）</strong> — 親だけでなく、集団の複数の個体が協力して子どもを育てること</li>
+      </ul>
+    </article>
+
+    <article class="reading" lang="zh">
+      <h3>中文 — “不因袭击而退缩” 柏林遇袭一周后德国多地举行“骄傲游行”</h3>
+      <p class="byline">DW 中文 · 2026年8月1日 · <a href="https://www.dw.com/zh/不因袭击而退缩-柏林遇袭一周后德国多地举行骄傲游行/a-78202447">阅读文章</a></p>
+      <p>柏林骄傲游行遭遇汽车冲撞和持刀袭击一周后，德国多个城市继续举行骄傲活动，吸引数十万人参加。此前的袭击造成一名女性死亡、多人受伤，德国有关部门正按照“伊斯兰主义恐怖袭击”的方向展开调查。</p>
+      <p>汉堡主办方估计约有25万人参加当地游行，警方部署的警力比去年增加一倍。活动发言人表示，酷儿群体不会因暴力而退缩，而要在悲痛中从彼此身上汲取力量；来自柏林的参与者则身穿深色服装悼念遇难者。波恩、阿豪斯、默尔斯和瑙姆堡等城市也举行了相关活动，借此表达对多元、平权与团结的支持。</p>
+      <p><strong>为什么读：</strong> 文章把突发安全事件与德国社会围绕少数群体权利、公共空间和反歧视的讨论联系起来。</p>
+      <p><strong>词汇笔记</strong></p>
+      <ul>
+        <li><strong>伊斯兰主义 (yīsīlán zhǔyì)</strong> — 主张依据特定伊斯兰政治理念重塑国家或社会的政治思潮，不等同于伊斯兰教本身。</li>
+        <li><strong>酷儿群体 (kù’ér qúntǐ)</strong> — 对多种非异性恋或非传统性别认同人群的概括性称呼。</li>
+        <li><strong>仇恨犯罪 (chóuhèn fànzuì)</strong> — 因受害者的族裔、宗教、性取向或其他身份特征而实施的犯罪。</li>
+      </ul>
+    </article>
+  </section>
+
+  <aside class="notes">
+    <h2>Source notes</h2>
+    <p>Hazy Research, Kasra Blog, Nathan Chen Blog, and Queer Festival Heidelberg had no new reportable items in the supplied material.</p>
+    <p>Some social posts and one LessWrong entry were available only as short or truncated excerpts; those limitations are noted alongside the relevant items. Previously reported material was omitted at the source stage.</p>
+  </aside>
+
+  <footer>News · August 2, 2026</footer>
+</main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #f8f6f0;
+      --card: #fffefa;
+      --ink: #22221f;
+      --muted: #65645e;
+      --line: #d8d3c7;
+      --accent: #8b2e2e;
+      --link: #174d70;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.62;
+    }
+
+    .page {
+      width: min(980px, calc(100% - 32px));
+      margin: 28px auto 60px;
+    }
+
+    header {
+      padding: 24px 0 22px;
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    main {
+      display: block;
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    section > h2 {
+      margin: 0 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 3px double var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+
+    article {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    article:first-of-type {
+      padding-top: 4px;
+    }
+
+    article h3 {
+      margin: 0 0 8px;
+      font-size: 1.3rem;
+      line-height: 1.3;
+    }
+
+    article p {
+      margin: 8px 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent);
+    }
+
+    .source {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.84rem;
+    }
+
+    .tags {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 2px 5px 2px 0;
+      padding: 2px 7px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--card);
+    }
+
+    .language-practice {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 6px solid var(--ink);
+    }
+
+    .language-practice > p {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .language-card {
+      margin: 28px 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: var(--card);
+    }
+
+    .language-card h3 {
+      margin-top: 0;
+      font-size: 1.35rem;
+    }
+
+    .language-card h4 {
+      margin: 22px 0 6px;
+      font-size: 1.05rem;
+    }
+
+    .language-card ul {
+      margin-top: 6px;
+    }
+
+    .language-card li {
+      margin-bottom: 7px;
+    }
+
+    footer {
+      margin-top: 46px;
+      padding-top: 16px;
+      border-top: 1px solid var(--ink);
+      color: var(--muted);
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 620px) {
+      body {
+        font-size: 16px;
+      }
+
+      .page {
+        width: min(100% - 22px, 980px);
+        margin-top: 12px;
+      }
+
+      .language-card {
+        padding: 18px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <p class="date">Monday, August 31, 2026</p>
+    </header>
+
+    <main>
+      <section aria-labelledby="ai-research">
+        <h2 id="ai-research">Artificial Intelligence &amp; Computing</h2>
+
+        <article>
+          <h3><a href="https://x.com/Jianlin_S/status/2094268344086213117">Schedule-free learning rates revisited through multi-stage training</a></h3>
+          <p>Jianlin Su re-examines schedule-free learning rates by treating training as a sequence of stages. The analysis shifts the scheduling objective toward approaching optimality by the end of each stage and links to a full technical article.</p>
+          <p class="tags">
+            <span class="tag">Optimization</span>
+            <span class="tag">Learning-rate schedules</span>
+            <span class="tag">Training</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/yaroslavvb/status/2094139669076377759">A competition built around a 2D model of data-movement complexity</a></h3>
+          <p>Yaroslav Bulatov highlights a competition based on Bill Dally’s model of algorithmic complexity. Rather than counting conventional operations alone, the model accounts for the cost of moving data across a two-dimensional grid—a hardware-aware perspective that may better reflect real computational constraints.</p>
+          <p class="tags">
+            <span class="tag">Hardware</span>
+            <span class="tag">Algorithmic complexity</span>
+            <span class="tag">Data movement</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/giffmana/status/2093986387066282361">A technical retrospective on Inceptionism and iterative DeepDream video</a></h3>
+          <p>Lucas Beyer explains the original Inceptionism procedure: select an ImageNet output class, then optimize the input through backpropagation while using an auxiliary smoothness loss. He also describes an iterative VGG16 variant that repeatedly crops and re-optimizes frames to produce an apparently infinite zoom. The thread connects the method to original work, a contemporary vlog, and a historical overview.</p>
+          <p class="tags">
+            <span class="tag">Computer vision</span>
+            <span class="tag">DeepDream</span>
+            <span class="tag">Feature visualization</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rasbt/status/2094057793506439492">From-scratch guide to conventional LLMs, reasoning models, and agents</a></h3>
+          <p>Sebastian Raschka shares an educational video about how conventional language models relate to reasoning models and agents. It discusses the value of building systems from scratch and covers setup of the accompanying Python and PyTorch environment.</p>
+          <p class="tags">
+            <span class="tag">Language models</span>
+            <span class="tag">Reasoning</span>
+            <span class="tag">Agents</span>
+            <span class="tag">PyTorch</span>
+          </p>
+        </article>
+      </section>
+
+      <section aria-labelledby="biology">
+        <h2 id="biology">Biology &amp; Genomics</h2>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2094209528275615968">OmicsFM brings foundation modeling to large-scale proteomics</a></h3>
+          <p>OmicsFM is described as a modality-agnostic transformer pretrained through masked abundance reconstruction on 48,837 quality-filtered proteomics profiles from 1,397 reprocessed PRIDE projects. Its attention networks reportedly recover more known molecular relationships than co-expression methods and existing single-cell foundation models across nine reference databases, revealing pathway-level organization.</p>
+          <p class="tags">
+            <span class="tag">Proteomics</span>
+            <span class="tag">Foundation models</span>
+            <span class="tag">Biological networks</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2094208913705247019">CARP quantifies rearrangement complexity in pangenomes</a></h3>
+          <p>Complete Ancestral Reconstruction for Pangenomes, or CARP, defines structural complexity according to the number of graph-altering operations required to transform a pangenome into a simple pangenome under a specified model. The framework is intended to support comparisons across pangenomes and among graph constructions derived from the same sequence set.</p>
+          <p class="tags">
+            <span class="tag">Genomics</span>
+            <span class="tag">Pangenomes</span>
+            <span class="tag">Structural variation</span>
+            <span class="tag">Algorithms</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/cutleraging/status/2094165535772537318">Long-read sequencing reveals pre-meiotic gene conversion in sperm</a></h3>
+          <p>A newly published <cite>Nature</cite> study uses long-read sequencing to report an unexpected form of pre-meiotic gene conversion in sperm. The available post is truncated, so methodological and quantitative details are limited.</p>
+          <p class="tags">
+            <span class="tag">Long-read sequencing</span>
+            <span class="tag">Gene conversion</span>
+            <span class="tag">Germline genomics</span>
+          </p>
+        </article>
+      </section>
+
+      <section class="language-practice" aria-labelledby="language-practice">
+        <h2 id="language-practice">Language Practice</h2>
+        <p>Daily reading selections in their original languages.</p>
+
+        <article class="language-card" lang="de">
+          <h3>Deutsch — Rund 80 britische Prominente fordern Schutz für Stimmen vor der KI</h3>
+          <p class="source">Deutschlandfunk Kultur · 30.08.2026 · <a href="https://www.deutschlandfunkkultur.de/rund-80-britische-prominente-fordern-schutz-fuer-stimmen-vor-der-ki-104.html">Artikel lesen</a></p>
+          <p>Rund 80 britische Prominente, darunter der aus „Paddington“ und „Downton Abbey“ bekannte Schauspieler Hugh Bonneville, verlangen einen besseren rechtlichen Schutz ihrer Stimmen. Die Kampagne „Save Our Voices Now“ möchte verhindern, dass KI-Systeme reale Stimmen ohne Erlaubnis nachahmen und für neue Inhalte einsetzen.</p>
+          <p>Der Beitrag stellt den Vorstoß in den Zusammenhang mit Betrug durch Stimmklone und verweist auf Dänemark, wo Bürgerinnen und Bürger Eigentumsrechte am eigenen Gesicht, Körper und an der eigenen Stimme erhalten sollen. Dadurch könnten Betroffene gegen unbefugt erzeugte KI-Inhalte vorgehen, deren Entfernung verlangen und Schadenersatz fordern.</p>
+          <p><strong>Warum lesen:</strong> Der kurze Beitrag führt anschaulich in die Debatte über Persönlichkeitsschutz, kreative Rechte und KI-generierte Stimmen ein.</p>
+        </article>
+
+        <article class="language-card" lang="fr">
+          <h3>Français — Ebola en RDC: un nouveau candidat-vaccin égyptien contre Bundibugyo en développement</h3>
+          <p class="source">RFI · 31 août 2026 · <a href="https://www.rfi.fr/fr/afrique/20260831-ebola-en-rdc-un-nouveau-candidat-vaccin-%C3%A9gyptien-contre-bundibugyo-en-d%C3%A9veloppement">Lire l’article</a></p>
+          <p>Face à l’épidémie d’Ebola qui sévit en République démocratique du Congo, la Coalition pour les innovations en matière de préparation aux épidémies va verser jusqu’à 16,5 millions de dollars au groupe pharmaceutique égyptien Minapharm. L’objectif est de conduire jusqu’à un premier essai chez l’être humain un candidat-vaccin visant spécifiquement la souche Bundibugyo. Conçu par ProBioGen, une filiale berlinoise de Minapharm, il constitue le cinquième projet de ce type soutenu par la coalition.</p>
+          <p>Le vaccin expérimental utilise un virus fortement affaibli comme véhicule afin de présenter au système immunitaire des protéines de Bundibugyo. Il chercherait ainsi à stimuler simultanément la production d’anticorps et la réponse de certaines cellules immunitaires. Des études précliniques doivent toutefois précéder la phase 1, qui évaluera sa sécurité et sa capacité à provoquer une réponse immunitaire. La production sera répartie entre Berlin et Le Caire, avec l’ambition de renforcer à terme les capacités africaines de fabrication de vaccins. Ce produit ne pourra pas répondre immédiatement à l’épidémie actuelle, puisqu’aucun vaccin spécifiquement homologué contre cette souche n’est encore disponible.</p>
+          <p><strong>Pourquoi lire :</strong> Un article accessible sur les étapes scientifiques, industrielles et sanitaires nécessaires au développement d’un vaccin contre une souche particulièrement meurtrière d’Ebola.</p>
+          <h4>Vocabulaire utile</h4>
+          <ul>
+            <li><strong>candidat-vaccin</strong> — produit encore expérimental dont la sécurité et l’efficacité doivent être évaluées avant une éventuelle autorisation</li>
+            <li><strong>étude préclinique</strong> — recherche menée en laboratoire ou sur des modèles animaux avant les essais chez l’être humain</li>
+            <li><strong>réponse immunitaire</strong> — ensemble des réactions de l’organisme destinées à reconnaître et combattre un agent infectieux</li>
+            <li><strong>principe actif</strong> — composant d’un médicament ou d’un vaccin qui produit l’effet biologique recherché</li>
+          </ul>
+        </article>
+
+        <article class="language-card" lang="ja">
+          <h3>日本語 — AIが生成した“存在しない病名”、研修医の44％が信用　見抜けた医師との差は？　仏大学病院が検証</h3>
+          <p class="source">ITmedia NEWS · 2026年8月31日 · <a href="https://www.itmedia.co.jp/news/article/2608/31/2000000865/">記事を読む</a></p>
+          <p>フランスの大学病院などの研究チームが、大規模言語モデル（LLM）の作り出した架空の病名が医師の判断に及ぼす影響を調べた。実験では、診断支援システムが「ニューロカドミウム症」という存在しない疾患を有力候補として示すよう設定し、41人の医師に脳MRI画像を診断してもらった。その結果、44％に当たる18人が、この病名を自分の鑑別診断に加えた。</p>
+          <p>影響には経験による大きな差があった。神経放射線の研修歴が6カ月以下の医師では69％が架空の病名を受け入れた一方、6カ月を超える医師では該当者がいなかった。ただし、LLMの支援によって全体の診断精度は52％から61％へ上昇している。研究チームは、AIの誤情報が臨床医の思考へ間接的に取り込まれる現象を「代理ハルシネーション」と名付け、支援効果と誤誘導の危険が併存することを示した。</p>
+          <p><strong>読む理由：</strong> 医療AIの有用性と、経験の浅い利用者ほど誤情報に影響されやすいという課題を、具体的な実験結果から学べる。</p>
+          <h4>語彙メモ</h4>
+          <ul>
+            <li><strong>鑑別診断（かんべつしんだん）</strong> — 症状や検査結果から考えられる複数の病気を比較し、原因を絞り込むこと。</li>
+            <li><strong>神経放射線（しんけいほうしゃせん）</strong> — MRIなどの画像を使い、脳や神経系の病気を診断する専門分野。</li>
+            <li><strong>代理ハルシネーション（だいりハルシネーション）</strong> — AIが生成した誤情報が、人間の専門家の判断に取り込まれる現象。</li>
+          </ul>
+        </article>
+
+        <article class="language-card" lang="zh">
+          <h3>中文 — 政府拟修法加强青少年社媒保护 平台保障不足或不得服务18岁以下用户</h3>
+          <p class="source">联合早报 · 2026-08-31 · <a href="https://www.zaobao.com.sg/news/singapore/story20260831-9596236">阅读文章</a></p>
+          <p>新加坡政府计划在明年初修法，要求社交媒体平台加强对青少年的保护。拟议措施包括核查用户年龄、限制陌生人通过私信接触未成年人，以及为青少年账号预先关闭自动播放功能。若平台无法或不愿提供足够保障，当局可能禁止它们向18岁以下用户提供服务。</p>
+          <p>政府倾向实行分级使用，而非全面禁止未成年人接触社媒：13岁以下儿童原则上不应使用，13岁至17岁用户则可在更安全、适龄的环境中继续使用。当局也考虑为青少年预设少于三小时的每日使用时限，以减少“无限滚动”等设计造成的过度使用。首批可能受监管的平台包括脸书、Instagram、TikTok、HardwareZone、X和YouTube，年龄核查方式可涉及生物识别估算、使用习惯分析或官方记录。</p>
+          <p><strong>为什么读：</strong> 文章具体呈现新加坡如何从年龄核查、平台设计和使用时限三方面监管青少年社媒使用，适合了解数字治理与儿童网络安全议题。</p>
+          <h4>词汇笔记</h4>
+          <ul>
+            <li><strong>年龄核查 (niánlíng héchá)</strong> — 确认或估算用户真实年龄，以决定其可使用哪些网络服务。</li>
+            <li><strong>无限滚动 (wúxiàn gǔndòng)</strong> — 页面不断自动加载新内容、让用户无需翻页即可持续浏览的设计。</li>
+            <li><strong>算法推送 (suànfǎ tuīsòng)</strong> — 平台根据用户资料和行为，由计算系统自动推荐内容。</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer>
+      News Daily · Run 2026-08-31-1
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

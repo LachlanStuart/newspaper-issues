@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201e;
+      --muted: #68675f;
+      --accent: #8a2f2a;
+      --rule: #d8d4c9;
+      --panel: #f2efe7;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+
+    main {
+      width: min(100% - 2rem, 980px);
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 1rem 0 1.15rem;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 2.5rem 0;
+    }
+
+    h2 {
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.7rem;
+    }
+
+    h3 {
+      margin: 0 0 0.45rem;
+      font-size: 1.17rem;
+      line-height: 1.3;
+    }
+
+    article {
+      break-inside: avoid;
+      padding: 0.15rem 0 1.35rem;
+      margin-bottom: 1.25rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    article p {
+      margin: 0.35rem 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    .stories {
+      columns: 2 300px;
+      column-gap: 2.2rem;
+    }
+
+    .source-link {
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .language-practice {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 5px double var(--ink);
+    }
+
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 1rem;
+    }
+
+    .language-card {
+      padding: 1rem;
+      background: var(--panel);
+      border: 1px solid var(--rule);
+    }
+
+    .language-card h3 {
+      font-size: 1.05rem;
+    }
+
+    .language-card p {
+      margin: 0.45rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    footer {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+      text-align: center;
+    }
+
+    @media (max-width: 640px) {
+      main { width: min(100% - 1.25rem, 980px); }
+      .stories { columns: 1; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p class="date"><time datetime="2026-07-31">Friday, July 31, 2026</time> · Research Edition</p>
+    </header>
+
+    <section aria-labelledby="ai-systems">
+      <h2 id="ai-systems">AI, Agents &amp; Systems</h2>
+      <div class="stories">
+        <article>
+          <h3>LLM wrapper reportedly lifts robot-policy success without fine-tuning</h3>
+          <p>An LLM-driven agent wrapped around the π0.5 robotics policy handles planning, execution checks, and recovery from failures. The researchers report that this architecture raised real-robot success from 16.7% to 97.3% without additional policy fine-tuning.</p>
+          <p class="source-link"><a href="https://x.com/tri_dao/status/2082895158950134204">Primary post</a> · <a href="https://x.com/YouJiacheng/status/2082863916682780695">Reported evaluation</a></p>
+        </article>
+
+        <article>
+          <h3>Coding-agent token overhead traced to accumulated context</h3>
+          <p>Sebastian Raschka reports that Claude Code consumed roughly two to three times as many tokens as several other agent harnesses at comparable success rates. His log analysis attributes most of the gap to messages, tool records, command output, and file contents repeatedly supplied as input—not to longer answers. One 25-turn run used about 578,000 input tokens versus 4,500 output tokens.</p>
+          <p class="source-link"><a href="https://x.com/rasbt/status/2082855363154497880">Initial analysis</a> · <a href="https://x.com/rasbt/status/2082898363389788290">Detailed follow-up</a></p>
+        </article>
+
+        <article>
+          <h3>Activation steering reduces harmful driving judgments</h3>
+          <p>Goodfire says it traced an LLM’s drunk-driving judgments to a small group of impairment-related activation features. Amplifying five features fourfold reduced harmful endorsements on held-out prompts from 30 of 48 to 20 of 48, with no reported increase in refusals for sober-user scenarios.</p>
+          <p class="source-link"><a href="https://x.com/GoodfireAI/status/2082859812963135878">Read the research post</a></p>
+        </article>
+
+        <article>
+          <h3>Controlled model experiment reports a ten-point held-out gain</h3>
+          <p>A 3B-active open model was refined through 21 sequential runs, with one hypothesis tested and recorded per run. The reported held-out score rose from 70.8% to 81.2%. The available post does not identify the task or link to the experiment ledger, so the result cannot be evaluated in detail.</p>
+          <p class="source-link"><a href="https://x.com/OpenMed_AI/status/2082876033921929506">View the report</a></p>
+        </article>
+
+        <article>
+          <h3>Agent proposes fused Triton optimization for NanoGPT</h3>
+          <p>A training improvement proposed by an agent combines linear operations and ReLU² in a fused Triton kernel. The report suggests that kernel fusion created enough performance headroom to make an optimization useful where FP8 MLPs using PyTorch matrix multiplication had shown only modest gains.</p>
+          <p class="source-link"><a href="https://x.com/YouJiacheng/status/2082832385033576719">View the technical post</a></p>
+        </article>
+
+        <article>
+          <h3>Benchmark compares Bayesian colocalization methods for MR targets</h3>
+          <p>A study benchmarks Bayesian colocalization methods used to validate targets identified through Mendelian randomization. The available source does not expose the paper’s canonical link or detailed findings, but points to a technical comparison relevant to computational genomics.</p>
+          <p class="source-link"><a href="https://x.com/gen0m1cs/status/2082836487431753944">View the source post</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="biology">
+      <h2 id="biology">Biology, Genomics &amp; Medicine</h2>
+      <div class="stories">
+        <article>
+          <h3>Structural-database bias may alter protein-model generations</h3>
+          <p>Evidence highlighted by Diego del Alamo suggests that thermostable archaeal proteins are overrepresented in structural databases because they are easier to characterize experimentally. Models trained on those databases may consequently generate sequences with measurably shifted properties.</p>
+          <p class="source-link"><a href="https://x.com/DdelAlamo/status/2082859826858582446">Read the discussion</a></p>
+        </article>
+
+        <article>
+          <h3>Dietary arginine linked to codon-dependent immune regulation</h3>
+          <p>A newly published <cite>Cell</cite> study reports that dietary arginine influences antiviral and antitumor immunity through a codon-dependent mechanism. The available post is truncated and does not provide enough detail to characterize the mechanism further.</p>
+          <p class="source-link"><a href="https://x.com/anshulkundaje/status/2083046537622655214">View the publication post</a></p>
+        </article>
+
+        <article>
+          <h3>Biomni-Tuso explores autonomous genetic-perturbation research</h3>
+          <p>Biomni-Tuso is presented as a recipe for automating research on biological AI models, with an autonomous system tasked to develop a genetic-perturbation model. Methods and evaluation results are not visible in the collected excerpt, limiting assessment of the work.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2082982954775810512">View the introduction</a></p>
+        </article>
+
+        <article>
+          <h3><code>seqproc</code> offers a declarative language for sequencing reads</h3>
+          <p><code>seqproc</code> interprets and transforms sequencing reads with the Extended Fragment Geometry Description Language. Its ANTISEQUENCE engine composes matching and transformation primitives as directed acyclic graphs, aiming to make complex processing specifications concise and reusable.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2082985789009645861">Explore the project post</a></p>
+        </article>
+
+        <article>
+          <h3><code>map3C</code> unifies single-cell Hi-C processing and SV annotation</h3>
+          <p><code>map3C</code> converts locally aligned paired-end reads into chromatin contacts using Pairtools algorithms. Its workflow also includes multimapping trimming, quality-control reports, artifact filtering, and annotation of contacts potentially induced by structural variants, including likely breakpoints.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2082985460209729944">Explore the project post</a></p>
+        </article>
+
+        <article>
+          <h3>SynFlow makes synteny and structural variation interactive</h3>
+          <p>SynFlow is a browser-based environment for computation and visualization across whole-genome assemblies. It turns dense static synteny plots into shareable views that can be filtered and reordered to inspect features such as translocations.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2082985119833624932">Explore the project post</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="reviews">
+      <h2 id="reviews">Reviews &amp; Perspectives</h2>
+      <div class="stories">
+        <article>
+          <h3>Exchange dynamics and kinetic control in gene regulation</h3>
+          <p>A new <cite>Nature Reviews Molecular Cell Biology</cite> review examines how molecular exchange dynamics and kinetic control govern gene-regulatory complexes.</p>
+          <p class="source-link"><a href="https://x.com/NatRevMCB/status/2082880870361522328">View the journal post</a></p>
+        </article>
+
+        <article>
+          <h3>RNA transcript elongation in metazoans and disease</h3>
+          <p>Another review from <cite>Nature Reviews Molecular Cell Biology</cite> surveys the regulation of RNA transcript elongation in metazoans and its connections to disease biology.</p>
+          <p class="source-link"><a href="https://x.com/NatRevMCB/status/2082752331523969345">View the journal post</a></p>
+        </article>
+
+        <article>
+          <h3>Agentic and generative AI for drug discovery</h3>
+          <p>A new <cite>Circulation</cite> article discusses applications of agentic and generative AI in drug discovery. The available announcement provides no additional methodological detail.</p>
+          <p class="source-link"><a href="https://x.com/anshulkundaje/status/2082918867987509665">View the article announcement</a></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice</h2>
+      <div class="language-grid">
+        <div class="language-card" lang="de">
+          <h3>Deutsch — tägliche Lektüre</h3>
+          <p>Für diese Ausgabe konnte kein Artikel verifiziert werden. Deutsche Welle und die Ausweichquelle <a href="https://www.gamestar.de/news/">GameStar</a> waren technisch nicht zugänglich.</p>
+        </div>
+
+        <div class="language-card" lang="fr">
+          <h3>Français — lecture quotidienne</h3>
+          <p>Aucun article n’a pu être sélectionné pour cette édition. <a href="https://actualitte.com/">ActuaLitté</a> et la source de secours Le Monde étaient inaccessibles.</p>
+        </div>
+
+        <div class="language-card" lang="ja">
+          <h3>日本語 — 毎日の読み物</h3>
+          <p><a href="https://automaton-media.com/">AUTOMATON</a>および代替候補の4Gamerの記事内容と掲載日を確認できなかったため、今回は記事を掲載していません。</p>
+        </div>
+
+        <div class="language-card" lang="zh-Hans">
+          <h3>中文 — 每日阅读</h3>
+          <p>本期未能找到可核实的近期文章。机核和备用来源<a href="https://theinitium.com/zh-hans">端传媒</a>均无法访问。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>News Daily · Run 2026-07-31-1 · Research claims are summarized from the linked source posts and should be read with their stated evidence limitations.</p>
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

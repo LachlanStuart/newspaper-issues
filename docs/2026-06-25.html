@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffaf1;
+      --ink: #1f2933;
+      --muted: #667085;
+      --line: #ded6c8;
+      --accent: #7c3aed;
+      --accent-soft: #ede9fe;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 6vw, 4rem);
+      letter-spacing: -0.04em;
+      line-height: 1;
+    }
+    .deck {
+      margin-top: 10px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 16px;
+      font-size: 1.55rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+    }
+    h3 {
+      margin: 0 0 7px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+    article {
+      padding: 16px 0;
+      border-top: 1px solid var(--line);
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    p {
+      margin: 8px 0;
+    }
+    a {
+      color: #4f46e5;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      margin-bottom: 8px;
+    }
+    .tags {
+      margin-top: 8px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      color: var(--muted);
+    }
+    .tag {
+      display: inline-block;
+      background: #f2eee5;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 1px 8px;
+      margin: 2px 3px 2px 0;
+    }
+    .note {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-style: italic;
+    }
+    .language-section {
+      margin-top: 34px;
+      border-top: 4px solid var(--accent);
+    }
+    .language-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 18px;
+      margin: 16px 0;
+    }
+    .language-card h3 {
+      color: #312e81;
+    }
+    .vocab {
+      background: var(--accent-soft);
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin-top: 12px;
+    }
+    ul {
+      margin-top: 8px;
+      padding-left: 24px;
+    }
+    footer {
+      margin-top: 28px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.86rem;
+      text-align: center;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="deck">Thursday, June 25, 2026 · Run 2026-06-25-1</div>
+    </header>
+
+    <section>
+      <h2>AI Research</h2>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2069917794200961221">ICML spotlight on LLM communication in latent space</a></h3>
+        <p>Stanford AI Lab highlighted work from James Zou on training large language models to communicate in latent space rather than through human language. The item is described as an ICML 2026 spotlight paper and points to a line of research on alternative communication protocols and latent representations for LLM systems.</p>
+        <div class="tags"><span class="tag">LLMs</span><span class="tag">latent space</span><span class="tag">ICML</span><span class="tag">communication</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/behrouz_ali/status/2069832282135781649">Tapered Language Models allocate parameters non-uniformly across layers</a></h3>
+        <p>Ali Behrouz pointed to new work on “Tapered Language Models,” which move beyond the standard practice of stacking identical layers by distributing parameters non-uniformly across depth. The idea is presented across transformer, recurrent, and memory-based language-model architectures.</p>
+        <div class="tags"><span class="tag">language models</span><span class="tag">architecture</span><span class="tag">parameters</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/aaron_defazio/status/2069890956841865643">Momentum training analyzed for compute efficiency versus serial runtime</a></h3>
+        <p>Aaron Defazio shared work from Sham Kakade asking whether momentum’s benefits in neural-network training are genuine compute savings or primarily improvements in serial runtime. The post notes a proof of compute-efficiency results, making this one for readers interested in optimization theory and training dynamics.</p>
+        <div class="tags"><span class="tag">optimization</span><span class="tag">momentum</span><span class="tag">training efficiency</span><span class="tag">theory</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2069541541111312658">LLM judge reliability studied through human-evaluation requirements</a></h3>
+        <p>Stanford AI Lab highlighted a thread on using LLM judges to scale costly human evaluation while confronting a circular problem: trusting an LLM judge still requires human validation. The work is relevant to evaluation methodology and the design of reliable scalable assessment systems.</p>
+        <div class="tags"><span class="tag">evaluation</span><span class="tag">LLM judges</span><span class="tag">human evaluation</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/YouJiacheng/status/2069485430152523824">BF16 CPU cluster compared with B200-scale LLM training compute</a></h3>
+        <p>You Jiacheng estimated that a 47,000-CPU cluster with 240T BF16 and high model-flop utilization could be roughly comparable to 8,000–16,000 B200 GPUs for BF16 LLM training. The comparison is a concrete hardware-scaling datapoint for training infrastructure discussions.</p>
+        <div class="tags"><span class="tag">scaling</span><span class="tag">hardware</span><span class="tag">BF16</span><span class="tag">LLM training</span></div>
+      </article>
+
+      <p class="note">Source note: product announcements, hiring posts, shallow commentary, memes, non-AI genomics items, and previously reported items were left out.</p>
+    </section>
+
+    <section>
+      <h2>Bio, Medicine &amp; Computational Biology</h2>
+
+      <article>
+        <h3><a href="https://x.com/BrianHie/status/2069450541185597893">Proto proposes a high-level programming language for generative biology</a></h3>
+        <p>Brian Hie and Arc Institute introduced Proto, a high-level language for composing generative and predictive models across DNA, RNA, proteins, ligands, and their interactions. The thread frames Proto as a way to express biological design campaigns at a functional or semantic level, with examples including alternatively spliced intron design and browser/chat tooling for writing programs.</p>
+        <div class="tags"><span class="tag">generative biology</span><span class="tag">biological programming</span><span class="tag">DNA/RNA/proteins</span><span class="tag">tools</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BrianHie/status/2069522909950050756">Germinal Nature Biotechnology paper adds scFv design, polyspecificity, epitope targeting, and structures</a></h3>
+        <p>Brian Hie noted that Germinal is now published in <em>Nature Biotechnology</em>. The manuscript adds scFv design along with data on polyspecificity, epitope targeting, and structure determination, extending earlier work on epitope-targeted antibody and nanobody design.</p>
+        <div class="tags"><span class="tag">antibody design</span><span class="tag">drug discovery</span><span class="tag">protein design</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/sokrypton/status/2069887178268717453">Protocol for zero-shot de novo design of drug-binding proteins released</a></h3>
+        <p>Sergey Ovchinnikov amplified a first-author paper describing a protocol for zero-shot de novo design of drug-binding proteins. The normalized item contained limited detail beyond the topic, but the subject is directly relevant to structure-based drug discovery and therapeutic protein design.</p>
+        <div class="tags"><span class="tag">protein design</span><span class="tag">drug discovery</span><span class="tag">zero-shot design</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/HannesStaerk/status/2069698282243199464">Nabla highlights zero-shot drug design beyond binding toward multifunctional medicines</a></h3>
+        <p>Hannes Stark retweeted Nabla Bio’s announcement that it is expanding zero-shot drug design beyond binding toward multifunctional medicines and the intracellular proteome. Technical details were limited in the normalized item, but the direction points toward broader AI-designed therapeutic functionality.</p>
+        <div class="tags"><span class="tag">drug discovery</span><span class="tag">protein design</span><span class="tag">therapeutics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/BiologyAIDaily/status/2069426675545411598">DeepCDS predicts prokaryotic coding sequences from short reads using protein language model features</a></h3>
+        <p>DeepCDS is an ab initio coding-sequence predictor for short, fragmented prokaryotic reads. It translates each reading frame, embeds translations with ESM-2, combines those features with nucleotide and codon information, and uses structured CRF decoding to enforce valid coding-frame transitions. The summary reports improvements over MetaProdigal and FragGeneScan, especially on short or noisy reads and start/stop boundary localization.</p>
+        <div class="tags"><span class="tag">genomics</span><span class="tag">metagenomics</span><span class="tag">gene prediction</span><span class="tag">protein language models</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2069922045417373784">CellOS trains a 12B-parameter multi-view single-cell world model</a></h3>
+        <p>CellOS is described as a generative multi-view single-cell foundation model for learning cellular state representations. The thread says it uses paired expression and perception views, token-balanced distributed training, dense-to-MoE expansion, and latent-space alignment via an LLM-JEPA objective, with pretraining on 390.5 million single-cell transcriptomes.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">foundation models</span><span class="tag">virtual cells</span><span class="tag">transcriptomics</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2069917024915255390">VCBench benchmarks single-cell foundation models as virtual cells</a></h3>
+        <p>VCBench is presented as a multi-dimensional benchmark for single-cell foundation models framed as virtual cells. It evaluates capability dimensions such as perturbation prediction, cross-species universality, gene-regulatory-network inference, modality integration, temporal dynamics, multi-scale integration, and in silico experimentation, comparing models including Geneformer, scGPT, UCE, TranscriptFormer, and Arc State against simple baselines.</p>
+        <div class="tags"><span class="tag">benchmarks</span><span class="tag">single-cell</span><span class="tag">virtual cells</span><span class="tag">model evaluation</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2069917401333031296">FateLimit quantifies prediction horizons for cell fate</a></h3>
+        <p>FateLimit is an information-theoretic framework for measuring temporal dynamics of cell-fate predictability from single-cell omics data. It combines probabilistic fate assignment, fate entropy, and mutual information to estimate how much information about future cellular outcomes is encoded in current molecular states.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">cell fate</span><span class="tag">omics</span><span class="tag">information theory</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2069828081569972262">AutoZyme proposes an autonomous agentic framework for optimizing bioinformatics software</a></h3>
+        <p>AutoZyme is presented as “An Autonomous Agentic Framework to Optimize Bioinformatics Software.” The normalized data only included the title, but the topic suggests an agentic system aimed at improving computational biology tooling.</p>
+        <div class="tags"><span class="tag">bioinformatics</span><span class="tag">agents</span><span class="tag">software optimization</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2069828092202496215">EventHorizon foundation model targets clinical flow cytometry</a></h3>
+        <p>EventHorizon is described as a foundation model for clinical flow cytometry. Details were limited to the title in the normalized data, but it appears to be a clinically relevant foundation-model effort for cytometry data.</p>
+        <div class="tags"><span class="tag">foundation models</span><span class="tag">clinical AI</span><span class="tag">flow cytometry</span><span class="tag">medicine</span></div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2069828103883612582">CycleVI isolates cell-cycle variation with an interpretable deep generative model</a></h3>
+        <p>CycleVI is described as a method for isolating cell-cycle variation with an interpretable deep generative model. The normalized data only included the title, but the item is relevant to interpretable single-cell modeling and analysis of cell-cycle effects.</p>
+        <div class="tags"><span class="tag">single-cell</span><span class="tag">interpretable AI</span><span class="tag">generative models</span><span class="tag">cell cycle</span></div>
+      </article>
+
+      <p class="note">Source note: repeated Proto and Germinal retweets, product-style platform/plugin announcements with limited research content, non-bio posts, and previously reported GENATATORs items were omitted.</p>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+      <p class="note">These reading snippets are preserved in their source languages.</p>
+
+      <div class="language-card" lang="de">
+        <h3>Deutsch — Ein vergessenes Mittelalterspiel stand vor 22 Jahren für Singleplayer-Action, die man heute mit der Lupe suchen muss</h3>
+        <div class="meta">GameStar · 2026-06-25 · <a href="https://www.gamestar.de/artikel/knights-of-the-temple-vergessenes-genre,3455037.html">https://www.gamestar.de/artikel/knights-of-the-temple-vergessenes-genre,3455037.html</a></div>
+        <p>Peter Bathge blickt auf <em>Knights of the Temple: Infernal Crusade</em> zurück, ein Mittelalter-Actionspiel aus dem Jahr 2004, das damals solide, aber nicht überragend bewertet wurde. Der Reiz des Artikels liegt weniger in einer klassischen Retro-Rezension als in der persönlichen Erinnerung an eine Art von Singleplayer-Action, die heute seltener geworden ist.</p>
+        <p>Der Text kontrastiert alte Ritterkämpfe, direkte Zugänglichkeit und vergleichsweise frustarme Abenteuer mit modernen Action-Rollenspielen wie <em>Dark Souls</em> oder <em>Elden Ring</em>. Dadurch eignet sich der Artikel gut für Leserinnen und Leser, die Gaming-Nostalgie, Genre-Geschichte und persönliche Spielekolumnen mögen.</p>
+        <p><strong>Warum lesen:</strong> Eine zugängliche, persönliche Retro-Lektüre über ein fast vergessenes PC-Spiel und darüber, was sich bei Singleplayer-Action seit den 2000ern verändert hat.</p>
+      </div>
+
+      <div class="language-card" lang="fr">
+        <h3>Français — Emmanuel Grégoire, maire de Paris, sur la crise climatique : « Pour nous adapter, nous devons faire évoluer les rythmes de vie »</h3>
+        <div class="meta">Le Monde · 2026-06-25 · <a href="https://www.lemonde.fr/politique/article/2026/06/25/emmanuel-gregoire-maire-de-paris-sur-la-crise-climatique-pour-nous-adapter-nous-devons-faire-evoluer-les-rythmes-de-vie_6713349_823448.html">https://www.lemonde.fr/politique/article/2026/06/25/emmanuel-gregoire-maire-de-paris-sur-la-crise-climatique-pour-nous-adapter-nous-devons-faire-evoluer-les-rythmes-de-vie_6713349_823448.html</a></div>
+        <p>Dans cet entretien, le nouveau maire socialiste de Paris, Emmanuel Grégoire, défend une adaptation très concrète de la capitale aux épisodes de chaleur extrême. Alors qu’une canicule touche une grande partie de la France, il explique pourquoi la réponse municipale ne peut pas se limiter à des promesses de transformation à long terme : selon lui, il faut aussi modifier immédiatement l’organisation quotidienne de la ville.</p>
+        <p>Le maire évoque notamment l’ouverture élargie de certains espaces publics, comme les parcs municipaux, et la baignade dans le canal Saint-Martin. Il insiste surtout sur la nécessité de repenser les horaires de travail et de services en période d’alerte rouge : commencer plus tôt, faire une longue pause au moment le plus chaud de la journée, puis reprendre plus tard. Pour lui, les canicules ne doivent plus être vues comme des incidents isolés, mais comme un phénomène structurel appelé à se répéter.</p>
+        <p>L’article est intéressant pour comprendre comment une grande ville européenne tente de concilier adaptation climatique, tranquillité des habitants, santé publique et organisation sociale. Il pose aussi une question politique plus large : comment transformer les rythmes collectifs sans attendre que les infrastructures urbaines aient entièrement changé ?</p>
+        <p><strong>Pourquoi lire :</strong> un bon texte pour travailler le vocabulaire de la politique locale, de l’adaptation climatique et de la vie urbaine en français.</p>
+        <div class="vocab">
+          <strong>Vocabulaire utile</strong>
+          <ul>
+            <li><strong>alerte rouge</strong> — niveau maximal de vigilance utilisé notamment pour signaler un danger météorologique grave.</li>
+            <li><strong>conférence sociale</strong> — rencontre organisée entre pouvoirs publics, syndicats, employeurs et experts pour discuter de changements sociaux ou professionnels.</li>
+            <li><strong>phénomène structurel</strong> — réalité durable liée à l’organisation profonde d’un système, par opposition à un événement ponctuel.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="language-card" lang="ja">
+        <h3>日本語 — スターフォックスの新たな始まりを期待したくなる！　Nintendo Switch 2「Star Fox」は，シリーズの遊びと魅力をいまに伝えるリメイクタイトル</h3>
+        <div class="meta">4Gamer.net · 2026-06-25 08:00 · <a href="https://www.4gamer.net/games/004/G100429/20260624024/">https://www.4gamer.net/games/004/G100429/20260624024/</a></div>
+        <p>4Gamer.netは，Nintendo Switch 2向け「Star Fox」の紹介記事を掲載した。記事では，本作をシリーズの遊びと魅力を現代に伝えるリメイクタイトルとして位置づけ，過去作「スターフォックス」「スターフォックス64」とのつながりにも触れている。</p>
+        <p>本文では，有料サービス「Nintendo Switch Online」の「Nintendo Classics」で過去作を遊べることや，新作が“父から息子へ受け継がれる，スターフォックスの戦い”を描く構成であることが紹介されている。単なる懐古ではなく，シリーズの基本的な魅力を新ハードの世代にどう受け渡すかに注目した読み物になっている。</p>
+        <p>Nintendo Switch 2の発売日と同日の記事で，任天堂の代表的なシューティングシリーズがどのように再始動するのかを知る手がかりになる。</p>
+        <p><strong>読む理由：</strong> 日本のゲーム文化と任天堂IPの継承を，発売日タイミングの記事で読めるから。</p>
+        <div class="vocab">
+          <strong>語彙メモ</strong>
+          <ul>
+            <li><strong>リメイクタイトル</strong> — 旧作をもとに，映像や操作性などを作り直したゲーム作品。</li>
+            <li><strong>有料サービス（ゆうりょうサービス）</strong> — 料金を支払って利用するオンライン機能や配信サービス。</li>
+            <li><strong>追加パック（ついかパック）</strong> — 基本サービスに上乗せして利用できる追加コンテンツや契約プラン。</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="language-card" lang="zh">
+        <h3>中文 — UE5.8的发布将为我们带来什么？</h3>
+        <div class="meta">机核 · 2026-06-24 · <a href="https://www.gcores.com/articles/216281">https://www.gcores.com/articles/216281</a></div>
+        <p>这篇文章围绕 Epic Games 在 State of Unreal 2026 中发布的 Unreal Engine 5.8 展开，认为这个版本很可能是 UE5 世代向 UE6 过渡前的最后一次大规模能力集中释放。与早期版本强调 Lumen、Nanite 等视觉革新不同，UE5.8 的关键词转向“更可靠、可扩展、更直观”，重点落在工程化、性能优化和生产管线稳定性上。</p>
+        <p>文章详细梳理了 MegaLights 进入 Production-Ready、Lumen Lite 面向掌机和低端 PC、着色器编译优化、Mesh Terrain 真三维地形系统、PCG 程序化内容生成，以及 MetaHuman 人群和动画管线的变化。它的核心判断是：UE5.8 不只是展示新技术，而是让这些技术更容易在真实游戏、虚拟制片和开放世界项目里投入生产。</p>
+        <p>对玩家来说，这些更新可能意味着更稳定的帧率、更低的硬件门槛和更复杂的游戏场景；对开发者来说，则意味着减少编译等待、降低卡顿风险、简化角色与地形制作流程。文章适合想了解游戏引擎技术、实时渲染和数字人制作趋势的读者。</p>
+        <p><strong>为什么读：</strong> 这是一篇兼具产业观察和技术科普的中文长文，能帮助读者理解游戏引擎更新背后的生产逻辑。</p>
+        <div class="vocab">
+          <strong>词汇笔记</strong>
+          <ul>
+            <li><strong>生产管线 (shēngchǎn guǎnxiàn)</strong> — 指从资产制作、编译、调试到发布的一整套开发流程。</li>
+            <li><strong>着色器编译 (zhuósèqì biānyì)</strong> — 将图形渲染相关程序转换为硬件可执行形式的过程，常影响游戏启动和运行流畅度。</li>
+            <li><strong>程序化内容生成 (chéngxùhuà nèiróng shēngchéng)</strong> — 用规则和算法自动生成地形、植被、关卡等内容的方法。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Quiet failure notes: none reported.
+    </footer>
+  </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f4ed;
+      --card: #fffdf8;
+      --ink: #202522;
+      --muted: #68706b;
+      --accent: #225b4e;
+      --accent-soft: #dfeae5;
+      --rule: #d8d4ca;
+      --link: #175f7a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.62;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      color: var(--accent);
+    }
+
+    header,
+    main,
+    footer {
+      width: min(1120px, calc(100% - 2rem));
+      margin-inline: auto;
+    }
+
+    header {
+      padding: 3rem 0 1.5rem;
+      text-align: center;
+      border-bottom: 3px double var(--ink);
+    }
+
+    .kicker {
+      margin: 0;
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0.2rem 0 0;
+      font-size: clamp(2.5rem, 8vw, 5.2rem);
+      font-weight: 700;
+      letter-spacing: -0.045em;
+      line-height: 1;
+    }
+
+    .dateline {
+      margin: 0.8rem 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    main {
+      padding: 1.5rem 0 3rem;
+    }
+
+    section {
+      margin-top: 2.8rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid var(--ink);
+    }
+
+    .section-heading h2 {
+      margin: 0;
+      padding-bottom: 0.3rem;
+      font-size: clamp(1.55rem, 4vw, 2.15rem);
+      line-height: 1.2;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .lead-grid,
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    article {
+      padding: 1.15rem 1.25rem;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+
+    article.feature {
+      border-top: 4px solid var(--accent);
+    }
+
+    article h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.25rem;
+      line-height: 1.28;
+    }
+
+    article p {
+      margin: 0.6rem 0;
+    }
+
+    .source {
+      margin-bottom: 0.65rem;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      margin-top: 0.9rem;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+    }
+
+    .read-link {
+      display: inline-block;
+      margin-top: 0.35rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .caveat {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .language-practice {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 5px solid var(--accent);
+    }
+
+    .language-intro {
+      max-width: 46rem;
+      color: var(--muted);
+    }
+
+    .language-list {
+      display: grid;
+      gap: 1.35rem;
+      margin-top: 1.4rem;
+    }
+
+    .language-list article {
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border-left: 5px solid var(--accent);
+    }
+
+    .language-list h3 {
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+    }
+
+    .language-meta {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .why-read {
+      margin-top: 1rem;
+      padding: 0.7rem 0.9rem;
+      background: var(--accent-soft);
+      border-radius: 3px;
+    }
+
+    .vocabulary {
+      margin-top: 1rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .vocabulary h4 {
+      margin: 0 0 0.45rem;
+      font-size: 1rem;
+    }
+
+    .vocabulary ul {
+      margin: 0;
+      padding-left: 1.4rem;
+    }
+
+    .vocabulary li + li {
+      margin-top: 0.35rem;
+    }
+
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    footer p {
+      margin: 0.35rem 0;
+    }
+
+    @media (max-width: 760px) {
+      .lead-grid,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding-top: 2rem;
+      }
+
+      .section-heading {
+        display: block;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <p class="kicker">Research, tools, and ideas</p>
+    <h1>News</h1>
+    <p class="dateline">Sunday, August 9, 2026 · Run 2026-08-09-1</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="ai-heading">
+      <div class="section-heading">
+        <h2 id="ai-heading">AI &amp; Model Architecture</h2>
+        <span>Open models, attention, and abstractions</span>
+      </div>
+
+      <div class="lead-grid">
+        <article class="feature">
+          <p class="source">科学空间 / Spaces AC</p>
+          <h3><a href="https://spaces.ac.cn/archives/11848">A Brief Discussion of K3’s MoE and Attention</a></h3>
+          <p>An overview of the Mixture-of-Experts and attention design in K3, described as its authors’ largest open-source model to date. K3 develops the architecture inherited from K2 and earlier work rather than starting over, incorporating newer ideas aimed at model quality, computational efficiency, and training stability.</p>
+          <p class="tags">Large language models · Mixture of Experts · Attention · K3</p>
+          <a class="read-link" href="https://spaces.ac.cn/archives/11848">Read the technical article →</a>
+        </article>
+
+        <article class="feature">
+          <p class="source">AI Research</p>
+          <h3><a href="https://x.com/mgostIH/status/2086125121433924022">Do causal language models need positional encodings at scale?</a></h3>
+          <p>A technical note questions whether large causal language models require explicit positional encodings, pointing readers toward a longer architectural analysis. The issue goes to the heart of how autoregressive models represent token order and whether scale changes the need for mechanisms traditionally built into transformer designs.</p>
+          <p class="tags">Language models · Architecture · Positional encoding</p>
+          <a class="read-link" href="https://x.com/mgostIH/status/2086125121433924022">View the note →</a>
+        </article>
+
+        <article>
+          <p class="source">Hazy Research</p>
+          <h3><a href="https://hazyresearch.stanford.edu/blog/2026-08-05-retire-the-abstractions">Retire the Abstractions</a></h3>
+          <p>A newly listed Hazy Research post offers a perspective on retiring abstractions.</p>
+          <p class="caveat">The collected source contained the link but no article text, so a fuller account was not available for this edition.</p>
+          <a class="read-link" href="https://hazyresearch.stanford.edu/blog/2026-08-05-retire-the-abstractions">Visit the post →</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-heading">
+      <div class="section-heading">
+        <h2 id="bio-heading">Biology, Design &amp; Biosecurity</h2>
+        <span>Proteins, therapeutics, and safer optimization</span>
+      </div>
+
+      <div class="grid">
+        <article class="feature">
+          <p class="source">Biology AI Research</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2086299936329777459">DoxSand: a designed protein fold that sequesters doxorubicin</a></h3>
+          <p>A motif-guided generative workflow produced an 85-residue protein that binds the anticancer drug doxorubicin through an aromatic tryptophan sandwich. Iterative loop and packing changes improved affinity from the micromolar range to roughly 85 nM while improving monomeric behavior.</p>
+          <p>A 1.56 Å crystal structure closely matched the designed complex. In ovarian-cancer cells, the binder reduced doxorubicin cytotoxicity by shifting its apparent IC50 about 140-fold. Structural searches found no significant homologs, suggesting a previously unobserved compact fold.</p>
+          <p class="tags">Protein design · Drug discovery · Structural biology · Oncology</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2086299936329777459">View the research note →</a>
+        </article>
+
+        <article class="feature">
+          <p class="source">Biology AI Research</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2086297997550473295">Input screening as a biosecurity layer for protein-design systems</a></h3>
+          <p>This proposal screens a requested binding target before protein generation, rather than trying to identify hazardous novel binders afterward. It compares input sequences with a database of 14,541 potentially harmful human proteoforms using ESM-C embeddings.</p>
+          <p>The baseline screen reached 97.2% F1 and remained sensitive to function-preserving mutations, although broad dual-use classification would also flag many legitimate therapeutic targets. Red-teaming found that long disordered tails could evade mean-pooled screening; overlapping-window screening recovered all tested evasions.</p>
+          <p class="tags">Biosecurity · Protein language models · Dual use · AI safety</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2086297997550473295">View the research note →</a>
+        </article>
+
+        <article>
+          <p class="source">Biology AI Research</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2086299574986236340">Distribution constraints curb reward hacking in 5′ UTR design</a></h3>
+          <p>Unconstrained genetic optimization frequently pushed 5′ UTR candidates outside a translation predictor’s validated distribution: 72–96% of final-generation designs exceeded an embedding-distance threshold.</p>
+          <p>A hard nearest-neighbor trust region kept designs in distribution while preserving predicted mean ribosome load and produced about 4.3 times more selectable candidates than post-hoc filtering. The authors emphasize that “reliable” means in-distribution here, not experimentally validated.</p>
+          <p class="tags">Gene regulation · mRNA · Sequence design · Model safety</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2086299574986236340">View the research note →</a>
+        </article>
+
+        <article>
+          <p class="source">Biology AI Research</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2086299197871890653">HANSEN combines structural and resistance data for leprosy drug discovery</a></h3>
+          <p>HANSEN is a web-accessible atlas of all 1,603 proteins in <em>Mycobacterium leprae</em>. It combines multiple structure predictors, 726 modeled oligomeric assemblies, confidence maps, pocket annotations, ligand context, transferred essentiality predictions, and a multi-parameter target-priority score.</p>
+          <p>Its Lep-AMR component analyzes nanopore amplicons for resistance mutations in <code>rpoB</code>, <code>folP1</code>, and <code>gyrA</code>, linking eligible variants to structural interpretation.</p>
+          <p class="tags">Leprosy · Drug discovery · Antimicrobial resistance · Protein structure</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2086299197871890653">View the resource note →</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="single-cell-heading">
+      <div class="section-heading">
+        <h2 id="single-cell-heading">Single-Cell &amp; Evolutionary Methods</h2>
+        <span>Representation, regulation, and model selection</span>
+      </div>
+
+      <div class="grid">
+        <article>
+          <p class="source">Single-Cell Research</p>
+          <h3><a href="https://x.com/razoralign/status/2086275409046601761">scDMC uses dual expression encodings</a></h3>
+          <p>scDMC is described as a dual-stream single-cell foundation model. It processes a rank-based gene sequence and an absolute-expression-aware sequence in parallel, combining gene-level masked language modeling with cell-level momentum contrastive learning.</p>
+          <p>The design aims to preserve both local gene context and global cellular representations that can be lost when a model relies on a single encoding scheme.</p>
+          <p class="tags">Single-cell biology · Foundation models · Transcriptomics</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2086275409046601761">View the research note →</a>
+        </article>
+
+        <article>
+          <p class="source">Single-Cell Research</p>
+          <h3><a href="https://x.com/razoralign/status/2086275096642240663">scATrans separates transcription from RNA stabilization</a></h3>
+          <p>scATrans augments conventional single-cell differential-expression analysis with reference-corrected unspliced-RNA residuals. Its goal is to distinguish expression changes weighted toward transcription from those weighted toward RNA stabilization.</p>
+          <p>The method occupies a middle ground between static differential expression and RNA velocity, favoring comparisons between conditions without strong claims about trajectories or kinetic identifiability.</p>
+          <p class="tags">Gene regulation · RNA stability · Differential expression</p>
+          <a class="read-link" href="https://x.com/razoralign/status/2086275096642240663">View the research note →</a>
+        </article>
+
+        <article>
+          <p class="source">Biology AI Research</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2086299433529127163">ProtFinder speeds protein phylogenetic model selection</a></h3>
+          <p>ProtFinder predicts substitution matrices, empirical-frequency settings, and among-site rate-heterogeneity models for protein alignments. Training progresses from simulated alignments to mixed simulated and real data, followed by real-only fine-tuning.</p>
+          <p>Reported inference is up to 1,400 times faster than ModelFinder. On an independent real-alignment set, its substitution-model component reached 67% top-one and 90.96% top-two agreement, supporting its use as a rapid screening stage before maximum-likelihood confirmation.</p>
+          <p class="tags">Phylogenetics · Comparative genomics · Model selection</p>
+          <a class="read-link" href="https://x.com/BiologyAIDaily/status/2086299433529127163">View the research note →</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="tools-heading">
+      <div class="section-heading">
+        <h2 id="tools-heading">Research Tools</h2>
+        <span>Statistics and computational biology</span>
+      </div>
+
+      <div class="grid">
+        <article>
+          <p class="source">Nature Methods</p>
+          <h3><a href="https://x.com/naturemethods/status/2085741447140028471">DABEST 2.0 expands estimation graphics</a></h3>
+          <p>DABEST 2.0 adds estimation-statistics graphics for analyzing and communicating comparisons across multiple groups. The update is relevant to empirical research workflows that need effect-size-centered analysis and clearer visual reporting.</p>
+          <p class="tags">Statistics · Evaluation · Visualization</p>
+          <a class="read-link" href="https://x.com/naturemethods/status/2085741447140028471">View the announcement →</a>
+        </article>
+
+        <article>
+          <p class="source">Nature Methods</p>
+          <h3><a href="https://x.com/naturemethods/status/2085739380002435194">MetaboApps extends downstream analysis in GNPS2</a></h3>
+          <p>MetaboApps is a collection of modular web applications intended to simplify and extend downstream analysis on the GNPS2 metabolomics platform, providing researchers with more accessible tools for data-intensive biological workflows.</p>
+          <p class="tags">Metabolomics · Computational biology · Data analysis</p>
+          <a class="read-link" href="https://x.com/naturemethods/status/2085739380002435194">View the announcement →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <div class="section-heading">
+        <h2 id="language-heading">Language Practice</h2>
+        <span>Daily reading in the original language</span>
+      </div>
+      <p class="language-intro">Edited reading selections in German, French, Japanese, and Chinese. The passages remain in their source languages.</p>
+
+      <div class="language-list">
+        <article lang="de">
+          <h3>Deutsch — Wie sich ein chinesisches Genie täuschte – und doch als Dompteur von Drachen und Kröten bis heute Recht behält</h3>
+          <p class="language-meta">GameStar · 09.08.2026 · <a href="https://www.gamestar.de/artikel/zhang-heng-erstes-seismoskop-erdbeben,3437131.html">Originalartikel</a></p>
+
+          <p>Vor fast 2.000 Jahren konstruierte der chinesische Universalgelehrte Zhang Heng das erste bekannte Seismoskop. Das kunstvoll gestaltete Gerät besaß acht Drachenköpfe, die jeweils eine Kugel über einer Kröte hielten. Bei einer Erschütterung löste ein Mechanismus im Inneren eine Kugel aus und zeigte dadurch an, aus welcher Himmelsrichtung die seismischen Wellen gekommen waren.</p>
+
+          <p>Der Artikel erklärt die vermutete Funktionsweise des Apparats und ordnet Zhang Hengs Leistung wissenschaftshistorisch ein. Zwar irrte sich der Erfinder bei der Ursache von Erdbeben und führte sie auf eingeschlossene, vom Wind zusammengepresste Luft zurück. Seine empfindliche Messkonstruktion gilt dennoch als bemerkenswerte technische Pionierleistung; moderne Rekonstruktionen konnten das zugrunde liegende Prinzip erfolgreich demonstrieren.</p>
+
+          <p class="why-read"><strong>Warum lesen:</strong> Eine anschauliche Verbindung aus Technikgeschichte, chinesischer Kultur und moderner Erdbebenforschung.</p>
+        </article>
+
+        <article lang="fr">
+          <h3>Français — Après le crash d’une fusée SpaceX sur la Lune, les spécialistes tiraillés entre l’opportunité scientifique et l’absence de cadre juridique</h3>
+          <p class="language-meta">Le Monde · 8 août 2026 · <a href="https://www.lemonde.fr/sciences/article/2026/08/08/apres-le-crash-d-une-fusee-spacex-sur-la-lune-les-specialistes-tirailles-entre-l-opportunite-scientifique-et-l-absence-de-cadre-juridique_6741410_1650684.html">Article original</a></p>
+
+          <p>L’étage supérieur d’une fusée Falcon 9 de SpaceX s’est écrasé sur la Lune le 5 août, près du cratère Einstein. Resté dans l’espace après une mission lancée en janvier 2025, ce débris de quatre tonnes aurait été progressivement placé sur une trajectoire lunaire sous l’effet combiné de l’activité solaire et des forces gravitationnelles. Des observations effectuées depuis le Chili et par une sonde sud-coréenne ont confirmé la collision.</p>
+
+          <p>L’impact, bien qu’involontaire, représente une occasion d’étude pour les scientifiques : les caractéristiques de l’objet étant connues, ils pourront analyser la formation du cratère, les matériaux projetés et les méthodes de suivi des objets spatiaux. L’événement suscite toutefois un débat, car cette opportunité scientifique résulte d’un accident et met en évidence l’insuffisance du cadre juridique applicable aux débris et aux impacts sur la Lune.</p>
+
+          <p class="why-read"><strong>Pourquoi lire :</strong> L’article associe astronomie, gestion des débris spatiaux et droit international dans un cas concret particulièrement actuel.</p>
+
+          <div class="vocabulary">
+            <h4>Vocabulaire utile</h4>
+            <ul>
+              <li><strong>étage supérieur</strong> — partie haute d’une fusée qui poursuit le vol après la séparation du propulseur principal</li>
+              <li><strong>débris spatial</strong> — objet artificiel devenu inutile et demeurant dans l’espace</li>
+              <li><strong>alunisseur</strong> — engin spatial conçu pour se poser sur la surface de la Lune</li>
+            </ul>
+          </div>
+        </article>
+
+        <article lang="ja">
+          <h3>日本語 — 「Moonlight Peaks」でヴァンパイアの夜行性スローライフを満喫【放課後れびゅあーず！】</h3>
+          <p class="language-meta">4Gamer · 2026-08-09 · <a href="https://www.4gamer.net/games/925/G092590/20260809003/">元の記事</a></p>
+
+          <p>「Moonlight Peaks」は、超常の存在が暮らす町を舞台にした農園ライフシミュレーションゲームだ。家を飛び出したヴァンパイアの主人公は、母の思い出が残るムーンライト・ピークスにたどり着き、夜の世界で自由気ままな生活を始める。</p>
+
+          <p>農作業だけでなく、魔法や不思議な生き物との交流も楽しめる。クエストを進めると猫やコウモリへ変身できるようになり、ヴァンパイアならではの能力を使って町や周辺を探索していく。ゴシック風の雰囲気と穏やかなスローライフを組み合わせた独特の世界観が見どころだ。</p>
+
+          <p class="why-read"><strong>読む理由：</strong> 農園ゲームの定番要素とヴァンパイアの幻想的な設定がどう結び付くのかを、具体的に知ることができる。</p>
+
+          <div class="vocabulary">
+            <h4>語彙メモ</h4>
+            <ul>
+              <li><strong>夜行性（やこうせい）</strong> — 主に夜に活動し、昼間は休む性質。</li>
+              <li><strong>超常（ちょうじょう）</strong> — 通常の自然法則や常識では説明しにくいこと。</li>
+              <li><strong>変身（へんしん）</strong> — 姿や性質を別のものへ変えること。</li>
+            </ul>
+          </div>
+        </article>
+
+        <article lang="zh">
+          <h3>中文 — 休达移民潮酿西义外交争端　欧盟：双边边境管制可望很快解除</h3>
+          <p class="language-meta">RFI 中文 · 2026-08-09 · <a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85%E6%8A%A5%E9%81%93/20260809-%E4%BC%91%E8%BE%BE%E7%A7%BB%E6%B0%91%E6%BD%AE%E9%85%BF%E8%A5%BF%E4%B9%89%E5%A4%96%E4%BA%A4%E4%BA%89%E7%AB%AF-%E6%AC%A7%E7%9B%9F-%E5%8F%8C%E8%BE%B9%E8%BE%B9%E5%A2%83%E7%AE%A1%E5%88%B6%E5%8F%AF%E6%9C%9B%E5%BE%88%E5%BF%AB%E8%A7%A3%E9%99%A4">原文</a></p>
+
+          <p>西班牙开始对从意大利入境的旅客实施边境管制，回应意大利早前针对西班牙旅客采取的类似措施。争端源于西班牙北非飞地休达出现大规模移民越境；意大利以持续的非法移民压力为由，暂时恢复内部边境检查，西班牙随后采取对等措施。</p>
+
+          <p>欧盟内政和移民事务专员布伦纳表示，西班牙与意大利都确认管制仅属暂时措施。西班牙保证休达事件不会长期影响申根区，意大利也释放可能很快取消管制的信号；事件同时凸显非法移民政策、成员国互信与申根自由通行之间的张力。</p>
+
+          <p class="why-read"><strong>为什么读：</strong> 文章篇幅适中，可借一场西义争端理解申根区边境制度及欧盟内部的移民政策分歧。</p>
+
+          <div class="vocabulary">
+            <h4>词汇笔记</h4>
+            <ul>
+              <li><strong>飞地 (fēidì)</strong> — 一国领土中与本土分离、被其他国家或地区包围的部分。</li>
+              <li><strong>边境管制 (biānjìng guǎnzhì)</strong> — 国家在边界检查、限制人员或货物流动的行政措施。</li>
+              <li><strong>申根区 (Shēngēn qū)</strong> — 原则上取消成员之间内部边境检查的欧洲自由通行区域。</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p><strong>Collection note:</strong> The LessWrong Larry Dial feed was unavailable for this run because the source rate-limited the request.</p>
+    <p>News Daily · August 9, 2026</p>
+  </footer>
+
+
+
+</body>
+</html>

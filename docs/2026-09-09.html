@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201d;
+      --muted: #66645d;
+      --rule: #d8d3c7;
+      --accent: #315b68;
+      --accent-soft: #e9f0f1;
+      --card: #ffffff;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    main, header, footer {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+    header {
+      padding: 42px 0 24px;
+      border-bottom: 3px double var(--ink);
+      text-align: center;
+    }
+    .kicker {
+      margin: 0 0 6px;
+      color: var(--accent);
+      font: 700 0.78rem/1.2 system-ui, sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font: 500 0.9rem/1.4 system-ui, sans-serif;
+    }
+    section {
+      padding: 34px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    h2 {
+      margin: 0 0 22px;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.18rem;
+      line-height: 1.3;
+    }
+    p { margin: 0.55em 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 305px), 1fr));
+      gap: 18px;
+    }
+    article.card {
+      padding: 20px;
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+    }
+    .meta, .tags, .source-line {
+      color: var(--muted);
+      font: 0.78rem/1.45 system-ui, sans-serif;
+    }
+    .tags { margin-top: 12px; }
+    .tag {
+      display: inline-block;
+      margin: 3px 4px 0 0;
+      padding: 2px 7px;
+      background: var(--accent-soft);
+      border-radius: 999px;
+    }
+    .language-section {
+      margin-top: 42px;
+      padding-top: 38px;
+      border-top: 4px solid var(--ink);
+    }
+    .language-intro {
+      max-width: 700px;
+      margin: -10px 0 26px;
+      color: var(--muted);
+    }
+    .reading {
+      max-width: 820px;
+      margin: 0 auto 28px;
+      padding: 25px 28px;
+      background: var(--card);
+      border-left: 4px solid var(--accent);
+      box-shadow: 0 1px 5px rgba(0,0,0,0.06);
+    }
+    .reading h3 { font-size: 1.35rem; }
+    .reading ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+    .notes {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    footer {
+      padding: 26px 0 42px;
+      color: var(--muted);
+      text-align: center;
+      font: 0.78rem/1.5 system-ui, sans-serif;
+    }
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      header { padding-top: 28px; }
+      section { padding: 28px 0; }
+      .reading { padding: 20px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <p class="kicker">Research and ideas briefing</p>
+    <h1>News</h1>
+    <p class="date"><time datetime="2026-09-09">Wednesday, September 9, 2026</time> · Run 2026-09-09-1</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="ai-science">
+      <h2 id="ai-science">AI, mathematics, and scientific tools</h2>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="https://x.com/yifanzhang_/status/2097209087129948176">OpenAI claims a solution to the Navier–Stokes Millennium Prize Problem</a></h3>
+          <p>A post links to a claimed solution of the Navier–Stokes problem, while a separate OpenAI announcement reportedly describes it as a shared solution. This would be a major mathematical result if verified, but the supplied material includes neither the paper nor enough methodological detail to assess the claim.</p>
+          <p class="tags"><span class="tag">Mathematics</span><span class="tag">AI for science</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/gen0m1cs/status/2097544811473412476">A litmus test for confounding in polygenic scores</a></h3>
+          <p>Linked research proposes a statistical test for detecting confounding in polygenic scores, addressing a central problem in interpreting genomic predictors across populations and datasets.</p>
+          <p class="tags"><span class="tag">Genomics</span><span class="tag">Statistics</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/giffmana/status/2097386806731776460">TrackLLM watches APIs for undisclosed changes</a></h3>
+          <p>TrackLLM continuously monitors hundreds of language-model APIs. Early commentary suggests that major providers were comparatively stable at the API level, while smaller providers and Azure changed more often.</p>
+          <p class="tags"><span class="tag">LLM evaluation</span><span class="tag">Monitoring</span><span class="tag">Tools</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/YouJiacheng/status/2097418310002577460">GoldbachBench evaluates mathematical reasoning</a></h3>
+          <p>A newly linked benchmark targets mathematical reasoning. The available item does not expose its tasks or methodology, so its difficulty and diagnostic value remain unclear.</p>
+          <p class="tags"><span class="tag">Benchmark</span><span class="tag">Mathematical reasoning</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/cgeorgiaw/status/2097359667353526767">A hands-on tutorial for running weather forecasts</a></h3>
+          <p>A technical guide shows readers how to generate forecasts for the following week themselves. The implementation details were truncated in the supplied source, but the resource appears aimed at practical scientific forecasting.</p>
+          <p class="tags"><span class="tag">Weather forecasting</span><span class="tag">Tutorial</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/OpenMed_AI/status/2097061611055853573">MiniCPM5-2B ships with local formats and training artifacts</a></h3>
+          <p>The open model supports tool calling, GGUF, and MLX, with training data and recipes also being shared. Highlighted local clinical uses include medication extraction, source-grounded answers, and tool-assisted calculations.</p>
+          <p class="tags"><span class="tag">Open models</span><span class="tag">Local inference</span><span class="tag">Medical AI</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genomics">
+      <h2 id="genomics">Genomics and cellular systems</h2>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="https://x.com/razoralign/status/2097456078795809230">AlphaGenome Atlas maps all nine billion possible human SNVs</a></h3>
+          <p>The roughly one-petabyte resource contains predicted molecular effects for every possible single-nucleotide substitution in the human genome. Its Variant Impact score combines regulatory predictions from AlphaGenome with protein-altering predictions from AlphaMissense. The breadth is notable, though experimental validation remains the bottleneck.</p>
+          <p class="tags"><span class="tag">Human genetics</span><span class="tag">Variant effects</span><span class="tag">Dataset</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/razoralign/status/2097455666411839980">DECANT separates drug mechanism from experimental context</a></h3>
+          <p>DECANT learns from matched treated and control single-cell profiles. It factorizes perturbational signals into a representation designed to remain stable across cell line, dose, and treatment time, plus a context-dependent residual for predicting gene- and program-level responses.</p>
+          <p class="tags"><span class="tag">Single-cell</span><span class="tag">Drug response</span><span class="tag">Representation learning</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2097340764292620718">Botanic-1 applies long-context genomic models to plants</a></h3>
+          <p>Botanic-1 comprises 318-million- to 3.2-billion-parameter models trained across 320 plant genomes, with context lengths reaching 131,072 base pairs. It covers conservation, splicing, regulatory signals, chromatin accessibility, and variant effects. Controlled experiments reportedly find that function-enriched sampling and redundancy filtering matter more than raw corpus size.</p>
+          <p class="tags"><span class="tag">Plant genomics</span><span class="tag">Long context</span><span class="tag">Regulatory biology</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/razoralign/status/2097455423792247003">multiHIVE preserves shared and modality-specific biology</a></h3>
+          <p>The hierarchical multimodal variational autoencoder represents processes shared across single-cell modalities while retaining modality-specific information in separate latent variables. The design avoids forcing meaningful, modality-unique variation into a single common space.</p>
+          <p class="tags"><span class="tag">Single-cell</span><span class="tag">Multiomics</span><span class="tag">Data integration</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/razoralign/status/2097455157831405704">COSIGT genotypes difficult loci with pangenome graphs</a></h3>
+          <p>COSIGT gathers aligned and rescued unmapped reads, maps them to a local pangenome graph, and compares observed node coverage with expected profiles for candidate diploid haplotype pairs. It targets complex loci that linear-reference methods can miss, including in low-coverage data.</p>
+          <p class="tags"><span class="tag">Pangenomes</span><span class="tag">Genotyping</span><span class="tag">Complex loci</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/razoralign/status/2097454869590548698">WGCNA+ expands co-expression analysis across omics and conditions</a></h3>
+          <p>The toolkit adds per-layer multiomics networks, cross-omics enrichment, faster approximate topological-overlap calculations, and consensus analysis across datasets. It also introduces a phenotype-conditioned multipartite graph model and AI-assisted annotation and visualization.</p>
+          <p class="tags"><span class="tag">Gene networks</span><span class="tag">Multiomics</span><span class="tag">Bioinformatics</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="protein-drug">
+      <h2 id="protein-drug">Protein design and drug discovery</h2>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2097335951815291264">CAR-T results challenge standard computational binder filters</a></h3>
+          <p>BAGEL-CAR submitted 414 AI-designed CD20-binding domains to a competition; 38.4% were enriched in a pooled CAR-T proliferation screen, reportedly the highest rate among 28 teams. ESMFold-based refolding and membrane-placement filters would have rejected every enriched design. One candidate later showed CD20-specific lysis and SPR binding near 643 nM, illustrating why structure confidence should not be treated as a universal proxy for cellular function.</p>
+          <p class="tags"><span class="tag">CAR-T</span><span class="tag">Protein design</span><span class="tag">Experimental validation</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2097336479236428100">OmniSyn generates molecules with explicit synthesis traces</a></h3>
+          <p>OmniSyn combines protein-sequence conditioning, sparse mixture-of-experts routing, and a reaction-based decoder for de novo design, synthesizability projection, and hit-to-lead optimization. Outputs are assembled from more than 220,000 purchasable building blocks and 115 reaction templates. Its reported 2.7-billion-compound virtual library spans 21,306 human proteins, but target enrichment is supported mainly by computational checks rather than prospective assays.</p>
+          <p class="tags"><span class="tag">Drug discovery</span><span class="tag">Molecular generation</span><span class="tag">Retrosynthesis</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2097336124188532989">NEAT-Pocket speeds up pocket-conditioned ligand generation</a></h3>
+          <p>The model generates ligands atom by atom inside a protein pocket and reportedly samples 100 molecules in about four seconds on an RTX 4090. Its fine–coarse–fine encoder combines atomic and residue-level context, and it can grow molecules from fixed fragments while preserving their identity and pose.</p>
+          <p class="tags"><span class="tag">3D generation</span><span class="tag">Binding pockets</span><span class="tag">Lead optimization</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/BiologyAIDaily/status/2097341333879115783">Inverse FoldDir tests flow-matched protein design in nanobodies</a></h3>
+          <p>Inverse FoldDir performs structure-conditioned sequence design by iteratively denoising amino-acid probability distributions. In an anti-GFP experiment, two of 35 highly divergent nanobody designs showed reproducible binding. Boltz-2 confidence did not correlate with assay signal, reinforcing the limits of fold recovery and complex-confidence metrics as measures of function.</p>
+          <p class="tags"><span class="tag">Inverse folding</span><span class="tag">Nanobodies</span><span class="tag">Wet-lab validation</span></p>
+        </article>
+
+        <article class="card">
+          <h3><a href="https://x.com/DdelAlamo/status/2097383235919528232">Scientific agents attempt to reproduce an antibody benchmark</a></h3>
+          <p>A Northeastern class project tested whether agents could reproduce results from scientific papers, including the FLAB2 antibody-developability benchmark. A preprint is available, but the supplied post does not state the reproduction rate or identify specific failure modes.</p>
+          <p class="tags"><span class="tag">Scientific agents</span><span class="tag">Reproducibility</span><span class="tag">Antibodies</span></p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language practice</h2>
+      <p class="language-intro">Edited reading selections preserved in their original languages.</p>
+
+      <article class="reading" lang="de">
+        <h3>Deutsch — <a href="https://www.dw.com/de/grossbritannien-sanktioniert-handel-mit-israels-siedlungen-im-westjordanland/a-79191423">London verhängt Importverbot für israelische Siedlerprodukte</a></h3>
+        <p class="source-line">Deutsche Welle · 8. September 2026</p>
+        <p>Großbritannien und elf weitere Staaten wollen den Handel mit Waren aus israelischen Siedlungen im besetzten Westjordanland beschränken. Die Initiative richtet sich gegen den Ausbau der Siedlungen und gewaltsame Übergriffe auf Palästinenser. Neben Kanada, Norwegen und Island beteiligen sich mehrere EU-Staaten, darunter Frankreich, die Niederlande, Polen und Spanien; Deutschland gehört nicht zu den Unterzeichnern.</p>
+        <p>Der britische Außenminister Ed Miliband bezeichnet die Sanktionen als Beitrag zur Rettung der Zweistaatenlösung. Israel weist die Vorwürfe zurück und reagiert mit der Schließung des britischen Konsulats in Jerusalem. Wirtschaftlich dürfte das Importverbot nur begrenzte Folgen haben, politisch und diplomatisch besitzt es jedoch erhebliche Symbolkraft.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel verbindet eine aktuelle europäische außenpolitische Entscheidung mit verständlichem Hintergrund zum Westjordanland und zur internationalen Debatte über die Zweistaatenlösung.</p>
+      </article>
+
+      <article class="reading" lang="fr">
+        <h3>Français — <a href="https://actualitte.com/article/133727/librairie/une-greve-des-libraires-pour-faire-souffler-un-vent-nouveau-sur-la-branche">Une grève des libraires, pour « faire souffler un vent nouveau sur la branche »</a></h3>
+        <p class="source-line">ActuaLitté · 7 septembre 2026</p>
+        <p>Les libraires de toute la France ont été appelés à faire grève le 8 septembre, à l’occasion de la reprise des négociations annuelles entre les syndicats de salariés et le Syndicat de la librairie française. Cette mobilisation, rare dans une profession dispersée entre de nombreuses petites entreprises indépendantes, vise principalement à obtenir de meilleurs salaires et à renforcer les droits prévus par la convention collective.</p>
+        <p>La CGT et SUD Culture Solidaires jugent notamment inacceptable que certains minima salariaux restent au niveau du Smic. Les organisations souhaitent aussi revoir le partage de la valeur dans l’ensemble de la chaîne du livre et réclament de nouveaux droits, tels qu’un treizième mois, des congés supplémentaires et une meilleure représentation collective dans les petites structures. Au-delà du rassemblement parisien, elles espèrent faire de cette journée le point de départ d’une organisation syndicale plus solide dans le secteur.</p>
+        <p><strong>Pourquoi lire :</strong> L’article éclaire les réalités économiques et sociales souvent méconnues qui se cachent derrière le métier de libraire.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>débrayer</strong> — cesser temporairement le travail pour participer à une grève</li>
+          <li><strong>négociations annuelles obligatoires (NAO)</strong> — discussions périodiques imposées par le droit du travail sur les salaires et les conditions d’emploi</li>
+          <li><strong>convention collective</strong> — accord fixant les droits et les conditions de travail propres à un secteur professionnel</li>
+          <li><strong>grille de salaires</strong> — barème qui détermine les rémunérations minimales selon les postes et l’ancienneté</li>
+        </ul>
+      </article>
+
+      <article class="reading" lang="ja">
+        <h3>日本語 — <a href="https://automaton-media.com/articles/newsjp/20260909-465879/">トランプ米政権、“国境の壁建設テトリス”をひっそり削除。テトリス社の“怒りの声明”から数日後に</a></h3>
+        <p class="source-line">AUTOMATON · 2026-09-09</p>
+        <p>米ホワイトハウスが公開したミニゲーム集「ARCADE.GOV」から、『テトリス』に似たゲーム「Build the Wall」が削除された。この作品は、ブロックを積んで国境の壁を作り、南から来るゾンビを防ぐという内容だった。サイトにあった5作品のうち、現在はこのゲームだけが削除され、残る4作品は引き続き公開されている。</p>
+        <p>『テトリス』の権利を管理するThe Tetris Companyは9月5日、ゲーム制作には一切関与しておらず、著作権侵害を深刻に受け止めているとの声明を発表した。ただし、削除が同社の声明を受けた対応なのかは確認されておらず、ホワイトハウスと同社から詳しい説明も出ていない。記事は、政治広報にゲームの表現や知的財産が利用されることをめぐる問題として、この動きを伝えている。</p>
+        <p><strong>読む理由：</strong> ゲーム文化、政治広報、著作権が交差する出来事を通じて、現代的なメディア問題に触れられる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>知的財産権（ちてきざいさんけん）</strong> — 作品、発明、商標など、知的な創作物を保護する権利。</li>
+          <li><strong>著作権侵害（ちょさくけんしんがい）</strong> — 権利者の許可なく著作物を利用し、その権利を害すること。</li>
+          <li><strong>権利元（けんりもと）</strong> — 作品やブランドなどに関する権利を所有・管理する個人や組織。</li>
+        </ul>
+      </article>
+
+      <article class="reading" lang="zh-Hans">
+        <h3>中文 — <a href="https://www.bbc.com/zhongwen/articles/c33k4zjm6lro/simp">毛泽东为何被一些中国“Z世代”追捧：弹幕、“教员”与政治失语</a></h3>
+        <p class="source-line">BBC 中文 · 2026-09-09</p>
+        <p>在中国年轻人的网络语境中，毛泽东常被称为“教员”。B站上由影视片段剪成的相关视频拥有数百万次观看，画面出现毛泽东时，弹幕中常见“全体起立”等赞颂性表达。《毛泽东选集》自2019年起也连续多年位居清华大学图书馆借阅榜榜首。</p>
+        <p>报道认为，这股热潮既受到官方“强国”叙事和历史教育的影响，也与青年面对的就业压力、贫富差距及阶层固化有关。一些年轻人借助毛泽东时代的政治语言，解释“内卷”、住房负担和发展机会不足等现实困境；但他们谈论历史人物时相对自在，涉及当代最高领导层则往往选择回避，反映出审查与自我审查之下的有限讨论空间。</p>
+        <p><strong>为什么读：</strong> 文章从网络文化、青年处境和政治表达三个层面，分析毛泽东形象为何在部分中国年轻人中重新流行。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>键政 (jiànzhèng)</strong> — 网民在网络平台上讨论、评论政治和时事的俗称。</li>
+          <li><strong>阶层固化 (jiēcéng gùhuà)</strong> — 社会阶层之间流动机会减少，个人较难改变自身社会经济位置。</li>
+          <li><strong>自我审查 (zìwǒ shěnchá)</strong> — 发言者因担心后果而主动回避或删减敏感表达。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="notes" aria-labelledby="source-notes">
+      <h2 id="source-notes">Source note</h2>
+      <p>Several research entries came from social-media summaries whose shortened paper or code links were not available in the supplied material. Their post URLs are linked here, and claims without visible papers or verification details are presented as provisional.</p>
+    </section>
+  </main>
+
+  <footer>
+    News Daily · September 9, 2026
+  </footer>
+
+
+
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --ink:#242923; --muted:#60695e; --paper:#faf9f4; --line:#d9ddcf; --accent:#315b48; }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--paper); color:var(--ink); font:17px/1.65 Georgia,"Times New Roman",serif; }
+main { max-width:960px; margin:auto; padding:38px 26px; }
+header { border-top:5px solid var(--ink); border-bottom:1px solid var(--ink); padding:18px 0 22px; }
+h1 { font-size:clamp(42px,8vw,72px); line-height:1; margin:8px 0 16px; letter-spacing:-2px; }
+h2 { font-size:27px; line-height:1.3; margin:0 0 24px; }
+h3 { font-size:22px; line-height:1.35; margin:0 0 10px; }
+p { margin:10px 0; }
+.meta,nav,.source,footer,.label { font-family:system-ui,sans-serif; font-size:13px; color:var(--muted); }
+.label { text-transform:uppercase; letter-spacing:1.8px; }
+nav { display:flex; gap:10px 24px; flex-wrap:wrap; padding:17px 0; }
+a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
+section { margin-top:36px; }
+article { padding:0 0 23px; margin:0 0 25px; border-bottom:1px solid var(--line); }
+.briefs h3 { font-size:19px; }
+#languages { border-top:4px double var(--ink); padding-top:27px; margin-top:46px; }
+#languages article { padding-top:12px; }
+ul { padding-left:24px; }
+li { margin:8px 0; }
+footer { border-top:1px solid var(--ink); padding-top:18px; margin-top:32px; }
+@media print { body { background:white; } main { max-width:none; padding:0; } article { break-inside:avoid; } nav { display:none; } }
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<main>
+<header>
+<div class="label">The daily newspaper</div>
+<h1>News</h1>
+<div class="meta"><time datetime="2026-10-08">Thursday, October 8, 2026</time> · Run 2026-10-08-1</div>
+<p>Biological modeling, research evaluation, and reading in four languages.</p>
+</header>
+<nav aria-label="Sections">
+<a href="#biology">Biological modeling</a>
+<a href="#ai">AI &amp; scientific tools</a>
+<a href="#briefs">Research briefs</a>
+<a href="#languages">Language practice</a>
+</nav>
+
+<section id="biology">
+<h2>Biological modeling &amp; experimental design</h2>
+<article>
+<h3>Virtual cells: better experimental loops, not just bigger datasets</h3>
+<p>A discussion around a reported $1.8 billion virtual-cell effort centers on how to make its data scientifically useful. Anshul Kundaje advocates cheap, rapid, model-guided experimental cycles, explicit biological questions, and progressively harder generalization tests—with milestones tied to causal discovery rather than perturbation-prediction scores alone.</p>
+<p>Roshan Rao says the effort spans multiple technologies, including cryo-electron tomography and data standardization, rather than a single dataset. A complementary proposal calls for shared perturbations across laboratories, assays, and cell contexts to separate biological responses from measurement effects. These are design recommendations, not demonstrated outcomes.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2107904744077643838">Discussion shared by Anshul Kundaje</a> · <a href="https://x.com/razoralign/status/2107957379967144276">Shared-perturbation proposal from antisense.</a></p>
+</article>
+
+<article>
+<h3>DIMOS searches frozen diffusion models for joint biological design goals</h3>
+<p>DIMOS is described as a training-free, gradient-free framework combining local resampling with branching trajectories to satisfy multiple DNA, RNA, and protein design constraints. A supplied research digest reports the best joint success rates under matched wall-clock budgets across six computational tasks.</p>
+<p>For DNA activity plus ATAC, reported joint success reaches 87.55% with hard gates and 98.39% with soft gates. These are computational evaluator results: the account describes no wet-lab validation, and diversity checks alone do not rule out reward hacking.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2107831675816493321">BiologyAI Daily: DIMOS digest</a></p>
+</article>
+
+<article>
+<h3>GeneICL brings compact in-context learning to bulk transcriptomics</h3>
+<p>The 4.2-million-parameter GeneICL combines a semi-synthetic pretraining prior derived from measured bulk expression profiles with a recurrent, weight-tied architecture. Working in principal-component space, it uses labeled support examples to predict query samples; one pretrained model handles both regression and classification.</p>
+<p>A related post claims the best overall rank among evaluated methods, but the supplied excerpts lack benchmark datasets, split designs, and numerical results.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2107929278059049459">GeneICL research post</a></p>
+</article>
+
+<article>
+<h3>ASTRA targets spatial reconstruction across assay geometries</h3>
+<p>ASTRA—Assay-aware Spatial Transcriptomic Reconstruction and Allocation—is introduced as a pretrained model for zero-shot spatial-transcriptomics super-resolution using histology and measured RNA. Its representation accommodates count-bearing regions of different shapes and sizes, with training based on aggregated high-definition data.</p>
+<p>The posts describe frozen inference across capture geometries without task-specific retraining, but supply no quantitative validation or uncertainty analysis.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2107929487036002774">ASTRA research post</a></p>
+</article>
+
+<article>
+<h3>Faster ranking of protein complexes, including antibody–antigen candidates</h3>
+<p>DeepUMQA-Selection combines single-model quality filtering with alignment-free geometric fingerprints for consensus ranking. A digest describes evaluation on 259,835 models across 36 CASP16 targets, including eight antibody–antigen complexes.</p>
+<p>The antibody-specific procedure reportedly beats ipTM+pTM on five of eight targets by the Top-5 penalty metric. Geometric comparison is reported as 317 times faster than US-align for pools of 1,000 models. The antibody sample is small, and better structural ranking does not establish binding or affinity.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2107471320657408441">BiologyAI Daily: DeepUMQA-Selection digest</a></p>
+</article>
+
+<article>
+<h3>SynthID-Bio structural watermark draws independent testing</h3>
+<p>New posts acknowledge access to SynthID-Bio Struct weights and describe a follow-up experiment starting from watermarked weights with multi-step consistency training. Diego del Alamo and Anshul Kundaje also circulate a thread characterized as stress-testing the structural watermark.</p>
+<p>The available excerpts stop before the results. The news is independent testing activity—not evidence that watermark detection survived or failed.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2107967626525937837">Testing discussion shared by Anshul Kundaje</a></p>
+</article>
+</section>
+
+<section id="ai">
+<h2>AI evaluation &amp; scientific tools</h2>
+<article>
+<h3>A robotics benchmark keeps half its tasks held out</h3>
+<p>Lucas Beyer highlights a leaderboard for vision-language-action models that makes half its tasks fully open and holds the other half back to track potential overfitting in future model versions. The split addresses a practical evaluation concern, although the supplied post does not name the benchmark or provide its resource URL.</p>
+<p class="source"><a href="https://x.com/giffmana/status/2107860138769928492">Lucas Beyer’s post</a></p>
+</article>
+
+<article>
+<h3>“Level-of-Token” revisits diffusion transformers’ uniform grids</h3>
+<p>Stanford AI Lab shares Gordon Wetzstein’s description of a method generalizing the uniform token grid of pretrained diffusion transformers into a “Level-of-Token” layout. The excerpt ends before explaining the geometry, implementation, or results, making this a method pointer rather than an assessable performance claim.</p>
+<p class="source"><a href="https://x.com/StanfordAILab/status/2107898046793322726">Stanford AI Lab: Level-of-Token</a></p>
+</article>
+
+<article>
+<h3>Ranking 6,617 ICML papers to examine AI-directed science</h3>
+<p>A post by Shayne Redford, shared by Stanford AI Lab, describes work with Seungone Kim ranking all 6,617 ICML 2026 papers to investigate how delegating science to AI could shape research direction. The supplied excerpt omits both the ranking procedure and the findings.</p>
+<p class="source"><a href="https://x.com/StanfordAILab/status/2107898160278618294">Stanford AI Lab: AI-mediated research evaluation</a></p>
+</article>
+
+<article>
+<h3>Scientific search looks for evidence on both sides of a claim</h3>
+<p>James Zou describes a tool intended to search more than 100 million papers for evidence supporting and opposing a claim. The Stanford AI Lab excerpt is truncated, leaving the tool’s name, retrieval methodology, and complete latency claim unavailable.</p>
+<p class="source"><a href="https://x.com/StanfordAILab/status/2107895175226007685">Stanford AI Lab: scientific evidence search</a></p>
+</article>
+
+<article>
+<h3>A retrospective on the memory wall</h3>
+<p>Yaroslav Bulatov points to a technical retrospective on the origins of the memory wall, a hardware constraint relevant to machine-learning systems performance. The supplied material contains the topic and link, but not the underlying analysis.</p>
+<p class="source"><a href="https://x.com/yaroslavvb/status/2107981540785610835">Yaroslav Bulatov’s post</a> · <a href="https://t.co/QRkjFuxvhC">Linked retrospective (shortened URL)</a></p>
+</article>
+</section>
+
+<section id="briefs" class="briefs">
+<h2>Research briefs</h2>
+<p class="meta">Publication and tool pointers; the supplied excerpts offer limited technical detail.</p>
+<article>
+<h3>SPARCS links genes to complex cellular phenotypes</h3>
+<p>A post announces SPARCS in <em>Cell</em> as a platform for discovering genes underlying complex cellular phenotypes. Its components, experimental scope, and results are not included in the excerpt.</p>
+<p class="source"><a href="https://x.com/cutleraging/status/2107890045541634412">SPARCS publication pointer</a></p>
+</article>
+<article>
+<h3>MCCv: a chromatin-architecture method</h3>
+<p>A post announces a <em>Nature Genetics</em> paper introducing MCCv in the context of chromatin architecture. The excerpt ends before describing capabilities or findings.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2107928847098507660">MCCv publication pointer</a></p>
+</article>
+<article>
+<h3>Global metagenomics expands the protein-family map</h3>
+<p>A <em>Nucleic Acids Research</em> article is presented as “Quadrupling” protein-family space using global metagenomics—a potentially useful sequence-diversity resource. Family-definition criteria, dataset sizes, and validation details are absent from the supplied excerpt.</p>
+<p class="source"><a href="https://x.com/miangoar/status/2107920330756927747">Metagenomics publication pointer</a></p>
+</article>
+<article>
+<h3>RandomReadsMG simulates metagenomes at terabase scale</h3>
+<p>Announced in <em>Cell Genomics</em>, RandomReadsMG is described as a realistic metagenome simulator for uses including benchmarking. The supplied post does not specify error models, supported sequencing technologies, or validation results.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2107825312096727174">RandomReadsMG announcement</a></p>
+</article>
+<article>
+<h3>Retention-time prediction across chromatography conditions</h3>
+<p><em>Nature Methods</em> highlights research on chromatographic retention-time prediction that transfers across liquid-chromatography conditions and compound classes. This could support molecular-identification workflows, but no model description, datasets, or performance estimates are supplied.</p>
+<p class="source"><a href="https://x.com/naturemethods/status/2107488611549458594">Nature Methods research highlight</a></p>
+</article>
+</section>
+
+<section id="languages">
+<div class="label">Daily reading</div>
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — »So etwas habe ich in Deutschland noch nie erlebt« – Die Tickets für Avengers: Doomsday treiben Fans reihenweise in die Verzweiflung</h3>
+<p class="source">GameStar · 08.10.2026 · <a href="https://www.gamestar.de/artikel/avengers-doomsday-ticket-vorverkauf-deutschland-rekord-verzweifelte-fans,3460812.html">Zum Artikel</a></p>
+<p>Von Superhelden-Müdigkeit ist beim deutschen Vorverkauf für „Avengers: Doomsday“ offenbar wenig zu spüren. Laut GameStar verkauften die Kinos nach dem Vorverkaufsstart am 5. Oktober innerhalb von 24 Stunden 118.000 Eintrittskarten. Damit übertrifft der Film den bisherigen Vorverkaufsrekord von Disney in Deutschland: „Avengers: Endgame“ hatte 2019 zum Auftakt 105.000 Tickets erreicht.</p>
+<p>Für manche Fans wurde die Buchung allerdings zur Geduldsprobe. Der Artikel sammelt Berichte aus sozialen Medien über abstürzende Buchungsseiten und Vorstellungen, bei denen schon nach kurzer Zeit kaum noch attraktive Plätze verfügbar waren. Andere konnten sich trotz des Ansturms ihre Wunschkarten sichern. Die geschilderten Erfahrungen vermitteln vor allem einen Eindruck davon, wie stark die Vorfreude auf das Zusammentreffen bekannter Marvel-Figuren ist – eine systematische Untersuchung der Buchungsprobleme liefern sie nicht.</p>
+<p><strong>Warum lesen:</strong> Der kurze Artikel verbindet deutsche Kinokultur mit Online-Fankultur und zeigt, wie ein Filmstart schon beim Ticketkauf zum Gemeinschaftserlebnis werden kann.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Rossel, le groupe belge qui se taille un empire dans la presse quotidienne régionale française</h3>
+<p class="source">Le Monde · 8 octobre 2026 · <a href="https://www.lemonde.fr/economie/article/2026/10/08/rossel-le-groupe-belge-qui-se-taille-un-empire-dans-la-presse-quotidienne-regionale-francaise_6789966_3234.html">Lire l’article</a></p>
+<p>Le groupe familial belge Rossel, à l’origine du quotidien bruxellois <em>Le Soir</em>, poursuit son implantation dans les médias français. Après <em>La Voix du Nord</em>, acquis en 2005, plusieurs journaux locaux ont rejoint son portefeuille, dont <em>Le Courrier picard</em> et <em>Paris Normandie</em>. Le début de ce reportage présente la France comme un marché stratégique pour une entreprise dont les possibilités d’expansion en Belgique sont plus limitées.</p>
+<p>Une nouvelle étape pourrait être franchie avec le Groupe Sud Ouest : Rossel a annoncé en septembre des négociations exclusives pour en acheter 80 % du capital. Si cette opération aboutissait, elle renforcerait sa troisième place parmi les groupes français de presse quotidienne régionale, en chiffre d’affaires. Malgré les difficultés économiques du secteur, ses dirigeants affichent leur volonté de poursuivre leur développement. Cet aperçu repose sur la partie accessible de l’article ; la suite est réservée aux abonnés.</p>
+<p><strong>Pourquoi lire :</strong> Pour comprendre qui possède une partie de la presse locale française et découvrir les enjeux économiques d’un développement médiatique transfrontalier.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>presse quotidienne régionale (PQR)</strong> — ensemble des journaux publiés chaque jour et centrés sur l’actualité d’une région.</li>
+<li><strong>négociations exclusives</strong> — discussions pendant lesquelles un vendeur s’engage à négocier avec un seul acheteur potentiel.</li>
+<li><strong>capital</strong> — ensemble des parts représentant la propriété d’une société ; en acquérir une majorité permet généralement d’en prendre le contrôle.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 玉鋼から日本刀を鍛え上げる「刀鍛冶」，体験版が10月9日に配信。土置きから刃文が現れる工程も収録</h3>
+<p class="source">4Gamer · 2026-10-07 · <a href="https://www.4gamer.net/games/048/G104814/20261007004/">記事を読む</a></p>
+<p>SENSE SHAREは、日本刀づくりを題材にしたシミュレータ「刀鍛冶」の体験版を、10月9日にSteamで配信すると発表した。玉鋼を素材に刀を鍛える作品で、刀を使って戦うのではなく、作り手の仕事に目を向けている。</p>
+<p>注目したいのは、土置き、焼き入れ、研ぎを経て刃文が現れるまでの表現だ。記事に掲載されたメーカー発表では、プレイヤーが刀身に置いた土の模様が、その後の工程を通じて完成した刀の刃文につながると説明されている。伝統工芸の工程をゲームでどう体験させるのか、日本刀の見た目がどのように生まれるのかに関心がある人向けの話題だ。</p>
+<p><strong>読む理由：</strong> 日本の伝統工芸とゲームが交わる題材を通じて、刀づくりに特有の語彙に触れられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>玉鋼（たまはがね）</strong> — 伝統的なたたら製鉄で得られる、日本刀の主要な材料となる鋼。</li>
+<li><strong>土置き（つちおき）</strong> — 焼き入れの前に刀身へ土を塗り、部分ごとの冷え方を調整する工程。</li>
+<li><strong>刃文（はもん）</strong> — 焼き入れによって刀の刃側に生じる模様で、研ぐことで見えるようになる。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 遭驱逐引发西班牙住房抗议　87岁退休妇女去世</h3>
+<p class="source">RFI 中文 · 2026-10-08 · <a href="https://www.rfi.fr/cn/国际报道/20261008-遭驱逐引发西班牙住房抗议-87岁退休妇女去世">https://www.rfi.fr/cn/国际报道/20261008-遭驱逐引发西班牙住房抗议-87岁退休妇女去世</a></p>
+<p>据法广刊载的法新社短讯，马德里租户工会7日宣布，87岁的退休妇女玛丽卡门·阿巴斯卡尔已经去世。她此前遭到驱逐，其遭遇引发了西班牙全国范围内针对住房危机的抗议。</p>
+<p>报道将这一事件与西班牙的政治辩论联系起来，称相关辩论最终促成提前大选。租户工会在悼念声明中，将她的遭遇视为国家历史上的一个转折点。这篇短讯着重呈现个人住房困境引发的社会与政治回响，并未详细交代驱逐经过或选举背景。</p>
+<p><strong>为什么读：</strong> 篇幅简短，适合借一宗个人遭遇认识欧洲住房争议，并练习区分新闻叙述与团体声明。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>租户工会 (zūhù gōnghuì)</strong> — 组织租房者、维护其居住权益的团体。</li>
+<li><strong>住房危机 (zhùfáng wēijī)</strong> — 住房供应、价格或居住保障出现严重问题，使居民难以获得或维持合适住所的状况。</li>
+<li><strong>提前大选 (tíqián dàxuǎn)</strong> — 在原定选举日期或正常任期结束之前举行的全国性选举。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> This edition uses only the supplied source reports. Research coverage is based on provided social-media excerpts; linked papers and pages were not independently inspected. Several excerpts are truncated, and their limits are noted alongside the items. Computational results should not be read as experimental validation.</p>
+</footer>
+</main>
+
+
+
+</body>
+</html>

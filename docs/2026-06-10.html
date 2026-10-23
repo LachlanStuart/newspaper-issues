@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ef;
+      --paper: #fffdf8;
+      --ink: #1f2933;
+      --muted: #667085;
+      --rule: #d8d0c4;
+      --accent: #7c3aed;
+      --accent-soft: #ede9fe;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 32px auto;
+      padding: 32px;
+      background: var(--paper);
+      box-shadow: 0 8px 30px rgba(31, 41, 51, 0.08);
+      border: 1px solid var(--rule);
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.1rem, 5vw, 4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    .date {
+      margin-top: 12px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.95rem;
+    }
+    .lede {
+      max-width: 760px;
+      margin: 0 auto 30px;
+      color: #344054;
+      font-size: 1.08rem;
+      text-align: center;
+    }
+    section {
+      margin: 34px 0;
+    }
+    h2 {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: #111827;
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 8px;
+      margin-bottom: 18px;
+    }
+    article {
+      padding: 18px 0;
+      border-bottom: 1px solid #ebe5dc;
+    }
+    article:last-child {
+      border-bottom: none;
+    }
+    h3 {
+      margin: 0 0 8px;
+      font-size: 1.35rem;
+      line-height: 1.25;
+    }
+    h3 a {
+      color: var(--ink);
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+    h3 a:hover {
+      color: var(--accent);
+    }
+    p {
+      margin: 0.45rem 0;
+    }
+    .tags {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .tag {
+      background: var(--accent-soft);
+      color: #4c1d95;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-size: 0.78rem;
+    }
+    .source {
+      margin-top: 8px;
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+    }
+    .notes {
+      margin-top: 38px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+    }
+    .notes h2 {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    footer {
+      margin-top: 30px;
+      padding-top: 18px;
+      border-top: 3px double var(--rule);
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.85rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Wednesday, June 10, 2026 · Run 2026-06-10-1</div>
+    </header>
+
+    <p class="lede">
+      Today’s edition highlights new work on attention mechanisms and inference tooling, alongside notable bio-AI developments in protein structure prediction and antibody language-model evaluation.
+    </p>
+
+    <section>
+      <h2>AI Research &amp; Systems</h2>
+
+      <article>
+        <h3><a href="https://x.com/tilderesearch/status/2064397929297985742">Tilde introduces Parallax local-linear correction for softmax attention</a></h3>
+        <p>
+          Tilde describes Parallax, an attention modification that preserves the local-linear regression view of attention while avoiding a per-token solve. The additive covariance correction is designed to fit into FlashAttention with one extra branch, aiming for better arithmetic intensity and Hopper decode performance.
+        </p>
+        <p>
+          The reported results show gains over vanilla attention and sequence-mixer baselines at 0.6B and 1.7B scales, including pretraining and NanoGPT speedrun settings.
+        </p>
+        <div class="tags">
+          <span class="tag">attention</span>
+          <span class="tag">architecture</span>
+          <span class="tag">scaling</span>
+          <span class="tag">optimization</span>
+          <span class="tag">FlashAttention</span>
+        </div>
+        <div class="source">Source: X AI Research</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/Prince_Canuma/status/2064437722689962242">MLX support arrives for Cohere North Mini Code 1.0</a></h3>
+        <p>
+          Prince Canuma reports day-zero MLX support for CohereLabs/North-Mini-Code-1.0, described as a 30B-parameter mixture-of-experts coding model with 3B active parameters.
+        </p>
+        <p>
+          The post reports roughly 66 tokens per second in BF16 before compression and includes example <code>mlx-vlm</code> install and server commands for local agent use.
+        </p>
+        <div class="tags">
+          <span class="tag">MLX</span>
+          <span class="tag">inference</span>
+          <span class="tag">MoE</span>
+          <span class="tag">coding models</span>
+          <span class="tag">tooling</span>
+        </div>
+        <div class="source">Source: X AI Research</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/YouJiacheng/status/2064563007561351251">PufferLib says its drone-training example is now 5× faster</a></h3>
+        <p>
+          A retweeted note from PufferLib author Joseph Suarez says a drone-training example that previously trained in 30 seconds now runs five times faster.
+        </p>
+        <p>
+          The update is a small but relevant marker for reinforcement-learning and simulation training tooling performance.
+        </p>
+        <div class="tags">
+          <span class="tag">reinforcement learning</span>
+          <span class="tag">simulation</span>
+          <span class="tag">tooling</span>
+          <span class="tag">performance</span>
+        </div>
+        <div class="source">Source: X AI Research</div>
+      </article>
+    </section>
+
+    <section>
+      <h2>Bio-AI &amp; Protein Modeling</h2>
+
+      <article>
+        <h3><a href="https://x.com/sokrypton/status/2064331443715625183">AlphaFold 3 source code released under Apache 2.0</a></h3>
+        <p>
+          Sergey Ovchinnikov notes that the AlphaFold 3 source code is now open source under Apache 2.0, though model weights remain unavailable.
+        </p>
+        <p>
+          Follow-up discussion turns to whether OpenFold3 weights could be ported into the AF3 JAX code. Mohammed AlQuraishi says current OF3p2 models are not bitwise compatible out of the box, but future OpenFold3 versions may be, and the current OpenFold3 speed gap should be addressable with optimization.
+        </p>
+        <div class="tags">
+          <span class="tag">protein structure</span>
+          <span class="tag">open source</span>
+          <span class="tag">AlphaFold</span>
+          <span class="tag">OpenFold</span>
+        </div>
+        <div class="source">Source: X Bio Research</div>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/DdelAlamo/status/2064301363429794198">ESM-C antibody representations may miss CDRH3 ordering signals</a></h3>
+        <p>
+          Diego del Alamo highlights a possible antibody language-model limitation: mean-pooled ESM-C CDRH3 representations reportedly cannot distinguish real antibodies from antibodies with scrambled CDRs.
+        </p>
+        <p>
+          VHHBERT appears to distinguish the cases only for natural sequences. A follow-up argues that many models may represent CDRH3 residues largely as linear combinations of residue identity and position features, which could be too weak for antibody modeling.
+        </p>
+        <div class="tags">
+          <span class="tag">antibodies</span>
+          <span class="tag">protein language models</span>
+          <span class="tag">model evaluation</span>
+          <span class="tag">drug discovery</span>
+        </div>
+        <div class="source">Source: X Bio Research</div>
+      </article>
+    </section>
+
+    <section class="notes">
+      <h2>Quiet Notes</h2>
+      <p>
+        The bio-research source noted that one configured X list failed to fetch; this edition is based only on the usable normalized items supplied.
+      </p>
+    </section>
+
+    <footer>
+      News · Daily research aggregation for June 10, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

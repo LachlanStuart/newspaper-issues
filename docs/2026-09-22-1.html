@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #f7f4ed;
+      --ink: #20201d;
+      --muted: #68675f;
+      --rule: #cbc5b8;
+      --accent: #78472f;
+      --card: rgba(255, 255, 255, 0.48);
+      --link: #31586c;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    main {
+      width: min(1100px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 20px 0 18px;
+      margin-bottom: 36px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+    .dateline {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    section {
+      margin-top: 42px;
+    }
+    .section-heading {
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 20px;
+      padding-bottom: 7px;
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+    .deck {
+      margin: -8px 0 22px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    article {
+      background: var(--card);
+      border-top: 3px solid var(--accent);
+      padding: 18px 20px 20px;
+    }
+    article.feature {
+      grid-column: 1 / -1;
+    }
+    article h3 {
+      margin: 0 0 9px;
+      font-size: 1.25rem;
+      line-height: 1.25;
+    }
+    article p {
+      margin: 0.65em 0 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    a:hover, a:focus {
+      color: var(--accent);
+    }
+    .source {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .tags {
+      margin-top: 14px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+    }
+    code {
+      background: #ebe6da;
+      border-radius: 3px;
+      padding: 0.08em 0.28em;
+      font-size: 0.9em;
+    }
+    .language-practice {
+      margin-top: 56px;
+      border-top: 5px double var(--ink);
+      padding-top: 16px;
+    }
+    .language-grid {
+      display: grid;
+      gap: 24px;
+    }
+    .language-grid article {
+      border-top-color: #756b57;
+      padding: 22px 24px;
+    }
+    .language-grid h3 {
+      font-size: 1.35rem;
+    }
+    .language-grid ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+    .language-grid li {
+      margin: 5px 0;
+    }
+    .language-grid .meta {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+    .notes {
+      margin-top: 44px;
+      border-top: 1px solid var(--rule);
+      padding-top: 16px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+    footer {
+      margin-top: 32px;
+      border-top: 1px solid var(--ink);
+      padding-top: 12px;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.75rem;
+    }
+    @media (max-width: 760px) {
+      main { width: min(100% - 22px, 1100px); padding-top: 18px; }
+      .grid { grid-template-columns: 1fr; }
+      article.feature { grid-column: auto; }
+      article { padding: 16px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p class="dateline">Tuesday, September 22, 2026 · Research and technology edition</p>
+    </header>
+
+    <section aria-labelledby="ai-heading">
+      <h2 class="section-heading" id="ai-heading">AI Systems &amp; Methods</h2>
+      <p class="deck">Scaling laws, compressed speech recognition, reinforcement learning, statistical power, and faster model infrastructure.</p>
+
+      <div class="grid">
+        <article class="feature">
+          <p class="source">AI research</p>
+          <h3><a href="https://x.com/giffmana/status/2102126378174828999">How small can a useful scaling-law experiment be?</a></h3>
+          <p>A FAIR and NYU study examines how far scaling-law experiments can be reduced without losing their fit or predictive value. The work focuses on whether cheaper preliminary runs can still provide dependable guidance for larger language-model experiments. The discussion links to the <a href="https://t.co/p2fz82b5L5">full paper</a>.</p>
+          <p class="tags">Scaling laws · Experimental design · Language models</p>
+        </article>
+
+        <article>
+          <p class="source">Speech recognition</p>
+          <h3><a href="https://x.com/vikhyatk/status/2102057813224956186">Parakeet Redux compresses a speech model to ternary weights</a></h3>
+          <p>Parakeet Redux reduces NVIDIA’s Parakeet speech-to-text model from 1.2 GB to 178 MB through ternary quantization and a post-training recovery pipeline. Its release reports CPU inference at 113 times real time, improved results over the base model on the 25-language FLEURS benchmark, and English performance within 0.3 WER. Tables and examples appear in the linked <a href="https://t.co/DViglfAfZD">model card</a>.</p>
+          <p class="tags">Quantization · Model compression · Multilingual speech</p>
+        </article>
+
+        <article>
+          <p class="source">Reinforcement learning</p>
+          <h3><a href="https://x.com/yifanzhang_/status/2102182343213543547">Halo adds Self-Distilled Policy Gradient support</a></h3>
+          <p>The Halo reinforcement-learning framework now implements Self-Distilled Policy Gradient, making the research method available in a working framework. The announcement also points to the underlying <a href="https://t.co/Mg5TTcjEKg">SDPG resource</a>.</p>
+          <p class="tags">Policy gradients · Research tools</p>
+        </article>
+
+        <article>
+          <p class="source">Agent learning</p>
+          <h3><a href="https://x.com/yifanzhang_/status/2102021417323643292">Reinforcing agents with collective skills</a></h3>
+          <p>A new <a href="https://t.co/8MuMrSbWWk">research resource</a> explores reinforcement learning for agents that share or aggregate skills. The supplied material identifies the approach and its collective-skill focus, but does not provide detailed results.</p>
+          <p class="tags">Agents · Multi-agent systems · Reinforcement learning</p>
+        </article>
+
+        <article>
+          <p class="source">RL theory</p>
+          <h3><a href="https://x.com/YouJiacheng/status/2101580038546362759">Score centering as a straight-through estimator</a></h3>
+          <p>A concise derivation writes the logit-space policy score as <code>e_a − p</code> and its expectation under sampling distribution <code>q</code> as <code>q − p</code>, yielding the centered score <code>e_a − q</code>. This produces the straight-through-estimator interpretation <code>z_p + sg(z_q − z_p)</code> without requiring a linear policy.</p>
+          <p class="tags">Gradient estimation · Policy optimization · Theory</p>
+        </article>
+
+        <article>
+          <p class="source">Statistical methodology</p>
+          <h3><a href="https://x.com/gen0m1cs/status/2101799516051480807">Single-cell studies may miss genes with small effects</a></h3>
+          <p>A linked study argues that common single-cell experimental designs are systematically underpowered for detecting small-effect genes, raising questions about sample design and the interpretation of negative results. See the linked <a href="https://t.co/u0Z1I2Zlr6">paper</a>.</p>
+          <p class="tags">Single-cell biology · Statistical power · Genomics</p>
+        </article>
+
+        <article>
+          <p class="source">ML infrastructure</p>
+          <h3><a href="https://x.com/Prince_Canuma/status/2102060459117379806">Tokenizers v1 candidate claims gains of up to 30×</a></h3>
+          <p>The first Tokenizers v1 release candidate reports broad implementation changes and tokenization throughput improvements reaching 30 times in some cases. The available announcement is truncated, so the affected workloads and complete benchmark conditions are not specified.</p>
+          <p class="tags">Tokenization · Performance · Developer tools</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-heading">
+      <h2 class="section-heading" id="bio-heading">Computational Biology &amp; Drug Discovery</h2>
+      <p class="deck">Generative protein and RNA design, virtual-cell models, viral forecasting, interpretable embeddings, and new genomic methods.</p>
+
+      <div class="grid">
+        <article class="feature">
+          <p class="source">Protein design</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2102010865600036968">Proteína-Complexa searches latent space for biomolecular interactions</a></h3>
+          <p>Proteína-Complexa jointly generates protein sequence and structure, then uses reward-guided inference-time search to improve molecular interfaces. Experimental work includes a crystallized 800-residue design, binders against PDGFR, PD-L1 and Nipah virus glycoprotein, and multiplexed screening of more than one million sequences across 127 targets. The framework also produced compact binders able to distinguish blood-group glycans.</p>
+          <p class="tags">Generative models · Wet-lab validation · Glycobiology · Drug discovery</p>
+        </article>
+
+        <article>
+          <p class="source">Virtual screening</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2102010751364059140">DrugCLIP analysis tests generalization and interpretability</a></h3>
+          <p>DrugCLIP’s pocket embeddings strongly reflect binding-site geometry, while its ligand embeddings capture a pocket-aware form of chemical similarity. Evaluations designed to remove leakage retain substantial enrichment on novel proteins and chemistry, though performance declines with conformational changes, predicted pockets, and mismatched residue sets.</p>
+          <p class="tags">Contrastive learning · Evaluation · Molecular embeddings</p>
+        </article>
+
+        <article>
+          <p class="source">Virtual cells</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2102010427064594552">CELL-FM connects protein sequences with microscopy</a></h3>
+          <p>CELL-FM is a bidirectional sequence–image model: it can generate fluorescence microscopy from protein sequence and cellular context, or design sequences from image phenotypes. Trained on HPA, OpenCell and CondenSeq collections, it recovered known localization signals and generated NLS and NES motifs that were validated in cells. Applications also include morphology-controlled protein atlases and virtual mutagenesis of phase-separating proteins.</p>
+          <p class="tags">Microscopy · Protein design · Cell biology · Generative modeling</p>
+        </article>
+
+        <article>
+          <p class="source">RNA design</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2102010192401756189">RNA-MDLM generates and inpaints non-coding RNA</a></h3>
+          <p>RNA-MDLM applies masked discrete diffusion to type-conditioned non-coding RNA generation and sequence inpainting. It introduces language-model-derived RNA-type prototypes, guidance for severe class imbalance, and the REPAINT GAMES reconstruction suite. The results highlight a tension between structural fidelity and novelty—and show how redundant datasets can reward copying while making outputs appear realistic.</p>
+          <p class="tags">Diffusion models · Synthetic biology · Evaluation</p>
+        </article>
+
+        <article>
+          <p class="source">Viral surveillance</p>
+          <h3><a href="https://x.com/BiologyAIDaily/status/2102010096469594476">Viral Evolution Simulator forecasts mutation fitness</a></h3>
+          <p>A diffusion model trained on viral protein sequences scores mutations through reconstruction-based likelihood ratios. Reported results improve on immune-escape and receptor-binding benchmarks, recover established influenza antigenic-drift sites, and rank mutations that subsequently rose after the model’s temporal training cutoff. An H5 analysis also prioritizes mutations associated with human-type receptor binding.</p>
+          <p class="tags">Influenza · Mutation fitness · Genomic surveillance</p>
+        </article>
+
+        <article>
+          <p class="source">Gene regulation</p>
+          <h3><a href="https://x.com/razoralign/status/2102140187145043979">scMGFGRN combines transcriptomes, function, and sequence</a></h3>
+          <p>scMGFGRN infers gene-regulatory networks by combining single-cell transcriptomes with functional gene hierarchies and gene-sequence representations from a pretrained DNA language model. Its architecture uses denoising autoencoders, graph-attention feature extraction, and gated multi-head attention.</p>
+          <p class="tags">Single-cell data · Regulatory networks · DNA language models</p>
+        </article>
+
+        <article>
+          <p class="source">Experimental prioritization</p>
+          <h3><a href="https://x.com/razoralign/status/2102140446072049878">VCCV uses cellular evidence to triage drug–target predictions</a></h3>
+          <p>Virtual-to-Cellular Corroboration for Validation is a model-agnostic layer for pretrained drug–target interaction predictors. It updates calibrated predictions with context-matched perturbational transcriptomics, can abstain through an empirical warning branch, and converts unresolved near-ties into compact gene panels for follow-up measurement.</p>
+          <p class="tags">Transcriptomics · Uncertainty · Experimental design</p>
+        </article>
+
+        <article>
+          <p class="source">Interpretability</p>
+          <h3><a href="https://x.com/razoralign/status/2102140676158992465">MESIC gives gene-expression embeddings sparse semantic components</a></h3>
+          <p>MESIC compresses otherwise opaque semantic gene embeddings into a small collection of sparse components. Each component is concentrated on a limited gene set and can be explained using the corresponding gene summaries and annotations.</p>
+          <p class="tags">Gene expression · Representation learning · Interpretability</p>
+        </article>
+
+        <article class="feature">
+          <p class="source">Open protein-design tools</p>
+          <h3><a href="https://x.com/kavi_deniz/status/2101975502743286142">BindCraft2 expands binder design to antibodies and multistate targets</a></h3>
+          <p>BindCraft2 has been released with code available for academic and industry use. The workflow extends the original BindCraft to VHH, scFv, Fab and other binder modalities, while adding multistate targets, multiple simultaneous targets, induced fit, and intrinsically disordered regions. The release moves the open workflow closer to antibody and complex drug-discovery settings.</p>
+          <p class="tags">Antibodies · Open source · Multistate design · Drug discovery</p>
+        </article>
+
+        <article>
+          <p class="source">RNA foundation models</p>
+          <h3><a href="https://x.com/razoralign/status/2102139575485550691">PARNET builds RNA representations around CLIP-seq</a></h3>
+          <p>PARNET is presented as an RNA-sequence foundation model trained around CLIP-seq data, with direct relevance to RNA–protein regulation. Architectural and benchmark details were not included in the supplied announcement.</p>
+          <p class="tags">RNA · CLIP-seq · Foundation models</p>
+        </article>
+
+        <article>
+          <p class="source">Cross-species biology</p>
+          <h3><a href="https://x.com/razoralign/status/2102139535488631112">LucaCell targets sequence-centric single-cell analysis</a></h3>
+          <p>LucaCell is described as a sequence-centric foundation model for cross-species single-cell analysis. The available item provides no methodological or benchmark detail beyond that research focus.</p>
+          <p class="tags">Single-cell biology · Genomics · Cross-species transfer</p>
+        </article>
+
+        <article>
+          <p class="source">Genomics</p>
+          <h3><a href="https://x.com/razoralign/status/2102139555692597260">dicast applies machine learning to structural-variant detection</a></h3>
+          <p>dicast is presented as a machine-learning method for detecting structural variants from short-read sequencing data. Further benchmark and implementation details were not available in the supplied item.</p>
+          <p class="tags">Structural variants · Short reads · Machine learning</p>
+        </article>
+
+        <article>
+          <p class="source">Review</p>
+          <h3><a href="https://x.com/NatureRevGenet/status/2101979363218743695">Plasmids and extrachromosomal DNA viewed through evolution</a></h3>
+          <p>A new <em>Nature Reviews Genetics</em> article compares the evolutionary properties shared by plasmids and extrachromosomal DNA, connecting microbial genome evolution with disease-relevant extrachromosomal DNA biology. The supplied announcement contains no further detail.</p>
+          <p class="tags">Genome evolution · Plasmids · Extrachromosomal DNA</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <h2 class="section-heading" id="language-heading">Language Practice</h2>
+      <p class="deck">Daily reading selections in German, French, Japanese, and Chinese.</p>
+
+      <div class="language-grid">
+        <article lang="de">
+          <h3>Deutsch — Nachfolger von Windows: Staatskanzlei Kiel stellt auf Linux um</h3>
+          <p class="meta">heise online · 21.09.2026 · <a href="https://www.heise.de/news/Nachfolger-von-Windows-Staatskanzlei-Kiel-stellt-auf-Linux-um-11460729.html">Artikel öffnen</a></p>
+          <p>Die Staatskanzlei Schleswig-Holsteins hat ihre Arbeitsplätze weitgehend von Microsoft Windows auf Linux umgestellt. Mehr als 200 Beschäftigte nutzen inzwischen das freie Betriebssystem; nur rund 20 Rechner bleiben wegen spezieller Fachanwendungen vorerst bei Windows. Schulungen, Lernvideos, interne Foren und technische Unterstützung sollen den Übergang erleichtern.</p>
+          <p>Das Projekt dient als Vorbild für die weitere Umstellung der Landesverwaltung. Schleswig-Holstein hat bereits LibreOffice, Open-Xchange und OpenTalk eingeführt; als Nächstes sind unter anderem Nextcloud und weitere quelloffene Dienste vorgesehen. Ziel ist es, die Abhängigkeit von einzelnen Softwareherstellern zu verringern und die Kontrolle über Daten und digitale Infrastruktur zu stärken.</p>
+          <p><strong>Warum lesen:</strong> Der Artikel zeigt an einem konkreten deutschen Beispiel, wie digitale Souveränität und Open Source in der öffentlichen Verwaltung praktisch umgesetzt werden.</p>
+        </article>
+
+        <article lang="fr">
+          <h3>Français — Bungie annule la mort de Destiny 2</h3>
+          <p class="meta">Numerama · 22 septembre 2026 · <a href="https://www.numerama.com/pop-culture/2337243-bungie-annule-la-mort-de-destiny-2.html">Lire l’article</a></p>
+          <p>Quelques mois après avoir laissé entendre que <em>Destiny 2</em> approchait de sa fin, Bungie fait marche arrière. Le studio affirme que la franchise reste essentielle à son avenir et promet de lui consacrer de nouveau du temps et des ressources. Cette annonce intervient après une forte mobilisation des joueurs, mais aussi dans un contexte difficile pour l’entreprise, marquée par des licenciements et par les résultats décevants de <em>Marathon</em>.</p>
+          <p>Bungie prévoit notamment de réintroduire dans <em>Destiny 2</em> des campagnes, destinations et raids supprimés au fil des années. L’opération sera complexe : les anciens contenus devront être adaptés aux systèmes techniques, à l’éclairage, aux ennemis et aux normes de jouabilité actuels. Aucun <em>Destiny 3</em> ni nouvelle extension n’est encore annoncé, mais le studio présente ce chantier comme la première étape d’un engagement à long terme envers la saga et sa communauté.</p>
+          <p><strong>Pourquoi lire :</strong> Un article concis sur la manière dont la pression d’une communauté peut infléchir la stratégie d’un grand studio de jeux vidéo.</p>
+          <p><strong>Vocabulaire utile</strong></p>
+          <ul>
+            <li><strong>rétropédaler</strong> — revenir sur une décision ou une position annoncée auparavant</li>
+            <li><strong>raid</strong> — activité coopérative longue et difficile, généralement destinée à un groupe de joueurs expérimentés</li>
+            <li><strong>systèmes sous-jacents</strong> — composants techniques fondamentaux qui assurent le fonctionnement interne d’un logiciel ou d’un jeu</li>
+          </ul>
+        </article>
+
+        <article lang="ja">
+          <h3>日本語 — 消音できる熊鈴、長距離撃退スプレー、AIカメラまで：進化するクマ対策</h3>
+          <p class="meta">nippon.com · 2026-09-22 · <a href="https://www.nippon.com/ja/japan-topics/g02641/">記事を読む</a></p>
+          <p>クマによる人身被害が相次ぐなか、対策用品や監視技術が進化している。身近な熊鈴には、市街地では音を止められる消音ロック付きの商品や、電子音と強い光でクマを威嚇する機器が登場した。撃退スプレーも噴射距離や噴射時間などが製品ごとに異なり、環境省は製造・販売者向けの性能要件を示している。</p>
+          <p>被害を避ける技術としては、AIカメラでクマを検知し、住民への通知と大音量による追い払いを行う仕組みや、目撃情報を地図上で共有するサービスが広がっている。臭いを利用した忌避用品や、クマには開けにくいごみ箱も開発されているが、記事は、道具の限界を理解し、出没情報の確認や食料・生ごみの管理など人間側の行動を変えることが最大の防御策だと指摘する。</p>
+          <p><strong>読む理由：</strong> 身近な野生動物問題を通して、防災用品、行政の基準、AI監視技術に関する実用的な日本語を学べる。</p>
+          <p><strong>語彙メモ</strong></p>
+          <ul>
+            <li><strong>忌避用品（きひようひん）</strong> — 動物が嫌う臭いや成分を利用し、近づかないようにする製品。</li>
+            <li><strong>性能要件（せいのうようけん）</strong> — 製品が安全かつ適切に機能するために満たすべき条件。</li>
+            <li><strong>重症化軽減（じゅうしょうかけいげん）</strong> — けがや病気が深刻な状態になるのを抑えること。</li>
+          </ul>
+        </article>
+
+        <article lang="zh-Hans">
+          <h3>中文 — “弱化英语”为什么成为中国社会的周期性话题？</h3>
+          <p class="meta">端传媒 · 2026-09-22 · <a href="https://theinitium.com/20260922-mainland-downplaying-english-learning-zh-hans/">阅读文章</a></p>
+          <p>文章以中国社会反复出现的“弱化英语”讨论为切口，关注英语教育为何不只是一项课程安排，还会周期性地演变为公共议题。标题所提出的问题，把外语学习与教育政策、社会心态及中国如何理解自身与外部世界的关系联系起来。</p>
+          <p>导语认为，新一代中国人正变得更不愿意“与世界接轨”。这一判断值得结合文章进一步辨析：英语地位的变化究竟源于教学负担、实用价值的重新评估，还是更广泛的社会与政治氛围。正文仅限会员阅读，但公开标题和导语已清楚呈现文章的核心讨论方向。</p>
+          <p><strong>为什么读：</strong> 从语言教育观察中国社会对全球化与外部世界态度的变化，也与语言学习者自身密切相关。</p>
+          <p><strong>词汇笔记</strong></p>
+          <ul>
+            <li><strong>弱化 (ruòhuà)</strong> — 降低某事物的重要性、地位或影响力。</li>
+            <li><strong>与世界接轨 (yǔ shìjiè jiēguǐ)</strong> — 与国际通行的制度、知识或交流方式建立联系。</li>
+            <li><strong>周期性话题 (zhōuqīxìng huàtí)</strong> — 每隔一段时间便会重新出现并引发讨论的话题。</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <aside class="notes" aria-label="Source notes">
+      <strong>Source notes:</strong> Several research announcements supplied only titles or short descriptions, so their summaries are correspondingly limited. Some paper and model-card links were available only as shortened URLs. Duplicate bio-research posts were consolidated.
+    </aside>
+
+    <footer>
+      News Daily · September 22, 2026 · Run 2026-09-22-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

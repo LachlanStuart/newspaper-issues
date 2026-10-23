@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #f7f4ed;
+      --ink: #20201d;
+      --muted: #67655e;
+      --line: #cbc6ba;
+      --accent: #7d2f2f;
+      --card: #fffdf8;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 36px 0 56px;
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 24px 12px 20px;
+      margin-bottom: 38px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 42px 0;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      gap: 14px;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 22px;
+    }
+
+    .section-heading h2 {
+      margin: 0 0 6px;
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    article {
+      background: var(--card);
+      border: 1px solid var(--line);
+      padding: 21px 23px;
+      break-inside: avoid;
+    }
+
+    article h3 {
+      margin: 0 0 10px;
+      font-size: 1.22rem;
+      line-height: 1.3;
+    }
+
+    article p {
+      margin: 9px 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+      color: #4f1616;
+    }
+
+    .source-link {
+      display: inline-block;
+      margin-top: 9px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+
+    .tags {
+      margin-top: 14px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      line-height: 1.5;
+    }
+
+    .tags span {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 2px 3px 2px 0;
+    }
+
+    .language-section {
+      margin-top: 56px;
+      border-top: 5px solid var(--ink);
+      padding-top: 26px;
+    }
+
+    .language-intro {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      margin: -10px 0 26px;
+    }
+
+    .language-article {
+      margin-bottom: 24px;
+      padding: 25px 28px;
+    }
+
+    .language-article h3 {
+      font-size: 1.4rem;
+    }
+
+    .byline {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.83rem;
+    }
+
+    .language-article ul {
+      margin: 8px 0 0;
+      padding-left: 22px;
+    }
+
+    .notes {
+      border-top: 1px solid var(--line);
+      margin-top: 42px;
+      padding-top: 18px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    footer {
+      margin-top: 38px;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 760px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        width: min(100% - 20px, 1120px);
+        padding-top: 16px;
+      }
+
+      article,
+      .language-article {
+        padding: 18px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <p>Thursday, September 24, 2026 · Research, technology, and language</p>
+    </header>
+
+    <section>
+      <div class="section-heading">
+        <h2>AI Research</h2>
+        <span>Models, evaluation, robotics, and tooling</span>
+      </div>
+
+      <div class="grid">
+        <article>
+          <h3>HySparse2 targets cheaper prefill and stronger long-context performance</h3>
+          <p>MiMo-V3 is adopting an architecture centered on HySparse2, presented as reducing prefill computation and KV-cache size while improving long-context behavior.</p>
+          <a class="source-link" href="https://x.com/SonglinYang4/status/2102995273060700468">Read the source post</a>
+          <div class="tags"><span>Architecture</span><span>Sparse attention</span><span>Inference</span></div>
+        </article>
+
+        <article>
+          <h3>Matryoshka Attribution uses gradient descent to localize model behavior</h3>
+          <p>A new interpretability method applies gradient descent to identify which parts of a model are responsible for a specified target behavior.</p>
+          <a class="source-link" href="https://x.com/StanfordAILab/status/2102830122219008045">Read the source post</a>
+          <div class="tags"><span>Interpretability</span><span>Attribution</span><span>Optimization</span></div>
+        </article>
+
+        <article>
+          <h3>Real-Time EXPO-FT trains VLA policies to account for control latency</h3>
+          <p>Real-Time EXPO-FT extends EXPO-FT to dynamic robotics tasks where inference delay matters. A base vision-language-action policy operates on older observations while the method compensates for latency; reported experiments use π0.5 on challenging tasks.</p>
+          <a class="source-link" href="https://x.com/StanfordAILab/status/2102829915334975694">Read the source post</a>
+          <div class="tags"><span>Robotics</span><span>Reinforcement learning</span><span>VLA</span></div>
+        </article>
+
+        <article>
+          <h3>HLE-Diamond offers a cleaned subset of Humanity’s Last Exam</h3>
+          <p>CAIS released HLE-Diamond, a refined subset of the difficult Humanity’s Last Exam benchmark produced through a year-long cleaning and refinement effort.</p>
+          <a class="source-link" href="https://x.com/steipete/status/2102815369211924607">Read the source post</a>
+          <div class="tags"><span>Benchmark</span><span>Evaluation</span><span>Reasoning</span></div>
+        </article>
+
+        <article>
+          <h3>UniLasso introduces a statistical-learning method for genomic prediction</h3>
+          <p>UniLasso, a new statistical-learning approach for genomic prediction, has been published in <em>PLOS Genetics</em>.</p>
+          <a class="source-link" href="https://x.com/gen0m1cs/status/2102936630310961313">Read the source post</a>
+          <div class="tags"><span>Statistical learning</span><span>Genomics</span><span>Prediction</span></div>
+        </article>
+
+        <article>
+          <h3>Scientific agents reportedly identify an unexpected bacteriophage enzyme system</h3>
+          <p>An agent-led genome-mining investigation reportedly found a previously unknown bacteriophage enzyme system. After rejecting an initial nearby-gene association as probably spurious, a worker agent retained the reverse-transcriptase candidate and queued a closer follow-up rather than discarding it.</p>
+          <a class="source-link" href="https://x.com/gen0m1cs/status/2102852037880746480">Read the source post</a>
+          <div class="tags"><span>Scientific agents</span><span>Genomics</span><span>Bioinformatics</span></div>
+        </article>
+
+        <article>
+          <h3>Nemotron 3 Diarization gains MLX-Audio support</h3>
+          <p>MLX-Audio now supports Nemotron 3 Diarization, enabling local speaker-diarization workflows on Apple Silicon.</p>
+          <a class="source-link" href="https://x.com/Prince_Canuma/status/2102801798390014010">Read the source post</a>
+          <div class="tags"><span>Speech</span><span>Diarization</span><span>MLX</span></div>
+        </article>
+
+        <article>
+          <h3>Brain and H100 comparison assembles compute-scale reference numbers</h3>
+          <p>A technical comparison collects quantitative reference points for the human brain and an NVIDIA H100, including roughly 86 billion neurons versus 80 billion transistors and an estimated correspondence between transistor flips and synaptic arrivals.</p>
+          <a class="source-link" href="https://x.com/yaroslavvb/status/2102830751142359444">Read the source post</a>
+          <div class="tags"><span>Hardware</span><span>Neuroscience</span><span>Compute</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <h2>Computational Biology</h2>
+        <span>Drug discovery, genomics, and biological modeling</span>
+      </div>
+
+      <div class="grid">
+        <article>
+          <h3>Structural world model detects cryptic drug-binding pockets from apo structures</h3>
+          <p>A model uses per-residue latent representations from a single apo protein structure to rank cryptic pockets without explicit conformational sampling. Reported top-1 localization is about 0.85 on CryptoBench and a CryptoBank subset, though exact residue-set recovery is much harder.</p>
+          <p>The model also recovered the WRN helicase allosteric site across three held-out apo structures and appears complementary to OpenDDE.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2102734834871537742">Read the source post</a>
+          <div class="tags"><span>Drug discovery</span><span>Structural models</span><span>Cryptic pockets</span></div>
+        </article>
+
+        <article>
+          <h3>Benchmark exposes AlphaFold 3 limits on mutation-induced structural change</h3>
+          <p>A dataset of 6,967 wild-type–mutant protein pairs introduces a local-deformation metric normalized against experimental variation among duplicate structures. AlphaFold 3 shows moderate overall correlation with measured deformation, but performance falls sharply for strongly perturbative mutations, suggesting a bias toward wild-type-like conformations.</p>
+          <p>The study warns that unnormalized comparisons can overstate predictive performance.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2102734349733114259">Read the source post</a>
+          <div class="tags"><span>AlphaFold 3</span><span>Protein mutations</span><span>Model limits</span></div>
+        </article>
+
+        <article>
+          <h3>OmicsBench tests whether sequence-focused LLMs provide traceable evidence</h3>
+          <p>OmicsBench contains 1,160 expert-validated questions across DNA regulation, RNA processing, and protein function. Instance-specific rubrics score whether models recover the biological evidence each answer requires.</p>
+          <p>Across 17 models, scientific LLMs could achieve useful prediction metrics while still producing weak or fabricated rationales. A Tool-Augmented On-Policy Distillation method reportedly improves evidence recall across Qwen3.5 model sizes; a 10,069-record training set and 27B model have also been released.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2102734057776062744">Read the source post</a>
+          <div class="tags"><span>Omics</span><span>Evaluation</span><span>LLM safety</span></div>
+        </article>
+
+        <article>
+          <h3>miRstring predicts miRNA boundaries and guides artificial miRNA design</h3>
+          <p>miRstring combines an RNA language model with secondary-structure signals to predict mature miRNA duplex boundaries across plants, animals, viruses, and other clades. Evaluation uses family- and species-held-out splits covering 77,708 precursors from 414 species.</p>
+          <p>Its scaffold-selection pipeline was tested in <em>Nicotiana benthamiana</em>, where selected scaffolds produced stronger PDS and CHLH knockdown than the conventional MIR319 scaffold.</p>
+          <a class="source-link" href="https://x.com/BiologyAIDaily/status/2102733920135741640">Read the source post</a>
+          <div class="tags"><span>RNA</span><span>MicroRNA</span><span>Wet-lab validation</span></div>
+        </article>
+
+        <article>
+          <h3>Four pharmaceutical companies collaborate on affinity-model training</h3>
+          <p>AISB Bind is described as a project in which AbbVie, AstraZeneca, Bristol Myers Squibb, and Johnson &amp; Johnson train a shared model across proprietary affinity and screening data. The available post does not specify the architecture, privacy mechanism, datasets, or evaluation results.</p>
+          <a class="source-link" href="https://x.com/MoAlQuraishi/status/2102738325052575933">Read the source post</a>
+          <div class="tags"><span>Binding affinity</span><span>Collaborative learning</span><span>Pharma</span></div>
+        </article>
+
+        <article>
+          <h3>Genome language models explored as tools for reaching new chemical space</h3>
+          <p>Researchers highlighted work asking whether genomic language models can design biological systems that access new regions of chemical space. The available posts do not provide enough detail to assess the model, experimental system, or validation.</p>
+          <a class="source-link" href="https://x.com/sokrypton/status/2102802713327108100">Read the source post</a>
+          <div class="tags"><span>Genome language models</span><span>Synthetic biology</span><span>Chemical space</span></div>
+        </article>
+
+        <article>
+          <h3>deepSCENIC learns cell-type-specific regulatory cascades</h3>
+          <p>deepSCENIC integrates single-cell RNA-seq, single-cell ATAC-seq, and DNA sequence through a multimodal VAE with Enformer-derived embeddings. It is described as recovering transcription-factor–regulatory-element interactions and de novo binding motifs.</p>
+          <p>The system also supports in-silico propagation of transcription-factor expression changes or sequence variants through inferred regulatory networks.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2102856652894662965">Read the source post</a>
+          <div class="tags"><span>Single-cell</span><span>Multiomics</span><span>Gene regulation</span></div>
+        </article>
+
+        <article>
+          <h3>EvSpark accelerates Evo 2 generation with lossless speculative decoding</h3>
+          <p>EvSpark uses a small hidden-state-conditioned drafter to propose blocks for parallel verification by Evo 2, restoring retained inference state without replay. Reported single-stream speedups range from 2.2× for the 7B model to 3.3× for the 40B model.</p>
+          <p>Verified sampling preserves the target distribution, while greedy outputs remain token-for-token identical.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2102856251696918965">Read the source post</a>
+          <div class="tags"><span>Evo 2</span><span>Speculative decoding</span><span>Inference</span></div>
+        </article>
+
+        <article>
+          <h3>stEDGE reconstructs spatial domains and transition interfaces</h3>
+          <p>stEDGE estimates local boundaries in spatial transcriptomics and uses them to constrain domain growth from stable cores. It carries those boundaries into multiscale hierarchical reconstruction and introduces a domain transition index to distinguish stable compartments from transition-prone or structurally mixed spatial states.</p>
+          <a class="source-link" href="https://x.com/razoralign/status/2102855750322356441">Read the source post</a>
+          <div class="tags"><span>Spatial transcriptomics</span><span>Cell states</span><span>Tissue organization</span></div>
+        </article>
+
+        <article>
+          <h3>EPIC challenge opens for promoter and transcription-initiation prediction</h3>
+          <p>The Eukaryotic Promoter and transcription Initiation prediction Challenge is open, focusing on promoter locations and transcription-initiation behavior. Dataset composition, challenge tracks, and evaluation criteria were not available in the supplied post.</p>
+          <a class="source-link" href="https://x.com/pkoo562/status/2102922540956151943">Read the source post</a>
+          <div class="tags"><span>Regulatory genomics</span><span>Promoters</span><span>Benchmark</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-section">
+      <div class="section-heading">
+        <h2>Language Practice</h2>
+        <span>Daily reading in German, French, Japanese, and Chinese</span>
+      </div>
+      <p class="language-intro">Edited reading selections are preserved in their original languages.</p>
+
+      <article class="language-article" lang="de">
+        <h3>Deutsch — Meteorologe: Deutschland sollte KI gegen Extremwetter nutzen</h3>
+        <p class="byline">Deutsche Welle · 23. September 2026 · <a href="https://www.dw.com/de/welt-risiko-bericht-deutschland-hitzewellen-extremwetter-ueberschwemmungen-hamburg-kongress-klima/a-79386591">Artikel öffnen</a></p>
+
+        <p>Der Welt-Risiko-Bericht 2026 warnt vor schwereren Folgen intensiver werdender Wirbelstürme. Wie viele Menschen durch solche Ereignisse zu Schaden kommen, hängt dem Bericht zufolge nicht allein von der Stärke eines Sturms ab, sondern auch von Bauvorschriften, Warnketten und sozialen Sicherungssystemen. Besonders gefährdet sind unter anderem die Philippinen, Mexiko und Madagaskar; Deutschland liegt im Sturm-Risikoindex dagegen weit hinten.</p>
+
+        <p>Meteorologe Frank Böttcher fordert, Künstliche Intelligenz stärker für die Vorhersage von Extremwetter und kurzfristige Schutzmaßnahmen einzusetzen. Zugleich betont er, dass jede Region andere Lösungen benötigt und Deutschland Planungs- und Umsetzungsprozesse bei der Klimaanpassung beschleunigen müsse. Der Artikel beschreibt außerdem ungewöhnlich hohe Wassertemperaturen in der Nordsee und den langfristigen Anstieg des Meeresspiegels an deutschen Küsten.</p>
+
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet Klimarisiken, gesellschaftliche Vorsorge und den praktischen Einsatz von KI anhand konkreter Beispiele aus Deutschland und anderen Weltregionen.</p>
+      </article>
+
+      <article class="language-article" lang="fr">
+        <h3>Français — Demba : les dernières Amazones face à l’histoire coloniale</h3>
+        <p class="byline">ActuaLitté · 24 septembre 2026 · <a href="https://actualitte.com/article/134111/avant-parutions/demba-les-dernieres-amazones-face-a-l-histoire-coloniale">Lire l’article</a></p>
+
+        <p>Le roman présenté par ActuaLitté suit Demba, l’une des dernières Amazones ayant survécu à la guerre de 1894 contre les troupes coloniales françaises. En 1906, à Marseille, cette ancienne combattante réduite en esclavage puis exhibée dans des zoos humains attend le retour du roi Béhanzin, exilé depuis douze ans en Martinique. Elle espère obtenir son pardon, car elle estime avoir failli au combat pour des raisons personnelles.</p>
+
+        <p>Sur fond de première Exposition coloniale de Marseille, le récit de Daniel Picouly aborde la guerre, la captivité et la mise en spectacle des populations colonisées. Demba doit aussi affronter un fantôme de son passé avant de pouvoir envisager sa délivrance. Le livre, annoncé chez Albin Michel pour le 7 octobre 2026, s’inscrit dans une œuvre où Picouly explore régulièrement l’histoire, la mémoire et les identités.</p>
+
+        <p><strong>Pourquoi lire :</strong> Cette présentation ouvre une porte sur un roman historique qui confronte le destin intime d’une combattante à la violence du système colonial.</p>
+
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>Amazones du Dahomey</strong> — corps militaire féminin du royaume du Dahomey, dans l’actuel Bénin, ayant combattu les forces coloniales françaises</li>
+          <li><strong>zoo humain</strong> — exhibition publique de personnes colonisées, présentées de manière déshumanisante comme des curiosités ethnographiques</li>
+          <li><strong>Exposition coloniale</strong> — manifestation destinée à présenter et à promouvoir les territoires, les populations et les productions des empires coloniaux</li>
+        </ul>
+      </article>
+
+      <article class="language-article" lang="ja">
+        <h3>日本語 — 『マインクラフト』にて、「13年間そのままだったバグ」がついに修正される。“謎の水際ジャンプ”、とうとう見納め</h3>
+        <p class="byline">AUTOMATON · 2026-09-24 · <a href="https://automaton-media.com/articles/newsjp/20260924-469638/">記事を読む</a></p>
+
+        <p>『Minecraft』Java版のテストバージョン「26.4 Snapshot 1」で、2013年から報告されていた水中挙動のバグが修正された。流れる水に少し浸かったプレイヤーが隣のブロックへ押されると、自動的にジャンプしてしまう現象で、公式イシュートラッカーでは「MC-8959」として13年間残っていた。</p>
+
+        <p>この挙動は、はしごを通常より速く登るテクニックにも利用されていたため、修正はプレイヤーの操作方法にも影響する。また、水流や溶岩流の端で勝手にジャンプする別の現象も同時に修正された。長年存在したため、バグではなく半ば仕様だと思っていたプレイヤーから驚きの声が上がっている。</p>
+
+        <p><strong>読む理由：</strong> 長寿ゲームでバグがプレイヤー文化の一部になっていく過程と、修正が遊び方に与える影響を学べる。</p>
+
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>挙動（きょどう）</strong> — ソフトウェアやキャラクターが特定の条件で示す動きや反応。</li>
+          <li><strong>イシュートラッカー</strong> — 不具合や改善要望を登録し、対応状況を管理するシステム。</li>
+          <li><strong>登攀（とうはん）</strong> — 高い場所や険しい場所をよじ登ること。</li>
+        </ul>
+      </article>
+
+      <article class="language-article" lang="zh">
+        <h3>中文 — Grab携手OpenAI 两年培训东南亚3万平台人员AI技能</h3>
+        <p class="byline">联合早报 · 2026-09-23 · <a href="https://www.zaobao.com.sg/news/singapore/story20260923-9723526">阅读报道</a></p>
+
+        <p>Grab与OpenAI合作推出“GO Forward with AI”计划，准备在两年内为东南亚3万名司机、送餐员和商户伙伴提供实用人工智能培训。计划先在新加坡启动，随后扩展至泰国、印度尼西亚、菲律宾、马来西亚和越南；课程将按各地需求调整，并通过“培训师培训”模式扩大覆盖范围。</p>
+
+        <p>新加坡课程以创业为重点，指导平台人员使用ChatGPT验证商业构想、研究定价，以及制定营销和行动计划。Grab的数据显示，新加坡目前只有约一半司机和送餐员使用AI工具，商户伙伴的使用率则约为三分之一，显示技术普及与实际应用能力之间仍有明显落差。</p>
+
+        <p>首批学员包括女性司机和送餐员。一名准备全职经营烘焙生意的学员说，AI可协助计算售价、比较原料成本及制作宣传材料；另一名兼职司机则计划利用AI分析驾驶模式。主办方也强调，AI并非自动赚钱的捷径，培训同时要帮助使用者理解技术的能力与限制。</p>
+
+        <p><strong>为什么读：</strong> 文章从平台劳动者的实际需求切入，呈现生成式AI培训如何影响东南亚的工作技能与小型创业。</p>
+
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>培训师培训 (péixùnshī péixùn)</strong> — 先训练一批授课人员，再由他们把知识传授给更多学员的培训模式。</li>
+          <li><strong>提示工程 (tíshì gōngchéng)</strong> — 设计和改进输入指令，使生成式AI给出更准确、有用结果的方法。</li>
+          <li><strong>情境化设计 (qíngjìnghuà shèjì)</strong> — 按照特定用户、工作环境和实际需求调整工具或内容的设计方式。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notes">
+      <strong>Source note:</strong> Several research posts were truncated or exposed only shortened links. Coverage of those items is limited to the technical details supplied in the source reports.
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-09-24-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

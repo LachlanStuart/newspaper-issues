@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #202124;
+      --muted: #66645f;
+      --accent: #8b2f2f;
+      --rule: #d8d3c8;
+      --panel: #f2efe7;
+      --link: #174f78;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #e8e4da;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(1080px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.1rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 28px rgba(0, 0, 0, 0.08);
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 1.2rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 4.75rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      font-weight: 700;
+    }
+    header p {
+      margin: 0.7rem 0 0;
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 2.6rem 0;
+    }
+    section > h2 {
+      margin: 0 0 1.2rem;
+      padding-bottom: 0.42rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .lead-grid,
+    .story-grid {
+      display: grid;
+      gap: 1.5rem 2rem;
+    }
+    .lead-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    .story-grid {
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+    article {
+      break-inside: avoid;
+    }
+    article + article {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+    }
+    .story-grid article + article,
+    .lead-grid article + article {
+      border-top: 0;
+      padding-top: 0;
+    }
+    article h3 {
+      margin: 0 0 0.5rem;
+      font-size: 1.22rem;
+      line-height: 1.25;
+    }
+    article p {
+      margin: 0.45rem 0;
+    }
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: var(--accent); }
+    .source {
+      color: var(--muted);
+      font-family: Arial, sans-serif;
+      font-size: 0.8rem;
+    }
+    .language-practice {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 2rem;
+    }
+    .language-intro {
+      color: var(--muted);
+      margin: -0.5rem 0 2rem;
+    }
+    .language-card {
+      margin: 1.8rem 0;
+      padding: clamp(1rem, 3vw, 1.6rem);
+      background: var(--panel);
+      border-left: 4px solid var(--accent);
+    }
+    .language-card + .language-card {
+      border-top: 0;
+    }
+    .language-card h3 {
+      font-size: 1.35rem;
+    }
+    .language-card h4 {
+      margin: 1.1rem 0 0.35rem;
+      font-size: 1rem;
+    }
+    .language-card ul {
+      margin: 0.35rem 0 0;
+      padding-left: 1.4rem;
+    }
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 0.78rem;
+    }
+    @media (max-width: 620px) {
+      main { padding-top: 1.2rem; }
+      .story-grid, .lead-grid { display: block; }
+      .story-grid article + article,
+      .lead-grid article + article {
+        border-top: 1px solid var(--rule);
+        padding-top: 1.25rem;
+        margin-top: 1.25rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Tuesday, July 14, 2026 · Research &amp; Technology Edition</p>
+    </header>
+
+    <section>
+      <h2>AI, Learning &amp; Robotics</h2>
+      <div class="lead-grid">
+        <article>
+          <h3><a href="https://x.com/behrouz_ali/status/2076710744456892519">Language models may need a “sleep” phase for continual learning</a></h3>
+          <p>Ali Behrouz and collaborators propose separating active learning from a consolidation phase that turns fragile short-term memories into more stable long-term ones. Their Knowledge Seeding method distills information from one or more small models into a larger model. Across long-horizon learning, knowledge incorporation, reasoning, and few-shot generalization tests, the researchers report better performance and less catastrophic forgetting.</p>
+          <p class="source">Source: X AI Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/hardmaru/status/2076633306008072592">Cellular robots recognize their shape and guide their own repair</a></h3>
+          <p>Smart Cellular Bricks gives every physical module the same neural cellular automaton and limits communication to local state vectors. The modules can still infer the structure of the whole assembly without central control or global coordinates. Reported experiments transferred from simulation to nearly 200 bricks, achieved full convergence in tested hardware configurations, tolerated failure of up to 15% of modules, and located missing components with 95% accuracy.</p>
+          <p class="source">Source: X AI Research</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>AI for Biology</h2>
+      <div class="story-grid">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2076763665035075894">OCellus connects language-model reasoning to cellular biology</a></h3>
+          <p>OCellus is presented as a 9-billion-parameter framework for single-cell, spatial, and perturbation tasks. It combines gene embeddings and a STRING-based graph network with EvenClock spatial-context encoding. A Planner–Router–Verifier system translates natural-language biology questions into executable workflows and applies plausibility checks to the results.</p>
+          <p class="source">Source: X Bio Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2076895269468434630">Benchmark tests AI on verifiable genetics research questions</a></h3>
+          <p>A shared evaluation ranks models on open-ended genetics questions whose answers can be checked. That emphasis on research-style, verifiable tasks makes the benchmark more informative than a generic model comparison, although the available post is truncated and does not provide the full task design, methodology, or rankings.</p>
+          <p class="source">Source: X Bio Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2076843023099633980">General biology models face a laboratory data bottleneck</a></h3>
+          <p>A research discussion argues that the experiments needed to train broadly capable biological models are too diverse to fit neatly into standardized 96-well workflows. This creates a practical data-generation constraint for scaling AI-for-biology systems. The supplied discussion is incomplete, so further technical detail is unavailable.</p>
+          <p class="source">Source: X Bio Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/miangoar/status/2076725771180130334">Why bigger protein language models do not always predict variants better</a></h3>
+          <p>A newly published study examines why increasing protein-language-model scale does not consistently improve protein-fitness or variant-effect prediction. The available post identifies the scaling question but does not include the paper title or methodological details.</p>
+          <p class="source">Source: X Bio Research</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Genomics &amp; Molecular Methods</h2>
+      <div class="story-grid">
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2076771686376955981">Registered Report evaluates protein-localization predictors</a></h3>
+          <p>A Nature Methods Registered Report presents a systematic performance evaluation of methods that predict protein localization directly from sequence, offering a benchmark-oriented view of computational protein prediction.</p>
+          <p class="source">Source: X AI Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2076754320989565158">ClairS calls somatic variants from tumor-normal long reads</a></h3>
+          <p>ClairS detects somatic small variants using long-read sequencing from matched tumor and normal samples, with direct applications in cancer genomics and machine-assisted sequence analysis.</p>
+          <p class="source">Source: X AI Research and X Bio Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2076750630417203341">RNAbpFlow generates all-atom RNA ensembles</a></h3>
+          <p>RNAbpFlow generates conformational ensembles for single-chain RNA monomers at all-atom resolution without depending on evolutionary information or homologous structures.</p>
+          <p class="source">Source: X AI Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2076770041014415700">EviAnn integrates expression and homology for genome annotation</a></h3>
+          <p>EviAnn combines gene-expression evidence with protein-sequence homology to produce efficient, high-accuracy genome annotations.</p>
+          <p class="source">Source: X Bio Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2076749092676415756">Spatio-DARLIN links cell ancestry with tissue location</a></h3>
+          <p>Spatio-DARLIN extends the DARLIN mouse model to support high-resolution spatial lineage tracing, allowing researchers to connect cellular histories with their physical organization in tissue.</p>
+          <p class="source">Source: X Bio Research</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2076670323077030265">DNAForge introduced as a genome-scale workbench</a></h3>
+          <p>DNAForge is described as a genome-scale molecular-biology workbench. The available announcement does not provide further capability or validation details.</p>
+          <p class="source">Source: X Bio Research</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="language-intro">Edited reading selections in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Urteil: Instagram muss sich deutschem Urheberrecht auch im Ausland beugen</h3>
+        <p class="source">heise online · 14.07.2026 · <a href="https://www.heise.de/news/Instagram-Fotos-im-Fokus-Deutsches-Urheberrecht-gilt-auch-bei-Auslandsbezug-11363477.html">Artikel lesen</a></p>
+        <p>Das Landgericht Frankfurt am Main hat in einem Streit zwischen einem deutschen Architekturfotografen und Meta eine einstweilige Verfügung gegen den Instagram-Betreiber bestätigt. Ein verifizierter, arabischsprachiger Account mit mehr als 400.000 Followern hatte ohne Erlaubnis einen Ausschnitt aus einer geschützten Aufnahme des Fotografen veröffentlicht. Obwohl sich das Profil vor allem an ein Publikum in Saudi-Arabien richtete, erkannte das Gericht einen ausreichenden Bezug zu Deutschland: Die internationale Architekturszene sei global vernetzt, Instagram biete Übersetzungen an, und die unbefugte Nutzung könne die geschäftlichen Interessen und den Ruf des in Deutschland lebenden Fotografen beeinträchtigen.</p>
+        <p>Das Urteil präzisiert außerdem die Pflichten von Plattformen nach dem Digital Services Act. Rechteinhaber müssen einer ersten, hinreichend genauen Meldung demnach nicht sofort lückenlose Beweise beifügen. Hat eine Plattform Zweifel an der Urheberschaft, muss sie nachfragen oder den betroffenen Account kontaktieren, statt untätig zu bleiben. Auch ein starres plattformeigenes Meldeformular darf nicht zwingend verlangt werden, wenn eine schriftliche Mitteilung bereits alle notwendigen Angaben enthält.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel zeigt anschaulich, wie deutsches Urheberrecht und der europäische Digital Services Act auf international verbreitete Social-Media-Inhalte angewendet werden.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — Opération Turla : la France accuse frontalement la Russie d’avoir piraté ses ministères pendant plus d’une décennie</h3>
+        <p class="source">Numerama · 13 juillet 2026 · <a href="https://www.numerama.com/cyberguerre/2294895-operation-turla-la-france-accuse-frontalement-la-russie-davoir-pirate-ses-ministeres-pendant-plus-dune-decennie.html">Lire l’article</a></p>
+        <p>La France attribue officiellement à la Russie une longue campagne de cyberespionnage ayant visé ses institutions depuis les années 2010. L’accusation, formulée à la fois par Paris et par l’Union européenne, repose sur un document commun de plusieurs organismes français de sécurité et de renseignement. Les autorités désignent le 16e Centre du FSB, et plus précisément une unité qui serait chargée de cibler la France, comme responsable du mode opératoire connu sous le nom de Turla.</p>
+        <p>Cette campagne aurait compromis des ministères, des messageries de cadres militaires, l’ambassade de France à Moscou ainsi qu’un serveur lié au secteur de la justice. Les attaquants auraient utilisé plusieurs logiciels espions, dont Uroburos et la porte dérobée Kazuar, afin d’infiltrer des réseaux et d’exfiltrer des données. Selon le Centre de coordination des crises cyber, les compromissions se sont poursuivies jusqu’en 2025.</p>
+        <p>L’article replace enfin Turla dans le contexte de la guerre en Ukraine : le dispositif servirait désormais aussi à recueillir des renseignements sur Kiev et ses alliés européens. Pour les autorités françaises, la continuité de ces opérations montre que la menace demeure durable pour les intérêts français et européens.</p>
+        <p><strong>Pourquoi lire :</strong> Un article utile pour comprendre comment la France attribue publiquement une opération de cyberespionnage étatique et décrit ses méthodes.</p>
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>attribution</strong> — démarche consistant à identifier officiellement l’auteur présumé d’une cyberattaque</li>
+          <li><strong>porte dérobée</strong> — mécanisme caché permettant de conserver un accès non autorisé à un système informatique</li>
+          <li><strong>exfiltration de données</strong> — transfert clandestin de données hors d’un réseau compromis</li>
+          <li><strong>hameçonnage ciblé</strong> — message frauduleux personnalisé visant une personne ou une organisation précise</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — なぜ日本の医療DXは進まないのか──命の現場から見えた突破口</h3>
+        <p class="source">nippon.com · 2026-07-14 · <a href="https://www.nippon.com/ja/in-depth/d01249/">記事を読む</a></p>
+        <p>日本では電子カルテの導入が進んでいるものの、医療DXはエストニアやデンマークなどと比べて遅いとされる。筆者は、その原因を技術不足ではなく、「信頼」「責任」「現場負担」の問題だと指摘する。紙のカルテやFAXも長年築かれた安全運用の一部であり、新システムによって入力作業や費用が増えれば、患者を診る時間が削られるという現場の懸念がある。</p>
+        <p>記事は、持ち運び可能な胎児モニターと遠隔医療を活用した周産期医療を具体例として紹介する。地域の助産師や看護師が測定し、離れた場所にいる医師がデータを確認できれば、医療者を機械に置き換えずに、その専門性をより遠くまで届けられる。全国一律の巨大システムの完成を待つのではなく、離島や山間地域などで小さな成功例を積み重ね、現場で修正しながら信頼を育てることが突破口になると論じている。</p>
+        <p><strong>読む理由：</strong> 日本の医療DXが進みにくい構造と、命に直結する現場から生まれた実践的な解決策を具体的に理解できる。</p>
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>周産期医療（しゅうさんきいりょう）</strong> — 妊娠後期から出産、新生児期までの母子を対象とする医療</li>
+          <li><strong>電子カルテ（でんしカルテ）</strong> — 患者の診療情報を電子データとして記録・管理する仕組み</li>
+          <li><strong>遠隔医療（えんかくいりょう）</strong> — 通信技術を使い、離れた場所から診察や医療支援を行うこと</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — 樟宜机场集团：可实现逾200个航点连接目标 新航点包括内蒙古新疆中亚和中欧</h3>
+        <p class="source">联合早报 · 2026-07-14 · <a href="https://www.zaobao.com.sg/news/singapore/story20260714-9360888">阅读文章</a></p>
+        <p>樟宜机场目前连接全球约170座城市，并计划在2030年代中期把航线网络扩大至超过200座城市。集团将继续以亚太地区为发展重点，正在争取开通前往乌鲁木齐、呼和浩特、海防和大叻等城市的航线，也把印度人口众多但尚无直航的新兴城市视为增长机会。</p>
+        <p>在亚洲以外，集团正探索连接阿拉木图、塔什干和华沙等中亚及中欧城市。新航线初期通常每周只有两三班，集团将与航空公司合作逐步提高班次；在第五搭客大厦启用前，机场还须谨慎分配有限的起降时段，并考虑以较大型客机承接需求。</p>
+        <p><strong>为什么读：</strong> 文章从航线规划、城市发展与机场容量三个层面，展现新加坡如何巩固全球航空门户地位。</p>
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>航空枢纽 (hángkōng shūniǔ)</strong> — 集中衔接多条航线、方便旅客或货物转运的中心机场。</li>
+          <li><strong>航点 (hángdiǎn)</strong> — 航空网络中有航班连接的目的地城市或机场。</li>
+          <li><strong>起降时段 (qǐjiàng shíduàn)</strong> — 机场分配给航班起飞或降落的特定时间窗口。</li>
+        </ul>
+      </article>
+    </section>
+
+    <footer>
+      News Daily · Run 2026-07-14-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

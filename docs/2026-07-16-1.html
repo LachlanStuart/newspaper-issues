@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #202422;
+      --muted: #66706b;
+      --accent: #285f55;
+      --rule: #d8ddd8;
+      --card: #ffffff;
+      --tag: #e9f0ed;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 42px 0 64px;
+    }
+    header {
+      text-align: center;
+      border-top: 5px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding: 22px 0 18px;
+      margin-bottom: 36px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.94rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    section { margin-top: 42px; }
+    .section-title {
+      border-bottom: 2px solid var(--ink);
+      margin: 0 0 22px;
+      padding-bottom: 7px;
+      font-size: 1.65rem;
+    }
+    .lead {
+      border-left: 4px solid var(--accent);
+      padding-left: 20px;
+    }
+    article {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 5px;
+      padding: 22px;
+      margin: 0 0 18px;
+    }
+    article h3 {
+      margin: 0 0 8px;
+      font-size: 1.24rem;
+      line-height: 1.3;
+    }
+    article p:last-child { margin-bottom: 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .source {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+    .tags {
+      margin-top: 14px;
+      font-family: system-ui, sans-serif;
+    }
+    .tag {
+      display: inline-block;
+      background: var(--tag);
+      color: #38564e;
+      border-radius: 999px;
+      padding: 3px 9px;
+      margin: 2px 4px 2px 0;
+      font-size: 0.75rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+    .grid article { margin: 0; }
+    .briefs article { padding: 18px 20px; }
+    .language-practice {
+      border-top: 5px solid var(--ink);
+      margin-top: 58px;
+      padding-top: 30px;
+    }
+    .language-intro {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      margin-top: -10px;
+      margin-bottom: 25px;
+    }
+    .language-practice article {
+      padding: 24px;
+    }
+    .language-practice h3 {
+      font-size: 1.35rem;
+    }
+    .language-practice ul {
+      padding-left: 22px;
+    }
+    .notes {
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+      margin-top: 46px;
+      padding-top: 18px;
+    }
+    footer {
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.8rem;
+      margin-top: 40px;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      article { padding: 18px; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Thursday, July 16, 2026 · AI, biology, and research</p>
+    </header>
+
+    <section aria-labelledby="model-research">
+      <h2 class="section-title" id="model-research">Model Architecture &amp; Training</h2>
+
+      <article class="lead">
+        <h3><a href="https://x.com/rasbt/status/2077540575255880126">Inside Inkling’s unconventional architecture</a></h3>
+        <p class="source">Sebastian Raschka on X</p>
+        <p>The open-weight Inkling model combines several less-common design choices: small convolutional layers at multiple points, an additional RMSNorm over embeddings, and relative position bias in place of RoPE. Together, the choices suggest a deliberate departure from the now-standard Transformer recipe.</p>
+        <div class="tags">
+          <span class="tag">language models</span>
+          <span class="tag">architecture</span>
+          <span class="tag">convolutions</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/yifanzhang_/status/2077533819067085002">GRAPE-A-Query-Gated attention replaces RoPE</a></h3>
+          <p class="source">Yifan Zhang on X</p>
+          <p>Inkling’s GRAPE-A-Query-Gated mechanism is described as an alternative to RoPE, attention sinks, and conventional gated attention. The available post does not expose the linked technical material, so the precise mechanism and evidence remain unclear.</p>
+          <div class="tags">
+            <span class="tag">attention</span>
+            <span class="tag">positional encoding</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2077466125122826342">Kernel fusion supports convolution-heavy execution</a></h3>
+          <p class="source">Songlin Yang on X</p>
+          <p>An implementation note says Inkling runs ShortConv four times per layer through roughly 66 layers and depends on extensive kernel fusion. It is a useful systems-level glimpse into making repeated convolution practical at model scale, though the supplied post cuts off before the remaining optimization details.</p>
+          <div class="tags">
+            <span class="tag">ShortConv</span>
+            <span class="tag">kernel fusion</span>
+            <span class="tag">systems</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/aaron_defazio/status/2077484024726204921">Corrected weight decay with MuonC and AdamC</a></h3>
+          <p class="source">Aaron Defazio on X</p>
+          <p>Inkling’s training stack reportedly uses a corrected weight-decay formulation identified as MuonC/AdamC—a concrete optimizer detail behind the model’s training recipe.</p>
+          <div class="tags">
+            <span class="tag">optimization</span>
+            <span class="tag">weight decay</span>
+            <span class="tag">training</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2077305009688215563">A theory of contravariance for NeuroAI</a></h3>
+          <p class="source">Stanford AI Lab on X</p>
+          <p>A new thread proposes a mathematical theory of contravariance connecting AI and neuroscience. The normalized excerpt ends before explaining the framework’s two claimed high-impact concepts, making this an early research pointer rather than a complete account.</p>
+          <div class="tags">
+            <span class="tag">NeuroAI</span>
+            <span class="tag">mathematics</span>
+            <span class="tag">representation learning</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="computational-biology">
+      <h2 class="section-title" id="computational-biology">Computational Biology &amp; Genomics</h2>
+
+      <article class="lead">
+        <h3><a href="https://x.com/BiologyAIDaily/status/2077583556499693941">Generative protein design yields ligand binders and working sensors</a></h3>
+        <p class="source">Biology AI Daily on X</p>
+        <p>A physics-based generative framework jointly optimizes ligand contacts, scaffold topology, and protein stability, building binding proteins around specified small molecules or metal ions. Experiments validated binders for dolutegravir, cianidanol, serotonin, dopamine, zinc, and nickel, with several crystal structures closely matching the designs.</p>
+        <p>Selected binders were converted into fluorescent or luminescent sensors. An optimized serotonin construct reached a reported maximal fluorescence response of 411%, while zinc-induced folding drove split-NanoLuc sensors with EC50 values around 73–79 nM. Affinity and physiological sensitivity remain limitations for the neurotransmitter sensors, but the work is a substantial demonstration of experimentally validated generative protein engineering.</p>
+        <div class="tags">
+          <span class="tag">protein design</span>
+          <span class="tag">biosensors</span>
+          <span class="tag">synthetic biology</span>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2077445194723840016">ENCODE-rE2G maps more than 92 million enhancer–gene links</a></h3>
+          <p class="source">Anshul Kundaje on X · Nature resource</p>
+          <p>ENCODE-rE2G now reports more than 92 million predicted regulatory links across 1,458 biosamples, alongside new benchmarks and browsable maps. The resource aims to connect noncoding disease-associated variants with candidate target genes in the relevant cellular context.</p>
+          <div class="tags">
+            <span class="tag">ENCODE</span>
+            <span class="tag">enhancers</span>
+            <span class="tag">noncoding variants</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2077504383739482116">Tabula targets predictive single-cell and aging biology</a></h3>
+          <p class="source">Anshul Kundaje on X</p>
+          <p>Tabula is introduced as a predictive single-cell foundation model for gene regulation and aging, with ambitions toward virtual-cell modeling. Discussion around the work emphasizes testing for mechanistic insight rather than benchmark gains alone. Architecture, datasets, and quantitative results were not included in the available excerpt.</p>
+          <div class="tags">
+            <span class="tag">virtual cells</span>
+            <span class="tag">single-cell</span>
+            <span class="tag">aging</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2077502804080689228">Corgi conditions regulatory predictions on cellular context</a></h3>
+          <p class="source">Anshul Kundaje on X · Nature Communications</p>
+          <p>Corgi is a context-aware sequence-to-activity model of human gene regulation. It uses feature-wise linear modulation, or FiLM, to condition sequence-to-function predictions on context—addressing regulatory effects that a single context-independent model cannot capture. Detailed benchmark results were absent from the supplied post.</p>
+          <div class="tags">
+            <span class="tag">regulatory genomics</span>
+            <span class="tag">sequence-to-function</span>
+            <span class="tag">deep learning</span>
+          </div>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/gen0m1cs/status/2077339643809280412">Cherimoya predicts local regulatory function</a></h3>
+          <p class="source">Genomics × AI on X</p>
+          <p>Cherimoya is presented as an efficient sequence-to-function model for local regulatory prediction. It sits at the intersection of machine learning and genomics, although the available excerpt does not include architecture, benchmark, or linked-resource details.</p>
+          <div class="tags">
+            <span class="tag">genomics</span>
+            <span class="tag">sequence modeling</span>
+            <span class="tag">bioinformatics</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="briefs" aria-labelledby="research-brief">
+      <h2 class="section-title" id="research-brief">Research Brief</h2>
+      <article>
+        <h3><a href="https://x.com/gen0m1cs/status/2077255527445193104">AI-assisted work tackles a multiple-hypothesis-testing question</a></h3>
+        <p class="source">Genomics × AI on X</p>
+        <p>A research thread says AI helped resolve an important question in multiple hypothesis testing. The supplied excerpt ends before identifying the result, method, or paper, so the claim cannot be assessed in detail from this report alone.</p>
+      </article>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice · Tägliche Lektüre · Lecture quotidienne · 毎日の読み物 · 每日阅读</h2>
+      <p class="language-intro">Edited reading selections in their original languages.</p>
+
+      <article lang="de">
+        <h3>Deutsch — <a href="https://www.dw.com/de/eu-und-ukraine-wollen-gemeinsam-drohnen-bauen/a-77974732">EU und Ukraine wollen gemeinsam Drohnen bauen</a></h3>
+        <p class="source">Deutsche Welle · 16.07.2026</p>
+        <p>Die Europäische Union und die Ukraine haben eine engere Zusammenarbeit bei der Entwicklung und Produktion von Drohnen vereinbart. Die Ukraine soll ihre im Krieg erworbene technische Erfahrung einbringen, während europäische Unternehmen sichere Produktionsstandorte und Anschubfinanzierung bereitstellen. EU-Kommissionspräsidentin Ursula von der Leyen stellte das Vorhaben bei einem Besuch in Kyjiw vor.</p>
+        <p>Der Bericht verbindet die Vereinbarung mit der politischen Annäherung der Ukraine an die EU. Neben der militärisch-industriellen Kooperation geht es um Fortschritte bei den Beitrittsverhandlungen, weitere Sanktionen gegen Russland und die anhaltende Bedrohung ukrainischer Städte durch russische Luftangriffe. Ein Luftalarm während von der Leyens Besuch macht die unmittelbare Bedeutung des Themas deutlich.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel bietet einen anschaulichen Einblick in die wachsende sicherheitspolitische und technologische Zusammenarbeit zwischen der Ukraine und der EU.</p>
+      </article>
+
+      <article lang="fr">
+        <h3>Français — <a href="https://actualitte.com/article/132674/droit-justice/gemini-entraine-avec-des-livres-pirates-google-attaque-en-justice-a-son-tour">Gemini entraîné avec des livres piratés ? Google attaqué en justice à son tour</a></h3>
+        <p class="source">ActuaLitté · 15 juillet 2026</p>
+        <p>Plusieurs éditeurs, dont Hachette Book Group, Cengage Learning et Elsevier, ainsi que l’écrivain Scott Turow et la société S.C.R.I.B.E., ont déposé une plainte contre Google devant un tribunal fédéral de New York. Ils soutiennent que l’entreprise aurait utilisé des millions de livres et d’extraits protégés pour entraîner Gemini, parfois à partir de bibliothèques pirates ou de contenus initialement confiés à des services comme Google Books et Google Scholar pour un usage limité.</p>
+        <p>Les plaignants affirment également que Gemini peut produire des textes susceptibles de concurrencer directement les œuvres originales, notamment des chapitres scientifiques, des variantes de romans connus ou de longs récits imitant une œuvre existante. Ils souhaitent obtenir le statut d’action collective, des injonctions contre les usages contestés et des dommages et intérêts. Cette procédure s’inscrit dans une série de conflits opposant auteurs et éditeurs aux entreprises d’intelligence artificielle sur la provenance des données d’entraînement et la rémunération des titulaires de droits.</p>
+        <p><strong>Pourquoi lire :</strong> L’article éclaire un affrontement juridique majeur entre l’industrie du livre et les développeurs d’IA générative.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>titulaire de droits</strong> — personne ou organisation qui possède ou exerce les droits juridiques sur une œuvre</li>
+          <li><strong>action collective</strong> — procédure permettant à plusieurs personnes ayant subi un préjudice comparable d’agir ensemble en justice</li>
+          <li><strong>injonction</strong> — ordre contraignant prononcé par un tribunal pour imposer ou interdire une action</li>
+          <li><strong>données d’entraînement</strong> — ensemble de contenus utilisés pour développer les capacités d’un modèle d’intelligence artificielle</li>
+        </ul>
+      </article>
+
+      <article lang="ja">
+        <h3>日本語 — <a href="https://automaton-media.com/articles/newsjp/catch-me-20260716-455181/">最大4人マルチ対応鬼ごっこ『Catch Me!』、Steamにて期間限定で無料配布中。定価1200円のゲーム</a></h3>
+        <p class="source">AUTOMATON · 2026-07-16</p>
+        <p>最大4人で遊べるオンライン鬼ごっこゲーム『Catch Me!』が、Steamで7月18日午前2時まで無料配布されている。通常価格は税込1200円で、期間中にライブラリへ追加すれば、配布終了後も無料でプレイできる。ゲーム内の表示は日本語に対応している。</p>
+        <p>対戦では1人が逃げる側、残る3人が鬼となり、逃げるプレイヤーを捕まえた鬼が次の逃走役に交代する。逃げる側はマップ上のポイントを集め、規定数に達すれば勝利となる。壁キックやスライディングに加え、電撃床や開閉式シャッターなどの仕掛けもあり、素早い移動と相手を惑わせる駆け引きが特徴だ。2023年に正式リリースされ、記事執筆時点ではSteamレビューの95％が好評としている。</p>
+        <p><strong>読む理由：</strong> 無料配布という実用的な情報とともに、対戦ルールやゲーム操作に関する日本語表現を学べる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>早期アクセス（そうきアクセス）</strong> — 開発途中のゲームを先に販売・公開し、利用者の意見を取り入れながら完成させる方式</li>
+          <li><strong>撹乱（かくらん）</strong> — 相手を混乱させ、判断や行動を乱すこと</li>
+          <li><strong>ギミック（ぎみっく）</strong> — ゲームのステージなどに設けられた特殊な仕掛け</li>
+        </ul>
+      </article>
+
+      <article lang="zh">
+        <h3>中文 — <a href="https://www.rfi.fr/cn/%E4%B8%93%E6%A0%8F%E6%A3%80%E7%B4%A2/%E6%B3%95%E5%9B%BD%E4%B8%96%E7%95%8C%E6%8A%A5/20260715-%E4%B8%AD%E5%9B%BD%E5%AF%B9ai%E9%99%AA%E4%BC%B4%E4%BC%99%E4%BC%B4%E5%87%BA%E5%8F%B0%E6%96%B0%E7%9A%84%E9%99%90%E5%88%B6%E6%8E%AA%E6%96%BD">中国对AI陪伴伙伴出台新的限制措施</a></h3>
+        <p class="source">RFI 中文 · 2026-07-16</p>
+        <p>一些中国用户通过个性化聊天机器人练习语言、塑造虚拟角色，甚至与AI建立亲密关系。报道以一名四川围棋教练为例：她借用手游角色的形象和声音，创造了自己的日常陪伴伙伴，并认为即使对方只是算法，自己体验到的情感仍然真实。</p>
+        <p>中国针对AI陪伴服务的新规于7月15日生效，禁止平台诱导用户成瘾，并要求每两小时提醒用户服务并非真人。平台还须协助用户结束虚拟关系，在发现心理困扰时介入；面向未成年人的恋爱型或亲属型虚拟伴侣则受到更严格限制。随着监管落地，腾讯、字节跳动和阿里巴巴等企业已暂停或下线部分相关功能。</p>
+        <p><strong>为什么读：</strong> 文章从个人经历切入AI情感陪伴的监管争议，兼具科技、社会心理与互联网治理视角。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>拟人特征 (nǐrén tèzhēng)</strong> — 使程序或机器表现出类似人类的性格、语言或行为特征。</li>
+          <li><strong>诱导成瘾 (yòudǎo chéngyǐn)</strong> — 通过产品设计促使用户形成难以控制的持续使用习惯。</li>
+          <li><strong>紧急联系人 (jǐnjí liánxìrén)</strong> — 用户发生危机或需要援助时，平台可立即通知的指定人员。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notes">
+      <strong>Source note:</strong> Several research posts were available only as truncated excerpts or contained shortened links whose destinations were not visible. Coverage above distinguishes those preliminary pointers from items with enough supplied detail to summarize confidently.
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-07-16-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

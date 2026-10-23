@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #24211c;
+      --muted: #6f675d;
+      --rule: #ddd3c3;
+      --accent: #8a4b2a;
+      --accent-soft: #f1e2d6;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 56px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 22px;
+      margin-bottom: 28px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4rem);
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    header .meta {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.03);
+    }
+    h2 {
+      margin: 0 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-size: 1.55rem;
+    }
+    h3 {
+      margin: 20px 0 6px;
+      font-size: 1.15rem;
+    }
+    article {
+      padding: 12px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      border-bottom: 0;
+    }
+    a {
+      color: #78411f;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    .source {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 2px 0 8px;
+    }
+    .tagline {
+      color: var(--muted);
+      font-style: italic;
+    }
+    .compact-list article h3 {
+      margin-top: 8px;
+    }
+    .language-section {
+      margin-top: 34px;
+      border-top: 4px solid var(--accent);
+    }
+    .language-card {
+      background: #fff;
+      border: 1px solid var(--rule);
+      border-radius: 10px;
+      padding: 18px;
+      margin: 18px 0;
+    }
+    .language-card h3 {
+      margin-top: 0;
+      color: var(--accent);
+    }
+    .language-card ul {
+      margin-top: 6px;
+    }
+    .notes {
+      font-size: 0.95rem;
+      color: var(--muted);
+      background: transparent;
+      box-shadow: none;
+    }
+    .notes h2 {
+      color: var(--muted);
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="meta">Sunday, July 5, 2026 · Run 2026-07-05-1</div>
+    </header>
+
+    <section>
+      <h2>AI, Alignment & Rationalist Writing</h2>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/rMBc5WR3RvWgJdjCC/reevaluating-ai-2027-timelines-takeoff-alignment-and-china">Reevaluating AI-2027: timelines, takeoff, alignment and China</a></h3>
+        <p>A detailed critique of the AI-2027 scenario, with attention to compute scaling, time-horizon progress, alignment dynamics, and possible Chinese frontier-model catch-up via distillation.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/dmHbogCFbSp95J3Lz/i-think-alignment-work-is-more-promising-than-control-work">I think alignment work is more promising than control work</a></h3>
+        <p>A strategy post arguing that technical AI-safety effort should shift more toward alignment than control, based on expectations about scaling, available time windows, and marginal impact.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/gYGzeDymjZza5NNbH/a-case-for-llms-as-self-predictors">A case for LLMs as Self-predictors</a></h3>
+        <p>A long-form AI alignment theory post that proposes viewing LLMs as metacognitive self-predictive systems, with implications for agency, goals, eval awareness, and scheming.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/dvJ5Axd4Jei6KRyTX/approximate-natural-latents-have-exact-prices">Approximate Natural Latents Have Exact Prices</a></h3>
+        <p>A technical contribution to a natural-latents sequence, presenting mathematical results on approximation tradeoffs, including Gaussian-case curves relating mediation and redundancy errors.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/rDkaSMFfn4x6Hhkin/success-per-tokens">Success Per Tokens</a></h3>
+        <p>Uses Pareto-frontier thinking to compare how LLMs, people, and companies convert scarce resources—especially tokens, time, and capital—into successful outcomes.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/StanfordAILab/status/2073562544069857610">Stanford AI Lab: residual data repetition can waste up to 33% of LLM pretraining compute</a></h3>
+        <p>Stanford AI Lab highlighted work measuring the compute-equivalent cost of imperfect deduplication in LLM pretraining. The thread says the impact depends on model size and repetition structure, with some combinations wasting as much as 33% of compute.</p>
+      </article>
+    </section>
+
+    <section class="compact-list">
+      <h2>Science, Bioinformatics & Genomics</h2>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586675054477415">Campolina: deep neural framework for nanopore signal segmentation</a></h3>
+        <p>Campolina is presented as a deep neural framework for accurate segmentation of nanopore signals, relevant to long-read sequencing analysis workflows.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586616644616297">GeneInsight condenses gene-set knowledge with language models</a></h3>
+        <p>GeneInsight is described as using language models to condense gene-set knowledge, suggesting an LLM-assisted resource for gene-set interpretation.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586579017466363">Genome Evaluation Pipeline automates genome-assembly quality control</a></h3>
+        <p>Genome Evaluation Pipeline is billed as a fully automated quality-control tool for parallel evaluation of genome assemblies.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586554816381112">scMGCL integrates single-cell multiomics representations</a></h3>
+        <p>scMGCL is presented as a method for accurate and efficient integrated representation learning from single-cell multiomics data.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586538022371338">GREmLN: regulatory-network-aware transcriptomics foundation model</a></h3>
+        <p>GREmLN links transcriptomics foundation modeling with cellular regulatory-network structure.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586515851329671">Pangenome data used to identify easy regions for short-read variant calling</a></h3>
+        <p>A genomics item highlights finding “easy regions” for short-read variant calling from pangenome data, aimed at improving confidence in variant-calling analyses.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586491381715345">CAPTAIN: multimodal foundation model for co-assayed single-cell RNA and protein</a></h3>
+        <p>CAPTAIN is presented as a multimodal foundation model pretrained on co-assayed single-cell RNA and protein measurements.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586470267531698">GAME: Genomic API for Model Evaluation</a></h3>
+        <p>GAME is described as infrastructure for evaluating genomic models.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073586431155732715">PromptBio: multi-agent AI platform for bioinformatics data analysis</a></h3>
+        <p>PromptBio is described as a multi-agent AI platform for bioinformatics data analysis.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073456014872240600">Cell-Graph Compass models single cells with graph-structure foundation models</a></h3>
+        <p>Cell-Graph Compass is presented as a graph-structure foundation model for modeling single cells.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073335296843038951">GIFT resolves clonal heterogeneity via scalable genotyping in fixed transcriptomes</a></h3>
+        <p>GIFT is highlighted as a method for scalable genotyping in fixed transcriptomes that resolves clonal heterogeneity through single-cell sequencing.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/cutleraging/status/2073383384672239872">TOP1-mediated neuronal genomic damage patterns shared across neurodegenerative disorders</a></h3>
+        <p>Cell highlighted a paper on recurrent patterns of TOP1-mediated neuronal genomic damage shared by major neurodegenerative disorders.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/cutleraging/status/2073381592861433897">Pyruvate leaves its mark on chromatin</a></h3>
+        <p>Nature Metabolism highlighted work connecting metabolism with chromatin regulation.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatRevMCB/status/2073052695481696568">Human aminoacyl-tRNA synthetases as integrators of translation and cell-signalling networks</a></h3>
+        <p>Nature Reviews Molecular Cell Biology posted a new online review on human aminoacyl-tRNA synthetases as integrators of translation and cell-signalling networks.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Other Essays, Events & Practical Notes</h2>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/kw33A6uYPGRtvD43s/results-of-a-small-zbiotics-rct">Results of a small ZBiotics RCT</a></h3>
+        <p>A small single-blind randomized trial of ZBiotics at a party, with inconclusive hangover results, limitations, and anonymized data.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/NaNrsogLvWFRkDK8g/verizon-is-about-to-break-our-watches">Verizon is About to Break our Watches</a></h3>
+        <p>A practical complaint that Verizon’s migration from Gizmohub to Verizon Family may strand watch-only Gizmo accounts without texting, location, or contact management.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/KmtpgtP5RSXebYyT8/defining-interpretation-and-establishing-a-framework-for-it">Defining interpretation, and establishing a framework for it</a></h3>
+        <p>A philosophical taxonomy for “interpretation,” using dimensions such as objectuality, processual orientation, and textual originality.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/events/KGtPqPM2wgCbPJAdk/fluidity-forum-2026">Fluidity Forum 2026</a></h3>
+        <p>An announcement for a Detroit gathering around rationalism, metarationality, metamodernity, sense-making, and adjacent community topics.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/enjZrq6g72oH6Gx3F/the-lace-short-story">The Lace</a></h3>
+        <p>A short story imagining a post-AI future where humans adopt neural lace augmentation while navigating agency, normalcy, and relationships with superintelligent AIs.</p>
+      </article>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+      <p class="tagline">Native-language reading snippets selected for daily practice.</p>
+
+      <div class="language-card" lang="de">
+        <h3>Deutsch — Seit 1987 steht Tom Clancy bei Ubisoft für Militärspiele mit Taktik und Realismus - jetzt hat die Marke einen neuen Boss und der kommt aus Deutschland</h3>
+        <p class="source">GameStar · 2026-07-03 · <a href="https://www.gamestar.de/artikel/ubisoft-tom-clancy-creative-house-2-neuer-chef,3455761.html">https://www.gamestar.de/artikel/ubisoft-tom-clancy-creative-house-2-neuer-chef,3455761.html</a></p>
+        <p>GameStar berichtet über eine weitere Führungsänderung bei Ubisoft: Das Creative House 2, das für große Teile des Tom-Clancy-Franchise zuständig ist, bekommt mit Christoph Hartmann einen neuen Chef. Hartmann stammt aus Deutschland, war zuvor Vize-Chef von Amazon Games und davor viele Jahre in leitender Funktion bei 2K Games tätig.</p>
+        <p>Der Artikel ordnet ein, warum diese Personalie für Ubisoft wichtig ist: Die Tom-Clancy-Marken wie Splinter Cell, The Division und Ghost Recon stehen seit Jahrzehnten für taktische Militärspiele, doch zuletzt fehlten große neue Erfolge. Rainbow Six bleibt dabei organisatorisch außen vor und liegt bei einer anderen Ubisoft-Einheit.</p>
+        <p>Für Leserinnen und Leser interessant ist vor allem die Frage, ob Hartmanns Erfahrung aus Publishing und AAA-Entwicklung Ubisoft helfen kann, die Marke wieder zu stärken. GameStar verweist auch auf die laufenden Umbrüche beim Konzern, Entlassungen und die Erwartung, dass bis spätestens 2029 ein neues Ghost Recon erscheinen soll.</p>
+        <p><strong>Warum lesen:</strong> Der Text verbindet Branchenpersonal, deutsche Perspektive und die Zukunft bekannter Spielemarken in einem gut lesbaren Überblick.</p>
+      </div>
+
+      <div class="language-card" lang="fr">
+        <h3>Français — A Mayotte, le résultat du recensement pas encore dévoilé, mais déjà vivement remis en question</h3>
+        <p class="source">Le Monde · 2026-07-05 · <a href="https://www.lemonde.fr/politique/article/2026/07/05/a-mayotte-le-resultat-du-recensement-pas-encore-devoile-mais-deja-vivement-remis-en-question_6720781_823448.html">https://www.lemonde.fr/politique/article/2026/07/05/a-mayotte-le-resultat-du-recensement-pas-encore-devoile-mais-deja-vivement-remis-en-question_6720781_823448.html</a></p>
+        <p>L’article s’intéresse à la forte tension politique autour du prochain recensement de Mayotte, que l’Insee doit présenter le 7 juillet à Mamoudzou. Les chiffres sont très attendus, car ils touchent à des sujets sensibles : la croissance démographique, l’immigration depuis les Comores voisines, les besoins en services publics et la représentation du territoire dans les débats nationaux.</p>
+        <p>Selon Le Monde, le résultat attendu serait d’environ 321 000 habitants, nettement moins que les estimations avancées par de nombreux élus locaux, qui parlent souvent de 450 000 à 500 000 personnes. Le journal explique que l’Insee défend la solidité de sa méthode : collecte par porte-à-porte, réponses en ligne et estimation des logements n’ayant pas répondu. Le désaccord ne porte donc pas seulement sur un nombre, mais aussi sur la confiance accordée aux institutions statistiques.</p>
+        <p>Pour un lecteur de français, le texte offre un bon exemple de vocabulaire administratif et politique, avec un sujet ultramarin rarement traité de façon détaillée dans les médias internationaux. Il permet aussi de comprendre pourquoi la démographie mahoraise est au cœur de conflits entre élus, Etat, habitants et experts.</p>
+        <p><strong>Pourquoi lire :</strong> pour suivre un débat français très concret où statistiques publiques, immigration, défiance institutionnelle et politique locale se croisent.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>recensement exhaustif</strong> — opération statistique visant à compter l’ensemble d’une population, et non un simple échantillon.</li>
+          <li><strong>agents recenseurs</strong> — personnes chargées de collecter les informations auprès des habitants pour le recensement.</li>
+          <li><strong>taux de non-réponse</strong> — part des logements ou personnes qui ne fournissent pas de réponse et que l’institut statistique doit intégrer dans ses calculs.</li>
+        </ul>
+      </div>
+
+      <div class="language-card" lang="ja">
+        <h3>日本語 — 「GUILTY GEAR ‐STRIVE‐」，次の新キャラはコラボキャラに決定！ 参戦時期は2026年冬</h3>
+        <p class="source">4Gamer · 2026-07-05 · <a href="https://www.4gamer.net/games/527/G052700/20260705003/">https://www.4gamer.net/games/527/G052700/20260705003/</a></p>
+        <p>4Gamerの記事によると，アークシステムワークスは対戦格闘ゲーム「GUILTY GEAR ‐STRIVE‐」のシーズンパス5で，新たなゲストキャラクターが参戦すると発表した。参戦時期は2026年冬で，詳細なキャラクター名などはまだ明かされていない。</p>
+        <p>同作では，アニメ「サイバーパンク：エッジランナーズ」とのコラボキャラクター「ルーシー」に続く，2体目のコラボキャラクターになる見込み。記事では，シーズンパス5がすでに発売中であることや，直近で「ロボカイ」追加DLCが配信された流れにも触れており，今後の発表を追う入口として読みやすい内容になっている。</p>
+        <p><strong>読む理由：</strong> 格闘ゲームの大型タイトルで，DLC展開やコラボ戦略を読むうえで短く押さえやすいニュースだから。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>参戦（さんせん）</strong> — ゲーム内の使用キャラクターとして新たに登場すること。</li>
+          <li><strong>シーズンパス（しーずんぱす）</strong> — 複数の追加コンテンツをまとめて入手できる販売形式。</li>
+          <li><strong>プレイアブルキャラクター（ぷれいあぶるきゃらくたー）</strong> — プレイヤーが操作できるキャラクター。</li>
+        </ul>
+      </div>
+
+      <div class="language-card" lang="zh">
+        <h3>中文 — 中国乙女游戏：在“2.5次元”中，谈一场模糊虚拟与现实的恋爱</h3>
+        <p class="source">BBC 中文 · 2026-07-03 · <a href="https://www.bbc.com/zhongwen/articles/c3ry32ypn7zo/simp">https://www.bbc.com/zhongwen/articles/c3ry32ypn7zo/simp</a></p>
+        <p>BBC中文这篇文章从《恋与深空》等中国乙女游戏切入，讨论“国乙”如何把恋爱模拟从手机屏幕扩展到更接近现实生活的“2.5次元”体验。文章采访玩家、游戏从业者和学者，指出中国乙游不只是传统的剧情分支或买断制恋爱游戏，而是通过持续更新、社交媒体、线下应援、周边消费和陪伴功能，建立长期的亲密关系感。</p>
+        <p>报道特别关注这些游戏如何用电话、微信式互动、AR合拍、心跳与呼吸模拟等功能增强沉浸感，让“纸片人老公”进入玩家日常。受访者认为，乙游为一些女性玩家提供情感支持、陪伴与确定感，也可能提高她们对现实亲密关系中尊重和倾听的期待。</p>
+        <p>文章同时没有回避争议：学者指出，高频陪伴、理想化脚本和强沉浸互动可能模糊虚拟与现实边界，使部分玩家更难接受真实关系中的摩擦与不完美。整体来看，这是一篇关于中国游戏产业、女性玩家文化、情感消费和数字亲密关系的观察。</p>
+        <p><strong>为什么读：</strong> 这篇文章用一个流行游戏类型折射中国年轻女性的情感需求、消费文化与虚拟亲密关系的变化。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>乙女游戏 (yǐnǚ yóuxì)</strong> — 面向女性玩家、通常以恋爱叙事和角色互动为核心的游戏类型。</li>
+          <li><strong>2.5次元 (èr diǎn wǔ cìyuán)</strong> — 介于二次元虚拟角色与三次元现实生活之间的文化体验空间。</li>
+          <li><strong>陪伴机制 (péibàn jīzhì)</strong> — 游戏通过持续互动、通知、语音、活动等设计制造长期陪伴感的系统。</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="notes">
+      <h2>Quiet Source Notes</h2>
+      <p>No new reportable items appeared for Hazy Research, Kasra Blog, Nathan Chen Blog, Queer Festival Heidelberg, or 科学空间 / Spaces AC in the provided fragments. Several social-media research feeds were filtered for repeats, low-information posts, and off-topic material.</p>
+    </section>
+  </div>
+
+
+
+</body>
+</html>

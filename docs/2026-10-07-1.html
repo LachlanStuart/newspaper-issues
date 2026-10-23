@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202a30;--muted:#59656a;--paper:#faf8f2;--accent:#17636a;--line:#d8ddd7}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;font-size:17px;line-height:1.65}
+main,header,footer{max-width:1000px;margin:auto;padding:24px}
+header{padding-top:44px;border-bottom:3px solid var(--ink)}
+h1{font-size:clamp(3rem,8vw,5rem);line-height:1;margin:8px 0 18px;letter-spacing:-.05em}
+h2{font-size:1.8rem;line-height:1.25;margin:40px 0 18px;border-bottom:1px solid var(--line);padding-bottom:12px}
+h3{font-size:1.24rem;line-height:1.4;margin:0 0 10px}
+p{margin:10px 0}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.meta,nav,.links,footer,.label{font-family:system-ui,sans-serif;font-size:.85rem}
+.meta,.label,footer{color:var(--muted)}
+nav{display:flex;gap:10px 22px;flex-wrap:wrap;margin-top:18px}
+article{padding:20px 0;border-bottom:1px solid var(--line)}
+.links{margin-top:12px}
+.briefs li{margin-bottom:16px}
+.practice{margin-top:48px;border-top:4px double var(--ink)}
+.practice article{padding:26px 0}
+.practice h3{font-size:1.4rem}
+.practice [lang="ja"],.practice [lang="zh"]{font-family:system-ui,sans-serif;line-height:1.9}
+footer{border-top:1px solid var(--line);padding-bottom:40px}
+@media print{body{background:white;font-size:11pt}header,main,footer{max-width:none}nav{display:none}h2,h3{break-after:avoid}a{color:inherit}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<div class="label">DAILY NEWSPAPER · WEDNESDAY, 7 OCTOBER 2026</div>
+<h1>News</h1>
+<p>AI research, computational biology and molecular engineering—with a close eye on what the evidence actually establishes.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; computing</a>
+<a href="#genomics">Genomics &amp; evaluation</a>
+<a href="#design">Molecular engineering</a>
+<a href="#methods">Methods &amp; research briefs</a>
+<a href="#language">Language practice</a>
+</nav>
+</header>
+
+<main>
+<section id="ai">
+<h2>AI &amp; computing</h2>
+<article>
+<h3>EmbeddingGemma 2: batching pays differently across modalities</h3>
+<p>MLX-VLM measurements on an M5 Max report roughly <strong>800 texts per second</strong> at batch 32, about 85 audio clips per second peaking around batch 16, 23 images per second with little batching benefit, and nine five-frame video clips per second. A memory follow-up puts text and audio below approximately 3.5 GB at batch 32, versus 14 GB for images and 33 GB for video.</p>
+<p>The practical recommendation is to keep image and video batches small. These are reported hardware-specific measurements, not a general performance guarantee.</p>
+<p class="links"><a href="https://x.com/Prince_Canuma/status/2107514620067881463">Benchmark post</a> · <a href="https://x.com/Prince_Canuma/status/2107514616355938549">Memory follow-up</a> · <a href="https://t.co/bN6V2wm8jP">Guide</a></p>
+</article>
+<article>
+<h3>LoGRA compresses gradients for LLM reinforcement learning</h3>
+<p>LoGRA proposes low-rank gradient sketches to help scale reinforcement learning for language models. The supplied post identifies the method but includes no experimental results, so its efficiency and learning-quality tradeoffs remain unassessed here.</p>
+<p class="links"><a href="https://x.com/yifanzhang_/status/2107573903543660544">Research post</a> · <a href="https://t.co/jRYWtIIhSW">Research link</a></p>
+</article>
+<article>
+<h3>Can compression help evaluate novel research ideas?</h3>
+<p>Priced Guidance proposes using compression to quantify whether LLMs can generate novel research ideas. The available repost cuts off before explaining its probability bound and supplies neither visible results nor a paper URL. It is a methodological pointer rather than evidence of demonstrated research originality.</p>
+<p class="links"><a href="https://x.com/nathancgy4/status/2107549647392968817">Priced Guidance post</a></p>
+</article>
+<article>
+<h3>A matrix-space observation about gradient alignment</h3>
+<p>You Jiacheng describes a rotated-basis construction separating matrix space into Q-transformed symmetric and skew-symmetric components, then suggests aligning the roughly half-dimensional symmetric component with the gradient. This is a mathematical observation about update geometry, not a reported performance improvement.</p>
+<p class="links"><a href="https://x.com/YouJiacheng/status/2107581042513383694">Discussion</a> · <a href="https://t.co/cTxweq9tpP">Linked context</a></p>
+</article>
+</section>
+
+<section id="genomics">
+<h2>Genomics, interpretation &amp; evaluation</h2>
+<article>
+<h3>Mendel learns variation across donors to prioritize regulatory variants</h3>
+<p>Mendel focuses DNA-model training on variable alleles, comparing the same genomic loci across GTEx donors. The supplied summary reports that residual genotype-prediction difficulty distinguishes fine-mapped regulatory variants from matched controls with AUROC 0.731, and improves elastic-net expression prediction when used as a variant-weighting prior.</p>
+<p><strong>The evaluation holds out individuals, not genomic loci.</strong> Its genotype accuracy should not be treated as a general variant-effect benchmark.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107465392755187981">Mendel research summary</a></p>
+</article>
+<article>
+<h3>VANDAM adds DNA biophysical priors to foundation-model training</h3>
+<p>VANDAM combines regional prediction of sequence-derived molecular properties with local DNA-shape features. Across four model families and nine functional-genomics tasks, reported point estimates improve in 29 of 36 pretraining comparisons and 33 of 36 multitask comparisons.</p>
+<p>Random and shuffled controls support a contribution from the biological priors rather than extra capacity alone. Those priors are derived from sequence, however, not direct measurements of DNA structure.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107464915594461193">VANDAM research summary</a></p>
+</article>
+<article>
+<h3>AuditPPI separates prediction accuracy from binding mechanisms</h3>
+<p>AuditPPI turns sparse features from protein language models into interpretable pair fingerprints. Reported AUROC drops from 0.973 on a conventional split to 0.746 under topology-controlled human evaluation and 0.720 on a leakage-controlled benchmark.</p>
+<p>Audits find substantial signals from interaction participation and cellular context; apparent interface enrichment often disappears after controlling for solvent exposure. Even protein-disjoint evaluation, the analysis cautions, need not demonstrate partner-specific binding mechanisms.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107470315249152413">AuditPPI research summary</a></p>
+</article>
+<article>
+<h3>SoftGene brings protein-sequence information to gene-set annotation</h3>
+<p>SoftGene hierarchically pools protein isoforms, genes and gene sets, then feeds learned soft prompts to a frozen local LLM. The summary reports gains on GO and MSigDB annotation benchmarks, including approximately gene-disjoint evaluation.</p>
+<p>Ablations suggest sequence embeddings help cellular-component annotations most, with little benefit for some biological-process labels. Attention weights provide candidate explanations, not proof of causal importance.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107470073875267942">SoftGene research summary</a></p>
+</article>
+<article>
+<h3>AmyloCore-ML tests amyloid-core prediction with leakage-aware splits</h3>
+<p>On a curated set of 69 proteins, AmyloCore-ML distinguishes residues incorporated into experimentally resolved fibril cores from other residues in the same proteins. Protein-grouped cross-validation prevents overlapping-window leakage; a locked ESM-2/ExtraTrees scanner reportedly reaches residue AUROC 0.833 and mean peak-localization error of 12.4 residues.</p>
+<p>Classification accuracy does not guarantee precise localization, and unresolved regions are not necessarily incapable of forming cores.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107471826213355547">AmyloCore-ML research summary</a></p>
+</article>
+<article>
+<h3>RipplePLM writes mutation-effect descriptions from sequence changes</h3>
+<p>RipplePLM combines wild-type–mutant ESM-2 representation differences, contact-guided local and distal attention, and property pseudo-labels to condition descriptions of mutation effects. It reports improved ROUGE-L on temporal and structural-novelty splits of MutaDescribe.</p>
+<p>Better text overlap does not establish the factual accuracy of biological explanations or reliability for clinical variant interpretation.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107471708416594396">RipplePLM research summary</a></p>
+</article>
+<article>
+<h3>PIE commentary asks what “unseen perturbation” really means</h3>
+<p>A methodological comment notes that PIE uses DepMap dependency profiles, themselves experimental perturbation readouts. An “unseen perturbation” can therefore mean an unmeasured transcriptional response to an intervention already characterized in another modality. This qualifies the generalization claim without, on its own, establishing data leakage.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2107314081556562318">Methodological commentary</a></p>
+</article>
+</section>
+
+<section id="design">
+<h2>Molecular design &amp; engineering</h2>
+<article>
+<h3>Proton-PottsMPNN yields experimentally screened pH-responsive binders</h3>
+<p>Proton-PottsMPNN explicitly represents protonation states during sequence design, optimizing the surrounding environment for a preferred state. A yeast-display screen of 8,407 designs recovered hundreds of pH-dependent PD-L1 binders, with reported transitions around pH 4.0–5.8. Learned selectivity scores separated recovered from unrecovered designs better than the cited PROPKA3 estimates.</p>
+<p><strong>The screen demonstrates pH-responsive binding—not therapeutic efficacy or suitability for physiological tumor conditions.</strong></p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107472010637165004">Proton-PottsMPNN research summary</a></p>
+</article>
+<article>
+<h3>pCoMole edits sequences under multiple objectives and constraints</h3>
+<p>pCoMole guides variable-length biomolecular sequence editing while applying feasibility constraints to final candidates rather than every intermediate step. Applications include GFP shortening, Cas9 compression and peptidomimetic optimization.</p>
+<p>Two shortened GFP variants retained fluorescence in cells. The reported Cas9 PAM-preservation and therapeutic-property results are computational, not demonstrations of editing activity or pharmacology.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107471043095085208">pCoMole research summary</a></p>
+</article>
+<article>
+<h3>IDiom steers disordered regions through sparse-autoencoder features</h3>
+<p>Trained on 54 million predicted intrinsically disordered regions, IDiom uses an RL-SAE method to reward selected sparse-autoencoder features. The aim is to combine compartment-associated sequence patterns with transcriptional activation or repression features.</p>
+<p>The supplied account reports stronger feature activation and predicted localization than steering or supervised fine-tuning. The functional and localization results remain computational predictions, not demonstrated cellular activity.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107471592624173254">IDiom research summary</a></p>
+</article>
+<article>
+<h3>LSCO searches for better synonymous codons without changing the protein</h3>
+<p>Latent Space Codon Optimization searches a pretrained mRNA model’s latent space using an ensemble expression predictor alongside RNA-stability and naturalness constraints. These constraints seek to reduce off-distribution optimization.</p>
+<p>Reported gains on 54 antibodies persist across multiple predictive evaluators. No wet-lab expression validation is described, so higher predicted yield remains a hypothesis.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107470742770303275">LSCO research summary</a></p>
+</article>
+<article>
+<h3>AbRefine combines antibody-framework context with structural inverse folding</h3>
+<p>AbRefine learns when to combine frozen structural and framework-conditioned antibody models. Matched-versus-shuffled framework controls support a genuine context contribution, with the largest recovery gains where structural information is uncertain and framework information is useful.</p>
+<p>Evaluation covers 534 antibodies across three cohorts. Native-sequence recovery and fold-back checks do not demonstrate improved antigen affinity.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107470613132750975">AbRefine research summary</a></p>
+</article>
+<article>
+<h3>CODesign jointly generates binder sequences and all-atom structures</h3>
+<p>CODesign combines consistency-distilled complex data with inference-time resampling of incompatible residues. The work introduces Codimer, approximately 104,528 distilled dimers, and reports improved computational binder success across protein and small-molecule targets.</p>
+<p>Success is defined by structure-predictor confidence and self-consistency thresholds. No experimental binding validation is described.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107471189446975766">CODesign research summary</a></p>
+</article>
+<article>
+<h3>Higher-order molecular grammars expand ring-topology benchmarks</h3>
+<p>Higher-order Grammar Representation encodes molecular motifs and ring systems as reversible production-rule sequences. The work introduces RingDiv, containing 1.18 million molecules, plus a smaller benchmark to broaden ring-topology coverage.</p>
+<p>Reported results include valid generation under RDKit checks and improved molecular-property classification. Computational validity and distributional similarity do not establish synthesizability or drug efficacy.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2107470930448626127">Molecular-grammar research summary</a></p>
+</article>
+<article>
+<h3>AlphaProtein Novo: unresolved claims about weight access</h3>
+<p>A retweet shared by Anshul Kundaje says AlphaProtein Novo’s code is on GitHub but its weights are not open. Another supplied summary describes code and weights as freely available for non-commercial use. Different meanings of openness or release timing could explain the discrepancy; the available data do not resolve the actual access and licensing terms.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2107350349774512489">Access and reproducibility discussion</a></p>
+</article>
+</section>
+
+<section id="methods">
+<h2>Methods &amp; research briefs</h2>
+<article>
+<h3>New approaches to spatial and single-cell data</h3>
+<ul class="briefs">
+<li><strong>VIMA</strong> uses deep learning to identify differentially enriched features in spatial datasets. Nature Methods links the method and an associated briefing, but the supplied posts give no benchmark results or enough detail to assess statistical guarantees. <a href="https://x.com/naturemethods/status/2107498376870895660">Announcement</a> · <a href="https://t.co/NHMfV3m46W">Paper/resource</a> · <a href="https://t.co/k2hZYYmW1D">Research briefing</a></li>
+<li><strong>CytoVI</strong> is described as a deep generative model for statistically rigorous analysis of antibody-based single-cell data. Architecture, inference procedures and validation results are not available in the supplied posts. <a href="https://x.com/naturemethods/status/2107487511744225497">Announcement</a> · <a href="https://t.co/jnMylhLUSV">Paper/resource</a></li>
+<li><strong>CCI-seq</strong> combines combinatorial cell-clump indexing with single-cell sequencing to capture large-scale cell–cell interaction networks. The announcement does not specify resolution, validation or comparative performance. <a href="https://x.com/naturemethods/status/2107494898064630209">Announcement</a></li>
+</ul>
+</article>
+<article>
+<h3>Genome engineering and medical AI: publication pointers</h3>
+<ul class="briefs">
+<li><strong>Avian R2 retrotransposons:</strong> A Nature Biotechnology announcement highlights their discovery and engineering for all-RNA-mediated targeted DNA integration in human cells. The excerpt provides no quantitative efficiency, specificity or safety results. <a href="https://x.com/razoralign/status/2107498692962140663">Read the announcement</a></li>
+<li><strong>Shotgun Genetic Engineering:</strong> A shared announcement identifies the work, developed by Julie Trolle, as newly published in Nature Biotechnology. The supplied retweet ends before the method is explained. <a href="https://x.com/anshulkundaje/status/2107629069386887606">Publication pointer</a></li>
+<li><strong>MedGemma:</strong> Anshul Kundaje shares Eric Topol’s announcement of a Nature Medicine publication describing an open medical foundation model. The truncated post does not establish evaluation coverage, clinical performance or deployment readiness. <a href="https://x.com/anshulkundaje/status/2107549961525354905">Publication pointer</a></li>
+</ul>
+</article>
+<article>
+<h3>Genomic infrastructure and cellular identity</h3>
+<ul class="briefs">
+<li><strong>African DSI DataBank:</strong> Nature Reviews Genetics announces an article on federated infrastructure for Africa’s genomic and biodiversity data. The title alone does not establish operational status, access rules or governance arrangements. <a href="https://x.com/NatureRevGenet/status/2107404703814603066">Article announcement</a></li>
+<li><strong>“How cells remember sex”:</strong> A Nature Reviews Genetics title-only pointer to an article on cellular identity. The supplied post does not identify the mechanisms, organism or experimental evidence discussed. <a href="https://x.com/NatureRevGenet/status/2107450081029050872">Article announcement</a></li>
+</ul>
+</article>
+</section>
+
+<section id="language" class="practice">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Post-Quanten-Krypto: BSI besorgt über McEliece</h3>
+<p class="meta">heise online · 06.10.2026 · <a href="https://www.heise.de/news/Post-Quanten-Krypto-BSI-besorgt-ueber-McEliece-11473897.html">Artikel lesen</a></p>
+<p>Das Bundesamt für Sicherheit in der Informationstechnik rät davon ab, Classic McEliece in neuen Projekten zur quantensicheren Verschlüsselung einzusetzen. Das traditionsreiche Verfahren soll den Schlüsselaustausch auch gegen künftige Quantencomputer absichern. Neue Forschungsarbeiten stellen jedoch seine Widerstandsfähigkeit gegen Angriffe mit gewöhnlichen Computern infrage: Der theoretisch erforderliche Rechenaufwand fällt erheblich geringer aus als bislang angenommen. Praktisch gebrochen ist das Verfahren damit laut Bericht noch nicht.</p>
+<p>Für neue Projekte empfiehlt das BSI stattdessen FrodoKEM, ML-KEM oder – nach Veröffentlichung des entsprechenden Standards – HQC. Bestehende Anwendungen müssten nicht zwingend sofort umgestellt werden, insbesondere wenn McEliece mit einem klassischen Verfahren kombiniert wird. Bei dieser hybriden Nutzung bleibt zumindest dessen Schutz erhalten. Die bisherige Empfehlung für McEliece soll in der nächsten Ausgabe der technischen Richtlinie Anfang 2027 geändert werden.</p>
+<p>Der Beitrag zieht daraus eine grundsätzliche Lehre für die Umstellung auf Post-Quanten-Kryptografie: Auch standardisierte Verfahren können durch neue Erkenntnisse an Vertrauen verlieren. Systeme sollten deshalb so aufgebaut sein, dass sich einzelne kryptografische Bausteine ohne großen Aufwand austauschen lassen. Diese sogenannte Krypto-Agilität ist nicht bloß eine technische Zusatzoption, sondern eine Absicherung gegen veränderte Sicherheitsannahmen.</p>
+<p><strong>Warum lesen:</strong> Der Artikel zeigt an einer konkreten Entscheidung des BSI, warum selbst zukunftssichere Verschlüsselung laufend überprüft werden muss und was das für die Planung digitaler Infrastruktur bedeutet.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — « Plaider en faveur d’une homologation rapide » : l’Allemagne est prête à accélérer pour autoriser le Tesla FSD en Europe</h3>
+<p class="meta">Numerama · 6 octobre 2026 · <a href="https://www.numerama.com/vroom/2348011-plaider-en-faveur-dune-homologation-rapide-lallemagne-est-prete-a-accelerer-pour-autoriser-le-tesla-fsd-en-europe.html">Lire l’article</a></p>
+<p>L’Allemagne souhaite accélérer l’autorisation du système d’aide à la conduite FSD de Tesla dans l’ensemble de l’Union européenne. Selon Numerama, le ministre allemand des Transports, Steffen Bilger, a annoncé son soutien à une homologation rapide, alors que le déploiement progresse jusqu’ici pays par pays. Berlin suit le dossier avec Tesla et les autorités compétentes allemandes et néerlandaises : l’enjeu est de passer d’autorisations nationales à un cadre permettant une utilisation plus large dans l’UE.</p>
+<p>Un point particulièrement sensible concerne la vitesse. L’article rapporte que le ministère allemand a accepté le principe d’un dépassement pouvant atteindre 10 % de la limitation par le système, au nom d’une circulation plus fluide. Berlin entend défendre cette marge dans la procédure européenne ; il ne s’agit donc pas d’une règle déjà généralisée à toute l’Union. Cette position pose une question concrète : jusqu’où adapter les règles de circulation au fonctionnement des aides à la conduite ?</p>
+<p>Le ministère rappelle toutefois que le conducteur conserve entièrement la responsabilité de la conduite. Malgré son nom, le FSD reste présenté comme une assistance qui exige une vigilance humaine, et non comme un dispositif dispensant de surveiller la route. L’intérêt de cette lecture tient à cette articulation entre promesses techniques, décisions réglementaires et responsabilité en cas d’incident.</p>
+<p><strong>Pourquoi lire :</strong> Un article court pour comprendre comment l’Allemagne pourrait peser sur le déploiement européen des aides à la conduite et sur leurs limites juridiques.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>homologation</strong> — validation officielle attestant qu’un équipement respecte les exigences nécessaires à son utilisation.</li>
+<li><strong>système d’aide à la conduite</strong> — ensemble de fonctions qui assistent le conducteur sans nécessairement le remplacer ni supprimer sa responsabilité.</li>
+<li><strong>autorité de régulation</strong> — organisme public chargé d’encadrer un secteur et de veiller au respect des règles applicables.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 日本の中国進出企業：ピーク時から3割減、26年は1万118社に―帝国データ調べ</h3>
+<p class="meta">nippon.com · 2026-10-07 · <a href="https://www.nippon.com/ja/japan-data/h02916/">記事を読む</a></p>
+<p>帝国データバンクの調査によると、中国に進出している日本企業は2026年に1万118社となり、ピーク時から約3割減少した。香港とマカオを除いた企業活動を集計したもので、2010年の調査開始以来、最も少ない。記事は日中関係の悪化を背景に、中国ビジネスの縮小が進んでいると伝えている。</p>
+<p>前回調査からの2年間で1221社が新規参入した一方、「撤退・所在不明」に分類された企業は4137社に上った。進出企業の構成も変わり、中小企業の割合が下がる一方、中堅・大企業の比率が上昇している。地域別では上海市が依然として最大の集積地だが、企業数は前回より21.5％減少。業種別では製造業が最も多く、卸売業、サービス業が続く。</p>
+<p><strong>読む理由：</strong> 日本企業の中国事業の変化を、進出・撤退や企業規模、地域別のデータから具体的に理解できる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>現地法人（げんちほうじん）</strong> — 進出先の国や地域の法律に基づいて設立した会社。</li>
+<li><strong>駐在事務所（ちゅうざいじむしょ）</strong> — 海外に担当者を置き、情報収集や連絡などを行うための拠点。</li>
+<li><strong>卸売業（おろしうりぎょう）</strong> — 主に小売店や他の事業者に商品を販売する業種。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 2026年诺奖花落谁手？人工智能如是说</h3>
+<p class="meta">DW 中文 · 2026-10-04 · <a href="https://www.dw.com/zh/2026年诺奖花落谁手人工智能如是说/a-79518962">https://www.dw.com/zh/2026年诺奖花落谁手人工智能如是说/a-79518962</a></p>
+<p>让聊天机器人预测诺贝尔奖，得到的究竟是有根据的判断，还是包装得很自信的猜测？德国之声在这篇颁奖前的报道中，比较了不同地区人工智能系统给出的答案。多款系统看好研究肠道激素GLP-1的科学家，也将中国作家残雪和研究基因编辑的刘如谦列为热门人选。这些都是当时的预测，并非获奖结果。</p>
+<p>文章更值得关注的部分，是这些答案为何相似，又为何出错。论文引用次数、既有奖项和媒体预测名单，都可能让不同系统反复推荐相同的人选。与此同时，报道指出，有系统预测了根本不存在的“诺贝尔数学奖”，还有系统推荐已经去世、按评奖规则不符合条件的科学家。读者可以借此思考：回答听起来专业、流畅，并不代表其中的事实和规则已经经过核实。</p>
+<p><strong>为什么读：</strong> 这篇文章把诺奖、前沿科研与人工智能的可靠性联系起来，适合练习区分中文科技报道中的预测、证据与事实。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>肠道激素 (chángdào jīsù)</strong> — 由肠道相关细胞分泌、参与调节食欲及代谢等生理活动的信号物质。</li>
+<li><strong>碱基编辑 (jiǎnjī biānjí)</strong> — 基因编辑技术的一类，可对DNA中的特定碱基进行有针对性的改变。</li>
+<li><strong>多铁性材料 (duōtiěxìng cáiliào)</strong> — 同时具有两种或以上铁性有序特征的材料，例如兼具铁电性与某种磁有序特征。</li>
+</ul>
+</article>
+</section>
+</main>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X posts and source summaries; linked papers and code were not independently inspected. Quantitative findings are reported claims. Shortened resource links are retained as supplied. Identical VIMA and CytoVI announcements appearing in both research feeds are presented once.</p>
+<p>News · 7 October 2026 · Run 2026-10-07-1</p>
+</footer>
+
+
+
+</body>
+</html>

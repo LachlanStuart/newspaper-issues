@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fffdf8;
+      --ink: #202020;
+      --muted: #66645f;
+      --accent: #285c52;
+      --rule: #d8d2c7;
+      --soft: #f3f0e9;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #ece9e2;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.62;
+    }
+    main {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 3rem clamp(1.25rem, 5vw, 4.5rem);
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+    }
+    header {
+      text-align: center;
+      border-top: 4px double var(--ink);
+      border-bottom: 4px double var(--ink);
+      padding: 1.5rem 0 1.25rem;
+      margin-bottom: 2.5rem;
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 7vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.95rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    section {
+      margin: 2.75rem 0;
+    }
+    section > h2 {
+      margin: 0 0 1.2rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    article {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    article:last-child {
+      border-bottom: 0;
+    }
+    article h3 {
+      margin: 0 0 0.4rem;
+      font-size: 1.28rem;
+      line-height: 1.3;
+    }
+    article p {
+      margin: 0.65rem 0;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+      overflow-wrap: anywhere;
+    }
+    .source-line {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.83rem;
+    }
+    .tags {
+      margin-top: 0.75rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+    .language-practice {
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 5px double var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 2rem;
+    }
+    .language-intro {
+      color: var(--muted);
+      margin-top: -0.5rem;
+    }
+    .language-card {
+      margin: 2rem 0;
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      background: var(--soft);
+    }
+    .language-card h3 {
+      font-size: 1.45rem;
+    }
+    .language-card ul {
+      margin: 0.7rem 0;
+      padding-left: 1.4rem;
+    }
+    .notes {
+      margin-top: 3.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+    .notes h2 {
+      border: 0;
+      margin-bottom: 0.5rem;
+      font-size: 1rem;
+    }
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Daily Newspaper · August 11, 2026</p>
+    </header>
+
+    <section>
+      <h2>AI Systems &amp; Model Architecture</h2>
+
+      <article>
+        <h3><a href="https://x.com/yifanzhang_/status/2086950444769878194">Reliable RL scaling requires accounting for prefill–decode kernel mismatch</a></h3>
+        <p>A linked technical resource argues that reliable reinforcement-learning scaling must account for mismatches between the kernels used during prefill and decoding.</p>
+        <p class="tags">Reinforcement learning · Scaling · Inference kernels</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/yifanzhang_/status/2086839768323920333">Dense Transformer combines GQA, mixed attention, and DFlash decoding</a></h3>
+        <p>Architecture notes describe a dense Transformer with two grouped-query-attention KV heads, a head dimension of 128, and a 1:3 ratio of full attention to sliding-window attention. The design also uses DFlash speculative decoding and is presented as supporting reliable reinforcement-learning scaling.</p>
+        <p class="tags">Transformers · Attention · Speculative decoding · Architecture</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2086882278219894909">Muse Glimmer weight matrices show tightly pinned RMS norms</a></h3>
+        <p>An analysis of Muse Glimmer reports that the model’s per-matrix weight RMS norms cluster near a common value, a potentially useful observation about its weights and training dynamics. The available post was truncated before the precise value and fuller analysis.</p>
+        <p class="tags">Model analysis · Weight norms · Training dynamics</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Biology, Genomics &amp; Computational Research</h2>
+
+      <article>
+        <h3><a href="https://x.com/sokrypton/status/2086876499454378019">Dyna-1 protein-dynamics model published in <em>Nature</em></a></h3>
+        <p>The final version of Dyna-1 has been published in <em>Nature</em> alongside curated datasets. Discussion of the update highlights prospective experimental validation added since the earlier preprint.</p>
+        <p class="tags">Protein dynamics · Datasets · Experimental validation</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2087019986510565714">Cuffed guide RNA makes CRISPR activity responsive to microRNAs</a></h3>
+        <p>A new preprint introduces the cuffed guide RNA, or cgRNA: a CRISPR guide designed to respond to microRNAs. The concept could be useful for biological circuits and conditional genome engineering, although implementation and validation details were not included in the available post.</p>
+        <p class="tags">CRISPR · MicroRNA · RNA engineering · Biological circuits</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/TuXinming/status/2086993825965412426">Stanford announces inaugural Virtual Embryo Challenge</a></h3>
+        <p>The first Stanford Virtual Embryo Challenge has been announced for NeurIPS 2026, bringing developmental-biology modeling into a new benchmark setting. Task, dataset, and evaluation details were not present in the announcement supplied for this edition.</p>
+        <p class="tags">Virtual embryos · Developmental biology · Benchmarks · NeurIPS</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2086925354921508981">DeepHyb infers historical hybridization from fragmented genomic alignments</a></h3>
+        <p>DeepHyb is a CNN-based framework for detecting historical hybridization and introgression from multiple-sequence-alignment features. It combines summary and single-base site patterns with summary and sequence-level k-mer patterns, allowing it to process fragmented or non-contiguous genomic data while retaining interpretable hybridization signals.</p>
+        <p class="tags">Genomics · Hybridization · Introgression · Deep learning · Evolution</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2086851998901760298">MuSiC2 deconvolves multi-condition bulk RNA-seq</a></h3>
+        <p>MuSiC2 estimates cell-type composition in multi-condition bulk RNA-seq using single-cell references. It extends multi-subject single-cell deconvolution to account for differences across biological conditions.</p>
+        <p class="tags">Transcriptomics · Cell-type deconvolution · Bulk RNA-seq · Single-cell</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatRevMCB/status/2086840929571512822">Review surveys transcription-termination mechanisms</a></h3>
+        <p><em>Nature Reviews Molecular Cell Biology</em> has published a review of transcription termination across coding and noncoding genomic loci, offering a broad entry point into an important area of gene regulation.</p>
+        <p class="tags">Gene regulation · Transcription termination · Noncoding genome · Review</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p class="language-intro">Edited reading selections in the original language.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Flucht vor dem Bewertungsdruck</h3>
+        <p class="source-line">Deutschlandfunk Kultur · 10.08.2026 · <a href="https://www.deutschlandfunkkultur.de/ariana-grande-social-media-body-shaming-100.html">https://www.deutschlandfunkkultur.de/ariana-grande-social-media-body-shaming-100.html</a></p>
+        <p>Ariana Grande will sich nach ihrer aktuellen Tour vorerst aus der Öffentlichkeit zurückziehen. Zuvor hatten Bilder aus einem neuen Musikvideo erneut zahlreiche Kommentare über ihren sehr schlanken Körper ausgelöst. Der Beitrag fragt, wo legitime öffentliche Auseinandersetzung endet und Body Shaming beginnt – und warum selbst vermeintlich besorgte Ferndiagnosen psychisch belastend sein können.</p>
+        <p>Zugleich ordnet der Artikel die Debatte in die Entwicklung aktueller Schönheitsideale ein. Nach einer Phase größerer körperlicher Vielfalt werde in sozialen Medien, Mode und Popkultur wieder verstärkt ein extrem schlankes Ideal sichtbar. Fachleute verweisen dabei auf wirtschaftliche Interessen der Schönheitsindustrie sowie auf gesellschaftliche Machtstrukturen, die Menschen zur fortwährenden Selbstoptimierung drängen.</p>
+        <p><strong>Warum lesen:</strong> Der Text verbindet ein aktuelles Popkultur-Thema mit einer differenzierten Diskussion über soziale Medien, Schönheitsnormen und die Grenzen öffentlicher Bewertung.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — La Chine met ses universités à l'heure de l'IA et bouleverse ses cursus</h3>
+        <p class="source-line">RFI · 10 août 2026 · <a href="https://www.rfi.fr/fr/asie-pacifique/20260810-la-chine-met-ses-universit%C3%A9s-%C3%A0-l-heure-de-l-ia-et-bouleverse-ses-cursus">lien</a></p>
+        <p>La Chine transforme en profondeur son enseignement supérieur afin de mieux l'adapter à l'intelligence artificielle, aux nouvelles technologies et aux besoins de son économie. Entre 2021 et 2025, plus de 30 % des cursus universitaires ont été modifiés : plus de 12 000 formations ont été supprimées ou suspendues, tandis qu'un peu plus de 10 000 ont été créées. Les lettres, les sciences humaines, certaines langues étrangères et le management figurent parmi les domaines les plus touchés.</p>
+        <p>En parallèle, les universités développent leurs formations en intelligence artificielle, science des données, robotique et semi-conducteurs. Cette réorientation doit répondre au décalage entre les diplômes et les emplois disponibles, alors que près de 12 millions de jeunes sortent des universités chinoises cette année. Elle reflète aussi la stratégie de Pékin, qui veut faire de l'enseignement supérieur un instrument de ses priorités industrielles et former des étudiants capables de s'adapter à des métiers encore émergents.</p>
+        <p><strong>Pourquoi lire :</strong> Un aperçu concis des effets très concrets de l'essor de l'IA sur l'université, l'emploi et la politique industrielle chinoise.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>cursus universitaire</strong> — ensemble organisé des études et formations conduisant à un diplôme</li>
+          <li><strong>intelligence incarnée</strong> — intégration de l'intelligence artificielle dans des machines ou des robots capables d'agir dans le monde physique</li>
+          <li><strong>débouchés professionnels</strong> — possibilités d'emploi auxquelles une formation permet d'accéder</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — 親が子にAIを使わせる理由は「勉強に役立つ」ではなく「うちの子だけは遅れさせたくない」？　2000人を調査</h3>
+        <p class="source-line">ITmedia NEWS · 2026-08-11 · <a href="https://www.itmedia.co.jp/news/article/2608/11/2000000474/">https://www.itmedia.co.jp/news/article/2608/11/2000000474/</a></p>
+        <p>米国、カナダ、英国で13～18歳の子を持つ親約2000人を対象に、子ども向け生成AIへの支払意思を調べた研究が紹介されている。周囲の10代によるAI利用率が20％の場合と80％の場合を比べると、親が支払ってもよいと考える金額には6割以上の差が生じた。AIそのものの品質が変わらなくても、ほかの子どもが使っているという情報だけで需要が高まったという。</p>
+        <p>AIが思考力に悪影響を及ぼす可能性を知らされた親も、購入意欲を大きくは下げなかった。全面的なAI禁止を望みながら、自分の子どもには「取り残されないため」に使わせる親も多く、記事はこの状況を囚人のジレンマとして説明する。一方、答えを直接出すのではなく、子ども自身に考えさせる学習支援型のAIは比較的受け入れられやすく、設計によって懸念を軽減できる可能性も示された。</p>
+        <p><strong>読む理由：</strong> 教育におけるAI普及が、学習効果だけでなく親同士の競争意識にも左右されることを具体的な調査結果から考えられる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>支払意思額（しはらいいしがく）</strong> — 商品やサービスに対して、利用者が最大でいくら払ってもよいと考えるかを示す金額。</li>
+          <li><strong>参加者間（さんかしゃかん）</strong> — 実験で異なる条件を別々の参加者グループに与え、その結果を比較する方法。</li>
+          <li><strong>囚人のジレンマ（しゅうじんのジレンマ）</strong> — 全員が協力すればより良い結果になるのに、各自が自分の利益を優先すると全体として悪い結果になる状況。</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh-Hans">
+        <h3>中文 — 蔣方舟的“天才少女”神话：中国素质教育的样板间和烂尾楼</h3>
+        <p class="source-line">端传媒 · 2026-08-11 · <a href="https://theinitium.com/20260811-mainland-the-genius-myth-of-jiang-fangzhou-zh-hans">https://theinitium.com/20260811-mainland-the-genius-myth-of-jiang-fangzhou-zh-hans</a></p>
+        <p>文章从作家蒋方舟的硕士论文争议切入：2026年7月，中国人民大学先认定论文只有引用错误等“学术不规范”问题，八天后却根据新线索改判九处文字构成学术不端，并撤销其硕士学位。报道梳理了实名举报、网络查重和网友追查原始文献的过程，也指出两次调查结论与效率之间存在明显反差。</p>
+        <p>作者并未把事件简单归结为一次个人抄袭风波，而是追问学术问责究竟如何被触发，以及教育体制、文学市场和公众舆论如何共同塑造并维持“天才少女”神话。由此，事件成为观察中国素质教育叙事、名人生产机制及高校学术治理的一扇窗口。</p>
+        <p><strong>为什么读：</strong> 一桩论文争议背后，呈现了网络监督、高校问责与教育明星化之间复杂的权力关系。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>学术不端 (xuéshù bùduān)</strong> — 违反学术诚信规范的行为，例如抄袭、剽窃或伪造研究材料。</li>
+          <li><strong>查重 (cháchóng)</strong> — 使用数据库或软件比对文本，检查论文与既有资料的重复程度。</li>
+          <li><strong>文献溯源 (wénxiàn sùyuán)</strong> — 追查文字、观点或资料的原始出处及传播路径。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notes">
+      <h2>Source note</h2>
+      <p>Some social-media posts available to this edition were brief or truncated. Summaries above are limited to the technical claims present in the supplied material.</p>
+    </aside>
+
+    <footer>
+      News · Run 2026-08-11-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

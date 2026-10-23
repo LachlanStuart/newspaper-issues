@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f3;--ink:#242b30;--muted:#626b70;--line:#d8d8cf;--accent:#195d68}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:1060px;margin:auto;padding:24px}
+header{padding-top:42px;border-bottom:3px solid var(--ink)}
+h1{font-size:58px;line-height:1;margin:8px 0 16px;letter-spacing:-2px}
+h2{font-size:29px;line-height:1.25;margin:0 0 24px}
+h3{font-size:22px;line-height:1.35;margin:0 0 10px}
+p{margin:0 0 14px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+.meta,.links,nav,footer,.eyebrow{font-family:system-ui,sans-serif;font-size:13px}
+.meta,.eyebrow,footer{color:var(--muted)}
+.eyebrow{text-transform:uppercase;letter-spacing:2px}
+nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px}
+section{padding:30px 0;border-bottom:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 34px}
+article{min-width:0}
+article p:last-child{margin-bottom:0}
+.lead{padding:22px;border-left:4px solid var(--accent);background:#eef2ef;margin-bottom:28px}
+.briefs{margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+.briefs article{margin-bottom:22px}
+#languages{border-top:3px solid var(--ink);margin-top:28px}
+.reading{max-width:820px;margin:0 auto;padding:28px 0;border-top:1px solid var(--line)}
+.reading:first-of-type{border-top:0;padding-top:0}
+.reading[lang="ja"],.reading[lang="zh-Hans"]{line-height:1.9}
+ul{padding-left:24px}
+footer{padding-bottom:40px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}h1{font-size:46px}main,header,footer{padding-left:20px;padding-right:20px}h2{font-size:26px}}
+@media print{body{background:white}a{color:inherit}.grid{display:block}article{margin-bottom:22px}nav{display:none}}
+</style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+<header>
+<div class="eyebrow">The daily newspaper</div>
+<h1>News</h1>
+<p class="meta"><time datetime="2026-10-16">Friday, 16 October 2026</time></p>
+<p>Automated science, genomic models and molecular design—with a close look at what computational results do, and do not, establish.</p>
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; research methods</a>
+<a href="#genomics">Genomics &amp; spatial biology</a>
+<a href="#design">Molecular &amp; protein design</a>
+<a href="#tools">Tools &amp; infrastructure</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="ai">
+<h2>AI &amp; research methods</h2>
+<article class="lead">
+<h3>The Agentic Scientist brings parallel workers and experimental controls together</h3>
+<p>Sakana’s AI Scientist v3 coordinates agents through shared memory and distilled conclusions, while an Evidence Generation component runs isolated baselines and ablations. The team says a development version helped produce a biologically plausible learning algorithm accepted as an ALIFE 2026 oral presentation—with human steering and verification.</p>
+<p>The release also includes AutoIllustrate for editable vector figures. The interesting advance is the combination of research orchestration and explicit experimental controls, rather than a claim of fully autonomous discovery.</p>
+<p class="links"><a href="https://x.com/hardmaru/status/2110739454948520260">Source post</a> · <a href="https://t.co/v2AkZi4Bmt">Code</a> · <a href="https://t.co/v3Td5yfvBE">Blog</a> · <a href="https://t.co/RuVnAHjMlK">Paper</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>A clinical-agent test catches misleading certainty</h3>
+<p>In a four-visit synthetic skin-review test, OpenDerm supplied measurements and LFM2.5-24B-A2B retrieved history and wrote a cited review without seeing images. The first run called a −0.05 mm change within ±0.20 mm measurement error “no growth.” The team rejected that wording, tightened the instruction and retained both the original and rerun.</p>
+<p>The case illustrates how uncertainty can disappear in a fluent summary. It is a small synthetic test, not clinical validation.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2110495141366513793">Source post</a> · <a href="https://x.com/OpenMed_AI/status/2110400235721924962">Test thread</a></p>
+</article>
+<article>
+<h3>LapJAX and JAX Taylor-mode differentiation compared</h3>
+<p>You Jiacheng notes that JAX’s Taylor-mode automatic differentiation can perform nearly the same computation as LapJAX, while distinguishing an Hvv quantity from the Laplacian. The comparison is relevant to choosing tools for higher-order derivatives.</p>
+<p class="links"><a href="https://x.com/YouJiacheng/status/2110713820914270704">Source post</a> · <a href="https://t.co/BeBolyzBP5">LapJAX</a> · <a href="https://t.co/IlGU5QJj3R">JAX Taylor-mode AD</a> · <a href="https://t.co/WX6EXCcQlA">2022 discussion</a></p>
+</article>
+<article>
+<h3>On-policy sparsity: a Fisher-information qualification</h3>
+<p>In a follow-up discussion, You Jiacheng contrasts sparse E<sub>y∼π</sub>[h<sub>i</sub>(y)²] with its nonsparse counterpart under data-distribution sampling. He describes the paper’s effective-signal view of supervised fine-tuning as involving an unbounded q/π − b term; a companion reply adds that extremely nonuniform per-parameter Fisher information is also required.</p>
+<p class="links"><a href="https://x.com/YouJiacheng/status/2110594277306986852">Discussion</a> · <a href="https://x.com/YouJiacheng/status/2110589671273341056">Companion reply</a> · <a href="https://t.co/2i1kCwzD0X">Reference</a></p>
+</article>
+<article>
+<h3>Goodfire revisits superposition and interpretability</h3>
+<p>Goodfire describes an essay by Nick Cammarata revisiting early vision-model interpretability and examining modern language models up to trillions of parameters. Its argument: models may be more interpretable than early assumptions about polysemanticity and superposition suggested. The supplied post includes neither the essay link nor detailed supporting results.</p>
+<p class="links"><a href="https://x.com/GoodfireAI/status/2110758907895484731">Source post</a></p>
+</article>
+</div>
+<div class="briefs">
+<h3>Research watch</h3>
+<article>
+<p><strong>Muon versus Adam.</strong> Jianlin Su’s second <em>Slow is Fast</em> installment asks “Is Muon also the end of Adam?” The announcement links a technical note but supplies no derivation or experiments. <a href="https://t.co/VUm86gCGsY">Technical note</a> · <a href="https://x.com/Jianlin_S/status/2110741460735922274">Source post</a></p>
+</article>
+<article>
+<p><strong>SPLICE: learning from failed math attempts.</strong> A research-thread excerpt asks whether reference hints can help models learn from unsuccessful attempts. It cuts off before the training procedure or results. <a href="https://x.com/behrouz_ali/status/2110882781953974752">Source post</a></p>
+</article>
+<article>
+<p><strong>Halcyon links multimodal pretraining to text-to-image generation.</strong> Stanford AI Lab shares the research announcement, but the available introduction does not include architecture, results or a paper link. <a href="https://x.com/StanfordAILab/status/2110777349310677317">Source post</a></p>
+</article>
+<article>
+<p><strong>GPIC with FD proposed for text-to-image evaluation.</strong> A repost describes 100 million richly annotated samples. The truncated excerpt provides no benchmark protocol, results or resource URL. <a href="https://x.com/YouJiacheng/status/2110910032145772562">Source post</a></p>
+</article>
+</div>
+</section>
+
+<section id="genomics">
+<h2>Genomics &amp; spatial biology</h2>
+<div class="grid">
+<article>
+<h3>SVC learns where transcripts sit inside cells</h3>
+<p>Spatially and Virtually Embedded Cell uses a Vision Transformer to represent each gene’s localization as an image patch, with other genes in the same cell providing context. It combines subcellular-resolution spatial transcriptomics with gene-function priors, morphology, spatial context and optional cell identity.</p>
+<p>The approach offers spatially grounded cellular representations; the supplied account includes neither quantitative evaluation nor evidence of predictive cellular simulation.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2110888597050339745">Source post</a></p>
+</article>
+<article>
+<h3>DNA-LLM2Vec turns causal genomic models into encoders</h3>
+<p>The method adapts DNAGPT and HyenaDNA in stages: opening bidirectional context, repairing the mismatch with masked next-token prediction, then using contrastive views to encourage strand and positional invariance. The resulting models serve as frozen encoders.</p>
+<p>The reported benefits depend on the task and architecture, rather than representing a universal improvement.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2110888124083834882">Source post</a></p>
+</article>
+<article>
+<h3>HitSV targets structural variants in repetitive regions</h3>
+<p>This alignment-based caller supports long-read, short-read and hybrid sequencing. It models how genomic repetitiveness interacts with signature intensity through site recognition, clustering, reconstruction and genotyping, aiming to reduce missed or fragmented calls in difficult regions. No benchmark results accompany the supplied description.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2110887727273254919">Source post</a></p>
+</article>
+<article>
+<h3>SpliceAI2 follow-up broadens the evaluation picture</h3>
+<p>New posts describe nine splice-variant evaluations and claim improved performance. Examples include Genomics England genomes with matched phenotypes, whole-genome/RNA-seq evaluation using personal-genome realignment, and UK Biobank tests of predicted reductions in measured plasma protein levels.</p>
+<p>These are useful evaluation contexts beyond the launch announcement, but numerical results and full protocols are absent from the excerpts.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2110848299800617075">Source post</a></p>
+</article>
+</div>
+<div class="briefs">
+<p><strong>OCTO Flower: paired spatial data across cancer tissues.</strong> A shared introduction describes paired multimodal human-tissue data with coverage approaching pan-cancer. Modalities, cohort size, access terms and validation are not specified. <a href="https://x.com/razoralign/status/2110946335692329415">Source post</a></p>
+</div>
+</section>
+
+<section id="design">
+<h2>Molecular &amp; protein design</h2>
+<div class="grid">
+<article>
+<h3>MolHop navigates scaffolds for molecular redesign</h3>
+<p>MolHop combines navigation across roughly 1.6 million commercial-chemistry scaffolds with validated molecular edits and persistent search history. Its 9B agent reportedly meets joint scaffold-change, property-matching and synthetic-accessibility objectives on 55.5% of a 200-molecule ChEMBL set and 73.5% of a 200-molecule Enamine set.</p>
+<p>Those objectives are computational: matching physicochemical properties or improving an accessibility score does not demonstrate retained biological activity or successful synthesis.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2110699281405665644">Source post</a></p>
+</article>
+<article>
+<h3>STAMP makes molecular fragments directly editable</h3>
+<p>STAMP separately encodes motifs, attachment positions and fragment-tree topology, allowing deterministic reconstruction and compatibility-checked edits. A matched small-transformer experiment reportedly yields 75.5% unique valid molecules meeting QED and synthetic-accessibility thresholds, versus 55.2% for SMILES.</p>
+<p>The supplied summary also reports lower activity-cliff prediction error on 23 of 30 MoleculeACE targets, alongside gains in constrained generation and instruction-guided editing.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2110698282267873734">Source post, with code and paper links</a></p>
+</article>
+<article>
+<h3>Antibody GFlowNet trades stronger proxies for greater diversity</h3>
+<p>A preference-conditioned GFlowNet generates fixed-framework CDRH3 candidates against 14 objectives, covering structural compatibility, sequence likelihood, predicted immunogenicity, developability, liabilities and novelty.</p>
+<p>Across 45 scaffold-held-out complexes, it reportedly produces about ten times as many distinct acceptable candidates at a 50% sequence-identity threshold as inverse-folding baselines. The caveat matters: average structural/binding proxies and late-stage energy scores are weaker, and no wet-lab validation is reported.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2110700066533265880">Source post</a></p>
+</article>
+<article>
+<h3>PIDiff jointly generates binder sequence and structure</h3>
+<p>PIDiff couples discrete sequence diffusion with SE(3) backbone diffusion, incorporating charge and hydrophobicity to improve interface complementarity. Its PIBench resource contains 301,182 chain-pair interfaces expanded into 602,364 target–binder complexes, with sequence clustering used for splits.</p>
+<p>The reported general-design success rate is 47.83% under confidence-score thresholds, with transfer to minibinder and antibody settings. These are in-silico results; wet-lab validation is explicitly absent.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2110699924379803852">Source post</a></p>
+</article>
+<article>
+<h3>InstructPro2 grounds protein generation in ligands and antigens</h3>
+<p>InstructPro2 combines text conditioning with a ProGen2-initialized decoder and optional ligand or antigen encoders. Its reported training resource contains 205.7 million function-description/protein pairs.</p>
+<p>Antibody CDR design reaches a reported DockQ of 0.39, while ligand-conditioned generation improves pocket-reconstruction metrics. The evidence is computational, not a demonstration of experimental binding or function.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2110699521923788940">Source post</a></p>
+</article>
+<article>
+<h3>RFdiffusion3 reaches <em>Science</em></h3>
+<p>Posts shared by Anshul Kundaje and Miguel Angel Gama announce RFdiffusion3’s publication in <em>Science</em>. An author excerpt describes an update to the diffusion method introduced last year, but the supplied text cuts off before the changes. No new performance or experimental claims can be assessed from it.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2110914308117000548">Source post</a></p>
+</article>
+</div>
+</section>
+
+<section id="tools">
+<h2>Tools &amp; infrastructure</h2>
+<div class="grid">
+<article>
+<h3>BinderVerse offers a route from sequences to binding data</h3>
+<p>RootPath announces a cloud-lab workflow accepting AI-designed binder sequences and returning binding measurements—a practical bridge between computational design and experiments. Assay specifications, complete turnaround information, pricing and validation results are not included in the excerpt.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2110835208241172795">Source post</a></p>
+</article>
+<article>
+<h3>MACS3 optimization reportedly merged</h3>
+<p>A Jacob Schreiber post shared by Anshul Kundaje says an auto-optimization of MACS3 was merged earlier this week. The excerpt does not identify a release version, quantify speed gains or describe correctness checks.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2110883968220598609">Source post</a></p>
+</article>
+<article>
+<h3>REMAG targets eukaryotic genome recovery</h3>
+<p>The long-read metagenomic binning tool is said to recover more near-complete eukaryotic genomes than existing tools. Benchmark sizes and numerical comparisons are not supplied.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2110797783037038899">Source post</a></p>
+</article>
+<article>
+<h3>kuva v0.6.0 adds a genome-browser layout</h3>
+<p>The visualization update stacks coverage, variant and amplicon tracks on a shared axis. The available announcement is truncated before the full feature list.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2110797701575213226">Source post</a></p>
+</article>
+</div>
+</section>
+
+<section id="languages">
+<div class="eyebrow">Daily reading</div>
+<h2>Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Psychotherapie-Reform: Mehr Hilfe für einige, längeres Warten für andere?</h3>
+<p class="meta">Tagesschau · 15.10.2026 · <a href="https://www.tagesschau.de/wissen/gesundheit/psychotherapie-reform-korrekturen-100.html">https://www.tagesschau.de/wissen/gesundheit/psychotherapie-reform-korrekturen-100.html</a></p>
+<p>Der Bundestag hat die geplanten Sparregeln für ambulante Psychotherapie nach Protesten nachgebessert. Grundsätzlich sollen Therapeutinnen und Therapeuten ab einer bestimmten Zahl geleisteter Stunden für weitere Behandlungen weniger Geld erhalten. Ausgenommen sind jedoch Kinder, Jugendliche und schwer erkrankte Menschen. Auch dringende Akutbehandlungen sollen weiterhin vollständig vergütet werden; die genaue Definition der Dringlichkeit steht noch aus.</p>
+<p>Die Ausnahmen schützen besonders gefährdete Gruppen, könnten aber den Zugang für andere Patienten erschweren. Fachverbände befürchten, dass Praxen bevorzugt die weiterhin voll vergüteten Fälle behandeln und sich ohnehin lange Wartezeiten für andere Betroffene verlängern. Besonders betroffen wären Praxen mit einem halben Kassensitz, die laut Artikel die Mehrheit bilden. Als weitere mögliche Folge nennt der Beitrag eine stärkere Ausrichtung auf Privatpatienten und Selbstzahler – zulasten gesetzlich Versicherter.</p>
+<p>Neben dieser Kritik stellt der Artikel grundsätzliche Reformideen vor. Die Psychologin Silvia Schneider möchte Prävention und Therapie enger verbinden und Hilfen stärker in Schulen, Kitas oder am Arbeitsplatz verankern. Zur Debatte steht damit nicht nur die Finanzierung einzelner Therapiestunden, sondern auch die Frage, wie psychische Erkrankungen früher erkannt und behandelt werden können.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag erklärt verständlich, wie Vergütungsregeln den Zugang zu psychotherapeutischer Hilfe beeinflussen könnten und welche Alternativen Fachleute vorschlagen.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Les frères Coen, un même cerveau derrière des films devenus cultes</h3>
+<p class="meta">France 24 · 16 octobre 2026 · <a href="https://www.france24.com/fr/info-en-continu/20261016-les-fr%C3%A8res-coen-un-m%C3%AAme-cerveau-derri%C3%A8re-des-films-devenus-cultes">Lire l’article</a></p>
+<p>À Lyon, où ils reçoivent le prix Lumière pour l’ensemble de leur œuvre, Joel et Ethan Coen évoquent leur complicité créative dans un entretien croisé avec l’AFP. Les réalisateurs de <em>Fargo</em>, <em>Barton Fink</em> et <em>No Country for Old Men</em> expliquent qu’ils ne se répartissent pas des fonctions fixes : leur travail commun repose plutôt sur un dialogue permanent. Leurs parcours séparés depuis 2018 ne constituent donc pas une rupture, mais une occasion d’explorer d’autres envies artistiques.</p>
+<p>Les deux frères souhaitent désormais réaliser de nouveau un film ensemble, sans avoir encore choisi de scénario. Ils disposent d’idées et de textes inachevés, mais aucun projet précis n’est annoncé. L’entretien montre aussi ce que leur collaboration leur apporte : face aux nombreuses décisions qu’exige un tournage, chacun s’était habitué à pouvoir compter sur le regard et les réponses de l’autre.</p>
+<p>Au-delà de ces retrouvailles envisagées, les cinéastes portent un regard critique sur l’évolution du cinéma américain. Selon eux, les films ont moins de temps pour trouver leur public grâce aux critiques et au bouche-à-oreille, tandis que les financements se déplacent vers les séries. Malgré cette évolution, ils ne souhaitent pas adopter ce format, dont la construction dramatique ne correspond pas à leur manière de raconter des histoires.</p>
+<p><strong>Pourquoi lire :</strong> Un entretien accessible pour découvrir les méthodes d’un duo de cinéastes et réfléchir aux transformations de la production et de la diffusion des films.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>série B</strong> — film généralement produit avec un budget limité, souvent associé à des genres populaires comme le polar ou l’horreur.</li>
+<li><strong>structure dramatique</strong> — organisation des événements, des conflits et des moments de tension dans un récit.</li>
+<li><strong>bouche-à-oreille</strong> — diffusion d’une recommandation de personne à personne, susceptible d’élargir progressivement le public d’un film.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — ヤマト運輸 個人情報530万件余の外部流出を確認</h3>
+<p class="meta">NHKニュース · 2026-10-16 · <a href="https://news.web.nhk/newsweb/na/nd-20261016de60395">記事を読む</a></p>
+<p>ヤマト運輸の「クロネコ代金後払いサービス」が不正アクセスを受け、530万件を超える個人情報の流出が確認された。対象は2018年10月1日から2026年9月28日までの利用者の氏名や住所、電話番号などで、約49万件にはメールアドレスも含まれる。</p>
+<p>同社によると、クレジットカード情報やパスワードは流出していない。被害が判明した利用者には個別に連絡し、中長期的に情報セキュリティ対策を強化する方針だ。身近な決済サービスで起きた被害の範囲と、企業の対応を伝える記事になっている。</p>
+<p><strong>読む理由：</strong> 日本の生活に身近なサービスの事例を通じて、情報流出に関するニュースの語彙と企業発表の読み方を学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>不正アクセス（ふせいアクセス）</strong> — 正当な権限なしにシステムへ入り込んだり、利用したりすること。</li>
+<li><strong>個人情報（こじんじょうほう）</strong> — 氏名や住所など、特定の個人を識別できる情報。</li>
+<li><strong>情報セキュリティ（じょうほうセキュリティ）</strong> — 情報の漏えい、改ざん、不正利用などを防ぎ、安全に管理するための対策。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh-Hans">
+<h3>中文 — “影子AI工作者”的秘密：AI提升效率，人类掩盖痕迹</h3>
+<p class="meta">端传媒 · 2026-10-12 · <a href="https://theinitium.com/20261012-mainland-story-of-shadow-ai-worker-zh-hans/">https://theinitium.com/20261012-mainland-story-of-shadow-ai-worker-zh-hans/</a></p>
+<p>借助AI提前完成工作，为什么还要装作忙碌？报道从北京漫画家小简的办公日常切入：她用Gemini讨论选题和脚本，提前完成画稿，再修改内容以淡化AI痕迹，却没有向同事透露进度，把节省下来的时间留给阅读和私人事务。</p>
+<p>文章的公开导读还引用职场调查，指出一些员工不仅私下使用AI，也担心承认使用工具，甚至刻意给成果添加人为痕迹。这让“提高效率”的技术话题变成了职场关系问题：工具改变了完成任务的速度，员工却未必愿意让公司知道。以上依据可见导读整理，全文需会员阅读。</p>
+<p><strong>为什么读：</strong> 从中国创意工作者的具体处境出发，观察AI使用与职场规则之间的张力，也能学习科技与劳动议题的中文表达。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>知识型员工 (zhīshi xíng yuángōng)</strong> — 主要通过处理信息、分析数据、沟通协作或创意产出来完成工作的人。</li>
+<li><strong>文字脚本 (wénzì jiǎoběn)</strong> — 用文字预先安排作品的内容、情节或对话，作为后续制作的依据。</li>
+<li><strong>千禧一代 (qiānxǐ yídài)</strong> — 社会研究与市场调查常用的代际分类，通常指在二十世纪八十年代至九十年代中期出生的人。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on supplied X posts and source summaries; linked papers and resources were not independently inspected. Quantitative results remain reported claims. Shortened links are preserved as supplied, and incomplete excerpts are identified in the relevant items.</p>
+<p>News · 16 October 2026 · Edition 2026-10-16-1</p>
+</footer>
+
+
+
+</body>
+</html>

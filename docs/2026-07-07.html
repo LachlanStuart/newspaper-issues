@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #24211d;
+      --muted: #6f675d;
+      --rule: #ded4c6;
+      --accent: #7b3f00;
+      --soft: #f1e8da;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--rule);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    header .kicker {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 6px 0 4px;
+      font-size: clamp(2.1rem, 6vw, 4rem);
+      line-height: 1;
+      font-weight: 700;
+    }
+    header .date {
+      color: var(--muted);
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 1px 2px rgba(30, 20, 10, 0.04);
+    }
+    h2 {
+      margin: 0 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 1.45rem;
+    }
+    article {
+      margin: 18px 0 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--soft);
+    }
+    article:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+      line-height: 1.25;
+    }
+    .meta {
+      color: var(--muted);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.88rem;
+      margin-bottom: 9px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+    }
+    p {
+      margin: 0.65em 0;
+    }
+    ul {
+      margin-top: 0.4em;
+    }
+    .tagline {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .language-section {
+      margin-top: 34px;
+    }
+    .language-section h2 {
+      font-size: 1.55rem;
+    }
+    .language-item h3 {
+      font-size: 1.25rem;
+    }
+    .language-item {
+      white-space: normal;
+    }
+    .quiet-notes {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 0.9rem;
+      color: var(--muted);
+      background: transparent;
+      box-shadow: none;
+    }
+    .quiet-notes h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--ink);
+    }
+    code {
+      background: var(--soft);
+      padding: 0.1em 0.25em;
+      border-radius: 4px;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <div class="kicker">News</div>
+      <h1>News</h1>
+      <div class="date">Tuesday, July 7, 2026 · Run 2026-07-07-1</div>
+    </header>
+
+    <section>
+      <h2>Bio, Medicine &amp; Research Computing</h2>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2074350494462689400">ATHENA AI agent for treatment reasoning across FDA-approved drugs</a></h3>
+        <div class="meta">X Bio Research · medicine, drug discovery, AI agents</div>
+        <p>ATHENA is highlighted as an AI agent designed for treatment reasoning across the universe of FDA-approved drugs dating back to 1939. The item is notable for its medicine-facing framing: rather than a narrow discovery tool, it is presented as a broad reasoning system over existing therapeutic knowledge.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2074223270195540066">CellTFusion profiles tumor microenvironments from bulk RNA-seq</a></h3>
+        <div class="meta">X Bio Research · transcriptomics, gene regulation, cancer</div>
+        <p>CellTFusion is described as a computational framework that combines cell-type deconvolution with transcriptional regulatory network analysis. Its aim is to infer tumor microenvironment profiles from bulk RNA-seq and identify coordinated multicellular functional states, making it relevant for cancer transcriptomics and regulatory-network analysis.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2074083936658153728">PoolParty: Python tool for DNA sequence library design</a></h3>
+        <div class="meta">X Bio Research · DNA, synthetic biology, tools</div>
+        <p>PoolParty is presented as a streamlined Python tool for designing DNA sequence libraries. For synthetic biology and genomics workflows, tools like this can help turn library design from a bespoke scripting task into a more reproducible process.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatureRevGenet/status/2074101215202607443">Genetic analysis of imaging-derived phenotypes</a></h3>
+        <div class="meta">Nature Reviews Genetics via X Bio Research · genomics, imaging phenotypes, review</div>
+        <p><em>Nature Reviews Genetics</em> announced a new online article on the genetic analysis of imaging-derived phenotypes. The topic connects high-dimensional imaging traits with genomics, a growing area for studies that use medical or biological images as quantitative phenotypes.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2073796116655886341">Harmonizing standards and resources for the medical genome</a></h3>
+        <div class="meta">X Bio Research · medical genomics, standards, resources</div>
+        <p>A highlighted <em>Nature</em> article focuses on harmonizing standards and resources for the medical genome. The piece appears relevant to translational genomics, where shared standards determine whether genomic findings can be interpreted, compared, and reused across clinical and research settings.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/cutleraging/status/2074145203506548984">Declines in mRNA synthesis linked to organismal aging rate</a></h3>
+        <div class="meta">X Bio Research · aging, gene expression, transcription</div>
+        <p>A paper titled “Declines in mRNA synthesis set the rate of organismal aging” is highlighted. The claim points to transcriptional output as a central variable in aging biology, with possible implications for understanding how gene-expression dynamics relate to organism-level decline.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2073736690481717756">Curated collection of 315 AI×Bio and biomedical ICML 2026 papers</a></h3>
+        <div class="meta">X Bio Research · AI-bio, biomedical AI, research resource</div>
+        <p>An open-source GitHub collection curates 315 AI × Bio and biomedical papers from ICML 2026. For readers tracking the fast-moving biomedical machine-learning literature, this kind of collection can serve as a useful map of the conference landscape.</p>
+      </article>
+    </section>
+
+    <section class="language-section">
+      <h2>Language Practice</h2>
+      <p class="tagline">Native-language reading snippets selected for daily practice.</p>
+
+      <article class="language-item" lang="de">
+        <h3>Deutsch — Verzicht als Statussymbol</h3>
+        <div class="meta">Deutschlandfunk Kultur · 2026-07-06 · <a href="https://www.deutschlandfunkkultur.de/tiktok-social-media-konsumverzicht-deinfluencing-underconsumptioncore-loudbudgeting-kommentar-100.html">Artikel öffnen</a></div>
+        <p>Der Kommentar beschreibt, wie Konsumverzicht auf TikTok und anderen sozialen Plattformen selbst zu einem sichtbaren Statussymbol wird. Unter Schlagworten wie „underconsumptioncore“, „Deinfluencing“, „loud budgeting“ oder „No Buy Year“ inszenieren junge Nutzerinnen und Nutzer alte Kleidung, abgenutzte Gegenstände oder bewusste Kaufentscheidungen als Gegenbild zum klassischen Influencer-Konsum.</p>
+        <p>Hannah Schragmann ordnet den Trend kulturgeschichtlich ein: Früher galt demonstrativer Konsum als Zeichen von Rang, heute kann auch sichtbarer Verzicht Distinktion erzeugen. Der Text fragt, ob daraus echte Konsumkritik entsteht oder ob der Verzicht nur eine neue Form von Content und sozialer Abgrenzung ist — besonders dann, wenn manche Menschen freiwillig verzichten können, andere aber verzichten müssen.</p>
+        <p><strong>Warum lesen:</strong> Der Beitrag verbindet Social-Media-Beobachtung, Konsumkritik und gesellschaftliche Statusfragen in gut verständlichem Deutsch.</p>
+      </article>
+
+      <article class="language-item" lang="fr">
+        <h3>Français — Dans le sud de l'Europe, les pompiers luttent contre des incendies précoces</h3>
+        <div class="meta">RFI · 2026-07-05 · <a href="https://www.rfi.fr/fr/europe/20260705-dans-le-sud-de-l-europe-les-pompiers-luttent-contre-des-incendies-pr%C3%A9coces">Ouvrir l’article</a></div>
+        <p>L’article porte sur les incendies précoces qui touchent le sud de l’Europe et sur la mobilisation des pompiers face à des feux qui arrivent tôt dans la saison. Le sujet s’inscrit dans un contexte européen où les épisodes de chaleur, de sécheresse et de vent rendent la lutte contre les flammes plus difficile.</p>
+        <p>Pour un apprenant, c’est un bon texte d’actualité : il permet de travailler le vocabulaire des catastrophes naturelles, des secours et du climat, tout en suivant un thème fréquent dans la presse francophone européenne.</p>
+        <p><strong>Pourquoi lire :</strong> Un article utile pour comprendre comment RFI traite les enjeux climatiques et de sécurité civile en Europe.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>incendies précoces</strong> — feux qui surviennent plus tôt que d’habitude dans la saison.</li>
+          <li><strong>pompiers</strong> — services de secours chargés notamment de combattre les incendies.</li>
+          <li><strong>lutte contre les flammes</strong> — expression journalistique désignant les opérations pour maîtriser un feu.</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="ja">
+        <h3>日本語 — Sakana AI、敬語もネットスラングも“温度感そのまま”で訳す無料翻訳機能「Sakana Translate」　日英中に対応</h3>
+        <div class="meta">ITmedia NEWS · 2026-07-06 · <a href="https://www.itmedia.co.jp/news/articles/2607/06/news089.html">記事を開く</a></div>
+        <p>Sakana AIは、チャットサービス「Sakana Chat」に翻訳機能「Sakana Translate」を追加した。日本語・英語・中国語を相互に翻訳でき、Webアプリとして無料で利用できる。翻訳エンジンには、海外のオープンモデルを日本仕様に調整した「Namazu」シリーズを採用し、ビジネス敬語や日本固有の文化概念、ネットスラングなどを、相手との距離感や表現の温度まで含めて訳すことを目指すという。</p>
+        <p>機能は「翻訳」「添削」「質疑」の3種類。翻訳では最大約5000字の文章に対応し、リアルタイムで訳文が表示される。例えば「お見積り拝見しました」のようなビジネス敬語は丁寧なトーンを保ち、「Iykyk」のようなネットスラングは同じ温度感の日本語の話し言葉に置き換えるとしている。</p>
+        <p>添削モードでは、文法だけでなく丁寧さやトーン、相手との距離感まで調整し、変更箇所を差分で示す。質疑モードでは、翻訳や添削の結果について追加質問ができる。翻訳品質の評価では自動評価指標「XCOMET-XL」で0.835を記録し、同社は今後、API提供やSSO、監査ログ、オンプレミス対応など法人向け展開も視野に入れている。</p>
+        <p><strong>読む理由：</strong> 日本語の敬語・スラング・距離感をAI翻訳がどう扱うかを知るのに適した、言語学習者にも実用的な記事です。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>翻訳（ほんやく）エンジン</strong> — 文章を別の言語に変換する中核となるソフトウェアやモデル。</li>
+          <li><strong>添削（てんさく）</strong> — 文章をより自然・正確に直すこと。</li>
+          <li><strong>自動評価指標（じどうひょうかしひょう）</strong> — 翻訳などの品質を機械的に測るための基準やスコア。</li>
+        </ul>
+      </article>
+
+      <article class="language-item" lang="zh">
+        <h3>中文 — Nintendo Switch 2 用户可更换电池版将在欧洲推出，现行产品与改版产品间功能无差异</h3>
+        <div class="meta">机核 · 2026-07-07 · <a href="https://www.gcores.com/articles/216836">打开文章</a></div>
+        <p>机核这则资讯关注任天堂欧洲为配合欧盟电池法规变化而进行的硬件调整：自 2026 年夏季起，欧洲市场将陆续推出可由用户自行更换电池的 Nintendo Switch 2、Joy-Con 2 与 Switch 2 Pro 控制器等改版产品。文章强调，现行产品与改版产品在功能上没有差异，主要变化是为了满足 2027 年 2 月中旬开始生效的新规。</p>
+        <p>改版后，部分硬件规格会有轻微变动，例如 Switch 2 本体电池容量略降、重量略增；Switch 2 Pro 控制器电池容量和重量也有所调整。消费者不能主动选择购买哪个版本，任天堂商店会在现行版售罄后自动切换，已经售出的产品则不受新规影响。</p>
+        <p><strong>为什么读：</strong> 这篇短讯把欧盟维修权与电池可更换性法规如何影响游戏硬件设计讲得很清楚，适合练习科技/游戏产业中文。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>可更换电池 (kě gēnghuàn diànchí)</strong> — 指用户或维修方可拆换的电池设计，常与维修权、环保法规相关。</li>
+          <li><strong>法规变更 (fǎguī biàngēng)</strong> — 法律或监管要求发生变化，企业需要调整产品或流程来合规。</li>
+          <li><strong>改版产品 (gǎibǎn chǎnpǐn)</strong> — 在原产品基础上进行硬件、规格或包装调整后的新版本。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="quiet-notes">
+      <h2>Quiet Source Notes</h2>
+      <p>The X AI Research collector did not return items for this run because the list timeline fetch failed after retries. Bio research notes also omitted previously covered or low-signal items from that source’s report.</p>
+    </section>
+  </main>
+
+
+
+</body>
+</html>

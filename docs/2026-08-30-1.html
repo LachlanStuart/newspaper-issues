@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #646a73;
+      --paper: #fffdf8;
+      --panel: #ffffff;
+      --line: #dedbd2;
+      --accent: #315b72;
+      --accent-soft: #eaf2f5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: #f2efe8;
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main {
+      width: min(980px, calc(100% - 28px));
+      margin: 24px auto;
+      padding: clamp(22px, 5vw, 56px);
+      background: var(--paper);
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 28px rgba(35, 38, 42, 0.08);
+    }
+    header {
+      text-align: center;
+      padding-bottom: 28px;
+      border-bottom: 3px double var(--ink);
+    }
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.15rem, 7vw, 4.4rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+    header p {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    section { margin-top: 38px; }
+    section > h2 {
+      margin: 0 0 18px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--ink);
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    article {
+      padding: 18px 0 22px;
+      border-bottom: 1px solid var(--line);
+    }
+    article:last-child { border-bottom: 0; }
+    article h3 {
+      margin: 0 0 7px;
+      font-size: 1.25rem;
+      line-height: 1.3;
+    }
+    article p { margin: 8px 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    a:hover { color: #183b4d; }
+    .source {
+      margin-bottom: 9px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.86rem;
+    }
+    .note {
+      padding: 11px 14px;
+      background: var(--accent-soft);
+      border-left: 3px solid var(--accent);
+      color: #38454c;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+    }
+    .language-practice {
+      margin-top: 52px;
+      padding-top: 32px;
+      border-top: 5px solid var(--ink);
+    }
+    .language-practice > h2 {
+      font-size: 1.9rem;
+    }
+    .language-practice > p {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+    .language-block {
+      margin-top: 28px;
+      padding: clamp(18px, 4vw, 30px);
+      background: var(--panel);
+      border: 1px solid var(--line);
+    }
+    .language-block h3 {
+      margin-top: 0;
+      font-size: 1.4rem;
+    }
+    .language-block h4 {
+      margin: 23px 0 7px;
+      font-size: 1rem;
+    }
+    .language-block ul {
+      margin: 7px 0 0;
+      padding-left: 22px;
+    }
+    .language-block li { margin: 7px 0; }
+    .quiet-notes {
+      margin-top: 44px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.84rem;
+    }
+    .quiet-notes h2 {
+      border: 0;
+      margin-bottom: 8px;
+      padding: 0;
+      color: var(--ink);
+      font-size: 1rem;
+    }
+    footer {
+      margin-top: 34px;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.78rem;
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>News</h1>
+      <p>Daily Newspaper · Sunday, August 30, 2026</p>
+    </header>
+
+    <section>
+      <h2>Machine Learning &amp; AI</h2>
+
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/11875">A New Understanding of Momentum: Approximating Gradient Descent at the Feature Level</a></h3>
+        <div class="source">科学空间 / Spaces AC</div>
+        <p>A technical article develops a new interpretation of momentum-based optimization. Starting from the standard view of momentum as an optimizer state variable, it asks whether momentum can instead be understood as approximating gradient descent at the level of learned features. The resulting mathematical perspective aims to clarify why momentum changes neural-network training dynamics.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/YouJiacheng/status/2093814930302779662">High-dimensional geometry as a possible explanation for broad generalization</a></h3>
+        <div class="source">You Jiacheng on X</div>
+        <p>A geometric intuition for generalization begins with the observation that, in high dimensions, a small radial expansion of a unit ball increases its volume by a factor of <code>(1+δ)<sup>d</sup></code>. The thread speculates that learning near a boundary might therefore cover a combinatorially larger space, with possible implications for reinforcement learning. It is an intriguing hypothesis rather than an empirically validated result.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2093768107961782360">Hy4 preview raises a technical challenge to DeepSeek’s mHC</a></h3>
+        <div class="source">Songlin Yang on X</div>
+        <p>A post about Tencent Hunyuan’s Hy4 preview points to an analysis that poses a simple challenge to DeepSeek’s mHC architecture. The available excerpt is truncated, so the exact proposed modification and its supporting evidence cannot be assessed from the supplied material.</p>
+        <p class="note">Read cautiously: only the beginning of the technical claim was available for this edition.</p>
+      </article>
+    </section>
+
+    <section>
+      <h2>Computational Biology &amp; Genomics</h2>
+
+      <article>
+        <h3><a href="https://x.com/BrianHie/status/2093516855478800443">Proto bio-AI tools arrive in ChatGPT’s Rosalind Workbench</a></h3>
+        <div class="source">Brian Hie on X</div>
+        <p>Proto can now be used through the Rosalind Workbench research preview in ChatGPT. Demonstrations include de novo nanobody design with Germinal, semantic biological-sequence design with Evo 2, and AlphaMissense-assisted analysis of p53 variants. The integration brings several generative-biology and variant-interpretation workflows into one research environment.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2093877951590977955">RefFree-Phaser applies sparse attention to reference-free genotype phasing</a></h3>
+        <div class="source">RazorAlign on X</div>
+        <p>RefFree-Phaser is a genotype-phasing framework built on BigBird. Its 12-layer transformer uses sparse attention to model long-range genomic dependencies, producing haplotype predictions and associated confidence scores directly from unphased genotypes without relying on a reference panel.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2093746559259435190">SpaAlign proposes unified representation learning for spatial multi-omics</a></h3>
+        <div class="source">RazorAlign on X</div>
+        <p>SpaAlign is presented as a unified representation-learning method for integrating spatial multi-omic measurements. The supplied announcement identifies the paper but does not provide methodological or benchmarking details, so its practical advantages remain unclear from this edition’s source material.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2093624539708277208">CIPHER targets optimized spatial-transcriptomics experiment design</a></h3>
+        <div class="source">RazorAlign on X</div>
+        <p>CIPHER is described as an end-to-end framework for designing optimized aggregated spatial-transcriptomics experiments. It may be useful for planning how spatial measurements are collected, though the available post does not include implementation details or evaluation results.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2093623955357839762">scACCorDiON analyzes patient-level cell–cell communication graphs</a></h3>
+        <div class="source">RazorAlign on X</div>
+        <p>scACCorDiON introduces a clustering approach for explainable analysis of patient-level cell–cell communication graphs. The method could support interpretable patient stratification from single-cell data, but the supplied announcement does not identify the disease cohorts or report evaluation results.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2093739440913211560">Single-cell and imaging study examines acute interstitial nephritis</a></h3>
+        <div class="source">RazorAlign on X</div>
+        <p>A Nature Communications study investigates acute interstitial nephritis using imaging mass cytometry and single-cell methods, combining cellular profiling with spatially resolved immune measurements. The available post is truncated and does not state the study’s principal findings.</p>
+      </article>
+
+      <article>
+        <h3><a href="https://x.com/NatRevMCB/status/2093279777969033633">Review charts meiotic recombination through the discovery of PRDM9</a></h3>
+        <div class="source">Nature Reviews Molecular Cell Biology on X</div>
+        <p>A new review traces the evolving understanding of meiotic recombination through the discovery of PRDM9, a key molecular determinant of recombination hotspots. It offers a historical and mechanistic view of how genomic recombination is controlled.</p>
+      </article>
+    </section>
+
+    <section class="language-practice">
+      <h2>Language Practice</h2>
+      <p>Edited reading selections in their original languages.</p>
+
+      <article class="language-block" lang="de">
+        <h3>Deutsch — Sachsen-Anhalt: Chemie, Experimente - und eine starke AfD</h3>
+        <div class="source">Deutsche Welle · 30. August 2026 · <a href="https://www.dw.com/de/sachsen-anhalt-chemie-experimente-und-eine-starke-afd/a-77871637">Link</a></div>
+
+        <p>Sachsen-Anhalt ist ein ländlich geprägtes, vergleichsweise bevölkerungsarmes Bundesland mit bedeutenden historischen und industriellen Traditionen. Zugleich kämpft es mit Strukturwandel, einer überdurchschnittlichen Arbeitslosigkeit und den Folgen des Arbeitsplatzverlusts nach der deutschen Wiedervereinigung.</p>
+
+        <p>Vor der Landtagswahl am 6. September liegt die vom Landesverfassungsschutz als gesichert rechtsextrem eingestufte AfD in Umfragen mit großem Abstand vor der CDU. Der Beitrag zeichnet frühere politische Experimente und rechtsextreme Wahlerfolge im Land nach und fragt, warum die AfD heute so viel Zustimmung erhält. Fachleute warnen vor einem möglichen Abbau liberaler und rechtsstaatlicher Normen, betonen aber auch die Grenzen, die einer Landesregierung durch das föderale System gesetzt sind.</p>
+
+        <p><strong>Warum lesen:</strong> Der Artikel verbindet ein aktuelles deutsches Wahlthema mit historischem, wirtschaftlichem und gesellschaftlichem Hintergrund.</p>
+      </article>
+
+      <article class="language-block" lang="fr">
+        <h3>Français — Après Perec, Queneau et Calvino : l’Oulipo peut-il encore surprendre ?</h3>
+        <div class="source">ActuaLitté · 28 août 2026 · <a href="https://actualitte.com/article/133567/enquetes/apres-perec-queneau-et-calvino-l-oulipo-peut-il-encore-surprendre">https://actualitte.com/article/133567/enquetes/apres-perec-queneau-et-calvino-l-oulipo-peut-il-encore-surprendre</a></div>
+
+        <p>Le départ de l’écrivaine et plasticienne Clémentine Mélois sert de point de départ à cette enquête sur l’état de l’Oulipo. Puisqu’une ancienne règle du groupe affirme qu’un membre ne peut le quitter que par la mort, Mélois a organisé un spectaculaire « suicide putatif » devant un commissaire de justice. Cette performance, fidèle à l’humour oulipien, exprimait aussi des critiques plus sérieuses : inertie de l’institution, féminisation insuffisante et dépendance persistante à l’héritage prestigieux de Raymond Queneau, Georges Perec ou Italo Calvino.</p>
+
+        <p>L’article revient sur la création de l’Ouvroir en 1960 et sur son ambition de fournir aux écrivains des formes et des structures nouvelles. Son fonctionnement produit aujourd’hui un paradoxe : aucun membre n’est censé partir, mais le groupe doit rester assez petit pour travailler autour d’une même table. Les décès, le vieillissement et la nécessité de renouveler les générations rendent donc chaque cooptation décisive. Trois créateurs ont rejoint l’Oulipo en janvier 2026, dont Louise Rose, née en 1996, tandis que près de soixante ans la séparent du membre le plus âgé.</p>
+
+        <p>Cette plongée dans les règles du collectif montre enfin que le talent littéraire ne suffit pas pour y entrer. On ne présente pas sa candidature, l’admission exige l’unanimité et les membres recherchent des personnalités capables de participer durablement à une aventure commune. Entre laboratoire de formes, institution patrimoniale et groupe humain soumis à ses propres contraintes, l’Oulipo doit désormais prouver qu’il peut encore se transformer sans renoncer à son identité.</p>
+
+        <p><strong>Pourquoi lire :</strong> Une enquête vivante sur les paradoxes d’une institution littéraire française qui a fait de la contrainte un moteur de création.</p>
+
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>Oulipo / Ouvroir de littérature potentielle</strong> — groupe fondé en 1960 qui explore la création littéraire à partir de règles et de contraintes formelles</li>
+          <li><strong>suicide putatif</strong> — mise en scène d’une mort supposée ou fictive, ici destinée à satisfaire symboliquement une règle du groupe</li>
+          <li><strong>cooptation</strong> — mode de recrutement dans lequel les membres en place choisissent eux-mêmes une nouvelle personne</li>
+          <li><strong>capital symbolique</strong> — prestige et autorité accumulés par une institution grâce à son histoire et à ses figures célèbres</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="ja">
+        <h3>日本語 — ゲームの「ボス戦」ってなんで面白い？手強い？実は役割いっぱい、ゲームデザイナーが解説するボス戦が担う“重要な役割”</h3>
+        <div class="source">AUTOMATON · 2026-08-30 · <a href="https://automaton-media.com/articles/columnjp/nununu-20260830-464035/">https://automaton-media.com/articles/columnjp/nununu-20260830-464035/</a></div>
+
+        <p>現役ゲームデザイナーが、ゲームに登場するボスを単なる「強い敵」ではなく、プレイヤーの進行を阻む「門番」として分析するコラム。ボスには、これまでに学んだ操作やプレイスキルを確認する「試練」と、その先にある物語・装備・新エリアなどの報酬を守る「守護」という二つの役割があると説明している。</p>
+
+        <p>記事では『スーパーマリオ オデッセイ』『SEKIRO』『ロックマン』『スーパーメトロイド』『エンダーリリーズ』などを例に、学習内容を確認するボスと純粋な技量を試すボスの違いを考察。さらに、ボス撃破から報酬獲得までの距離や「緊張と緩和」の設計が、探索の喜びや達成感にどう影響するかを掘り下げている。ボスの強さは目的そのものではなく、プレイヤーに「突破したい」と思わせる体験を作るための手段だという視点が中心となっている。</p>
+
+        <p><strong>読む理由：</strong> 身近なゲーム体験を題材に、ゲームデザインの構造を具体例とともに学べる読み応えのある解説だから。</p>
+
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>技量確認型（ぎりょうかくにんがた）</strong> — プレイヤーが身につけた操作技術や判断力を試す設計の型。</li>
+          <li><strong>レベルデザイン（れべるでざいん）</strong> — ステージの地形、敵、障害物、進行経路などを設計すること。</li>
+          <li><strong>メトロイドヴァニア（めとろいどゔぁにあ）</strong> — 広いマップを探索し、新能力を得ながら行動範囲を広げていくゲーム形式。</li>
+        </ul>
+      </article>
+
+      <article class="language-block" lang="zh">
+        <h3>中文 — 专访《英灵神殿》团队：我们很欢迎社区的“破坏行为”</h3>
+        <div class="source">机核 · 2026-08-30 · <a href="https://www.gcores.com/articles/219026">https://www.gcores.com/articles/219026</a></div>
+
+        <p>生存建造游戏《英灵神殿》以抢先体验形式运营多年后，即将推出具有完整结局的1.0版本。瑞典开发团队 Iron Gate 在专访中介绍了最终区域“深北之地”：玩家需要先铲除积雪才能建造，夜间降雪还会重新覆盖空地；新版本也将加入冰块建筑材料、特殊水域、室内最终 Boss 战以及完整的开场和结尾动画。</p>
+
+        <p>团队同时谈到玩家对游戏系统的创造性运用。社区曾造出千年隼、中世纪城堡和都市摩天楼，也不断寻找打破既有规则的玩法。开发者并不排斥这些“破坏行为”，反而认为，只要玩家能借此获得乐趣，突破游戏框架本身就是沙盒游戏意义的一部分。</p>
+
+        <p><strong>为什么读：</strong> 这篇专访既呈现一款长期抢先体验游戏如何走向正式版，也讨论了开发者如何看待玩家自治与社区创造力。</p>
+
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>抢先体验 (qiǎngxiān tǐyàn)</strong> — 游戏尚未完全开发完成时提前公开销售或测试的发行模式。</li>
+          <li><strong>沙盒游戏 (shāhé yóuxì)</strong> — 提供开放系统和较高自由度、允许玩家自行创造玩法的游戏类型。</li>
+          <li><strong>游戏框架 (yóuxì kuàngjià)</strong> — 由规则、机制和系统共同构成的游戏运行边界。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="quiet-notes">
+      <h2>Source note</h2>
+      <p>The LessWrong Larry Dial feed could not be collected because the server returned an HTTP 429 “Too Many Requests” response. Several other monitored sources had no new reportable entries for this run.</p>
+    </section>
+
+    <footer>
+      News · Run 2026-08-30-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

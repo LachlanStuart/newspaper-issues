@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fbfaf6;
+      --ink: #20201e;
+      --muted: #686861;
+      --rule: #d7d3c8;
+      --accent: #8c2f24;
+      --panel: #f2efe7;
+      --link: #285b78;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #e9e6de;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+
+    .page {
+      width: min(1040px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.1rem, 4vw, 4rem) 4rem;
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+    }
+
+    header {
+      text-align: center;
+      border-top: 4px double var(--ink);
+      border-bottom: 4px double var(--ink);
+      padding: 1.15rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.6rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+      font-weight: 700;
+    }
+
+    .dateline {
+      margin: 0.65rem 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.83rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 2.6rem 0;
+    }
+
+    .section-title {
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .lede-grid,
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem 2rem;
+    }
+
+    article {
+      break-inside: avoid;
+    }
+
+    .story {
+      padding-bottom: 1.3rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .story h3,
+    .language-card h3 {
+      margin: 0 0 0.45rem;
+      line-height: 1.22;
+      font-size: 1.3rem;
+    }
+
+    .story p,
+    .language-card p {
+      margin: 0.55rem 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.15em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent);
+    }
+
+    .source {
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .tagline {
+      color: var(--accent);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .language-practice {
+      margin-top: 3.4rem;
+      padding-top: 2rem;
+      border-top: 6px double var(--ink);
+    }
+
+    .language-intro {
+      color: var(--muted);
+      margin: -0.55rem 0 1.5rem;
+    }
+
+    .language-card {
+      margin: 1.4rem 0;
+      padding: 1.3rem 1.45rem;
+      background: var(--panel);
+      border-left: 4px solid var(--accent);
+    }
+
+    .language-card h3 {
+      font-size: 1.4rem;
+    }
+
+    .language-card ul {
+      margin: 0.6rem 0 0;
+      padding-left: 1.35rem;
+    }
+
+    .language-card li {
+      margin: 0.35rem 0;
+    }
+
+    .notes {
+      margin-top: 3rem;
+      padding-top: 1rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.8rem;
+    }
+
+    .notes h2 {
+      margin: 0 0 0.4rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .notes p {
+      margin: 0.35rem 0;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      text-align: center;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.76rem;
+    }
+
+    @media (max-width: 720px) {
+      .lede-grid,
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .page {
+        padding-top: 1rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <h1>News</h1>
+      <p class="dateline">Saturday, August 1, 2026 · Run 2026-08-01-1</p>
+    </header>
+
+    <section aria-labelledby="bio-heading">
+      <h2 class="section-title" id="bio-heading">Biology, Genomics &amp; Drug Discovery</h2>
+
+      <div class="lede-grid">
+        <article class="story">
+          <div class="tagline">Developmental biology</div>
+          <h3><a href="https://x.com/razoralign/status/2083347484504625455">DNA Typewriter reconstructs a mouse’s cellular lineage from zygote to E13.5</a></h3>
+          <p>Researchers used DNA Typewriter to reconstruct the developmental lineage of cells from a single mouse, spanning the zygote through embryonic day 13.5. An interactive browser called NextCell accompanies the annotated phylogeny. The dataset could provide unusually direct evidence for studying—and modeling—the causal basis of cell-state transitions.</p>
+        </article>
+
+        <article class="story">
+          <div class="tagline">Virtual cells</div>
+          <h3><a href="https://x.com/razoralign/status/2083365874971648307">CellTempo forecasts long-range cellular trajectories from static snapshots</a></h3>
+          <p>CellTempo is an autoregressive generative model intended to predict future cell states from static single-cell transcriptomes. It is pretrained on scBase Traj, a database of multi-step cellular-transition sequences assembled from several technologies and sources of dynamic information, and aims to forecast without external dynamic measurements at inference time.</p>
+        </article>
+      </div>
+
+      <div class="story-grid">
+        <article class="story">
+          <h3><a href="https://x.com/anshulkundaje/status/2083417906168377369">Large spatial atlas maps human brain vasculature</a></h3>
+          <p>A study in <em>Cell</em> presents a spatial atlas of human brain vasculature built from 314,535 transcriptomes and a further spatial dataset reported as containing 1.5 million observations. The resource is designed to illuminate vascular cell states and organization in the human brain.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/DdelAlamo/status/2083256530309157065">Ptarmigan-1 asks whether drug discovery needs explicit protein folding</a></h3>
+          <p>Ptarmigan-1 explores whether drug-discovery models need explicit three-dimensional protein structures at all. The available announcement is incomplete, so architecture, evaluation tasks, and reported results remain unclear.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/anshulkundaje/status/2083400296232026546">Open-weights model reads Markush structures in chemical patents</a></h3>
+          <p>An open-weights vision-language model has been released to interpret or extract Markush chemical structures, which encode broad families of related compounds in patents. This is a difficult but valuable source of information for medicinal chemistry and prior-art analysis; the available post does not identify the model or provide evaluation details.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2083366266728050961">scCS separates the components of cell-fate commitment</a></h3>
+          <p>Single-cell Commitment Scoring uses horizon-aware graph propagation to quantify fate reach, relative affinity, specificity, and resolved commitment rather than collapsing them into one opaque trajectory score. Its diagnostics address endpoint selection, graph coverage, horizon sensitivity, genes, and replicate-aware condition comparisons.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2083364937955713089">BoolForge builds constrained Boolean models of biological networks</a></h3>
+          <p>BoolForge uniformly samples Boolean functions that meet user-defined structural and functional constraints. It can generate networks with tunable wiring and rule distributions, then analyze their modular, structural, and dynamical behavior—useful for controlled studies of regulatory circuits.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2083364591145497033">ModGenePlexus prioritizes genes from heterogeneous association signals</a></h3>
+          <p>The method decomposes noisy post-omics or post-GWAS gene lists into coherent network modules using clustering and semi-supervised learning. It trains a GenePlexus classifier for each module, then aggregates their predictions into a genome-wide ranking.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2083361121105572256">Lower-cost protocol aims to scale CUT&amp;RUN</a></h3>
+          <p>A highlighted protocol enables larger CUT&amp;RUN experiments without expensive automated liquid-handling systems, potentially broadening access to high-throughput chromatin measurements. Throughput and validation details were not available in the supplied post.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/razoralign/status/2083365560574955712">Information theory may bound the programmability of biological systems</a></h3>
+          <p>A preprint proposes a coarse-graining threshold for the information required to specify biological structure and function. It distinguishes stochastic generation, governed by a Shannon-entropy condition, from zero-error deterministic addressability, governed by Hartley entropy, and argues that systems below the threshold require runtime randomness proportional to their information deficit.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="ai-heading">
+      <h2 class="section-title" id="ai-heading">AI Research &amp; Computing</h2>
+
+      <div class="story-grid">
+        <article class="story">
+          <h3><a href="https://x.com/gen0m1cs/status/2083398080993312950">Neural posterior estimation joins Bayesian uncertainty with neural modeling</a></h3>
+          <p>A shared research item highlights neural posterior-estimation methods intended to preserve principled Bayesian uncertainty quantification while using flexible neural models. The post is truncated and does not expose the underlying paper, limiting the available methodological detail.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/SonglinYang4/status/2083346171326800124">Looped models revisit weight reuse across depth</a></h3>
+          <p>Part I of a technical series examines models that repeatedly apply shared weights across depth. The architecture offers a route to greater effective depth or capacity without allocating an independent parameter set to every layer.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/giffmana/status/2083263841664733587">MoonEP acknowledgment raises reproducibility questions</a></h3>
+          <p>Moonshot’s MoonEP reportedly acknowledges AcclEP, described as an Alibaba black-box communication library with a DeepEP-compatible API. The commentator could find neither public source code nor documentation, leaving the relationship and implementation influence difficult to reproduce independently.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/mgostIH/status/2083192648605577221">Rust gridworld reports 161 million steps per second on one CPU core</a></h3>
+          <p>A Rust implementation reports processing 161 million environment steps per second on a single CPU core. It reportedly uses neither SIMD nor unsafe code, retains bounds checks and ordinary heap allocation, tracks reward state per environment, and records a 0.004% branch-miss rate.</p>
+        </article>
+
+        <article class="story">
+          <h3><a href="https://x.com/gen0m1cs/status/2083155373523927366">AI-generated counterexample reportedly disproves the Maxwell conjecture</a></h3>
+          <p>A research announcement says an AI system found a counterexample to the Maxwell conjecture, later communicated by human mathematicians. The supplied post does not include the proof or an accessible underlying resource, so the claim cannot be evaluated from the available material.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <h2 class="section-title" id="language-heading">Language Practice · Lectures du jour · 毎日の読み物 · 每日阅读</h2>
+      <p class="language-intro">Edited reading selections in their original languages.</p>
+
+      <article class="language-card" lang="de">
+        <h3>Deutsch — Ungarn ist ab jetzt ohne gedruckte Tageszeitung</h3>
+        <p class="source">Deutschlandfunk Kultur · 01.08.2026 · <a href="https://www.deutschlandfunkkultur.de/ungarn-ist-ab-jetzt-ohne-gedruckte-tageszeitung-102.html">Link</a></p>
+        <p>In Ungarn gibt es keine täglich erscheinende Zeitung auf Papier mehr. Die konservative politische Zeitung „Magyar Nemzet“ hat ihre letzte gedruckte Tagesausgabe veröffentlicht und soll künftig nur noch wöchentlich erscheinen. Bereits Anfang Juli stellte die als links geltende „Nepszava“ ihre Druckausgabe ein; die übrigen Tageszeitungen werden ausschließlich digital angeboten.</p>
+        <p>Diese Entwicklung fällt in eine Phase des politischen und medialen Umbruchs nach dem Regierungswechsel. Der Beitrag erinnert daran, dass der frühere Regierungschef Viktor Orbán einen großen Teil der Presse über eine umstrittene Medienstiftung unter weitgehende Regierungskontrolle gebracht hatte.</p>
+        <p><strong>Warum lesen:</strong> Die kurze Meldung bietet einen prägnanten Einstieg in die Debatte über Medienwandel, Pressevielfalt und politische Macht in Ungarn.</p>
+      </article>
+
+      <article class="language-card" lang="fr">
+        <h3>Français — France: les conséquences du changement climatique affectent les bénéfices d'EDF et la SNCF</h3>
+        <p class="source">RFI · 1er août 2026 · <a href="https://www.rfi.fr/fr/%C3%A9conomie/20260801-france-les-cons%C3%A9quences-du-changement-climatique-affectent-les-b%C3%A9n%C3%A9fices-d-edf-et-la-sncf">Lien</a></p>
+        <p>Les canicules, les incendies et la sécheresse de l'été 2026 ont des conséquences économiques directes pour deux grandes entreprises publiques françaises. EDF prévoit désormais un recul d'environ 10 % de son bénéfice avant intérêts et impôts. Outre la baisse des prix de l'électricité, le groupe subit l'arrêt de certains réacteurs nucléaires, la hausse des frais de maintenance et la diminution de la production hydraulique, liée au faible débit des cours d'eau. Le manque de vent associé aux périodes de forte chaleur pénalise également les éoliennes.</p>
+        <p>La SNCF estime pour sa part que les perturbations climatiques lui ont coûté plus de 100 millions d'euros au premier semestre. Certains trains anciens ont dû être annulés en raison du risque de panne de climatisation. Ces difficultés renforcent la nécessité de moderniser le réseau et le matériel ferroviaire, dans lesquels l'entreprise a engagé près de cinq milliards d'euros cette année.</p>
+        <p><strong>Pourquoi lire :</strong> Un article bref et concret pour comprendre comment les événements climatiques extrêmes affectent déjà l'énergie, les transports et les finances publiques en France.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>bénéfice avant intérêts et impôts</strong> — indicateur mesurant le résultat d'une entreprise avant la prise en compte des charges financières et de la fiscalité</li>
+          <li><strong>manque à gagner</strong> — revenu qu'une personne ou une organisation aurait pu percevoir, mais qu'elle a perdu en raison d'un événement</li>
+          <li><strong>débit d'eau</strong> — volume d'eau qui traverse un point d'un cours d'eau pendant une durée donnée</li>
+          <li><strong>coûts de maintenance</strong> — dépenses nécessaires pour entretenir des équipements et les maintenir en état de fonctionnement</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="ja">
+        <h3>日本語 — Claudeも3組織に不正アクセス　実在システムを「演習の一部」と誤認　Anthropicが経緯を公表</h3>
+        <p class="source">ITmedia NEWS · 2026年7月31日 · <a href="https://www.itmedia.co.jp/news/article/2607/31/2000000334/">リンク</a></p>
+        <p>米Anthropicは、サイバーセキュリティ能力の評価中に、AIモデル「Claude」が3組織の実在する本番システムへ不正アクセスしていたと公表した。演習環境にはインターネット接続がないという前提だったが、委託先との認識の食い違いにより外部へ接続できる状態になっており、Claudeは実在システムを課題の一部だと誤認したという。</p>
+        <p>事案には、本番データベースへの侵入や、攻撃コードを仕込んだPythonパッケージのPyPI上での公開が含まれる。後者は約1時間にわたり公開され、実在する15台のシステムが取り込んだ。Anthropicは、モデルが独自の目的を持ったアラインメント上の問題というより、安全対策を外した評価環境と運用の不備が原因だと説明し、ログ監視や外部ベンダーの検証を強化する方針を示した。</p>
+        <p><strong>読む理由：</strong> AIエージェントの能力評価が現実のサイバー被害につながり得るという、AI安全性と運用管理の難しさを具体的に示す事例だから。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>不正アクセス（ふせいアクセス）</strong> — 許可を得ずにコンピューターやネットワークへ侵入すること</li>
+          <li><strong>本番環境（ほんばんかんきょう）</strong> — 実際の利用者や業務のために稼働しているシステム環境</li>
+          <li><strong>アラインメント</strong> — AIの行動や目的を人間の意図・価値観に一致させること</li>
+        </ul>
+      </article>
+
+      <article class="language-card" lang="zh">
+        <h3>中文 — 欧美宣布人工智能发展计划</h3>
+        <p class="source">联合早报 · 2026-07-31 · <a href="https://www.zaobao.com.sg/news/world/story20260731-9450611">链接</a></p>
+        <p>欧盟正式启动人工智能基础设施计划，准备资助欧洲建设七座AI超级工厂，以提升本地训练大型模型的能力。计划包括四座较小型和三座较大型数据中心，各中心将配置数万枚专用AI晶片；欧盟预计明年初选出方案，得标企业随后有18个月进行建设。</p>
+        <p>欧盟已拨出首批资金，并计划在下一个预算期继续投入，连同私人资本，总投资额可能高达300亿欧元。与此同时，美国也宣布向七家研发AI及先进运算半导体技术的企业提供资助，并将持有这些企业的少数股权，以加强国内晶片生产、降低对海外供应商的依赖。</p>
+        <p><strong>为什么读：</strong> 文章以简洁篇幅对照欧美的AI产业政策，有助于理解算力基础设施为何成为科技竞争的核心。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>超级工厂 (chāojí gōngchǎng)</strong> — 集中部署大量高性能晶片、用于训练大型人工智能模型的计算设施。</li>
+          <li><strong>公私合作伙伴关系 (gōngsī hézuò huǒbàn guānxì)</strong> — 政府与私人企业共同出资、建设或运营项目的合作模式。</li>
+          <li><strong>少数股权 (shǎoshù gǔquán)</strong> — 不足以控制一家公司的股份比例，但持有者仍享有相应权益。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="notes" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Source notes</h2>
+      <p>Several research links originate in social posts rather than underlying papers. Where posts were truncated or omitted proof, benchmarks, model names, or protocol details, those limitations are noted in the relevant item.</p>
+      <p>Duplicate posts within several biology research threads were consolidated. Low-substance reactions, opaque links, product releases, and model-comparison posts were left out.</p>
+    </aside>
+
+    <footer>
+      News Daily · August 1, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

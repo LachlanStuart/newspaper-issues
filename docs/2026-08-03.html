@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbfaf6;
+      --ink: #20201d;
+      --muted: #68675f;
+      --accent: #245d58;
+      --rule: #d8d5ca;
+      --card: #ffffff;
+      --practice: #f2f5ef;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      line-height: 1.65;
+    }
+
+    main,
+    header,
+    footer {
+      width: min(960px, calc(100% - 32px));
+      margin-inline: auto;
+    }
+
+    header {
+      padding: 48px 0 28px;
+      text-align: center;
+      border-bottom: 3px double var(--ink);
+    }
+
+    .masthead {
+      margin: 0;
+      font-size: clamp(2.4rem, 8vw, 5rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin: 14px 0 0;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.88rem;
+      font-weight: 650;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    main {
+      padding: 18px 0 56px;
+    }
+
+    section {
+      margin-top: 42px;
+    }
+
+    .section-title {
+      margin: 0 0 20px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--rule);
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    article {
+      margin: 0 0 30px;
+      padding: 0 0 28px;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    article:last-child {
+      margin-bottom: 0;
+    }
+
+    h2,
+    h3 {
+      line-height: 1.24;
+    }
+
+    h2 {
+      margin: 0 0 9px;
+      font-size: clamp(1.35rem, 3vw, 1.85rem);
+    }
+
+    h3 {
+      margin: 20px 0 8px;
+      font-size: 1.08rem;
+    }
+
+    p {
+      margin: 0.75em 0;
+    }
+
+    a {
+      color: #175f87;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover {
+      color: #0c3d58;
+    }
+
+    .meta {
+      margin: 0 0 12px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+
+    .why {
+      color: #41413c;
+    }
+
+    .why strong {
+      color: var(--accent);
+      font-family: system-ui, sans-serif;
+      font-size: 0.85em;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .tags {
+      margin-top: 13px;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    .tags span {
+      display: inline-block;
+      margin: 3px 5px 3px 0;
+      padding: 2px 8px;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--card);
+    }
+
+    .language-practice {
+      margin-top: 64px;
+      padding-top: 30px;
+      border-top: 5px solid var(--accent);
+    }
+
+    .language-intro {
+      margin: -8px 0 28px;
+      color: var(--muted);
+    }
+
+    .practice-card {
+      padding: 26px;
+      border: 1px solid #d5dccf;
+      border-radius: 8px;
+      background: var(--practice);
+    }
+
+    .practice-card h2 {
+      font-size: 1.5rem;
+    }
+
+    .practice-card ul {
+      margin-top: 8px;
+      padding-left: 24px;
+    }
+
+    .practice-card li {
+      margin: 6px 0;
+    }
+
+    .source-notes {
+      margin-top: 48px;
+      padding: 20px 22px;
+      border-left: 3px solid var(--rule);
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.45);
+      font-family: system-ui, sans-serif;
+      font-size: 0.84rem;
+    }
+
+    .source-notes h2 {
+      margin-bottom: 8px;
+      color: var(--ink);
+      font-size: 0.95rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .source-notes p {
+      margin: 6px 0;
+    }
+
+    footer {
+      padding: 22px 0 38px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 16px;
+      }
+
+      header {
+        padding-top: 34px;
+      }
+
+      .practice-card {
+        padding: 20px;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <h1 class="masthead">News</h1>
+    <p class="date"><time datetime="2026-08-03">Monday, August 3, 2026</time></p>
+  </header>
+
+  <main>
+    <section aria-labelledby="ai-research">
+      <h2 class="section-title" id="ai-research">AI Research &amp; Systems</h2>
+
+      <article>
+        <h2><a href="https://x.com/classiclarryd/status/2083961001930834419">NanoGPT speedrun reaches 74.6 seconds with token-prefix auxiliary loss</a></h2>
+        <p>A new NanoGPT speedrun record uses an auxiliary loss that awards partial credit for predicting the longest valid prefix of a target token during early training—for example, crediting “banana” when the target is “bananas.” The result is a measured training-time improvement and an intriguing experiment in making early token prediction less all-or-nothing.</p>
+        <div class="tags"><span>Language-model training</span><span>Loss functions</span><span>Optimization</span></div>
+      </article>
+
+      <article>
+        <h2><a href="https://x.com/giffmana/status/2084012493656011255">Unofficial technical guide maps Meta’s MSLK kernel library</a></h2>
+        <p>Lucas Beyer highlights the undocumented Meta Superintelligence Labs Kernels GitHub project and shares an agent-generated one-page guide. An <code>llms.txt</code> version is also available for machine consumption, offering a useful entry point into an otherwise sparsely documented AI-kernel project.</p>
+        <div class="tags"><span>GPU kernels</span><span>ML systems</span><span>Documentation</span></div>
+      </article>
+
+      <article>
+        <h2><a href="https://x.com/SonglinYang4/status/2083858782753542522">Chimera introduces modality-aware mShortConv</a></h2>
+        <p>The Chimera architecture uses mShortConv, a simple mechanism intended to represent the different spatial structures of distinct modalities—such as one-dimensional text and two-dimensional images. The design directly addresses a recurring multimodal-model problem: not all inputs have the same native geometry.</p>
+        <div class="tags"><span>Multimodal models</span><span>Architecture</span><span>Short convolution</span></div>
+      </article>
+
+      <article>
+        <h2><a href="https://x.com/mgostIH/status/2083876928096784695">Conditional generative modeling viewed as neural optimal quantization</a></h2>
+        <p>A technical analysis interprets candidate-generating models as conditional optimal quantization: multiple outputs are positioned to cover a target distribution under a chosen metric, reducing to k-means under squared Euclidean distance.</p>
+        <p>The follow-up argument suggests that producing several candidates from one random sample could reduce inference cost by a factor of <em>K</em> while lowering variance through an effect resembling antithetic or stratified sampling. The connection brings together generative modeling, quantization, sampling variance, and inference efficiency.</p>
+        <div class="tags"><span>Generative modeling</span><span>Optimal quantization</span><span>Sampling</span><span>Inference</span></div>
+      </article>
+    </section>
+
+    <section aria-labelledby="bio-research">
+      <h2 class="section-title" id="bio-research">Biology &amp; Bioinformatics</h2>
+
+      <article>
+        <h2><a href="https://x.com/BiologyAIDaily/status/2083474344811151681">Raygun extensively edits and miniaturizes natural proteins while preserving function</a></h2>
+        <p>Published in <em>Nature</em>, Raygun compresses protein-language-model embeddings into a fixed-dimensional representation supporting substitutions, insertions, and deletions in one generative framework.</p>
+        <p>Experimental tests yielded shortened fluorescent proteins that remained active, miniaturized TurboID variants retaining some ligase activity, and enlarged EGF variants with stronger EGFR binding than wild type. The direct laboratory validation makes this a notable test of whether aggressive, template-guided protein editing can preserve—or improve—cellular and biochemical function.</p>
+        <div class="tags"><span>Protein engineering</span><span>Synthetic biology</span><span>Generative biology</span></div>
+      </article>
+
+      <article>
+        <h2><a href="https://x.com/razoralign/status/2084042288037269883">Riboseek searches for remote nucleotide-sequence relationships</a></h2>
+        <p>Riboseek represents nucleotide queries as overlapping dimers and builds forward and reverse-complement profiles with a learned substitution matrix. It combines k-mer or ungapped prefiltering with affine-gapped Smith–Waterman–Gotoh alignment.</p>
+        <p>Iterative searches can update a query-centered multiple-sequence alignment, with optional covariance-model realignment through Infernal. The tool is designed to uncover distant nucleotide relationships that ordinary close-homology searches may miss.</p>
+        <div class="tags"><span>Genomics</span><span>RNA</span><span>Sequence alignment</span><span>Bioinformatics</span></div>
+      </article>
+
+      <article>
+        <h2><a href="https://x.com/razoralign/status/2084041078731313350">CellTune spatial-proteomics classifier published in Nature Methods</a></h2>
+        <p>CellTune, a software package for classifying cells in spatial-proteomics data, has been published in <em>Nature Methods</em>. The available announcement does not provide enough information to assess its algorithms or benchmark results, but the package may be relevant to researchers working on spatial cellular profiling.</p>
+        <div class="tags"><span>Spatial proteomics</span><span>Cell classification</span><span>Single-cell biology</span></div>
+      </article>
+
+      <article>
+        <h2><a href="https://x.com/anshulkundaje/status/2084072501106356324">dREG nascent-transcription peak caller receives a new port or rewrite</a></h2>
+        <p>A new implementation of the established dREG peak-calling method for nascent-transcription data has been announced, with Claude and Codex credited as coding aids. The available post is truncated, so implementation details and validation results remain unclear, but the update is potentially relevant to transcription and gene-regulation analysis.</p>
+        <div class="tags"><span>Regulatory genomics</span><span>Nascent transcription</span><span>Peak calling</span></div>
+      </article>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 class="section-title" id="language-practice">Language Practice</h2>
+      <p class="language-intro">Selected native-language reading for today.</p>
+
+      <article class="practice-card" lang="de">
+        <h2>Deutsch — EUDI-Wallet: Bundesregierung hält trotz Gegenwind an Starttermin 2027 fest</h2>
+        <p class="meta">heise online · 31.07.2026 · <a href="https://www.heise.de/news/EUDI-Wallet-Bundesregierung-haelt-trotz-Gegenwind-an-Starttermin-2027-fest-11394312.html">Artikel lesen</a></p>
+
+        <p>Die Bundesregierung hält trotz Kritik an der Entwicklung der deutschen EUDI-Wallet am geplanten Start fest. Ab dem 2. Januar 2027 soll die staatliche App zunächst das Online-Ausweisen mit dem digitalen Personalausweis oder elektronischen Aufenthaltstitel ermöglichen. Auch Nachweise wie der digitale Führerschein sollen sich darin speichern und teilen lassen; weitere Funktionen, darunter elektronische Signaturen, Bezahldienste und Bildungsnachweise, sollen schrittweise folgen.</p>
+
+        <p>Das Digitalministerium weist Berichte über Verzögerungen und eine chaotische Projektsteuerung zurück, räumt aber ein, dass auf EU-Ebene noch technische Spezifikationen fehlen. Nach Regierungsangaben soll die Wallet datensparsam arbeiten, keine zentralen Transaktionshistorien speichern und möglichst wenig von Apple und Google abhängig sein. Der Quellcode soll nach internen Prüfungen veröffentlicht und die Sicherheit zusätzlich durch ein Bug-Bounty-Programm getestet werden. Die Nutzung soll freiwillig bleiben, bestehende analoge und digitale Zugangswege sollen erhalten werden.</p>
+
+        <p><strong>Warum lesen:</strong> Der Artikel verbindet deutsche Digitalpolitik mit konkreten Fragen zu Datenschutz, technischer Unabhängigkeit und dem künftigen Zugang zu Bürgerdiensten.</p>
+      </article>
+
+      <article class="practice-card" lang="fr">
+        <h2>Français — On vous explique le principe de distillation en IA : la technique légale… jusqu’à ce qu’elle devienne du vol</h2>
+        <p class="meta">Numerama · 2 août 2026 · <a href="https://www.numerama.com/tech/2304435-on-vous-explique-le-principe-de-distillation-en-ia-la-technique-legale-jusqua-ce-quelle-devienne-du-vol.html">Lire l’article</a></p>
+
+        <p>La « distillation » permet de transférer les compétences d’un grand modèle d’intelligence artificielle, appelé le « professeur », vers un modèle plus petit, l’« élève ». Cette méthode peut produire un système plus compact, plus rapide et moins coûteux sans sacrifier toutes les performances du modèle d’origine. Employée avec l’autorisation du propriétaire et dans le respect des conditions d’utilisation, elle constitue une technique d’entraînement courante.</p>
+
+        <p>La frontière devient litigieuse lorsqu’un acteur interroge massivement l’API publique d’un modèle tiers afin d’enregistrer ses réponses et d’entraîner une réplique sans autorisation. L’article distingue ainsi la distillation légitime de la « distillation attack » ou extraction de modèle. Cette explication s’inscrit dans une controverse géopolitique : un responsable américain accuse la start-up chinoise Moonshot AI d’avoir utilisé ce procédé contre un modèle d’Anthropic, tandis qu’Anthropic affirme avoir déjà détecté des campagnes impliquant des milliers de comptes frauduleux et des millions d’échanges.</p>
+
+        <p><strong>Pourquoi lire :</strong> Un article concis pour comprendre une technique centrale de l’IA et la différence entre optimisation autorisée et appropriation clandestine d’un modèle.</p>
+
+        <h3>Vocabulaire utile</h3>
+        <ul>
+          <li><strong>distillation de connaissances</strong> — transfert des capacités d’un grand modèle vers un modèle plus petit et moins coûteux à exécuter</li>
+          <li><strong>attaque par extraction de modèle</strong> — tentative de reproduire un modèle fermé en exploitant systématiquement ses réponses sans autorisation</li>
+          <li><strong>API</strong> — interface permettant à un logiciel d’interroger automatiquement les fonctions d’un autre service</li>
+          <li><strong>apprentissage supervisé</strong> — entraînement d’un modèle à partir d’exemples associés à des réponses ou étiquettes attendues</li>
+        </ul>
+      </article>
+
+      <article class="practice-card" lang="ja">
+        <h2>日本語 — 唯一の「外国人歌人」カン・ハンナさんが短歌で伝える「引き算の文学」</h2>
+        <p class="meta">nippon.com · 2026年8月3日 · <a href="https://www.nippon.com/ja/people/g02629/">記事を読む</a></p>
+
+        <p>韓国出身の歌人カン・ハンナさんは、2011年に活動拠点を日本へ移し、アニメ映画に登場した『万葉集』の歌をきっかけに短歌の世界へ入った。韓国の伝統詩歌とは異なる七五調のリズムや、感情を直接言わずに情景へ託す表現に戸惑いながらも、異文化の中で暮らす心情や日韓関係、母への思いを詠み、角川短歌賞への入選や現代短歌新人賞の受賞を果たした。</p>
+
+        <p>カンさんは、複雑な感情から余分なものを削り、31音で本質を表す短歌を「引き算の文学」と呼ぶ。短歌を詠むことは、自分の内面と向き合い、心を整理する行為でもあるという。現在は会社経営や大学教授の仕事を続けながら、日本語を母語としない人々にも、短歌に込められた日本人の感情や生きる知恵を伝えようとしている。</p>
+
+        <p><strong>読む理由：</strong> 日本語学習者自身にも重なる異文化と言語習得の経験を通して、短歌のリズムと簡潔な表現の奥深さを学べる。</p>
+
+        <h3>語彙メモ</h3>
+        <ul>
+          <li><strong>歌人（かじん）</strong> — 短歌を作る人。</li>
+          <li><strong>七五調（しちごちょう）</strong> — 七音と五音のまとまりを基調とする、日本語の詩歌に多いリズム。</li>
+          <li><strong>選評（せんぴょう）</strong> — 文学賞などの選考者が、作品の評価や選考理由を述べた文章。</li>
+        </ul>
+      </article>
+
+      <article class="practice-card" lang="zh">
+        <h2>中文 — 欧盟人工智能法案生效 禁止欺骗操纵 规定深度伪造必须标注</h2>
+        <p class="meta">法国国际广播电台（RFI） · 2026-08-02 · <a href="https://www.rfi.fr/cn/%E6%AC%A7%E6%B4%B2/20260802-%E6%AC%A7%E7%9B%9F%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E6%B3%95%E6%A1%88%E7%94%9F%E6%95%88-%E7%A6%81%E6%AD%A2%E6%AC%BA%E9%AA%97%E6%93%8D%E7%BA%B5-%E8%A7%84%E5%AE%9A%E6%B7%B1%E5%BA%A6%E4%BC%AA%E9%80%A0%E5%BF%85%E9%A1%BB%E6%A0%87%E6%B3%A8">阅读原文</a></p>
+
+        <p>欧盟《人工智能法案》的多项条款正式生效，进一步扩大了欧盟监管人工智能行业的权力。新规禁止利用人工智能欺骗或操纵他人，也禁止针对年龄、残障等弱点进行不当利用，并严格规范生物识别数据及人脸识别技术的使用。</p>
+
+        <p>法案同时引入透明度义务：人工智能系统生成的内容应当带有可识别标记，可能误导公众的“深度伪造”等超写实合成内容则必须明确标注。欧盟人工智能办公室今后可评估和核查大型模型，要求供应商提供访问权限；成员国监管机构则负责规模较小的模型。违规企业可能被要求整改，新模型的部署也可能受到限制。</p>
+
+        <p><strong>为什么读：</strong> 文章简洁呈现欧盟AI监管从原则走向执行的关键变化，适合学习科技政策与数字治理词汇。</p>
+
+        <h3>词汇笔记</h3>
+        <ul>
+          <li><strong>深度伪造 (shēndù wěizào)</strong> — 利用人工智能合成高度逼真的虚假影像、声音或其他内容。</li>
+          <li><strong>生物识别数据 (shēngwù shíbié shùjù)</strong> — 用于确认个人身份的面部、指纹、虹膜等身体特征数据。</li>
+          <li><strong>透明度义务 (tòumíngdù yìwù)</strong> — 要求机构披露系统性质、内容来源或运作方式的法律责任。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="source-notes" aria-labelledby="source-notes">
+      <h2 id="source-notes">Source notes</h2>
+      <p>Some research announcements linked to shortened or unavailable resources, so the corresponding X posts are used as the primary links. Details for CellTune and the dREG rewrite were limited in the supplied reports and are described cautiously.</p>
+    </aside>
+  </main>
+
+  <footer>
+    News Daily · Run 2026-08-03-1
+  </footer>
+
+
+
+</body>
+</html>

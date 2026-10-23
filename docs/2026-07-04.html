@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdf8;
+      --ink: #222;
+      --muted: #666;
+      --line: #ddd4c7;
+      --accent: #8a3b2a;
+      --accent-soft: #f1e2dc;
+    }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 28px 18px 48px;
+    }
+    header {
+      text-align: center;
+      border-bottom: 3px double var(--line);
+      padding-bottom: 18px;
+      margin-bottom: 28px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.03em;
+      font-weight: 700;
+    }
+    .dateline {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: 1rem;
+    }
+    section {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      margin: 22px 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.035);
+    }
+    h2 {
+      margin: 0 0 14px;
+      font-size: 1.55rem;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 8px;
+      color: var(--accent);
+    }
+    h3 {
+      margin: 0 0 6px;
+      font-size: 1.15rem;
+    }
+    article {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    article:first-of-type {
+      border-top: 0;
+      padding-top: 0;
+    }
+    p {
+      margin: 8px 0;
+    }
+    a {
+      color: #064f8f;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      word-break: break-word;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 0.92rem;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      display: inline-block;
+      background: var(--accent-soft);
+      color: #673023;
+      border-radius: 999px;
+      padding: 2px 9px;
+      font-size: 0.8rem;
+      margin: 2px 4px 2px 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .language-practice {
+      margin-top: 34px;
+      border-top: 4px double var(--line);
+      padding-top: 8px;
+    }
+    .language-practice section {
+      border-left: 5px solid var(--accent);
+    }
+    .language-item h3 {
+      color: var(--accent);
+      font-size: 1.2rem;
+      margin-top: 0;
+    }
+    ul {
+      margin-top: 6px;
+    }
+    .notes {
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>News</h1>
+      <div class="dateline">Saturday, July 4, 2026 · Run 2026-07-04-1</div>
+    </header>
+
+    <main>
+      <section>
+        <h2>AI Research</h2>
+
+        <article>
+          <h3><a href="https://x.com/tilderesearch/status/2073100566688084383">Local Branch Routing adds trainable token-level test-time branching for LMs</a></h3>
+          <p>Tilde introduces Local Branch Routing, a trainable token-level branching framework intended to give language models cheap test-time “width” without full solution-tree search or soft-token merging. The thread reports results on a synthetic radix-translated reachability task where LBR outperforms Discrete CoT and Soft Thinking, with hidden-state probes suggesting candidate-induced states preserve branch identity better than soft-token mixtures.</p>
+          <p class="meta">
+            <span class="tagline">language models</span>
+            <span class="tagline">test-time compute</span>
+            <span class="tagline">reasoning</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2073050890013954294">Synthetic-data and RL approach for generating AMD HIP kernels</a></h3>
+          <p>Stanford AI Lab highlighted work on using synthetic data and reinforcement learning to write AMD HIP kernels. The item points to a low-resource programming-language setting and improved correctness, but the provided fragment is truncated before detailed methods or links.</p>
+          <p class="meta">
+            <span class="tagline">code generation</span>
+            <span class="tagline">reinforcement learning</span>
+            <span class="tagline">systems</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/hardmaru/status/2073038780089659642">Sakana AI presents Learning Multi-Agent Coordination via Sheaf-ADMM</a></h3>
+          <p>Sakana AI announced an ICML 2026 paper, “Learning Multi-Agent Coordination via Sheaf-ADMM.” The normalized item is truncated, but the topic suggests a concrete method for multi-agent coordination using optimization ideas.</p>
+          <p class="meta">
+            <span class="tagline">multi-agent learning</span>
+            <span class="tagline">coordination</span>
+            <span class="tagline">ICML</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/OpenMed_AI/status/2073081583607939274">privacy-filter v2 expands on-device PII detection to 54 categories and 16 languages</a></h3>
+          <p>OpenMed describes privacy-filter v2 as an open-weight, on-device PII masking model covering 54 categories and 16 languages at roughly 700 tokens per second. The post frames it as a significant expansion over a base model that covered 8 English-only PII categories.</p>
+          <p class="meta">
+            <span class="tagline">privacy</span>
+            <span class="tagline">PII detection</span>
+            <span class="tagline">open weights</span>
+          </p>
+        </article>
+      </section>
+
+      <section>
+        <h2>Bio, Genomics &amp; Biomedical AI</h2>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2073155110851723643">scDataset accelerates large-scale single-cell omics data loading for deep learning</a></h3>
+          <p>scDataset is described as a PyTorch data loader for training directly from large on-disk single-cell omics datasets across storage formats. It uses block sampling and batched fetching to approximate random mini-batches while improving I/O efficiency; on Tahoe-100M, it reportedly gives more than two orders of magnitude speedup versus true random sampling from AnnData files.</p>
+          <p class="meta">
+            <span class="tagline">single-cell</span>
+            <span class="tagline">omics</span>
+            <span class="tagline">deep learning tooling</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2073248047870677263">MintCNA integrates single-cell multi-omics for copy-number profiling</a></h3>
+          <p>MintCNA, “A Unified Framework for Integrative Copy Number Profiling with Single-Cell Multi-Omics Data,” was highlighted as a method relevant to single-cell genomics and copy-number variation analysis. The available fragment includes only the title and preview.</p>
+          <p class="meta">
+            <span class="tagline">single-cell</span>
+            <span class="tagline">multi-omics</span>
+            <span class="tagline">copy number</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2073040277225492614">FastGxC targets context-specific genetic effects from single-cell and bulk RNA-seq</a></h3>
+          <p>FastGxC is presented as a tool for identifying context-specific genetic effects from single-cell and bulk RNA-seq data. The fragment is truncated, but it points to a method for modeling context-dependent genotype–expression relationships.</p>
+          <p class="meta">
+            <span class="tagline">genomics</span>
+            <span class="tagline">RNA-seq</span>
+            <span class="tagline">genetic effects</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2073056449660625144">Pan-cancer foundation model predicts immunotherapy response</a></h3>
+          <p>A Nature Medicine paper was highlighted on a pan-cancer foundation model that predicts immunotherapy response and surfaces associated biology. The provided data does not include details on inputs, cohorts, or validation, but the item is directly relevant to oncology and treatment-response modeling.</p>
+          <p class="meta">
+            <span class="tagline">medicine</span>
+            <span class="tagline">cancer</span>
+            <span class="tagline">foundation models</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2072778018851106869">BioSymphony proposes agent skills for biological research workflows</a></h3>
+          <p>BioSymphony is presented as a public toolkit for using coding agents in biological research. Reported workflows span biosynthetic route exploration, structural-biology campaigns, small-molecule design, natural-product genome mining, fermentation experiment design, and cryo-EM review. Associated notes mention GeneCluster for long comparative-genomics tasks and BioProspector for long-horizon bioprospecting workflows with campaign contracts, ledgers, validators, issue templates, and review artifacts.</p>
+          <p class="meta">
+            <span class="tagline">bio agents</span>
+            <span class="tagline">comparative genomics</span>
+            <span class="tagline">drug discovery</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2073247980401148247">DEX offers an amino-acid exchangeability measure for codon substitution modeling</a></h3>
+          <p>DEX, “a consensus-based amino acid exchangeability measure for improved codon substitution modelling,” was flagged as a relevant evolutionary genomics and sequence-analysis method. The provided fragment contains only the title and preview.</p>
+          <p class="meta">
+            <span class="tagline">evolution</span>
+            <span class="tagline">codon modeling</span>
+            <span class="tagline">sequence analysis</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/rishabh16_/status/2073150482458304728">Differentiable Design for Morphogenesis preprint highlighted</a></h3>
+          <p>“Differentiable Design for Morphogenesis” was announced as a preprint. Details are sparse in the provided fragment, but the topic suggests a computational framework for designing or optimizing morphogenetic systems.</p>
+          <p class="meta">
+            <span class="tagline">morphogenesis</span>
+            <span class="tagline">differentiable design</span>
+            <span class="tagline">computational biology</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/GabriCorso/status/2073119572882751534">Predicted structures released for 3,607 molecular glue complexes from MGTBind</a></h3>
+          <p>A team partnered with Bindbridge to predict structures for 3,607 molecular glue complexes from the MGTBind dataset. The fragment is truncated, but molecular glues are directly relevant to targeted protein modulation and drug discovery.</p>
+          <p class="meta">
+            <span class="tagline">drug discovery</span>
+            <span class="tagline">molecular glues</span>
+            <span class="tagline">protein structure</span>
+          </p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/GabriCorso/status/2073119467765137421">Protein Autoregressive Modeling selected as an ICML 2026 oral</a></h3>
+          <p>“Protein Autoregressive Modeling,” or PAR, was highlighted as an ICML 2026 oral. The provided data does not include technical details, but the venue signal and topic point to relevance for protein sequence modeling and biomolecular generative models.</p>
+          <p class="meta">
+            <span class="tagline">protein modeling</span>
+            <span class="tagline">generative models</span>
+            <span class="tagline">machine learning</span>
+          </p>
+        </article>
+      </section>
+
+      <div class="language-practice">
+        <section lang="de">
+          <h2>Language Practice · Deutsch</h2>
+          <article class="language-item">
+            <h3>Deutsch — UN-Bericht zu KI-Risiken: „Die Welt kann nicht regieren, was sie nicht versteht“</h3>
+            <p class="meta">heise online · 03.07.2026 · <a href="https://www.heise.de/news/UN-Bericht-zu-KI-Risiken-Die-Welt-kann-nicht-regieren-was-sie-nicht-versteht-11353726.html">https://www.heise.de/news/UN-Bericht-zu-KI-Risiken-Die-Welt-kann-nicht-regieren-was-sie-nicht-versteht-11353726.html</a></p>
+            <p>Ein neues internationales UN-Expertengremium warnt in einem vorläufigen Bericht, dass die Entwicklung künstlicher Intelligenz politische Entscheidungsprozesse überholt. Die zentrale These lautet: Regierungen können KI-Risiken nur dann sinnvoll steuern, wenn sie die Technologie wissenschaftlich besser verstehen und Entscheidungen nicht bloß auf widersprüchliche oder interessengeleitete Quellen stützen.</p>
+            <p>Der Artikel fasst mehrere Risikofelder zusammen, darunter wirtschaftliche Folgen, Anwendungen in Medizin und Bildung, nationale Sicherheit, Menschenrechte, Kinderschutz und die Zuverlässigkeit von KI-Systemen. Besonders betont wird, dass künftige KI-Systeme nicht nur durch böswillige Akteure gefährlich werden könnten, sondern auch durch schwer vorhersehbares oder täuschendes Verhalten.</p>
+            <p>Außerdem geht es um globale Ungleichheit: KI könne bestehende digitale Gräben vergrößern, wenn vor allem Staaten und Unternehmen mit großen Datenbeständen und starken Institutionen profitieren. Der Bericht soll nun in Genf beim Globalen Dialog über KI-Governance politisch aufgegriffen werden; ein umfassender Hauptreport ist für 2027 geplant.</p>
+            <p><strong>Warum lesen:</strong> Der Text bietet einen kompakten Einstieg in die aktuelle internationale Debatte darüber, wie KI reguliert werden kann, bevor ihre Risiken politisch kaum noch kontrollierbar sind.</p>
+          </article>
+        </section>
+
+        <section lang="fr">
+          <h2>Language Practice · Français</h2>
+          <article class="language-item">
+            <h3>Français — Waymo et ses taxis autonomes bientôt en France ? Une filiale française a été créée</h3>
+            <p class="meta">Numerama · 2026-07-03 · <a href="https://www.numerama.com/vroom/2290615-waymo-et-ses-taxis-autonomes-bientot-en-france-une-filiale-francaise-a-ete-creee.html">https://www.numerama.com/vroom/2290615-waymo-et-ses-taxis-autonomes-bientot-en-france-une-filiale-francaise-a-ete-creee.html</a></p>
+            <p>Numerama relève que Waymo, la filiale d’Alphabet spécialisée dans les taxis autonomes, a enregistré des entités juridiques en France, en Allemagne et en Espagne. Pour la France, l’entreprise s’appelle Waymo France SARL et son existence suggère une préparation discrète du marché européen, sans constituer pour autant une annonce de lancement imminent.</p>
+            <p>L’article replace cette démarche dans le contexte d’un nouveau cadre mondial de l’ONU sur la conduite autonome, soutenu notamment par l’Union européenne, les États-Unis et la Chine. Ce cadre ne rend pas automatiquement les robotaxis légaux sur les routes françaises : chaque pays doit encore adapter son droit. Numerama estime donc que le scénario le plus plausible serait d’abord une phase de tests ou de collecte de données, possiblement avec chauffeurs humains, avant d’éventuelles courses vraiment autonomes.</p>
+            <p>Le sujet promet aussi des tensions politiques et sociales : arrivée d’un acteur américain lié à Google, réaction possible des taxis et VTC, concurrence avec Tesla, Zoox ou Uber, et prudence réglementaire européenne. L’article est utile pour comprendre pourquoi une simple création de filiale peut être un signal stratégique important dans la mobilité autonome.</p>
+            <p><strong>Pourquoi lire :</strong> un bon article pour suivre l’arrivée possible des robotaxis en Europe et le décalage entre annonce industrielle, cadre légal et acceptabilité sociale.</p>
+            <p><strong>Vocabulaire utile</strong></p>
+            <ul>
+              <li><strong>filiale</strong> — société contrôlée par une entreprise mère, souvent créée pour opérer dans un pays ou un marché précis.</li>
+              <li><strong>conduite autonome</strong> — technologie permettant à un véhicule de circuler sans intervention humaine directe, selon différents niveaux d’automatisation.</li>
+              <li><strong>collecte de données</strong> — phase durant laquelle des véhicules enregistrent des informations de circulation pour entraîner, tester ou valider leurs systèmes.</li>
+              <li><strong>homologation</strong> — autorisation officielle attestant qu’un véhicule ou logiciel respecte les règles techniques et légales applicables.</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="ja">
+          <h2>Language Practice · 日本語</h2>
+          <article class="language-item">
+            <h3>日本語 — 路線価トップは41年連続で銀座・鳩居堂前 : 訪日客増で白馬や浅草も大幅上昇</h3>
+            <p class="meta">nippon.com · 2026-07-04 · <a href="https://www.nippon.com/ja/japan-data/h02831/">https://www.nippon.com/ja/japan-data/h02831/</a></p>
+            <p>国税庁が公表した2026年分の路線価について、全国平均が前年比2.9％上昇し、5年連続のプラスになったことをデータで紹介する記事。最高額は東京・銀座5丁目の文具店「鳩居堂」前で、1平方メートル5336万円。41年連続で全国トップとなり、はがき1枚分の地面に換算すると79万円に相当するという。</p>
+            <p>上昇の背景として、都市部の住宅需要に加え、訪日客向けのリゾート開発や観光需要の回復が挙げられている。上昇率の上位には長野県白馬村、野沢温泉村、北海道富良野市などスキーリゾートが並び、浅草・雷門通りもインバウンド人気を受けて大きく伸びた。</p>
+            <p>記事は、県庁所在地ごとの最高路線価のトップ・ボトムや、佐賀・盛岡など地方都市での上昇にも触れており、観光、再開発、都市集中が地価にどう反映されるかを短く読める内容になっている。</p>
+            <p><strong>読む理由：</strong> 日本の不動産価格、観光需要、都市再開発をめぐる時事語彙をまとめて学べる。</p>
+            <p><strong>語彙メモ</strong></p>
+            <ul>
+              <li><strong>路線価（ろせんか）</strong> — 相続税や贈与税を計算するため、道路に面した土地につけられる評価額。</li>
+              <li><strong>標準宅地（ひょうじゅんたくち）</strong> — 地価を評価する際の基準として選ばれる代表的な宅地。</li>
+              <li><strong>インバウンド</strong> — 日本を訪れる外国人旅行者や、その需要を指す言葉。</li>
+            </ul>
+          </article>
+        </section>
+
+        <section lang="zh">
+          <h2>Language Practice · 中文</h2>
+          <article class="language-item">
+            <h3>中文 — 中国AI模型GLM-5.2低成本挑战美国巨头：数据安全引发欧美质疑</h3>
+            <p class="meta">RFI 法广 · 2026-07-02 · <a href="https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20260702-%E4%B8%AD%E5%9B%BDai%E6%A8%A1%E5%9E%8Bglm-5-2%E4%BD%8E%E6%88%90%E6%9C%AC%E6%8C%91%E6%88%98%E7%BE%8E%E5%9B%BD%E5%B7%A8%E5%A4%B4-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%81%AD%E6%AC%A7%E7%BE%8E%E5%B8%82%E5%9C%BA%E8%B4%A8%E7%96%91">https://www.rfi.fr/cn/%E4%B8%AD%E5%9B%BD/20260702-%E4%B8%AD%E5%9B%BDai%E6%A8%A1%E5%9E%8Bglm-5-2%E4%BD%8E%E6%88%90%E6%9C%AC%E6%8C%91%E6%88%98%E7%BE%8E%E5%9B%BD%E5%B7%A8%E5%A4%B4-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8%E9%81%AD%E6%AC%A7%E7%BE%8E%E5%B8%82%E5%9C%BA%E8%B4%A8%E7%96%91</a></p>
+            <p>法广报道，中国人工智能初创企业智谱AI推出的大语言模型GLM-5.2，因成本较低、性能接近美国领先模型，并在代码生成和AI智能代理任务上表现突出，迅速引发国际关注。报道援引业内观点称，这一模型被部分人士视为“又一个DeepSeek时刻”，也再次推动外界讨论中国AI是否正在加速追赶美国。</p>
+            <p>文章指出，GLM-5.2在开发者平台OpenRouter上热度上升，Artificial Analysis综合性能排名中位列全球大型语言模型第五，在Code Arena前端编程能力排行榜中位列第二；其运行成本据称约为Anthropic Claude系列和OpenAI GPT系列等美国主流闭源模型的六分之一。企业对开源AI模型兴趣上升，与AI应用成本持续增加、闭源AI代理模型消耗更多计算资源和Token有关。</p>
+            <p>不过，欧美企业市场的主要障碍仍是数据安全与合规疑虑。Counterpoint Research分析师孙伟表示，一些欧洲企业已开始评估GLM-5.2，但在欧盟和美国，客户、合作伙伴及受监管行业可能仍会因数据安全顾虑而拒绝采用中国AI模型。也有专家认为，如果模型部署在美国云平台或企业自有服务器上，相关风险可以被控制。</p>
+            <p><strong>为什么读：</strong> 这篇文章适合练习中文科技与商业新闻阅读，也能帮助理解AI模型竞争、开源生态与欧美数据安全监管之间的关系。</p>
+            <p><strong>词汇笔记</strong></p>
+            <ul>
+              <li><strong>大语言模型 (dà yǔyán móxíng)</strong> — 能处理、生成自然语言并执行复杂任务的人工智能模型。</li>
+              <li><strong>AI智能代理 (AI zhìnéng dàilǐ)</strong> — 可根据目标自主规划、调用工具或完成多步骤任务的AI系统。</li>
+              <li><strong>受监管行业 (shòu jiānguǎn hángyè)</strong> — 金融、医疗、能源等受到严格法律和合规要求约束的行业。</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+
+      <section class="notes">
+        <h2>Source Notes</h2>
+        <p>Some social-media research items were available only as truncated normalized fragments, so method details, links beyond the post URL, and validation specifics may be incomplete.</p>
+      </section>
+    </main>
+  </div>
+
+
+
+</body>
+</html>

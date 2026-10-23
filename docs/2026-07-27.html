@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #202020;
+      --muted: #666;
+      --rule: #d8d4ca;
+      --paper: #fffdf8;
+      --accent: #174d72;
+      --tag-bg: #edf3f6;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: #f1eee7;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.55;
+    }
+    .newspaper {
+      width: min(1040px, calc(100% - 28px));
+      margin: 24px auto;
+      padding: clamp(24px, 5vw, 58px);
+      background: var(--paper);
+      box-shadow: 0 2px 18px rgba(0,0,0,.08);
+    }
+    header {
+      text-align: center;
+      border-top: 4px double var(--ink);
+      border-bottom: 4px double var(--ink);
+      padding: 18px 0 14px;
+      margin-bottom: 40px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(2.25rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .date {
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .82rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    section { margin-top: 44px; }
+    h2 {
+      margin: 0 0 22px;
+      padding-bottom: 7px;
+      border-bottom: 2px solid var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px 36px;
+    }
+    article {
+      break-inside: avoid;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--rule);
+    }
+    article.lead { grid-column: 1 / -1; }
+    h3 {
+      margin: 0 0 9px;
+      font-size: 1.35rem;
+      line-height: 1.22;
+    }
+    .lead h3 { font-size: clamp(1.55rem, 3vw, 2rem); }
+    p { margin: 0 0 11px; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 2px;
+      overflow-wrap: anywhere;
+    }
+    .source-link {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .88rem;
+    }
+    .tags {
+      margin-top: 12px;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .72rem;
+      line-height: 1.8;
+    }
+    .tag {
+      display: inline-block;
+      margin: 0 4px 4px 0;
+      padding: 1px 7px;
+      border-radius: 10px;
+      background: var(--tag-bg);
+      color: #41515a;
+    }
+    .language {
+      margin-top: 52px;
+      padding-top: 28px;
+      border-top: 5px double var(--ink);
+    }
+    .language-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px 28px;
+    }
+    .language-note {
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .language-note h3 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1rem;
+    }
+    .language-note p {
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    footer {
+      margin-top: 46px;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: .78rem;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      .grid, .language-grid { grid-template-columns: 1fr; }
+      article.lead { grid-column: auto; }
+      .newspaper {
+        width: 100%;
+        margin: 0;
+        box-shadow: none;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="newspaper">
+    <header>
+      <h1>News</h1>
+      <p class="date">Monday, July 27, 2026 · Run 2026-07-27-1</p>
+    </header>
+
+    <section aria-labelledby="ai-heading">
+      <h2 id="ai-heading">Artificial Intelligence</h2>
+      <div class="grid">
+        <article class="lead">
+          <h3>Six open-weight language models reveal a widening range of architectural choices</h3>
+          <p>Sebastian Raschka surveys six recent releases and their trade-offs: Nanbeige 4.2 3B’s two-pass shared-depth Transformer; Laguna S 2.1’s 118-billion-parameter, 8-billion-active mixture-of-experts design; Motif-3-Beta’s Grouped Differential Latent Attention; and Solar Open 2’s interleaving of Kimi Delta Attention with grouped-query attention. The analysis also covers a small cybersecurity model trained with SFT and GRPO, plus a rank-32 LoRA adapter for coding agents.</p>
+          <p>Beyond cataloguing components, the discussion compares compute, memory, KV-cache, and token-efficiency consequences and links to an updated architecture gallery.</p>
+          <p class="source-link"><a href="https://x.com/rasbt/status/2081374704753950742">Read the architecture analysis on X</a></p>
+          <div class="tags">
+            <span class="tag">architecture</span>
+            <span class="tag">mixture of experts</span>
+            <span class="tag">attention</span>
+            <span class="tag">open weights</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>NanoGPT speedrun falls to 76.3 seconds</h3>
+          <p>A new NanoGPT Speedrun record improves runtime from 79.2 to 76.3 seconds. Its principal change is a lightweight Dynamically Composable MHA final layer, which recomputes a 112-token local window using the same queries and keys, mixes post-softmax per-head attention maps into a shared map, and applies dynamically generated scales to each head’s values.</p>
+          <p>A MUDD MLP and custom kernel accompany the design, which reportedly reduces the required training-step count by 7%.</p>
+          <p class="source-link"><a href="https://x.com/classiclarryd/status/2081451521229881374">View the technical post on X</a></p>
+          <div class="tags">
+            <span class="tag">transformers</span>
+            <span class="tag">optimization</span>
+            <span class="tag">GPU kernels</span>
+            <span class="tag">benchmark</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>SonicSampler combines kernels for sampling and speculative verification</h3>
+          <p>SonicSampler, highlighted by Yifan Zhang as work from Tri Dao’s team at Together AI, provides unified tile-aware kernels for language-model sampling and speculative verification. The implementation is described as realizing a direction proposed in the earlier FlashSampling work.</p>
+          <p class="source-link"><a href="https://x.com/yifanzhang_/status/2081447805303058447">See the SonicSampler post and project links on X</a></p>
+          <div class="tags">
+            <span class="tag">inference</span>
+            <span class="tag">sampling</span>
+            <span class="tag">speculative decoding</span>
+            <span class="tag">GPU kernels</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="bio-heading">
+      <h2 id="bio-heading">Biology &amp; Genomics</h2>
+      <div class="grid">
+        <article class="lead">
+          <h3>De novo proteins appear to occupy an intermediate region of sequence space</h3>
+          <p>An alignment-free study compares evolutionarily young de novo proteins, intergenic open reading frames, canonical proteins, and randomized sequences in flies and yeast. K-mer analysis suggests that de novo proteins contain non-random residue-order patterns and sit between intergenic ORFs and established proteins in sequence space.</p>
+          <p>Rare sequences connecting those regions are enriched for predicted transmembrane helices, raising the possibility that membrane association provides one route through the earliest stages of protein evolution.</p>
+          <p class="source-link"><a href="https://x.com/BiologyAIDaily/status/2081026192178917574">Read the study summary on X</a></p>
+          <div class="tags">
+            <span class="tag">de novo genes</span>
+            <span class="tag">protein evolution</span>
+            <span class="tag">sequence analysis</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>Adenine base editors face an activity–specificity trade-off</h3>
+          <p>A newly shared preprint examines the balance between activity and specificity in adenine base editors, a central issue for both therapeutic efficacy and off-target safety. The available post is truncated, so its experimental methods and precise findings cannot be evaluated from this report.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2081375811509346810">View the preprint post on X</a></p>
+          <div class="tags">
+            <span class="tag">genome editing</span>
+            <span class="tag">base editing</span>
+            <span class="tag">safety</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>Inferring cell-type regulation from bulk sequencing</h3>
+          <p>A research item presents a method for high-resolution reconstruction of cell-type-specific transcriptional regulatory processes from bulk sequencing samples. Only the title was available in the supplied material, leaving the model, datasets, and validation results unassessed.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2081360945436307464">View the research post on X</a></p>
+          <div class="tags">
+            <span class="tag">gene regulation</span>
+            <span class="tag">transcriptomics</span>
+            <span class="tag">cell types</span>
+          </div>
+        </article>
+
+        <article>
+          <h3>BCAR targets sequencing errors in barcode mapping</h3>
+          <p>BCAR is introduced as a fast, general mapper for barcode sequences that also corrects sequencing errors. It could be useful for robust processing of barcoded sequencing experiments, although the available post provides neither implementation details nor benchmark results.</p>
+          <p class="source-link"><a href="https://x.com/razoralign/status/2081053678073778645">View the BCAR post on X</a></p>
+          <div class="tags">
+            <span class="tag">sequencing</span>
+            <span class="tag">barcodes</span>
+            <span class="tag">error correction</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="language" aria-labelledby="language-heading">
+      <h2 id="language-heading">Language Practice</h2>
+      <p>No verified reading selections were available for this edition. Source-access failures affected all four language feeds.</p>
+
+      <div class="language-grid">
+        <div class="language-note" lang="de">
+          <h3>Deutsch — tägliche Lektüre</h3>
+          <p>Deutschlandfunk Kultur und die ersatzweise aufgerufene <a href="https://www.dw.com/de/">Deutsche Welle</a> konnten nicht abgerufen werden; daher wurde kein Artikel ausgewählt.</p>
+        </div>
+
+        <div class="language-note" lang="fr">
+          <h3>Français — lecture quotidienne</h3>
+          <p>Aucun article n’a pu être vérifié auprès de <a href="https://www.rfi.fr/fr/">RFI</a> ou de la source de repli ActuaLitté en raison d’erreurs techniques d’accès.</p>
+        </div>
+
+        <div class="language-note" lang="ja">
+          <h3>日本語 — 毎日の読み物</h3>
+          <p>ITmedia NEWSおよび代替の<a href="https://automaton-media.com/">AUTOMATON</a>にアクセスできなかったため、記事を確認できませんでした。</p>
+        </div>
+
+        <div class="language-note" lang="zh">
+          <h3>中文 — 每日阅读</h3>
+          <p><a href="https://www.dw.com/zh/">DW 中文</a>及备用来源联合早报均因技术故障无法访问，因此未能核实并选取文章。</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      News Daily · Newspaper date: July 27, 2026
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

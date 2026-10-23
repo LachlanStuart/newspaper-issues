@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      --paper: #fffdf8;
+      --ink: #24221f;
+      --muted: #69645c;
+      --accent: #8b2f2f;
+      --rule: #d8d1c5;
+      --panel: #f5f1e9;
+      --link: #235b79;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: #ebe7df;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.65;
+    }
+
+    .newspaper {
+      width: min(960px, 100%);
+      margin: 0 auto;
+      padding: 2.5rem clamp(1.25rem, 4vw, 4rem);
+      background: var(--paper);
+      min-height: 100vh;
+      box-shadow: 0 0 24px rgba(42, 37, 30, 0.08);
+    }
+
+    header {
+      text-align: center;
+      border-top: 5px double var(--ink);
+      border-bottom: 2px solid var(--ink);
+      padding: 1.1rem 0 1rem;
+      margin-bottom: 2.5rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.2rem, 7vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .date {
+      margin-top: 0.7rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.83rem;
+      font-weight: 650;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    section {
+      margin: 2.5rem 0;
+    }
+
+    .section-title {
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.35rem;
+      border-bottom: 1px solid var(--ink);
+      font-family: system-ui, sans-serif;
+      font-size: 1.05rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+    }
+
+    article {
+      margin: 0 0 2rem;
+    }
+
+    article h2,
+    article h3 {
+      margin: 0 0 0.5rem;
+      line-height: 1.25;
+    }
+
+    article h2 {
+      font-size: clamp(1.55rem, 4vw, 2.1rem);
+    }
+
+    article h3 {
+      font-size: 1.35rem;
+    }
+
+    p {
+      margin: 0.65rem 0;
+    }
+
+    a {
+      color: var(--link);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.14em;
+      overflow-wrap: anywhere;
+    }
+
+    a:hover,
+    a:focus {
+      color: var(--accent);
+    }
+
+    .byline {
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .tags {
+      margin-top: 0.8rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.78rem;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 0.2rem 0.25rem 0 0;
+      padding: 0.12rem 0.45rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--panel);
+    }
+
+    .language-practice {
+      margin-top: 3.5rem;
+      padding-top: 2rem;
+      border-top: 5px double var(--ink);
+    }
+
+    .language-intro {
+      margin: -0.6rem 0 2rem;
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.9rem;
+    }
+
+    .reading {
+      padding: 1.4rem;
+      border: 1px solid var(--rule);
+      background: #fffefa;
+    }
+
+    .reading + .reading {
+      margin-top: 1.5rem;
+    }
+
+    .reading ul {
+      margin-top: 0.4rem;
+      padding-left: 1.4rem;
+    }
+
+    .reading li {
+      margin: 0.3rem 0;
+    }
+
+    .source-notes {
+      margin-top: 3rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid var(--rule);
+      color: var(--muted);
+      font-family: system-ui, sans-serif;
+      font-size: 0.82rem;
+    }
+
+    .source-notes h2 {
+      margin: 0 0 0.5rem;
+      color: var(--ink);
+      font-size: 0.9rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .source-notes ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+
+    footer {
+      margin-top: 2.5rem;
+      padding-top: 1rem;
+      border-top: 2px solid var(--ink);
+      color: var(--muted);
+      text-align: center;
+      font-family: system-ui, sans-serif;
+      font-size: 0.75rem;
+    }
+
+    @media (max-width: 600px) {
+      .newspaper { padding-top: 1.25rem; }
+      .reading { padding: 1rem; }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <main class="newspaper">
+    <header>
+      <h1>News</h1>
+      <div class="date">Thursday, August 13, 2026</div>
+    </header>
+
+    <section aria-labelledby="research-heading">
+      <h2 class="section-title" id="research-heading">Biology &amp; Medicine</h2>
+
+      <article>
+        <h2><a href="https://x.com/NatRevMCB/status/2087191865124892994">Iron-related logic may connect bacterial and cancer persister cells</a></h2>
+        <p class="byline">Nature Reviews Molecular Cell Biology via X</p>
+        <p>Nature Reviews Molecular Cell Biology highlights research proposing that bacterial and cancer persister cells may share an underlying iron-related logic. The connection could be relevant to understanding how small populations of cells survive treatments, although the available post provides only a headline and does not expose enough detail to assess the proposed mechanism or evidence.</p>
+        <p class="tags">
+          <span class="tag">Cancer</span>
+          <span class="tag">Persister cells</span>
+          <span class="tag">Cell biology</span>
+          <span class="tag">Medicine</span>
+        </p>
+      </article>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-heading">
+      <h2 class="section-title" id="language-heading">Language Practice</h2>
+      <p class="language-intro">Today’s edited readings in German, French, Japanese, and Chinese.</p>
+
+      <article class="reading" lang="de">
+        <h3>Deutsch — Teilchenphysik: Forscher weisen reines Glueball-Teilchen nach</h3>
+        <p class="byline">heise online · 12.08.2026 · <a href="https://www.heise.de/news/Teilchenphysik-Forscher-weisen-reines-Glueball-Teilchen-nach-11411637.html">Artikel lesen</a></p>
+
+        <p>Nach rund 50 Jahren Suche präsentiert die BESIII-Kollaboration den bislang stärksten Hinweis auf einen sogenannten Glueball: ein Teilchen, das überwiegend aus Gluonen und nicht aus Quarks bestehen soll. Das bereits länger bekannte Teilchen X(2370) besitzt demnach eine Masse und weitere Eigenschaften, die sehr genau zu theoretischen Vorhersagen passen.</p>
+
+        <p>Besonders aussagekräftig ist sein Zerfallsverhalten. X(2370) zeigt offenbar keine Vorliebe für bestimmte Quarksorten – eine zentrale erwartete Eigenschaft eines Glueballs. Die Forschenden schätzen seinen Gluonenanteil auf etwa 90 Prozent. Eine unabhängige Bestätigung steht allerdings noch aus, da derzeit nur der BESIII-Detektor für solche Untersuchungen geeignet ist und die Analyse bislang lediglich als Preprint und Konferenzbeitrag vorliegt.</p>
+
+        <p><strong>Warum lesen:</strong> Der Artikel erklärt anschaulich, warum der mögliche Nachweis unser Verständnis davon erweitert, wie Teilchen und Masse entstehen können.</p>
+      </article>
+
+      <article class="reading" lang="fr">
+        <h3>Français — Il confie sa récolte à une IA, 10 hectares dépérissent en une nuit</h3>
+        <p class="byline">Numerama · 12 août 2026 · <a href="https://www.numerama.com/tech/2310375-il-confie-sa-recolte-a-une-ia-10-hectares-deperissent-en-une-nuit.html">Lire l’article</a></p>
+
+        <p>Un agriculteur de 67 ans installé à Chuzhou, en Chine, aurait perdu dix hectares de jeunes plants de sésame après avoir appliqué les recommandations d’une intelligence artificielle. Il utilisait cet outil depuis plus d’un an pour planifier ses travaux, choisir des traitements et organiser la fertilisation. Les réponses précédentes lui ayant paru fiables, il aurait progressivement cessé de les faire vérifier par un spécialiste.</p>
+
+        <p>Pour combattre les mauvaises herbes et les nuisibles, l’IA lui aurait proposé un mélange d’herbicides et d’insecticides à pulvériser sur toute la parcelle. Dès le lendemain, les mauvaises herbes avaient dépéri, mais les plants de sésame également. Des techniciens agricoles ont notamment mis en cause le fomésafène, un herbicide qui devait être employé de manière ciblée plutôt que sur l’ensemble du champ. Après l’incident, l’IA aurait elle-même identifié ce produit comme la cause probable des dégâts. L’article souligne ainsi les risques liés à une confiance excessive dans des recommandations automatisées non validées par un professionnel.</p>
+
+        <p><strong>Pourquoi lire :</strong> Ce cas concret permet de réfléchir aux limites de l’IA lorsqu’elle intervient dans des décisions techniques aux conséquences matérielles importantes.</p>
+
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>traitement antiparasitaire</strong> — intervention destinée à éliminer ou à limiter les organismes nuisibles aux cultures</li>
+          <li><strong>fomésafène</strong> — herbicide utilisé notamment contre certaines mauvaises herbes à feuilles larges</li>
+          <li><strong>pulvérisation aérienne</strong> — application d’un produit liquide sur une culture depuis un appareil volant</li>
+        </ul>
+      </article>
+
+      <article class="reading" lang="ja">
+        <h3>日本語 — 「植物工場」研究拠点開設相次ぐ 最先端技術で食料生産効率化</h3>
+        <p class="byline">NHKニュース · 2026年8月13日 · <a href="https://news.web.nhk/newsweb/na/nd-20260812de43521">リンク</a></p>
+
+        <p>最先端技術を活用し、食料生産を効率化する「植物工場」の研究拠点が相次いで開設されている。植物工場は、屋内などで栽培環境を管理し、天候に左右されにくい生産を目指す仕組みとして注目されている。</p>
+
+        <p>気候変動への対応や農業の担い手不足を補う可能性が期待される一方、設備や運営にかかる費用が膨らむという課題も残る。技術による生産性向上と採算性をどう両立させるかが、普及に向けた重要な論点となっている。</p>
+
+        <p><strong>読む理由：</strong> 先端技術が日本の農業と食料生産の課題をどう変え得るかを、利点とコストの両面から考えられる。</p>
+
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>植物工場（しょくぶつこうじょう）</strong> — 光や温度などを人工的に管理して作物を育てる施設</li>
+          <li><strong>担い手（にないて）</strong> — ある仕事や役割を中心となって引き受ける人</li>
+          <li><strong>採算性（さいさんせい）</strong> — 事業で費用を回収し、利益を確保できる度合い</li>
+        </ul>
+      </article>
+
+      <article class="reading" lang="zh">
+        <h3>中文 — 台湾称政府机构上月遭境外AI辅助网络攻击</h3>
+        <p class="byline">联合早报 · 2026-08-13 · <a href="https://www.zaobao.com.sg/news/china/story20260813-9511817">阅读全文</a></p>
+
+        <p>台湾数位发展部披露，政府机构今年7月遭到具有明显境外来源特征的网络攻击。调查发现，黑客采用人工操作与AI智能体相结合的混合模式；台湾资安院展开调查并陆续发布预警后，受影响单位已完成处置。</p>
+
+        <p>网络安全公司Dream另称，多个AI智能体曾在四天内协同窃取数十组密码和政府人事资料，并扫描核能安全主管机构的系统漏洞。面对这类由人工智能强化的新型威胁，台湾政府已制定防护指引，并加强政府机构的系统监控与早期拦截能力。</p>
+
+        <p><strong>为什么读：</strong> 报道呈现AI智能体如何改变网络攻击的规模与协作方式，也说明政府资安防御面临的新挑战。</p>
+
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>AI智能体 (AI zhìnéngtǐ)</strong> — 能自主规划、调用工具并执行多步骤任务的人工智能系统。</li>
+          <li><strong>登录凭证 (dēnglù píngzhèng)</strong> — 用于验证用户身份的资料，例如账号、密码或安全令牌。</li>
+          <li><strong>关键基础设施 (guānjiàn jīchǔ shèshī)</strong> — 对社会运作至关重要的系统与服务，如能源、医疗、金融和通信网络。</li>
+        </ul>
+      </article>
+    </section>
+
+    <aside class="source-notes" aria-labelledby="notes-heading">
+      <h2 id="notes-heading">Source notes</h2>
+      <ul>
+        <li>The Japanese reading uses NHK News as a fallback because no suitable recent non-sports article was available from the primary source.</li>
+        <li>Collection from the configured AI-research X list failed after three attempts, so that source contributed no items today.</li>
+        <li>One bio-research X list also failed collection after three attempts; the biology report may therefore be incomplete.</li>
+      </ul>
+    </aside>
+
+    <footer>
+      News Daily · Run 2026-08-13-1
+    </footer>
+  </main>
+
+
+
+</body>
+</html>

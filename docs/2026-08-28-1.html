@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fbfaf7;
+      --ink: #20201e;
+      --muted: #6b6963;
+      --rule: #d8d4ca;
+      --accent: #245c50;
+      --soft: #f0eee7;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.58;
+    }
+    main, header, footer {
+      width: min(960px, calc(100% - 2rem));
+      margin-inline: auto;
+    }
+    header {
+      padding: 3rem 0 1.5rem;
+      text-align: center;
+      border-bottom: 3px double var(--ink);
+    }
+    .kicker {
+      margin: 0;
+      color: var(--accent);
+      font: 700 0.78rem/1.2 system-ui, sans-serif;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0.35rem 0 0.15rem;
+      font-size: clamp(2.4rem, 8vw, 4.8rem);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+    .date {
+      margin: 0.6rem 0 0;
+      color: var(--muted);
+      font: 500 0.95rem/1.4 system-ui, sans-serif;
+    }
+    main { padding: 1rem 0 3rem; }
+    section {
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    section > h2 {
+      margin: 0 0 1.25rem;
+      font-size: 1.65rem;
+      line-height: 1.2;
+    }
+    .deck {
+      margin: -0.65rem 0 1.5rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 2rem;
+    }
+    article {
+      padding: 0 0 1.6rem;
+      break-inside: avoid;
+    }
+    article + article {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.35rem;
+    }
+    .grid article:nth-child(2) {
+      border-top: 0;
+      padding-top: 0;
+    }
+    h3 {
+      margin: 0 0 0.55rem;
+      font-size: 1.18rem;
+      line-height: 1.3;
+    }
+    p { margin: 0.55rem 0; }
+    a {
+      color: var(--accent);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.16em;
+      overflow-wrap: anywhere;
+    }
+    a:hover { text-decoration-thickness: 2px; }
+    .meta {
+      color: var(--muted);
+      font: 500 0.78rem/1.5 system-ui, sans-serif;
+      letter-spacing: 0.02em;
+    }
+    .language-practice {
+      margin-top: 2rem;
+      padding: 2rem;
+      background: var(--soft);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+    }
+    .language-practice > h2 { margin-top: 0; }
+    .language-practice article {
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--rule);
+    }
+    .language-practice article:first-of-type {
+      padding-top: 0;
+      border-top: 0;
+    }
+    .language-practice h3 { font-size: 1.28rem; }
+    .language-practice h4 {
+      margin: 1rem 0 0.35rem;
+      font: 700 0.9rem/1.4 system-ui, sans-serif;
+    }
+    .language-practice ul {
+      margin: 0.35rem 0;
+      padding-left: 1.3rem;
+    }
+    .language-practice li { margin: 0.3rem 0; }
+    .source-notes {
+      color: var(--muted);
+      font: 0.82rem/1.55 system-ui, sans-serif;
+    }
+    footer {
+      padding: 1.5rem 0 2.5rem;
+      color: var(--muted);
+      text-align: center;
+      font: 0.78rem/1.5 system-ui, sans-serif;
+    }
+    @media (max-width: 700px) {
+      .grid { grid-template-columns: 1fr; }
+      .grid article:nth-child(2) {
+        border-top: 1px solid var(--rule);
+        padding-top: 1.35rem;
+      }
+      .language-practice {
+        margin-inline: -0.5rem;
+        padding: 1.25rem;
+      }
+    }
+  </style>
+<style>
+.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
+.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
+.newspaper-debug-panel summary { cursor: pointer; }
+.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+</style>
+</head>
+<body>
+  <header>
+    <p class="kicker">News Daily</p>
+    <h1>News</h1>
+    <p class="date"><time datetime="2026-08-28">Friday, August 28, 2026</time> · Run 2026-08-28-1</p>
+  </header>
+
+  <main>
+    <section aria-labelledby="ai-research">
+      <h2 id="ai-research">AI Research</h2>
+      <p class="deck">New work on scientific agents, efficient reasoning, model architecture, and optimization.</p>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2093195766252916807">Recirculation reproduced on Gemma 3 1B</a></h3>
+          <p>An independent reproduction of the Recirculation method on Gemma 3 1B reportedly confirms its initial perplexity reduction. The available post is truncated, so experimental details and the size of the improvement remain unavailable.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2093070852489453987">Terminal-Bench-Science evaluates agents on research workflows</a></h3>
+          <p>A new benchmark tests AI agents on scientific research workflows across multiple domains. The available announcement does not expose the benchmark’s direct link or enough detail to describe its tasks and results.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2093003499416203410">Prefix Sliding targets the cost of long reasoning traces</a></h3>
+          <p>Prefix Sliding investigates whether language models can discard portions of long reasoning prefixes, limiting the context-length burden imposed by full attention while retaining useful reasoning state.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2092903145357836642">Study examines real-world human–AI collaboration</a></h3>
+          <p>Researchers analyzed in-the-wild Claude interaction traces to identify patterns of collaboration between people and AI systems. Methodological and quantitative details are not visible in the supplied announcement.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2092827423633248284">Qwen 3.8-Next report explores model architecture</a></h3>
+          <p>A technical report for Qwen 3.8-Next is highlighted for its extensive architecture experiments. The available post is truncated before the specific findings, making this a pointer to the report rather than a firm account of its conclusions.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/StanfordAILab/status/2092675717289160762">LLM-designed solver heuristics face a feasibility test</a></h3>
+          <p>Research at the intersection of language models and mathematical optimization asks whether LLMs can make optimization more accessible and discover better solver heuristics. A central constraint is that generated methods must preserve the feasibility of their solutions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="computational-biology">
+      <h2 id="computational-biology">Computational Biology &amp; Bioengineering</h2>
+      <p class="deck">Single-cell methods, spatial analysis, RNA design, and a useful challenge to foundation-model hype.</p>
+
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093097370980589774">MultiFlow couples RNA and ATAC perturbation dynamics</a></h3>
+          <p>MultiFlow learns interacting vector fields for paired single-cell RNA and ATAC states, generating coordinated changes in both molecular layers after a perturbation. The system supports cell-type-conditioned generation and aims to transfer predicted responses to unseen cellular contexts.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2093054349824168131">Simple baselines challenge virtual-cell complexity</a></h3>
+          <p>New evidence highlighted by Anshul Kundaje suggests that bounded perturbation-prediction tasks can be handled well by simple methods that exploit data structure, without large foundation models or broad virtual-cell claims. The argument is a timely reminder to establish strong baselines before committing substantial compute to more elaborate systems.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093103966691459485">Malva searches raw single-cell sequence space without a reference</a></h3>
+          <p>Malva is presented as an ultrafast, species-agnostic system for querying single-cell atlases directly. Searches may begin with nucleotide sequences, gene identifiers, or natural-language prompts and can target mutations, splice junctions, pathogens, arbitrary sequences, or spatial transcript locations.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093072459000107377">UTR-Diffusion designs regulatory RNA under multiple constraints</a></h3>
+          <p>UTR-Diffusion generates 5′ UTRs and UTR–CDS junctions while conditioning on continuous targets for mean ribosome load and minimum free energy. It can enforce exact nucleotide constraints, preserve amino-acid sequences through synonymous codons, and tune codon adaptation—features relevant to regulatory design and therapeutic mRNA engineering.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093071389318361360">BioSecBench-Function tests biological inference by AI agents</a></h3>
+          <p>BioSecBench-Function is introduced as a verifiable benchmark for assessing whether AI agents can infer functional properties of biological entities. Its biosecurity relevance is clear, though the available post does not provide task composition or quantitative results.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2093150497301835825">Chemically modified suppressor tRNAs appear in <em>Science</em></a></h3>
+          <p>A newly published study reports the engineering of chemically modified suppressor tRNAs. The source excerpt ends before describing the application or experimental findings, so broader therapeutic or engineering implications cannot yet be assessed from the available material.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093097162544763281">ClustoCell derives cell states from within-cell architecture</a></h3>
+          <p>ClustoCell is a reference-free approach to resolving cell identity and markers from single-cell transcriptomes. It builds cell–cell similarity graphs from expression strata intrinsic to each cell, rather than globally variable genes, and avoids an initial dimensionality-reduction or clustering step.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093072747631095998">CellPos maps dissociated cells onto spatial references</a></h3>
+          <p>CellPos uses multitask learning to position dissociated scRNA-seq cells with spatial-transcriptomics references. By jointly embedding transcriptional similarity and spatial-neighborhood relationships, it infers coordinates and cell identities across reported applications involving different species, tissues, and sequencing platforms.</p>
+        </article>
+
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2093071782710481362">st2traj reconstructs trajectories across spatial time points</a></h3>
+          <p>st2traj deconvolves mixed spatial spots into coarse cell-state composition vectors, creating a common representation across tissue sections and developmental stages. Its DECODE component estimates state proportions, while STORIES infers trajectory potential and directional flow.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="language-practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice · Langues · Sprachen · 語学 · 语言</h2>
+      <p class="deck">Edited reading selections preserved in their original languages.</p>
+
+      <article lang="de">
+        <h3>Deutsch — <a href="https://www.heise.de/news/Berlin-Cyberangriff-auf-Verwaltung-begann-lange-vor-der-Entdeckung-11432414.html">Berlin: Cyberangriff auf Verwaltung begann lange vor der Entdeckung</a></h3>
+        <p class="meta">heise online · 27.08.2026</p>
+        <p>Angreifer waren offenbar schon mindestens eine Woche vor der Entdeckung eines Cyberangriffs in das Berliner Landesnetz eingedrungen. Nach Angaben des Senats flossen vom 7. bis zum 12. August Daten ab. Wann der Angriff tatsächlich begann, welche Informationen entwendet wurden und welches Ziel dahinterstand, ist weiterhin ungeklärt.</p>
+        <p>Betroffen waren die Senatsverwaltungen für Verkehr sowie für Bauen und Wohnen, die nach der Entdeckung am 14. August zeitweise vom Landesnetz getrennt wurden. Das Landeskriminalamt und die Staatsanwaltschaft ermitteln. Entgegen einer früheren Einschätzung kann inzwischen nicht mehr ausgeschlossen werden, dass auch personenbezogene Daten oder Informationen mit Bezug zu kritischer Infrastruktur abgeflossen sind.</p>
+        <p><strong>Warum lesen:</strong> Der kurze Bericht bietet einen aktuellen Einblick in die Sicherheitsrisiken digitaler Verwaltungsnetze und den schwierigen Umgang mit zunächst unklaren Folgen eines Cyberangriffs.</p>
+      </article>
+
+      <article lang="fr">
+        <h3>Français — <a href="https://www.numerama.com/sciences/2318993-eclipse-lunaire-du-28-aout-2026-96-de-la-lune-dans-lombre-de-la-terre-comment-la-suivre-en-direct.html">Éclipse lunaire du 28 août 2026 : 96 % de la Lune dans l’ombre de la Terre, comment la suivre en direct</a></h3>
+        <p class="meta">Numerama · 27 août 2026</p>
+        <p>Une éclipse lunaire partielle était observable depuis la France métropolitaine dans la nuit du 27 au 28 août. Au maximum du phénomène, vers 6 h 12, l’ombre de la Terre recouvrait plus de 96 % du disque lunaire. Contrairement à une éclipse solaire, son observation ne nécessitait aucune paire de lunettes protectrices, mais demandait un horizon sud-ouest bien dégagé et un réveil très matinal, la Lune se couchant peu après le maximum.</p>
+        <p>Pour les personnes gênées par les nuages ou préférant rester chez elles, plusieurs organismes proposaient des retransmissions en ligne : le Virtual Telescope Project dès 3 h 30, Time and Date à partir de 4 h et l’observatoire Griffith à 4 h 25. Numerama recommandait de passer d’un flux à l’autre selon les conditions météorologiques sur les différents sites d’observation. L’article, actualisé le matin du 28 août, signale également la publication des premières photographies du phénomène.</p>
+        <p><strong>Pourquoi lire :</strong> Un article scientifique accessible qui permet de travailler le vocabulaire de l’astronomie tout en revenant sur un phénomène visible en France.</p>
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>éclipse lunaire partielle</strong> — phénomène durant lequel une partie seulement de la Lune traverse l’ombre de la Terre</li>
+          <li><strong>disque lunaire</strong> — surface circulaire apparente de la Lune vue depuis la Terre</li>
+          <li><strong>horizon dégagé</strong> — ligne de vue sans bâtiment, relief, végétation ou nuages faisant obstacle</li>
+          <li><strong>retransmission en direct</strong> — diffusion d’un événement au moment où il se déroule</li>
+        </ul>
+      </article>
+
+      <article lang="ja">
+        <h3>日本語 — <a href="https://www.nippon.com/ja/japan-topics/c14069/">高市内閣の支持率下落：「前借り」政治資源の返済局面に</a></h3>
+        <p class="meta">nippon.com · 2026-08-25</p>
+        <p>高市内閣の支持率が、7月に国内の主要な定例世論調査すべてで前月を下回った背景を分析する記事。政権発足時に政策への期待から強く支持した40代以下の男性は、物価高対策などの効果を実感できず、徐々に離れた可能性がある。一方、最近では、人柄への信頼や「他の人よりまし」という理由で緩やかに支持していた60代以上の女性の離反も目立つという。</p>
+        <p>政権が支持を取り戻す材料として、政府が決めた食料品の消費税率引き下げが挙げられる。ただし、財源が明示されていないことや、2年後に税率を元へ戻す方針には反対も多い。秋の臨時国会では、減税法案に加えて衆院議員定数削減案も大きな争点となる見通しで、筆者は、発足時の高支持率は自由に使える「貯金」ではなく、有権者から受け取った「前払い」だったと論じている。</p>
+        <p><strong>読む理由：</strong> 世論調査の数字と支持層の変化を手掛かりに、日本政治の今後の争点を具体的に理解できる。</p>
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>積極財政（せっきょくざいせい）</strong> — 政府が支出の拡大や減税によって景気や生活を支えようとする政策姿勢</li>
+          <li><strong>給付付き税額控除（きゅうふつきぜいがくこうじょ）</strong> — 税額を差し引き、控除しきれない場合には現金を給付する仕組み</li>
+          <li><strong>惜敗率（せきはいりつ）</strong> — 小選挙区で落選した候補の得票数を、当選者の得票数で割った割合</li>
+        </ul>
+      </article>
+
+      <article lang="zh-Hans">
+        <h3>中文 — <a href="https://www.bbc.com/zhongwen/articles/c4gq4999446o/simp">“我感到被骗了”：AI假医师给台湾老人的震撼教育</a></h3>
+        <p class="meta">BBC 中文 · 2026-08-26</p>
+        <p>台湾长者的社群与通讯群组中，正广泛流传由人工智能生成的健康和福利影片。虚拟人物常自称医师或专家，以逼真的形象讲解养生知识，或宣传并不存在的交通优惠。一些长者曾信以为真、转发影片，甚至亲自前往车站询问所谓福利。</p>
+        <p>研究人员追踪的两百多个YouTube频道已上传超过七万支相关影片，累计观看量达13.2亿次。这类内容能够以极低成本大量制作，并借助平台算法触及老年受众；它们迎合长者对健康、金钱和社交连结的需要，也可能在积累受众后转而传播政治信息。台湾的教育工作者因此开始教长者使用AI助手和事实查核方法辨别真伪。</p>
+        <p><strong>为什么读：</strong> 文章把生成式AI、老年人的媒介使用习惯与潜在认知操纵联系起来，是观察台湾数位社会风险的一扇窗口。</p>
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>内容农场 (nèiróng nóngchǎng)</strong> — 大量生产低成本、低质量内容，以获取流量或广告收益的网站或账号网络。</li>
+          <li><strong>嘴型同步 (zuǐxíng tóngbù)</strong> — 让影像中人物的口部动作与人工生成或预录声音相互配合的技术。</li>
+          <li><strong>认知作战 (rènzhī zuòzhàn)</strong> — 通过信息传播影响特定群体的判断、态度或行为的策略。</li>
+        </ul>
+      </article>
+    </section>
+
+    <section class="source-notes" aria-labelledby="source-notes">
+      <h2 id="source-notes">Source note</h2>
+      <p>Several research announcements were available only as truncated reposts. Their entries have therefore been kept cautious, and missing methods, links, applications, or quantitative results have not been inferred.</p>
+    </section>
+  </main>
+
+  <footer>
+    News Daily · August 28, 2026
+  </footer>
+
+
+
+</body>
+</html>

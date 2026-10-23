@@ -1,6 +1,6 @@
 # News
 
-[Read News](https://lachlanstuart.github.io/newspaper-issues/)
+[Read News](https://lachlanstuart.com/newspaper-issues/)
 
 Daily research, reading, and language practice, generated on claw2.
 

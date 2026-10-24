@@ -5,228 +5,211 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root{color-scheme:light;--ink:#202b32;--muted:#626c72;--paper:#fffdf8;--line:#dcded7;--accent:#215e69}
+:root{color-scheme:light;--paper:#faf9f5;--ink:#222a2e;--muted:#626b70;--line:#d8dcd6;--accent:#155c65}
 *{box-sizing:border-box}
-body{margin:0;background:#f0f0e9;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
-main{max-width:1000px;margin:30px auto;padding:42px 52px;background:var(--paper)}
-header{border-bottom:3px solid var(--ink);padding-bottom:22px}
-h1{font-size:3.5rem;line-height:1;margin:8px 0 16px;letter-spacing:-2px}
-.kicker,.meta,nav,footer{font-family:system-ui,sans-serif}
-.kicker{font-size:.78rem;text-transform:uppercase;letter-spacing:2px;color:var(--accent)}
-.meta{font-size:.84rem;color:var(--muted)}
-header p{margin-bottom:0}
-nav{display:flex;gap:10px 24px;flex-wrap:wrap;padding:18px 0;font-size:.88rem;border-bottom:1px solid var(--line)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main,header,footer{max-width:1000px;margin:auto;padding:24px 28px}
+header{padding-top:40px;border-bottom:3px solid var(--ink)}
+h1{font-size:4rem;line-height:1;margin:0 0 18px;letter-spacing:-2px}
+.date,.meta,nav,footer,.eyebrow{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.88rem}
+nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:18px;font-size:.9rem}
 a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
-section{margin-top:36px}
-h2{font-size:1.65rem;border-bottom:1px solid var(--line);padding-bottom:9px}
-h3{font-size:1.2rem;line-height:1.4;margin:0 0 10px}
-article{margin:24px 0;padding-bottom:22px;border-bottom:1px solid var(--line)}
-article p{margin:10px 0}
-.source{font-family:system-ui,sans-serif;font-size:.82rem}
-.briefs li{margin:15px 0}
-.practice{border-top:3px solid var(--ink);padding-top:18px;margin-top:48px}
-.practice article{margin-top:30px}
-.practice ul{padding-left:24px}
-footer{font-size:.8rem;color:var(--muted);margin-top:32px}
-@media(max-width:650px){main{margin:0;padding:26px 22px}h1{font-size:2.8rem}body{font-size:16px}}
-@media print{body{background:white}main{margin:0;max-width:none;padding:0}article{break-inside:avoid}nav{display:none}}
-</style>
-<style>
-.newspaper-debug-panel { margin: 3rem auto 1rem; max-width: 70rem; opacity: 0.72; font-size: 0.9rem; }
-.newspaper-debug-panel details { border-top: 1px solid rgba(127, 127, 127, 0.35); padding-top: 0.75rem; }
-.newspaper-debug-panel summary { cursor: pointer; }
-.newspaper-debug-panel a { text-decoration-thickness: 0.08em; }
+h2{font-size:1.7rem;border-bottom:1px solid var(--line);padding-bottom:10px;margin:28px 0 20px}
+h3{font-size:1.25rem;line-height:1.35;margin:0 0 10px}
+p{margin:10px 0}
+article{margin-bottom:27px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.language-practice{border-top:3px solid var(--ink);margin-top:35px;padding-top:12px}
+.reading{padding:20px 0;border-bottom:1px solid var(--line)}
+.reading p,.reading li{line-height:1.8}
+.eyebrow{font-size:.8rem;color:var(--muted);letter-spacing:.08em;text-transform:uppercase}
+footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-bottom:40px}
+ul{padding-left:24px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}main,header,footer{padding-left:20px;padding-right:20px}h1{font-size:3.3rem}}
 </style>
 </head>
 <body>
-<main>
 <header>
-<div class="kicker">Daily newspaper · Research &amp; reading</div>
 <h1>News</h1>
-<div class="meta"><time datetime="2026-10-23">Friday, 23 October 2026</time> · Edition 2026-10-23-1</div>
-<p>Genomic models face evaluation questions, single-cell methods tackle dynamics, and drug-discovery tools expose the gap between computational scores and biological evidence.</p>
-</header>
+<div class="date"><time datetime="2026-10-24">Saturday, 24 October 2026</time></div>
 <nav aria-label="Sections">
-<a href="#genomics">Genomics</a>
-<a href="#cells">Cell dynamics</a>
-<a href="#discovery">Molecular discovery</a>
-<a href="#ai">AI &amp; infrastructure</a>
-<a href="#pointers">Research pointers</a>
+<a href="#biology">Computational biology</a>
+<a href="#ai">AI &amp; robotics</a>
+<a href="#briefs">Research briefs</a>
 <a href="#languages">Language practice</a>
 </nav>
-
-<section id="genomics">
-<h2>Genomes, variation &amp; evaluation</h2>
+</header>
+<main>
+<section id="biology">
+<h2>Computational biology</h2>
 <article>
-<h3>Carbon-X’s DNA–text release puts benchmark quality in focus</h3>
-<p>Carbon-X is described as a Qwen3-14B model midtrained on 300 billion tokens of DNA, English and interleaved data, with separate English BPE and DNA 6-mer tokenization and an Apache 2.0 release. Its developers report improvements on five DNA understanding and generation benchmarks.</p>
-<p>The accompanying discussion raises the more consequential question: what do those benchmarks measure? Anshul Kundaje questions relevance, train–test leakage and shortcut learning, recommending evaluations from AlphaMissense, PromoterAI, AlphaGenome, SpliceAI/2 and TraitGym. Xinming Tu also calls for specialist-model comparisons. Claims of frontier-model parity and cost advantages remain developer claims here.</p>
-<a class="source" href="https://x.com/ClementDelangue/status/2113264393756545449">Source: Carbon-X announcement and discussion on X</a>
+<h3>AlphaVariant reports enzyme gains with sparse experimental feedback</h3>
+<p>AlphaVariant combines an evolutionary sequence prior, reinforcement learning and iteratively updated fitness models to optimize enzymes. In two rounds of savinase engineering, the supplied research summary reports that 75.4% and 83.8% of tested variants exceeded wild-type activity; the best reached a 7.1-fold increase.</p>
+<p>A later campaign targeted activity and thermostability together with a patent-informed sequence constraint. Three of 32 tested candidates improved both biochemical objectives and outperformed a commercial comparator in washing tests. These results include experimental and application-level validation, but the reported patent screening does not independently establish freedom to operate.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2113240003044323588">BiologyAIDaily · research summary on X</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>Accurate protein predictions can still yield unreliable explanations</h3>
+<p>IGLOO tests attribution fidelity against known residue importance in nine synthetic protein–fitness landscapes, alongside real-protein case studies. The supplied summary reports only a weak relationship between predictive accuracy and explanation quality; pooling layers can dominate attribution patterns even after predictor-head randomization.</p>
+<p>Processing residues before pooling improves fidelity, with the accuracy–attribution correlation rising from 0.23 to 0.83 in one GB1 setting. Independently seeded attribution ensembles also reduce variance. Synthetic ground truth offers a useful diagnostic—not proof of biological causality in real proteins.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2113630183412715688">IGLOO · research summary on X</a></p>
 </article>
 <article>
-<h3>hEVO trains on human haplotype diversity</h3>
-<p>The hEVO preprint describes 87M- and 319M-parameter genomic models trained on 4.784 billion distinct 1,024-base-pair haplotype sequences. Its corpus selects 63,809 individuals from eight cohorts to reduce European-ancestry dominance, followed by label-free allelic refinement of the prediction head.</p>
-<p>The supplied digest reports strong functional-annotation and variant-prioritization benchmarks, including retrospective ClinVar reclassification. These results are not prospective clinical validation.</p>
-<a class="source" href="https://x.com/BiologyAIDaily/status/2113239578199085333">Source: hEVO research digest on X</a>
+<h3>Mutation benchmarks must distinguish change from structural resemblance</h3>
+<p>MUTASTRUCT curates 13,438 structure pairs covering 8,147 mutation events, matching experimental context and separating related observations across evaluation partitions. It measures displacement from wild type and mutation-site side-chain accuracy, rather than relying solely on overall similarity.</p>
+<p>An unchanged wild-type baseline remains highly competitive on backbone metrics, while method rankings shift across backbone and local-chemistry measures. The warning: a structure that looks right overall may not demonstrate mutation-specific prediction.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2113630082111811769">MUTASTRUCT · research summary on X</a></p>
 </article>
 <article>
-<h3>T2G preserves RNA information during transcriptome-to-genome liftover</h3>
-<p>T2G transfers short- and long-read RNA-seq BAM alignments to genome coordinates while retaining alignment information and per-base RNA-modification calls. The supplied posts report better specificity and splice-junction accuracy than direct genome alignment, including fewer processed-pseudogene misassignments and preservation of isoform-specific modification signals. Numerical benchmarks are not supplied.</p>
-<a class="source" href="https://x.com/razoralign/status/2113395499520946269">Source: T2G research post on X</a>
-</article>
-</section>
-
-<section id="cells">
-<h2>Single-cell dynamics &amp; integration</h2>
-<article>
-<h3>DynaVelo connects expression, regulatory activity and perturbations</h3>
-<p>DynaVelo is presented as a generative neural ODE model of single-cell gene expression and transcription-factor motif activity. It learns latent cell states, velocities and times, then derives state-dependent regulatory networks using Jacobians and in-silico perturbations. The paper title reports prediction of loss-of-function and rescue perturbations in B cells; the supplied posts contain no quantitative validation.</p>
-<a class="source" href="https://x.com/razoralign/status/2113396301597663409">Source: DynaVelo research post on X</a>
+<h3>Active learning prioritizes antibody hits on a limited budget</h3>
+<p>A retrospective benchmark across eight antibody libraries combines ESM-2 embeddings, a Tanimoto-kernel Gaussian process and upper-confidence-bound acquisition. At a labeling budget of 10% of the full pool, reported mean recall for the top 2% of binders is 57.8%, versus 9.6% for random selection. Recall reaches 68.3% when restricted to acquisition-eligible variants.</p>
+<p>Results vary substantially by library. Representation ablations were not rerun after evaluation corrections, and structural attribution checks do not support residue-exact mechanistic explanations.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2113630284067573783">Antibody active learning · research summary on X</a></p>
 </article>
 <article>
-<h3>LoCoFlow follows neighborhoods, not just individual cells</h3>
-<p>LoCoFlow extends flow-based single-cell modeling from isolated expression vectors to local neighborhood point clouds. Its description combines probabilistic matching across time points with separate modeling of cell movement and neighborhood expansion, contraction and heterogeneity—an approach intended to support population-aware dynamics and fate inference. Benchmark outcomes are not included.</p>
-<a class="source" href="https://x.com/razoralign/status/2113395730287333393">Source: LoCoFlow research post on X</a>
+<h3>PRIME-ISP unifies binding-site prediction across seven partner classes</h3>
+<p>PRIME-ISP combines molecular surfaces, atoms, residues, secondary structures and whole-protein context to locate interaction sites for proteins, peptides, DNA, RNA, small molecules, metals and carbohydrates.</p>
+<p>Reported gains over a unified sequence baseline are strongest for localized pockets: small-molecule site F1 rises from 0.601 to 0.664. Specialized methods still lead on some tasks, including DNA interfaces, and a thrombin–DNA aptamer case exposes difficulty with atypical partners.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2113629967972200478">PRIME-ISP · research summary on X</a></p>
 </article>
 <article>
-<h3>CellDiffusion aligns batches through attention-guided graph diffusion</h3>
-<p>CellDiffusion builds a cell–cell graph using optimized mutual nearest neighbors across batches, then propagates transcription-derived features through attention-guided diffusion layers. The mechanism aims to weaken poor associations while aligning biologically related cells. Its claimed tolerance of incorrect graph links assumes those links are sparse relative to genuine matches; comparative results are unavailable in the supplied material.</p>
-<a class="source" href="https://x.com/razoralign/status/2113396059926143204">Source: CellDiffusion research post on X</a>
+<h3>RiboBridge explores RNA binder structures—with important evaluation limits</h3>
+<p>RiboBridge separates candidate interface discovery, RNA conformation generation and placement relative to a protein. In the reported evaluation, 20 of 124 held-out protein–RNA complexes reach DockQ ≥ 0.23, but the native interface is used after the fact to select which pocket candidate to score.</p>
+<p>An inverse-design and AlphaFold 3 refolding check reports 8.06% structural self-consistency below 2 Å. No experimental binding validation is supplied, leaving sequence realizability and practical binding performance unresolved.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2113624397047378401">RiboBridge · research summary on X</a></p>
 </article>
 <article>
-<h3>VIPerturb-seq adds enrichment using RNA markers</h3>
-<p>An updated Satija lab preprint with Caleb Lareau introduces RNA-marker enrichment before sequencing. The announcement mentions two updates, but the available excerpt reveals only this one; neither enrichment performance nor the second change is available.</p>
-<a class="source" href="https://x.com/anshulkundaje/status/2113404251640889594">Source: VIPerturb-seq update on X</a>
+<h3>GeoSinkhorn Flow links cellular trajectories to manifold geometry</h3>
+<p>GeoSinkhorn Flow uses conditional flow matching to extend a static single-cell phenoscape into continuous, condition-aware trajectories. Its geometric autoencoder is trained to preserve latent distances consistent with the map’s heat-diffusion geometry, connecting population transitions to the geometry organizing observed cells.</p>
+<p>The approach is relevant to perturbation prediction and virtual-cell modeling, but the supplied thread includes no quantitative evaluation or experimental validation.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2113742881668391248">GeoSinkhorn Flow · thread on X</a></p>
 </article>
-</section>
-
-<section id="discovery">
-<h2>Molecular discovery: what the scores establish</h2>
+</div>
 <article>
-<h3>Nanobody benchmark separates binding prediction from epitope placement</h3>
-<p>A frozen ESM2 model with a small paired prediction module achieves reported sealed-test PR-AUC values of 0.999 for binding and 0.659 for paratopes. Epitope-residue prediction on novel antigens is much weaker: 0.070 against a 0.043 baseline.</p>
-<p>On HER2, a separate structure-derived residue prior improves ranking once the correct domain is known. Sequence-only, structural-prior and competition-informed results need to remain distinct: excellent binding classification does not establish accurate epitope localization.</p>
-<a class="source" href="https://x.com/BiologyAIDaily/status/2113240264034877862">Source: nanobody benchmark digest on X</a>
-</article>
-<article>
-<h3>MADDIE coordinates molecular design and synthesis planning</h3>
-<p>MADDIE uses an orchestrator and specialized agents for hit identification, optimization, synthesis planning and evaluation. Across 50 targets, the digest reports 100 generated candidates per target satisfying the study’s computational property and synthesis-feasibility criteria. Ablations attribute gains to dynamic orchestration and explicit synthesis planning.</p>
-<p>Docking scores, predicted toxicity and proposed routes remain proxies. The provided material does not establish experimental binding, safety or successful synthesis.</p>
-<a class="source" href="https://x.com/BiologyAIDaily/status/2113239410594705735">Source: MADDIE research digest on X</a>
-</article>
-<article>
-<h3>An immune world model distinguishes vaccine priming from tumor recognition</h3>
-<p>A peptide-vaccine framework explicitly separates vaccine-induced priming from recognition of the native tumor target. This prevents better presentation scores from standing in for missing functional-recognition evidence.</p>
-<p>The system combines a mechanistic simulator, an evidence ledger and ranking tests on public dendritic-cell immunopeptidomics. Donor and antigen-source holdouts show different transfer behavior; synthetic controls test implemented dependencies, not therapeutic efficacy. Its five sequential research roles are executed by one principal agent.</p>
-<a class="source" href="https://x.com/BiologyAIDaily/status/2113239689075556573">Source: immune world-model digest on X</a>
-</article>
-<article>
-<h3>Helix Design Studio makes peptide-design trade-offs inspectable</h3>
-<p>This open-source browser tool scores and designs peptides on an assumed alpha-helical scaffold across idealized solvent and membrane-interface environments. It offers interpretable score components, competing-environment objectives and reproducible exports. Implementation checks support computational consistency—not antimicrobial potency, real-membrane behavior or host selectivity.</p>
-<a class="source" href="https://x.com/BiologyAIDaily/status/2113239798517575701">Source: Helix Design Studio digest on X</a>
-</article>
-<article>
-<h3>DEEP extracts mutation-sensitive potentials from structure-model distributions</h3>
-<p>DEEP converts frozen structure-predictor distance distributions into an explicit energy-like statistical potential without fitting experimental stability labels. The digest reports a mean per-assay Spearman correlation of 0.720 across 64 ProteinGym stability assays for DEEP-Boltz.</p>
-<p>A comparison with AlphaFold 2 suggests that ranking native-like conformations and capturing mutation sensitivity are separable learned capabilities. These statistical potentials should not be read as experimentally established physical free energies.</p>
-<a class="source" href="https://x.com/BiologyAIDaily/status/2113239911457526119">Source: DEEP research digest on X</a>
+<h3>Carbon-X discussion turns to harder tests of variant predictions</h3>
+<p>Following the launch debate, Anshul Kundaje argues that common-variant benchmarks should distinguish causal variants from variants tagging them through linkage disequilibrium <strong>for the same trait</strong>. Further replies propose adversarial tests separating functional cues from confounders, audits of generated explanations, and checks that explanations match sequence features disrupted by a variant—potentially using categorical Jacobians.</p>
+<p>These are proposed validation criteria, not demonstrated failures of individual Carbon-X predictions.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2113719393717031398">Anshul Kundaje · evaluation discussion on X</a></p>
 </article>
 </section>
 
 <section id="ai">
-<h2>AI systems, infrastructure &amp; research notices</h2>
+<h2>AI &amp; robotics</h2>
+<div class="grid">
 <article>
-<h3>Carmack flags a robot-control and camera-timing mismatch</h3>
-<p>John Carmack highlights the mismatch between 50 Hz robot joint targets and 60 Hz video collection. He proposes matching robot control rates to video and adding a gen-lock-like trigger to synchronize their phases, while noting that this is not yet a leading problem for most robotics efforts.</p>
-<a class="source" href="https://x.com/ID_AA_Carmack/status/2113328537319166349">Source: John Carmack on X</a>
+<h3>Zeroth-order training critique questions scaling and evidence</h3>
+<p>Lucas Beyer argues that genetic-algorithm and forward-differentiation approaches can deteriorate as intrinsic parameter-space dimensionality grows. He also cautions that a reported language-model loss of 4.2, even for a 30-million-parameter model, is not sufficient evidence of difficult learning. This is a methodological critique, not a new controlled comparison.</p>
+<p class="meta"><a href="https://x.com/giffmana/status/2113522286061924746">Lucas Beyer · post on X</a></p>
 </article>
 <article>
-<h3>Modular announces MAX source availability</h3>
-<p>Chris Lattner shares Modular’s announcement that MAX source is available, framed around AI compute across hardware vendors. The excerpt supplies no repository URL, license terms or implementation details. Source availability alone does not establish an open-source license.</p>
-<a class="source" href="https://x.com/clattner_llvm/status/2113385086607663506">Source: Chris Lattner on X</a>
+<h3>A closer look at hand-crafted pretokenization rules</h3>
+<p>Albert Gu introduces a technical thread about the hand-crafted regular expressions used in frontier-model pretokenizers—an often-overlooked part of the language-model pipeline. The supplied excerpt announces examples but does not include them.</p>
+<p class="meta"><a href="https://x.com/_albertgu/status/2113687798826111283">Albert Gu · thread on X</a> · <a href="https://t.co/CBwnETfjLh">Attached shortened link</a></p>
 </article>
-<ul class="briefs">
-<li><strong>Autonomous-system safety talk.</strong> Stanford AI Lab says Marc Schlichting’s November 15, 2025 PhD defense recording, on generative models for safety in autonomous systems, is now online. The excerpt includes neither a direct recording link nor methodological details. <a href="https://x.com/StanfordAILab/status/2113396418568433832">Announcement</a>.</li>
-<li><strong>DxO publication notice.</strong> Aaron Defazio reposts Mayank Daswani’s announcement that research associated with the sequential-diagnosis system DxO has made the cover of <em>Science</em>. The paper title is truncated and no results or paper URL are provided. <a href="https://x.com/aaron_defazio/status/2113429578282889459">Announcement</a>.</li>
-</ul>
+<article>
+<h3>flex_gemm presents a Quack-based PyTorch epilogue API</h3>
+<p>Tri Dao shares a post about a PTC talk introducing flex_gemm, described as a new PyTorch GEMM epilogue API built on Quack. The excerpt contains no API examples, benchmarks or direct resource link, so the announcement is a tooling pointer rather than evidence of a performance improvement.</p>
+<p class="meta"><a href="https://x.com/tri_dao/status/2113532159801934096">Tri Dao · post on X</a></p>
+</article>
+<article>
+<h3>AI peer-review superiority claim lacks evaluation details</h3>
+<p>A repost of Ethan Mollick describes a study of 124 Harvard social-science papers and claims Opus 4.8 outperformed human expert reviewers. The supplied text is truncated and omits evaluation criteria, statistical results and the study link. The broad superiority claim cannot be assessed from this excerpt.</p>
+<p class="meta"><a href="https://x.com/gen0m1cs/status/2113742838907441415">Peer-review study · repost on X</a></p>
+</article>
+<article>
+<h3>Do robot models mean what they say?</h3>
+<p>Stanford AI Lab shares Marco Pavone’s question about the faithfulness of embodied chain-of-thought in vision-language-action models. The excerpt identifies the research question but ends before methods or findings, so it does not establish whether verbal reasoning faithfully reflects robot decisions.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2113391815747641681">Stanford AI Lab · research pointer on X</a></p>
+</article>
+<article>
+<h3>Stanford announces open robot-autonomy teaching material</h3>
+<p>A Stanford AI Lab repost announces that robot-autonomy teaching material is being opened up. The supplied excerpt is truncated; the material’s exact format, scope and destination URL are unavailable.</p>
+<p class="meta"><a href="https://x.com/StanfordAILab/status/2113391649141449095">Stanford AI Lab · teaching announcement on X</a></p>
+</article>
+</div>
 </section>
 
-<section id="pointers">
-<h2>Research pointers</h2>
-<p class="meta">Short notices with limited supporting detail in the supplied excerpts.</p>
-<ul class="briefs">
-<li><strong>COMPASS:</strong> An announcement describes using Evo2 to expand exploration of prokaryotic noncoding sequence space. Separate Hsu lab and Arc Institute posts describe a preprint combining genome language models and AI agents; their precise relationship to COMPASS and their findings cannot be established from the truncated text. <a href="https://x.com/razoralign/status/2113484731207852036">Research post</a>.</li>
-<li><strong>Chiron3D:</strong> An interpretable deep-learning framework for DNA determinants of chromatin looping. Only a title and truncated resource link are available; architecture, validation and publication status are unspecified. <a href="https://x.com/razoralign/status/2113485813938057543">Research post</a>.</li>
-<li><strong>CELLWHISPER:</strong> A method described as inferring direct cell–cell communication from spatial transcriptomics. The title-only material does not allow assessment of the claimed directness. <a href="https://x.com/razoralign/status/2113367234412441747">Research post</a>.</li>
-<li><strong>“Cellular Learning”:</strong> A research item proposes a mechanism for adaptive genome regulation in cancer. No abstract or results are supplied. <a href="https://x.com/razoralign/status/2113485656748134630">Research post</a>.</li>
-<li><strong>Varformer:</strong> A multimodal transformer trained using population-scale missense variation. The excerpt ends before identifying the prediction task or results; performance and clinical-use claims cannot be assessed. <a href="https://x.com/anshulkundaje/status/2113458442254123194">Announcement</a>.</li>
-<li><strong>BioReason-RNA:</strong> Hosted access is announced for a system that accepts RNA sequences and generates explanations of cellular function. No evaluations or access conditions are provided, and generated explanations are not validated mechanisms. <a href="https://x.com/razoralign/status/2113484910858309822">Announcement</a>.</li>
-<li><strong>m6A review:</strong> <em>Nature Reviews Molecular Cell Biology</em> announces “Molecular functions, cellular responses and pathological implications of the RNA modification N6-methyladenosine.” The supplied material establishes its scope, but contains no findings to summarize. <a href="https://x.com/NatRevMCB/status/2113285229540704601">Review notice</a>.</li>
-</ul>
+<section id="briefs">
+<h2>Research briefs</h2>
+<article>
+<h3>Human Gut Cell Atlas reaches integrated v1</h3>
+<p>A Human Cell Atlas announcement describes an integrated v1 Human Gut Cell Atlas on the HCA Data Portal at approximately one-million-cell scale. The supplied repost does not include donor composition, assays or access details.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2113713836733923787">Atlas announcement · repost on X</a></p>
+</article>
+<article>
+<h3>Engineered retrotransposons for in vivo gene writing</h3>
+<p>A shared <em>Cell</em> paper is titled “In vivo Gene Writing with engineered retrotransposons.” The supplied post offers no details about organisms, delivery, insertion efficiency, specificity or safety; it is a publication pointer, not a performance claim.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2113841753099063628">Cell paper · post on X</a></p>
+</article>
+<article>
+<h3>RAxML-NG2 preprint announced</h3>
+<p>A shared Japanese-language post notes the availability of a RAxML-NG2 preprint. No methodological changes, performance measurements or release details are included in the supplied text.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2113840343498326099">RAxML-NG2 · preprint announcement on X</a></p>
+</article>
 </section>
 
-<section id="languages" class="practice">
-<div class="kicker">Daily reading</div>
+<section class="language-practice" id="languages">
+<div class="eyebrow">Reading in the original language</div>
 <h2>Language practice</h2>
 
-<article lang="de">
-<h3>Deutsch — »Habe mich keine Sekunde gelangweilt« – MW4 ist auf Steam das beste CoD seit 16 Jahren, dabei ist der Großteil noch nicht mal spielbar</h3>
-<p class="meta">GameStar · 20.10.2026 · <a href="https://www.gamestar.de/artikel/call-of-duty-modern-warfare-4-beste-steam-bewertung-seit-jahren,3461475.html">Artikel lesen</a></p>
-<p>Die Story-Kampagne von Call of Duty: Modern Warfare 4 stößt laut GameStar bei den ersten Steam-Spielern auf ungewöhnlich viel Zustimmung. Zum im Artikel genannten Stand vom 20. Oktober waren 89 Prozent von über 3.900 Nutzerbewertungen positiv. Damit erreichte der neue Teil nach Darstellung des Berichts die beste Steam-Bewertung der Reihe seit dem ersten Black Ops aus dem Jahr 2010. Besonders gelobt werden das Erzähltempo und die abwechslungsreiche Inszenierung.</p>
-<p>Entscheidend ist allerdings der Zeitpunkt dieser Momentaufnahme: Vorbesteller konnten die Kampagne bereits seit dem 16. Oktober spielen, während der Großteil des Mehrspielerangebots zum Berichtszeitpunkt noch nicht verfügbar war. Die frühen Bewertungen sind deshalb vor allem ein Stimmungsbild zum Einzelspielermodus und noch kein belastbares Urteil über das Gesamtpaket. Der Vergleich mit den deutlich schwächer bewerteten Vorgängern macht dennoch verständlich, weshalb dieser Auftakt innerhalb der langjährigen Shooter-Reihe auffällt.</p>
-<p><strong>Warum lesen:</strong> Der Artikel verbindet einen Einblick in die aktuelle Spielekultur mit der Frage, wie aussagekräftig frühe Nutzerbewertungen vor der vollständigen Veröffentlichung eines Spiels sind.</p>
+<article class="reading" lang="de">
+<h3>Deutsch — Studie: Hitzesommer 2026 in Europa bisher tödlichster</h3>
+<p class="meta">Deutsche Welle · 23.10.2026 · <a href="https://www.dw.com/de/klimawandel-hitzesommer-2026-studie-temperaturen-toedlichster/a-79741566">Artikel lesen</a></p>
+<p>Nach einer britischen Modellstudie sind im Sommer 2026 in europäischen Städten schätzungsweise 50.000 Menschen durch Hitze gestorben. Die Forschenden führen 65 Prozent dieser Todesfälle auf den Klimawandel zurück. Ihre Untersuchung umfasst 854 urbane Gebiete in 30 Ländern, in denen rund 40 Prozent der Bevölkerung dieser Länder leben. Es handelt sich damit um eine modellierte Schätzung für die untersuchten Regionen, nicht um eine vollständige Zählung aller europäischen Hitzetoten.</p>
+<p>Besonders schwer wog die Hitzephase zwischen dem 17. Juni und dem 1. Juli: Auf sie entfiel laut Studie fast ein Drittel der geschätzten Todesfälle. Der Artikel verweist außerdem auf eine separate Schätzung des Robert-Koch-Instituts von rund 16.000 Hitzetoten in Deutschland. Auch jüngere Menschen waren betroffen; für die untersuchten europäischen Städte gehen die britischen Forschenden von etwa 6000 Todesfällen bei Menschen unter 65 Jahren aus.</p>
+<p>Neben den gesundheitlichen Folgen thematisiert der Beitrag den Anpassungsbedarf der Städte. Mehr Grünflächen, weniger Umweltverschmutzung und eine verlässliche medizinische Versorgung gehören zu den genannten Maßnahmen. Damit verbindet der Text die wissenschaftlichen Ergebnisse mit der Frage, wie sich Menschen im Alltag besser vor zunehmender Hitze schützen lassen.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag erklärt anhand europäischer und deutscher Befunde, weshalb Hitzevorsorge eine konkrete Aufgabe für Städte und das Gesundheitswesen ist.</p>
 </article>
 
-<article lang="fr">
-<h3>Français — Un tableau de Monet vendu 50 millions d’euros à Paris, record pour des enchères d’art en France</h3>
-<p class="meta">Le Monde · 22 octobre 2026 · <a href="https://www.lemonde.fr/culture/article/2026/10/22/un-tableau-de-monet-vendu-50-millions-d-euros-a-paris-record-pour-des-encheres-d-art-en-france_6798663_3246.html">https://www.lemonde.fr/culture/article/2026/10/22/un-tableau-de-monet-vendu-50-millions-d-euros-a-paris-record-pour-des-encheres-d-art-en-france_6798663_3246.html</a></p>
-<p>Une toile de Claude Monet longtemps restée à l’abri des regards vient de battre un record sur le marché français. Vendue chez Sotheby’s à Paris, <em>Iris</em> a atteint 50 millions d’euros, frais inclus : selon la maison de vente, aucune œuvre d’art n’avait obtenu un tel prix aux enchères en France. Conservée dans la famille Schlumberger et connue seulement par une photographie en noir et blanc, cette peinture tardive était présentée au public pour la première fois.</p>
-<p>L’article évoque aussi un autre destin possible pour les collections privées : trois Cézanne classés « trésors nationaux » ont été retirés des enchères, alors que la ville d’Aix-en-Provence envisage leur acquisition pour le Musée Granet avec le soutien du ministère de la culture. Ce bref compte rendu rapproche ainsi les prix spectaculaires du marché et les démarches visant à faire entrer des œuvres dans un musée.</p>
-<p><strong>Pourquoi lire :</strong> Une lecture courte pour découvrir une œuvre rarement vue et se familiariser avec le vocabulaire du marché de l’art et du patrimoine.</p>
+<article class="reading" lang="fr">
+<h3>Français — Des papyrus aux manuscrits, Odysseum ouvre les textes anciens à tous</h3>
+<p class="meta">ActuaLitté · 22 octobre 2026 · <a href="https://actualitte.com/article/134815/ressources/des-papyrus-aux-manuscrits-odysseum-ouvre-les-textes-anciens-a-tous">https://actualitte.com/article/134815/ressources/des-papyrus-aux-manuscrits-odysseum-ouvre-les-textes-anciens-a-tous</a></p>
+<p>ActuaLitté présente la nouvelle version d’Odysseum, une plateforme qui rapproche la recherche sur les textes anciens de l’enseignement et du grand public. Initialement destiné surtout aux professeurs de latin et de grec, le site élargit son horizon aux cultures écrites de l’Antiquité à la Renaissance, en Europe, en Méditerranée et au Proche-Orient. Porté par l’ENS-PSL et Biblissima, en partenariat avec le ministère de l’Éducation nationale, il rassemble des dossiers, des entretiens et des ressources multimédias consacrés aussi bien aux œuvres qu’à leurs supports et à leur transmission.</p>
+<p>L’article donne deux exemples particulièrement parlants. À Herculanum, les rayons X et l’intelligence artificielle aident à retrouver les traces d’encre sur des rouleaux carbonisés, sans devoir les dérouler : les spécialistes restent toutefois indispensables pour interpréter ce qui apparaît. Un autre projet prépare une édition numérique d’un manuscrit du <em>Roman de Renart</em>, dans laquelle les enluminures guideront l’entrée dans le récit. Ces démarches montrent que l’étude des textes ne se limite pas aux mots : la matière, les images et les conditions de circulation éclairent elles aussi leur sens.</p>
+<p>La plateforme est présentée comme gratuite et consultable sans inscription, avec des ressources classées notamment par période, langue et niveau. Au-delà des outils pédagogiques, l’enjeu est de rendre accessibles des sociétés parfois très éloignées de la nôtre sans gommer leurs différences. Les récits antiques peuvent ainsi nourrir des interrogations contemporaines, à condition de conserver leur contexte historique.</p>
+<p><strong>Pourquoi lire :</strong> Une porte d’entrée concrète dans les liens entre patrimoine écrit, recherche numérique et transmission des savoirs.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>adjudication</strong> — attribution d’un bien à l’acheteur retenu à l’issue d’une vente aux enchères.</li>
-<li><strong>frais inclus</strong> — indication que le montant annoncé comprend les frais ajoutés au prix de vente.</li>
-<li><strong>trésor national</strong> — qualification juridique protégeant un bien culturel d’un intérêt majeur pour le patrimoine français, notamment en limitant sa sortie du territoire.</li>
+<li><strong>papyrologue</strong> — spécialiste qui étudie et interprète les textes conservés sur papyrus.</li>
+<li><strong>enluminure</strong> — décoration ou illustration peinte dans un manuscrit, notamment médiéval.</li>
+<li><strong>édition numérique</strong> — présentation scientifique d’un texte sur un support numérique, pouvant associer images, commentaires et outils de consultation.</li>
 </ul>
 </article>
 
-<article lang="ja">
-<h3>日本語 — 壁世界にコロニーを築き上げろ！ シリーズ最新作「Wall World Strategy」，発売日を11月11日に決定。おなじみの多脚メカもしっかり登場</h3>
-<p class="meta">4Gamer · 2026-10-23 · <a href="https://www.4gamer.net/games/052/G105259/20261023001/">記事を読む</a></p>
-<p>Alawarは、PC向け新作「Wall World Strategy」を11月11日に発売すると発表した。「Wall World」シリーズの世界を舞台にしたコロニー運営シミュレーションで、巨大な壁面に人々の生活拠点を築いていく。記事によると、Steamの対応言語欄には日本語のインタフェースと字幕が記載されている。</p>
-<p>プレイヤーは住民や資源を管理しながら、敵の襲撃にも備える。単に拠点を広げるだけでなく、暮らしを維持する運営と防衛の両方が求められる設定だ。シリーズでおなじみの多脚メカも登場し、壁を生活の場にする独特な世界が、今作ではコロニー運営の舞台となる。</p>
-<p><strong>読む理由：</strong> 壁面に集落を築くという珍しいゲームの設定を通して、運営や資源管理に関する日本語に触れられる。</p>
+<article class="reading" lang="ja">
+<h3>日本語 — ゲームエンジン「GameMaker」の新ランタイム「GMRT」、商用利用無料化へ。来年1月1日から</h3>
+<p class="meta">AUTOMATON · 2026-10-24 · <a href="https://automaton-media.com/articles/newsjp/20261024-475332/">記事を読む</a></p>
+<p>YoYo Gamesは、ゲーム開発ツール「GameMaker」の次世代ランタイム「GMRT」を、2027年1月1日から商用利用でも無料にすると発表した。PC・モバイル向けのゲームを制作・配信する場合が対象で、家庭用ゲーム機向けの配信には引き続きエンタープライズプランへの加入が必要となる。すべての用途が一律に無料になるわけではない点が重要だ。</p>
+<p>GameMakerは『UNDERTALE』や『Katana ZERO』などにも使われている、特に2Dゲーム開発で知られるツールだ。命令を視覚的に組み合わせる機能があり、プログラミングに不慣れな人も制作に取り組める。開発中のGMRTでは、従来のランタイムに比べた性能向上や新しいツールとの互換性強化、3D機能の拡張が図られている。記事は無料化の条件に加え、より多くのクリエイターに開発環境を届けようとする運営側の方針も紹介している。</p>
+<p><strong>読む理由：</strong> インディーゲーム制作を支える技術と利用条件の変化を、具体的な作品名とともに日本語で読める。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>コロニー運営（ころにーうんえい）</strong> — 集落の住民や施設、物資を管理し、生活を維持・発展させること。</li>
-<li><strong>資源管理（しげんかんり）</strong> — 利用できる材料や物資の量を把握し、用途に応じて配分すること。</li>
-<li><strong>多脚メカ（たきゃくめか）</strong> — 複数の脚を備え、その脚で移動する機械やロボット。</li>
+<li><strong>商用利用（しょうようりよう）</strong> — 商品の販売など、事業や収益につながる目的で使うこと。</li>
+<li><strong>互換性（ごかんせい）</strong> — 異なるソフトウェアや仕組みの間で、データや機能を問題なく使える性質。</li>
+<li><strong>ランタイム</strong> — 制作したゲームやプログラムを実際に動かすための実行基盤。</li>
 </ul>
 </article>
 
-<article lang="zh">
-<h3>中文 — 用动作肉鸽，写一卷上古时代的洪荒史诗｜《定海》试玩体验</h3>
-<p class="meta">机核 · 2026-10-23 · <a href="https://www.gcores.com/articles/221358">https://www.gcores.com/articles/221358</a></p>
-<p>《定海》如何把《山海经》变成一款反复闯关的动作游戏？这篇试玩体验从一对特殊搭档讲起：玄龙占据了益的身体，益则化为鸟形，与他一起寻找失踪的大禹。作者结合治水传说及古籍，讨论游戏如何改写人物关系，并把异兽、山川与神话碎片转化为关卡和收集系统，而不是仅仅借用几个熟悉的名字。</p>
-<p>玩法部分围绕双武器衔接与法宝搭配展开。玩家可以在连招中发动“易武攻击”，改变距离和进攻节奏，再利用每轮获得的法宝强化不同打法。据点、天赋树与灵兽系统则提供跨局积累，让失败后的尝试也能留下进度。文章同时指出，新手阶段部分关键天赋开放较晚，可能让操作显得迟钝；大型敌人的身体也会遮挡视角，需要结合声音和地面提示判断攻击。</p>
-<p>作者对试玩版的动作手感和神话改编持肯定态度，但仍期待正式版进一步丰富长期重复游玩的体验。文章最值得思考的问题是：一只神话异兽，能否同时拥有鲜明的战斗机制、影响玩法的能力，以及值得阅读的身世故事？</p>
-<p><strong>为什么读：</strong> 这篇文章把中国神话解读与具体的游戏设计分析结合起来，适合练习阅读文化评论和动作游戏评测。</p>
+<article class="reading" lang="zh">
+<h3>中文 — 国大医学院设乳癌基因组学教授职位 研究更个人化筛查与预防</h3>
+<p class="meta">联合早报 · 2026-10-23 · <a href="https://www.zaobao.com.sg/news/singapore/story20261023-9885565">https://www.zaobao.com.sg/news/singapore/story20261023-9885565</a></p>
+<p>乳癌筛查应该只看年龄，还是也应考虑每个人的遗传与身体状况？新加坡国立大学杨潞龄医学院新设“陈钻心乳腺癌基因组学教授职位”，由乳腺外科医生哈特曼出任首任教授，推动结合基因、乳腺影像及临床资料的研究，为更个人化的筛查与预防提供依据。</p>
+<p>研究将把BRCA1、BRCA2等基因的遗传性致病变异，与家族病史、乳房组织密度等因素一并考量，并探索利用人工智能分析乳腺影像。目标是更准确地区分风险：哪些女性可能需要提早或更频繁地筛查，哪些则可能在安全前提下降低筛查频率。这些属于研究方向，并不意味着新的筛查方案已经全面实施。</p>
+<p>报道也指出，现有乳癌风险预测证据大多来自欧洲群体，亚洲女性需要更具代表性的研究。新加坡的多元人口与临床研究基础，有望帮助填补这一空白，让精准医疗不只依赖其他地区的数据。</p>
+<p><strong>为什么读：</strong> 这篇报道从新加坡的医学研究切入，说明基因与人工智能如何参与疾病预防，也带出亚洲人群在医学证据中的代表性问题。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>肉鸽 (ròu gē)</strong> — 玩家对 Roguelike 类游戏的俗称，通常强调反复挑战、随机要素与每轮不同的玩法组合。</li>
-<li><strong>构筑 (gòu zhù)</strong> — 通过搭配武器、技能、装备及强化效果，形成有协同作用的战斗方案。</li>
-<li><strong>无敌帧 (wú dí zhēn)</strong> — 翻滚或闪避等动作中，角色短暂免受伤害的判定时段。</li>
+<li><strong>基因组学 (jīyīnzǔxué)</strong> — 研究生物整套遗传信息及其功能、相互关系的学科。</li>
+<li><strong>致病变异 (zhìbìng biànyì)</strong> — 能够导致疾病或增加患病风险的遗传信息变化。</li>
+<li><strong>精准医疗 (jīngzhǔn yīliáo)</strong> — 根据个人遗传特征、临床资料等差异，制定更有针对性的预防、诊断或治疗方案。</li>
 </ul>
 </article>
 </section>
-
-<footer>
-<p><strong>Source notes.</strong> Research coverage is based on the supplied X excerpts and digests; linked papers, repositories and recordings were not independently inspected. Several notices are truncated or title-only, as noted alongside them. Links lead to the supplied source posts or articles.</p>
-</footer>
 </main>
-
-
-
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied social-media excerpts and summaries; linked papers and resources were not independently inspected. Several reposts are truncated, and shortened-link destinations were not supplied. Item-level caveats distinguish reported results from proposals and publication pointers.</p>
+</footer>
 </body>
 </html>

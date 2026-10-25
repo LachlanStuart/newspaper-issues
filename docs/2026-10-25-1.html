@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202b32;--muted:#5d6870;--accent:#175c70;--line:#d8dedc;--paper:#fffefb}
+*{box-sizing:border-box}
+body{margin:0;background:#f0f2ef;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1060px;margin:32px auto;padding:38px 48px;background:var(--paper)}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:18px 0 22px}
+h1{font-size:4rem;line-height:1;margin:0 0 14px}
+.date,.meta,nav,footer{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.86rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px;font-size:.9rem}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.75rem;line-height:1.25;margin:36px 0 20px;padding-bottom:10px;border-bottom:1px solid var(--line)}
+h3{font-size:1.17rem;line-height:1.4;margin:0 0 8px}
+p{margin:8px 0 14px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px}
+article{min-width:0}
+article .meta{margin-bottom:7px}
+.practice{margin-top:42px;border-top:4px solid var(--ink)}
+.practice article{max-width:80ch;margin:26px auto;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.practice h3{font-size:1.35rem}
+ul{padding-left:24px}
+footer{border-top:1px solid var(--line);margin-top:30px;padding-top:16px;font-size:.8rem;color:var(--muted)}
+@media(max-width:700px){main{margin:0;padding:24px 20px}.grid{grid-template-columns:1fr}h1{font-size:3.3rem}}
+@media print{body{background:white}main{margin:0;max-width:none;padding:0}article{break-inside:avoid}nav{display:none}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-10-25">Sunday, October 25, 2026</time></div>
+<nav aria-label="Sections">
+<a href="#ai">AI research &amp; safety</a>
+<a href="#biology">Biological modeling &amp; design</a>
+<a href="#genomics">Genomics &amp; medicine</a>
+<a href="#ideas">Ideas &amp; practice</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+
+<section id="ai">
+<h2>AI research &amp; safety</h2>
+<div class="grid">
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/ciZ4YxZeY4M89SLT2/mech-interp-is-a-la-croix-of-actual-safety-research">Mech Interp is a La Croix of Actual Safety Research</a></h3>
+<p>A critique of mechanistic interpretability argues for prioritizing projects with verifiable practical outcomes—not merely surprising discoveries about models.</p>
+</article>
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/2wbW2WY3bP9Jzn4R5/control-monitors-need-alignment-assessments-too">Control monitors need alignment assessments too</a></h3>
+<p>Testing whether an AI monitor can detect problems is not enough, this essay argues. Monitors also need alignment assessments, particularly when their failures could correlate with those of the agents they supervise.</p>
+</article>
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/5tyzgTLnNn8qB9rev/shadow-computation-threatens-cot-monitorability">Shadow Computation Threatens CoT Monitorability</a></h3>
+<p>The post distinguishes deeper computation within individual tokens from latent feedback across tokens, arguing that the latter poses a particular challenge for monitoring models through their written chains of thought.</p>
+</article>
+<article>
+<div class="meta">LessWrong · Preliminary research</div>
+<h3><a href="https://www.lesswrong.com/posts/7cmQGtJu4nXsi6pPu/an-attempt-at-top-down-interpretability">An Attempt at Top-down Interpretability</a></h3>
+<p>Exploratory experiments on Gemma-4-31B-base suggest that a small, stable subspace of the residual stream carries contextual token information crucial to predictions. The findings are preliminary; missing mathematical expressions in the supplied article limit this account to its readable prose.</p>
+</article>
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/sEfY7bRjQYsu2A8ux/lm-self-models-are-built-from-indirect-sources">LM self-models are built from indirect sources</a></h3>
+<p>Language-model self-reports may draw heavily on training targets and general knowledge about models rather than extensive direct self-observation. The essay considers what this means for persona drift, AI psychology and the reliability of models’ claims about themselves.</p>
+</article>
+<article>
+<div class="meta">科学空间 / Spaces AC · Feed excerpt</div>
+<h3><a href="https://spaces.ac.cn/archives/11980">Making Softmax Attention Continuous</a></h3>
+<p>Inspired by <em>Continuum Attention</em>, this article introduces extending attention from a weighted mixture of finitely many vectors to a continuous setting. The available excerpt explains the direction, but not its mathematical construction or results.</p>
+</article>
+<article>
+<div class="meta">X · Songlin Yang relaying IFM AI</div>
+<h3><a href="https://x.com/SonglinYang4/status/2114210095190184122">K2 Horizon announces open training data and generation pipelines</a></h3>
+<p>An announcement describes opening K2 Horizon’s pretraining data and post-training data-generation pipelines—a potentially useful release for reproducibility. The truncated excerpt supplies no dataset URL, licensing terms or pipeline specifications.</p>
+</article>
+<article>
+<div class="meta">X · Aaron Defazio relaying Daniel Roy</div>
+<h3><a href="https://x.com/aaron_defazio/status/2114064956459229533">A pointer to statistical learning theory and probability research</a></h3>
+<p>The post shares a <a href="https://t.co/6CI1ZvNnPX">linked research resource</a>, without identifying its theorem, assumptions or implications. Treat this as a reading pointer rather than a reported finding.</p>
+</article>
+</div>
+</section>
+
+<section id="biology">
+<h2>Biological modeling &amp; design</h2>
+<p class="meta">Results below are reported in supplied research posts. Computational performance does not establish laboratory efficacy.</p>
+<div class="grid">
+<article>
+<div class="meta">X · Biology AI Daily</div>
+<h3><a href="https://x.com/BiologyAIDaily/status/2114000237992054902">Astrolabe coordinates multi-state biomolecular design</a></h3>
+<p>Astrolabe alternates all-atom structure prediction with sequence redesign, coordinating shared sequences across partners or states and correcting intermediate geometries. Applications include multi-target binders, ligand-responsive switches, cyclic peptides and nucleic-acid aptamers.</p>
+<p>The supplied account reports 20.3% joint computational success for dual-target minibinders, with aggregation penalties improving the balance between confidence and predicted developability. These are computational benchmarks, not laboratory demonstrations of binding or switching.</p>
+</article>
+<article>
+<div class="meta">X · Biology AI Daily</div>
+<h3><a href="https://x.com/BiologyAIDaily/status/2114000116147531940">Projected gradient descent broadens binder-design exploration</a></h3>
+<p>A ten-target study optimizes amino-acid probabilities directly, allowing previously suppressed residues to re-enter the search. It reports better top-decile ensemble interface confidence on six targets and greater structural diversity on all ten, without significant degradation on the stated confidence metrics.</p>
+<p>A shorter-run screening policy raises predicted hits per GPU-hour by 29% relative to default longer projected-gradient-descent runs. Experimental binding validation is not described.</p>
+</article>
+<article>
+<div class="meta">X · Biology AI Daily</div>
+<h3><a href="https://x.com/BiologyAIDaily/status/2114000014586663261">UnibindMD adds molecular-dynamics checks to peptide design</a></h3>
+<p>The workflow combines generative design with structural confidence, predicted affinity and developability, and explicit-solvent molecular dynamics. An Andes-virus-related demonstration reports three selected complexes remaining bound during 100-nanosecond simulations.</p>
+<p>A planned independent Boltz-2 structure check was not completed. Simulation stability does not establish experimental binding, antiviral activity or safety; no wet-lab validation is described.</p>
+</article>
+<article>
+<div class="meta">X · Biology AI Daily</div>
+<h3><a href="https://x.com/BiologyAIDaily/status/2113630404884508912">Trion-1 brings protein sequence, structure and language into one model</a></h3>
+<p>A Qwen3-based architecture adds amino-acid and discretized backbone tokens to support folding, inverse folding, biological descriptions and text-conditioned design. Fully non-causal masked diffusion reportedly outperforms block-diffusion and autoregressive variants on structure modeling.</p>
+<p>The summary reports a single-sample TMaa of 0.86 on a homology-controlled PDB date split. Specialized sequence–text models still lead on several design metrics.</p>
+</article>
+<article>
+<div class="meta">X · Genetics Society of America</div>
+<h3><a href="https://x.com/gen0m1cs/status/2114107694185697712">Deep learning as a genetic simulation model</a></h3>
+<p>A <em>G3</em> study highlighted by the Genetics Society of America uses deep learning for genetic simulation. The available excerpt cuts off before explaining the trait-architecture findings and provides neither a paper link nor quantitative results.</p>
+</article>
+</div>
+</section>
+
+<section id="genomics">
+<h2>Genomics &amp; medicine</h2>
+<div class="grid">
+<article>
+<div class="meta">X · @razoralign</div>
+<h3><a href="https://x.com/razoralign/status/2114164640859168953">RFhap uses multi-k-mer evidence for long-read phasing</a></h3>
+<p>RFhap combines parental k-mers of multiple lengths with a random forest to classify offspring long reads as maternal, paternal or unknown without alignment. Hifiasm then assembles the partitions. No quantitative accuracy or assembly comparisons are supplied.</p>
+</article>
+<article>
+<div class="meta">X · @razoralign</div>
+<h3><a href="https://x.com/razoralign/status/2114164942077366539">RhizAeon proposes trajectory-based recombination detection</a></h3>
+<p>The method treats recombination detection as trajectory deconvolution across sequence representations, separating lineage-specific rate variation, trimming mosaic tracts and refining candidate breakpoints with statistical and likelihood tests. The supplied thread includes no benchmarks to assess comparative accuracy or scalability.</p>
+</article>
+<article>
+<div class="meta">X · Shared by Anshul Kundaje</div>
+<h3><a href="https://x.com/anshulkundaje/status/2114063200262279351">Torino learns RNA-processing events from RNA-seq coverage</a></h3>
+<p>An announcement introduces annotation-independent isoform discovery directly from RNA-seq coverage. The truncated excerpt supplies no implementation details, benchmarking or validation results.</p>
+</article>
+<article>
+<div class="meta">X · @razoralign</div>
+<h3><a href="https://x.com/razoralign/status/2114015928593891758">Somalier update targets contamination detection</a></h3>
+<p>A release announcement reports improved contamination detection in the relatedness and genomic quality-control tool. The supplied excerpt does not identify the version or quantify the improvement.</p>
+</article>
+<article>
+<div class="meta">X · @razoralign</div>
+<h3><a href="https://x.com/razoralign/status/2113986537042149819">An atlas of carbon-response states in <em>E. coli</em></a></h3>
+<p>A shared research title announces a systems-level atlas of carbon-response transcriptional states, relevant to environmental gene regulation and metabolic-state modeling. Experimental scope and findings are unavailable in the supplied post.</p>
+</article>
+<article>
+<div class="meta">X · @razoralign</div>
+<h3><a href="https://x.com/razoralign/status/2113986515001036835">Lyme disease GWAS reports five associated loci</a></h3>
+<p>A study title reports five Lyme-disease-associated loci and a connection to post-infectious diseases. Without the loci, cohort, effect sizes or explanation of that connection, the excerpt supports no causal or clinical interpretation.</p>
+</article>
+<article>
+<div class="meta">X · Cell Press announcement shared by Anshul Kundaje</div>
+<h3><a href="https://x.com/anshulkundaje/status/2114120927336423456">Review surveys AI frontiers in single-cell genomics</a></h3>
+<p>A review by Christina S. Leslie, Sneha Mitra and Jiaxin Li examines emerging AI frontiers in single-cell genomics. Only its announcement is available here, not its recommendations or conclusions.</p>
+</article>
+<article>
+<div class="meta">X · ESMO26 conference summary</div>
+<h3><a href="https://x.com/razoralign/status/2113986598056628348">POTOMAC subgroup report highlights fewer high-risk events</a></h3>
+<p>A conference post reports high-risk events of 13% versus 20% with durvalumab plus BCG in the papillary-only high-risk non-muscle-invasive bladder-cancer subgroup of POTOMAC.</p>
+<p>Follow-up, comparator details, confidence intervals and subgroup-analysis status are absent. This is a preliminary conference-summary signal, not sufficient evidence for a treatment conclusion.</p>
+</article>
+</div>
+</section>
+
+<section id="ideas">
+<h2>Ideas &amp; practice</h2>
+<div class="grid">
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/ybhJbJK3XTXNwyBy5/relevance-realization-as-human-comparative-advantage">Relevance Realization as Human Comparative Advantage</a></h3>
+<p>Identifying what matters may remain a human comparative advantage in collaboration with AI. This essay proposes broad reading as one way to cultivate that judgment.</p>
+</article>
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/J7kggmxsR7urePWJt/free-speech-is-the-wrong-problem">Free Speech Is The Wrong Problem</a></h3>
+<p>Social-media dysfunction is reframed as a problem of information flow, amplification and false consensus, rather than simply a choice between more and less speech moderation.</p>
+</article>
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/pYLdLCdu4Xh73LiWv/epistemic-mapping-101-what-to-ask-in-order-to-understand-how">Epistemic mapping 101: understanding how others think</a></h3>
+<p>A framework for comparing research traditions asks about their standards of justification, cognitive tools, intellectual preferences and ways of transferring knowledge.</p>
+</article>
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/ZiCvwLKreShtXuyiB/slower-animated-diagrams">Slower Animated Diagrams</a></h3>
+<p>A practical recommendation for clearer technical explanations: keep each important stage of an explanatory animation clearly visible for roughly one to two seconds.</p>
+</article>
+<article>
+<div class="meta">LessWrong · October 24–25</div>
+<h3><a href="https://www.lesswrong.com/posts/JFYvJqMaLw9nhfrur/fermi-poker">Fermi Poker</a></h3>
+<p>Rules and hosting guidance for a non-cash, poker-style estimation game designed to practice calibration, Bayesian updating and perspective taking.</p>
+</article>
+</div>
+</section>
+
+<section class="practice" id="languages">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Weimer und Google fördern Projekt gegen KI-Fälschungen</h3>
+<p class="meta">Deutschlandfunk Kultur · 24.10.2026 · <a href="https://www.deutschlandfunkkultur.de/weimer-und-google-foerdern-projekt-gegen-ki-faelschungen-102.html">Zum Artikel</a></p>
+<p>Wie lässt sich die Glaubwürdigkeit historischer Quellen im Zeitalter künstlicher Intelligenz sichern? Eine von Kulturstaatsminister Wolfram Weimer und Google.org unterstützte Initiative will die Echtheit von Archivmaterial technisch überprüfbar machen. Dafür sollen digitale Fingerabdrücke, Zeitstempel und Signaturen der verantwortlichen Institutionen eingesetzt werden.</p>
+<p>Anlass sind Warnungen von NS-Gedenkstätten: Nicht nur könnten künstlich erzeugte Dokumente als authentisch gelten; auch echte Zeugnisse könnten unter dem Vorwurf der KI-Fälschung ihre Glaubwürdigkeit verlieren. Die kurze Meldung stellt damit ein Problem vor, das technische Prüfverfahren unmittelbar mit historischer Erinnerung verbindet.</p>
+<p><strong>Warum lesen:</strong> Die Meldung zeigt an einem konkreten deutschen Förderprojekt, warum KI-Fälschungen auch für Archive und die Erinnerung an den Nationalsozialismus eine Herausforderung sind.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Colère sociale en France: dans le prolongement du mouvement étudiant, les «universités populaires» fleurissent</h3>
+<p class="meta">RFI · 23 octobre 2026 · <a href="https://www.rfi.fr/fr/france/20261023-col%C3%A8re-sociale-en-france-dans-le-prolongement-du-mouvement-%C3%A9tudiant-les-universit%C3%A9s-populaires-fleurissent">Lire le reportage</a></p>
+<p>À l’École normale supérieure, rue d’Ulm à Paris, des étudiants mobilisés veulent faire de l’occupation du campus autre chose qu’un arrêt des cours. Leur « université populaire » propose des ateliers, des lectures critiques et des débats sur le discours politique, le financement de la recherche ou le climat. Chacun peut suggérer une activité dans un document partagé : l’objectif est de rendre les savoirs plus accessibles et de remettre en question la hiérarchie habituelle entre enseignants et apprenants. Le reportage décrit une initiative qui s’étend également à d’autres campus franciliens.</p>
+<p>Cette volonté de partage prend aussi une forme concrète : des normaliens, épaulés par des étudiants de Sciences Po, organisent du soutien scolaire pour les lycéens. Ils proposent une aide conforme aux programmes officiels, notamment en français, en mathématiques et en physique-chimie, sans prétendre remplacer les professeurs. Pour atteindre les élèves qui ne peuvent pas facilement se déplacer jusqu’à Paris, le collectif cherche des salles en banlieue avec l’aide des syndicats.</p>
+<p>Mais cette expérimentation ne fait pas l’unanimité. Une étudiante souligne les difficultés des candidats à l’agrégation privés de cours, l’isolement de certains nouveaux arrivants et les problèmes d’accessibilité des bâtiments bloqués. Elle interroge aussi la représentativité des assemblées générales. De son côté, la direction exige le respect des règles de l’établissement et la réouverture complète du site. Le texte met ainsi en regard l’enthousiasme pour une autre manière d’apprendre et les tensions provoquées par les moyens de mobilisation choisis.</p>
+<p><strong>Pourquoi lire :</strong> Un reportage concret pour comprendre les débats français sur le partage des savoirs, la contestation étudiante et la continuité des études.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>université populaire</strong> — espace de transmission des savoirs ouvert à un large public, en dehors des cursus universitaires habituels.</li>
+<li><strong>horizontalité</strong> — mode d’organisation qui cherche à limiter les hiérarchies et à favoriser une participation égalitaire.</li>
+<li><strong>agrégatif</strong> — étudiant qui prépare l’agrégation, un concours de recrutement d’enseignants.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — B級感がたまらない？　映画「ストリートファイター」の魅力と原作ゲームの歴史、ゲーマーマンガ家が熱弁</h3>
+<p class="meta">ITmedia NEWS · 2026-10-25 · <a href="https://www.itmedia.co.jp/news/article/2610/25/2000002559/">記事を読む</a></p>
+<p>漫画家のサダタローさんが、映画「ストリートファイター／ザ・ムービー」の感想とともに、原作ゲームの歩みを振り返る。1987年の初代、対戦格闘ゲームの人気を広げた「ストリートファイターII」、初心者にも扱いやすい「モダン操作」を採用した「ストリートファイター6」へと、シリーズが遊び手を増やしてきた背景を紹介している。</p>
+<p>映画については、物語のまとまりには難があるとしながらも、筆者の満足度は高いという。原作の個性を生かしたキャラクター描写、ゲームを思わせるアクション、1990年代のアメリカ映画風の大げさで愉快な雰囲気を評価する。完成度だけでは測れない面白さや、ゲームを愛する作り手による実写化の魅力を語る読み物だ。</p>
+<p><strong>読む理由：</strong> 日本のゲーム文化の変遷に触れながら、作品の欠点と魅力を併せて伝えるレビューの表現を学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>移植（いしょく）</strong> — ゲームを別の機種や動作環境でも遊べるように作り直すこと。</li>
+<li><strong>実写映画化（じっしゃえいがか）</strong> — ゲームや漫画などを、実際の俳優や風景を撮影する映画にすること。</li>
+<li><strong>再現度（さいげんど）</strong> — 元の作品の見た目や動き、特徴などを、どれほど忠実に表しているかという度合い。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 中国居民用电近十年首现负增长 AI和电动车用电猛增</h3>
+<p class="meta">DW 中文 · 2026-10-24 · <a href="https://www.dw.com/zh/中国居民用电近十年首现负增长-ai和电动车用电猛增/a-79749795">https://www.dw.com/zh/中国居民用电近十年首现负增长-ai和电动车用电猛增/a-79749795</a></p>
+<p>居民用电减少，是否意味着整体电力需求也在下降？这篇报道引用中国国家能源局的数据指出，2026年前三季度，全社会用电量同比增长3.9%，城乡居民生活用电量却下降0.3%，成为近十年来同期首次负增长。报道援引的分析将居民用电下降主要归因于天气：8、9月台风和强降雨增多，部分地区的空调制冷需求随之减少。</p>
+<p>与此同时，电动车和数字产业的用电需求呈现另一番景象。报道显示，前三季度充换电服务业和互联网数据服务的用电量分别同比增长55.4%和41.6%，高技术及装备制造业也保持增长。文章把家庭生活、工业生产与服务业的数据放在一起比较，说明居民用电的短期波动不能简单代表整体趋势，也展示了新兴产业如何改变电力消费结构。</p>
+<p><strong>为什么读：</strong> 从空调、电动车到数据服务，这篇报道用具体生活与产业场景串起能源统计，适合练习阅读中文经济新闻中的数据和因果分析。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>同比增长 (tóngbǐ zēngzhǎng)</strong> — 与上一年相同时间段相比的增长，用于减少季节差异对比较的影响。</li>
+<li><strong>充换电服务 (chōng huàn diàn fúwù)</strong> — 为电动车充电或更换动力电池的服务。</li>
+<li><strong>高技术及装备制造业 (gāo jìshù jí zhuāngbèi zhìzào yè)</strong> — 涵盖技术密集型产品以及机械、设备等生产活动的制造业领域。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> No new reportable items were supplied by Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg. This edition uses only the supplied source reports; linked papers and shortened URLs were not independently checked. Several social-media announcements were incomplete, with limitations noted alongside the relevant items.</p>
+</footer>
+</main>
+</body>
+</html>

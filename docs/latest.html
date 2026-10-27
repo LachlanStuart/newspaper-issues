@@ -5,194 +5,198 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root { color-scheme: light; --ink:#242822; --muted:#62675e; --line:#d7d9cf; --accent:#315c50; }
-* { box-sizing:border-box; }
-body { margin:0; background:#f6f5ef; color:var(--ink); font:17px/1.65 Georgia,"Times New Roman",serif; }
-main, header, footer { max-width:960px; margin:auto; padding:24px; }
-header { padding-top:42px; border-bottom:3px solid var(--ink); }
-h1 { font-size:64px; line-height:1; margin:0 0 18px; letter-spacing:-2px; }
-.date, .meta, nav, footer, .section-note { font-family:system-ui,sans-serif; }
-.date, .meta { color:var(--muted); font-size:14px; }
-nav { margin-top:18px; font-size:14px; }
-nav a { margin-right:18px; }
-a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
-h2 { font-size:29px; margin:32px 0 20px; border-bottom:1px solid var(--line); padding-bottom:10px; }
-h3 { font-size:22px; line-height:1.35; margin:0 0 10px; }
-p { margin:10px 0; }
-article { margin:0 0 26px; }
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:8px 32px; }
-.section-note { font-size:14px; color:var(--muted); margin-bottom:22px; }
-.practice { border-top:3px solid var(--ink); margin-top:36px; }
-.practice article { padding:20px 0 26px; border-bottom:1px solid var(--line); }
-.practice h3 { font-size:25px; }
-ul { padding-left:24px; }
-footer { border-top:1px solid var(--line); color:var(--muted); font-size:13px; padding-bottom:40px; }
-@media(max-width:650px) { .grid { grid-template-columns:1fr; } h1 { font-size:52px; } main,header,footer { padding-left:20px; padding-right:20px; } }
-@media print { body { background:white; } nav { display:none; } article { break-inside:avoid; } }
+:root{color-scheme:light;--ink:#202b30;--muted:#5d686c;--line:#d5dcd9;--accent:#12665e}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f4ef;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1000px;margin:auto;padding:32px 24px 48px}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:16px 0 22px}
+h1{font-size:4rem;line-height:1;margin:0 0 15px}
+.date,.meta,nav,footer,.section-label{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.88rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px;font-size:.9rem}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.7rem;margin:32px 0 8px;border-bottom:1px solid var(--line);padding-bottom:8px}
+h3{font-size:1.22rem;line-height:1.4;margin:0 0 8px}
+p{margin:8px 0 12px}
+article{padding:20px 0;border-bottom:1px solid var(--line)}
+.links{font-family:system-ui,sans-serif;font-size:.88rem}
+.briefs{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+#language-practice{margin-top:40px;border-top:4px double var(--ink)}
+#language-practice article{padding:26px 0}
+#language-practice p,#language-practice li{line-height:1.85}
+ul{padding-left:24px}
+footer{margin-top:32px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media(max-width:650px){main{padding:24px 18px}.briefs{grid-template-columns:1fr}h1{font-size:3.3rem}}
 </style>
 </head>
 <body>
+<main>
 <header>
 <h1>News</h1>
-<div class="date"><time datetime="2026-10-26">Monday, 26 October 2026</time></div>
+<div class="date"><time datetime="2026-10-27">Tuesday, 27 October 2026</time></div>
 <nav aria-label="Sections">
-<a href="#ai">AI research</a>
-<a href="#biology">Biological models &amp; discovery</a>
-<a href="#genomics">Single-cell &amp; genomics</a>
-<a href="#languages">Language practice</a>
+<a href="#ai">AI Research &amp; Systems</a>
+<a href="#biology">Biology &amp; Genomics</a>
+<a href="#methods">Methods &amp; Policy</a>
+<a href="#language-practice">Language Practice</a>
 </nav>
 </header>
-<main>
+
 <section id="ai">
-<h2>AI research</h2>
+<h2>AI Research &amp; Systems</h2>
 <article>
-<h3>BeNice targets the memory cost of looped Transformers</h3>
-<p>Songlin Yang shares “BeNice! Closing Looping’s Inference-Memory Gap via KV-Sharing,” which addresses inference memory in Transformers that reuse layers across multiple loops. The excerpt identifies KV sharing as the approach, but is truncated: no paper link, implementation details or results are available.</p>
-<p class="meta"><a href="https://x.com/SonglinYang4/status/2114561032966574408">Songlin Yang · post on X</a></p>
+<h3>HalluWorld: measuring hallucinations in fully specified worlds</h3>
+<p>Stanford AI Lab shares a blog post on a benchmark that places language models in fully specified worlds, allowing hallucinations to be measured automatically and their causes investigated. The supplied announcement does not include results or detailed methodology.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2114929249094435237">Stanford AI Lab announcement</a> · <a href="https://t.co/ZdLLBHtuAB">HalluWorld blog</a></p>
 </article>
 <article>
-<h3>Serving-cost comparison hinges on workload and architecture</h3>
-<p>You Jiacheng estimates that K3 would require 21,600 GB200 GPUs versus 2,400 for DeepSeek V4.1 Flash to serve equivalent traffic. The comparison assumes expert parallelism of 64 and an average context of 77,000 tokens; the author argues that both models can reach compute-bound batch sizes despite K3’s claimed 16-fold larger KV cache.</p>
-<p>The post attributes the difference to K3’s claimed sixfold activated parameter count and lack of CED/YOCO. These are the author’s estimates, not independently established requirements; the supplied material contains no derivation or supporting resource.</p>
-<p class="meta"><a href="https://x.com/YouJiacheng/status/2114376209354383840">You Jiacheng · post on X</a></p>
+<h3>K3 serving analysis separates attention costs from projection costs</h3>
+<p>You Jiacheng’s analysis distinguishes compute-bound mixture-of-experts and linear projections from core attention. He argues that FP8 key-value storage permits larger batches while attention computation dequantizes to BF16, estimating 363 FLOPs per byte for 96-head MLA.</p>
+<p>A follow-up puts attention at a 77k-token context at a cost equivalent to roughly 386 billion active parameters, after accounting for BF16 versus MXFP8 compute. These are analytical estimates—not measured serving benchmarks—and depend on the stated precision assumptions.</p>
+<p class="links"><a href="https://x.com/YouJiacheng/status/2114705888850416043">Analysis</a> · <a href="https://x.com/YouJiacheng/status/2114707699669893585">Follow-up calculation</a></p>
 </article>
 <article>
-<h3>Reasoning-from-scratch video series completed</h3>
-<p>Sebastian Raschka announces that his complete reasoning-from-scratch video series is available through a single resource. The announcement does not list the series’ contents.</p>
-<p class="meta"><a href="https://t.co/5IOHLTCIGt">Video-series resource</a> · <a href="https://x.com/rasbt/status/2114325097653669940">Announcement on X</a></p>
+<h3>OpenMed tests approval-gated clinical-agent writes</h3>
+<p>A synthetic medication-order test for OpenMed 3.1 reports one permitted write in ten attempts: the exact change approved by both a pharmacist and an attending. Edited doses, reused approvals, revoked grants and an emergency stop blocked writes.</p>
+<p>The test used an in-memory chart with no FHIR server. It demonstrates software authorization controls, not clinical validation.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2114718695285313878">Test announcement</a> · <a href="https://t.co/9z6suhSz0Z">Release notes</a> · <a href="https://t.co/KlVAOOKmpS">Apache-2.0 repository</a></p>
+</article>
+<article>
+<h3>Shared evaluation prompts for 4B–36B language models</h3>
+<p>Yaroslav Bulatov shares prompts used to evaluate models spanning 4 billion to 36 billion parameters, proposing prompt sharing as a way to rerun work with newer models. The supplied post does not show the tasks, scores or reproducibility details.</p>
+<p class="links"><a href="https://x.com/yaroslavvb/status/2114862380492665140">Announcement</a> · <a href="https://t.co/3PL7nvMiC4">Resource 1</a> · <a href="https://t.co/GQ5nmVlW83">Resource 2</a></p>
 </article>
 </section>
 
 <section id="biology">
-<h2>Biological models &amp; discovery</h2>
-<p class="section-note">Several resources below are resurfaced posts or title-only excerpts, rather than confirmed new publications. Their stated scope is clearer than their methods or results.</p>
+<h2>Biology &amp; Genomics</h2>
 <article>
-<h3>Binder scores: rejecting a candidate is not the same as confirming one</h3>
-<p>Diego del Alamo challenges an unspecified “49% accuracy” claim by asking which metric and campaign it describes. His follow-up offers a target-dependent interpretation of ipSAE: very low scores may help identify nonbinders, while high scores need not reliably establish binding.</p>
-<p>The distinction matters when filtering therapeutic binder candidates. This is methodological commentary, not a new benchmark result; the underlying campaign evidence is absent.</p>
-<p class="meta"><a href="https://x.com/DdelAlamo/status/2114360469020692591">Diego del Alamo · discussion on X</a></p>
+<h3>LangAAI asks whether antigen sequences actually inform antibody design</h3>
+<p>LangAAI reconstructs antibody complementarity-determining regions using antibody and antigen sequences, without structures or epitope annotations. The supplied research summary describes separate antibody and antigen holdouts, plus a paired antigen-shuffling test designed to distinguish genuine antigen dependence from antibody-only priors.</p>
+<p>Reported gains concentrate in CDR3 reconstruction; antigen-state ablations add evidence that the model uses antigen context. Affinity ranking across 16 AbBiBench systems remains modest and heterogeneous, with mean Spearman correlation around 0.188. These are reconstruction and retrospective affinity results, not prospectively validated therapeutic designs.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2114677687491113141">LangAAI research summary</a></p>
 </article>
-<div class="grid">
+<div class="briefs">
 <article>
-<h3>scArchon: benchmarking perturbation models</h3>
-<p>A resurfaced resource describes scArchon as a scalable framework for assessing single-cell perturbation models. No evaluation protocol, datasets or comparative results are supplied.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472085309497405">Resource post on X</a></p>
-</article>
-<article>
-<h3>AetherCell’s virtual-cell ambitions</h3>
-<p>AetherCell is presented as “A generative engine for virtual cell perturbation and in vivo drug discovery.” The excerpt supplies no architecture or validation details; “in vivo” describes its stated scope, not demonstrated efficacy.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472047107776536">Resource post on X</a></p>
+<h3>Cherimoya CATv1 arrives in proto-tools</h3>
+<p>An announcement shared by Brian Hie and Anshul Kundaje says Cherimoya CATv1 is now available in proto-tools. This is an access update, not a new performance result; installation details and the complete resource link are absent from the supplied excerpts.</p>
+<p class="links"><a href="https://x.com/BrianHie/status/2114877120057151693">Announcement</a></p>
 </article>
 <article>
-<h3>Which gene representations help predict function?</h3>
-<p>A shared study benchmarks gene embeddings from sequence, expression, network and text models on functional prediction tasks. Only the title is available, so no winning representation or performance conclusion can be reported.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114252215192027253">Study post on X</a></p>
+<h3>Cherimoya attribution update reports roughly 7× speedup</h3>
+<p>Version 0.3.1 reportedly adds fused DeepLIFT, with approximately sevenfold faster attribution. The excerpt omits applicable model configurations and benchmark conditions, so the speedup cannot be generalized.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2114765214579372101">Release announcement</a></p>
 </article>
 <article>
-<h3>Biological foundation models under distribution shift</h3>
-<p>“Transforming Biological Foundation Model Representations for Out-of-Distribution Data” focuses on generalization beyond a model’s familiar data. The title is available, but methods, biological modalities and performance measurements are not.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472497509011844">Study post on X</a></p>
+<h3>CellBridge targets larger-scale single-cell analysis</h3>
+<p>The preprint <em>CellBridge: Scaling up Single-Cell RNA-seq Data Analysis</em> is highlighted in an author announcement and another post. The excerpts establish the topic but provide no architecture, dataset sizes, performance measurements or validation details.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114735345413808495">Preprint mention</a></p>
 </article>
 <article>
-<h3>SelectBench for molecular generators</h3>
-<p>An announcement introduces SelectBench as a benchmark for conditional generative models of molecules. The excerpt cuts off before establishing its exact selectivity tasks, datasets or results.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114252138339807698">Announcement on X</a></p>
-</article>
-</div>
-</section>
-
-<section id="genomics">
-<h2>Single-cell &amp; genomics</h2>
-<div class="grid">
-<article>
-<h3>UCell for gene-signature scoring</h3>
-<p>A resurfaced resource highlights UCell as a robust and scalable method for scoring single-cell gene signatures. The post specifies neither a new release nor new benchmark results.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472212778635269">Resource post on X</a></p>
+<h3>scTGCL combines transformers and graph contrastive learning</h3>
+<p>A post highlights scTGCL, a method for clustering single-cell RNA-seq data. Only the title-level description is available; its efficiency and clustering quality cannot be assessed from the excerpt.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114737010904834197">Research mention</a></p>
 </article>
 <article>
-<h3>PseudotimeDE-fast follows expression along cell trajectories</h3>
-<p>PseudotimeDE-fast is highlighted as a method for fast testing of differential gene expression along cellular pseudotime. Runtime comparisons and statistical-calibration details are not available in the excerpt.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472013335241070">Resource post on X</a></p>
+<h3>Epi25 analysis spans 15.77 million coding variants</h3>
+<p>A research thread describes an epilepsy analysis covering 20,979 cases and 33,444 controls. The supplied post cuts off before the methods and findings, so it supports no specific gene associations or clinical conclusions.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2114931238272434483">Epi25 research thread</a></p>
 </article>
 <article>
-<h3>Combining experiments and computation to study cell fate</h3>
-<p>“Decoding Cell Fate: Integrated Experimental and Computational Analysis at the Single-Cell Level” addresses combined approaches to cell-fate analysis. The supplied excerpt contains no specific methods or findings.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472073922044407">Resource post on X</a></p>
+<h3>Whole-brain functional mapping with in vivo Perturb-seq</h3>
+<p>A shared study is titled <em>Genome-scale functional mapping of the mammalian whole brain with in vivo Perturb-seq</em>. The excerpt does not establish experimental coverage, the organism beyond “mammalian,” results or publication status.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114620941884141607">Study mention</a></p>
 </article>
 <article>
-<h3>XVCF visualizes genomic variant calls</h3>
-<p>“XVCF: Exquisite Visualization of VCF Data from Genomic Experiments” identifies a tool for viewing variant-call data. Supported plots, scale and implementation details are not described in the available material.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472157891956774">Resource post on X</a></p>
+<h3>AlphaGenome reportedly applied to human regulatory evolution</h3>
+<p>A repost attributes work to Svante Pääbo and colleagues using AlphaGenome to reconstruct the evolution of human gene regulation. The truncated excerpt contains no paper link, experimental details or results.</p>
+<p class="links"><a href="https://x.com/gen0m1cs/status/2114808370129424518">Research mention</a></p>
 </article>
 <article>
-<h3>A pangenome view of chromosome evolution</h3>
-<p>A resurfaced study, “A holocentric pangenome links karyotype evolution to meiotic recombination,” connects genome organization with recombination. The excerpt does not identify the organism, dataset size or supporting analyses.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114472189764489394">Study post on X</a></p>
-</article>
-<article>
-<h3>Mammalian diversity and speciation: a reported negative association</h3>
-<p>A shared study’s title reports a negative global-scale association between genetic diversity and speciation rates in mammals. No effect sizes or controls are supplied, and the association does not establish causation.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2114328354342199779">Study post on X</a></p>
+<h3>APOE–Alzheimer’s post reports a methylation mediation estimate</h3>
+<p>A shared post claims that 8.6% of the association between APOE genotype and Alzheimer’s diagnosis appears to pass through DNA methylation. Study design, cohort details and uncertainty estimates are missing. This is a reported mediation estimate, not proof that changing methylation would alter disease risk.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114620987174261073">Research post</a></p>
 </article>
 </div>
 </section>
 
-<section id="languages" class="practice">
-<h2>Language practice</h2>
+<section id="methods">
+<h2>Methods &amp; Policy</h2>
+<article>
+<h3>RNA-seq processing choices may shape eQTL findings</h3>
+<p>A methodological post warns that upstream RNA-seq processing can influence both detection and effect estimates for expression quantitative trait loci. The excerpt does not identify the processing comparisons or quantify the effects, but flags a reproducibility issue for regulatory-genetics research.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114735171681529999">Methodological post</a></p>
+</article>
+<article>
+<h3>Biological simulation needs measurements, not just compute</h3>
+<p>Discussion excerpts distinguish computational capacity from the biological data needed to initialize and train comprehensive simulations. Olivia Swann emphasizes initial conditions; Morgan Levine asks where training inputs would come from; other posts point to incomplete molecular inventories. These are methodological arguments, not experimental findings or proof that comprehensive simulation is impossible.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114621164635234532">Discussion</a></p>
+</article>
+<article>
+<h3>Science letter calls for agriculture in AI biosecurity</h3>
+<p>Pardis Sabeti announces a letter in <em>Science</em> arguing that AI biosecurity must extend to agriculture. The supplied excerpt establishes the policy scope but cuts off before the supporting analysis and recommendations.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2114858041342665133">Letter announcement</a></p>
+</article>
+</section>
+
+<section id="language-practice" aria-labelledby="language-heading">
+<h2 id="language-heading">Language Practice</h2>
+
 <article lang="de">
-<h3>Deutsch — Neuer Gebäudetyp E: Schnelles und günstiges Bauen per Gesetz</h3>
-<p class="meta">Tagesschau · 26.10.2026 · <a href="https://www.tagesschau.de/inland/gebaeudetyp-e-104.html">https://www.tagesschau.de/inland/gebaeudetyp-e-104.html</a></p>
-<p>Weniger Komfortvorgaben, dafür günstigere Wohnungen: Mit dem geplanten Gebäudetyp E will die Bundesregierung einfacheres Bauen ermöglichen. Bauherren und Planer sollen rechtssicher vereinbaren können, auf bestimmte Standards zu verzichten – etwa bei der Zahl der Steckdosen, der Deckenhöhe oder einem besonders aufwendigen Schallschutz. Sicherheitsanforderungen sollen dagegen unangetastet bleiben. Fachleute schätzen laut dem Bericht, dass sich die Baukosten mit diesem Konzept um etwa zehn Prozent senken lassen.</p>
-<p>Der dem ARD-Hauptstadtstudio vorliegende Gesetzentwurf sieht dafür eine eigene, freiwillige Vertragskategorie vor. Genau daran entzündet sich politischer Streit: Aus der Union kam die Forderung, einfaches Bauen zum allgemeinen Normalfall zu machen, statt einen besonderen Vertragstyp einzuführen. Dahinter steht die Sorge vor einem Zwei-Klassen-Bauen, bei dem günstigere Gebäude ein schlechteres Image bekommen könnten. Das Justizministerium betont dagegen, dass die freiwillige Vereinbarung den Willen beider Vertragsparteien absichern soll.</p>
-<p>Nun können Bundesländer und Verbände Stellung nehmen; Änderungen am Entwurf sind also noch möglich. Eine kurzfristige Lösung für den Wohnungsmangel ist das Vorhaben ohnehin nicht: Nach Planung und Bau wäre ein erstes Richtfest auf Grundlage des neuen Gesetzes laut Artikel frühestens in zwei Jahren realistisch.</p>
-<p><strong>Warum lesen:</strong> Der Artikel erklärt anschaulich, wie technische Standards, Vertragsrecht und politische Entscheidungen die Kosten des Wohnens beeinflussen.</p>
+<h3>Deutsch — KI und Open Source: Subreddit r/opensource sperrt KI-gestützte Projekte aus</h3>
+<p class="meta">heise online · 26.10.2026 · <a href="https://www.heise.de/news/KI-und-Open-Source-Subreddit-r-opensource-sperrt-KI-gestuetzte-Projekte-aus-11499587.html">Artikel lesen</a></p>
+<p>Die Reddit-Gemeinschaft r/opensource will Projekte ausschließen, die KI nutzen, mithilfe von KI entstanden oder für KI gedacht sind. Weil sich solche Verbindungen schwer zuverlässig erkennen lassen, setzt das Moderationsteam zusätzliche Hürden: Beworbene Projekte müssen mindestens ein Jahr alt sein, aktiv gepflegt werden und Beiträge mehrerer Personen aufweisen. Damit trifft die Regelung auch Entwickler, die ihre Software allein und ohne KI-Unterstützung schreiben.</p>
+<p>Besonders umstritten ist laut heise die Beschränkung auf Menschen, die Englisch sprechen. Das Moderationsteam begründet sie damit, dass sich KI-generierte Beiträge und Übersetzungen nicht auseinanderhalten ließen. Kritiker sehen darin einen Ausschluss internationaler Teilnehmer. Der Artikel stellt dieser strikten Haltung den Umgang mit KI beim Linux-Kernel gegenüber: Dort wurde die Pflicht, KI-Unterstützung bei Patches zu kennzeichnen, kürzlich wieder abgeschafft.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag zeigt an einem konkreten Streitfall, wie Regeln gegen KI-Inhalte auch unabhängige Entwickler und die sprachliche Offenheit einer Gemeinschaft treffen können.</p>
 </article>
 
 <article lang="fr">
-<h3>Français — Serbie : Aleksandar Vucic concède sa défaite aux législatives anticipées</h3>
-<p class="meta">France 24 · 25 octobre 2026 · <a href="https://www.france24.com/fr/europe/20261025-serbie-aleksandar-vucic-conc%C3%A8de-sa-d%C3%A9faite-aux-l%C3%A9gislatives-anticip%C3%A9es">Lire l’article</a></p>
-<p>Aleksandar Vucic a reconnu sa défaite aux élections législatives anticipées du 25 octobre, face à un mouvement étudiant issu de deux années de contestation. Selon les estimations qu’il a lui-même annoncées, encore provisoires au moment de la publication, les étudiants obtiendraient entre 135 et 140 sièges, contre 105 pour son camp. L’article décrit une forte mobilisation électorale et des scènes de célébration à Belgrade, où des électeurs voient dans ce résultat la possibilité d’une véritable alternance.</p>
-<p>Ce basculement s’inscrit dans une crise politique nourrie par les accusations de corruption et d’autoritarisme visant le pouvoir. L’effondrement du toit de la gare de Novi Sad, qui a fait 16 morts en novembre 2024, avait déclenché les manifestations anticorruption. Vucic avait ensuite quitté la présidence et convoqué des élections anticipées, dans l’espoir de revenir au poste de Premier ministre. France 24 souligne aussi la portée européenne possible de cette victoire étudiante, alors que d’autres mouvements de jeunesse protestent contre leurs conditions d’études et le manque de perspectives.</p>
-<p><strong>Pourquoi lire :</strong> Un récit accessible pour comprendre comment une mobilisation étudiante peut déboucher sur un changement politique majeur dans les Balkans.</p>
+<h3>Français — Le gouvernement avait préparé une coupure des réseaux sociaux : peut-il vraiment bloquer TikTok, Snapchat et Instagram ?</h3>
+<p class="meta">Numerama · 26 octobre 2026 · <a href="https://www.numerama.com/tech/2360573-le-gouvernement-peut-il-vraiment-couper-tiktok-instagram-et-les-autres-reseaux-sociaux-en-cas-de-violences-en-france.html">Lire l’article</a></p>
+<p>Selon les informations de Blast rapportées par Numerama, Matignon avait demandé aux opérateurs de préparer une suspension temporaire de plusieurs réseaux sociaux pour le 24 octobre, en cas de nouvelles violences urbaines. Le dispositif n’a finalement pas été activé. Les opérateurs avaient notamment contesté la possibilité de limiter rapidement le blocage aux connexions mobiles et à certaines zones géographiques : une restriction techniquement réalisable ne correspond pas forcément au ciblage souhaité par les autorités.</p>
+<p>L’article explique ensuite le fonctionnement du filtrage DNS, qui empêche un appareil de retrouver l’adresse des serveurs recherchés sans supprimer les comptes ni les publications. Cette méthode présente plusieurs limites : une application utilise de nombreux domaines, certaines fonctions peuvent rester accessibles et un autre service DNS peut parfois permettre de contourner la restriction. Un VPN offre une autre voie d’accès, sous certaines conditions, mais son blocage risquerait à son tour de perturber d’autres usages d’internet.</p>
+<p>La question est aussi juridique. Numerama revient sur la décision du Conseil d’État qui a déclaré illégale la coupure de TikTok en Nouvelle-Calédonie en 2024, sans exclure toute interruption exceptionnelle. Une telle mesure doit être indispensable, temporaire et limitée au temps nécessaire pour trouver des solutions moins restrictives. Le projet soulève donc un enjeu de proportionnalité : comment prévenir des violences sans priver largement la population de moyens de s’informer, de communiquer ou de documenter les événements ?</p>
+<p><strong>Pourquoi lire :</strong> Une explication accessible qui relie le fonctionnement d’internet aux limites juridiques du pouvoir de l’État en France.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>législatives anticipées</strong> — élections des députés organisées avant la fin normale de leur mandat.</li>
-<li><strong>alternance</strong> — remplacement d’un camp politique au pouvoir par un autre à la suite d’élections.</li>
-<li><strong>concéder sa défaite</strong> — reconnaître publiquement que l’on a perdu une élection ou une confrontation.</li>
+<li><strong>filtrage DNS</strong> — technique qui bloque l’accès à certains domaines en modifiant les réponses du service reliant leurs noms à des adresses IP.</li>
+<li><strong>VPN</strong> — réseau privé virtuel qui fait transiter une connexion par un serveur intermédiaire au moyen d’un tunnel chiffré.</li>
+<li><strong>mesure attentatoire aux libertés</strong> — intervention qui porte atteinte à l’exercice de droits fondamentaux, comme la liberté d’expression ou d’information.</li>
 </ul>
 </article>
 
 <article lang="ja">
-<h3>日本語 — ドクターイエローの後継「ドクターS」が初運行 JR東海</h3>
-<p class="meta">NHKニュース · 2026年10月26日 · <a href="https://news.web.nhk/newsweb/na/nd-20261026de65533">記事を読む</a></p>
-<p>JR東海の「ドクターS」が10月26日に初めて運行された。新幹線の線路などを検査する車両で、昨年引退した同社の「ドクターイエロー」の役割を引き継ぐ。</p>
-<p>新幹線を利用する乗客の目線ではなく、線路を検査する車両に焦点を当てたニュースだ。なお、今回確認できたのは記事の冒頭部分までで、検査装置の仕組みや運行方法の詳細は確認できていない。</p>
-<p><strong>読む理由：</strong> 日本の鉄道を支える検査車両の世代交代を題材に、交通分野の日本語に触れられる。</p>
+<h3>日本語 — 『雨穴の変な世界展。』―国境を超えた人気ホラーミステリーを体感</h3>
+<p class="meta">nippon.com · 2026-10-24 · <a href="https://www.nippon.com/ja/guide-to-japan/p01997/">記事を読む</a></p>
+<p>覆面作家・雨穴の小説や動画の世界に入り込める展覧会が、東京・天王洲アイルの寺田倉庫で開かれている。記事は、『変な家』の模型や『変な絵』の原画、動画でおなじみの部屋などを写真とともに紹介する。雨穴の作品は海外にも広がっており、『変な絵』は36以上の国と地域で翻訳展開されているという。</p>
+<p>会場では、薄暗い展示室から歌やダンスの映像が流れるステージへ、さらに森や廃工場を再現した空間へと進み、作品に通じる違和感や恐怖を体験できる。制作にはウェブメディア「オモコロ」の運営会社と、恐怖体験イベントを手掛ける会社が参加した。会期は2027年1月17日まで。展示の見どころに加え、会場へのアクセスや観覧料も確認できる。</p>
+<p><strong>読む理由：</strong> 小説・動画・体験型展示を横断する日本のホラー文化を、具体的な展示写真とともに知ることができる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>後継（こうけい）</strong> — 以前のものの役割や仕事を引き継ぐこと、または引き継ぐもの。</li>
-<li><strong>運行（うんこう）</strong> — 電車やバスなどが決められた経路を走ること。</li>
-<li><strong>車両（しゃりょう）</strong> — 鉄道などで、人や荷物を運んだり、検査などの作業を行ったりするための車。</li>
+<li><strong>覆面作家（ふくめんさっか）</strong> — 本名や素顔などを公表せずに活動する作家。</li>
+<li><strong>具現化（ぐげんか）</strong> — 頭の中の考えやイメージを、目に見える形にすること。</li>
+<li><strong>因習（いんしゅう）</strong> — 古くから受け継がれ、問題があっても続いている習慣。</li>
 </ul>
 </article>
 
 <article lang="zh">
-<h3>中文 — 新皇岗口岸连续两晚人车拥堵 港府再遭狠批管理规划不善</h3>
-<p class="meta">RFI 中文 · 2026-10-26 · <a href="https://www.rfi.fr/cn/港澳台/20261026-新皇岗口岸连续两晚人车拥堵-港府再遭狠批管理规划不善">https://www.rfi.fr/cn/港澳台/20261026-新皇岗口岸连续两晚人车拥堵-港府再遭狠批管理规划不善</a></p>
-<p>据法广报道，刚启用两周的新皇岗口岸，在10月24日及25日连续两晚出现人车拥堵。万圣节预热活动与歌手The Weeknd香港演唱会吸引大批旅客，不少人散场后集中经这个24小时通关口岸返回深圳，令市区候车点、口岸周边道路及出境设施同时承受压力。有旅客反映，候车、堵车和排队通关耗去数小时。</p>
-<p>报道关注的核心问题是：实际客流尚未超过设计容量，为什么仍会严重拥堵？港府表示已要求各部门加强协调和疏导，但报道引述口岸工作人员及媒体人的批评，指启用前的演练过于依赖顺利通关的假设，对特殊情况、排队设施和交通配套考虑不足。文章也提出，大型活动日的人流能否提前预测，以及预测结果如何转化为实际的人员和交通部署。</p>
-<p><strong>为什么读：</strong> 从演唱会散场后的跨境出行切入，了解香港公共交通与口岸管理的争议，并学习公共服务报道中的常用术语。</p>
+<h3>中文 — 观鸟如何重塑大脑，延缓认知衰退？</h3>
+<p class="meta">BBC 中文 · 2026-10-25 · <a href="https://www.bbc.com/zhongwen/articles/cm5ynx99yxzwo/simp">https://www.bbc.com/zhongwen/articles/cm5ynx99yxzwo/simp</a></p>
+<p>观察窗外的鸟类，可能不只是消磨时间。BBC从英国一个为认知障碍症患者组织的观鸟小组谈起，介绍这种活动如何帮助长者放松心情、参与交流，并重新感受探索自然的乐趣。在德国，研究团队在65间安老院舍外设置雀鸟喂食站，通过院友、护理人员及家属的反馈，观察到部分参与者在专注力、记忆和互动方面有所改善；相关成果也推动了巴伐利亚州更多院舍设置观鸟设施。</p>
+<p>文章还介绍加拿大研究人员对资深观鸟者与初学者的脑部扫描比较：两组人在与注意力、视觉感知及辨认有关的脑区，呈现不同的连结和活动特点。不过，研究尚未证明这些差异究竟源于长期观鸟，还是原有的大脑特征。观鸟可能结合了认知刺激、情感体验、社交和接触自然等多重益处，但不能据此把它视为已经证实能预防或治疗失智症的方法。</p>
+<p><strong>为什么读：</strong> 这篇报道把德国养老实践与脑科学研究联系起来，适合练习阅读健康新闻，同时辨别研究发现与因果结论之间的差别。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>口岸 (kǒu àn)</strong> — 供人员、货物及交通工具出入境，并办理检查手续的指定地点。</li>
-<li><strong>人流疏导 (rén liú shū dǎo)</strong> — 通过路线安排、分流和现场指引，减少人员聚集与拥堵。</li>
-<li><strong>交通管制 (jiāo tōng guǎn zhì)</strong> — 为维持安全和秩序，对车辆通行路线、时段或数量实施限制的措施。</li>
+<li><strong>神经可塑性 (shén jīng kě sù xìng)</strong> — 大脑随经验、学习等因素改变结构与功能的能力。</li>
+<li><strong>认知障碍症 (rèn zhī zhàng ài zhèng)</strong> — 又称失智症，涉及记忆、思考等认知能力下降，并影响日常生活。</li>
+<li><strong>失语症 (shī yǔ zhèng)</strong> — 因脑部损伤等原因导致说话或理解语言的能力受损。</li>
 </ul>
 </article>
 </section>
-</main>
+
 <footer>
-<p><strong>Source notes.</strong> Research coverage is based on supplied social-media excerpts, many truncated or limited to titles. Inclusion does not imply a new publication or release. Shortened resource links have not been resolved; claims and limitations are attributed within the items.</p>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied social-media excerpts; several are truncated or announcement-only. Missing methods and unverified performance claims are noted alongside the relevant items. Shortened resource links are retained as supplied, with their destinations unresolved.</p>
 </footer>
+</main>
 </body>
 </html>

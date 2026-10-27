@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202b30;--muted:#5d686c;--line:#d5dcd9;--accent:#12665e}
+*{box-sizing:border-box}
+body{margin:0;background:#f5f4ef;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1000px;margin:auto;padding:32px 24px 48px}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:16px 0 22px}
+h1{font-size:4rem;line-height:1;margin:0 0 15px}
+.date,.meta,nav,footer,.section-label{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.88rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:16px;font-size:.9rem}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.7rem;margin:32px 0 8px;border-bottom:1px solid var(--line);padding-bottom:8px}
+h3{font-size:1.22rem;line-height:1.4;margin:0 0 8px}
+p{margin:8px 0 12px}
+article{padding:20px 0;border-bottom:1px solid var(--line)}
+.links{font-family:system-ui,sans-serif;font-size:.88rem}
+.briefs{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+#language-practice{margin-top:40px;border-top:4px double var(--ink)}
+#language-practice article{padding:26px 0}
+#language-practice p,#language-practice li{line-height:1.85}
+ul{padding-left:24px}
+footer{margin-top:32px;font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding-top:16px}
+@media(max-width:650px){main{padding:24px 18px}.briefs{grid-template-columns:1fr}h1{font-size:3.3rem}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-10-27">Tuesday, 27 October 2026</time></div>
+<nav aria-label="Sections">
+<a href="#ai">AI Research &amp; Systems</a>
+<a href="#biology">Biology &amp; Genomics</a>
+<a href="#methods">Methods &amp; Policy</a>
+<a href="#language-practice">Language Practice</a>
+</nav>
+</header>
+
+<section id="ai">
+<h2>AI Research &amp; Systems</h2>
+<article>
+<h3>HalluWorld: measuring hallucinations in fully specified worlds</h3>
+<p>Stanford AI Lab shares a blog post on a benchmark that places language models in fully specified worlds, allowing hallucinations to be measured automatically and their causes investigated. The supplied announcement does not include results or detailed methodology.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2114929249094435237">Stanford AI Lab announcement</a> · <a href="https://t.co/ZdLLBHtuAB">HalluWorld blog</a></p>
+</article>
+<article>
+<h3>K3 serving analysis separates attention costs from projection costs</h3>
+<p>You Jiacheng’s analysis distinguishes compute-bound mixture-of-experts and linear projections from core attention. He argues that FP8 key-value storage permits larger batches while attention computation dequantizes to BF16, estimating 363 FLOPs per byte for 96-head MLA.</p>
+<p>A follow-up puts attention at a 77k-token context at a cost equivalent to roughly 386 billion active parameters, after accounting for BF16 versus MXFP8 compute. These are analytical estimates—not measured serving benchmarks—and depend on the stated precision assumptions.</p>
+<p class="links"><a href="https://x.com/YouJiacheng/status/2114705888850416043">Analysis</a> · <a href="https://x.com/YouJiacheng/status/2114707699669893585">Follow-up calculation</a></p>
+</article>
+<article>
+<h3>OpenMed tests approval-gated clinical-agent writes</h3>
+<p>A synthetic medication-order test for OpenMed 3.1 reports one permitted write in ten attempts: the exact change approved by both a pharmacist and an attending. Edited doses, reused approvals, revoked grants and an emergency stop blocked writes.</p>
+<p>The test used an in-memory chart with no FHIR server. It demonstrates software authorization controls, not clinical validation.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2114718695285313878">Test announcement</a> · <a href="https://t.co/9z6suhSz0Z">Release notes</a> · <a href="https://t.co/KlVAOOKmpS">Apache-2.0 repository</a></p>
+</article>
+<article>
+<h3>Shared evaluation prompts for 4B–36B language models</h3>
+<p>Yaroslav Bulatov shares prompts used to evaluate models spanning 4 billion to 36 billion parameters, proposing prompt sharing as a way to rerun work with newer models. The supplied post does not show the tasks, scores or reproducibility details.</p>
+<p class="links"><a href="https://x.com/yaroslavvb/status/2114862380492665140">Announcement</a> · <a href="https://t.co/3PL7nvMiC4">Resource 1</a> · <a href="https://t.co/GQ5nmVlW83">Resource 2</a></p>
+</article>
+</section>
+
+<section id="biology">
+<h2>Biology &amp; Genomics</h2>
+<article>
+<h3>LangAAI asks whether antigen sequences actually inform antibody design</h3>
+<p>LangAAI reconstructs antibody complementarity-determining regions using antibody and antigen sequences, without structures or epitope annotations. The supplied research summary describes separate antibody and antigen holdouts, plus a paired antigen-shuffling test designed to distinguish genuine antigen dependence from antibody-only priors.</p>
+<p>Reported gains concentrate in CDR3 reconstruction; antigen-state ablations add evidence that the model uses antigen context. Affinity ranking across 16 AbBiBench systems remains modest and heterogeneous, with mean Spearman correlation around 0.188. These are reconstruction and retrospective affinity results, not prospectively validated therapeutic designs.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2114677687491113141">LangAAI research summary</a></p>
+</article>
+<div class="briefs">
+<article>
+<h3>Cherimoya CATv1 arrives in proto-tools</h3>
+<p>An announcement shared by Brian Hie and Anshul Kundaje says Cherimoya CATv1 is now available in proto-tools. This is an access update, not a new performance result; installation details and the complete resource link are absent from the supplied excerpts.</p>
+<p class="links"><a href="https://x.com/BrianHie/status/2114877120057151693">Announcement</a></p>
+</article>
+<article>
+<h3>Cherimoya attribution update reports roughly 7× speedup</h3>
+<p>Version 0.3.1 reportedly adds fused DeepLIFT, with approximately sevenfold faster attribution. The excerpt omits applicable model configurations and benchmark conditions, so the speedup cannot be generalized.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2114765214579372101">Release announcement</a></p>
+</article>
+<article>
+<h3>CellBridge targets larger-scale single-cell analysis</h3>
+<p>The preprint <em>CellBridge: Scaling up Single-Cell RNA-seq Data Analysis</em> is highlighted in an author announcement and another post. The excerpts establish the topic but provide no architecture, dataset sizes, performance measurements or validation details.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114735345413808495">Preprint mention</a></p>
+</article>
+<article>
+<h3>scTGCL combines transformers and graph contrastive learning</h3>
+<p>A post highlights scTGCL, a method for clustering single-cell RNA-seq data. Only the title-level description is available; its efficiency and clustering quality cannot be assessed from the excerpt.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114737010904834197">Research mention</a></p>
+</article>
+<article>
+<h3>Epi25 analysis spans 15.77 million coding variants</h3>
+<p>A research thread describes an epilepsy analysis covering 20,979 cases and 33,444 controls. The supplied post cuts off before the methods and findings, so it supports no specific gene associations or clinical conclusions.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2114931238272434483">Epi25 research thread</a></p>
+</article>
+<article>
+<h3>Whole-brain functional mapping with in vivo Perturb-seq</h3>
+<p>A shared study is titled <em>Genome-scale functional mapping of the mammalian whole brain with in vivo Perturb-seq</em>. The excerpt does not establish experimental coverage, the organism beyond “mammalian,” results or publication status.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114620941884141607">Study mention</a></p>
+</article>
+<article>
+<h3>AlphaGenome reportedly applied to human regulatory evolution</h3>
+<p>A repost attributes work to Svante Pääbo and colleagues using AlphaGenome to reconstruct the evolution of human gene regulation. The truncated excerpt contains no paper link, experimental details or results.</p>
+<p class="links"><a href="https://x.com/gen0m1cs/status/2114808370129424518">Research mention</a></p>
+</article>
+<article>
+<h3>APOE–Alzheimer’s post reports a methylation mediation estimate</h3>
+<p>A shared post claims that 8.6% of the association between APOE genotype and Alzheimer’s diagnosis appears to pass through DNA methylation. Study design, cohort details and uncertainty estimates are missing. This is a reported mediation estimate, not proof that changing methylation would alter disease risk.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114620987174261073">Research post</a></p>
+</article>
+</div>
+</section>
+
+<section id="methods">
+<h2>Methods &amp; Policy</h2>
+<article>
+<h3>RNA-seq processing choices may shape eQTL findings</h3>
+<p>A methodological post warns that upstream RNA-seq processing can influence both detection and effect estimates for expression quantitative trait loci. The excerpt does not identify the processing comparisons or quantify the effects, but flags a reproducibility issue for regulatory-genetics research.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114735171681529999">Methodological post</a></p>
+</article>
+<article>
+<h3>Biological simulation needs measurements, not just compute</h3>
+<p>Discussion excerpts distinguish computational capacity from the biological data needed to initialize and train comprehensive simulations. Olivia Swann emphasizes initial conditions; Morgan Levine asks where training inputs would come from; other posts point to incomplete molecular inventories. These are methodological arguments, not experimental findings or proof that comprehensive simulation is impossible.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2114621164635234532">Discussion</a></p>
+</article>
+<article>
+<h3>Science letter calls for agriculture in AI biosecurity</h3>
+<p>Pardis Sabeti announces a letter in <em>Science</em> arguing that AI biosecurity must extend to agriculture. The supplied excerpt establishes the policy scope but cuts off before the supporting analysis and recommendations.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2114858041342665133">Letter announcement</a></p>
+</article>
+</section>
+
+<section id="language-practice" aria-labelledby="language-heading">
+<h2 id="language-heading">Language Practice</h2>
+
+<article lang="de">
+<h3>Deutsch — KI und Open Source: Subreddit r/opensource sperrt KI-gestützte Projekte aus</h3>
+<p class="meta">heise online · 26.10.2026 · <a href="https://www.heise.de/news/KI-und-Open-Source-Subreddit-r-opensource-sperrt-KI-gestuetzte-Projekte-aus-11499587.html">Artikel lesen</a></p>
+<p>Die Reddit-Gemeinschaft r/opensource will Projekte ausschließen, die KI nutzen, mithilfe von KI entstanden oder für KI gedacht sind. Weil sich solche Verbindungen schwer zuverlässig erkennen lassen, setzt das Moderationsteam zusätzliche Hürden: Beworbene Projekte müssen mindestens ein Jahr alt sein, aktiv gepflegt werden und Beiträge mehrerer Personen aufweisen. Damit trifft die Regelung auch Entwickler, die ihre Software allein und ohne KI-Unterstützung schreiben.</p>
+<p>Besonders umstritten ist laut heise die Beschränkung auf Menschen, die Englisch sprechen. Das Moderationsteam begründet sie damit, dass sich KI-generierte Beiträge und Übersetzungen nicht auseinanderhalten ließen. Kritiker sehen darin einen Ausschluss internationaler Teilnehmer. Der Artikel stellt dieser strikten Haltung den Umgang mit KI beim Linux-Kernel gegenüber: Dort wurde die Pflicht, KI-Unterstützung bei Patches zu kennzeichnen, kürzlich wieder abgeschafft.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag zeigt an einem konkreten Streitfall, wie Regeln gegen KI-Inhalte auch unabhängige Entwickler und die sprachliche Offenheit einer Gemeinschaft treffen können.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Le gouvernement avait préparé une coupure des réseaux sociaux : peut-il vraiment bloquer TikTok, Snapchat et Instagram ?</h3>
+<p class="meta">Numerama · 26 octobre 2026 · <a href="https://www.numerama.com/tech/2360573-le-gouvernement-peut-il-vraiment-couper-tiktok-instagram-et-les-autres-reseaux-sociaux-en-cas-de-violences-en-france.html">Lire l’article</a></p>
+<p>Selon les informations de Blast rapportées par Numerama, Matignon avait demandé aux opérateurs de préparer une suspension temporaire de plusieurs réseaux sociaux pour le 24 octobre, en cas de nouvelles violences urbaines. Le dispositif n’a finalement pas été activé. Les opérateurs avaient notamment contesté la possibilité de limiter rapidement le blocage aux connexions mobiles et à certaines zones géographiques : une restriction techniquement réalisable ne correspond pas forcément au ciblage souhaité par les autorités.</p>
+<p>L’article explique ensuite le fonctionnement du filtrage DNS, qui empêche un appareil de retrouver l’adresse des serveurs recherchés sans supprimer les comptes ni les publications. Cette méthode présente plusieurs limites : une application utilise de nombreux domaines, certaines fonctions peuvent rester accessibles et un autre service DNS peut parfois permettre de contourner la restriction. Un VPN offre une autre voie d’accès, sous certaines conditions, mais son blocage risquerait à son tour de perturber d’autres usages d’internet.</p>
+<p>La question est aussi juridique. Numerama revient sur la décision du Conseil d’État qui a déclaré illégale la coupure de TikTok en Nouvelle-Calédonie en 2024, sans exclure toute interruption exceptionnelle. Une telle mesure doit être indispensable, temporaire et limitée au temps nécessaire pour trouver des solutions moins restrictives. Le projet soulève donc un enjeu de proportionnalité : comment prévenir des violences sans priver largement la population de moyens de s’informer, de communiquer ou de documenter les événements ?</p>
+<p><strong>Pourquoi lire :</strong> Une explication accessible qui relie le fonctionnement d’internet aux limites juridiques du pouvoir de l’État en France.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>filtrage DNS</strong> — technique qui bloque l’accès à certains domaines en modifiant les réponses du service reliant leurs noms à des adresses IP.</li>
+<li><strong>VPN</strong> — réseau privé virtuel qui fait transiter une connexion par un serveur intermédiaire au moyen d’un tunnel chiffré.</li>
+<li><strong>mesure attentatoire aux libertés</strong> — intervention qui porte atteinte à l’exercice de droits fondamentaux, comme la liberté d’expression ou d’information.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 『雨穴の変な世界展。』―国境を超えた人気ホラーミステリーを体感</h3>
+<p class="meta">nippon.com · 2026-10-24 · <a href="https://www.nippon.com/ja/guide-to-japan/p01997/">記事を読む</a></p>
+<p>覆面作家・雨穴の小説や動画の世界に入り込める展覧会が、東京・天王洲アイルの寺田倉庫で開かれている。記事は、『変な家』の模型や『変な絵』の原画、動画でおなじみの部屋などを写真とともに紹介する。雨穴の作品は海外にも広がっており、『変な絵』は36以上の国と地域で翻訳展開されているという。</p>
+<p>会場では、薄暗い展示室から歌やダンスの映像が流れるステージへ、さらに森や廃工場を再現した空間へと進み、作品に通じる違和感や恐怖を体験できる。制作にはウェブメディア「オモコロ」の運営会社と、恐怖体験イベントを手掛ける会社が参加した。会期は2027年1月17日まで。展示の見どころに加え、会場へのアクセスや観覧料も確認できる。</p>
+<p><strong>読む理由：</strong> 小説・動画・体験型展示を横断する日本のホラー文化を、具体的な展示写真とともに知ることができる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>覆面作家（ふくめんさっか）</strong> — 本名や素顔などを公表せずに活動する作家。</li>
+<li><strong>具現化（ぐげんか）</strong> — 頭の中の考えやイメージを、目に見える形にすること。</li>
+<li><strong>因習（いんしゅう）</strong> — 古くから受け継がれ、問題があっても続いている習慣。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 观鸟如何重塑大脑，延缓认知衰退？</h3>
+<p class="meta">BBC 中文 · 2026-10-25 · <a href="https://www.bbc.com/zhongwen/articles/cm5ynx99yxzwo/simp">https://www.bbc.com/zhongwen/articles/cm5ynx99yxzwo/simp</a></p>
+<p>观察窗外的鸟类，可能不只是消磨时间。BBC从英国一个为认知障碍症患者组织的观鸟小组谈起，介绍这种活动如何帮助长者放松心情、参与交流，并重新感受探索自然的乐趣。在德国，研究团队在65间安老院舍外设置雀鸟喂食站，通过院友、护理人员及家属的反馈，观察到部分参与者在专注力、记忆和互动方面有所改善；相关成果也推动了巴伐利亚州更多院舍设置观鸟设施。</p>
+<p>文章还介绍加拿大研究人员对资深观鸟者与初学者的脑部扫描比较：两组人在与注意力、视觉感知及辨认有关的脑区，呈现不同的连结和活动特点。不过，研究尚未证明这些差异究竟源于长期观鸟，还是原有的大脑特征。观鸟可能结合了认知刺激、情感体验、社交和接触自然等多重益处，但不能据此把它视为已经证实能预防或治疗失智症的方法。</p>
+<p><strong>为什么读：</strong> 这篇报道把德国养老实践与脑科学研究联系起来，适合练习阅读健康新闻，同时辨别研究发现与因果结论之间的差别。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>神经可塑性 (shén jīng kě sù xìng)</strong> — 大脑随经验、学习等因素改变结构与功能的能力。</li>
+<li><strong>认知障碍症 (rèn zhī zhàng ài zhèng)</strong> — 又称失智症，涉及记忆、思考等认知能力下降，并影响日常生活。</li>
+<li><strong>失语症 (shī yǔ zhèng)</strong> — 因脑部损伤等原因导致说话或理解语言的能力受损。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied social-media excerpts; several are truncated or announcement-only. Missing methods and unverified performance claims are noted alongside the relevant items. Shortened resource links are retained as supplied, with their destinations unresolved.</p>
+</footer>
+</main>
+</body>
+</html>

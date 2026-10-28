@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --ink: #202b32; --muted: #606c73; --line: #d7dcd9; --accent: #17645f; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f5f3ed; color: var(--ink); font-family: Georgia, "Times New Roman", serif; line-height: 1.65; }
+main, header, footer { max-width: 960px; margin: auto; padding: 24px 30px; }
+header { border-bottom: 3px solid var(--ink); padding-top: 36px; }
+h1 { margin: 0; font-size: 64px; line-height: 1.1; letter-spacing: -2px; }
+.date, .meta, nav, footer, .section-label { font-family: system-ui, sans-serif; font-size: 14px; color: var(--muted); }
+.date { margin: 12px 0; }
+nav { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+h2 { font-size: 28px; line-height: 1.3; margin: 12px 0 22px; }
+h3 { font-size: 21px; line-height: 1.4; margin: 0 0 10px; }
+p { margin: 10px 0; }
+section { margin-bottom: 36px; }
+article { padding: 20px 0; border-bottom: 1px solid var(--line); }
+article:first-of-type { padding-top: 0; }
+.briefs { padding-left: 22px; }
+.briefs li { margin-bottom: 18px; }
+#language-practice { margin-top: 44px; padding-top: 28px; border-top: 3px solid var(--ink); }
+.reading { padding: 26px 0; }
+.reading + .reading { margin-top: 18px; }
+.reading[lang="ja"], .reading[lang="zh-Hans"] { line-height: 1.95; }
+footer { border-top: 1px solid var(--line); padding-bottom: 36px; }
+@media (max-width: 600px) {
+main, header, footer { padding-left: 20px; padding-right: 20px; }
+h1 { font-size: 52px; }
+h2 { font-size: 25px; }
+}
+</style>
+</head>
+<body>
+<header>
+<h1>News</h1>
+<p class="date"><time datetime="2026-10-28">Wednesday, October 28, 2026</time></p>
+<nav aria-label="Sections">
+<a href="#ai">AI &amp; computing</a>
+<a href="#biology">Biology &amp; genomics</a>
+<a href="#research-briefs">Research briefs</a>
+<a href="#language-practice">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="ai">
+<h2>AI &amp; computing</h2>
+<article>
+<h3>Disease fine-tune reports a substantial gain on NCBI Disease</h3>
+<p>OpenMed reports that fine-tuning Knowledgator’s GLiFormer base improves NCBI Disease test F1 from <strong>64.0 to 85.7</strong>. The Apache-2.0 model extracts disease mentions with character offsets; its SDK can additionally flag negated, family-history and past mentions.</p>
+<p>A separate synthetic-note demonstration found 19 versus 26 disease mentions at a threshold of 0.5. That example is not a benchmark, and its reported 0.39-second CPU runtime comes without hardware details.</p>
+<p class="meta">OpenMed · <a href="https://x.com/OpenMed_AI/status/2115096181881839751">Announcement</a> · <a href="https://t.co/ZMMwKOsuE2">Model resource</a> · <a href="https://x.com/OpenMed_AI/status/2115096182238466114">Evaluation details</a></p>
+</article>
+<article>
+<h3>Training tools, kernel verification and continual learning</h3>
+<ul class="briefs">
+<li><strong>MLX-VLM adds MTP support to its trainer.</strong> The announcement identifies a new training capability but supplies no implementation details or performance measurements. <a href="https://x.com/Prince_Canuma/status/2115029649701118205">Post</a> · <a href="https://t.co/TAy0RoNovB">Resource</a></li>
+<li><strong>A Blackwell kernel verifier is announced</strong> as an extension of work titled “AI as a Compiler.” The available excerpt does not establish verification methodology or coverage. <a href="https://x.com/vikhyatk/status/2114971007849275532">Post</a></li>
+<li><strong>A “sleep” phase for continual learning in LLMs</strong> is the subject of a Google Research blog announcement shared by Ali Behrouz. The truncated excerpt includes neither results nor enough detail to distinguish it from earlier sleep-phase research. <a href="https://x.com/behrouz_ali/status/2115293400031441396">Post</a></li>
+<li><strong>“From Parameter Symmetry to Effective Learning Rates.”</strong> Jianlin Su shares an optimization resource; only its title and link are available, not its derivations or conclusions. <a href="https://x.com/Jianlin_S/status/2115062930396078081">Post</a> · <a href="https://t.co/W0DR90djf4">Resource</a></li>
+</ul>
+</article>
+</section>
+
+<section id="biology">
+<h2>Biology &amp; genomics</h2>
+<article>
+<h3>scLSD reconstructs cell differentiation on a learned landscape</h3>
+<p>Single-Cell Latent Space Dynamics, or <strong>scLSD</strong>, is described as a thermodynamics-inspired framework combining low-dimensional cell states, a differentiable potential and local entropy with a neural ordinary differential equation. It reconstructs differentiation trajectories from time-ordered single-cell data.</p>
+<p>The posts claim recovery of lineage hierarchies and prediction of trajectory direction and cell fate—capabilities relevant to cellular-dynamics modeling—but provide no quantitative benchmarks.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2115176560462565706">Research post</a></p>
+</article>
+<article>
+<h3>Genomic infrastructure: multidimensional tracks and bisulfite-aware hashing</h3>
+<p><strong>figwig</strong> is a newly announced genomics data format described as generalizing bigWig to n-dimensional data. The truncated announcement does not describe supported operations, implementation or performance. <a href="https://x.com/pkoo562/status/2115223787490942988">Release post</a></p>
+<p><strong>biHash</strong> uses context-specific dinucleotide encodings to match selected reference and bisulfite-derived k-mers. Separate rolling-hash schemes handle CG, CC, CT and CA contexts; the accompanying explanation says combining them would create excessive degeneracy and reduce specificity. No performance results are supplied. <a href="https://x.com/razoralign/status/2115175903466865039">Method post</a></p>
+</article>
+<article>
+<h3>For molecular-dynamics ML, count the full compute bill</h3>
+<p>A position paper by Simon Olsson, Frank Noé, Grant Rotskoff and Kresten Lindorff-Larsen addresses rigor in machine-learning methods for molecular dynamics. Rishabh’s accompanying commentary stresses accounting for <strong>data generation and curation, training, and inference</strong> rather than treating inference speed alone as overall acceleration.</p>
+<p>The post also points to a checklist, but its contents are not included in the supplied material.</p>
+<p class="meta"><a href="https://x.com/rishabh16_/status/2115200533619417472">Paper discussion</a></p>
+</article>
+<article>
+<h3>Two cautions for genomic analysis</h3>
+<p>A linked resource examines <strong>Berkson’s paradox in genomics analyses</strong>, a reminder to consider selection bias. Separately, a practical warning flags a quieter source of errors: combining hg19 peaks with hg38 gene annotations can silently yield incorrect peak-to-gene assignments. These are methodological cautions, not new benchmark results.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2115060625651220661">Selection-bias resource</a> · <a href="https://x.com/razoralign/status/2115060581946556696">Reference-build warning</a></p>
+</article>
+</section>
+
+<section id="research-briefs">
+<h2>Research briefs</h2>
+<p class="meta">Pointers from the supplied research posts; details are limited, so these are not summaries of validated findings.</p>
+<ul class="briefs">
+<li><strong>A family-aware All of Us benchmark</strong> targets polygenic prediction and genomic machine learning. The post does not describe splits, methods or results. <a href="https://x.com/gen0m1cs/status/2115149456731492447">Post</a> · <a href="https://t.co/YsWVOvpzNo">Resource</a></li>
+<li><strong>Separating cis and trans transcriptional influences.</strong> Nature Reviews Genetics highlights “Decoupling cis and trans transcriptional influences”; the approach and findings are unavailable in the supplied excerpt. <a href="https://x.com/NatureRevGenet/status/2115074578829775147">Publication post</a></li>
+<li><strong>OPTIMuS PRIME-Del</strong> is announced as work by Aidan Keith using paired prime editing. The excerpt ends before specifying the programmed outcomes, scope or validation. <a href="https://x.com/anshulkundaje/status/2115151145882796253">Announcement</a></li>
+<li><strong>Cell-free protein synthesis for human intercellular signaling.</strong> A research announcement describes decoding and manipulating signaling through scalable cell-free synthesis, without identifying the systems, experimental scale or results. <a href="https://x.com/razoralign/status/2115116071577686174">Research post</a></li>
+<li><strong>Design of the Gujarat Tribal Genome Project.</strong> A repost points to the Nature Genetics publication, but provides no recruitment, consent, cohort-size or sequencing details. <a href="https://x.com/anshulkundaje/status/2115153818715643960">Publication pointer</a></li>
+<li><strong>Can electronic health records re-identify a person’s genome?</strong> A Nature Communications study examines the privacy question. The excerpt gives no methods, success rates or conditions under which identification is possible. <a href="https://x.com/razoralign/status/2115060644093583815">Study pointer</a></li>
+<li><strong>CTCF across Bilateria.</strong> A preprint tracks the evolution of this gene-regulatory factor. The text mentions DNA binding but truncates before explaining functional transitions or supporting evidence. <a href="https://x.com/razoralign/status/2115060714427879742">Preprint announcement</a></li>
+<li><strong>Adaptive variation from low-coverage whole-genome sequencing.</strong> A study addresses spatially structured populations; only the topic, not the method or validation results, is available. <a href="https://x.com/razoralign/status/2115060660640030971">Study pointer</a></li>
+</ul>
+</section>
+
+<section id="language-practice">
+<h2>Language practice</h2>
+<article class="reading" lang="de">
+<h3>Deutsch — Apples neue Rechner mit M6 sind schon da – aber für das wahre Upgrade solltet ihr Mittwoch im Auge behalten</h3>
+<p class="meta">GameStar · 27.10.2026 · <a href="https://www.gamestar.de/artikel/apple-m6-macbook-pro-imac-oled-upgrade,3461957.html">https://www.gamestar.de/artikel/apple-m6-macbook-pro-imac-oled-upgrade,3461957.html</a></p>
+<p>GameStar berichtet über neue M6-Versionen des 14-Zoll-MacBook Pro und des iMac. Beim Notebook nennt der Artikel unter anderem mehr CPU- und GPU-Kerne, WLAN 7 und einen deutschen Einstiegspreis von 2.300 Euro. Der iMac soll in zwei Leistungsvarianten ab 1.800 beziehungsweise 2.000 Euro erhältlich sein. Als Verkaufsstart nennt der Bericht den 6. November; die angeführten Leistungssteigerungen beruhen auf Angaben und Tests von Apple, nicht auf unabhängigen Messungen.</p>
+<p>Der interessantere Teil betrifft eine mögliche Änderung der Bedienung: Für eine Veranstaltung am 28. Oktober erwartet Bloomberg laut dem Artikel ein MacBook Pro mit berührungsempfindlichem OLED-Display. Im Gespräch sind Modelle mit 14 und 16 Zoll, geringerem Gewicht und einer vom iPhone bekannten Dynamic Island. Touch wäre dabei eine Ergänzung zu Tastatur und Trackpad. Diese Details werden als Vorabinformationen beschrieben und sind von den bereits vorgestellten M6-Rechnern zu unterscheiden.</p>
+<p><strong>Warum lesen:</strong> Der kurze Artikel verbindet konkrete Ausstattungs- und Preisangaben mit der Frage, ob Apple beim MacBook über ein reines Leistungsupdate hinausgeht.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Climat : 79 millions d’heures de travail potentielles perdues en France chaque année en raison de l’exposition aux chaleurs</h3>
+<p class="meta">Le Monde · 28 octobre 2026 · <a href="https://www.lemonde.fr/planete/article/2026/10/28/climat-79-millions-d-heures-de-travail-potentielles-perdues-en-france-chaque-annee-en-raison-de-l-exposition-aux-chaleurs_6801529_3244.html">Lire l’article</a></p>
+<p>Le réchauffement climatique transforme aussi les conditions de travail et les risques sanitaires en France. Stéphane Mandard présente le bilan français du Lancet Countdown, dont la dixième édition propose pour la première fois des analyses par pays. Le titre met en avant une estimation de 79 millions d’heures de travail potentielles perdues chaque année à cause de la chaleur : un angle concret pour comprendre les conséquences sociales et économiques du dérèglement climatique.</p>
+<p>La partie accessible de l’article insiste sur l’exposition croissante des populations vulnérables. Entre 2016 et 2025, les nourrissons et les personnes de plus de 65 ans ont subi, en moyenne, neuf journées de canicule supplémentaires par an par rapport à la période de référence. Les activités physiques en extérieur sont également concernées : même un effort modéré peut exposer davantage au stress thermique. L’article relie ainsi les indicateurs climatiques à la santé quotidienne, au-delà des seuls records de température. La suite du texte est réservée aux abonnés ; cet aperçu repose sur les éléments librement accessibles.</p>
+<p><strong>Pourquoi lire :</strong> Pour découvrir comment un rapport scientifique mesure les effets de la chaleur sur la santé et le travail en France.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>stress thermique</strong> — contrainte subie par l’organisme lorsque les conditions de température perturbent sa régulation interne.</li>
+<li><strong>période de référence</strong> — intervalle choisi comme base de comparaison pour mesurer une évolution.</li>
+<li><strong>indicateur sanitaire</strong> — donnée permettant de suivre l’état de santé d’une population ou son exposition à un risque.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 国連や各国の大学・企業と連携し拡大する「Games for Change」の最前線。世界各支部の活動状況と日本の展望をレポート</h3>
+<p class="meta">4Gamer · 2026-10-28 · <a href="https://www.4gamer.net/games/991/G999104/20261027057/">記事を読む</a></p>
+<p>ゲームを娯楽だけでなく、社会課題の解決に生かす取り組みを紹介する講演レポート。10月24日に大阪電気通信大学で開かれた「大阪シリアスゲームデイ」で、IGDA日本理事の佐藤翔氏が「Games for Change（G4C）」の世界各支部の活動を解説した。「Minecraft」を使ったスラムの住環境改善などを例に、ゲームと現実の暮らしがどう結び付くのかを取り上げている。</p>
+<p>記事は、国連機関との連携やXRの活用から、地域ごとに異なる課題への対応へと視野を広げる。欧米だけでなく中南米、アフリカ、アジアにも目を向け、企業・行政・大学が協力する「産官学連携」と、日本での今後の展望を扱う。新作の遊び方や販売情報とは違う角度から、ゲーム業界の社会的な役割を考えられる内容だ。</p>
+<p><strong>読む理由：</strong> 身近なゲームが住環境や社会課題と結び付く具体例を通して、技術と社会を論じる日本語に触れられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>シリアスゲーム</strong> — 教育や社会課題の解決など、娯楽以外の目的にも重点を置いたゲーム。</li>
+<li><strong>産官学連携（さんかんがくれんけい）</strong> — 企業、行政、大学などが協力して研究や事業に取り組むこと。</li>
+<li><strong>XR（エックスアール）</strong> — 仮想現実や拡張現実など、現実とデジタル空間を結び付ける技術の総称。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh-Hans">
+<h3>中文 — 一个“好移民”能上街吗？——10月17日之后的巴黎手记</h3>
+<p class="meta">端传媒 · 2026-10-24 · <a href="https://theinitium.com/20261024-opinion-paris-october-17-good-immigrant-zh-hans/">https://theinitium.com/20261024-opinion-paris-october-17-good-immigrant-zh-hans/</a></p>
+<p>这篇巴黎手记从一名留学生没有参加游行的经历写起。根据文章可见的编者按，10月17日法国多地出现反对生活成本上涨的示威，部分城市随后发生打砸抢。作者关注的是：当中文网络上的讨论集中于“零元购”和“移民暴动”时，抗议者原本的经济诉求如何被遮蔽，复杂的社会冲突又如何被简化成移民问题。</p>
+<p>可见正文中的作者在游行当天留在家里，第二天面对国内朋友的询问，才开始反思自己的旁观。他一方面希望融入法国社会，另一方面又不确定自己应承担多少公共责任；编者按提到的住房补助资格与学费豁免收紧，则让这种纠结有了具体的生活背景。文章由此追问：“好移民”是否意味着安静、不添麻烦，而争取共同权益又是否要求人们走上街头？</p>
+<p><strong>为什么读：</strong> 这篇个人视角的社会评论把欧洲生活成本、留学生处境与媒体叙事联系起来，适合练习辨认中文议论中的立场与反问。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>住房补助 (zhùfáng bǔzhù)</strong> — 用于减轻住房费用负担的经济援助，领取通常有资格限制。</li>
+<li><strong>学费豁免 (xuéfèi huòmiǎn)</strong> — 按规定免除全部或部分学费的安排。</li>
+<li><strong>社会福利 (shèhuì fúlì)</strong> — 由政府或公共制度提供、旨在保障生活与减轻社会风险的支持。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>
+<p><strong>Source notes.</strong> Research coverage draws on the supplied X AI Research and X Bio Research reports. Many excerpts are truncated; reported claims and title-only pointers are distinguished from substantive results. Shortened resource links are preserved as supplied and have not been resolved.</p>
+<p>Edition 2026-10-28-1</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --ink:#242722; --muted:#656b63; --rule:#d6d9cf; --accent:#285b50; }
+* { box-sizing:border-box; }
+body { margin:0; background:#f5f4ee; color:var(--ink); font-family:Georgia,"Times New Roman",serif; line-height:1.65; }
+main { max-width:1000px; margin:auto; padding:32px 26px 48px; }
+header { border-top:5px solid var(--ink); border-bottom:1px solid var(--ink); padding:16px 0 20px; }
+h1 { font-size:clamp(3rem,8vw,5rem); line-height:1; margin:0 0 16px; letter-spacing:-.04em; }
+.date, nav, .source, footer, .section-note { font-family:system-ui,sans-serif; }
+.date { color:var(--muted); font-size:.9rem; }
+nav { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:15px; font-size:.88rem; }
+a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
+a:hover { color:#122e27; }
+section { margin-top:36px; }
+h2 { font-family:system-ui,sans-serif; font-size:1.35rem; border-bottom:2px solid var(--ink); padding-bottom:9px; }
+h3 { font-size:1.25rem; line-height:1.35; margin:0 0 9px; }
+p { margin:9px 0 14px; }
+article { padding:20px 0; border-bottom:1px solid var(--rule); }
+.source { font-size:.82rem; color:var(--muted); }
+.section-note { color:var(--muted); font-size:.88rem; }
+.briefs { padding-left:21px; }
+.briefs li { margin-bottom:15px; padding-left:3px; }
+#language-practice { margin-top:48px; border-top:5px solid var(--ink); padding-top:14px; }
+.reading { padding:24px 0; }
+.reading h3 { font-size:1.4rem; }
+.reading[lang="ja"], .reading[lang="zh"] { line-height:1.9; }
+footer { margin-top:35px; border-top:1px solid var(--rule); padding-top:15px; font-size:.8rem; color:var(--muted); }
+@media(min-width:760px) { .columns { display:grid; grid-template-columns:1fr 1fr; gap:0 30px; } }
+@media print { body { background:white; } main { max-width:none; padding:0; } nav { display:none; } article { break-inside:avoid; } a { color:inherit; } }
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-10-29">Thursday, 29 October 2026</time> · Research &amp; daily reading</div>
+<nav aria-label="Sections">
+<a href="#ai">AI research</a>
+<a href="#biology">Computational biology</a>
+<a href="#genomics">Genomics &amp; medicine</a>
+<a href="#language-practice">Language practice</a>
+</nav>
+</header>
+
+<section id="ai">
+<h2>AI research &amp; evaluation</h2>
+<article>
+<h3>H-Net update reports gains from learning directly from bytes</h3>
+<p>Albert Gu reports that an updated hierarchical network achieves 3–5× efficiency gains in controlled scaling-law experiments. At larger scale, he says it matches an unnamed open-source model trained on 11 trillion tokens while using roughly 10× less data and compute.</p>
+<p><a href="https://x.com/tri_dao/status/2115531348161028374">Tri Dao adds</a> that H-Net dynamically learns to tokenize code variable names and scales better on code than BPE. These are reported claims: the supplied posts contain neither experimental tables nor a paper URL.</p>
+<div class="source"><a href="https://x.com/_albertgu/status/2115502110578290900">Albert Gu · Original post</a></div>
+</article>
+<div class="columns">
+<article>
+<h3>A cleaner test for corpus-assisted models</h3>
+<p>You Jiacheng proposes separate training, lookup-table and validation splits, with an infinigram index built on a 100-billion- or 1-trillion-token table set. Measuring validation loss with that index would help distinguish learned-model improvements from lookup benefits. Lower returns for lookup methods are a prediction, not an experimental finding.</p>
+<div class="source"><a href="https://x.com/YouJiacheng/status/2115525487309295833">You Jiacheng · Proposal</a></div>
+</article>
+<article>
+<h3>Granite Docling runs roughly 9.2× faster in a reported MLX-VLM test</h3>
+<p>Prince Canuma reports that Granite Docling 258M on an M5 Max processes one page in 1.73 seconds with MLX-VLM versus 15.92 seconds with PyTorch; four pages take 2.45 versus 22.45 seconds. Precision, software versions and timing methodology are not supplied.</p>
+<div class="source"><a href="https://x.com/Prince_Canuma/status/2115467964543558138">Benchmark post</a> · <a href="https://t.co/6D7SOnv1bC">Case study</a></div>
+</article>
+</div>
+<ul class="briefs">
+<li><strong>Intelligence Index v5:</strong> A shared announcement describes two new benchmarks and three upgrades. A separate post says Artificial Analysis is moving to closed benchmarks and replacing GDPval-AA. The excerpts are truncated, leaving benchmark identities and evaluation details unavailable. <a href="https://x.com/giffmana/status/2115340551415296392">Announcement</a> · <a href="https://x.com/steipete/status/2115291482005602307">Related post</a></li>
+<li><strong>Transferring model behaviors:</strong> A discussion of neuron edits in PEFT/Transformers points to papers on isolating and transferring behaviors between models. Titles, methods and results are not visible in the supplied text. <a href="https://x.com/Prince_Canuma/status/2115473120391839816">Discussion</a> · <a href="https://t.co/5hVhh046xV">First paper link</a> · <a href="https://t.co/mIu0732OzR">Follow-up link</a></li>
+<li><strong>TorchLean correctness report:</strong> Lucas Beyer shares a report of a <code>log_softmax</code> bug, with the truncated excerpt indicating a fix. The failure mechanism, affected versions and fix details are unavailable. <a href="https://x.com/giffmana/status/2115330324326646051">Post</a> · <a href="https://t.co/plXnVXVvEW">Linked discussion</a></li>
+</ul>
+</section>
+
+<section id="biology">
+<h2>Computational biology &amp; cell models</h2>
+<article>
+<h3>CellCompass connects scientific agents with virtual-cell dynamics</h3>
+<p>CellCompass combines a scientific agent with a modular dynamical engine based on transport, bridge and flow-matching formulations. The accompanying posts report recovery of cellular dynamics under controlled ground truth, but supply no quantitative evaluation.</p>
+<p>Its LineageBridge model uses clone barcodes to constrain transport between time points, then uses terminal clone composition to allocate mass across future fate branches. That branch mass is interpreted as fate probabilities.</p>
+<div class="source"><a href="https://x.com/razoralign/status/2115538335175483426">CellCompass · Research thread</a></div>
+</article>
+<div class="columns">
+<article>
+<h3>ProtCell models single-cell protein abundance</h3>
+<p>ProtCell combines protein-identity and continuous-abundance embeddings in a Transformer trained through masked abundance modeling. The thread describes transferable annotation and batch correction, using contrastive fine-tuning with unbalanced optimal transport to align batches while preserving within-batch structure. Benchmark results are not included.</p>
+<div class="source"><a href="https://x.com/razoralign/status/2115537420829831327">ProtCell · Research thread</a></div>
+</article>
+<article>
+<h3>MassNet brings 35 species to peptide-sequencing research</h3>
+<p>Nature Methods highlights an AI-ready MS/MS spectra corpus spanning 35 species. MassNet supported the development of XuanjiNovo, a Transformer for de novo peptide sequencing. The supplied announcement gives neither dataset size nor model-performance figures.</p>
+<div class="source"><a href="https://x.com/naturemethods/status/2115496379737166188">Nature Methods · Announcement</a> · <a href="https://t.co/h9yr65njfU">Resource</a></div>
+</article>
+</div>
+<h3>Methods &amp; research pointers</h3>
+<p class="section-note">These short announcements identify useful directions, but do not provide enough evidence to assess performance or validation.</p>
+<ul class="briefs">
+<li><strong>Sparse autoencoders for single-cell models:</strong> A shared paper explores interpretable features in single-cell foundation models; the biological features and validation procedures are not described. <a href="https://x.com/razoralign/status/2115468293159219233">Research post</a></li>
+<li><strong>GRiNS:</strong> A Python library for simulating gene-regulatory-network dynamics. Supported model classes and validation are not specified. <a href="https://x.com/razoralign/status/2115468019841573086">Tool post</a></li>
+<li><strong>SVGRN:</strong> A resource for spatially varying, cell-specific regulatory-network inference, without methodological or performance details in the excerpt. <a href="https://x.com/razoralign/status/2115463556594536668">Resource post</a></li>
+<li><strong>velotest:</strong> Research on statistically assessing RNA-velocity embeddings and quality differences in trajectory visualization. The truncated post does not identify the tests or findings. <a href="https://x.com/razoralign/status/2115468154621333965">Research post</a></li>
+<li><strong>GraphComm:</strong> A graph-based deep-learning method for predicting cell–cell communication from single-cell RNA sequencing. Evaluation and experimental validation are absent from the supplied excerpt. <a href="https://x.com/razoralign/status/2115468072865960065">Method post</a></li>
+<li><strong>Cell Decoder:</strong> A paper on cell identity and multiscale explainable deep learning; only title-level information is available. <a href="https://x.com/razoralign/status/2115468039491899452">Paper post</a></li>
+<li><strong>C2S-Scale:</strong> Research on scaling language models for single-cell analysis. Model sizes, tasks, datasets and results are not specified. <a href="https://x.com/razoralign/status/2115467996273803681">Research post</a></li>
+<li><strong>Structural History of Eukarya:</strong> SHE is announced as a proteome-scale phylogeny built entirely from three-dimensional structure. The post claims a first, but provides no sampling details, validation or comparisons with sequence-based trees. <a href="https://x.com/miangoar/status/2115509734702747921">Announcement</a></li>
+</ul>
+</section>
+
+<section id="genomics">
+<h2>Genomics, sequencing &amp; medicine</h2>
+<div class="columns">
+<article>
+<h3>Mimic offers modular genomic architecture comparisons</h3>
+<p>Mimic, a sequence-embedding package in the Poseigen family, provides single- and dual-input models built from Trident components. The posts describe protein–DNA interaction and enhancer-activity applications, including comparisons of recurrent and convolutional sequence embeddings.</p>
+<div class="source"><a href="https://x.com/razoralign/status/2115537130873393174">Mimic · Resource post</a></div>
+</article>
+<article>
+<h3>Family-aware evaluation for genomic prediction</h3>
+<p>A shared item introduces an All of Us benchmark for family-aware polygenic prediction and genomic machine learning. The evaluation focus is relevant to prediction reliability, but split construction, cohort size and results are not supplied.</p>
+<div class="source"><a href="https://x.com/anshulkundaje/status/2115576677380280770">Benchmark announcement</a></div>
+</article>
+</div>
+<h3>Sequencing toolkit</h3>
+<ul class="briefs">
+<li><strong>AmpliconSuite</strong> analyzes focal amplifications in cancer whole-genome sequencing data. The Nature Methods announcement does not specify component algorithms or evaluation results. <a href="https://x.com/naturemethods/status/2115505510502039585">Announcement</a></li>
+<li><strong>Barbell</strong> addresses demultiplexing and trimming in nanopore data; implementation details and comparative results are not included. <a href="https://x.com/razoralign/status/2115468306010574904">Tool post</a></li>
+<li><strong>FuFiHLA</strong> performs full-field HLA typing from long reads. Accuracy, coverage requirements and supported platforms are not supplied. <a href="https://x.com/razoralign/status/2115463465884401734">Tool post</a></li>
+<li><strong>SVUPP</strong> is shared with the claim that pre-phasing long reads improves structural-variant genotyping. No effect sizes, datasets or benchmark comparisons are available in the excerpt. <a href="https://x.com/razoralign/status/2115463453888692382">Paper post</a></li>
+</ul>
+<h3>Disease &amp; publication watch</h3>
+<ul class="briefs">
+<li><strong>Huntington’s disease:</strong> A shared research item reports that somatic DNA-repeat expansions initiate distinct yet analogous changes in cortical and striatal neurons. The truncated excerpt does not identify the changes or supporting experiments. <a href="https://x.com/anshulkundaje/status/2115612205815308397">Research post</a></li>
+<li><strong>Alzheimer’s genetics:</strong> A study titled “Alzheimer’s disease genetics converges on microglial and neuronal dysregulation” points to cellular contexts for disease risk. Cohorts, methods and implicated pathways are not described. <a href="https://x.com/anshulkundaje/status/2115597622534979853">Study post</a></li>
+<li><strong>Hospital-to-hospital transfer:</strong> An EHR-model paper asks whether a model trained at one hospital can interpret another hospital’s records. The supplied announcement cuts off before either the method or the answer. <a href="https://x.com/anshulkundaje/status/2115529413937049959">Paper announcement</a></li>
+<li><strong>TenK10K:</strong> An author announcement reports three papers published in Nature. An excerpt begins describing “missing regulation” but ends before the findings; specific discoveries and dataset dimensions are unavailable. <a href="https://x.com/anshulkundaje/status/2115631494870061334">Publication announcement</a></li>
+</ul>
+</section>
+
+<section id="language-practice" aria-labelledby="language-heading">
+<h2 id="language-heading">Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Folgt auf Bundespräsident Steinmeier erstmals eine Frau?</h3>
+<p class="source">Deutsche Welle · 28.10.2026 · <a href="https://www.dw.com/de/wer-folgt-auf-bundespräsident-steinmeier-frau-oder-mann/a-79785223">Artikel lesen</a></p>
+<p>Wer folgt auf Frank-Walter Steinmeier, der nach zwei Amtszeiten nicht erneut als Bundespräsident antreten kann? Die DW beschreibt die Suche nach einer Person, die über Parteigrenzen hinweg Vertrauen genießt und gesellschaftliche Gegensätze überbrücken kann. Dabei steht auch die Frage im Raum, ob erstmals eine Frau Deutschlands höchstes Staatsamt übernehmen wird. Bundeskanzler und CDU-Chef Friedrich Merz hat sich dem Bericht zufolge noch nicht auf einen Vorschlag festgelegt.</p>
+<p>Als aussichtsreiche Kandidatin gilt die bayerische Landtagspräsidentin Ilse Aigner von der CSU. Für sie sprechen laut Artikel ihre Regierungserfahrung und Zuspruch auch außerhalb der eigenen Partei. Daneben werden mehrere Namen aus der CDU genannt, darunter Julia Klöckner, Annegret Kramp-Karrenbauer und Karin Prien. Die Politikwissenschaftlerin Ursula Münch sieht eine gewisse Tendenz zugunsten Aigners, hält den Ausgang aber weiterhin für offen.</p>
+<p>Der Beitrag erklärt außerdem, warum die Personalentscheidung mehr als eine Frage der Repräsentation ist. Gewählt wird das Staatsoberhaupt von der Bundesversammlung, nicht unmittelbar von der Bevölkerung. Obwohl der Bundespräsident keine Regierungsgeschäfte führt, besitzt er wichtige verfassungsrechtliche Aufgaben und kann gerade in politischen Krisen eine bedeutende Rolle spielen.</p>
+<p><strong>Warum lesen:</strong> Der Artikel verbindet die aktuelle Personaldebatte mit einem verständlichen Einblick in Aufgaben, Wahl und politische Bedeutung des deutschen Staatsoberhaupts.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Comment Sartre a-t-il écrit Les Mots ? Des notes inédites mises aux enchères</h3>
+<p class="source">ActuaLitté · 27 octobre 2026 · <a href="https://actualitte.com/article/134898/encheres/comment-sartre-a-t-il-ecrit-les-mots-des-notes-inedites-mises-aux-encheres">https://actualitte.com/article/134898/encheres/comment-sartre-a-t-il-ecrit-les-mots-des-notes-inedites-mises-aux-encheres</a></p>
+<p>Christie’s propose, dans une vente en ligne organisée du 27 octobre au 5 novembre, des notes manuscrites de Jean-Paul Sartre concernant la préparation des <em>Mots</em>. Leur estimation se situe entre 25 000 et 35 000 euros. Au-delà de leur valeur marchande, ces documents intéressent l’histoire littéraire : ils pourraient aider à comprendre comment l’écrivain a construit cette autobiographie publiée chez Gallimard en 1964.</p>
+<p>L’article retrace surtout la transformation du projet. D’abord conçu sous le titre <em>Jean sans terre</em>, le récit devait faire une large place à la politique et à l’engagement de Sartre. Après de nombreuses réécritures, il s’est concentré sur l’enfance, la découverte des livres et la naissance d’une ambition d’écrivain. Les brouillons permettent ainsi d’aborder une œuvre non comme un texte fixé d’emblée, mais comme le résultat de choix, de suppressions et de reprises.</p>
+<p>ActuaLitté souligne toutefois une limite essentielle : la maison de ventes présente ces notes comme inédites, sans en préciser suffisamment le contenu ni la place dans la chronologie de rédaction. Jamais publiées ne signifie pas forcément inconnues des chercheurs. Il faudra donc les dater et les comparer aux archives existantes avant de pouvoir mesurer leur apport réel à la connaissance des <em>Mots</em>.</p>
+<p><strong>Pourquoi lire :</strong> Pour découvrir les étapes de création d’une autobiographie majeure tout en apprenant à distinguer une annonce de vente d’une véritable avancée dans la recherche littéraire.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>notes autographes</strong> — notes écrites de la main même de leur auteur.</li>
+<li><strong>genèse d’une œuvre</strong> — ensemble des étapes et transformations qui conduisent à sa création.</li>
+<li><strong>inédit</strong> — qui n’a pas été publié, sans être nécessairement inconnu des spécialistes.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — Steam運営元Valveが「AIでゲームをパクられる問題」について回答。模倣は昔からあったとして、“地道な対抗策”示す</h3>
+<p class="source">AUTOMATON · 2026-10-29 · <a href="https://automaton-media.com/articles/newsjp/20261029-476334/">記事を読む</a></p>
+<p>生成AIで既存のゲームを模倣する動きに、販売プラットフォームはどう対応すべきなのか。記事は、10月27日に韓国で開催された開発者向けイベントでのValve担当者の回答を紹介している。質問のきっかけは、開発中の作品に似たゲームの公開をほのめかし、金銭を要求したとされる事件だった。担当者は、模倣自体は以前から存在し、AIがその速度を上げたという見方を示す一方、開発に使う道具の選択は開発者に委ねる姿勢を説明した。</p>
+<p>対抗策として挙げられたのは、プレイヤーとの信頼関係を築くことと、作品を継続的に改善することだ。簡単にまねできる仕組みだけに頼らず、作者独自の視点や個性を加えていくことを重視している。ただし、恐喝は通常の模倣問題とは区別し、法執行機関が対処すべき事案としたうえで、Valveへの報告があれば調査し、可能な限り支援するとしている。</p>
+<p>記事後半では、この姿勢に対する「開発者への責任転嫁」という批判と、作品の掲載に介入すれば事前検閲にもつながりかねないという運営側の難しさを整理する。AI利用の賛否だけでなく、創作者の保護と販売の自由をどう両立させるかが読みどころだ。</p>
+<p><strong>読む理由：</strong> 身近なゲームの話題を通じて、生成AIと創作、プラットフォームの責任をめぐる議論を日本語で読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>生成AI（せいせいエーアイ）</strong> — 学習したデータをもとに、文章・画像・プログラムなどを作り出す人工知能。</li>
+<li><strong>法執行機関（ほうしっこうきかん）</strong> — 警察など、法律に基づいて犯罪の捜査や取り締まりを行う機関。</li>
+<li><strong>事前検閲（じぜんけんえつ）</strong> — 公開される前に内容を審査し、発表や流通を制限すること。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh">
+<h3>中文 — Epic宣布将允许AI使用虚幻引擎和MetaHuman输出训练</h3>
+<p class="source">机核 · 页面显示发布于19小时前 · <a href="https://www.gcores.com/articles/221590">https://www.gcores.com/articles/221590</a></p>
+<p>据机核报道，Epic负责人蒂姆·斯威尼表示，公司计划调整软件许可条款，让开发者能够把虚幻引擎及MetaHuman生成的内容用于AI训练。不过，这并不意味着所有使用这些工具制作的游戏都会自动开放：具体游戏能否用于训练，仍由其开发者决定。</p>
+<p>报道还提到，斯威尼反对Steam要求开发者公开说明AI使用情况的规定。这场争议涉及两个不同问题：哪些内容可以成为训练材料，以及玩家是否应当获知游戏开发中使用了AI。文章发布时，Epic尚未公布条款调整的具体细节，因此不能把这项表态视为已经落实的新规则。</p>
+<p><strong>为什么读：</strong> 这篇短讯把游戏制作工具、AI训练授权与平台披露要求联系起来，适合练习辨别科技报道中的政策表态和实际落地。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>最终用户许可协议 (zuìzhōng yònghù xǔkě xiéyì)</strong> — 规定软件使用者享有哪些权限、承担哪些义务的协议。</li>
+<li><strong>虚幻引擎 (xūhuàn yǐnqíng)</strong> — Epic开发的实时图形与游戏制作工具，可用于构建场景、角色和交互内容。</li>
+<li><strong>披露 (pīlù)</strong> — 向公众或相关方公开需要说明的信息，这里指公开游戏开发中的AI使用情况。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> This edition uses the supplied source reports only. Research coverage is based on social posts, many of them truncated or title-only; linked papers and shortened-link destinations were not independently checked. Reposted research is not necessarily newly published. The identical MassNet announcement appearing in both research feeds is presented once.</p>
+<p>Edition 2026-10-29-1</p>
+</footer>
+</main>
+</body>
+</html>

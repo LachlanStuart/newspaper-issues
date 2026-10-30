@@ -5,199 +5,218 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root { color-scheme: light; --ink:#242722; --muted:#656b63; --rule:#d6d9cf; --accent:#285b50; }
-* { box-sizing:border-box; }
-body { margin:0; background:#f5f4ee; color:var(--ink); font-family:Georgia,"Times New Roman",serif; line-height:1.65; }
-main { max-width:1000px; margin:auto; padding:32px 26px 48px; }
-header { border-top:5px solid var(--ink); border-bottom:1px solid var(--ink); padding:16px 0 20px; }
-h1 { font-size:clamp(3rem,8vw,5rem); line-height:1; margin:0 0 16px; letter-spacing:-.04em; }
-.date, nav, .source, footer, .section-note { font-family:system-ui,sans-serif; }
-.date { color:var(--muted); font-size:.9rem; }
-nav { display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:15px; font-size:.88rem; }
-a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
-a:hover { color:#122e27; }
-section { margin-top:36px; }
-h2 { font-family:system-ui,sans-serif; font-size:1.35rem; border-bottom:2px solid var(--ink); padding-bottom:9px; }
-h3 { font-size:1.25rem; line-height:1.35; margin:0 0 9px; }
-p { margin:9px 0 14px; }
-article { padding:20px 0; border-bottom:1px solid var(--rule); }
-.source { font-size:.82rem; color:var(--muted); }
-.section-note { color:var(--muted); font-size:.88rem; }
-.briefs { padding-left:21px; }
-.briefs li { margin-bottom:15px; padding-left:3px; }
-#language-practice { margin-top:48px; border-top:5px solid var(--ink); padding-top:14px; }
-.reading { padding:24px 0; }
-.reading h3 { font-size:1.4rem; }
-.reading[lang="ja"], .reading[lang="zh"] { line-height:1.9; }
-footer { margin-top:35px; border-top:1px solid var(--rule); padding-top:15px; font-size:.8rem; color:var(--muted); }
-@media(min-width:760px) { .columns { display:grid; grid-template-columns:1fr 1fr; gap:0 30px; } }
-@media print { body { background:white; } main { max-width:none; padding:0; } nav { display:none; } article { break-inside:avoid; } a { color:inherit; } }
+:root{color-scheme:light;--ink:#222a2e;--muted:#606a70;--accent:#155e75;--line:#d8dddb;--paper:#fffef9}
+*{box-sizing:border-box}
+body{margin:0;background:#f1f2ee;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1050px;margin:auto;padding:38px 46px;background:var(--paper)}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:16px 0 20px}
+h1{font-size:4rem;line-height:1;margin:0 0 14px}
+.date,.meta,nav,footer,.eyebrow{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.86rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:17px;font-size:.88rem}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.75rem;border-bottom:1px solid var(--line);padding-bottom:9px;margin:35px 0 19px}
+h3{font-size:1.2rem;line-height:1.35;margin:0 0 9px}
+p{margin:9px 0 14px}
+article{margin-bottom:25px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.lead{border-bottom:1px solid var(--line);padding-bottom:14px}
+.briefs{padding-left:22px}
+.briefs li{margin-bottom:14px}
+.language{border-top:4px double var(--ink);margin-top:42px;padding-top:4px}
+.language article{padding:15px 0 23px;border-bottom:1px solid var(--line)}
+.language h3{font-size:1.35rem}
+.language [lang="ja"],.language [lang="zh"]{line-height:1.9}
+footer{border-top:1px solid var(--line);margin-top:30px;padding-top:16px;font-size:.8rem;color:var(--muted)}
+@media(max-width:680px){main{padding:24px 20px}.grid{grid-template-columns:1fr}h1{font-size:3.3rem}}
+@media print{body,main{background:white}main{max-width:none;padding:0}a{color:inherit}article{break-inside:avoid}}
 </style>
 </head>
 <body>
 <main>
 <header>
 <h1>News</h1>
-<div class="date"><time datetime="2026-10-29">Thursday, 29 October 2026</time> · Research &amp; daily reading</div>
+<div class="date"><time datetime="2026-10-30">Friday, October 30, 2026</time></div>
 <nav aria-label="Sections">
+<a href="#biology">Biology &amp; genomics</a>
 <a href="#ai">AI research</a>
-<a href="#biology">Computational biology</a>
-<a href="#genomics">Genomics &amp; medicine</a>
-<a href="#language-practice">Language practice</a>
+<a href="#clinical">Clinical AI &amp; privacy</a>
+<a href="#briefs">Research briefs</a>
+<a href="#languages">Language practice</a>
 </nav>
 </header>
 
-<section id="ai">
-<h2>AI research &amp; evaluation</h2>
-<article>
-<h3>H-Net update reports gains from learning directly from bytes</h3>
-<p>Albert Gu reports that an updated hierarchical network achieves 3–5× efficiency gains in controlled scaling-law experiments. At larger scale, he says it matches an unnamed open-source model trained on 11 trillion tokens while using roughly 10× less data and compute.</p>
-<p><a href="https://x.com/tri_dao/status/2115531348161028374">Tri Dao adds</a> that H-Net dynamically learns to tokenize code variable names and scales better on code than BPE. These are reported claims: the supplied posts contain neither experimental tables nor a paper URL.</p>
-<div class="source"><a href="https://x.com/_albertgu/status/2115502110578290900">Albert Gu · Original post</a></div>
-</article>
-<div class="columns">
-<article>
-<h3>A cleaner test for corpus-assisted models</h3>
-<p>You Jiacheng proposes separate training, lookup-table and validation splits, with an infinigram index built on a 100-billion- or 1-trillion-token table set. Measuring validation loss with that index would help distinguish learned-model improvements from lookup benefits. Lower returns for lookup methods are a prediction, not an experimental finding.</p>
-<div class="source"><a href="https://x.com/YouJiacheng/status/2115525487309295833">You Jiacheng · Proposal</a></div>
-</article>
-<article>
-<h3>Granite Docling runs roughly 9.2× faster in a reported MLX-VLM test</h3>
-<p>Prince Canuma reports that Granite Docling 258M on an M5 Max processes one page in 1.73 seconds with MLX-VLM versus 15.92 seconds with PyTorch; four pages take 2.45 versus 22.45 seconds. Precision, software versions and timing methodology are not supplied.</p>
-<div class="source"><a href="https://x.com/Prince_Canuma/status/2115467964543558138">Benchmark post</a> · <a href="https://t.co/6D7SOnv1bC">Case study</a></div>
-</article>
-</div>
-<ul class="briefs">
-<li><strong>Intelligence Index v5:</strong> A shared announcement describes two new benchmarks and three upgrades. A separate post says Artificial Analysis is moving to closed benchmarks and replacing GDPval-AA. The excerpts are truncated, leaving benchmark identities and evaluation details unavailable. <a href="https://x.com/giffmana/status/2115340551415296392">Announcement</a> · <a href="https://x.com/steipete/status/2115291482005602307">Related post</a></li>
-<li><strong>Transferring model behaviors:</strong> A discussion of neuron edits in PEFT/Transformers points to papers on isolating and transferring behaviors between models. Titles, methods and results are not visible in the supplied text. <a href="https://x.com/Prince_Canuma/status/2115473120391839816">Discussion</a> · <a href="https://t.co/5hVhh046xV">First paper link</a> · <a href="https://t.co/mIu0732OzR">Follow-up link</a></li>
-<li><strong>TorchLean correctness report:</strong> Lucas Beyer shares a report of a <code>log_softmax</code> bug, with the truncated excerpt indicating a fix. The failure mechanism, affected versions and fix details are unavailable. <a href="https://x.com/giffmana/status/2115330324326646051">Post</a> · <a href="https://t.co/plXnVXVvEW">Linked discussion</a></li>
-</ul>
-</section>
-
 <section id="biology">
-<h2>Computational biology &amp; cell models</h2>
-<article>
-<h3>CellCompass connects scientific agents with virtual-cell dynamics</h3>
-<p>CellCompass combines a scientific agent with a modular dynamical engine based on transport, bridge and flow-matching formulations. The accompanying posts report recovery of cellular dynamics under controlled ground truth, but supply no quantitative evaluation.</p>
-<p>Its LineageBridge model uses clone barcodes to constrain transport between time points, then uses terminal clone composition to allocate mass across future fate branches. That branch mass is interpreted as fate probabilities.</p>
-<div class="source"><a href="https://x.com/razoralign/status/2115538335175483426">CellCompass · Research thread</a></div>
+<h2>Biology &amp; genomics</h2>
+<article class="lead">
+<h3>Evo 2 uses sequence examples to steer biological design</h3>
+<p>Two preprints report that a few functionally related sequences in an Evo 2 prompt can guide generation toward similar functions without retraining. One focuses on mammalian regulatory elements, including enhancers specific to a neuronal subtype in mouse brain. The other extends the approach to computational design of proteins, antibodies, protein–RNA systems and genomes.</p>
+<p>Anshul Kundaje welcomes the in-context-learning result but questions its advantage over simpler methods for short reporter constructs, suggesting whole genomic domains as a stronger test. Related announcements point to design tools, vLLM compatibility and broader GPU support. The supplied material does not establish experimental validation across all design categories.</p>
+<p class="meta"><a href="https://x.com/BrianHie/status/2115827171659038921">Evo 2 research announcement</a></p>
 </article>
-<div class="columns">
+<article class="lead">
+<h3>BindClaw pairs mechanism-aware binder design with laboratory testing</h3>
+<p>BindClaw starts from a prompt or paper, identifies targets and binding sites, and builds computational assays to iteratively generate and assess binders. Those assessments consider competition with native partners and preferences for particular molecular states.</p>
+<p>In a human-guided campaign, the authors report that 15 of 18 designs bound calcium-loaded calmodulin, including subnanomolar binders supported by BLI and SPR measurements. Binding alone does not establish the intended downstream biological effects. Code is promised in a few weeks, rather than available now.</p>
+<p class="meta"><a href="https://x.com/ChoYehlin/status/2115827301976101001">BindClaw announcement</a></p>
+</article>
+<div class="grid">
 <article>
-<h3>ProtCell models single-cell protein abundance</h3>
-<p>ProtCell combines protein-identity and continuous-abundance embeddings in a Transformer trained through masked abundance modeling. The thread describes transferable annotation and batch correction, using contrastive fine-tuning with unbalanced optimal transport to align batches while preserving within-batch structure. Benchmark results are not included.</p>
-<div class="source"><a href="https://x.com/razoralign/status/2115537420829831327">ProtCell · Research thread</a></div>
+<h3>Verix assesses complex structural variants</h3>
+<p>Verix introduces metrics for breakpoint sensitivity, precision and structural integrity. It also harmonizes calls within and between callsets, helping produce consensus results from individual tools or different discovery pipelines.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2115973721290915949">Verix resource post</a></p>
 </article>
 <article>
-<h3>MassNet brings 35 species to peptide-sequencing research</h3>
-<p>Nature Methods highlights an AI-ready MS/MS spectra corpus spanning 35 species. MassNet supported the development of XuanjiNovo, a Transformer for de novo peptide sequencing. The supplied announcement gives neither dataset size nor model-performance figures.</p>
-<div class="source"><a href="https://x.com/naturemethods/status/2115496379737166188">Nature Methods · Announcement</a> · <a href="https://t.co/h9yr65njfU">Resource</a></div>
+<h3>Starlng tests gene-module reproducibility</h3>
+<p>Drawing on stability-assessment principles from ClustAssess, Starlng selects parameters and co-regulated gene modules that reproduce across repeated runs. It assesses module quality, removes outliers and uses retained clusters to characterize a transition-associated subpopulation.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2115973174563365232">Starlng resource post</a></p>
+</article>
+<article>
+<h3>Copy-number variation reported in fetal cortical neurons</h3>
+<p>A repost of Peter Park’s study announcement reports widespread, multi-chromosome copy-number variation in approximately 26% of human fetal cortical neurons. Sampling and validation details are absent from the excerpt; the percentage should not be generalized to all fetal brains.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2115851191846572287">Study announcement</a></p>
+</article>
+<article>
+<h3>Auto-optimization effort targets eleven bioinformatics packages</h3>
+<p>Jacob Schreiber announces an optimization effort focused on read alignment. Discussion emphasizes collaborating with original maintainers rather than distributing isolated patches and headline speedups. The supplied announcement does not name the packages, quantify gains or establish upstream acceptance.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2115865689269600625">Announcement and discussion</a></p>
 </article>
 </div>
-<h3>Methods &amp; research pointers</h3>
-<p class="section-note">These short announcements identify useful directions, but do not provide enough evidence to assess performance or validation.</p>
+</section>
+
+<section id="ai">
+<h2>AI research</h2>
+<div class="grid">
+<article>
+<h3>FineWeb-30M speedrun reports 22.7 seconds on eight H100s</h3>
+<p>A repost of Robert Lange reports a zero-order training run reaching 3.5 validation loss in 22.7 seconds on one 8×H100 node, against a cited 123-second record. The excerpt is truncated: implementation details and benchmark comparability are unavailable.</p>
+<p class="meta"><a href="https://x.com/SonglinYang4/status/2115912437987991826">Speedrun post</a></p>
+</article>
+<article>
+<h3>H-Net learns code-specific tokenization</h3>
+<p>Tri Dao highlights learned dynamic tokenization that treats variable names as separate tokens, with reportedly better code scaling than BPE. The observation offers a concrete example of adapting tokenization to data, but no quantitative breakdown is supplied.</p>
+<p class="meta"><a href="https://x.com/tri_dao/status/2115531348161028374">H-Net discussion</a></p>
+</article>
+<article>
+<h3>Transformer Energy-based Models make a scaling claim</h3>
+<p>A post shared by Ali Behrouz introduces TEM, claiming that energy-based models can scale better than diffusion models. The excerpt ends before the explanation; datasets, metrics and experimental conditions are missing.</p>
+<p class="meta"><a href="https://x.com/behrouz_ali/status/2115891951488884892">TEM announcement</a></p>
+</article>
+<article>
+<h3>Parallel Language Models aim to predict several tokens at once</h3>
+<p>Lucas Beyer shares work claiming autoregressive-level quality while predicting multiple tokens in parallel. It is a pointer to a possible route toward faster generation, not an assessable performance result here: the excerpt includes neither measurements nor a paper URL.</p>
+<p class="meta"><a href="https://x.com/giffmana/status/2115885055025291368">Parallel Language Models post</a></p>
+</article>
+<article>
+<h3>NyoomFloat12 addresses weight-decompression overhead</h3>
+<p>A technical post shared by Tri Dao introduces NyoomFloat12 in the context of lossless LLM weight compression. Its motivation is that decompression cost can offset memory savings; the supplied excerpt does not explain the method or report results.</p>
+<p class="meta"><a href="https://x.com/tri_dao/status/2115907160693707254">NyoomFloat12 post</a></p>
+</article>
+<article>
+<h3>Carmack asks what standard library would best serve coding agents</h3>
+<p>John Carmack argues that generating large projects from scratch need not maximize speed, security or token efficiency. He proposes training objectives that also regularize reusable building blocks, rather than focusing only on final task loss. This is a research proposal, not an evaluated result.</p>
+<p class="meta"><a href="https://x.com/ID_AA_Carmack/status/2115917666955497608">Carmack’s proposal</a></p>
+</article>
+</div>
+</section>
+
+<section id="clinical">
+<h2>Clinical AI &amp; privacy</h2>
+<article>
+<h3>OpenMed tests multilingual checks for identifier leakage</h3>
+<p>OpenMed reports blocking eight disguised identifier leaks in scripted summaries using synthetic names and IDs. Test cases include Korean particles, unspaced Thai, right-to-left marks and Persian digits. The guard compares summaries against identifiers found during de-identification, allows placeholders and distinct names or numbers, and retains counts and hashes rather than identifier values in reports.</p>
+<p>This is a small synthetic test, not evidence of comprehensive privacy protection.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2115730361200382086">Test report</a> · <a href="https://t.co/uWZNBdldet">Documentation</a> · <a href="https://t.co/KlVAOOKmpS">Repository</a></p>
+</article>
+<article>
+<h3>DICOM demonstration removes hidden data carriers</h3>
+<p>A synthetic CT demonstration removes 24 overlay, curve and icon elements recursively without changing image pixels. A separate file containing an embedded PDF is rejected rather than written. The thread reports 78 audited actions following the DICOM PS3.15 2026d Basic Profile.</p>
+<p>The important boundary: this header pass does not OCR the main image, which was declared clean for the demonstration.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2115858703844860238">DICOM demonstration</a> · <a href="https://t.co/oeFAPEGRLq">Technical documentation</a> · <a href="https://t.co/KlVAOOJOAk">Repository</a></p>
+</article>
+<article>
+<h3>SpineLab turns audio directly into local tool calls</h3>
+<p>SpineLab Voice uses LFM3-Audio-2B to convert an entire audio clip into calls for disc measurements and 3D spine navigation without an intermediate transcript. A local Mac Studio demonstration processes 6.6 seconds of speech into tool calls and an explanation in 2.97 seconds. Measurements are recomputed after landmark corrections; aggregate accuracy and latency evaluations are not supplied.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2115492540702961742">SpineLab demonstration</a> · <a href="https://t.co/POgjILsfNe">Engine resource</a></p>
+</article>
+</section>
+
+<section id="briefs">
+<h2>Research briefs</h2>
+<p class="meta">Short research pointers: several supplied posts contain only titles or truncated descriptions, limiting assessment of their findings.</p>
 <ul class="briefs">
-<li><strong>Sparse autoencoders for single-cell models:</strong> A shared paper explores interpretable features in single-cell foundation models; the biological features and validation procedures are not described. <a href="https://x.com/razoralign/status/2115468293159219233">Research post</a></li>
-<li><strong>GRiNS:</strong> A Python library for simulating gene-regulatory-network dynamics. Supported model classes and validation are not specified. <a href="https://x.com/razoralign/status/2115468019841573086">Tool post</a></li>
-<li><strong>SVGRN:</strong> A resource for spatially varying, cell-specific regulatory-network inference, without methodological or performance details in the excerpt. <a href="https://x.com/razoralign/status/2115463556594536668">Resource post</a></li>
-<li><strong>velotest:</strong> Research on statistically assessing RNA-velocity embeddings and quality differences in trajectory visualization. The truncated post does not identify the tests or findings. <a href="https://x.com/razoralign/status/2115468154621333965">Research post</a></li>
-<li><strong>GraphComm:</strong> A graph-based deep-learning method for predicting cell–cell communication from single-cell RNA sequencing. Evaluation and experimental validation are absent from the supplied excerpt. <a href="https://x.com/razoralign/status/2115468072865960065">Method post</a></li>
-<li><strong>Cell Decoder:</strong> A paper on cell identity and multiscale explainable deep learning; only title-level information is available. <a href="https://x.com/razoralign/status/2115468039491899452">Paper post</a></li>
-<li><strong>C2S-Scale:</strong> Research on scaling language models for single-cell analysis. Model sizes, tasks, datasets and results are not specified. <a href="https://x.com/razoralign/status/2115467996273803681">Research post</a></li>
-<li><strong>Structural History of Eukarya:</strong> SHE is announced as a proteome-scale phylogeny built entirely from three-dimensional structure. The post claims a first, but provides no sampling details, validation or comparisons with sequence-based trees. <a href="https://x.com/miangoar/status/2115509734702747921">Announcement</a></li>
+<li><strong>NTv3 models and annotation resources.</strong> Updated Nucleotide Transformer models reportedly improve genome-function prediction; companion resources include a gene-annotation pipeline, notebooks and tutorials. Specific changes and performance gains are unavailable. <a href="https://x.com/razoralign/status/2115973370198319336">Announcement</a></li>
+<li><strong>TFXcan predicts transcription-factor binding from genotypes.</strong> The framework targets personalized regulatory predictions, but the excerpt supplies no evaluation results or implementation details. <a href="https://x.com/razoralign/status/2115822984363716649">Resource post</a></li>
+<li><strong>SPACE-seq traces cell fate in space and time.</strong> Nature Reviews Genetics highlights the work; no methodological or experimental detail is included in the supplied post. <a href="https://x.com/NatureRevGenet/status/2115811839129108626">Article pointer</a></li>
+<li><strong>scBIOT targets single-cell atlas integration.</strong> The announcement claims accuracy and scalability for unified integration, without benchmarks or methodological detail. <a href="https://x.com/razoralign/status/2115769271943143466">Resource post</a></li>
+<li><strong>P-KNN combines pathogenicity predictors.</strong> Genetics in Medicine highlights a variant-classification tool integrating multiple prediction models. The excerpt cuts off during its calibration description, leaving validation and clinical-use details unavailable. <a href="https://x.com/razoralign/status/2115769181417443556">Article pointer</a></li>
+<li><strong>Population-scale skeletal-muscle multiomics.</strong> A Nature Genetics paper announcement describes single-nucleus multiomic profiling, but the supplied excerpt omits cohort size and findings. <a href="https://x.com/razoralign/status/2115769192012292429">Paper announcement</a></li>
+<li><strong>Cell-specific responses to deep-brain stimulation.</strong> A research repost highlights transcriptomic changes after stimulation, without study design, effect sizes or clinical outcomes. <a href="https://x.com/anshulkundaje/status/2115905244312002601">Study pointer</a></li>
+<li><strong>Genome-wide cis-regulatory-element discovery.</strong> An eLife post links a study of discovery in a large genome; the organism, assay and findings are not identified in the supplied material. <a href="https://x.com/razoralign/status/2115970527273898110">Study pointer</a></li>
+<li><strong>KrakenUniq on a laptop.</strong> Steven Salzberg introduces an explainer on accessible metagenomic sequence analysis. Hardware requirements and workflow details are not available in the opening post. <a href="https://x.com/anshulkundaje/status/2115929160048926939">Explainer announcement</a></li>
+<li><strong>Similar small RNAs, different outcomes.</strong> Nature Reviews Molecular Cell Biology flags RNA-functional specificity in a title-only announcement; no mechanism is described. <a href="https://x.com/NatRevMCB/status/2115867147964735608">Article pointer</a></li>
+<li><strong>Multi-immersion oblique plane microscopy.</strong> Nature Methods highlights a flexible light-sheet microscope for varied biological sample types, without quantitative comparisons in the supplied post. <a href="https://x.com/naturemethods/status/2115508148979331091">Methods announcement</a></li>
+<li><strong>Fluorescent proteins and biosensors.</strong> A Nature Methods review from Jin Zhang’s lab and colleagues surveys recent developments; the announcement does not detail particular technologies or applications. <a href="https://x.com/naturemethods/status/2115499901501214944">Review announcement</a></li>
 </ul>
 </section>
 
-<section id="genomics">
-<h2>Genomics, sequencing &amp; medicine</h2>
-<div class="columns">
-<article>
-<h3>Mimic offers modular genomic architecture comparisons</h3>
-<p>Mimic, a sequence-embedding package in the Poseigen family, provides single- and dual-input models built from Trident components. The posts describe protein–DNA interaction and enhancer-activity applications, including comparisons of recurrent and convolutional sequence embeddings.</p>
-<div class="source"><a href="https://x.com/razoralign/status/2115537130873393174">Mimic · Resource post</a></div>
-</article>
-<article>
-<h3>Family-aware evaluation for genomic prediction</h3>
-<p>A shared item introduces an All of Us benchmark for family-aware polygenic prediction and genomic machine learning. The evaluation focus is relevant to prediction reliability, but split construction, cohort size and results are not supplied.</p>
-<div class="source"><a href="https://x.com/anshulkundaje/status/2115576677380280770">Benchmark announcement</a></div>
-</article>
-</div>
-<h3>Sequencing toolkit</h3>
-<ul class="briefs">
-<li><strong>AmpliconSuite</strong> analyzes focal amplifications in cancer whole-genome sequencing data. The Nature Methods announcement does not specify component algorithms or evaluation results. <a href="https://x.com/naturemethods/status/2115505510502039585">Announcement</a></li>
-<li><strong>Barbell</strong> addresses demultiplexing and trimming in nanopore data; implementation details and comparative results are not included. <a href="https://x.com/razoralign/status/2115468306010574904">Tool post</a></li>
-<li><strong>FuFiHLA</strong> performs full-field HLA typing from long reads. Accuracy, coverage requirements and supported platforms are not supplied. <a href="https://x.com/razoralign/status/2115463465884401734">Tool post</a></li>
-<li><strong>SVUPP</strong> is shared with the claim that pre-phasing long reads improves structural-variant genotyping. No effect sizes, datasets or benchmark comparisons are available in the excerpt. <a href="https://x.com/razoralign/status/2115463453888692382">Paper post</a></li>
-</ul>
-<h3>Disease &amp; publication watch</h3>
-<ul class="briefs">
-<li><strong>Huntington’s disease:</strong> A shared research item reports that somatic DNA-repeat expansions initiate distinct yet analogous changes in cortical and striatal neurons. The truncated excerpt does not identify the changes or supporting experiments. <a href="https://x.com/anshulkundaje/status/2115612205815308397">Research post</a></li>
-<li><strong>Alzheimer’s genetics:</strong> A study titled “Alzheimer’s disease genetics converges on microglial and neuronal dysregulation” points to cellular contexts for disease risk. Cohorts, methods and implicated pathways are not described. <a href="https://x.com/anshulkundaje/status/2115597622534979853">Study post</a></li>
-<li><strong>Hospital-to-hospital transfer:</strong> An EHR-model paper asks whether a model trained at one hospital can interpret another hospital’s records. The supplied announcement cuts off before either the method or the answer. <a href="https://x.com/anshulkundaje/status/2115529413937049959">Paper announcement</a></li>
-<li><strong>TenK10K:</strong> An author announcement reports three papers published in Nature. An excerpt begins describing “missing regulation” but ends before the findings; specific discoveries and dataset dimensions are unavailable. <a href="https://x.com/anshulkundaje/status/2115631494870061334">Publication announcement</a></li>
-</ul>
-</section>
-
-<section id="language-practice" aria-labelledby="language-heading">
-<h2 id="language-heading">Language practice</h2>
-
-<article class="reading" lang="de">
-<h3>Deutsch — Folgt auf Bundespräsident Steinmeier erstmals eine Frau?</h3>
-<p class="source">Deutsche Welle · 28.10.2026 · <a href="https://www.dw.com/de/wer-folgt-auf-bundespräsident-steinmeier-frau-oder-mann/a-79785223">Artikel lesen</a></p>
-<p>Wer folgt auf Frank-Walter Steinmeier, der nach zwei Amtszeiten nicht erneut als Bundespräsident antreten kann? Die DW beschreibt die Suche nach einer Person, die über Parteigrenzen hinweg Vertrauen genießt und gesellschaftliche Gegensätze überbrücken kann. Dabei steht auch die Frage im Raum, ob erstmals eine Frau Deutschlands höchstes Staatsamt übernehmen wird. Bundeskanzler und CDU-Chef Friedrich Merz hat sich dem Bericht zufolge noch nicht auf einen Vorschlag festgelegt.</p>
-<p>Als aussichtsreiche Kandidatin gilt die bayerische Landtagspräsidentin Ilse Aigner von der CSU. Für sie sprechen laut Artikel ihre Regierungserfahrung und Zuspruch auch außerhalb der eigenen Partei. Daneben werden mehrere Namen aus der CDU genannt, darunter Julia Klöckner, Annegret Kramp-Karrenbauer und Karin Prien. Die Politikwissenschaftlerin Ursula Münch sieht eine gewisse Tendenz zugunsten Aigners, hält den Ausgang aber weiterhin für offen.</p>
-<p>Der Beitrag erklärt außerdem, warum die Personalentscheidung mehr als eine Frage der Repräsentation ist. Gewählt wird das Staatsoberhaupt von der Bundesversammlung, nicht unmittelbar von der Bevölkerung. Obwohl der Bundespräsident keine Regierungsgeschäfte führt, besitzt er wichtige verfassungsrechtliche Aufgaben und kann gerade in politischen Krisen eine bedeutende Rolle spielen.</p>
-<p><strong>Warum lesen:</strong> Der Artikel verbindet die aktuelle Personaldebatte mit einem verständlichen Einblick in Aufgaben, Wahl und politische Bedeutung des deutschen Staatsoberhaupts.</p>
+<section id="languages" class="language">
+<h2>Language practice</h2>
+<article lang="de">
+<h3>Deutsch — Preis für „Bibliothek des Jahres“ geht nach Köln</h3>
+<p class="meta">Deutschlandfunk Kultur · 29.10.2026 · <a href="https://www.deutschlandfunkkultur.de/preis-fuer-bibliothek-des-jahres-geht-nach-koeln-100.html">Link</a></p>
+<p>Das Informationszentrum Lebenswissenschaften in Köln ist als „Bibliothek des Jahres 2026“ ausgezeichnet worden. Die kurze Meldung stellt damit eine wissenschaftliche Fachbibliothek in den Mittelpunkt, deren Themen von Medizin und Gesundheit bis zu Umwelt und Landwirtschaft reichen.</p>
+<p>Bei der Preisvergabe würdigte Bibliotheksverbandspräsident Frank Mentrup besonders die Innovationskraft und wissenschaftliche Qualität der Einrichtung. Seine Begründung betont die gesellschaftliche Bedeutung solcher Bibliotheken – nicht nur ihre Funktion als Aufbewahrungsort für Fachliteratur.</p>
+<p><strong>Warum lesen:</strong> Eine kompakte Nachricht über die Anerkennung wissenschaftlicher Infrastruktur in Deutschland, die Bibliotheken jenseits der klassischen Buchausleihe sichtbar macht.</p>
 </article>
 
-<article class="reading" lang="fr">
-<h3>Français — Comment Sartre a-t-il écrit Les Mots ? Des notes inédites mises aux enchères</h3>
-<p class="source">ActuaLitté · 27 octobre 2026 · <a href="https://actualitte.com/article/134898/encheres/comment-sartre-a-t-il-ecrit-les-mots-des-notes-inedites-mises-aux-encheres">https://actualitte.com/article/134898/encheres/comment-sartre-a-t-il-ecrit-les-mots-des-notes-inedites-mises-aux-encheres</a></p>
-<p>Christie’s propose, dans une vente en ligne organisée du 27 octobre au 5 novembre, des notes manuscrites de Jean-Paul Sartre concernant la préparation des <em>Mots</em>. Leur estimation se situe entre 25 000 et 35 000 euros. Au-delà de leur valeur marchande, ces documents intéressent l’histoire littéraire : ils pourraient aider à comprendre comment l’écrivain a construit cette autobiographie publiée chez Gallimard en 1964.</p>
-<p>L’article retrace surtout la transformation du projet. D’abord conçu sous le titre <em>Jean sans terre</em>, le récit devait faire une large place à la politique et à l’engagement de Sartre. Après de nombreuses réécritures, il s’est concentré sur l’enfance, la découverte des livres et la naissance d’une ambition d’écrivain. Les brouillons permettent ainsi d’aborder une œuvre non comme un texte fixé d’emblée, mais comme le résultat de choix, de suppressions et de reprises.</p>
-<p>ActuaLitté souligne toutefois une limite essentielle : la maison de ventes présente ces notes comme inédites, sans en préciser suffisamment le contenu ni la place dans la chronologie de rédaction. Jamais publiées ne signifie pas forcément inconnues des chercheurs. Il faudra donc les dater et les comparer aux archives existantes avant de pouvoir mesurer leur apport réel à la connaissance des <em>Mots</em>.</p>
-<p><strong>Pourquoi lire :</strong> Pour découvrir les étapes de création d’une autobiographie majeure tout en apprenant à distinguer une annonce de vente d’une véritable avancée dans la recherche littéraire.</p>
+<article lang="fr">
+<h3>Français — UE-Canada: un sommet pour renforcer le rapprochement entre Bruxelles et Ottawa</h3>
+<p class="meta">RFI · 29 octobre 2026 · <a href="https://www.rfi.fr/fr/europe/20261029-ue-canada-un-sommet-pour-renforcer-le-rapprochement-entre-bruxelles-et-ottawa">Lire l’article</a></p>
+<p>Le sommet UE-Canada, organisé à Montréal les 29 et 30 octobre, doit donner une nouvelle impulsion aux relations entre Bruxelles et Ottawa, sur fond de tensions avec Washington. RFI présente les principaux dossiers : faciliter le commerce numérique et les échanges de données, développer la coopération autour des supercalculateurs et renforcer le partenariat de défense engagé en 2025. Les Européens souhaitent aussi sécuriser leur accès à des ressources minières canadiennes, notamment le lithium et le cobalt, nécessaires au développement de nouvelles technologies.</p>
+<p>Ce rapprochement ne signifie toutefois pas que toutes les divergences sont réglées. L’accord commercial existant attend encore la ratification d’un tiers des pays de l’Union. Le vocabulaire diplomatique révèle également des précautions : après la proposition d’Ursula von der Leyen d’un statut de « membre associé » pour le Canada, Ottawa préfère parler d’une « alliance pour l’avenir », tandis que les Européens évoquent une association plus étroite. Les deux partenaires insistent sur le fait que leur coopération n’est pas dirigée contre les États-Unis.</p>
+<p><strong>Pourquoi lire :</strong> Un article accessible pour comprendre comment commerce, technologies et défense s’entremêlent dans le rapprochement entre l’Union européenne et le Canada.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>notes autographes</strong> — notes écrites de la main même de leur auteur.</li>
-<li><strong>genèse d’une œuvre</strong> — ensemble des étapes et transformations qui conduisent à sa création.</li>
-<li><strong>inédit</strong> — qui n’a pas été publié, sans être nécessairement inconnu des spécialistes.</li>
+<li><strong>transactions transfrontalières</strong> — opérations commerciales ou financières réalisées entre acteurs situés dans des pays différents.</li>
+<li><strong>supercalculateur</strong> — ordinateur très puissant utilisé pour effectuer des calculs complexes, notamment en recherche et en simulation.</li>
+<li><strong>ratification</strong> — approbation formelle d’un accord international par les autorités compétentes d’un État.</li>
 </ul>
 </article>
 
-<article class="reading" lang="ja">
-<h3>日本語 — Steam運営元Valveが「AIでゲームをパクられる問題」について回答。模倣は昔からあったとして、“地道な対抗策”示す</h3>
-<p class="source">AUTOMATON · 2026-10-29 · <a href="https://automaton-media.com/articles/newsjp/20261029-476334/">記事を読む</a></p>
-<p>生成AIで既存のゲームを模倣する動きに、販売プラットフォームはどう対応すべきなのか。記事は、10月27日に韓国で開催された開発者向けイベントでのValve担当者の回答を紹介している。質問のきっかけは、開発中の作品に似たゲームの公開をほのめかし、金銭を要求したとされる事件だった。担当者は、模倣自体は以前から存在し、AIがその速度を上げたという見方を示す一方、開発に使う道具の選択は開発者に委ねる姿勢を説明した。</p>
-<p>対抗策として挙げられたのは、プレイヤーとの信頼関係を築くことと、作品を継続的に改善することだ。簡単にまねできる仕組みだけに頼らず、作者独自の視点や個性を加えていくことを重視している。ただし、恐喝は通常の模倣問題とは区別し、法執行機関が対処すべき事案としたうえで、Valveへの報告があれば調査し、可能な限り支援するとしている。</p>
-<p>記事後半では、この姿勢に対する「開発者への責任転嫁」という批判と、作品の掲載に介入すれば事前検閲にもつながりかねないという運営側の難しさを整理する。AI利用の賛否だけでなく、創作者の保護と販売の自由をどう両立させるかが読みどころだ。</p>
-<p><strong>読む理由：</strong> 身近なゲームの話題を通じて、生成AIと創作、プラットフォームの責任をめぐる議論を日本語で読める。</p>
+<article lang="ja">
+<h3>日本語 — ウクライナで拡散するAI偽情報　「本物の映像」をどう証明するか、AIと戦争が変えた「C2PA」の意義</h3>
+<p class="meta">ITmedia NEWS · 2026-10-30 · <a href="https://www.itmedia.co.jp/news/article/2610/30/2000002734/">記事を読む</a></p>
+<p>生成AIによる画像や動画を見た目だけで見抜くことが難しくなる中、報道機関は情報の信頼性をどう示せばよいのか。この記事は、東京で開かれた会議の議論をもとに、撮影者や編集履歴などの来歴を確認するための標準規格「C2PA」の役割を解説する。焦点は、偽物を一つずつ発見することから、正規の素材に署名を付け、その出所を確かめられるようにすることへの転換だ。</p>
+<p>ウクライナの公共放送Suspilneの担当者は、偽情報の狙いは単にうそを信じさせることではなく、本物の証拠まで疑わせることだと指摘する。同局はBBC Media Actionの支援を受け、少人数のチームでC2PAに対応した制作工程を整備し、β運用に到達したという。戦時下の事例を通じて、受け手自身が情報の出所を確認できる仕組みの重要性が見えてくる。</p>
+<p>一方、撮影から編集、配信、視聴まで認証情報を保つには、機材やシステム全体の対応が必要になる。記事は日本のテレビ放送にも目を向け、放送波でC2PA情報を届ける仕様が未整備であることや、通信経由で確認する方法、受像機側の対応と費用など、普及に向けた課題も紹介している。</p>
+<p><strong>読む理由：</strong> AI時代のニュースの信頼性を、ウクライナの報道現場と日本の放送技術の両面から考えられる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>生成AI（せいせいエーアイ）</strong> — 学習したデータをもとに、文章・画像・プログラムなどを作り出す人工知能。</li>
-<li><strong>法執行機関（ほうしっこうきかん）</strong> — 警察など、法律に基づいて犯罪の捜査や取り締まりを行う機関。</li>
-<li><strong>事前検閲（じぜんけんえつ）</strong> — 公開される前に内容を審査し、発表や流通を制限すること。</li>
+<li><strong>真正性（しんせいせい）</strong> — 情報やデータが、示された出所のものとして本物であるという性質。内容が事実かどうかの判断とは区別が必要。</li>
+<li><strong>来歴（らいれき）</strong> — データがいつ、誰によって作られ、どのように編集されてきたかという履歴。</li>
+<li><strong>電子透かし（でんしすかし）</strong> — 画像や音声などに識別用の情報を埋め込み、出所の確認などに役立てる技術。</li>
 </ul>
 </article>
 
-<article class="reading" lang="zh">
-<h3>中文 — Epic宣布将允许AI使用虚幻引擎和MetaHuman输出训练</h3>
-<p class="source">机核 · 页面显示发布于19小时前 · <a href="https://www.gcores.com/articles/221590">https://www.gcores.com/articles/221590</a></p>
-<p>据机核报道，Epic负责人蒂姆·斯威尼表示，公司计划调整软件许可条款，让开发者能够把虚幻引擎及MetaHuman生成的内容用于AI训练。不过，这并不意味着所有使用这些工具制作的游戏都会自动开放：具体游戏能否用于训练，仍由其开发者决定。</p>
-<p>报道还提到，斯威尼反对Steam要求开发者公开说明AI使用情况的规定。这场争议涉及两个不同问题：哪些内容可以成为训练材料，以及玩家是否应当获知游戏开发中使用了AI。文章发布时，Epic尚未公布条款调整的具体细节，因此不能把这项表态视为已经落实的新规则。</p>
-<p><strong>为什么读：</strong> 这篇短讯把游戏制作工具、AI训练授权与平台披露要求联系起来，适合练习辨别科技报道中的政策表态和实际落地。</p>
+<article lang="zh">
+<h3>中文 — 市区核心组屋少高档私宅多 家庭收入呈两极分化</h3>
+<p class="meta">联合早报 · 2026-10-30 · <a href="https://www.zaobao.com.sg/news/singapore/story20261030-9917525">https://www.zaobao.com.sg/news/singapore/story20261030-9917525</a></p>
+<p>新加坡市区核心的居民收入居全国前列，却不代表区内家庭都同样富裕。报道援引统计局数据指出，2025年，这一区有68%的家庭人均市场月入至少1万元，另有22.8%低于2000元，中间收入家庭的比率则较十年前明显下降。受访学者认为，高档私人公寓不断落成、现有组屋数量少且屋龄较高，是收入分布出现两极化的重要背景。</p>
+<p>这种差异也引出公共住房如何布局的问题。黄金地段组屋可让不同收入阶层有机会住进优质地段，但市区核心土地有限、地价昂贵，区内设施也主要面向高端私宅住户。学者提出，与其兴建规模小、配套不足的组屋项目，开发邻近已有公共住房的边缘地段，可能更为合理；也有学者认为，增加公共住房有助于带动社区生意，促进不同阶层交流。</p>
+<p>报道同时提醒，市场收入低不一定等于生活水平低：部分退休或半退休居民可能拥有其他经济资源，不完全依靠当期收入生活。因此，理解城市贫富差异，不能只看一个收入数字，还要考虑住房结构、居民年龄和日常设施。</p>
+<p><strong>为什么读：</strong> 这篇报道从住房与收入的关系切入，帮助读者认识新加坡的城市规划与公共住房政策，也练习理解统计数字背后的社会差异。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>最终用户许可协议 (zuìzhōng yònghù xǔkě xiéyì)</strong> — 规定软件使用者享有哪些权限、承担哪些义务的协议。</li>
-<li><strong>虚幻引擎 (xūhuàn yǐnqíng)</strong> — Epic开发的实时图形与游戏制作工具，可用于构建场景、角色和交互内容。</li>
-<li><strong>披露 (pīlù)</strong> — 向公众或相关方公开需要说明的信息，这里指公开游戏开发中的AI使用情况。</li>
+<li><strong>组屋 (zǔ wū)</strong> — 新加坡由建屋发展局建设、供应的公共住房。</li>
+<li><strong>中位数 (zhōng wèi shù)</strong> — 将一组数据按大小排列后，位于中间位置的数值，不等同于平均数。</li>
+<li><strong>黄金地段组屋 (huáng jīn dì duàn zǔ wū)</strong> — 位于优质地段、提供额外购屋津贴，并设有较严格转售等条件的组屋类别。</li>
 </ul>
 </article>
 </section>
 
 <footer>
-<p><strong>Source notes.</strong> This edition uses the supplied source reports only. Research coverage is based on social posts, many of them truncated or title-only; linked papers and shortened-link destinations were not independently checked. Reposted research is not necessarily newly published. The identical MassNet announcement appearing in both research feeds is presented once.</p>
-<p>Edition 2026-10-29-1</p>
+<p><strong>Source notes.</strong> This edition uses the supplied source reports only. Research coverage drawn from X includes truncated and title-only posts; linked papers and resources were not inspected, and research claims were not independently verified. Shortened resource links are retained as supplied.</p>
 </footer>
 </main>
 </body>

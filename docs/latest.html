@@ -5,219 +5,292 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root{color-scheme:light;--ink:#222a2e;--muted:#606a70;--accent:#155e75;--line:#d8dddb;--paper:#fffef9}
+:root{color-scheme:light;--ink:#242923;--muted:#646b64;--line:#d9ded4;--accent:#235c50}
 *{box-sizing:border-box}
-body{margin:0;background:#f1f2ee;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
-main{max-width:1050px;margin:auto;padding:38px 46px;background:var(--paper)}
-header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:16px 0 20px}
-h1{font-size:4rem;line-height:1;margin:0 0 14px}
-.date,.meta,nav,footer,.eyebrow{font-family:system-ui,sans-serif}
-.date,.meta{color:var(--muted);font-size:.86rem}
-nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:17px;font-size:.88rem}
-a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
-h2{font-size:1.75rem;border-bottom:1px solid var(--line);padding-bottom:9px;margin:35px 0 19px}
-h3{font-size:1.2rem;line-height:1.35;margin:0 0 9px}
-p{margin:9px 0 14px}
-article{margin-bottom:25px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
-.lead{border-bottom:1px solid var(--line);padding-bottom:14px}
-.briefs{padding-left:22px}
+body{margin:0;background:#f6f5ef;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:1040px;margin:auto;padding:24px 32px}
+header{padding-top:40px;border-bottom:3px solid var(--ink)}
+h1{font-size:64px;line-height:1;margin:0 0 18px;letter-spacing:-2px}
+.date,.meta,nav,footer,.section-note{font-family:system-ui,sans-serif}
+.date,.meta,.section-note{font-size:13px;color:var(--muted)}
+nav{margin-top:20px;font-size:14px;display:flex;gap:10px 22px;flex-wrap:wrap}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-bottom:38px}
+h2{font-size:29px;border-bottom:1px solid var(--ink);padding-bottom:9px;margin:18px 0}
+h3{font-size:21px;line-height:1.35;margin:0 0 9px}
+p{margin:8px 0 12px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px 32px}
+article{padding-bottom:18px;border-bottom:1px solid var(--line)}
+.links{font:13px/1.6 system-ui,sans-serif}
+.briefs{margin-top:26px}
 .briefs li{margin-bottom:14px}
-.language{border-top:4px double var(--ink);margin-top:42px;padding-top:4px}
-.language article{padding:15px 0 23px;border-bottom:1px solid var(--line)}
-.language h3{font-size:1.35rem}
-.language [lang="ja"],.language [lang="zh"]{line-height:1.9}
-footer{border-top:1px solid var(--line);margin-top:30px;padding-top:16px;font-size:.8rem;color:var(--muted)}
-@media(max-width:680px){main{padding:24px 20px}.grid{grid-template-columns:1fr}h1{font-size:3.3rem}}
-@media print{body,main{background:white}main{max-width:none;padding:0}a{color:inherit}article{break-inside:avoid}}
+#language{border-top:4px double var(--ink);padding-top:22px}
+#language article{margin:28px 0;padding-bottom:28px}
+#language h3{font-size:24px}
+#language ul{padding-left:24px}
+footer{border-top:1px solid var(--line);font-size:12px;color:var(--muted);padding-bottom:36px}
+@media(max-width:700px){main,header,footer{padding-left:20px;padding-right:20px}.grid{grid-template-columns:1fr}h1{font-size:52px}}
 </style>
 </head>
 <body>
-<main>
 <header>
 <h1>News</h1>
-<div class="date"><time datetime="2026-10-30">Friday, October 30, 2026</time></div>
+<div class="date"><time datetime="2026-10-31">Saturday, October 31, 2026</time></div>
 <nav aria-label="Sections">
-<a href="#biology">Biology &amp; genomics</a>
-<a href="#ai">AI research</a>
-<a href="#clinical">Clinical AI &amp; privacy</a>
-<a href="#briefs">Research briefs</a>
-<a href="#languages">Language practice</a>
+<a href="#genomics">Genomics</a>
+<a href="#discovery">Drug discovery</a>
+<a href="#cells">Cells &amp; measurement</a>
+<a href="#ai">AI &amp; research tooling</a>
+<a href="#language">Language practice</a>
 </nav>
 </header>
-
-<section id="biology">
-<h2>Biology &amp; genomics</h2>
-<article class="lead">
-<h3>Evo 2 uses sequence examples to steer biological design</h3>
-<p>Two preprints report that a few functionally related sequences in an Evo 2 prompt can guide generation toward similar functions without retraining. One focuses on mammalian regulatory elements, including enhancers specific to a neuronal subtype in mouse brain. The other extends the approach to computational design of proteins, antibodies, protein–RNA systems and genomes.</p>
-<p>Anshul Kundaje welcomes the in-context-learning result but questions its advantage over simpler methods for short reporter constructs, suggesting whole genomic domains as a stronger test. Related announcements point to design tools, vLLM compatibility and broader GPU support. The supplied material does not establish experimental validation across all design categories.</p>
-<p class="meta"><a href="https://x.com/BrianHie/status/2115827171659038921">Evo 2 research announcement</a></p>
-</article>
-<article class="lead">
-<h3>BindClaw pairs mechanism-aware binder design with laboratory testing</h3>
-<p>BindClaw starts from a prompt or paper, identifies targets and binding sites, and builds computational assays to iteratively generate and assess binders. Those assessments consider competition with native partners and preferences for particular molecular states.</p>
-<p>In a human-guided campaign, the authors report that 15 of 18 designs bound calcium-loaded calmodulin, including subnanomolar binders supported by BLI and SPR measurements. Binding alone does not establish the intended downstream biological effects. Code is promised in a few weeks, rather than available now.</p>
-<p class="meta"><a href="https://x.com/ChoYehlin/status/2115827301976101001">BindClaw announcement</a></p>
-</article>
+<main>
+<section id="genomics">
+<h2>Genomics &amp; biological models</h2>
 <div class="grid">
 <article>
-<h3>Verix assesses complex structural variants</h3>
-<p>Verix introduces metrics for breakpoint sensitivity, precision and structural integrity. It also harmonizes calls within and between callsets, helping produce consensus results from individual tools or different discovery pipelines.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2115973721290915949">Verix resource post</a></p>
+<h3>A binding atlas spanning 3,429 ENCODE experiments</h3>
+<p>The Cherimoya Binding Atlas, BATv1, collects sequence-to-function models for 3,429 transcription-factor binding experiments across 183 biosamples and 1,139 distinct targets. Discussion around the release emphasizes correcting for input-DNA effects and choosing genome samples carefully to address open-chromatin confounding.</p>
+<p>A truncated caveat says the underlying ENCODE experiments are provided “as-is”; its full implications are unavailable.</p>
+<p class="links"><a href="https://x.com/jmschreiber91/status/2116214968655687850">Jacob Schreiber · source post</a></p>
 </article>
 <article>
-<h3>Starlng tests gene-module reproducibility</h3>
-<p>Drawing on stability-assessment principles from ClustAssess, Starlng selects parameters and co-regulated gene modules that reproduce across repeated runs. It assesses module quality, removes outliers and uses retained clusters to characterize a transition-associated subpopulation.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2115973174563365232">Starlng resource post</a></p>
+<h3>Scooby-2 adapts AlphaGenome to single-cell tracks</h3>
+<p>Scooby-2 combines AlphaGenome with a cell-specific decoder to predict RNA-seq coverage and chromatin accessibility from DNA. The supplied thread reports better variant-effect prediction than Scooby, but acknowledges persistent decay in prediction fidelity. Numerical comparisons and the conditions behind that limitation are not supplied.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2116279345614668151">Source post</a></p>
 </article>
 <article>
-<h3>Copy-number variation reported in fetal cortical neurons</h3>
-<p>A repost of Peter Park’s study announcement reports widespread, multi-chromosome copy-number variation in approximately 26% of human fetal cortical neurons. Sampling and validation details are absent from the excerpt; the percentage should not be generalized to all fetal brains.</p>
-<p class="meta"><a href="https://x.com/anshulkundaje/status/2115851191846572287">Study announcement</a></p>
+<h3>VenusGenome learns microbial context without crossing contig boundaries</h3>
+<p>Trained from frozen protein embeddings across more than 1.7 million microbial assemblies, VenusGenome uses contig-restricted attention to avoid treating unrelated contigs as neighbors. Global tokens carry genome-wide information.</p>
+<p>The supplied paper summary reports leading mean performance on 9 of 11 primary metrics, including species-disjoint phenotype tasks and biosynthetic-gene-cluster detection. An exploratory perturbation score is associated with experimental fitness defects—not validated as a causal cell simulator.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116199540554629523">Biology AI Daily · source summary</a></p>
 </article>
 <article>
-<h3>Auto-optimization effort targets eleven bioinformatics packages</h3>
-<p>Jacob Schreiber announces an optimization effort focused on read alignment. Discussion emphasizes collaborating with original maintainers rather than distributing isolated patches and headline speedups. The supplied announcement does not name the packages, quantify gains or establish upstream acceptance.</p>
-<p class="meta"><a href="https://x.com/anshulkundaje/status/2115865689269600625">Announcement and discussion</a></p>
+<h3>Small models, reproducible experiments: flodl-bio</h3>
+<p>This Rust toolkit covers biological-sequence encoding, batching, training, evaluation and motif interpretation. A roughly 9,800-parameter motif CNN reportedly exceeds published CNN baselines on five human binding datasets from GUE and beats larger pretrained DNA models on selected tasks, not universally.</p>
+<p>Experiment provenance and MEME-format motif export make it a practical resource for compact regulatory-genomics baselines.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116194092317376555">Source summary</a></p>
 </article>
+<article>
+<h3>Evo2-flash reports faster genomic generation</h3>
+<p>A follow-up reports up to 7,000 generated bases per second for Evo 2 7B on an H100 and 9.7–35× generation speedups against the Vortex implementation. These are source-reported implementation results; detailed benchmarking conditions are absent.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2116279889536192909">Source post</a></p>
+</article>
+<article>
+<h3>Better track prediction may not mean better downstream biology</h3>
+<p>In discussion of NTv3, Anshul Kundaje argues that profile prediction can regularize genomic models while still leaving positional center bias if training jitter is insufficient. Another comment cautions that improved validation-track predictions need not improve downstream benchmarks. These are methodological warnings, not a demonstrated diagnosis of released NTv3 models.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2116359478350434643">Discussion</a></p>
+</article>
+<article>
+<h3>Protein-model scores encode different biases</h3>
+<p>An analysis of 14 models across 10,146 proteins finds that family and measured biophysical controls remove 91–93% of apparent species-level score variation in backbone-conditioned models, but substantially less in several sequence-only models. Generation experiments also show model-specific physicochemical shifts.</p>
+<p>The practical lesson: likelihoods and design scores are not interchangeable estimates of biological fitness.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116194470647783685">Source summary</a></p>
+</article>
+<article>
+<h3>DynaReason-Pro grounds function summaries in conformational ensembles</h3>
+<p>DynaReason-Pro predicts Gene Ontology terms from residue-aligned conformational ensembles, then uses those terms to ground language-model summaries. A sequence- and structure-cluster-disjoint benchmark reports improved function prediction, especially for more variable ensembles; mismatched ensembles degrade performance.</p>
+<p>Paired explanation evaluations report fewer unverifiable statements, but the test set contains only 118 ensemble records. Generated mechanistic narratives remain hypotheses.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116200328270066059">Source summary</a></p>
+</article>
+</div>
+</section>
+
+<section id="discovery">
+<h2>Drug discovery &amp; immune engineering</h2>
+<p class="section-note">Experimental results below remain early-stage; computational benchmarks are distinguished from measured biological activity.</p>
+<div class="grid">
+<article>
+<h3>Pythia reports functional antibodies against GPCRs</h3>
+<p>Pythia Labs reports designing human IgG1 antibodies against 22 therapeutic targets, including seven GPCRs, while screening at most 48 candidates per target. Cellular assays support CCR8 and CXCR4 antagonism and MRGPRX2 agonism, with a reported functional EC50 of about 213.5 nM for the latter.</p>
+<p>The work tests signaling effects and developability beyond binding alone. It remains preclinical, and proposed state-stabilization mechanisms are model-based rather than structurally demonstrated.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116194375982363007">Source summary</a></p>
+</article>
+<article>
+<h3>Mol-1 pairs an open co-folding model with binder assays</h3>
+<p>Deniz Kavi highlights author-provided binder-design results across 17 therapeutic targets, including a 43 pM BCMA binder, 4-1BB agonists and CXCR6 antagonism. A feedback round reportedly raises the 4-1BB functional hit rate from 7% to 85%.</p>
+<p>Tamarind says it independently benchmarked structure prediction, but numerical results are not included in the supplied posts. Therapeutic efficacy and broad model superiority are not established.</p>
+<p class="links"><a href="https://x.com/kavi_deniz/status/2116219815241368039">Deniz Kavi · source post</a></p>
+</article>
+<article>
+<h3>How well does co-folding confidence identify antibody binders?</h3>
+<p>POISK collects 89,074 patent-extracted antibody–antigen records and supports a 22,494-complex benchmark. The supplied summary reports 72% binder-versus-decoy pairwise accuracy for Protenix-v2, with the true binder ranked first in 28.9% of simulated 1-in-50 screens.</p>
+<p>Interface-focused ipSAE generally outperforms ipTM, but confidence is weakly related to affinity. Decoys are only putative nonbinders, and a manual extraction audit covers 40 records—important limits on real-world screening claims.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116194590793564362">Source summary</a></p>
+</article>
+<article>
+<h3>AbOptimizer edits antibodies for multiple objectives</h3>
+<p>AbOptimizer combines reinforcement-learning selection of editing sites, AbLang residue proposals and Pareto-based rewards. Wet-lab follow-up reportedly improves binding and reduces nonspecific binding in emibetuzumab and siltuximab variants; trastuzumab insertion/deletion variants also improve binding readouts.</p>
+<p>Selected examples show roughly 13-fold and 3.2-fold EC50 improvements. Computational immunogenicity and developability objectives do not establish clinical improvements.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116194864299946209">Source summary</a></p>
+</article>
+<article>
+<h3>Target cropping cuts binder-design compute—with trade-offs</h3>
+<p>Epitope excision crops targets around candidate binding regions to reduce generation and refolding costs. Savings depend on crossing model token-bucket boundaries; cropping or removing multiple-sequence alignments can hurt some targets.</p>
+<p>In a FAP campaign, human-guided search reportedly outperforms fully autonomous search in efficiency. Yeast-display follow-up yields representative binders with apparent KD values around 3.0–9.1 nM, distinct from computational campaign hit counts.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116200143305457850">Source summary</a></p>
+</article>
+<article>
+<h3>BenchMHC reveals species and assay confounding</h3>
+<p>BenchMHC offers an auditable public-data training and evaluation pipeline, including a close reproduction of NetMHCpan-4.1. Its analysis identifies species imbalance between measured ligands and sampled decoys, plus cysteine depletion associated with mass-spectrometry preparation.</p>
+<p>Matching decoys by source protein and cysteine status improves one ligand benchmark but worsens a CD8 epitope benchmark: cleaner controls do not necessarily improve every headline metric.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116199745106677958">Source summary</a></p>
+</article>
+<article>
+<h3>MINT reduces measured CD8 responses in mice</h3>
+<p>MINT combines structure-guided redesign with MHC-I presentation prediction to reduce reporter proteins’ predicted epitope burden while retaining activity. Selected low-epitope variants elicit minimal detectable CD8 responses in reported mouse experiments, versus strong responses to high-epitope variants.</p>
+<p>Human multi-allele optimization is computational in the supplied account. Reduced immunogenicity in patients or improved gene-therapy persistence has not been demonstrated.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116199879206977614">Source summary</a></p>
+</article>
+<article>
+<h3>Ebolathon reports 11 selective pseudovirus-screen hits</h3>
+<p>Gabriele Corso reports 11 selective hits among 140 molecules tested in Ebola pseudovirus assays after teams generated candidates using the Boltz API. Structures, potency values and independent replication are not supplied. Pseudovirus screening activity does not establish clinical efficacy or activity against authentic virus.</p>
+<p class="links"><a href="https://x.com/GabriCorso/status/2116306311268675948">Gabriele Corso · source post</a></p>
+</article>
+<article>
+<h3>MLIPDiff improves generated ligand geometry without retraining</h3>
+<p>MLIPDiff adds inference-time guidance from learned interatomic potentials to a pretrained ligand diffusion model. On CrossDocked2020, the supplied summary reports elimination of measured collision ratios, improved docking scores and preservation of the base model’s 0.62 PoseBusters pass rate.</p>
+<p>These are geometry and docking results, not measurements of affinity, safety or efficacy.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116199983636713813">Source summary</a></p>
+</article>
+<article>
+<h3>PairFuse transfers structural representations into binder design</h3>
+<p>PairFuse trains about four million adapter parameters while freezing a donor all-atom model and a geometric diffusion generator. Pairwise information injected into attention improves reported antibody and peptide interface metrics, with smaller gains for small-molecule docking.</p>
+<p>Evaluations are computational. Limited correspondence between generated ligand atoms and donor tokens constrains small-molecule transfer.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2116199645319966924">Source summary</a></p>
+</article>
+</div>
+</section>
+
+<section id="cells">
+<h2>Cells, perturbations &amp; measurement</h2>
+<div class="grid">
+<article>
+<h3>CauTrigger targets candidate causal drivers</h3>
+<p>Nature Methods introduces a hierarchical deep latent-variable model intended to identify potential causal triggers and predict perturbation outcomes. The supplied announcement includes neither benchmark results nor experimental validation, so the strength of its causal claims cannot be assessed.</p>
+<p class="links"><a href="https://x.com/naturemethods/status/2116174817783103735">Nature Methods · announcement</a> · <a href="https://t.co/Emcu87m8TW">Linked resource</a> · <a href="https://t.co/gehDAgwTjg">Research Briefing</a></p>
+</article>
+<article>
+<h3>CellWhisperer connects transcriptomes and text</h3>
+<p>A Nature Biotechnology post describes multimodal learning of transcriptomes and text for question answering about single-cell RNA-seq data. No performance figures are supplied. CellWhisperer is distinct from CELLWHISPER, a method for direct cell–cell communication inference.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2116150926860050681">Source post</a></p>
+</article>
+<article>
+<h3>Comparing spatial-transcriptomics segmentation methods</h3>
+<p>A Nature Methods analysis compares segmentation across datasets and presents a method-selection pipeline described in the post as “Nextflow.” Segmentation affects spatial-cell measurements and downstream modeling, but the supplied announcement provides no rankings, quantitative results or implementation details.</p>
+<p class="links"><a href="https://x.com/naturemethods/status/2116183924195942904">Nature Methods · announcement</a> · <a href="https://t.co/Qt2QCxEHQS">Analysis</a></p>
+</article>
+<article>
+<h3>OpenDVP profiles cellular neighborhoods</h3>
+<p>Nature Methods describes OpenDVP as enabling scalable, high-resolution proteomic profiling of cellular neighborhoods. Numerical resolution, throughput and validation results are absent from the supplied announcement.</p>
+<p class="links"><a href="https://x.com/naturemethods/status/2116175857341653219">Nature Methods · announcement</a></p>
+</article>
+</div>
+<div class="briefs">
+<h3>Research briefs</h3>
+<ul>
+<li><strong>CellPatch:</strong> A single-cell transcriptomics foundation model uses heuristic patching for efficiency. Architecture details, efficiency measurements and downstream results are unavailable. <a href="https://x.com/razoralign/status/2116150717463572798">Source post</a></li>
+<li><strong>JEEPERS:</strong> A Nature Methods announcement introduces a correction for cfDNA methylation profiling. The excerpt is truncated at “jagged-…”, leaving its mechanism and quantitative effects unclear. <a href="https://x.com/anshulkundaje/status/2116341214278717753">Source post</a></li>
+<li><strong>Cell-free chromatin QTLs:</strong> A post highlights identification of chromatin QTLs in cell-free epigenomic data, but provides no study title, cohort size or validation details. <a href="https://x.com/razoralign/status/2116381523922563160">Source post</a></li>
+<li><strong>DNA–protein crosslink repair:</strong> Nature Reviews Molecular Cell Biology announces a review of the mechanisms and regulation of proteolytic repair. Only the title and publication announcement are available. <a href="https://x.com/NatRevMCB/status/2116163237507219521">Review announcement</a></li>
+</ul>
 </div>
 </section>
 
 <section id="ai">
-<h2>AI research</h2>
+<h2>AI methods &amp; research tooling</h2>
 <div class="grid">
 <article>
-<h3>FineWeb-30M speedrun reports 22.7 seconds on eight H100s</h3>
-<p>A repost of Robert Lange reports a zero-order training run reaching 3.5 validation loss in 22.7 seconds on one 8×H100 node, against a cited 123-second record. The excerpt is truncated: implementation details and benchmark comparability are unavailable.</p>
-<p class="meta"><a href="https://x.com/SonglinYang4/status/2115912437987991826">Speedrun post</a></p>
+<h3>H-Net learns Chinese character boundaries from bytes</h3>
+<p>Albert Gu describes H-Net initially splitting multibyte Chinese characters incorrectly, then learning their boundaries during training. He calls this a prominent issue in the original H-Net and notes that BPE also splits some rare characters incorrectly—a concrete multilingual observation about learned tokenization.</p>
+<p class="links"><a href="https://x.com/_albertgu/status/2116254436150657290">Albert Gu · source post</a></p>
 </article>
 <article>
-<h3>H-Net learns code-specific tokenization</h3>
-<p>Tri Dao highlights learned dynamic tokenization that treats variable names as separate tokens, with reportedly better code scaling than BPE. The observation offers a concrete example of adapting tokenization to data, but no quantitative breakdown is supplied.</p>
-<p class="meta"><a href="https://x.com/tri_dao/status/2115531348161028374">H-Net discussion</a></p>
+<h3>GLiNER2.5 disease model reports cross-dataset gains</h3>
+<p>OpenMed introduces a 194M-parameter, Apache-2.0 disease entity-recognition model fine-tuned on NCBI Disease. Its thread reports BC5CDR F1 improving from 52.7 to 67.0 at the same threshold, with BC5CDR described as unseen during training.</p>
+<p>A synthetic discharge-note demonstration extracts 26 disease mentions with exact offsets in 0.21 seconds on CPU. That is a single example, not a general throughput benchmark.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2116160696513626391">OpenMed · source thread</a> · <a href="https://t.co/VnmNWvb7FM">Resource</a> · <a href="https://t.co/VFli0qFain">Evaluation and limitations</a></p>
 </article>
 <article>
-<h3>Transformer Energy-based Models make a scaling claim</h3>
-<p>A post shared by Ali Behrouz introduces TEM, claiming that energy-based models can scale better than diffusion models. The excerpt ends before the explanation; datasets, metrics and experimental conditions are missing.</p>
-<p class="meta"><a href="https://x.com/behrouz_ali/status/2115891951488884892">TEM announcement</a></p>
+<h3>Clinical-agent tests probe partial failures and atomic writes</h3>
+<p>OpenMed demonstrates routing partial EHR batch failures to human review rather than automatic retries or undo operations. The FHIR examples use synthetic bundles, not a real server.</p>
+<p>Separate local SQLite OMOP tests reportedly roll back interrupted writes to zero rows, commit all eight approved rows, add none on repeat approval and reject an update after the reviewed state changes. These are concrete reliability checks, not production validation.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2116221093128098214">OpenMed · source post</a> · <a href="https://t.co/zkIaFniqZT">Review-packet documentation</a> · <a href="https://t.co/KlVAOOJOAk">Apache-2.0 code</a></p>
 </article>
 <article>
-<h3>Parallel Language Models aim to predict several tokens at once</h3>
-<p>Lucas Beyer shares work claiming autoregressive-level quality while predicting multiple tokens in parallel. It is a pointer to a possible route toward faster generation, not an assessable performance result here: the excerpt includes neither measurements nor a paper URL.</p>
-<p class="meta"><a href="https://x.com/giffmana/status/2115885055025291368">Parallel Language Models post</a></p>
+<h3>Sealed distillation keeps reference code out of the student’s reach</h3>
+<p>You Jiacheng points to a workflow in which a coding-agent student cannot inspect the reference implementation. This could reduce local tuning to that code, but the suggested benefit is a hypothesis rather than an established result.</p>
+<p class="links"><a href="https://x.com/YouJiacheng/status/2116164385463022006">Source post</a> · <a href="https://t.co/q563n6MXMZ">Linked resource</a></p>
 </article>
-<article>
-<h3>NyoomFloat12 addresses weight-decompression overhead</h3>
-<p>A technical post shared by Tri Dao introduces NyoomFloat12 in the context of lossless LLM weight compression. Its motivation is that decompression cost can offset memory savings; the supplied excerpt does not explain the method or report results.</p>
-<p class="meta"><a href="https://x.com/tri_dao/status/2115907160693707254">NyoomFloat12 post</a></p>
-</article>
-<article>
-<h3>Carmack asks what standard library would best serve coding agents</h3>
-<p>John Carmack argues that generating large projects from scratch need not maximize speed, security or token efficiency. He proposes training objectives that also regularize reusable building blocks, rather than focusing only on final task loss. This is a research proposal, not an evaluated result.</p>
-<p class="meta"><a href="https://x.com/ID_AA_Carmack/status/2115917666955497608">Carmack’s proposal</a></p>
-</article>
+</div>
+<div class="briefs">
+<h3>Resources to watch</h3>
+<ul>
+<li><strong>BenchBench-Cloning:</strong> Benchling announces a benchmark asking whether AI can design an entire molecular-cloning experiment rather than only analyze DNA sequences. Task composition, scoring and model results are not supplied. <a href="https://x.com/razoralign/status/2116279012779827276">Announcement</a></li>
+<li><strong>Architecture ablations with bux:</strong> Songlin Yang relays a results release, but the supplied post identifies neither architectures, setup nor findings. <a href="https://x.com/SonglinYang4/status/2116307966018371681">Source post</a> · <a href="https://t.co/S5VSc51uxN">Results link</a></li>
+</ul>
 </div>
 </section>
 
-<section id="clinical">
-<h2>Clinical AI &amp; privacy</h2>
-<article>
-<h3>OpenMed tests multilingual checks for identifier leakage</h3>
-<p>OpenMed reports blocking eight disguised identifier leaks in scripted summaries using synthetic names and IDs. Test cases include Korean particles, unspaced Thai, right-to-left marks and Persian digits. The guard compares summaries against identifiers found during de-identification, allows placeholders and distinct names or numbers, and retains counts and hashes rather than identifier values in reports.</p>
-<p>This is a small synthetic test, not evidence of comprehensive privacy protection.</p>
-<p class="meta"><a href="https://x.com/OpenMed_AI/status/2115730361200382086">Test report</a> · <a href="https://t.co/uWZNBdldet">Documentation</a> · <a href="https://t.co/KlVAOOKmpS">Repository</a></p>
-</article>
-<article>
-<h3>DICOM demonstration removes hidden data carriers</h3>
-<p>A synthetic CT demonstration removes 24 overlay, curve and icon elements recursively without changing image pixels. A separate file containing an embedded PDF is rejected rather than written. The thread reports 78 audited actions following the DICOM PS3.15 2026d Basic Profile.</p>
-<p>The important boundary: this header pass does not OCR the main image, which was declared clean for the demonstration.</p>
-<p class="meta"><a href="https://x.com/OpenMed_AI/status/2115858703844860238">DICOM demonstration</a> · <a href="https://t.co/oeFAPEGRLq">Technical documentation</a> · <a href="https://t.co/KlVAOOJOAk">Repository</a></p>
-</article>
-<article>
-<h3>SpineLab turns audio directly into local tool calls</h3>
-<p>SpineLab Voice uses LFM3-Audio-2B to convert an entire audio clip into calls for disc measurements and 3D spine navigation without an intermediate transcript. A local Mac Studio demonstration processes 6.6 seconds of speech into tool calls and an explanation in 2.97 seconds. Measurements are recomputed after landmark corrections; aggregate accuracy and latency evaluations are not supplied.</p>
-<p class="meta"><a href="https://x.com/OpenMed_AI/status/2115492540702961742">SpineLab demonstration</a> · <a href="https://t.co/POgjILsfNe">Engine resource</a></p>
-</article>
-</section>
+<section id="language" aria-labelledby="language-heading">
+<h2 id="language-heading">Language practice</h2>
 
-<section id="briefs">
-<h2>Research briefs</h2>
-<p class="meta">Short research pointers: several supplied posts contain only titles or truncated descriptions, limiting assessment of their findings.</p>
-<ul class="briefs">
-<li><strong>NTv3 models and annotation resources.</strong> Updated Nucleotide Transformer models reportedly improve genome-function prediction; companion resources include a gene-annotation pipeline, notebooks and tutorials. Specific changes and performance gains are unavailable. <a href="https://x.com/razoralign/status/2115973370198319336">Announcement</a></li>
-<li><strong>TFXcan predicts transcription-factor binding from genotypes.</strong> The framework targets personalized regulatory predictions, but the excerpt supplies no evaluation results or implementation details. <a href="https://x.com/razoralign/status/2115822984363716649">Resource post</a></li>
-<li><strong>SPACE-seq traces cell fate in space and time.</strong> Nature Reviews Genetics highlights the work; no methodological or experimental detail is included in the supplied post. <a href="https://x.com/NatureRevGenet/status/2115811839129108626">Article pointer</a></li>
-<li><strong>scBIOT targets single-cell atlas integration.</strong> The announcement claims accuracy and scalability for unified integration, without benchmarks or methodological detail. <a href="https://x.com/razoralign/status/2115769271943143466">Resource post</a></li>
-<li><strong>P-KNN combines pathogenicity predictors.</strong> Genetics in Medicine highlights a variant-classification tool integrating multiple prediction models. The excerpt cuts off during its calibration description, leaving validation and clinical-use details unavailable. <a href="https://x.com/razoralign/status/2115769181417443556">Article pointer</a></li>
-<li><strong>Population-scale skeletal-muscle multiomics.</strong> A Nature Genetics paper announcement describes single-nucleus multiomic profiling, but the supplied excerpt omits cohort size and findings. <a href="https://x.com/razoralign/status/2115769192012292429">Paper announcement</a></li>
-<li><strong>Cell-specific responses to deep-brain stimulation.</strong> A research repost highlights transcriptomic changes after stimulation, without study design, effect sizes or clinical outcomes. <a href="https://x.com/anshulkundaje/status/2115905244312002601">Study pointer</a></li>
-<li><strong>Genome-wide cis-regulatory-element discovery.</strong> An eLife post links a study of discovery in a large genome; the organism, assay and findings are not identified in the supplied material. <a href="https://x.com/razoralign/status/2115970527273898110">Study pointer</a></li>
-<li><strong>KrakenUniq on a laptop.</strong> Steven Salzberg introduces an explainer on accessible metagenomic sequence analysis. Hardware requirements and workflow details are not available in the opening post. <a href="https://x.com/anshulkundaje/status/2115929160048926939">Explainer announcement</a></li>
-<li><strong>Similar small RNAs, different outcomes.</strong> Nature Reviews Molecular Cell Biology flags RNA-functional specificity in a title-only announcement; no mechanism is described. <a href="https://x.com/NatRevMCB/status/2115867147964735608">Article pointer</a></li>
-<li><strong>Multi-immersion oblique plane microscopy.</strong> Nature Methods highlights a flexible light-sheet microscope for varied biological sample types, without quantitative comparisons in the supplied post. <a href="https://x.com/naturemethods/status/2115508148979331091">Methods announcement</a></li>
-<li><strong>Fluorescent proteins and biosensors.</strong> A Nature Methods review from Jin Zhang’s lab and colleagues surveys recent developments; the announcement does not detail particular technologies or applications. <a href="https://x.com/naturemethods/status/2115499901501214944">Review announcement</a></li>
-</ul>
-</section>
-
-<section id="languages" class="language">
-<h2>Language practice</h2>
 <article lang="de">
-<h3>Deutsch — Preis für „Bibliothek des Jahres“ geht nach Köln</h3>
-<p class="meta">Deutschlandfunk Kultur · 29.10.2026 · <a href="https://www.deutschlandfunkkultur.de/preis-fuer-bibliothek-des-jahres-geht-nach-koeln-100.html">Link</a></p>
-<p>Das Informationszentrum Lebenswissenschaften in Köln ist als „Bibliothek des Jahres 2026“ ausgezeichnet worden. Die kurze Meldung stellt damit eine wissenschaftliche Fachbibliothek in den Mittelpunkt, deren Themen von Medizin und Gesundheit bis zu Umwelt und Landwirtschaft reichen.</p>
-<p>Bei der Preisvergabe würdigte Bibliotheksverbandspräsident Frank Mentrup besonders die Innovationskraft und wissenschaftliche Qualität der Einrichtung. Seine Begründung betont die gesellschaftliche Bedeutung solcher Bibliotheken – nicht nur ihre Funktion als Aufbewahrungsort für Fachliteratur.</p>
-<p><strong>Warum lesen:</strong> Eine kompakte Nachricht über die Anerkennung wissenschaftlicher Infrastruktur in Deutschland, die Bibliotheken jenseits der klassischen Buchausleihe sichtbar macht.</p>
+<h3>Deutsch — Zelda, WoW und GTA VI: Warum drei Gaming-Legenden noch immer faszinieren</h3>
+<p class="meta">Tagesschau · 30.10.2026 · <a href="https://www.tagesschau.de/kultur/videospiel-klassiker-100.html">Artikel lesen</a></p>
+<p>Warum begeistern jahrzehntealte Spielereihen noch immer Millionen Menschen? Samira Straub untersucht das anhand von Zelda, World of Warcraft und Grand Theft Auto. Die drei Reihen stehen für unterschiedliche Erfahrungen: das Erkunden einer Fantasywelt, gemeinsame Online-Abenteuer und satirisch überzeichnete amerikanische Großstädte. Ihre Anziehungskraft erklärt der Beitrag nicht nur mit bekannten Figuren und Schauplätzen, sondern auch mit persönlichen Erinnerungen und Freundschaften, die beim Spielen entstanden sind.</p>
+<p>Inzwischen sind viele Fans berufstätig, haben Familie und weniger Zeit. Damit verändert sich auch ihr Verhältnis zu den Spielen: Komfortabläufe und automatisch zusammengestellte Gruppen erleichtern den Einstieg, können aber das frühere Gemeinschaftsgefühl abschwächen. Der Artikel fragt deshalb, ob die Rückkehr in vertraute Welten tatsächlich frühere Erlebnisse wiederbeleben kann – oder ob vor allem die Erinnerung daran lockt.</p>
+<p>Zugleich betrachtet Straub Nostalgie als Geschäftsmodell. Bekannte Marken sichern Aufmerksamkeit und ein vorhandenes Publikum, während aufwendige Produktionen hohe finanzielle Risiken bergen. Zwischen Neuauflage, Rückbesinnung auf frühere Spielprinzipien und eigenständiger Fortsetzung bleibt die Frage, wie viel Raum für neue Ideen entsteht und wie etablierte Reihen eine jüngere Generation erreichen können.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag verbindet Gaming-Kultur mit Fragen nach Erinnerung, Gemeinschaft und einem Hobby, das sich dem Erwachsenenalltag anpassen muss.</p>
 </article>
 
 <article lang="fr">
-<h3>Français — UE-Canada: un sommet pour renforcer le rapprochement entre Bruxelles et Ottawa</h3>
-<p class="meta">RFI · 29 octobre 2026 · <a href="https://www.rfi.fr/fr/europe/20261029-ue-canada-un-sommet-pour-renforcer-le-rapprochement-entre-bruxelles-et-ottawa">Lire l’article</a></p>
-<p>Le sommet UE-Canada, organisé à Montréal les 29 et 30 octobre, doit donner une nouvelle impulsion aux relations entre Bruxelles et Ottawa, sur fond de tensions avec Washington. RFI présente les principaux dossiers : faciliter le commerce numérique et les échanges de données, développer la coopération autour des supercalculateurs et renforcer le partenariat de défense engagé en 2025. Les Européens souhaitent aussi sécuriser leur accès à des ressources minières canadiennes, notamment le lithium et le cobalt, nécessaires au développement de nouvelles technologies.</p>
-<p>Ce rapprochement ne signifie toutefois pas que toutes les divergences sont réglées. L’accord commercial existant attend encore la ratification d’un tiers des pays de l’Union. Le vocabulaire diplomatique révèle également des précautions : après la proposition d’Ursula von der Leyen d’un statut de « membre associé » pour le Canada, Ottawa préfère parler d’une « alliance pour l’avenir », tandis que les Européens évoquent une association plus étroite. Les deux partenaires insistent sur le fait que leur coopération n’est pas dirigée contre les États-Unis.</p>
-<p><strong>Pourquoi lire :</strong> Un article accessible pour comprendre comment commerce, technologies et défense s’entremêlent dans le rapprochement entre l’Union européenne et le Canada.</p>
+<h3>Français — Midterms : de néonazi à pasteur, Caleb Campbell défie le nationalisme chrétien de Trump</h3>
+<p class="meta">France 24 · 30 octobre 2026 · <a href="https://www.france24.com/fr/am%C3%A9riques/20261030-midterms-n%C3%A9onazi-pasteur-caleb-campbell-d%C3%A9fie-nationalisme-chr%C3%A9tien-trump">Lire l’article</a></p>
+<p>À Phoenix, le pasteur évangélique Caleb Campbell s’oppose à la confusion entre engagement religieux et fidélité à Donald Trump. À l’approche des élections américaines de mi-mandat du 3 novembre, il dénonce le nationalisme chrétien, qui associe l’identité nationale au christianisme et cherche à traduire cette vision dans le pouvoir politique. Le portrait de France 24 donne à entendre une voix dissidente dans un milieu où le soutien au Parti républicain demeure important : pour Campbell, l’exploitation des peurs et la banalisation de la violence contredisent les exigences de sa foi.</p>
+<p>Son parcours éclaire cette prise de position. Ancien membre d’un groupe de skinheads néonazis, il raconte avoir trouvé dans une communauté chrétienne l’accueil et le sentiment d’appartenance qui lui manquaient. Devenu pasteur principal en 2015, il s’engage notamment auprès des immigrés. Ses critiques de l’enfermement des enfants migrants, puis sa condamnation de l’assaut du Capitole, provoquent de fortes tensions. Selon son témoignage, environ 80 % des fidèles présents à son arrivée ont quitté son église entre 2015 et le début de 2021.</p>
+<p>L’article montre aussi le mouvement inverse : depuis 2021, la communauté accueille des croyants qui ne se reconnaissent plus dans la radicalisation politique de leur ancienne église. Sans se présenter comme un partisan inconditionnel des démocrates, Campbell défend une pratique religieuse centrée sur l’accueil et refuse de faire du combat politique une mission sacrée. Ce récit personnel permet ainsi d’aborder les fractures du monde évangélique américain au-delà des seuls rapports de force électoraux.</p>
+<p><strong>Pourquoi lire :</strong> Un portrait qui relie trajectoire individuelle, appartenance religieuse et polarisation politique, avec un vocabulaire riche pour comprendre les débats américains.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>transactions transfrontalières</strong> — opérations commerciales ou financières réalisées entre acteurs situés dans des pays différents.</li>
-<li><strong>supercalculateur</strong> — ordinateur très puissant utilisé pour effectuer des calculs complexes, notamment en recherche et en simulation.</li>
-<li><strong>ratification</strong> — approbation formelle d’un accord international par les autorités compétentes d’un État.</li>
+<li><strong>nationalisme chrétien</strong> — idéologie qui lie l’identité nationale au christianisme et souhaite lui donner une place déterminante dans le pouvoir politique.</li>
+<li><strong>instrumentalisation de la foi</strong> — utilisation des convictions religieuses comme moyen d’atteindre un objectif, notamment politique.</li>
+<li><strong>allégeance politique</strong> — fidélité affirmée à un dirigeant, à un parti ou à un camp politique.</li>
 </ul>
 </article>
 
 <article lang="ja">
-<h3>日本語 — ウクライナで拡散するAI偽情報　「本物の映像」をどう証明するか、AIと戦争が変えた「C2PA」の意義</h3>
-<p class="meta">ITmedia NEWS · 2026-10-30 · <a href="https://www.itmedia.co.jp/news/article/2610/30/2000002734/">記事を読む</a></p>
-<p>生成AIによる画像や動画を見た目だけで見抜くことが難しくなる中、報道機関は情報の信頼性をどう示せばよいのか。この記事は、東京で開かれた会議の議論をもとに、撮影者や編集履歴などの来歴を確認するための標準規格「C2PA」の役割を解説する。焦点は、偽物を一つずつ発見することから、正規の素材に署名を付け、その出所を確かめられるようにすることへの転換だ。</p>
-<p>ウクライナの公共放送Suspilneの担当者は、偽情報の狙いは単にうそを信じさせることではなく、本物の証拠まで疑わせることだと指摘する。同局はBBC Media Actionの支援を受け、少人数のチームでC2PAに対応した制作工程を整備し、β運用に到達したという。戦時下の事例を通じて、受け手自身が情報の出所を確認できる仕組みの重要性が見えてくる。</p>
-<p>一方、撮影から編集、配信、視聴まで認証情報を保つには、機材やシステム全体の対応が必要になる。記事は日本のテレビ放送にも目を向け、放送波でC2PA情報を届ける仕様が未整備であることや、通信経由で確認する方法、受像機側の対応と費用など、普及に向けた課題も紹介している。</p>
-<p><strong>読む理由：</strong> AI時代のニュースの信頼性を、ウクライナの報道現場と日本の放送技術の両面から考えられる。</p>
+<h3>日本語 — “過去最大級被害”暗号資産大手バイナンス 複雑な攻撃あった</h3>
+<p class="meta">NHKニュース · 2026-10-31 · <a href="https://news.web.nhk/newsweb/na/nd-20261031de68827">記事を読む</a></p>
+<p>暗号資産の大手取引所バイナンスへの不正アクセスについて、NHKが会社側の説明を伝えている。確認できた記事の冒頭によると、同社は30日、システムが「複雑な攻撃」を受けたことを明らかにした。</p>
+<p>被害はデジタル資産の分野で過去最大級とも伝えられている。ただし、今回確認できたのは見出しと冒頭部分に限られ、攻撃の具体的な手口や被害の詳細、利用者への対応は確認できていない。記事は31日朝に公開され、同日9時21分に更新されている。</p>
+<p><strong>読む理由：</strong> 暗号資産とサイバー攻撃が交わるニュースを通じて、金融・情報セキュリティ分野の日本語に触れられる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>真正性（しんせいせい）</strong> — 情報やデータが、示された出所のものとして本物であるという性質。内容が事実かどうかの判断とは区別が必要。</li>
-<li><strong>来歴（らいれき）</strong> — データがいつ、誰によって作られ、どのように編集されてきたかという履歴。</li>
-<li><strong>電子透かし（でんしすかし）</strong> — 画像や音声などに識別用の情報を埋め込み、出所の確認などに役立てる技術。</li>
+<li><strong>暗号資産（あんごうしさん）</strong> — 電子的に記録・移転でき、インターネット上で取引される財産的価値。</li>
+<li><strong>不正アクセス（ふせいアクセス）</strong> — 正当な権限を持たずにコンピューターやサービスへ接続すること。</li>
+<li><strong>取引所（とりひきじょ）</strong> — 資産を売買するための市場や、その取引を提供する仕組み。</li>
 </ul>
 </article>
 
 <article lang="zh">
-<h3>中文 — 市区核心组屋少高档私宅多 家庭收入呈两极分化</h3>
-<p class="meta">联合早报 · 2026-10-30 · <a href="https://www.zaobao.com.sg/news/singapore/story20261030-9917525">https://www.zaobao.com.sg/news/singapore/story20261030-9917525</a></p>
-<p>新加坡市区核心的居民收入居全国前列，却不代表区内家庭都同样富裕。报道援引统计局数据指出，2025年，这一区有68%的家庭人均市场月入至少1万元，另有22.8%低于2000元，中间收入家庭的比率则较十年前明显下降。受访学者认为，高档私人公寓不断落成、现有组屋数量少且屋龄较高，是收入分布出现两极化的重要背景。</p>
-<p>这种差异也引出公共住房如何布局的问题。黄金地段组屋可让不同收入阶层有机会住进优质地段，但市区核心土地有限、地价昂贵，区内设施也主要面向高端私宅住户。学者提出，与其兴建规模小、配套不足的组屋项目，开发邻近已有公共住房的边缘地段，可能更为合理；也有学者认为，增加公共住房有助于带动社区生意，促进不同阶层交流。</p>
-<p>报道同时提醒，市场收入低不一定等于生活水平低：部分退休或半退休居民可能拥有其他经济资源，不完全依靠当期收入生活。因此，理解城市贫富差异，不能只看一个收入数字，还要考虑住房结构、居民年龄和日常设施。</p>
-<p><strong>为什么读：</strong> 这篇报道从住房与收入的关系切入，帮助读者认识新加坡的城市规划与公共住房政策，也练习理解统计数字背后的社会差异。</p>
+<h3>中文 — 欧盟对入境小包裹再加税 每年财政增收60亿欧元</h3>
+<p class="meta">DW 中文 · 2026-10-30 · <a href="https://www.dw.com/zh/欧盟对入境小包裹再加税-每年财政增收60亿欧元/a-79809890">https://www.dw.com/zh/欧盟对入境小包裹再加税-每年财政增收60亿欧元/a-79809890</a></p>
+<p>据德国之声援引路透社报道，欧盟将于11月1日把入境电商小包裹的征税额从每件3欧元提高至5欧元。欧盟委员会内部文件预计，这项税收每年可带来约60亿欧元收入；相关估算针对2028年至2034年，并已考虑进口包裹数量可能减少的情况。报道指出，这些廉价小包裹绝大多数来自中国。</p>
+<p>政策争议不仅在于税收，也涉及商品合规与消费者负担。支持加税的欧洲议会议员认为，新增收入可加强海关监管、保护欧盟内部市场；全球速卖通则警告，额外成本可能加重欧洲低收入家庭的生活压力。为应对新规，中国电商正调整配送方式：速卖通增加本地仓储，SHEIN也在波兰扩建仓储设施。文章由此呈现了欧盟贸易政策如何影响跨境网购和企业经营策略。</p>
+<p><strong>为什么读：</strong> 从网购包裹这一日常消费切入，可以同时了解欧中贸易争议、海关监管与电商物流的中文表达。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>组屋 (zǔ wū)</strong> — 新加坡由建屋发展局建设、供应的公共住房。</li>
-<li><strong>中位数 (zhōng wèi shù)</strong> — 将一组数据按大小排列后，位于中间位置的数值，不等同于平均数。</li>
-<li><strong>黄金地段组屋 (huáng jīn dì duàn zǔ wū)</strong> — 位于优质地段、提供额外购屋津贴，并设有较严格转售等条件的组屋类别。</li>
+<li><strong>跨境电商 (kuàjìng diànshāng)</strong> — 通过网络平台进行跨越国境的商品交易的商业模式或企业。</li>
+<li><strong>商品合规 (shāngpǐn héguī)</strong> — 商品符合销售地在安全、质量、标识等方面的法律与监管要求。</li>
+<li><strong>本地仓储 (běndì cāngchǔ)</strong> — 在销售市场所在地储存和管理商品，以便从当地仓库配送。</li>
 </ul>
 </article>
 </section>
-
-<footer>
-<p><strong>Source notes.</strong> This edition uses the supplied source reports only. Research coverage drawn from X includes truncated and title-only posts; linked papers and resources were not inspected, and research claims were not independently verified. Shortened resource links are retained as supplied.</p>
-</footer>
 </main>
+<footer>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied posts and summaries; linked papers, resources and full threads were not independently inspected. Quantitative results are source-reported. Shortened links are retained as supplied, and limited or truncated evidence is noted alongside the relevant items. The identical CauTrigger and spatial-segmentation announcements appearing in both research feeds are each presented once.</p>
+<p>Edition 2026-10-31-1</p>
+</footer>
 </body>
 </html>

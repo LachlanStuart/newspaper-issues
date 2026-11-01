@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#242a30;--muted:#626b72;--accent:#175b70;--line:#d7dcdd;--paper:#fffdf8}
+*{box-sizing:border-box}
+body{margin:0;background:#eeeee8;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:1020px;margin:28px auto;padding:36px 52px;background:var(--paper)}
+header{border-bottom:3px solid var(--ink);padding-bottom:20px}
+h1{font-size:64px;line-height:1;margin:0 0 16px}
+.date,.source,nav,footer,.intro{font-family:system-ui,sans-serif}
+.date,.source{font-size:13px;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:20px;font-size:14px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:29px;margin:38px 0 18px;border-bottom:1px solid var(--line);padding-bottom:8px}
+h3{font-size:21px;line-height:1.35;margin:0 0 8px}
+article{margin:0 0 25px}
+p{margin:8px 0}
+.source{margin-top:8px}
+.intro{font-size:14px;color:var(--muted);margin:18px 0}
+.practice{border-top:3px solid var(--ink);margin-top:42px}
+.practice article{padding:20px 0;border-bottom:1px solid var(--line)}
+.practice p,.practice li{line-height:1.85}
+ul{padding-left:24px}
+footer{border-top:1px solid var(--line);margin-top:36px;padding-top:18px;font-size:13px;color:var(--muted)}
+@media(max-width:680px){main{margin:0;padding:24px 20px}h1{font-size:52px}h2{font-size:25px}}
+@media print{body,main{background:white}main{margin:0;max-width:none;padding:0}nav{display:none}article{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-11-01">Sunday, November 1, 2026</time></div>
+<nav aria-label="Sections">
+<a href="#ai">AI research</a>
+<a href="#biology">Biology &amp; medicine</a>
+<a href="#tools">Research tools</a>
+<a href="#governance">AI governance</a>
+<a href="#ideas">Ideas &amp; everyday life</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+
+<section id="ai">
+<h2>AI research &amp; computation</h2>
+<article>
+<h3>When sparse-autoencoder sanity checks need their own checks</h3>
+<p>A replication-based critique argues that reported sparse-autoencoder failures depend heavily on assumptions about synthetic data. In the tested setup, normalization restored near-complete feature recovery—a reminder that evaluation design can shape conclusions about interpretability methods.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/EC5H7xakTgxxNXm5g/sanity-checks-for-sanity-checks-for-sparse-autoencoders">Sanity Checks for Sanity Checks for Sparse Autoencoders</a></div>
+</article>
+<article>
+<h3>Predictive states through a transformer’s KV cache</h3>
+<p>A technical framework demonstrates decoding and manipulating low-dimensional predictive states in a toy transformer through its KV cache. The work links representations to causal interventions rather than relying solely on residual-stream probes.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/4f9p7brLdnTMFuwfB/generalized-belief-states-in-transformers-1">Generalized belief states in transformers</a></div>
+</article>
+<article>
+<h3>Parameter symmetry and the practical size of a training update</h3>
+<p>A 科学空间 article introduces research using parameter symmetries—parameter changes that leave model behavior or its objective unchanged—to analyze optimization. Citing Hyperball, HyperTransfer and ELR, it connects this perspective to effective learning rates rather than just configured step sizes. The available excerpt stops before the mathematical discussion.</p>
+<div class="source">科学空间 / Spaces AC · <a href="https://spaces.ac.cn/archives/11985">From Parameter Symmetry to Effective Learning Rates</a></div>
+</article>
+<article>
+<h3>A survey of zeroth-order optimization</h3>
+<p>A technical survey covers Dust and noise, SOMA, and Async ZO, discussing mathematical implications and future directions for gradient-free optimization. Only its scope, not the analysis, is available in the supplied post.</p>
+<div class="source">X AI Research · <a href="https://x.com/apaz_cli/status/2116515545189347794">Source post</a> · <a href="https://t.co/rugUQiiNPV">Article</a></div>
+</article>
+<article>
+<h3>Can a PyTorch operation fingerprint an individual GPU?</h3>
+<p>A shared writeup claims that a default <code>torch.index_add_</code> call can identify the exact GPU running it. The truncated excerpt supplies neither experimental conditions nor reliability measurements, so this remains an intriguing claim rather than an established result.</p>
+<div class="source">X AI Research · <a href="https://x.com/SonglinYang4/status/2116681983141327013">Source post</a></div>
+</article>
+<article>
+<h3>Qwenputer claims a RISC-V CPU inside model weights</h3>
+<p>The Qwenputer project claims to embed a full RISC-V CPU in Qwen3.5-4B’s weights using its Gated DeltaNet layers. The available excerpt does not explain the implementation or provide validation results.</p>
+<div class="source">X AI Research · <a href="https://x.com/SonglinYang4/status/2116619284239794529">Source post</a></div>
+</article>
+<article>
+<h3>HairDeck: from one character image to rigged hair cards</h3>
+<p>A research pointer from Tsinghua, CMU and CUHK introduces HairDeck, a method for generating rigged hair cards from a single character image. Method details, evaluation results and a direct paper link are absent from the supplied excerpt.</p>
+<div class="source">X AI Research · <a href="https://x.com/YouJiacheng/status/2116564124520108524">Source post</a></div>
+</article>
+</section>
+
+<section id="biology">
+<h2>Biology &amp; medicine</h2>
+<p class="intro">Results below are attributed to the supplied research posts and digests; they have not been independently verified.</p>
+<article>
+<h3>THOR transfers thermal adaptation to an unseen enzyme family</h3>
+<p>THOR learns unpaired mesophilic-to-thermophilic sequence transformations from roughly 17 million enzyme sequences, withholding ten families to test transfer. In the held-out malate dehydrogenase family, zero-shot designs reportedly increased apparent melting temperature by a median 10.9 °C across three lineages.</p>
+<p>Limited family-specific fine-tuning produced larger gains; some variants retained heat-stressed activity and two improved turnover. Experimental validation distinguishes this from prediction-only design work, although broad functional transfer remains unestablished.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2116496322157244661">THOR research digest</a></div>
+</article>
+<article>
+<h3>IgScope looks beneath whole-chain antibody humanness scores</h3>
+<p>This 23-million-parameter antibody language model scores humanness at chain, region and residue levels. Region-isolated attention prevents CDR scores from borrowing evidence from framework sequences. The digest reports that 3,359 generated antibodies could receive high whole-chain scores while having substantially less human-like CDRs.</p>
+<p>Across 217 therapeutics, chain scores correlated with measured anti-drug-antibody incidence at r = −0.567. That association does not make humanness a definitive clinical immunogenicity test.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2116496799783612880">IgScope research digest</a></div>
+</article>
+<article>
+<h3>K-Fold models how components change shape when they bind</h3>
+<p>An MSA-free diffusion bridge transforms independently predicted structures into bound complexes, updating both relative poses and internal conformations. Reported results include 50.0% cluster-weighted antibody–antigen success on PXM-2025, 44.2% full-ternary success for molecular-glue complexes, and improved kinase and GPCR state recovery over AlphaFold 3. These are computational benchmarks; ranking predictions across heterogeneous input ensembles remains a limitation.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2116496577896308947">K-Fold research digest</a></div>
+</article>
+<article>
+<h3>Neopep adds force-field feedback for non-canonical peptides</h3>
+<p>Neopep fine-tunes a peptide diffusion model using energy and force feedback from a learned force field. On 34 non-canonical peptides, the reported mean best-of-25 Cα RMSD was 1.565 Å, compared with 2.271 Å for the pretrained model. A differentiable hydrogen-placement module supports 189 non-canonical amino acids. The small test set and best-of-many metric limit conclusions about routine single-prediction accuracy.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2116497143540445620">Neopep research digest</a></div>
+</article>
+<article>
+<h3>AtomSteer improves molecular geometry during sampling</h3>
+<p>AtomSteer projects denoised structure estimates toward chemical or geometric constraints without retraining the model. The digest reports improved stereochemical fidelity and PoseBusters validity; on StereoBench, 79.1% of complexes had all E/Z bonds within 10°, versus 59.5% for Boltz-steering. Better geometry is not evidence of improved binding affinity or therapeutic efficacy.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2116495981227520360">AtomSteer research digest</a></div>
+</article>
+<article>
+<h3>GlycoWeave targets protein–glycan docking</h3>
+<p>GlycoWeave uses chemically constrained internal-coordinate diffusion to preserve connectivity, stereochemistry and ring geometry. It also introduces the ProGlyDB resource, combining experimental structures with force-field- and quantum-informed optimized complexes.</p>
+<p>On a recent 698-complex test set, the digest reports 71.9% top-25 high-quality success versus 19.2% for AlphaFold 3, with all top-ranked GlycoWeave predictions passing its validity checks. These are reported, not independently verified, benchmark results.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2116200244472119676">GlycoWeave research digest</a></div>
+</article>
+<article>
+<h3>ESMfluc separates attention strength from signed evidence</h3>
+<p>ESMfluc predicts local backbone-state variability from protein sequence and decomposes its final attention-layer predictions into signed residue contributions. The summary reports AUROC 0.889 on 208 held-out proteins with sequence- and structural-domain-aware splitting, plus external evaluation on mdCATH.</p>
+<p>Backbone-state diversity is distinct from positional fluctuation: the model is not the strongest predictor of RMSF. Its exact output decomposition also does not establish biological causality.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2116496176082260075">ESMfluc research digest</a></div>
+</article>
+<article>
+<h3>DCAF joins data assessment, evaluation and perturbation modeling</h3>
+<p>The Data-Criterion-model Associated Framework addresses single-cell perturbation simulation through data validity, evaluation validity and predictive modeling. Posts describe a JEPA-based encoder for pre- and post-perturbation states alongside explicit regulatory dynamics. No quantitative benchmarks are supplied, leaving reliability claims unverified.</p>
+<div class="source">X Bio Research · <a href="https://x.com/razoralign/status/2116641713045594359">DCAF source post</a></div>
+</article>
+<article>
+<h3>Kontext connects spatial domains to inferred cell communication</h3>
+<p>Kontext represents cells with both their expression and a weighted embedding of neighboring expression profiles. Kernels encode spatial proximity and transcriptomic similarity, supporting spatial-domain discovery and analysis of ligand–receptor interactions. These inferred relationships should not be read as experimentally established mechanisms.</p>
+<div class="source">X Bio Research · <a href="https://x.com/razoralign/status/2116640782283407699">Kontext source post</a></div>
+</article>
+<article>
+<h3>Chromatin signals may fill gaps in expression-only profiling</h3>
+<p>Anshul Kundaje highlights a result in which almost 3,500 GWAS signals across 38 traits colocalize with single-nucleus expression or chromatin-accessibility QTLs—typically the latter. He argues for population-scale chromatin profiling and complementary histone-mark measurements, including H3K27ac, H3K79me2 and H3K36me3. The underlying study is not identified in the supplied post.</p>
+<div class="source">X Bio Research · <a href="https://x.com/anshulkundaje/status/2116650002349273124">Discussion</a></div>
+</article>
+<article>
+<h3>GLiFormer disease fine-tune reports cross-dataset gains</h3>
+<p>OpenMed reports that its 576M-parameter, Apache-2.0 GLiFormer BioNER Disease Large, fine-tuned on NCBI Disease, improves BC5CDR F1 from 55.0 to 69.0 at the same threshold. The authors say BC5CDR was not used for training. A separate single-note comparison uses threshold 0.5 for both models rather than the fine-tune’s 0.6 default and is explicitly not a benchmark.</p>
+<div class="source">X AI Research · <a href="https://x.com/OpenMed_AI/status/2116523083842646188">Source post</a> · <a href="https://t.co/wVD9o7DkIB">Model card</a></div>
+</article>
+</section>
+
+<section id="tools">
+<h2>Research tools &amp; measurement</h2>
+<article>
+<h3>flashscenic accelerates regulatory-network analysis on GPUs</h3>
+<p>flashscenic combines RegDiffusion network inference with vectorized PyTorch implementations of cisTarget pruning to address bottlenecks in large-scale single-cell analysis. The supplied thread describes the implementation but gives no measured speedups or equivalence tests.</p>
+<div class="source">X Bio Research · <a href="https://x.com/razoralign/status/2116640530604167229">Source post</a></div>
+</article>
+<article>
+<h3>GaussF proposes alignment-free isoform quantification</h3>
+<p>GaussF uses GC-stratified k-mer counts and minimal-shared transcript regions to address isoform identification and quantification biases. Its proposed transcript-specific reference is a Gaussian cumulative distribution function with parameters derived independently of empirical sequencing measurements. Quantitative validation is absent, so the claimed absence of bias is not established.</p>
+<div class="source">X Bio Research · <a href="https://x.com/razoralign/status/2116641373306962053">Source post</a></div>
+</article>
+<article>
+<h3>Salmon 2.9.0 announces faster quantification</h3>
+<p>The release announcement reports fixes, improvements and speedups of up to 2.7× in sketch mode and 1.6× in SA mode. Benchmark conditions and remaining release details are unavailable in the truncated post.</p>
+<div class="source">X Bio Research · <a href="https://x.com/razoralign/status/2116594794495664371">Release announcement</a></div>
+</article>
+<article>
+<h3>Evo2-flash becomes Proto’s default backend</h3>
+<p>Brian Hie announces that the previously covered Evo 2 in-context-learning preprints on regulatory-element design and molecular-to-genome-scale generation are now on bioRxiv. Evo2-flash is also the default Evo 2 backend on Proto’s web app and MCP interface. This is an access and deployment update, not a new account of the underlying research.</p>
+<div class="source">X Bio Research · <a href="https://x.com/BrianHie/status/2116475438818267557">Announcement</a></div>
+</article>
+<article>
+<h3>FLASH supports single-molecule imaging workflows</h3>
+<p>Nature Methods highlights modular software for instrument control and data acquisition in single-molecule imaging. The available announcement contains no implementation or performance details.</p>
+<div class="source">X Bio Research · <a href="https://x.com/naturemethods/status/2116191233647243765">FLASH announcement</a></div>
+</article>
+<article>
+<h3>Continuous mass photometry tracks biomolecular changes</h3>
+<p>Nature Methods highlights continuous mass photometry for high-resolution observation of biomolecular masses and their changes. The supplied post does not specify temporal resolution, sensitivity or validated applications.</p>
+<div class="source">X Bio Research · <a href="https://x.com/naturemethods/status/2116186662870901238">Method announcement</a></div>
+</article>
+</section>
+
+<section id="governance">
+<h2>AI governance &amp; strategy</h2>
+<article>
+<h3>Making the case for slowing frontier AI to Indian policymakers</h3>
+<p>A Delhi summit talk and accompanying rhetorical commentary present the speaker’s case for slowing frontier AI development. The transcript offers a look at AI-risk communication aimed at senior policymakers in India.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/RHxaRkarGp9snWoKY/explaining-ai-might-obliterate-you-to-senior-policymakers-in">Explaining “AI might obliterate you” to senior policymakers in India</a></div>
+</article>
+<article>
+<h3>A coordinated pause, with alignment fallback plans</h3>
+<p>“Against SURA” argues against “Stop Unilaterally + Raise Awareness,” advocating a coordinated AI pause while preserving alignment-focused fallback plans if competition continues.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/xikGZ8fuhdG6DApAo/against-sura">Against SURA</a></div>
+</article>
+<article>
+<h3>Regulate deployment infrastructure, not only models</h3>
+<p>A policy proposal outlines certified Trusted Deployers, independent infrastructure audits and capability-based restrictions. Its goal is to preserve access without freely distributing dangerous model weights, shifting attention toward deployment accountability.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/woCAtAxfTkNzEPkLq/regulate-the-deployment-not-just-the-model">Regulate the Deployment, Not Just the Model</a></div>
+</article>
+</section>
+
+<section id="ideas">
+<h2>Ideas, writing &amp; everyday life</h2>
+<article>
+<h3>A piano repair that need not justify its hourly rate</h3>
+<p>A hands-on digital-piano repair becomes a reflection on restorative hobbies: leisure projects need not be judged against the hourly value of paid work.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/nsHdsqZsgNui6eGo6/refelting-my-keyboard">Refelting My Keyboard</a></div>
+</article>
+<article>
+<h3>What would you do if existential risks receded?</h3>
+<p>A thought experiment asks readers what they would choose to do if AI and other existential risks substantially diminished—a prompt to consider priorities beyond risk-reduction work.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/9kdet42p2n8QkpToa/what-would-you-do-if-you-had-all-the-time-in-the-world">What would you do if you had all the time in the world?</a></div>
+</article>
+<article>
+<h3>Lessons from a month of independent writing</h3>
+<p>A retrospective on a DIY Inkhaven experiment explores testing self-doubt, finding an audience and balancing publishing targets with enjoyment.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/579yLaP6YfL9ZRtdN/conclusions-of-my-diy-inkhaven">Conclusions of my DIY Inkhaven</a></div>
+</article>
+<article>
+<h3>Not lying is not enough to avoid misleading people</h3>
+<p>An essay argues that trustworthy communication requires corrective habits and scrutiny of motivated reasoning, rather than confidence in one’s innocent intentions alone.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/XpBwFsRhkQRQJN2pt/accidentally-misleading-people-should-be-embarrassing-or">Accidentally Misleading People Should Be Embarrassing; Or, Higher Innocence</a></div>
+</article>
+<article>
+<h3>What makes a social construct more than a personal category?</h3>
+<p>A standalone explainer adapted from an earlier post uses vehicles and laws to distinguish socially produced predictive patterns from arbitrary personal categorizations.</p>
+<div class="source">LessWrong · <a href="https://www.lesswrong.com/posts/aHqKqTcvLEkMNkAHX/what-social-constructs-are-and-are-not">What Social Constructs Are (And Are Not)</a></div>
+</article>
+</section>
+
+<section id="languages" class="practice">
+<h2>Language practice</h2>
+<article lang="de">
+<h3>Deutsch — Zentralbank stellt die Weichen für den digitalen Euro</h3>
+<p class="source">heise online · 30.10.2026 · <a href="https://www.heise.de/news/Zentralbank-stellt-die-Weichen-fuer-den-digitalen-Euro-11506763.html">Artikel lesen</a></p>
+<p>Die Europäische Zentralbank macht bei der technischen Vorbereitung des digitalen Euro einen weiteren Schritt: Zwei Konsortien sollen die zentralen Netzwerkdienste bereitstellen. Zum einen kommen der italienische Zahlungsdienstleister Nexi und die Deutsche Telekom zum Zug, zum anderen Telefónica und die Indra-Tochter Minsait. Die Verträge laufen jeweils zehn Jahre. Durch zwei unabhängige Anbieter will die EZB Ausfälle absichern und die Abhängigkeit von einem einzigen Dienstleister vermeiden.</p>
+<p>Die Netze sollen die Rechenzentren der künftigen Zahlungsplattform verbinden und Banken, Zahlungsdienstleistern sowie nationalen Zentralbanken einen sicheren Zugang ermöglichen. Der Auftrag ist allerdings nur ein Teil des Gesamtprojekts. Der digitale Euro soll Bargeld ergänzen, nicht abschaffen, und eine europäische Alternative zu starken US-Anbietern schaffen. Angestrebt werden ein Pilotprojekt 2027 und eine Einführung 2029; Voraussetzung ist ein Rechtsrahmen, über den die EU-Institutionen noch verhandeln.</p>
+<p><strong>Warum lesen:</strong> Der kompakte Beitrag zeigt, welche Infrastruktur hinter dem digitalen Euro entsteht und warum technische Vorbereitungen noch keine beschlossene Einführung bedeuten.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Ma maison est à la fois connectée et idiote : voilà pourquoi c’est le meilleur des deux mondes</h3>
+<p class="source">Numerama · 31 octobre 2026 · <a href="https://www.numerama.com/tech/2365057-ma-maison-est-a-la-fois-connectee-et-idiote-voila-pourquoi-cest-le-meilleur-des-deux-mondes.html">Lire l’article</a></p>
+<p>Une maison connectée est-elle vraiment pratique si les invités ne savent plus allumer la lumière ? Julien Cadot raconte comment son enthousiasme pour les ampoules intelligentes a fini par compliquer les gestes les plus ordinaires. Lorsque l’application éteint une ampoule, l’interrupteur mural ne reflète plus nécessairement son état ; lorsque quelqu’un coupe le courant au mur, les commandes à distance deviennent inutilisables. L’installation fonctionne pour celui qui en connaît les règles, mais impose aux autres une logique invisible.</p>
+<p>La solution qu’il expérimente consiste à déplacer la commande connectée derrière l’interrupteur, dans un petit module qui coordonne bouton physique, application et automatisations. Une ampoule classique peut alors rester en place. Dans la pièce où il teste cette configuration, un détecteur de mouvement commande aussi l’éclairage, sans empêcher les occupants d’utiliser le bouton. L’objectif n’est donc pas de supprimer la technologie, mais de la rendre discrète et de préserver les habitudes de chacun.</p>
+<p>Ce compromis a toutefois ses limites : l’installation nécessite une intervention sur le circuit électrique, parfois avec un électricien, et les logiciels restent imparfaits. Même Matter, la norme censée faciliter la compatibilité entre marques, ne donne pas toujours accès à tous les réglages. L’auteur explique ainsi devoir disposer d’un hub Aqara pour modifier certains paramètres de son capteur. Son critère de réussite reste néanmoins simple : concentrer la complexité au moment de l’installation plutôt que la faire subir quotidiennement aux habitants.</p>
+<p><strong>Pourquoi lire :</strong> Un retour d’expérience concret qui interroge l’utilité réelle des objets connectés à partir d’un geste familier : appuyer sur un interrupteur.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>domotique</strong> — ensemble des techniques permettant de commander ou d’automatiser les équipements d’un logement.</li>
+<li><strong>interopérabilité</strong> — capacité de systèmes ou d’appareils différents à communiquer et à fonctionner ensemble.</li>
+<li><strong>boîte d’encastrement</strong> — boîtier intégré dans un mur qui accueille un interrupteur, une prise ou un module électrique.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 渋谷を彩った流行と若者文化のエネルギー、大型再開発でどこへ行く：初沢亜利の東京探検（2）</h3>
+<p class="source">nippon.com · 2026-10-30 · <a href="https://www.nippon.com/ja/articles/-/54397">記事を読む</a></p>
+<p>写真家の初沢亜利が、幼い頃から親しんできた渋谷の変化を写真と記憶でたどる。鉄道の発達によって交通の拠点となった渋谷は、百貨店やパルコ、109などの商業施設を中心に、ファッションや音楽の発信地へと成長した。筆者は、企業が仕掛ける流行と若者たちの自由な振る舞いが交わることで、街独特の活気が生まれていたと振り返る。</p>
+<p>現在は駅周辺で高層ビルの建設が進む一方、長年親しまれた百貨店が相次いで閉店している。記事では、新しい商業施設に空きテナントも見られることを挙げ、建物の整備だけで街の活力が生まれるのかと問いかける。昔ながらの酒場が集まるのんべい横丁や、名曲喫茶のある百軒店にも目を向けながら、再開発後の渋谷に、計画からはみ出す文化や若者の居場所が残るのかを考える写真エッセーだ。</p>
+<p><strong>読む理由：</strong> 観光名所としての渋谷だけでなく、都市の再開発と若者文化の関係を、生活者の記憶と街の写真から考えられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>再開発（さいかいはつ）</strong> — 既存の市街地で建物や道路などを整備し直し、土地の利用や都市機能を更新すること。</li>
+<li><strong>要衝（ようしょう）</strong> — 交通などの面で、重要な位置を占める場所。</li>
+<li><strong>歓楽街（かんらくがい）</strong> — 飲食店や娯楽施設などが集まり、遊びや夜の楽しみの場となる地区。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 德国青年抗议活动 多个城市出现骚乱</h3>
+<p class="source">RFI 中文 · 2026-10-31 · <a href="https://www.rfi.fr/cn/欧洲/20261031-德国青年抗议活动-多个城市出现骚乱">https://www.rfi.fr/cn/欧洲/20261031-德国青年抗议活动-多个城市出现骚乱</a></p>
+<p>据法广援引德国媒体报道，德国多个城市周六举行青年抗议活动，参与者关注教育经费、生活成本、社会公平、气候保护及义务兵役制等议题。组织方“Z世代自己做主”（Gen Z regelt）自称是独立、超越党派的松散联合体，希望让政治人物认真倾听年轻人对未来的担忧。组织方称有12万人参加；这一数字属于组织方的统计。</p>
+<p>报道同时描述了部分城市发生的冲突：法兰克福有警察受伤，柏林出现向警方投掷酒瓶和鞭炮的情况，汉堡出现燃烧的路障，部分地区警方动用高压水枪。不过，文章强调，大多数参与者保持和平，弗赖堡、曼海姆和乌尔姆的抗议也和平结束。阅读时可以留意报道如何区分青年群体的政治诉求、整体示威情况与局部暴力事件，避免把所有参与者混为一谈。</p>
+<p><strong>为什么读：</strong> 这篇报道将德国青年的生活压力与政治参与联系起来，适合练习中文社会新闻中有关示威、公共政策和消息来源的表达。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>义务兵役制 (yìwù bīngyì zhì)</strong> — 法律规定符合条件的公民必须履行服兵役义务的制度。</li>
+<li><strong>超越党派 (chāoyuè dǎngpài)</strong> — 不以某个政党的立场或利益为唯一依据，强调跨党派或独立于党派的定位。</li>
+<li><strong>政治诉求 (zhèngzhì sùqiú)</strong> — 个人或群体向政府及政治机构提出的政策要求或制度改变主张。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p><strong>Source notes.</strong> Coverage uses only the supplied reports. Several research posts were truncated; linked papers and shortened URLs were not inspected. Some LessWrong technical formulas were limited by rendering artifacts.</p>
+<p>No new reportable items were supplied by Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg. No collection failures were reported.</p>
+</footer>
+</main>
+</body>
+</html>

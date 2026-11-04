@@ -5,219 +5,233 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root{color-scheme:light;--paper:#faf9f5;--ink:#252a2c;--muted:#61696d;--line:#d8d8cf;--accent:#17566b}
-*{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
-main,header,footer{max-width:1040px;margin:auto;padding:24px}
-header{padding-top:40px;border-bottom:3px double var(--ink)}
-h1{font-size:4.5rem;line-height:1;margin:0 0 16px;letter-spacing:-3px}
-.date,.meta,nav,footer,.section-note{font-family:system-ui,sans-serif;color:var(--muted);font-size:.88rem}
-nav{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:18px}
-a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
-h2{font-size:1.85rem;line-height:1.3;margin:12px 0 24px;border-bottom:1px solid var(--line);padding-bottom:12px}
-h3{font-size:1.25rem;line-height:1.4;margin:0 0 10px}
-p{margin:10px 0}
-section{margin-bottom:42px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 34px}
-article{border-bottom:1px solid var(--line);padding-bottom:22px}
-.links{font-family:system-ui,sans-serif;font-size:.85rem}
-.practice{border-top:3px double var(--ink);padding-top:26px}
-.practice article{max-width:800px;margin:0 auto 32px;padding-bottom:28px}
-.practice h3{font-size:1.45rem}
-.practice p,.practice li{line-height:1.85}
-footer{border-top:1px solid var(--line);padding-bottom:40px}
-@media(max-width:680px){.grid{grid-template-columns:1fr}h1{font-size:3.5rem}main,header,footer{padding-left:20px;padding-right:20px}}
+:root { color-scheme: light; --ink:#202b30; --muted:#647176; --rule:#d8dfdc; --accent:#176257; }
+* { box-sizing:border-box; }
+body { margin:0; background:#f5f4ef; color:var(--ink); font-family:Georgia,"Times New Roman",serif; line-height:1.65; }
+main, header, footer { max-width:980px; margin:auto; padding:24px 32px; }
+header { padding-top:42px; border-bottom:3px solid var(--ink); }
+h1 { font-size:4rem; line-height:1; margin:0 0 16px; letter-spacing:-2px; }
+.date, nav, .meta, footer { font-family:system-ui,sans-serif; font-size:.86rem; color:var(--muted); }
+nav { margin-top:18px; display:flex; flex-wrap:wrap; gap:8px 20px; }
+a { color:var(--accent); text-underline-offset:3px; overflow-wrap:anywhere; }
+h2 { font-size:1.8rem; line-height:1.25; border-bottom:1px solid var(--rule); padding-bottom:12px; margin:30px 0 22px; }
+h3 { font-size:1.22rem; line-height:1.4; margin:0 0 10px; }
+article { margin-bottom:27px; }
+p { margin:8px 0 12px; }
+.links { font-family:system-ui,sans-serif; font-size:.85rem; }
+.briefs { border-left:3px solid var(--rule); padding-left:20px; }
+#language-practice { border-top:3px solid var(--ink); margin-top:44px; padding-top:12px; }
+.reading { padding:20px 0 28px; border-bottom:1px solid var(--rule); }
+.reading h3 { font-size:1.4rem; }
+li { margin:7px 0; }
+footer { border-top:1px solid var(--rule); padding-bottom:38px; }
+@media (max-width:600px) { main,header,footer { padding-left:20px; padding-right:20px; } h1 { font-size:3.4rem; } }
+@media print { body { background:white; } nav { display:none; } article { break-inside:avoid; } }
 </style>
 </head>
 <body>
 <header>
 <h1>News</h1>
-<div class="date"><time datetime="2026-11-03">Tuesday, November 3, 2026</time></div>
+<div class="date"><time datetime="2026-11-04">Wednesday, November 4, 2026</time></div>
 <nav aria-label="Sections">
-<a href="#ai">AI research &amp; computing</a>
-<a href="#biology">Biology &amp; research tools</a>
-<a href="#medicine">Medicine &amp; genomics</a>
-<a href="#languages">Language practice</a>
+<a href="#ai">AI research &amp; systems</a>
+<a href="#biology">Biology &amp; medicine</a>
+<a href="#methods">Single-cell &amp; molecular methods</a>
+<a href="#briefs">Research briefs</a>
+<a href="#language-practice">Language practice</a>
 </nav>
 </header>
 <main>
 <section id="ai">
-<h2>AI research &amp; computing</h2>
-<div class="grid">
+<h2>AI research &amp; systems</h2>
 <article>
-<h3>Targeted weight edits report gains—but prompting matters</h3>
-<p>Rikiya Takehi reports using GPT-6 Astra to modify 0.016% of Qwen3.5-0.8B’s weights without gradients or training, claiming up to 6× better math performance and 3× better instruction following by fixing reasoning loops.</p>
-<p>Lucas Beyer cautions that the supplied prompt strongly suggested diagnosing looping and finding neurons to fix it; he says the model otherwise could not improve math. The available material does not establish general autonomous weight-editing ability.</p>
-<p class="links"><a href="https://x.com/rikiyatakehi/status/2117313742891327994">Original report</a> · <a href="https://x.com/giffmana/status/2117346161866514524">Methodological critique</a> · <a href="https://t.co/bOWCcFhCVq">Blog</a></p>
+<h3>Ten open-weight architectures, beyond the standard Transformer</h3>
+<p>Sebastian Raschka surveys ten October releases, comparing grouped-query and sliding-window attention with Kimi Delta Attention, MLA, LatentMoE, Mamba-2 hybrids, looped Transformers and short-convolution hybrids. Examples include Dory1.0’s looped design, Nemotron 3.5 Super VL’s Mamba-heavy stack with eight attention layers, and Mistral Large 4’s combination of MLA and sparse attention.</p>
+<p class="links"><a href="https://x.com/rasbt/status/2117637894315626719">Sebastian Raschka · source post</a> · <a href="https://t.co/NO7z6XSRHS">Architecture gallery</a></p>
 </article>
 <article>
-<h3>A trillion-parameter MoE runs on two M3 Ultras</h3>
-<p>Prince Canuma reports running Mistral Large 4—described as having 1 trillion total and 52 billion active parameters—through MLX-VLM distributed inference on two M3 Ultras at 20 tokens/s with batch size 3. The change is reportedly merged to main.</p>
-<p>Precision and memory configuration are unspecified, as is whether the reported throughput is aggregate or per sequence.</p>
-<p class="links"><a href="https://x.com/Prince_Canuma/status/2117367797462315150">Report</a> · <a href="https://t.co/cHaAUZa8IN">Repository</a></p>
+<h3>Small experiments, enormous scaling claims</h3>
+<p>Lucas Beyer challenges promotional extrapolations to quadrillion-parameter models from a multi-epoch training paper. He says the experiments span only 25M–400M unique tokens and 30M–400M parameters, with deviations from fitted predictions already casting doubt on extreme extrapolation. He also connects increasing weight decay with epoch count to earlier S4L work. The supplied material does not include the underlying paper or figure.</p>
+<p class="links"><a href="https://x.com/giffmana/status/2117524701354361269">Lucas Beyer · source post</a></p>
 </article>
 <article>
-<h3>GLiNER2.5 reports disease-extraction timings</h3>
-<p>OpenMed’s 194M-parameter GLiNER2.5 BioNER Disease Base reportedly processed 12 synthetic notes in 0.76 seconds on CPU. A separate run processed the 500-abstract BC5CDR test set in 7.8 seconds on one A100 at batch size 8: about 64 abstracts/s using 1 GB of GPU memory.</p>
-<p>Model loading was excluded. The authors describe this as one measured evaluation pass, not a serving benchmark.</p>
-<p class="links"><a href="https://x.com/OpenMed_AI/status/2117308255215001964">Measurements</a> · <a href="https://t.co/VnmNWvb7FM">Evaluation resource</a></p>
+<h3>Byte-level models may benefit from repeated passes over limited data</h3>
+<p>Albert Gu reports a data-efficiency advantage for byte-level models in a regime that trains K times over 1/K of the data, linking it to learning directly from raw inputs. The observation comes without quantitative results, baseline details or a supporting resource link.</p>
+<p class="links"><a href="https://x.com/_albertgu/status/2117798862186512601">Albert Gu · source post</a></p>
 </article>
 <article>
-<h3>New theory targets minimax-optimal SGD step sizes</h3>
-<p>Aaron Defazio shares an announcement of an arXiv paper deriving exact theory and minimax-optimal step sizes for stochastic gradient descent. The excerpt cuts off before identifying the precise setting; assumptions and a direct paper link are unavailable.</p>
-<p class="links"><a href="https://x.com/aaron_defazio/status/2117351128627306807">Announcement</a></p>
+<h3>A trillion-parameter MoE reported at roughly 30 tokens per second on two M3 Ultras</h3>
+<p>Prince Canuma reports running Mistral Large 4—1T total parameters, 52B active—using DSpark with MLX-VLM on two M3 Ultras. The update does not specify batch size, precision or context length, so it cannot be directly compared with the earlier reported 20 tokens/s at batch three.</p>
+<p class="links"><a href="https://x.com/Prince_Canuma/status/2117739171502793128">Prince Canuma · source post</a></p>
 </article>
 <article>
-<h3>Latent Sparse Attention announced</h3>
-<p>Tri Dao shares James Whittington’s announcement of Latent Sparse Attention, described as an open research release. The supplied excerpt contains no implementation details, benchmarks or direct resource URL.</p>
-<p class="links"><a href="https://x.com/tri_dao/status/2117332963872608554">Announcement</a></p>
+<h3>Clinical extraction: an abbreviation failure case and a tooling release</h3>
+<p>In one problem-list example, OpenMed reports that GLiNER2.5 BioNER Disease Base misses standalone COPD, CHF, T2DM and OSA while recognizing “acute exacerbation of COPD.” GLiFormer BioNER Disease Base finds all four abbreviations with the same code and threshold of 0.7. This is a useful targeted error analysis, not an aggregate benchmark.</p>
+<p>Separately, OpenMed 3.2 integrates GLiFormer Base/Large and GLiNER2.5 Base/Spanish disease models through one <code>analyze_text</code> interface, with CPU execution and Apache-2.0 licensing. It adds Nepali-ID and UK-postcode de-identification and synthetic FHIR, OMOP, HL7 and C-CDA data. Low-resource language packs remain experimental.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2117542307889049937">Extraction example</a> · <a href="https://t.co/ZMMwKOrWOu">Model-card resource</a> · <a href="https://x.com/OpenMed_AI/status/2117610246130618815">OpenMed 3.2 announcement</a> · <a href="https://t.co/WkyWqN2pdw">Release resource</a></p>
 </article>
 <article>
-<h3>Single-image 3D splats come to MLX-VLM</h3>
-<p>Prince Canuma reports Idol support for generating 3D splats from a single image on a Mac, with peak memory of 8.6 GB. A packaged release is forthcoming; latency and reconstruction-quality evaluations are not provided.</p>
-<p class="links"><a href="https://x.com/Prince_Canuma/status/2117392914167013832">Report</a></p>
+<h3>Terminal-Bench allegation lacks the supporting example</h3>
+<p>A repost of JSchaeff3r alleges that Kimi K3.1 recalls instructions absent from its Terminal-Bench prompt that match hidden tests. The supplied excerpt cuts off before the example and includes no reproducibility details. It raises a benchmark-integrity question but does not establish contamination or its cause.</p>
+<p class="links"><a href="https://x.com/steipete/status/2117663959385772229">Source repost</a></p>
 </article>
-<article>
-<h3>MLX-Audio adds multilingual speech enhancement</h3>
-<p>MLX-Audio now supports NVIDIA’s NemotronLabs RE-USE model, according to Prince Canuma’s announcement. The integration targets noisy audio that can challenge speech recognition, though no quantitative enhancement or recognition results accompany the post.</p>
-<p class="links"><a href="https://x.com/Prince_Canuma/status/2117366139970076769">Announcement</a> · <a href="https://t.co/4pQotFscMn">Getting started</a></p>
-</article>
-</div>
 </section>
 
 <section id="biology">
-<h2>Biology &amp; research tools</h2>
-<div class="grid">
+<h2>Biology &amp; medicine</h2>
 <article>
-<h3>GENESIS models the distribution of cellular responses</h3>
-<p>The Generative ENErgy-based Single-cell Intervention Simulator predicts single-cell response distributions from experimental-condition covariates. Its described energy-score objective attracts generated samples toward observed cells while repelling generated samples from one another, aiming to preserve cell-to-cell variability rather than collapse to a mean profile.</p>
-<p>The announcement claims predictions near experimental reproducibility, but provides no quantitative results or evaluation details.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117411036362121220">Research announcement</a></p>
+<h3>Designed activation domains work widely in yeast, less consistently in human cells</h3>
+<p>A study combines Markov-chain sequence generation with predictor filtering to design transcriptional activation domains. The supplied summary reports detectable activity in 92.1% of 16,770 well-measured yeast designs. All 14 subsequently tested designs activated transcription in plant leaves, but only 3 of 14 activated both tested endogenous loci in human-cell CRISPRa assays.</p>
+<p>The work introduces MADRIGAL, a fast surrogate for activation-domain predictor consensus. Results support a major role for sequence composition, alongside local sequence grammar, while showing that strong yeast activity does not guarantee portability to human cells.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2117605066593222743">Biology AI Daily · study summary</a></p>
 </article>
 <article>
-<h3>Pycea connects lineage trees with single-cell measurements</h3>
-<p>Pycea is a scverse-compatible toolkit for lineage analysis and visualization. It builds on TreeData, an AnnData extension that stores lineage trees alongside single-cell measurements, supporting clade identification, lineage-distance comparisons, tree visualization and ancestral-state inference.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117408500070707321">Toolkit overview</a></p>
+<h3>Antibody immunogenicity rankings depend heavily on how clinical labels are built</h3>
+<p>An audit expands an immunogenicity benchmark to 231 therapeutics and finds that antibody format alone outperforms sequence-based predictors on the original anti-drug-antibody incidence labels. Reconstructing 426 trial-level records for 110 therapeutics reveals substantial variation within the same antibody; changing label aggregation materially changes model rankings.</p>
+<p>With cohort-weighted labels, the format-only baseline drops sharply, while residual sequence signal within formats remains small and uncertain. The authors recommend trial-level context, calibrated intervals and format baselines rather than treating a single ADA percentage as an intrinsic sequence property.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2117604031912960297">Biology AI Daily · audit summary</a></p>
 </article>
 <article>
-<h3>Self-supervised learning gets a morphological-profiling comparison</h3>
-<p>Nature Methods announces a large-scale analysis of self-supervised learning for high-content morphological profiling, a topic relevant to biological image representations and phenotypic screening. The supplied posts do not identify the compared methods, datasets or conclusions.</p>
-<p class="links"><a href="https://x.com/naturemethods/status/2117342861674864950">Announcement</a> · <a href="https://t.co/E7lYC1kS7M">Study</a> · <a href="https://t.co/AsulZPjpGb">Research briefing</a></p>
+<h3>BL8 checks antibody interfaces against an experimental atlas</h3>
+<p>BL8 represents antibody–antigen interfaces through eight structural and chemical views, drawing on 15,396 curated experimental interface records. Across 28,501 predictions for three targets, it identifies high-confidence interfaces that resemble common binding patterns without matching target-specific experimental modes.</p>
+<p>The supplied summary reports approximately 95.1–100% positive recall while rejecting 15.3–20.1% of high-confidence false positives in constructed negatives. This supports an additional plausibility filter—not proof of binding or broadly validated prospective performance.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2117605362794918236">Biology AI Daily · BL8 summary</a></p>
 </article>
 <article>
-<h3>MARRS recruits ADAR1 for RNA editing</h3>
-<p>Nature Methods highlights the Multivalent ADAR1-recruiting RNA editing system, a platform described as enabling precise, high-efficiency adenosine-to-inosine editing. Editing rates, specificity measurements and experimental scope are not included in the supplied announcement.</p>
-<p class="links"><a href="https://x.com/naturemethods/status/2117334413323227289">Announcement and research links</a></p>
+<h3>CryoAtlas separates structural accuracy, density fit and stereochemistry</h3>
+<p>CryoAtlas curates 17,809 cryo-EM map–model–sequence triplets with sequence-cluster-based split controls. On a 618-target common benchmark, the supplied summary reports CryoAtom2 leading density-guided methods in accuracy and map fit, while sequence-only AlphaFold 3 achieves better stereochemistry but poorer density agreement.</p>
+<p>The benchmark includes targets where every evaluated learning-based method returned an output, making separate completion rates important context. Matched retraining experiments also suggest benefits from the dataset’s curation.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2117605263197028498">Biology AI Daily · CryoAtlas summary</a></p>
 </article>
 <article>
-<h3>Parse and Nomic describe a 100-million-cell dataset</h3>
-<p>A repost of GEN describes an AI-ready dataset from Parse and Nomic containing single-cell and proteomic data. Its reported scale could make it significant infrastructure for biological foundation models, but the truncated excerpt does not establish access terms, experimental coverage, modality pairing or release status.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117408212047839347">Dataset announcement</a></p>
+<h3>ProteinMPNN editing exposes a failure mode rather than a working intervention</h3>
+<p>Diego del Alamo describes an ongoing, LLM-assisted investigation of ProteinMPNN’s default 020 checkpoint. The post attributes membrane-protein surface hydrophobic substitutions to one feed-forward network, but reports that editing it produces only alanines. This is a preliminary mechanistic observation and failed intervention, not a validated method for designing soluble proteins.</p>
+<p class="links"><a href="https://x.com/DdelAlamo/status/2117640853212778944">Diego del Alamo · source post</a></p>
+</article>
+</section>
+
+<section id="methods">
+<h2>Single-cell &amp; molecular methods</h2>
+<article>
+<h3>LOTUS models continuous clonal fate dynamics</h3>
+<p>LOTUS combines lineage-regularized unbalanced optimal transport with neural probability flow to model transcriptional changes, changing cell-population mass and lineage-consistent clone propagation from time-resolved single-cell measurements. The supplied description outlines the framework but provides no quantitative validation.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2117756318346056121">LOTUS · source post</a></p>
 </article>
 <article>
-<h3>Sentira introduces natural-language analysis of Chromium data</h3>
-<p>10x Genomics announces Sentira Single Cell, an agentic platform for exploring Chromium data with natural language. Related posts describe Claude integration and credit-based cloud computing. No independent accuracy, reproducibility or reliability evaluation is supplied.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117406764983619739">Launch announcement</a></p>
+<h3>scRM learns from sequencing reads instead of gene-count matrices</h3>
+<p>Described as a hierarchical transformer, scRM connects bytes, contigs, molecules, windows and cells directly from scRNA-seq reads, rather than using alignments or gene-count matrices. The announcement claims training on one experiment can support application across species, but supplies no benchmarks establishing the extent of that transfer.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2117755999876735436">scRM · source post</a></p>
 </article>
 <article>
-<h3>TrUDI reports imaging 2 mm deep in mouse brain</h3>
-<p>Nature Methods describes TrUDI as a three-photon ultra-deep imaging method for structural and functional imaging of neuroactivity at a depth of 2 mm in mouse brain. Resolution, acquisition speed and validation details are absent from the announcement.</p>
-<p class="links"><a href="https://x.com/naturemethods/status/2117335666053005668">Method announcement</a></p>
+<h3>A shared hub for human gene embeddings</h3>
+<p>Gene Embedding Hub collects human protein-coding gene representations from DNA, RNA and protein sequences, biomedical text, bulk expression, single-cell models and multimodal models. Shared identifiers and documented provenance aim to make comparisons and combinations reproducible.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2117755439861600380">Gene Embedding Hub · source post</a></p>
 </article>
 <article>
-<h3>A separate GENESIS resource focuses on multiome data</h3>
-<p>“GENESIS: Generating scRNA-Seq data from Multiome Gene Expression” is a distinct resource from the intervention simulator above. Only its title is available in the supplied post; modeling approach and performance remain unspecified.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117297656674619469">Resource announcement</a></p>
+<h3>ScanFold3 speeds up RNA structure assembly, with a precision–recall tradeoff</h3>
+<p>ScanFold3 replaces consensus structure assembly with greedy matching and a C++ implementation. Reported Fold-stage speedups range from roughly 38× at 0.5 kb to 129–139× at 128 kb; these are not whole-pipeline speedups, and scanning remains expensive.</p>
+<p>Tests on 2,000 structured RNAs show higher precision but lower recall than ScanFold2, with similar downstream performance when predicted pairs constrain RNAfold. A blind intronic analysis recovered 396 snoRNAs, compared with 335 in the earlier ScanFold2-based analysis.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2117604164629082417">Biology AI Daily · ScanFold3 summary</a></p>
+</article>
+<article>
+<h3>VIGAT uses vision-language models to inspect ATAC-seq plots</h3>
+<p>VIGAT selects gene-specific regions for activity quantification by combining ATAC coverage patterns, marker genes, genomic annotations and biological context. Its gene-by-cell matrix estimates activity from accessibility; it is not a direct expression measurement. No quantitative comparison is supplied.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2117745779058360619">VIGAT · source post</a></p>
+</article>
+<article>
+<h3>scSTEC simplifies chromatin subcompartment annotation</h3>
+<p>scSTEC uses direct two-dimensional embedding and chromosome-wise consensus to annotate subcompartments from individual single-cell Hi-C matrices. It exploits the reported rank-two structure of an estimated interchromosomal matrix used by scGHOST, avoiding explicit construction and clustering of the high-dimensional representation. Accuracy and runtime measurements are absent from the supplied posts.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2117746106100834365">scSTEC · source post</a></p>
+</article>
+<article>
+<h3>TRACER targets rare tissue domains and transitional layers</h3>
+<p>TRACER combines a graph convolutional autoencoder with two contrastive objectives to identify fine-grained spatial transcriptomic domains from expression and spatial neighborhoods. Its emphasis is on rare domains and transitional layers; benchmark results are not included in the provided material.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2117746674680651820">TRACER · source post</a></p>
+</article>
+<article>
+<h3>DIFFRACT measures molecular-network reorganization</h3>
+<p>DIFFRACT integrates replicated quantitative proteomics with protein-interaction networks, separating local fractal dimension into structural and association-weight-dependent components. It prioritizes proteins whose neighborhood geometry changes unusually between conditions. The supplied description establishes the method’s aim, not its empirical performance or causal interpretability.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2117746368081219991">DIFFRACT · source post</a></p>
+</article>
+</section>
+
+<section id="briefs">
+<h2>Research briefs</h2>
+<div class="briefs">
+<article>
+<h3>Humanoid safety at CoRL</h3>
+<p>Stanford AI Lab shares Marco Pavone’s announcement of a CoRL 2026 paper on safety–performance tradeoffs in reinforcement-learning-powered humanoids. The excerpt ends before the method name and includes no paper link, experimental setup or results.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2117528419353391474">Stanford AI Lab · source repost</a></p>
+</article>
+<article>
+<h3>A rare-disease AI challenge announced</h3>
+<p>A repost announces the SAIL Therapeutic Actionability AI Challenge in a rare-disease context. The truncated text does not specify tasks, datasets, evaluation criteria or participation dates.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2117760233473036423">Challenge announcement</a></p>
+</article>
+<article>
+<h3>Lupus neutrophils and altered RNA splicing</h3>
+<p>A repost reports that neutrophils from people with lupus mis-splice interferon-inducible genes into new protein sequences. Without study design, sample size or validation details in the excerpt, disease mechanisms and therapeutic implications cannot be assessed.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2117657756371140682">Source repost</a></p>
 </article>
 </div>
 </section>
 
-<section id="medicine">
-<h2>Medicine &amp; genomics</h2>
-<div class="grid">
-<article>
-<h3>Parkinson’s trial reportedly finds no clinical benefit from nicotinamide riboside</h3>
-<p>A truncated research repost reports no clinical benefit after 52 weeks of oral nicotinamide riboside in early-stage Parkinson’s disease. It describes 199 treated participants and 194 receiving placebo, with treatment at 500 mg twice daily.</p>
-<p>Endpoints, effect estimates, adverse events and the underlying publication are unavailable in the excerpt. This is a reported trial result, not a complete clinical assessment.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117396037958812098">Trial report</a></p>
-</article>
-<article>
-<h3>mV2G maps variants to genes by tissue</h3>
-<p>An author announcement reports publication of mV2G in <em>Nucleic Acids Research</em>, describing a multiomic atlas for tissue-specific variant-to-gene mapping. Such mapping connects genetic associations with regulatory mechanisms; the excerpt does not supply tissue coverage, methodology or validation results.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117408158163599619">Atlas announcement</a></p>
-</article>
-<article>
-<h3>Reading pointers: pain genetics and immune repertoires</h3>
-<p><em>Nature Reviews Genetics</em> announces two reviews: “Genomics for chronic overlapping pain conditions” and “Sequencing and analysis of the human adaptive immune receptor repertoire.” The supplied posts provide no specific findings or methodological details.</p>
-<p class="links"><a href="https://x.com/NatureRevGenet/status/2117303374848929912">Chronic overlapping pain</a> · <a href="https://x.com/NatureRevGenet/status/2117302719946150297">Adaptive immune receptor repertoire</a></p>
-</article>
-<article>
-<h3>Colorectal cancer’s genomic and epigenomic evolution</h3>
-<p>A research repost points to “The genomic and epigenomic evolution of colorectal cancer.” The available material establishes the topic, but contains no study design, findings or publication details.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2117395991175545274">Research pointer</a></p>
-</article>
-</div>
-</section>
-
-<section id="languages" class="practice">
+<section id="language-practice">
 <h2>Language practice</h2>
-
-<article lang="de">
-<h3>Deutsch — Deutschlands Jüdische Akademie soll ein "Meilenstein" sein</h3>
-<p class="meta">Deutsche Welle · 02.11.2026 · <a href="https://www.dw.com/de/die-sorge-vor-wachsendem-judenhass-überschattet-die-eröffnung-der-jüdischen-akademie/a-79830708">Artikel lesen</a></p>
-<p>In Frankfurt am Main eröffnet die Jüdische Akademie als Ort für Bildung, Forschung und öffentlichen Austausch. Die Leitung will jüdisches Leben in seiner Vielfalt sichtbar machen und Wissenschaft mit einer breiten Öffentlichkeit verbinden. Dabei knüpft die Einrichtung an die jüdische Geistesgeschichte der Stadt an, insbesondere an das von Franz Rosenzweig geprägte Jüdische Lehrhaus. Religionsphilosophische und ethische Fragen sollen ebenso Platz finden wie Debatten über die jüdische Gegenwart.</p>
-<p>Die Eröffnungsfeier steht allerdings im Zeichen wachsender Sorge vor Antisemitismus. Zentralratspräsident Josef Schuster beschreibt das Haus als Ausdruck des Anspruchs, als jüdische Gemeinschaft in Deutschland zu Hause zu sein, warnt aber zugleich vor der Bedrohung jüdischen Lebens. Bundespräsident Frank-Walter Steinmeier fordert von allen Parteien eine eindeutige Abwehr des Antisemitismus: Der Schutz jüdischen Lebens dürfe bei Koalitionsverhandlungen nicht zur Verhandlungsmasse werden.</p>
-<p>Auch am Gebäude zeigt sich das Spannungsverhältnis zwischen Offenheit und notwendigem Schutz. Die Akademie verbindet eine historische Villa mit einem modernen, glasreichen Neubau; zugleich gehören umfangreiche Sicherheitsmaßnahmen zum Konzept. Direktorin Sabena Donath bezeichnet die Bewachung jüdischer Einrichtungen als traurigen Alltag. Der Bericht verbindet diese Gegenwartsfragen mit Frankfurts Geschichte und erklärt, warum die Akademie mehr sein soll als ein symbolisches Bauprojekt.</p>
-<p><strong>Warum lesen:</strong> Der Artikel eröffnet einen konkreten Zugang zu jüdischer Bildung und Gegenwart in Deutschland und zeigt, wie eng kultureller Aufbruch und gesellschaftliche Sicherheitsfragen miteinander verbunden sind.</p>
+<article class="reading" lang="de">
+<h3>Deutsch — Neues Sachbuch von Isabella M. Weber: Eine Wirtschaft für die Menschen</h3>
+<p class="meta">Deutschlandfunk Kultur · 01.11.2026 · <a href="https://www.deutschlandfunkkultur.de/antifaschistische-wirtschaftspolitik-isabella-weber-rezension-buchkritik-100.html">Artikel lesen</a></p>
+<p>Wie hängen steigende Lebenshaltungskosten und der Erfolg autoritärer Politik zusammen? Andrea Roedig stellt Isabella M. Webers Buch „Antifaschistische Wirtschaftspolitik“ vor. Dessen zentrale These: Inflation, Arbeitslosigkeit und wirtschaftliche Unsicherheit begünstigen politische Radikalisierung. Weber fordert deshalb einen Staat, der Märkte aktiv gestaltet, statt ihre Ergebnisse als unvermeidlich hinzunehmen. Historische Bezugspunkte sind unter anderem Roosevelts New Deal und die Arbeiten des Soziologen Karl Polanyi.</p>
+<p>Dabei plädiert Weber laut Rezension nicht für eine umfassende Planwirtschaft. Ihr „Konzept der essenziellen Güter“ konzentriert sich auf bezahlbares Wohnen, Energie, Mobilität und Lebensmittel. Strategische Preiskontrollen und Vorratslager gehören zu den vorgeschlagenen Instrumenten. Roedig bemängelt zwar Wiederholungen, würdigt das Buch aber als durchdachten, konkreten Beitrag zur Frage, wie wirtschaftliche Sicherheit die Demokratie stärken kann.</p>
+<p><strong>Warum lesen:</strong> Die Rezension verbindet alltägliche Preisfragen mit der Debatte über demokratische Stabilität und bietet einen verständlichen Einstieg in Webers wirtschaftspolitische Vorschläge.</p>
 </article>
 
-<article lang="fr">
-<h3>Français — « Une bataille de visibilité se joue en librairie », mais Rockyvision reste combatif</h3>
-<p class="meta">ActuaLitté · 2 novembre 2026 · <a href="https://actualitte.com/article/134981/edition/une-bataille-de-visibilite-se-joue-en-librairie-mais-rockyvision-reste-combatif">Lire l’article</a></p>
-<p>Comment faire vivre une maison d’édition indépendante consacrée au cinéma et à la culture populaire lorsque les points de vente diminuent et que la fabrication coûte plus cher ? ActuaLitté donne la parole à Camille Mathieu, qui participe à la direction éditoriale de Rockyvision, la structure lyonnaise derrière les revues <em>Rockyrama</em> et <em>Otomo</em>. Son témoignage montre que la qualité des textes et le soin graphique ne suffisent pas à garantir une place en librairie : les petites maisons doivent rivaliser avec des groupes capables de financer davantage de promotion et d’imprimer de plus grandes quantités.</p>
-<p>L’article explique aussi les tensions financières qui se cachent derrière chaque parution. Les dépenses arrivent avant les règlements des librairies ; les précommandes et les ventes directes permettent donc de couvrir certains besoins immédiats. Pour son prochain ouvrage, <em>Mulholland Drive : Le labyrinthe des anges</em>, annoncé pour le 17 novembre, Rockyvision tente un pari : fixer le prix à 32 euros plutôt qu’à 39 euros, en réduisant sa marge pour préserver l’accessibilité du livre et encourager les commandes.</p>
-<p>Cette stratégie reste une expérience, pas une solution acquise. La maison bénéficie elle-même d’un plan de redressement, et Camille Mathieu souligne que les difficultés dépassent son entreprise. Derrière la fragilité économique des indépendants se pose une question culturelle : quelle place restera-t-il aux choix éditoriaux singuliers si seuls les acteurs les plus puissants peuvent durablement atteindre les lecteurs ?</p>
-<p><strong>Pourquoi lire :</strong> Un exemple concret pour comprendre les liens entre prix du livre, visibilité en librairie et diversité culturelle en France.</p>
+<article class="reading" lang="fr">
+<h3>Français — L'inquiétude grandit en Europe face aux cyberattaques contre des supermarchés</h3>
+<p class="meta">RFI · 2 novembre 2026 · <a href="https://www.rfi.fr/fr/europe/20261102-l-inqui%C3%A9tude-grandit-en-europe-face-aux-cyberattaques-contre-des-supermarch%C3%A9s">Lire l’article</a></p>
+<p>Des cyberattaques contre les installations frigorifiques de supermarchés perturbent plusieurs pays européens, après des incidents similaires en France à la mi-octobre. À Stockholm, RFI décrit un magasin dont les congélateurs se sont brutalement réchauffés pendant la nuit : les marchandises ont dû être jetées et les rayons sont restés vides. La connexion à Internet du système de réfrigération aurait permis une prise de contrôle à distance, illustrant les conséquences très matérielles d’une intrusion informatique.</p>
+<p>L’article rapporte également des perturbations en Belgique, au Luxembourg, en Finlande et en Estonie. Certains équipements anciens ressemblent à ceux visés en France, mais le lien entre les attaques n’est pas établi et personne ne les a revendiquées. La Commission européenne s’inquiète des risques pour l’approvisionnement et la confiance des consommateurs, tout en précisant que la sécurité alimentaire n’est pas menacée pour l’instant. Le gaspillage et les pertes pour les entreprises sont, eux, déjà concrets.</p>
+<p><strong>Pourquoi lire :</strong> Un exemple accessible de la manière dont la cybersécurité des équipements connectés touche directement les commerces et notre alimentation.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>tirage</strong> — nombre d’exemplaires imprimés d’une publication lors d’une même opération de production.</li>
-<li><strong>économies d’échelle</strong> — diminution du coût par exemplaire lorsque les quantités produites augmentent.</li>
-<li><strong>plan de redressement</strong> — dispositif destiné à permettre à une entreprise en difficulté de poursuivre son activité tout en organisant le remboursement de ses dettes.</li>
+<li><strong>installation frigorifique</strong> — ensemble d’équipements servant à produire et à maintenir le froid pour conserver des produits.</li>
+<li><strong>chaîne d’approvisionnement</strong> — ensemble des étapes et des acteurs qui permettent d’acheminer des marchandises jusqu’au consommateur.</li>
+<li><strong>signature d’une cyberattaque</strong> — caractéristiques techniques permettant de reconnaître un mode opératoire, sans nécessairement identifier son auteur.</li>
 </ul>
 </article>
 
-<article lang="ja">
-<h3>日本語 — 最大4人協力・デッキ構築ローグライク『HARMA 亡国のエデン』11月17日早期アクセス配信へ。カードの効果は“調律”次第、「運の任せどころ」もまた戦略</h3>
-<p class="meta">AUTOMATON · 2026-11-03 · <a href="https://automaton-media.com/articles/newsjp/20261103-477178/">記事を読む</a></p>
-<p>Astrolabe Gamesは、日韓のクリエイターによる開発チームIndirectShineの『HARMA 亡国のエデン』を、11月17日にPC向けSteamで早期アクセス配信すると発表した。崩壊の危機にある王国を舞台に、王子が騎士団の変貌と父王の失踪の真相を追う、デッキ構築型ローグライクだ。日本語表示に対応予定で、現在公開中のデモ版では最大2人、製品版では最大4人でのオンライン協力プレイが予定されている。</p>
-<p>戦闘の特徴は、カードを使う際に三つのアーティファクトで行われる「調律」。その成否によってカードの効果が変わる一方、「集中力」という資源を消費すれば成功を確実にできる。重要な場面で資源を使うか、後の戦闘に備えて温存するかという判断が、カードや装備の組み合わせとともに攻略の鍵になる。カードの強化方針の選択や融合など、構築を工夫する仕組みも紹介されている。</p>
-<p>開発の中心となる二人は韓国出身で、愛媛県内の大学への留学中にアプリを制作した経験が本作につながったという。早期アクセス版には物語の最初のチャプターを収録し、プレイヤーの意見を受けながら調整や追加開発を進める方針。記事ではゲームの仕組みだけでなく、開発チームの背景や今後の展開も読める。</p>
-<p><strong>読む理由：</strong> 日韓のインディーゲーム開発の背景に触れながら、確率と資源管理を説明する日本語を具体的なゲームの仕組みから学べる。</p>
+<article class="reading" lang="ja">
+<h3>日本語 — Aterm設定画面、「PHP使ってないのに.php」なぜ？　NECに聞いた</h3>
+<p class="meta">ITmedia NEWS · 2026-11-04 · <a href="https://www.itmedia.co.jp/news/article/2611/04/2000002847/">記事を読む</a></p>
+<p>NECのルータ「Aterm」では、設定画面のURLに「.php」と表示される機種がある。それなのに、同社はPHPの脆弱性に関する告知で、PHPは使用していないと説明した。この一見矛盾する説明について、ITmedia NEWSがNECに取材し、過去にPHPを使っていた名残なのか、それとも別の理由があるのかを確かめている。</p>
+<p>NECによると、該当機種はPHPの文法の一部を参考にした独自ソフトウェアで管理画面を動かしている。必要な機能だけを独自に実装しており、PHP本体のコードや一般的な実行環境は使っていないという。「.php」は文法に合わせた表記で、今回公表されたPHPの脆弱性に関わる処理機構も使用していないため、影響を受けないと説明している。ただし、独自ソフトウェアの具体的な実装内容や開発言語は公開していない。</p>
+<p><strong>読む理由：</strong> 身近なルータを題材に、URLの見た目と内部の仕組みの違いや、脆弱性の影響を判断する際の注意点を学べる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>早期アクセス（そうきアクセス）</strong> — 正式完成前のゲームを公開し、遊んだ人の意見を取り入れながら開発を続ける方式。</li>
-<li><strong>デッキ構築（デッキこうちく）</strong> — カードの効果や相性を考え、戦いに使うカードの組み合わせを作ること。</li>
-<li><strong>調律（ちょうりつ）</strong> — 本来は楽器の音を整えること。本作では、カードの効果を左右するアーティファクトの成功判定を指す。</li>
+<li><strong>脆弱性（ぜいじゃくせい）</strong> — ソフトウェアなどにある、不正な操作や攻撃に利用されるおそれのある弱点。</li>
+<li><strong>拡張子（かくちょうし）</strong> — ファイル名などの末尾に付ける、形式や種類を示す文字列。ただし、実際の処理方式を必ず保証するものではない。</li>
+<li><strong>実装（じっそう）</strong> — 仕様や設計で定めた機能を、実際に動くプログラムや装置として作り込むこと。</li>
 </ul>
 </article>
 
-<article lang="zh-Hans">
-<h3>中文 — 《80亿分之1》的你与我：因为有你们，所以这是很好的一生</h3>
-<p class="meta">端传媒 · 2026-10-31（据文章网址） · <a href="https://theinitium.com/20261031-gameon-1-in-8-billion-zh-hans/">https://theinitium.com/20261031-gameon-1-in-8-billion-zh-hans/</a></p>
-<p>一款不靠华丽画面、而靠文字、数据和选择推动的网页游戏，如何让玩家重新想像他人的人生？陈子云介绍韩国独立开发者 Jin Hwi-eus 制作的《80亿分之1》：玩家起初只能选择出生的时代，出生国家则依据相应年份的世界人口数据随机安排。这样的设定，把个人无法选择的出生条件变成了游戏体验的起点。</p>
-<p>文章的公开导语把重点放在理解他人的处境，而不只是游戏是否好玩。可见开头还介绍了作品简洁的介面和点阵图美学，呈现它如何以有限的视觉元素承载人生模拟的题材。适合对独立游戏、数据与叙事关系感兴趣的读者；全文仅限会员，以上介绍依据公开导语与开头。</p>
-<p><strong>为什么读：</strong> 从一款文字游戏入手，练习用中文思考出生条件、人生选择与理解他人的关系。</p>
+<article class="reading" lang="zh">
+<h3>中文 — “中国之星计划”第四期新增多家战略合作伙伴，单项目将获价值百万美元投资</h3>
+<p class="meta">机核 · 页面显示18小时前发布（发布会日期：2026-11-03） · <a href="https://www.gcores.com/articles/221889">https://www.gcores.com/articles/221889</a></p>
+<p>据机核报道，索尼互动娱乐在上海举行的“中国之星计划”发布会上宣布，第四期将为每个入选项目提供价值100万美元的项目投资，并新增DENMU電夢和Solutions 2 GO两家战略合作伙伴。支持内容不只涉及资金，也包括开发协助、发行与市场推广，目标是帮助中国游戏团队进入全球市场。</p>
+<p>报道还介绍了第三期作品的进展：《绝晓》将获得价值100万美元的项目投资；《达巴：水痕之地》计划于2027年春季发售，《潜阈限界》则计划在2027年内推出。新伙伴中，DENMU電夢侧重投资及开发支持，Solutions 2 GO计划协助上述两款待发售作品的发行。文章主要呈现发布会公布的政策与项目安排，适合了解国产游戏从开发走向海外销售所需的产业协作，而非寻找游戏品质评测。</p>
+<p><strong>为什么读：</strong> 通过具体项目认识国产游戏背后的资金、发行与海外市场支持，同时练习阅读游戏产业报道。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>独立游戏 (dúlì yóuxì)</strong> — 通常由个人或小型团队自主开发、创作方向较独立的游戏。</li>
-<li><strong>点阵图 (diǎnzhèntú)</strong> — 由排列成网格的像素点组成的图像，常用于呈现复古视觉风格。</li>
-<li><strong>同理心 (tónglǐxīn)</strong> — 尝试从他人的处境出发，理解其感受与经验的能力。</li>
+<li><strong>游戏发行 (yóuxì fāxíng)</strong> — 将游戏推向市场的业务，通常涉及平台合作、宣传和销售安排，与实际开发游戏有所区别。</li>
+<li><strong>分销 (fēnxiāo)</strong> — 通过不同销售渠道或合作商，把产品送达各地区消费者的商业活动。</li>
+<li><strong>孵化 (fūhuà)</strong> — 在项目成长初期提供资金、技术和商业资源，帮助创意逐步发展为可上市的产品。</li>
 </ul>
 </article>
 </section>
 </main>
 <footer>
-<p><strong>Source notes.</strong> Research coverage is based on the supplied social-media excerpts; linked papers, pages and media were not independently inspected. Some announcements are truncated or title-only, with limitations noted alongside the items. Shortened resource links are preserved as supplied. The identical morphological-profiling announcement appearing in both research feeds is presented once.</p>
+<p><strong>Source notes.</strong> Research coverage is based on the supplied X posts and summaries; linked papers and resources were not inspected, and quantitative claims have not been independently verified. Several excerpts are truncated. Shortened resource links are retained as supplied.</p>
+<p>Edition 2026-11-04 · Run 2026-11-04-1</p>
 </footer>
 </body>
 </html>

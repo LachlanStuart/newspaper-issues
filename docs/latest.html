@@ -5,159 +5,195 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root{color-scheme:light;--paper:#faf9f5;--ink:#242824;--muted:#646a64;--rule:#d6d9d0;--accent:#24594d}
+:root{color-scheme:light;--paper:#faf8f3;--ink:#242824;--muted:#62685f;--rule:#d7d9ce;--accent:#285b50}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
-main{max-width:1000px;margin:auto;padding:35px 25px 55px}
-header{border-bottom:3px solid var(--ink);padding-bottom:20px;margin-bottom:28px}
-h1{font-size:64px;line-height:1;margin:0 0 14px;letter-spacing:-2px}
-.dateline,.meta,nav,footer{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted)}
-nav{margin-top:14px;display:flex;gap:20px;flex-wrap:wrap}
-a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
-h2{font:700 22px/1.3 system-ui,sans-serif;border-bottom:1px solid var(--rule);padding-bottom:10px;margin:32px 0 20px}
-h3{font-size:23px;line-height:1.35;margin:0 0 10px}
-p{margin:10px 0 14px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:27px 35px}
-.grid article{border-bottom:1px solid var(--rule);padding-bottom:20px}
-.links{font:14px/1.7 system-ui,sans-serif}
-.practice{border-top:3px solid var(--ink);margin-top:40px}
-.practice article{max-width:800px;padding:20px 0 28px;border-bottom:1px solid var(--rule)}
-.practice ul{padding-left:24px}
-.practice li{margin-bottom:8px}
-footer{margin-top:35px;border-top:1px solid var(--rule);padding-top:15px}
-@media(max-width:650px){.grid{grid-template-columns:1fr}main{padding:25px 20px}h1{font-size:52px}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main,header,footer{max-width:960px;margin:auto;padding:24px}
+header{padding-top:40px;border-bottom:3px solid var(--ink)}
+h1{font-size:clamp(3rem,8vw,5rem);line-height:1;margin:0 0 18px}
+.dateline,.meta,nav,footer,.section-label{font-family:system-ui,sans-serif}
+.dateline,.meta{color:var(--muted);font-size:.88rem}
+nav{margin-top:16px;font-size:.9rem}
+nav a{margin-right:18px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.7rem;border-bottom:1px solid var(--rule);padding-bottom:10px;margin:28px 0 20px}
+h3{font-size:1.25rem;line-height:1.35;margin:0 0 10px}
+p{margin:10px 0}
+article{margin-bottom:27px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.links{font-family:system-ui,sans-serif;font-size:.85rem}
+.briefs{border-top:1px solid var(--rule);padding-top:20px}
+#language-practice{border-top:3px solid var(--ink);margin-top:40px;padding-top:12px}
+.reading{padding:22px 0;border-bottom:1px solid var(--rule)}
+.reading p,.reading li{line-height:1.8}
+.reading[lang="ja"],.reading[lang="zh"]{font-family:system-ui,sans-serif}
+ul{padding-left:24px}
+footer{font-size:.8rem;color:var(--muted);border-top:1px solid var(--rule);padding-bottom:40px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}main,header,footer{padding-left:20px;padding-right:20px}}
 </style>
 </head>
 <body>
-<main>
 <header>
 <h1>News</h1>
-<div class="dateline"><time datetime="2026-11-05">Thursday, November 5, 2026</time></div>
+<div class="dateline"><time datetime="2026-11-06">Friday, November 6, 2026</time></div>
 <nav aria-label="Sections">
-<a href="#ai">AI &amp; research tools</a>
-<a href="#biology">Biology &amp; protein design</a>
-<a href="#languages">Language practice</a>
+<a href="#ai">AI research</a>
+<a href="#biology">Biology &amp; genomics</a>
+<a href="#clinical">Clinical software</a>
+<a href="#language-practice">Language practice</a>
 </nav>
 </header>
-
+<main>
 <section id="ai">
-<h2>AI &amp; research tools</h2>
+<h2>AI research &amp; systems</h2>
+<article>
+<h3>Goodfire uses model internals as training feedback</h3>
+<p>Goodfire introduces “mechanistic shaping,” a framework that feeds signals from a model’s internals into training. Reported applications span reward hacking, shortcuts in chest-X-ray analysis, sycophancy and harmfulness.</p>
+<p>The work also surfaces a monitoring problem: training against internal signals can break the probes used to detect them. In the language-model experiments, retraining probes recovered the signal—suggesting that the concepts moved rather than disappeared.</p>
+<p class="links"><a href="https://x.com/GoodfireAI/status/2118393112737591387">Goodfire announcement</a> · <a href="https://t.co/SwFEMqwQDu">Paper / blog</a></p>
+</article>
 <div class="grid">
 <article>
-<h3>Spanish clinical extraction: a reported jump in F1</h3>
-<p>OpenMed reports that fine-tuning multilingual GLiNER2.5 on DisTEMIST Spanish case reports raised F1 from 39.1 to 73.3 in a single evaluation on 150 held-out documents. In a separate synthetic discharge-note example, the model extracted 22 mentions in 0.17 seconds on CPU.</p>
-<p>The Apache-2.0 model extracts disease mentions, not confirmed diagnoses: it also tags conditions that have been ruled out. That distinction matters for any clinical use.</p>
-<p class="links"><a href="https://x.com/OpenMed_AI/status/2117904685004967971">OpenMed announcement</a> · <a href="https://t.co/E1pMNbr86J">Model/resource</a> · <a href="https://x.com/OpenMed_AI/status/2117904685340438613">Evaluation details</a></p>
+<h3>Scaling-law forecasts can diverge despite equally good fits</h3>
+<p><em>Ambiguous Fits</em>, a paper announced by Bruno Mlodozeniec and collaborator @sfrei_, argues that curves fitting the same model-size ladder equally well can produce very different extrapolations. The point is methodological: curve fitting itself introduces forecast uncertainty. The supplied post contains neither a paper link nor detailed results.</p>
+<p class="links"><a href="https://x.com/brunorganised/status/2118382790970376467">Research announcement</a></p>
 </article>
 <article>
-<h3>MLX-VLM adds resumable generation</h3>
-<p>MLX-VLM 0.7.12 introduces speculative thinking budgets, reasoning-effort controls and resumable generation, alongside reported server memory reductions. A follow-up says inference state survives interrupted responses and that idle timeouts are exposed to clients.</p>
-<p>The release also includes model support and image-to-3D integration. The state-management changes are particularly relevant to applications that need to recover from interrupted output.</p>
-<p class="links"><a href="https://x.com/Prince_Canuma/status/2118096110061273518">Release announcement</a> · <a href="https://t.co/orv37qrmYV">Changelog</a> · <a href="https://x.com/Prince_Canuma/status/2118096120710877222">Resumption details</a></p>
+<h3>Marin finishes 18-trillion-token pretraining</h3>
+<p>David Hall reports that Marin’s Mochi 535B-A23B has completed its main pretraining phase, with long-context training and supervised fine-tuning still planned.</p>
+<p>Larry Dial offers a speculative explanation for its early outperformance against the scaling ladder: batch size. The largest ladder run made 4,000 updates in its first 20%, versus 78,000 for the full run. Smaller-scale tests found an early, but not later, benefit from smaller batches.</p>
+<p class="links"><a href="https://x.com/dlwh/status/2118418938317156731">Completion update</a> · <a href="https://x.com/classiclarryd/status/2118476155758293270">Batch-size analysis</a></p>
 </article>
 <article>
-<h3>frax.ik targets microsecond humanoid motion processing</h3>
-<p>Stanford AI Lab shares frax.ik, described as performing humanoid retargeting and inverse kinematics in microseconds entirely on CPU. The tool could be relevant to humanoid motion pipelines, but the supplied announcement is truncated: benchmark conditions and implementation details are unavailable.</p>
-<p class="links"><a href="https://x.com/StanfordAILab/status/2118207676299784617">Stanford AI Lab post</a></p>
+<h3>ScholarCatalyst tests retrieval for scientific discovery</h3>
+<p>Stanford AI Lab shares a benchmark built from human researchers’ judgments. Rather than treating retrieval only as finding a known answer, ScholarCatalyst asks whether it can surface material that suggests promising directions for open-ended research.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2118511638760583515">Announcement</a> · <a href="https://t.co/nqTTXwxWhW">SAIL blog</a></p>
 </article>
 <article>
-<h3>Paperclip Datasets turns toward scientific-data curation</h3>
-<p>Paperclip Datasets is described in a post shared by Stanford AI Lab as curating datasets from millions of scientific papers in minutes. The supplied excerpt provides neither the extraction methodology nor validation results, so the scope and reliability of that claim remain unclear.</p>
-<p class="links"><a href="https://x.com/StanfordAILab/status/2118058204445987105">Stanford AI Lab post</a></p>
+<h3>Inkling 2 Small reports 8.4T tokens in 68 hours</h3>
+<p>A repost of Guangxuan Xiao reports that the model’s main pretraining phase ran natively in NVFP4. The figures are a low-precision training claim, not a model-quality comparison: the excerpt supplies no hardware count, numerical-quality comparisons or full recipe.</p>
+<p class="links"><a href="https://x.com/SonglinYang4/status/2118523785968267681">Training report</a></p>
 </article>
 </div>
+<article>
+<h3>Together Compiler puts optimization inside an agent loop</h3>
+<p>Tri Dao describes a two-year project incorporating kernel and inference-engine optimization expertise into an agent loop used in production. Related posts identify it as Together Compiler, or TKCC. Implementation details and quantitative benchmarks are absent from the supplied excerpts.</p>
+<p class="links"><a href="https://x.com/tri_dao/status/2118418321456660572">Project announcement</a></p>
+</article>
 </section>
 
 <section id="biology">
-<h2>Biology &amp; protein design</h2>
+<h2>Biology &amp; genomics</h2>
 <div class="grid">
 <article>
-<h3>Small ProteinMPNN weight edits reportedly shift model behavior</h3>
-<p>Diego del Alamo reports that an Opus 5-assisted interpretability investigation edited approximately 1% of ProteinMPNN weights to produce SolubleMPNN-like behavior. He also notes that the 030 checkpoint already exhibits similar behavior without editing.</p>
-<p>The result remains exploratory. The supplied discussion does not establish the editing procedure, quantitative performance or experimental solubility; a behavioral change is not evidence that designed proteins are more soluble.</p>
-<p class="links"><a href="https://x.com/DdelAlamo/status/2117967392211091608">Diego del Alamo’s report</a></p>
+<h3>Modeling chromatin one molecule at a time</h3>
+<p>Anshul Kundaje highlights generative sequence-to-function models of transcription-factor and nucleosome assemblies at single-molecule resolution. Related posts describe diffusion modeling of Fiber-seq and single-molecule footprinting, including concurrent work from Jian Zhou’s and Katie Pollard’s groups.</p>
+<p>The direction matters for modeling heterogeneous chromatin states rather than aggregate signals, but model names and quantitative evaluations are not available in the excerpts.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2118473801713299948">Research thread</a></p>
 </article>
 <article>
-<h3>ipSAE extension addresses protein–ligand confidence</h3>
-<p>Sergey Ovchinnikov shares Roland Dunbrack’s announcement of ipSAE for ligands. It argues that ipTM performs poorly for ligands and proposes an asymmetric score that aligns on the protein—a potentially useful development for assessing structure-based drug-discovery predictions.</p>
-<p>The post cuts off before the full scoring description, and no benchmark results are supplied. Any improvement remains unassessed here.</p>
-<p class="links"><a href="https://x.com/sokrypton/status/2118022153857806396">Announcement shared by Sergey Ovchinnikov</a></p>
+<h3>CloneVI connects mitochondrial mutations, clones and cell state</h3>
+<p>CloneVI is described as a deep generative model that reconstructs observed mutation counts from a latent cell state to infer clone probabilities for individual cells and clone-specific allele frequencies.</p>
+<p>The posts report recovery of known structure in single- and mixed-clone populations. In mitochondrial-transcript-enriched single-cell RNA sequencing from clonal hematopoiesis, inferred clones were associated with specific mitochondrial DNA mutations. Quantitative performance is not supplied.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2118502584780763197">CloneVI overview</a></p>
 </article>
 <article>
-<h3>RFD4-Proteina announces a Mac port</h3>
-<p>A BIOS announcement shared by Sergey Ovchinnikov says RFD4-Proteina can now generate candidate protein binders locally on a MacBook. Local deployment could broaden access to binder-design workflows.</p>
-<p>The available excerpt gives no hardware requirements, runtime measurements or validation that the port produces equivalent outputs.</p>
-<p class="links"><a href="https://x.com/sokrypton/status/2118040740697870718">Mac deployment announcement</a></p>
+<h3>MoleMap prefilters sequencing reads without alignment</h3>
+<p>MoleMap assigns long reads and linked-read molecules to genomic regions before targeted downstream analysis of whole-genome sequencing data. Its approach combines a minimized open-addressing k-mer index with fast k-mer clustering. The posts provide no measured speed, memory or accuracy comparisons.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2118501961637220667">MoleMap overview</a></p>
 </article>
 <article>
-<h3>Beyond proteins: a case for selection-linked data</h3>
-<p>Sergey Ovchinnikov argues that extending biological models requires datasets with extractable covariation under natural or artificial selection, rather than simply more observations. A related reply calls for inexpensive, detailed measurement of biodiversity.</p>
-<p>This is a research and data-design argument, not a demonstrated result. The supplied discussion identifies no specific collection protocol or benchmark.</p>
-<p class="links"><a href="https://x.com/sokrypton/status/2118002437852201362">Research discussion</a></p>
+<h3>AtomLM-9b shares a tokenizer across molecule types</h3>
+<p>The All-Atom Structure Tokenizer maps chemical units into 8,192 discrete tokens using a hierarchical geometric encoder and finite scalar quantization. A joint decoder reconstructs protein backbone and side-chain atoms, nucleic acids and ligand heavy atoms.</p>
+<p>The announcement links the tokenizer to AtomLM-9b for biomolecular structure prediction. Its cross-molecule representation is relevant to ligand-containing systems, though the claim of high reconstruction accuracy comes without numerical benchmarks in the supplied text.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2118502295382155366">Tokenizer announcement</a></p>
+</article>
+</div>
+<div class="briefs">
+<h3>Research pointers</h3>
+<p><strong>Autism-related perturbations:</strong> An IGVF Consortium preprint announcement describes mapping the effects of disrupting 1,408 autism risk genes on gene activity in developing brain cells. The excerpt stops before the findings; experimental details and dataset availability cannot be assessed. <a href="https://x.com/anshulkundaje/status/2118465326060831157">Announcement</a></p>
+<p><strong>Promoter responsiveness:</strong> Kundaje shares Jian Zhou’s comment that a study offers direct experimental evidence for intrinsic promoter responsiveness. The brief excerpt does not identify the study, assay or effect sizes. <a href="https://x.com/anshulkundaje/status/2118559116800954878">Research pointer</a></p>
+<p><strong>Perturbation modeling in reverse:</strong> A Goyal lab announcement contrasts predicting a gene knockout’s consequences with an inverse formulation starting from a disease context. The truncated post does not establish the complete objective, method or results—and does not support a claim of successful therapeutic intervention design. <a href="https://x.com/anshulkundaje/status/2118474735843787019">Announcement</a></p>
+</div>
+</section>
+
+<section id="clinical">
+<h2>Clinical software &amp; safety testing</h2>
+<article>
+<h3>Reproducible synthetic messages for privacy tests</h3>
+<p>OpenMed 3.2 provides offline synthetic HL7 v2 fixtures for de-identification testing. One reported seed generates 50 ADT, ORU and ORM messages with 2,137 labeled protected-health-information spans at exact offsets, including names in free text. Repeating the seed reproduces the SHA-256 hash; related generators cover FHIR, OMOP and C-CDA. These are engineering test fixtures, not evidence of clinical accuracy.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2118335024214736991">Demonstration</a> · <a href="https://t.co/874QWvgWbb">Resource</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>Unsupported language is not “no risk”</h3>
+<p>In a synthetic Spanish social-history note, English-only cue rules detect alcohol in a sentence that denies drinking. OpenMed instead marks all six categories as <code>unsupported_language</code>, avoiding an output that could be mistaken for an absence of social risk. The English version yields five findings with offsets. This is a rule-based demonstration, not a learned-model evaluation.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2118395418627260618">Demonstration</a> · <a href="https://t.co/pRVvsYTeN7">Technical resource</a></p>
+</article>
+<article>
+<h3>An agent can preview a change—but not execute it</h3>
+<p>A synthetic-patient test using the official Python MCP client over stdio allows an agent to preview a medication change and request human review, while refusing execution calls or supplied approval tokens. The reported result was zero chart writes and no clinical text returned. The text restriction applies to these workflow tools, not all OpenMed MCP tools.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2118267078029566052">Workflow test</a> · <a href="https://t.co/0EAeoNqGhP">Resource</a></p>
 </article>
 </div>
 </section>
 
-<section class="practice" id="languages">
+<section id="language-practice">
 <h2>Language practice</h2>
-
-<article lang="de">
-<h3>Deutsch — Was die Pflegereform für Angehörige bedeutet</h3>
-<p class="meta">Tagesschau · 05.11.2026 · <a href="https://www.tagesschau.de/inland/innenpolitik/pflege-reform-bundestag-100.html">Artikel lesen</a></p>
-<p>Der Bundestag debattiert über eine erste Pflegereform, die die finanziell angeschlagenen Pflegekassen stabilisieren soll. Der Beitrag von Birthe Soennichsen zeigt, was dabei für Familien auf dem Spiel steht: Rund 85 Prozent der Pflegebedürftigen werden zu Hause versorgt. Am Beispiel einer Frau, die seit 15 Jahren ihre Mutter pflegt und dafür ihren Beruf aufgegeben hat, beschreibt er die dauerhafte Belastung und die Angst vor finanzieller Unsicherheit.</p>
-<p>Der noch nicht beschlossene Gesetzentwurf sieht höhere Beiträge für Kinderlose und eine höhere Beitragsbemessungsgrenze vor. Zugleich sollen Leistungen neu geordnet und teilweise gekürzt werden. So soll im Pflegegrad 1 der monatliche Entlastungsbetrag von bis zu 131 Euro entfallen; auch die Anerkennung der Pflegebedürftigkeit oder eines höheren Pflegegrades soll schwieriger werden. Die Rentenversicherungsbeiträge für pflegende Angehörige sollen dagegen weiterhin vollständig übernommen werden.</p>
-<p>Die geplanten Maßnahmen lösen die grundlegenden Finanzierungsprobleme nach Darstellung des Artikels nicht. Eine Expertenkommission soll deshalb Vorschläge für eine umfassendere Strukturreform erarbeiten, deren Ergebnisse bis Ende Januar erwartet werden. Weitere Kürzungen sind nicht ausgeschlossen. Damit verbindet der Text die aktuelle Gesetzesdebatte mit der Frage, wie viel Verantwortung und finanzielle Belastung Angehörige langfristig tragen können.</p>
-<p><strong>Warum lesen:</strong> Der Artikel macht eine komplexe sozialpolitische Debatte anhand konkreter Folgen für pflegende Angehörige verständlich.</p>
+<article class="reading" lang="de">
+<h3>Deutsch — Chipfertigung: EU investiert Hunderte Millionen in Chipdesign-Plattform</h3>
+<p class="meta">heise online · 04.11.2026 · <a href="https://www.heise.de/news/Europaeische-Chipdesign-Plattform-EU-investiert-Hunderte-Millionen-11512717.html">Artikel lesen</a></p>
+<p>Die EU will mit 525 Millionen Euro europäische Chipdesign-Unternehmen stärken und ihre Abhängigkeit von den USA und China verringern. Im Mittelpunkt steht die neue „European Chip Design Platform“, die im Rahmen des EU Chips Act entsteht. Der Nachholbedarf ist erheblich: Nach Angaben der EU-Kommission erzielen europäische Unternehmen weniger als ein Prozent des weltweiten Umsatzes im Chipdesign. Dabei geht es nicht allein um neue Fabriken, sondern auch darum, wer die dort produzierten Halbleiter entwickelt.</p>
+<p>Für Zuschüsse stellen die Kommission und die Mitgliedstaaten 440 Millionen Euro bereit. Weitere 85 Millionen Euro sind für die Plattforminfrastruktur, Unterstützungsdienste und offene Entwicklungswerkzeuge vorgesehen. Unternehmen sollen leichter an Designsoftware, wiederverwendbare Chipbausteine und Fertigungskapazitäten gelangen; fortgeschrittene Start-ups können Zuschüsse von bis zu 16 Millionen Euro erhalten. Die politische Überlegung dahinter: Eigene Chipentwickler schaffen Nachfrage nach europäischen Fabriken und sollen so die gesamte Halbleiterbranche stärken.</p>
+<p><strong>Warum lesen:</strong> Der Artikel erklärt kompakt, weshalb Europas technologische Unabhängigkeit nicht nur von Chipfabriken, sondern ebenso von eigenen Entwürfen und bezahlbaren Entwicklungswerkzeugen abhängt.</p>
 </article>
 
-<article lang="fr">
-<h3>Français — Vers une crise Maga ? Les premiers enseignements du tsunami bleu lors des midterms</h3>
-<p class="meta">France 24 · 4 novembre 2026 · <a href="https://www.france24.com/fr/am%C3%A9riques/20261104-vers-une-crise-maga-les-premiers-enseignements-du-tsunami-bleu-lors-des-midterms">Lire l’article</a></p>
-<p>Dans cette analyse, Sébastian Seibt examine la victoire démocrate aux élections américaines de mi-mandat. Selon les résultats rapportés par France 24, les démocrates prennent le contrôle des deux chambres du Congrès et remportent des succès jusque dans des territoires traditionnellement républicains, notamment au Texas. Les politologues interrogés soulignent que le rejet du président ne suffit pas à expliquer ce résultat : la solidité des candidatures locales aurait également joué un rôle déterminant.</p>
-<p>L’article s’intéresse particulièrement au déplacement d’une partie de l’électorat rural vers les démocrates. Les experts cités mettent en relation les difficultés financières des ménages et une sensibilité accrue aux accusations de corruption au sommet de l’État. Ce rapprochement entre préoccupations économiques et jugement sur les dirigeants permet de comprendre pourquoi certains électeurs auraient abandonné leurs fidélités partisanes.</p>
-<p>Les conséquences pour les deux grands partis restent toutefois ouvertes. Un chercheur envisage une crise du mouvement Maga et une lutte interne chez les républicains ; un autre rappelle que l’affaiblissement durable de Donald Trump a déjà été annoncé prématurément. Du côté démocrate, la victoire pose une autre question : comment faire cohabiter une aile progressiste et des élus plus modérés, issus de territoires conservateurs, au-delà de leur opposition commune au président ?</p>
-<p><strong>Pourquoi lire :</strong> Une analyse accessible pour travailler le vocabulaire électoral et distinguer les résultats d’un scrutin des interprétations sur leurs conséquences politiques.</p>
+<article class="reading" lang="fr">
+<h3>Français — L’Europe recule encore sur la fin du thermique : la voiture électrique ne fera plus 100 % des ventes en 2035</h3>
+<p class="meta">Numerama · 5 novembre 2026 · <a href="https://www.numerama.com/vroom/2368219-leurope-recule-encore-sur-la-fin-du-thermique-la-voiture-electrique-ne-fera-plus-100-des-ventes-en-2035.html">Lire l’article</a></p>
+<p>La fin des ventes de voitures neuves émettant du CO2 dans l’Union européenne pourrait être davantage assouplie. Selon Numerama, la commission environnement du Parlement européen a voté le 4 novembre pour abaisser à 87,5 % l’objectif de réduction des émissions en 2035, contre 100 % dans la règle adoptée en 2023. Cette position va plus loin que la proposition de la Commission européenne, fixée à 90 %, également défendue dans un compromis franco-allemand. Attention toutefois : il s’agit d’un vote en commission parlementaire, et non d’une loi définitivement adoptée.</p>
+<p>L’article détaille les mécanismes qui donneraient davantage de souplesse aux constructeurs : calcul des émissions sur plusieurs années, compensation partielle liée à l’acier bas carbone et traitement favorable de certains hybrides rechargeables. Les véhicules utilisant exclusivement des carburants renouvelables et bas carbone pourraient aussi être comptabilisés comme des véhicules zéro émission. Ces règles expliquent pourquoi un objectif de réduction des émissions ne correspond pas directement à une proportion identique de voitures électriques dans les ventes.</p>
+<p>En contrepartie, le texte renforcerait les avantages comptables accordés aux petites voitures électriques fabriquées dans l’Union et aux modèles sobres, avec un bonus supplémentaire pour le leasing social. Numerama souligne ainsi la tension entre ambition climatique et soutien à l’industrie automobile européenne. Le mandat du Parlement doit encore passer en séance plénière à la mi-décembre, avant des négociations avec les gouvernements des États membres.</p>
+<p><strong>Pourquoi lire :</strong> Un décryptage utile pour comprendre comment des règles de calcul apparemment techniques peuvent modifier la transition automobile européenne.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>fief électoral</strong> — territoire où un parti bénéficie d’un soutien durable et remporte habituellement les élections.</li>
-<li><strong>redécoupage électoral</strong> — modification des limites des circonscriptions, susceptible de favoriser certains candidats ou partis.</li>
-<li><strong>élections de mi-mandat</strong> — élections américaines organisées au milieu du mandat présidentiel, qui renouvellent notamment la Chambre des représentants et une partie du Sénat.</li>
+<li><strong>supercrédits</strong> — coefficients permettant de compter certains véhicules électriques pour plus d’un véhicule dans le calcul réglementaire d’un constructeur.</li>
+<li><strong>facteur d’utilité</strong> — coefficient estimant la part des kilomètres parcourus en mode électrique par un hybride rechargeable, utilisé pour calculer ses émissions officielles.</li>
+<li><strong>séance plénière</strong> — réunion de l’ensemble des parlementaires, notamment pour débattre et voter les textes préparés en commission.</li>
 </ul>
 </article>
 
-<article lang="ja">
-<h3>日本語 — 「書道」無形文化遺産に登録へ ユネスコ評価機関「記載」勧告</h3>
-<p class="meta">NHKニュース · 2026年11月5日 · <a href="https://news.web.nhk/newsweb/na/nd-20261105de70701">記事を読む</a></p>
-<p>日本がユネスコの無形文化遺産への登録を目指している「書道」について、評価機関が登録に適していると判断し、「記載」を勧告しました。NHKは、近く正式な登録に至る見通しだと伝えています。</p>
-<p>今回のニュースで区別したいのは、評価機関による勧告と、正式な登録決定です。記事の「登録へ」という見出しは、登録がすでに完了したという意味ではなく、実現する見込みを示しています。日本の文化に関する話題を通じて、ニュース特有の表現にも触れられます。</p>
-<p><strong>読む理由：</strong> 日本の書道と国際的な文化遺産制度の接点を知りながら、勧告と決定を区別する報道表現を学べます。</p>
+<article class="reading" lang="ja">
+<h3>日本語 — 『映画ちいかわ』を国際政治学から読み解く：なぜ争いは始まり、なぜ終わらないのか</h3>
+<p class="meta">nippon.com · 2026-11-05 · <a href="https://www.nippon.com/ja/articles/-/56353">記事を読む</a></p>
+<p>かわいいキャラクターの冒険から、紛争の発生と終結の難しさを考える論考。国際政治学者の東野篤子氏は、『映画ちいかわ 人魚の島のひみつ』で、ちいかわたちが十分な情報を持たずに島の争いへ加わる展開に注目する。島民と助っ人の間にある情報や利害のずれ、仲間同士でも足並みがそろわない状況を、第三者介入や同盟政治の問題として読み解く。</p>
+<p>筆者が強調するのは、大切な相手を守ろうとする動機を理解することと、その結果生じた暴力を正当化することは別だという点だ。また、戦いに勝って目の前の脅威を取り除いても、対立の原因や報復の動機が残れば、持続的な平和にはつながらないと論じる。登場人物を現実の国家に単純に当てはめるのではなく、物語を通じて国際政治への問いを深める記事となっている。なお、本文には映画の結末を含むネタバレがある。</p>
+<p><strong>読む理由：</strong> アニメを入り口に、情報の偏りや同盟の難しさ、戦闘停止と平和の違いを考えながら、国際政治の語彙に触れられる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>無形文化遺産（むけいぶんかいさん）</strong> — 芸能や技術、慣習など、人々が受け継ぐ形のない文化的な遺産。</li>
-<li><strong>評価機関（ひょうかきかん）</strong> — 提案された対象を基準に照らして審査し、判断を示す組織。</li>
-<li><strong>勧告（かんこく）</strong> — ある措置を取るように勧めること。ここでは、正式な登録決定に先立つ判断を指す。</li>
+<li><strong>情報の非対称性（じょうほうのひたいしょうせい）</strong> — 当事者の間で、持っている情報の量や内容に差があること。</li>
+<li><strong>有志連合（ゆうしれんごう）</strong> — 特定の目的のために、参加する意思のある国などが協力してつくる集まり。</li>
+<li><strong>集団的懲罰（しゅうだんてきちょうばつ）</strong> — 一部の人の行為について、直接関わっていない人も含む集団全体に罰を与えること。</li>
 </ul>
 </article>
 
-<article lang="zh">
-<h3>中文 — 用AI分析手机聊天示警诈骗 政府科技局推新应用Pango</h3>
-<p class="meta">联合早报 · 2026-11-04 · <a href="https://www.zaobao.com.sg/news/singapore/story20261104-9944227">https://www.zaobao.com.sg/news/singapore/story20261104-9944227</a></p>
-<p>新加坡政府科技局与谷歌DeepMind合作开发反诈骗应用“AntiScam Pango”，并于11月4日宣布开放公众测试。它不只检查单条可疑信息，而是在用户授权后，将同一发送者的连续推送通知串联分析，尝试识别从闲聊、建立信任到诱导转账的诈骗过程。发现风险时，应用会弹出警告并解释可疑之处，但不会自动删除信息或替用户决定是否继续对话。</p>
-<p>报道的另一重点是防诈与隐私之间的平衡。政府科技局表示，Pango读取的是通讯应用的推送通知，并非直接读取应用内的聊天记录；分析在手机内完成，除非用户主动举报，否则不会向当局及合作伙伴提供私人信息。目前应用只适用于安卓手机，当局仍在研究如何为苹果iOS用户提供类似功能。</p>
-<p>Pango的定位是补充现有的ScamShield，而非取而代之：后者主要负责拦截诈骗电话、过滤可疑短信及协助查验信息，前者则着重分析对话中逐渐显现的风险。当局计划根据公开测试反馈改进识别能力，并在技术成熟后探讨整合功能。</p>
-<p><strong>为什么读：</strong> 从新加坡的实际防诈需求出发，这篇报道让读者了解人工智能如何分析聊天风险，以及相关技术的权限与隐私边界。</p>
+<article class="reading" lang="zh">
+<h3>中文 — 德国总理：国家应尽可能减少对经济事务的干预</h3>
+<p class="meta">DW 中文 · 2026-11-05 · <a href="https://www.dw.com/zh/德国总理国家应尽可能减少对经济事务的干预/a-79867314">https://www.dw.com/zh/德国总理国家应尽可能减少对经济事务的干预/a-79867314</a></p>
+<p>德国总理默茨在柏林的一场活动上阐述了他对政府与市场关系的看法：政府应维护竞争规则、保障财产权并提供基础设施，而不是直接替企业作经济决策。他据此为削减屋顶太阳能装置补贴辩护，并反对通过提高非欧洲商品的关税来保护欧洲生产的做法。在他看来，减少补贴并非放弃能源转型，而是让转型成本保持在社会能够承受的范围内。</p>
+<p>不过，默茨也划出了一项需要国家介入的例外：关键原材料供应。他主张欧盟建立储备，并拓宽采购来源，以降低开采和加工环节集中于少数国家所带来的风险。报道指出，中国在多种关键原材料的加工和出口方面占据重要地位，而这些材料关系到电池、半导体等产业。欧洲若要共同储备，仍须解决费用由谁承担的问题。</p>
+<p><strong>为什么读：</strong> 这篇报道把德国能源政策、欧盟贸易保护与对华供应链依赖联系起来，适合练习辨别经济政策中的原则与例外。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>推送通知 (tuī sòng tōng zhī)</strong> — 应用主动显示在手机通知栏或屏幕上的消息提示，不等同于完整聊天记录。</li>
-<li><strong>端到端加密 (duān dào duān jiā mì)</strong> — 通讯内容由发送端加密、接收端解密，使传输过程中的第三方难以读取原文的技术。</li>
-<li><strong>后台运行 (hòu tái yùn xíng)</strong> — 应用未显示在当前操作界面时，仍在系统中执行获准的任务。</li>
+<li><strong>贸易壁垒 (mào yì bì lěi)</strong> — 关税、进口限制等阻碍跨境商品或服务流通的措施。</li>
+<li><strong>能源转型 (néng yuán zhuǎn xíng)</strong> — 能源生产和消费方式向低碳、可持续体系转变的过程。</li>
+<li><strong>关键原材料储备 (guān jiàn yuán cái liào chǔ bèi)</strong> — 为应对供应中断而预先储存对重要产业不可或缺的原材料。</li>
 </ul>
 </article>
 </section>
-
-<footer>
-<p><strong>Coverage notes.</strong> Research coverage is based on the supplied X posts; several excerpts are truncated, and shortened resource links have not been resolved. Biology coverage is partial because one of three X lists could not be collected. Reported technical claims are attributed to their sources, with evidence limitations noted alongside the items.</p>
-</footer>
 </main>
+<footer>
+<p><strong>Source note:</strong> Research coverage is based on the supplied X posts and excerpts; linked papers were not inspected. Shortened resource links remain unexpanded. Limited or truncated evidence is noted alongside the relevant items.</p>
+</footer>
 </body>
 </html>

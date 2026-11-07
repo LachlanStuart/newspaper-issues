@@ -27,7 +27,24 @@ p{margin:10px 0 14px}
 footer{margin-top:35px;border-top:1px solid var(--rule);padding-top:15px}
 @media(max-width:650px){.grid{grid-template-columns:1fr}main{padding:25px 20px}h1{font-size:52px}}
 </style>
-</head>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
 <body>
 <main>
 <header>
@@ -159,5 +176,21 @@ footer{margin-top:35px;border-top:1px solid var(--rule);padding-top:15px}
 <p><strong>Coverage notes.</strong> Research coverage is based on the supplied X posts; several excerpts are truncated, and shortened resource links have not been resolved. Biology coverage is partial because one of three X lists could not be collected. Reported technical claims are attributed to their sources, with evidence limitations noted alongside the items.</p>
 </footer>
 </main>
-</body>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-05-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
 </html>

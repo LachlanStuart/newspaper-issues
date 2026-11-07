@@ -29,7 +29,24 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-top:16px;font-si
 @media(max-width:700px){main{margin:0;padding:24px 20px}.grid{grid-template-columns:1fr}h1{font-size:3.3rem}}
 @media print{body{background:white}main{margin:0;max-width:none;padding:0}article{break-inside:avoid}nav{display:none}}
 </style>
-</head>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
 <body>
 <main>
 <header>
@@ -263,5 +280,21 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding-top:16px;font-si
 <p><strong>Source notes.</strong> No new reportable items were supplied by Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg. This edition uses only the supplied source reports; linked papers and shortened URLs were not independently checked. Several social-media announcements were incomplete, with limitations noted alongside the relevant items.</p>
 </footer>
 </main>
-</body>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-10-25-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
 </html>

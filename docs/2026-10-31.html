@@ -31,7 +31,24 @@ article{padding-bottom:18px;border-bottom:1px solid var(--line)}
 footer{border-top:1px solid var(--line);font-size:12px;color:var(--muted);padding-bottom:36px}
 @media(max-width:700px){main,header,footer{padding-left:20px;padding-right:20px}.grid{grid-template-columns:1fr}h1{font-size:52px}}
 </style>
-</head>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
 <body>
 <header>
 <h1>News</h1>
@@ -292,5 +309,21 @@ footer{border-top:1px solid var(--line);font-size:12px;color:var(--muted);paddin
 <p><strong>Source notes.</strong> Research coverage is based on the supplied posts and summaries; linked papers, resources and full threads were not independently inspected. Quantitative results are source-reported. Shortened links are retained as supplied, and limited or truncated evidence is noted alongside the relevant items. The identical CauTrigger and spatial-segmentation announcements appearing in both research feeds are each presented once.</p>
 <p>Edition 2026-10-31-1</p>
 </footer>
-</body>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-10-31-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
 </html>

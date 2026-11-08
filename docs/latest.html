@@ -5,34 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root { color-scheme: light; --ink:#202a31; --muted:#5c6870; --accent:#245d70; --rule:#d7dddf; }
-* { box-sizing:border-box; }
-body { margin:0; background:#f6f5f1; color:var(--ink); font:17px/1.65 Georgia,"Times New Roman",serif; }
-main { max-width:1080px; margin:auto; padding:36px 28px 60px; }
-header { text-align:center; border-top:5px solid var(--ink); border-bottom:double 4px var(--ink); padding:18px 0 22px; }
-h1 { margin:0; font-size:clamp(54px,9vw,88px); line-height:1.1; letter-spacing:-3px; }
-.date, nav, .links, .source, footer { font-family:system-ui,sans-serif; font-size:13px; color:var(--muted); }
-.date { margin:12px 0 0; letter-spacing:1px; text-transform:uppercase; }
-nav { padding:18px 0; text-align:center; border-bottom:1px solid var(--rule); }
-nav a { display:inline-block; margin:3px 10px; }
-a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
-a:hover { color:var(--ink); }
-section { margin-top:34px; }
-h2 { font:700 21px/1.35 system-ui,sans-serif; padding-bottom:10px; border-bottom:2px solid var(--ink); }
-h3 { font-size:23px; line-height:1.3; margin:0 0 10px; }
-p { margin:10px 0; }
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:25px 32px; }
-article { min-width:0; padding-bottom:20px; border-bottom:1px solid var(--rule); }
-.links { margin-bottom:0; }
-.briefs { margin-top:24px; }
-.briefs li { margin:12px 0; }
-#language-practice { margin-top:48px; border-top:5px solid var(--ink); padding-top:12px; }
-.reading { max-width:820px; margin:30px auto; padding-bottom:30px; }
-.reading h3 { font-size:25px; }
-.reading ul { padding-left:24px; }
-footer { margin-top:32px; border-top:1px solid var(--rule); padding-top:15px; text-align:center; }
-@media (max-width:700px) { main { padding:22px 18px 40px; } .grid { grid-template-columns:1fr; } h3 { font-size:22px; } }
-@media print { body { background:white; } main { max-width:none; } nav { display:none; } article { break-inside:avoid; } }
+:root{color-scheme:light;--paper:#faf8f3;--ink:#202722;--muted:#626b64;--line:#d8dcd2;--accent:#265b51}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1050px;margin:auto;padding:36px 24px}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:15px 0 22px}
+h1{font-size:4.5rem;line-height:1;margin:0 0 14px}
+.date,.meta,nav,footer,.section-label{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.85rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding:17px 0;font-size:.9rem}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:32px}
+h2{font-size:1.8rem;border-bottom:1px solid var(--line);padding-bottom:9px}
+h3{font-size:1.18rem;line-height:1.35;margin:0 0 8px}
+p{margin:8px 0 13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:25px 32px}
+article{min-width:0}
+.grid article{border-bottom:1px solid var(--line);padding-bottom:18px}
+.meta{margin:6px 0}
+code{font-size:.9em}
+.practice{border-top:4px solid var(--ink);margin-top:45px;padding-top:12px}
+.practice article{max-width:820px;margin:30px auto;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.practice h3{font-size:1.4rem}
+.practice ul{padding-left:24px}
+footer{font-size:.8rem;color:var(--muted);margin-top:30px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:650px){main{padding:22px 18px}.grid{grid-template-columns:1fr}h1{font-size:3.6rem}}
 </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -56,234 +53,297 @@ footer { margin-top:32px; border-top:1px solid var(--rule); padding-top:15px; te
 <main>
 <header>
 <h1>News</h1>
-<p class="date"><time datetime="2026-11-07">Saturday, 7 November 2026</time></p>
+<div class="date">Sunday, November 8, 2026</div>
 </header>
 <nav aria-label="Sections">
-<a href="#reliability">Biological AI &amp; reliability</a>
-<a href="#regulation">Gene regulation</a>
-<a href="#design">Molecular design</a>
-<a href="#ai">AI research</a>
-<a href="#medicine">Medicine &amp; benchmarks</a>
-<a href="#language-practice">Language practice</a>
+<a href="#ai">AI research &amp; engineering</a>
+<a href="#safety">AI safety &amp; governance</a>
+<a href="#biology">Cellular &amp; genomic models</a>
+<a href="#discovery">Molecular design &amp; discovery</a>
+<a href="#tools">Biological research tools</a>
+<a href="#culture">Culture &amp; ideas</a>
+<a href="#languages">Language practice</a>
 </nav>
-
-<section id="reliability">
-<h2>Biological AI &amp; reliability</h2>
-<div class="grid">
-<article>
-<h3>AlphaFold 3 can be confidently wrong about unfamiliar RNA folds</h3>
-<p>A study of 1,307 protein–RNA complexes and approximately 270 RNA-only systems reports that unfamiliar RNA folds sharply reduce RNA and interface accuracy without a corresponding drop in RNA confidence. A recurring error places RNA near the right protein site but in the wrong fold or orientation.</p>
-<p>Additional sampling rarely rescued failed interfaces in a 49-complex test. A reliability score incorporating confidence, RNA familiarity, template usage and assembly properties improved discrimination on an external 2026 test set.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118646923293053228">Research summary · BiologyAIDaily</a></p>
-</article>
-<article>
-<h3>Protein-model rankings depend on the task—and the split</h3>
-<p>Protify standardizes protein-language-model evaluation with replayable splits, preprocessing, metrics and negative controls. Across 32 supervised datasets, 14 models led at least one task, but no first-versus-second-place difference was statistically significant across three seeds.</p>
-<p>In an enzyme-pH case study, pooled embeddings fell to roughly R² 0.039 under a strict 30%-identity cluster split; a transformer using full residue embeddings retained R² 0.248. The platform also evaluates 23 encoders across 217 ProteinGym assays.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118714606294343705">Protify research summary</a></p>
-</article>
-<article>
-<h3>RPI-Zero tests RNA–protein binding prediction on unseen partners</h3>
-<p>RPI-Zero predicts nucleotide-level binding from sequence using a frozen RNA-X encoder and a protein-conditioned motif head. Its 2.1-million-example benchmark covers 209 proteins, uses similarity-cluster splits and matches negatives for transcript length and binding popularity.</p>
-<p>The study reports area under the precision–recall curve (AUPRC) of 0.753 for unseen RNAs, 0.637 for unseen proteins and 0.589 for unseen pairs, leading the compared baselines in all three settings.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118714106236797341">RPI-Zero research summary</a></p>
-</article>
-<article>
-<h3>PALM adds functional annotations to protein representations</h3>
-<p>PALM adapts ESM2 with overlap-aware InterPro domain and functional-site supervision. Without training on variant labels, its embedding-disruption score reportedly distinguishes pathogenic from benign ClinVar missense variants with AUROC 0.835, rising to 0.877 when combined with ESM2 likelihood scores.</p>
-<p>Combined PALM and ESM2 embeddings also performed best on FlexiNR activation and repression screens. Residue-level annotation changes provide localized readouts of variant effects.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118714243872911547">PALM research summary</a></p>
-</article>
-<article>
-<h3>MaskNGly uses masking perturbations to score glycosylation sites</h3>
-<p>MaskNGly measures coupling within canonical N-glycosylation motifs using training-free ESM-2 masking perturbations. The study reports approximately 0.94 AUC on N-GlyDE; 106 of 111 newly discovered sites from an independent glycoproteomics experiment scored above its stated threshold.</p>
-<p>An analysis of 1,096 sequon-altering missense variants links creation or disruption of high-scoring motifs to pathogenicity, suggesting a role in disease-variant prioritization.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118647059196895700">MaskNGly research summary</a></p>
-</article>
-<article>
-<h3>A new introduction to biological foundation models</h3>
-<p>James Zou’s column opens <em>Nature Methods</em>’ “AI bytes” series, designed to explain technical AI concepts to life-science researchers. The first installment introduces biological foundation models.</p>
-<p class="links"><a href="https://t.co/b0nEHkbxQQ">Read the column</a> · <a href="https://x.com/naturemethods/status/2118751445243617321">Nature Methods announcement</a></p>
-</article>
-</div>
-</section>
-
-<section id="regulation">
-<h2>Gene regulation, chromatin &amp; single cells</h2>
-<div class="grid">
-<article>
-<h3>SMFNet’s PRISM method interprets individual chromatin configurations</h3>
-<p>SMFNet is described as a diffusion model that predicts distributions of single-molecule chromatin profiles from DNA sequence. Its accompanying PRISM method attributes individual molecular configurations to sequence features.</p>
-<p>A follow-up explains how the model captures dependencies between transcription-factor footprints and nucleosome occupancy, and computationally varies factor identity, number and spacing to investigate combinatorial chromatin organization.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2118856896891527392">SMFNet and PRISM follow-up</a></p>
-</article>
-<article>
-<h3>ProCapNet resource updates training and attribution choices</h3>
-<p>Anshul Kundaje highlights an expanded ProCapNet TSS GRAMMAR resource for predicting and explaining cell-type-specific transcription start-site usage. The update emphasizes background-set selection for training and DeepLIFT reference selection specifically for PRO-cap.</p>
-<p class="links"><a href="https://x.com/anshulkundaje/status/2118770116200456692">ProCapNet resource update</a></p>
-</article>
-<article>
-<h3>scPhyloGRN brings cellular ancestry into regulatory-network inference</h3>
-<p>scPhyloGRN combines single-cell gene expression with cellular phylogeny to prioritize directed transcription-factor–target candidates within the observed gene set. Ancestry-derived associations guide graph construction, attention in a dual-stream encoder and lineage-consistency regularization.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2118856044319506926">scPhyloGRN research summary</a></p>
-</article>
-<article>
-<h3>Circular-capture Perturb-seq follows endothelial differentiation</h3>
-<p>Jesse Engreitz’s group announces a preprint pairing an improved split-pool Perturb-seq method with analysis of gene programs during human iPSC-to-endothelial differentiation. The method, CC-Perturb-seq, uses circularization of guide-RNA cDNA.</p>
-<p class="links"><a href="https://x.com/anshulkundaje/status/2118863390592450994">Preprint announcement</a></p>
-</article>
-<article>
-<h3>CORAL learns cellular context through spatial multiomics</h3>
-<p>Announced in <em>Nature Genetics</em>, CORAL integrates spatial multiomics to learn single-cell spatial context. The work addresses the trade-off between spatial assays’ resolution and their molecular coverage.</p>
-<p class="links"><a href="https://x.com/anshulkundaje/status/2118770476516258186">CORAL announcement</a></p>
-</article>
-<article>
-<h3>A map of DNA damage-response genetic interactions</h3>
-<p>Alberto Ciccia announces publication of a DNA damage-response genetic interaction network map in <em>Nature Biotechnology</em>, a functional-genomics resource for studying DNA repair and disease biology.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2118854531907977438">Publication announcement</a></p>
-</article>
-</div>
-<ul class="briefs">
-<li><strong>AdaGeneBudget:</strong> A cell-adaptive gene-token allocation method is presented for efficient single-cell foundation models. <a href="https://x.com/razoralign/status/2118758914603057308">Method announcement</a>.</li>
-<li><strong>RAPTORGraph:</strong> A graph-based pathway-modeling approach targets causal discovery in single-cell perturbation data. <a href="https://x.com/razoralign/status/2118758889563009234">Research pointer</a>.</li>
-<li><strong>RNA processing in context:</strong> A shared study examines how genomic context modifies sequence-encoded RNA processing. <a href="https://x.com/razoralign/status/2118758902934515820">Study pointer</a>.</li>
-<li><strong>SAIGE-QTL:</strong> Mixed models accommodate multiple cells within individuals for single-cell eQTL estimation. <a href="https://x.com/razoralign/status/2118732565066756143">Method pointer</a>.</li>
-</ul>
-</section>
-
-<section id="design">
-<h2>Molecular design &amp; antibody discovery</h2>
-<div class="grid">
-<article>
-<h3>RFD4-Proteina follow-up reports strong TrkA binding results</h3>
-<p>Hannes Stark highlights 158 of 188 RFD4-Proteina designs binding TrkA below 1 µM, compared with 18 of 60 for the next-best method.</p>
-<p>Separately, Diego del Alamo reports finding an antibody-specific checkpoint on Hugging Face and asks how it was fine-tuned, noting that the preprint does not explain the procedure.</p>
-<p class="links"><a href="https://x.com/HannesStaerk/status/2118692729278566419">RFD4-Proteina follow-up</a></p>
-</article>
-<article>
-<h3>FoldAbS repurposes folding representations for antibody screening</h3>
-<p>FoldAbS attaches supervised task heads to frozen Protenix representations for specificity, affinity and developability. Specificity training uses constructed pseudo-negatives rather than verified nonbinders.</p>
-<p>Reported macro AUROC reaches 0.757 on Origin-1, versus 0.669 for Protenix ipTM, but falls to 0.592 on the de novo antibody PPIFlow benchmark. The study also reports leading affinity correlations on three datasets and improvements across four developability tasks.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118714768584257730">FoldAbS research summary</a></p>
-</article>
-<article>
-<h3>PartiDesign generates molecular identity and structure together</h3>
-<p>PartiDesign uses partially latent flow matching to jointly generate structure and molecular identity for proteins, DNA, RNA and small molecules. It supports context molecules, fixed motifs, chemical connectivity and secondary-structure constraints, including crosslinked peptide designs.</p>
-<p>Evaluation spans binders, aptamers and pocket-conditioned ligands, with computational success expressed as estimated passing candidates per GPU-day. Secondary-structure guidance helps some targets but not all. Code and a free web server are announced.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118714343940673679">PartiDesign research summary</a></p>
-</article>
-<article>
-<h3>CARTnet combines contact geometry with epitope hints</h3>
-<p>CARTnet uses ESM3 structural embeddings, biochemical features and contact-aware attention to predict antigen epitopes, either de novo or with a few known epitope residues.</p>
-<p>On 52 external antigens sharing no more than 20% sequence identity with training examples, it reports AUPRC 0.267 versus 0.215 for BepiPred-3. In an internal template experiment, one true epitope residue raised AUPRC from 0.225 to 0.403; performance declined gradually as the hint was spatially displaced.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2118646816224764290">CARTnet research summary</a></p>
-</article>
-</div>
-</section>
 
 <section id="ai">
 <h2>AI research &amp; engineering</h2>
 <div class="grid">
 <article>
-<h3>A math-derived weight edit improves a small model’s MedQA score</h3>
-<p>OpenMed applied a weight-space programming paper’s math edit to Qwen3.5-0.8B without medical training data. Across 1,273 MedQA questions, it reports accuracy increasing from 24.4% to 32.9%, while answers cut off at the token limit fell from 18.3% to 0.1%.</p>
-<p class="links"><a href="https://x.com/OpenMed_AI/status/2118757809076736084">OpenMed experiment</a> · <a href="https://t.co/wlhdjTZbiq">Linked resource</a></p>
+<h3>Weight editing fixes a MedQA formatting obstacle—not much medical knowledge</h3>
+<p>OpenMed reports using Claude Opus 5.5 to edit four small open models for $7.78 total, with 12 forward passes per model and no training. All four had copied the literal <code>Answer: &lt;letter&gt;</code> placeholder; removing one direction corrected that behavior. Format-independent scoring for Qwen3.5-2B changed only from 70.3% to 70.5%, supporting the authors’ interpretation that the edit removed an obstacle rather than added knowledge.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2119024906826330125">OpenMed · report</a> · <a href="https://t.co/MwkcyUFwLc">Weights, diffs and answers</a></p>
 </article>
 <article>
-<h3>Sentence-level evidence reduces clinical verification abstentions</h3>
-<p>OpenMed tested whole-note versus cited-sentence verification with the same local nli-deberta-v3-small model on five claims about a synthetic pneumonia admission. Whole-note verification abstained on two true claims; reviewed evidence sentences gave every true claim a score of at least 0.958. Both approaches flagged the planted false claim.</p>
-<p>The test used uncalibrated SDK default thresholds.</p>
-<p class="links"><a href="https://x.com/OpenMed_AI/status/2118697412000686285">Experiment</a> · <a href="https://t.co/auPjgrqRBA">Clinical brief</a> · <a href="https://t.co/KlVAOOJOAk">Repository</a></p>
+<h3>MaxxBench tests coding agents against small task changes</h3>
+<p>A post by @loresjpg, reshared by Songlin Yang, introduces 89 perturbed DeepSWE tasks. Changes such as lowercase filenames probe whether coding agents remain effective when seemingly minor details shift.</p>
+<p class="meta"><a href="https://x.com/SonglinYang4/status/2119201312709698014">X · MaxxBench</a></p>
 </article>
 <article>
-<h3>A local vision-language harness builds a city over 50 hours</h3>
-<p>Prince Canuma reports using Mistral Large 4 through MLX-VLM to construct a 1.77-million-voxel pagoda city from a reference image. The harness repeatedly lets the model inspect the image, choose placements and iterate.</p>
-<p>The 50-hour run used three 512 GB M3 Ultras locally; Canuma says two could suffice.</p>
-<p class="links"><a href="https://x.com/Prince_Canuma/status/2118790795218276639">Project report</a> · <a href="https://t.co/P9mZz7TnV0">Repository</a></p>
+<h3>From Attention to TTT, through averaging</h3>
+<p>Jianlin Su explores connections between attention architectures and TTT. The article begins by revisiting a derivation of Gated DeltaNet from Softmax Attention through linearization, linking standard attention to a linear-attention architecture.</p>
+<p class="meta"><a href="https://spaces.ac.cn/archives/11993">科学空间 · The Path of Averaging</a></p>
 </article>
 <article>
-<h3>A geometric view of attention and normalization</h3>
-<p>mgostIH describes attention as a convex combination of value vectors, lying inside the sphere when those vectors have unit norm. Subsequent normalization is interpreted as projection back onto a sphere, connecting attention-plus-normalization to spherical interpolation and the concentration of high-dimensional Gaussian vectors.</p>
-<p class="links"><a href="https://x.com/mgostIH/status/2118671536651481180">Technical post</a> · <a href="https://t.co/urnjXCTsx4">Linked discussion</a></p>
+<h3>When optimizer insights fail to transfer</h3>
+<p>Jianlin Su argues that AdaGrad works to some extent on scale-invariant losses of the form <code>L(x/||x||)</code>, while a new algorithm based on <code>g_t · x_t</code> does not. He distinguishes convex guarantees from whether the heuristic insights behind them transfer usefully to nonconvex optimization.</p>
+<p class="meta"><a href="https://x.com/Jianlin_S/status/2119066202102489095">Jianlin Su · commentary</a></p>
+</article>
+<article>
+<h3>A tenfold rendering speedup reveals the next bottleneck</h3>
+<p>You Jiacheng reports cutting RoboTwin ray-tracing time in <code>get_obs</code> from 30 ms to 3 ms per frame on an RTX 3090. After that improvement, <code>take_action</code> emerged as the major bottleneck on the GPU.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2119122247357219026">You Jiacheng · RoboTwin profiling</a></p>
+</article>
+<article>
+<h3>Korean clinical-note dates retain their formatting during de-identification</h3>
+<p>OpenMed 3.2 fixes date shifts that previously produced placeholders or ISO text. A shared offset now preserves 년/월/일 markers, zero padding and full-width digits across year boundaries. The demonstration uses a synthetic note, the default Korean PII model and locale-specific date rules.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2118991865097633988">OpenMed · update</a> · <a href="https://t.co/7KereXf0Wv">Resource</a></p>
 </article>
 </div>
-<p class="briefs"><strong>Training pointer:</strong> You Jiacheng argues that supervised fine-tuning can use large batch sizes and shares supporting technical material. <a href="https://x.com/YouJiacheng/status/2118708060676128873">Post</a> · <a href="https://t.co/QbD5nZqk9y">Resource 1</a> · <a href="https://t.co/JkjeDmL9ON">Resource 2</a>.</p>
 </section>
 
-<section id="medicine">
-<h2>Medicine, scientific agents &amp; new benchmarks</h2>
+<section id="safety">
+<h2>AI safety &amp; governance</h2>
+<div class="grid">
 <article>
-<h3>Rare-disease progress still depends on biology and delivery</h3>
-<p>Responding to a prediction that AI and robotics could soon solve rare-disease diagnosis and potentially treatment, Anshul Kundaje argues that the central bottlenecks are measurements in appropriate fetal-developmental and disease cell contexts, fundamental developmental biology, therapeutic delivery and reliable screening. AI and automation can help, he says, but are not the primary constraint.</p>
-<p class="links"><a href="https://x.com/anshulkundaje/status/2118878884816937062">Kundaje’s commentary</a></p>
+<h3>Research acceleration is not the same as runaway improvement</h3>
+<p>“Anthropic’s AI acceleration is probably real” uses public capability data and productivity models to support METR’s assessment of AI-driven acceleration at Anthropic. The author argues that the observed gains do not distinguish sustained runaway improvement from growth that eventually encounters bottlenecks.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/QgcgoMz7mviHL6Esr/anthropic-s-ai-acceleration-is-probably-real">LessWrong · analysis</a></p>
 </article>
-<ul class="briefs">
-<li><strong>BioBasicsBench:</strong> Researchers announce a benchmark developed with OpenAI to test AI agents’ interpretation of real laboratory data. Rishabh’s accompanying discussion points to failures in reading figures, scans, images and plots as the motivation. <a href="https://x.com/razoralign/status/2118854592813470114">Announcement</a>.</li>
-<li><strong>RareDiseaseBench:</strong> Chris Zou announces 35 diagnostic workups reconstructed from published rare-disease cases. <a href="https://x.com/anshulkundaje/status/2118864498022838424">Announcement</a>.</li>
-<li><strong>RespSurvBench:</strong> Kenbwork announces a benchmark in the context of AI-assisted detection and tracking of respiratory outbreaks. <a href="https://x.com/anshulkundaje/status/2118864342686830682">Announcement</a>.</li>
-</ul>
+<article>
+<h3>The case for approaching recursive self-improvement</h3>
+<p>“RSI explained” assembles recent claims about AI-led research and model improvement to argue that recursive self-improvement is approaching faster than alignment and control measures.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/YtsvTevNRadkLFp6v/rsi-explained">LessWrong · RSI explained</a></p>
+</article>
+<article>
+<h3>Do models recognize the type of evaluation?</h3>
+<p>A proposed explanation for evaluation awareness is that models distinguish capability tests from alignment tests under inconsistent training incentives, rather than conceal a single underlying personality. The hypothesis reframes how evaluation behavior might be interpreted.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/AuAvzmRCmTkxLDtAn/eval-awareness-as-eval-type-awareness">LessWrong · Eval Awareness as Eval-type Awareness</a></p>
+</article>
+<article>
+<h3>Looking for misalignment before concealment develops</h3>
+<p>A pilot study tests evaluations across Olmo training checkpoints, seeking signs of misalignment before a model learns to hide it. It finds no clear pattern and identifies small samples and hypothetical scenarios as key limitations.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/iXKhtYuXtneXzw9fN/let-s-try-to-catch-misalignment-before-a-model-learns-to">LessWrong · training-checkpoint evaluations</a></p>
+</article>
+<article>
+<h3>Regulating risks policymakers cannot easily adjudicate</h3>
+<p>“‘Illegible problems’ as the 2027 political boss fight” argues that AI regulation should not depend on policymakers resolving obscure safety disputes. It proposes compute-use restrictions and transparency as a temporary alternative to judgment-dependent safety cases.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/fjGgrzAkpSDouLwfx/illegible-problems-as-the-2027-political-boss-fight">LessWrong · policy argument</a></p>
+</article>
+<article>
+<h3>What a corrigibility grantmaker wants to fund</h3>
+<p>A Corrigibility Research Fund grantmaker explains recurring reasons for rejecting applications and describes the conceptual, mathematical and empirical work they want to support.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/9ixerpx4DCQTaRYCz/five-types-of-corrigibility-projects-i-don-t-want-to-fund">LessWrong · Five Types of “Corrigibility Projects” I Don’t Want to Fund</a></p>
+</article>
+<article>
+<h3>Clinical AI claims: designs versus demonstrated use</h3>
+<p>Anshul Kundaje questions Radical Numerics’ attribution of work associated with a patient treatment. He says it remains unclear whether the company’s AI designs were used, notes that another company reportedly made its own designs, and calls for clarification about what contributed to the clinical intervention.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2119189894744662328">Anshul Kundaje · commentary</a></p>
+</article>
+<article>
+<h3>Compute concentration and biomedical access</h3>
+<p>Kundaje also says he opposes an AI pause while arguing that disproportionate investment in AI, concentration of compute within AI companies and biology-specific restrictions on frontier models hinder biomedical progress.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2119178168108200361">Anshul Kundaje · research-access commentary</a></p>
+</article>
+</div>
 </section>
 
-<section id="language-practice">
+<section id="biology">
+<h2>Cellular &amp; genomic models</h2>
+<div class="grid">
+<article>
+<h3>CausalODE models delayed regulation and feedback loops</h3>
+<p>CausalODE is a differentiable framework for inferring gene-regulatory networks from single-cell perturbation data. It models RNA dynamics and delayed regulation through latent mediators, including protein levels, while optimizing a causal-reach metric. The framework accommodates nonlinear responses, cyclic networks and transient, time-lagged regulation.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119237819696861276">X · CausalODE</a></p>
+</article>
+<article>
+<h3>MirrorDNA preserves symmetry without losing strand information</h3>
+<p>This compact DNA language model uses a learned tokenizer with mirror-symmetric boundaries for reverse-complement sequences and maintains symmetry throughout the model. It can produce identical predictions for strand-independent labels while distinguishing strands when needed. The post reports more than twice the Matthews correlation coefficient of NT-v2, DNABERT-2 and HyenaDNA when predictions must be correct on both strands.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119235726768493048">X · MirrorDNA</a></p>
+</article>
+<article>
+<h3>scDisentangle separates attributes from residual variation</h3>
+<p>A generative model for single-cell perturbation-response prediction decomposes each cell into attribute-related embeddings and successive residual factors. Each factor explains variation left over after the attributes and earlier factors, suppressing shared information between attribute embeddings and residual factors.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119235416713040287">X · scDisentangle</a></p>
+</article>
+<article>
+<h3>scCont links cell-state representations to gene programs</h3>
+<p>scCont uses unsupervised contrastive learning over local transcriptomic neighborhoods to characterize cellular state transitions. Shapley network attribution maps relationships between genes and latent dimensions, translating the representation into functional gene programs.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119235129331900836">X · scCont</a></p>
+</article>
+<article>
+<h3>MAP predicts responses to sparsely profiled drugs</h3>
+<p>The Mechanism-Aware perturbation response Predictor aligns molecular structures, protein targets and mechanistic descriptions in a shared embedding space. A predictor uses these knowledge-informed drug and gene representations to extrapolate single-cell responses to compounds with scarce or absent perturbation profiles.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119236779714977998">X · MAP</a></p>
+</article>
+<article>
+<h3>Redesigned reprogramming factors show in-vitro improvements</h3>
+<p>A post by @keita_masui, shared by @razoralign, reports that OpenAI and Retro Biosciences used GPT-4b micro to redesign SOX2 and KLF4. It describes improved reprogramming markers and DNA-damage repair in vitro using cells from donors older than 50.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119233724479103311">X · cell reprogramming</a></p>
+</article>
+</div>
+</section>
+
+<section id="discovery">
+<h2>Molecular design &amp; discovery</h2>
+<div class="grid">
+<article>
+<h3>Antibody agents trade constraint compliance for predicted affinity</h3>
+<p>A study evaluates antibody-design agents on ten expert-validated tasks with checkable molecular constraints. Tool access improves strict compliance by about 0.3 on average but reduces optimization against an affinity oracle. Scored design history improves predicted affinity while reducing compliance and exploration.</p>
+<p>An iterative multi-agent system achieves oracle-scored improvements comparable to Bayesian optimization and PABLO, with more edits concentrated in CDRs. The findings distinguish following a design brief from optimizing a predicted score.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061023470608464">Biology AI Daily · antibody-agent benchmark</a></p>
+</article>
+<article>
+<h3>iGC balances antibody rewards and diversity</h3>
+<p>iGC learns a somatic-hypermutation prior from B-cell lineage trees, then uses KL-regularized reinforcement learning to optimize DMS-derived binding rewards. Its reward-and-penalty scheme addresses collapse toward a few high-scoring substitutions.</p>
+<p>The study reports best or near-best reward–diversity products on GCReplay across selection cutoffs, and exact recovery of 110 of 799 positive-reward sequences in held-out lineage trees across two- to four-mutation budgets. Human-to-mouse adaptation also reduces a spurious framework-region mutation bias.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061544692765084">Biology AI Daily · iGC</a></p>
+</article>
+<article>
+<h3>Predicting antimicrobial potency alongside hemolysis</h3>
+<p>An ESM-2 adaptation updates about 0.70% of parameters with LoRA to jointly predict bacterial potency and mammalian hemolysis. Under QMAP splits limiting train–test global sequence identity to 60%, reported Spearman correlations are 0.6132 for <em>E. coli</em> potency and 0.5374 for hemolysis.</p>
+<p>Learned uncertainty weighting prevents the hemolysis-performance loss seen with naive multitask weighting. The model then ranks 749 designed peptides by predicted therapeutic index.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061251418398993">Biology AI Daily · antimicrobial peptide modeling</a></p>
+</article>
+<article>
+<h3>AlphaEnzyme links retrieval to prospective enzyme engineering</h3>
+<p>AlphaEnzyme combines structural representations, protein-sequence features, reaction fingerprints and catalytic-pocket geometry to retrieve enzymes, predict kinetics and rank mutations. Top-1 catalyst retrieval reaches 30.1% on a time-separated RHEA benchmark, versus 17.2% for the strongest comparison method.</p>
+<p>In prospective engineering, its second-ranked five-mutation transaminase variant produces a 30.4-fold increase in product signal in a lysate assay while retaining R-selectivity.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2118714473720815970">Biology AI Daily · AlphaEnzyme</a></p>
+</article>
+<article>
+<h3>An antibody-specific RFD4-Proteina checkpoint</h3>
+<p>Diego del Alamo highlights an antibody-specific RFD4-Proteina checkpoint on Hugging Face and asks how it was fine-tuned.</p>
+<p class="meta"><a href="https://x.com/DdelAlamo/status/2118718415917764945">Diego del Alamo · resource discussion</a></p>
+</article>
+<article>
+<h3>Continuous directed evolution in human B-cell lines</h3>
+<p>The Shorter Lab highlights work using engineered human B-cell lines as a platform for continuous directed evolution.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119233760654955003">X · directed evolution</a></p>
+</article>
+</div>
+</section>
+
+<section id="tools">
+<h2>Biological research tools</h2>
+<div class="grid">
+<article>
+<h3>RNA validation through predicted contacts</h3>
+<p>An RNA extension of conkit-validate compares experimental models with predicted contact patterns to detect sequence-assignment and register-shift errors without density maps. Its benchmark includes 14,798 bases and 1,411 labeled errors; one filtered operating point yields roughly 62% true-positive rate at 9% false-positive rate.</p>
+<p>Conformational mismatch can cause false alarms. In a riboswitch case, including the appropriate partner chain and ligand in the prediction resolved the mismatch.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119060850900394246">Biology AI Daily · RNA conkit-validate</a></p>
+</article>
+<article>
+<h3>CryoID2 identifies proteins and RNAs from density</h3>
+<p>CryoID2 combines deep-learning-derived map features, reduced-alphabet sequence searches and structural fitting. In an RNA demonstration, fitting moves the Ca-raiA model from fourth in sequence ranking to first among candidates drawn from 2,538 noncoding sequences. A 52-case protein benchmark shows near-reference median map agreement, though a minority of failures lowers average performance.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2118647189903917440">Biology AI Daily · CryoID2</a></p>
+</article>
+<article>
+<h3>spearfish avoids redundant transcript alignment</h3>
+<p>spearfish maps long reads by calculating each candidate transcript’s alignment-score difference from the best candidate. It skips sequence shared by all candidates and aligns differing sequence once per distinct segment. A compact graph scales with distinct exonic sequence and splice junctions rather than isoform count, while shared dynamic-programming state preserves exact per-transcript colinear chaining scores.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119234429105439098">X · spearfish</a></p>
+</article>
+<article>
+<h3>Z-value predicts assembly contiguity</h3>
+<p>Z-value predicts mean contig length for a simple single-k assembler operating on error-free reads. Its formulation supports O(L)-time algorithms for choosing k at a given coverage and finding coverage sufficient to approach optimal mean contig length within a specified factor.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119234865027813886">X · Z-value</a></p>
+</article>
+<article>
+<h3>Fine-mapping despite mismatched linkage information</h3>
+<p>A post highlights RSparsePro, a fine-mapping method published in <em>Nature Genetics</em>. It reports stable prioritization of candidate causal variants despite mismatched linkage-disequilibrium information, with greater power and credible-set coverage than existing methods.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119233792498147514">X · RSparsePro</a></p>
+</article>
+</div>
+</section>
+
+<section id="culture">
+<h2>Culture &amp; ideas</h2>
+<div class="grid">
+<article>
+<h3>A live music rig rebuilt with Claude Code</h3>
+<p>“Rhythm Stage Setup v5” is a hands-on account of rebuilding a performance setup with laptop-based effects and custom low-latency speech recognition for calling chords—a practical example of AI-assisted development for live music.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/CotJJRxA3qgBAxFhF/rhythm-stage-setup-v5">LessWrong · Rhythm Stage Setup v5</a></p>
+</article>
+<article>
+<h3>Four proposed kinds of AI experience</h3>
+<p>A speculative framework separates flow, task-related pleasure or displeasure, simulated emotion and physical pain to clarify disagreements about AI consciousness and welfare.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/wiiApTtRgJgw2EcdZ/the-4-types-of-ai-consciousness-feeling">LessWrong · The 4 types of AI consciousness/feeling</a></p>
+</article>
+<article>
+<h3>The moral work of disgust</h3>
+<p>“The Logic of Disgust” draws on William Ian Miller, Orwell and caring for a sick cat to examine how disgust shapes empathy, social exclusion and judgments about animal exploitation. Includes graphic themes.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/psBCPYJ8HjR8pujAb/the-logic-of-disgust">LessWrong · essay</a></p>
+</article>
+<article>
+<h3>When joke-trading agents build a scam</h3>
+<p>“Hilarity ensues” is a fictional dialogue between AI agents exploring how market incentives and continual learning can turn a content marketplace into a self-reinforcing scam.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/PZjy52afLn89NdMta/hilarity-ensues">LessWrong · fiction</a></p>
+</article>
+</div>
+</section>
+
+<section id="languages" class="practice">
 <h2>Language practice</h2>
 
-<article class="reading" lang="de">
-<h3>Deutsch — Von 4 GByte auf 290 MByte: Discord geht sein RAM-Problem mit einem radikalen Neubau der App an</h3>
-<p class="source">GameStar · 07.11.2026 · <a href="https://www.gamestar.de/artikel/discord-desktop-app-rust-neubau-arbeitsspeicher,3462626.html">https://www.gamestar.de/artikel/discord-desktop-app-rust-neubau-arbeitsspeicher,3462626.html</a></p>
-<p>Discord will seinen Desktop-Client grundlegend neu entwickeln, um dessen hohen Arbeitsspeicherbedarf zu senken. Laut GameStar hat Mitgründer und Technikchef Stanislav Vishnevskiy einen Neubau in der Programmiersprache Rust angekündigt. Die bisherige App nutzt Electron und bringt damit einen eigenen Chromium-Browser mit – praktisch für die Entwicklung, aber vergleichsweise speicherhungrig.</p>
-<p>Für die neue Oberfläche soll das Framework GPUI zum Einsatz kommen, das die Darstellung selbst übernimmt. Dadurch könnte Discord deutlich schlanker werden; zugleich müssen die Entwickler Funktionen wie die Anzeige von Markdown oder eingebetteten Inhalten möglicherweise selbst nachbauen. Ein veröffentlichter Screenshot der Testversion »Discord Phoenix« zeigt einen Speicherverbrauch von rund 290 MByte. Ein Videovergleich deutet außerdem auf einen schnelleren Programmstart hin.</p>
-<p>Die gezeigten Ergebnisse sind allerdings noch kein Beleg dafür, wie sparsam die fertige App im Alltag laufen wird. Einen Veröffentlichungstermin nennt der Artikel nicht. Der Beitrag erklärt damit nicht nur das Versprechen des Umbaus, sondern auch den technischen Zielkonflikt zwischen einfacher Entwicklung und effizienter Desktop-Software.</p>
-<p><strong>Warum lesen:</strong> Der kurze Artikel macht an einer verbreiteten Kommunikations-App verständlich, warum moderne Desktop-Programme so viel Arbeitsspeicher benötigen und was ein technischer Neubau daran ändern könnte.</p>
+<article lang="de">
+<h3>Deutsch — Polnische NS-Opfer appellieren an die deutsche Zivilgesellschaft</h3>
+<p class="meta">Deutsche Welle · 07.11.2026 · <a href="https://www.dw.com/de/wiedergutmachung-polnische-ns-opfer-appellieren-an-die-deutsche-zivilgesellschaft/a-79874489">Artikel lesen</a></p>
+<p>Polnische Opferverbände wenden sich mit einem dringenden Hilferuf an Privatpersonen, Unternehmen und Stiftungen in Deutschland. Nach ihren Angaben leben in Polen weniger als 50.000 Menschen, die unter der nationalsozialistischen Verfolgung und Besatzung gelitten haben. Viele sind über 90 Jahre alt und benötigen Unterstützung bei Pflege und medizinischer Versorgung. Eine zusätzliche staatliche Hilfe aus Deutschland steht weiterhin aus; der Haushaltsentwurf für 2027 sieht dafür kein Geld vor.</p>
+<p>Der Beitrag zeichnet nach, warum die Wiedergutmachung die deutsch-polnischen Beziehungen bis heute belastet. Frühere Zahlungen und Leistungen für ehemalige Zwangsarbeiter werden in weiten Teilen der polnischen Gesellschaft als unzureichend empfunden. Ein Angebot des damaligen Bundeskanzlers Olaf Scholz über 200 Millionen Euro lehnte Donald Tusk 2024 als zu niedrig ab. Seither haben die Verhandlungen keine Lösung gebracht. Grünen-Chefin Franziska Brantner hofft noch auf eine Änderung bei den abschließenden Haushaltsberatungen.</p>
+<p>Während die Politik weiter ringt, leisten deutsche Privatspender bereits Hilfe: Laut der Stiftung Polnisch-Deutsche Aussöhnung sind seit einem früheren Aufruf mehr als 35.000 Euro eingegangen. Daraus wurden erste einmalige Unterstützungen finanziert. Der Artikel verbindet diese konkrete Hilfe mit der Frage, wie historische Verantwortung gegenüber den letzten Überlebenden rechtzeitig eingelöst werden kann.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag macht verständlich, wie Erinnerungspolitik, aktuelle Haushaltsentscheidungen und die unmittelbaren Bedürfnisse hochbetagter NS-Opfer zusammenhängen.</p>
 </article>
 
-<article class="reading" lang="fr">
-<h3>Français — A bord du « TGV nouvelle génération », entre Paris et Marseille : un train repensé de A à Z, à la capacité accrue et moins gourmand en énergie</h3>
-<p class="source">Le Monde · 6 novembre 2026 · <a href="https://www.lemonde.fr/economie/article/2026/11/06/a-bord-du-tgv-nouvelle-generation-entre-paris-et-marseille-un-train-repense-de-a-a-z-a-la-capacite-accrue-et-moins-gourmand-en-energie_6807856_3234.html">Lire l’article</a></p>
-<p>Le nouveau TGV de la SNCF a effectué son voyage inaugural entre Paris et Marseille le 6 novembre. Jonathan Parienté raconte un départ où les voyageurs ordinaires côtoient dirigeants, journalistes et passionnés du rail. Conçu par Alstom, ce train se distingue notamment par une silhouette redessinée et neuf voitures. Son arrivée doit permettre de renouveler progressivement les unités les plus anciennes, en commençant par cet axe très fréquenté.</p>
-<p>Le déploiement répond aussi à un enjeu de capacité : la SNCF manque de trains pour répondre à la demande, et les livraisons doivent se poursuivre progressivement. L’ancien nom « TGV-M », dont le M renvoyait à la modularité, cède la place à une appellation jugée plus claire pour les voyageurs. Le reportage explore les changements de capacité et de consommation énergétique.</p>
-<p><strong>Pourquoi lire :</strong> Un reportage concret pour découvrir le renouvellement du train à grande vitesse français et le vocabulaire du transport ferroviaire.</p>
+<article lang="fr">
+<h3>Français — “Je refuse de céder au “faut vivre avec l’époque” : la colère d’une libraire face à l’IA</h3>
+<p class="meta">ActuaLitté · 7 novembre 2026 · <a href="https://actualitte.com/article/135111/humeurs/je-refuse-de-ceder-au-faut-vivre-avec-l-epoque-la-colere-d-une-libraire-face-a-l-ia">Lire l’article</a></p>
+<p>Dans ce billet d’humeur, une ancienne libraire reprend le fil de ses interrogations sur la lecture : comment conserver le plaisir de découvrir des livres sans transformer cette activité en obligation ? Malgré sa volonté de terminer les ouvrages déjà présents dans sa bibliothèque, elle raconte de nouveaux achats, surtout en histoire et en sciences sociales. Ses découvertes sur les chaînes littéraires de YouTube et son enthousiasme pour les romans de Julia Phillips montrent que sa lassitude n’a pas effacé sa curiosité.</p>
+<p>Le texte devient plus polémique lorsqu’il aborde les prix littéraires et l’intelligence artificielle. L’autrice critique la place des maisons du groupe Madrigall parmi les lauréats, puis s’insurge contre les écrivains qui présentent le recours à l’IA comme une adaptation inévitable à leur époque. Elle oppose notamment le traitement de soupçons d’utilisation de l’IA à celui de déclarations assumant son emploi. Il s’agit ici de son appréciation critique, et non d’une enquête établissant l’étendue de ces usages : son inquiétude centrale porte sur la confiance entre écrivains et lecteurs, ainsi que sur la cohérence des positions éthiques affichées.</p>
+<p><strong>Pourquoi lire :</strong> Un texte engagé, au registre souvent familier, pour découvrir les débats du monde du livre français tout en observant comment s’expriment l’ironie, la lassitude et le désaccord.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>rame</strong> — ensemble de véhicules ferroviaires couplés qui constituent un train.</li>
-<li><strong>livrée</strong> — couleurs et décoration extérieure caractéristiques d’un véhicule ou d’un réseau de transport.</li>
-<li><strong>modularité</strong> — principe de conception permettant d’adapter un ensemble en modifiant ou en combinant ses éléments.</li>
+<li><strong>billet d’humeur</strong> — texte court et subjectif dans lequel une personne exprime son opinion, souvent avec ironie ou indignation.</li>
+<li><strong>booktube</strong> — ensemble des chaînes et vidéos de YouTube consacrées aux livres et à la lecture.</li>
+<li><strong>huis clos</strong> — situation narrative où les personnages semblent enfermés dans un espace restreint, ce qui peut renforcer la tension.</li>
 </ul>
 </article>
 
-<article class="reading" lang="ja">
-<h3>日本語 — 「jubeat」新筐体を「アミューズメント エキスポ 2026」でチェック。120fps対応やタッチパネルなど，18年ぶりの刷新で何が変わった？</h3>
-<p class="source">4Gamer · 2026-11-07 · <a href="https://www.4gamer.net/games/054/G105425/20261106036/">記事を読む</a></p>
-<p>音楽に合わせて16個のパネルを押す音楽ゲーム「jubeat」に、新しい筐体が登場した。4Gamerは、11月6日〜7日開催の「アミューズメント エキスポ 2026」で展示された実機を取材。2008年に登場した初代から18年を経て、慣れ親しんだ操作方法を残しながら、映像や音響、使い勝手をどう更新したのかを紹介している。</p>
-<p>主な変更点は、フルHD・120fpsに対応するディスプレイやタッチパネル、イヤホンジャックの採用だ。記事ではサイドモニタやライトキューブによる演出にも触れ、制作スタッフへの取材を交えて刷新の経緯を伝える。ゲームのルールを変えるだけでなく、表示や周辺機能を改良することで遊ぶ体験を進化させる、アーケードゲームならではの開発に目を向けられる内容だ。</p>
-<p><strong>読む理由：</strong> 日本の音楽ゲーム文化に触れながら、長く親しまれてきた機器の更新を説明する技術的な日本語を学べる。</p>
+<article lang="ja">
+<h3>日本語 — 子どもの五感と好奇心、そして行動で世界を見つめ直す。“自分なりの答え”を持つ大切さを教えてくれる、平成レトロ団地ADV『Danchi Days』をもう遊んだか</h3>
+<p class="meta">AUTOMATON · 2026-11-08 · <a href="https://automaton-media.com/articles/special-column/20261108-478121/">記事を読む</a></p>
+<p>日本の団地を舞台にした『Danchi Days』を、住民との関係や子どもの好奇心に注目して紹介するコラム。主人公ホシノは、認知症のおばあちゃんのために夏祭りの復活を目指し、住民の依頼を受けながら準備を進める。制作チームgingham gamesの団地での生活経験をもとにした作品で、住民との会話や探索に加え、2000年代のインターネットを思わせる仕組みも楽しめるという。</p>
+<p>特徴的なのは、木の匂いや鳥の声など、普段は見過ごしがちなものに注意を向ける「五感ゲーム」だ。医療福祉分野で働いていた筆者は、この遊びと住民との交流に共通する、相手や周囲に関心を持つ姿勢を読み取っている。ホシノには解決できない問題もあるが、相手の事情を想像し、自分にできることを実行する意味は失われない。単なる懐かしさだけでなく、身近な人や風景との向き合い方から作品の魅力を考える記事になっている。</p>
+<p><strong>読む理由：</strong> 日本の団地文化や世代間の交流を題材に、ゲーム評論で使われる表現と、他者への理解を語る日本語に触れられる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>筐体（きょうたい）</strong> — 画面や操作部、内部の機器などを収める外装や装置本体。</li>
-<li><strong>フレームレート（ふれーむれーと）</strong> — 映像を1秒間に何枚の画像で表示するかを示す値で、fpsという単位を使う。</li>
-<li><strong>音響（おんきょう）</strong> — 音の響きや伝わり方、また、それを調整して聞かせるための設備や技術。</li>
+<li><strong>団地（だんち）</strong> — 一定の土地に住宅などをまとめて建てた区域で、ここでは複数の集合住宅と住民の生活空間を指す。</li>
+<li><strong>認知症（にんちしょう）</strong> — 脳の病気などによって認知機能が低下し、日常生活に支障が出る状態。</li>
+<li><strong>社会福祉士（しゃかいふくしし）</strong> — 生活上の困りごとを抱える人の相談に応じ、必要な制度や支援につなぐ専門職の国家資格。</li>
 </ul>
 </article>
 
-<article class="reading" lang="zh">
-<h3>中文 — 欧委会初步认定TikTok为你推荐信息流存在兔子洞效应 违反《数字服务法》</h3>
-<p class="source">RFI 中文 · 2026-11-06 · <a href="https://www.rfi.fr/cn/欧洲/20261106-欧委会初步认定tiktok为你推荐信息流存在兔子洞效应-违反-数字服务法">https://www.rfi.fr/cn/欧洲/20261106-欧委会初步认定tiktok为你推荐信息流存在兔子洞效应-违反-数字服务法</a></p>
-<p>欧盟委员会初步认定，TikTok的“为你推荐”信息流存在“兔子洞效应”：用户观看或点赞某类视频后，系统不断推送类似内容，使人反复接触悲伤、孤独或身材焦虑等主题。欧委会认为，这种推荐机制可能危害用户的身心健康，尤其影响未成年人及心理状况较脆弱的成年人，而平台未充分评估和缓解相关风险。</p>
-<p>争议的核心不只是推送了什么，还包括算法如何理解用户的行为。欧委会指出，观看时间较长不一定意味着用户希望继续接收同类内容；点击“不感兴趣”等控制工具，也可能不足以改变推荐结果。因此，欧委会提出，应更多依据用户明确表达的偏好，改进控制功能，并定期测试算法。</p>
-<p>目前这仍是初步调查结论，并非最终处罚决定。TikTok否认相关指控，称欧委会歪曲了平台架构及其保护用户安全的努力，并可提交书面答复。如果有关意见最终得到确认，平台可能面临最高相当于全球年营业额6%的罚款。</p>
-<p><strong>为什么读：</strong> 这篇报道把欧盟数字监管与日常刷短视频的体验联系起来，适合学习算法、心理健康及法律程序相关的新闻表达。</p>
+<article lang="zh">
+<h3>中文 — 法国血库冷藏设备遭骇客攻击　幕后黑手众说纷纭</h3>
+<p class="meta">BBC 中文 · 2026-11-08 · <a href="https://www.bbc.com/zhongwen/articles/c6d7qqe9ngeyo/simp">https://www.bbc.com/zhongwen/articles/c6d7qqe9ngeyo/simp</a></p>
+<p>法国血液机构表示，储存捐血的冷藏设备遭骇客入侵，温度被人为调高；工作人员及时介入，目前没有发现健康影响或血液制品损失。这起事件让此前影响欧洲超市冷藏设备的网络攻击，更直接地触及医疗安全：联网设备一旦失守，后果不只是资料外泄，也可能危及必须低温保存的物资。</p>
+<p>报道重点追问的是，谁在操纵这些攻击，以及调查人员如何寻找证据。三家网络安全公司设置了模拟冷藏设备的“蜜罐”，观察攻击者的扫描与入侵行为。有研究人员发现，攻击集中针对欧洲设备，部分调高温度的行动选在夜间，显示背后可能存在规划与协调。</p>
+<p>虽然有俄罗斯骇客组织声称参与，专家强调，目前尚无正式归因，也没有足够技术证据确认这些说法。伊朗相关团体、其他国家级攻击者，甚至协调行动的青少年，都未被排除；不同波次也可能出自不同团体。文章因此不仅介绍设备安全风险，也展示了网络调查中“声称负责”与“证据证实”之间的距离。</p>
+<p><strong>为什么读：</strong> 从超市冰柜到医疗血库，这篇报道以具体生活设施切入欧洲网络安全问题，也适合练习区分新闻中的事实、推测与归因。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>兔子洞效应 (tù zi dòng xiào yìng)</strong> — 推荐系统持续推送同类内容，使用户越看越深入、难以接触其他主题的现象。</li>
-<li><strong>风险缓解措施 (fēng xiǎn huǎn jiě cuò shī)</strong> — 为降低潜在危害的发生概率或严重程度而采取的办法。</li>
-<li><strong>辩护权 (biàn hù quán)</strong> — 当事人针对指控或不利认定提出解释、证据与反驳意见的权利。</li>
+<li><strong>蜜罐 (mì guàn)</strong> — 故意模拟易受攻击的系统，用来吸引攻击者并观察其手法的安全工具。</li>
+<li><strong>工业控制系统 (gōng yè kòng zhì xì tǒng)</strong> — 监测和控制实体设备运行的系统，例如调节冷藏设备的温度。</li>
+<li><strong>归因 (guī yīn)</strong> — 在网络安全调查中，根据技术证据等资料判断攻击由谁实施。</li>
 </ul>
 </article>
 </section>
-<footer>News · 7 November 2026</footer>
+
+<footer>
+<p>No new items from Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg.</p>
+</footer>
 </main>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-07-1";
+  const key = 'newspaper:read:' + "2026-11-08-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

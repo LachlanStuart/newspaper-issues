@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f3;--ink:#202722;--muted:#626b64;--line:#d8dcd2;--accent:#265b51}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1050px;margin:auto;padding:36px 24px}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:15px 0 22px}
+h1{font-size:4.5rem;line-height:1;margin:0 0 14px}
+.date,.meta,nav,footer,.section-label{font-family:system-ui,sans-serif}
+.date,.meta{color:var(--muted);font-size:.85rem}
+nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding:17px 0;font-size:.9rem}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:32px}
+h2{font-size:1.8rem;border-bottom:1px solid var(--line);padding-bottom:9px}
+h3{font-size:1.18rem;line-height:1.35;margin:0 0 8px}
+p{margin:8px 0 13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:25px 32px}
+article{min-width:0}
+.grid article{border-bottom:1px solid var(--line);padding-bottom:18px}
+.meta{margin:6px 0}
+code{font-size:.9em}
+.practice{border-top:4px solid var(--ink);margin-top:45px;padding-top:12px}
+.practice article{max-width:820px;margin:30px auto;padding-bottom:26px;border-bottom:1px solid var(--line)}
+.practice h3{font-size:1.4rem}
+.practice ul{padding-left:24px}
+footer{font-size:.8rem;color:var(--muted);margin-top:30px;border-top:1px solid var(--line);padding-top:15px}
+@media(max-width:650px){main{padding:22px 18px}.grid{grid-template-columns:1fr}h1{font-size:3.6rem}}
+</style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="date">Sunday, November 8, 2026</div>
+</header>
+<nav aria-label="Sections">
+<a href="#ai">AI research &amp; engineering</a>
+<a href="#safety">AI safety &amp; governance</a>
+<a href="#biology">Cellular &amp; genomic models</a>
+<a href="#discovery">Molecular design &amp; discovery</a>
+<a href="#tools">Biological research tools</a>
+<a href="#culture">Culture &amp; ideas</a>
+<a href="#languages">Language practice</a>
+</nav>
+
+<section id="ai">
+<h2>AI research &amp; engineering</h2>
+<div class="grid">
+<article>
+<h3>Weight editing fixes a MedQA formatting obstacle—not much medical knowledge</h3>
+<p>OpenMed reports using Claude Opus 5.5 to edit four small open models for $7.78 total, with 12 forward passes per model and no training. All four had copied the literal <code>Answer: &lt;letter&gt;</code> placeholder; removing one direction corrected that behavior. Format-independent scoring for Qwen3.5-2B changed only from 70.3% to 70.5%, supporting the authors’ interpretation that the edit removed an obstacle rather than added knowledge.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2119024906826330125">OpenMed · report</a> · <a href="https://t.co/MwkcyUFwLc">Weights, diffs and answers</a></p>
+</article>
+<article>
+<h3>MaxxBench tests coding agents against small task changes</h3>
+<p>A post by @loresjpg, reshared by Songlin Yang, introduces 89 perturbed DeepSWE tasks. Changes such as lowercase filenames probe whether coding agents remain effective when seemingly minor details shift.</p>
+<p class="meta"><a href="https://x.com/SonglinYang4/status/2119201312709698014">X · MaxxBench</a></p>
+</article>
+<article>
+<h3>From Attention to TTT, through averaging</h3>
+<p>Jianlin Su explores connections between attention architectures and TTT. The article begins by revisiting a derivation of Gated DeltaNet from Softmax Attention through linearization, linking standard attention to a linear-attention architecture.</p>
+<p class="meta"><a href="https://spaces.ac.cn/archives/11993">科学空间 · The Path of Averaging</a></p>
+</article>
+<article>
+<h3>When optimizer insights fail to transfer</h3>
+<p>Jianlin Su argues that AdaGrad works to some extent on scale-invariant losses of the form <code>L(x/||x||)</code>, while a new algorithm based on <code>g_t · x_t</code> does not. He distinguishes convex guarantees from whether the heuristic insights behind them transfer usefully to nonconvex optimization.</p>
+<p class="meta"><a href="https://x.com/Jianlin_S/status/2119066202102489095">Jianlin Su · commentary</a></p>
+</article>
+<article>
+<h3>A tenfold rendering speedup reveals the next bottleneck</h3>
+<p>You Jiacheng reports cutting RoboTwin ray-tracing time in <code>get_obs</code> from 30 ms to 3 ms per frame on an RTX 3090. After that improvement, <code>take_action</code> emerged as the major bottleneck on the GPU.</p>
+<p class="meta"><a href="https://x.com/YouJiacheng/status/2119122247357219026">You Jiacheng · RoboTwin profiling</a></p>
+</article>
+<article>
+<h3>Korean clinical-note dates retain their formatting during de-identification</h3>
+<p>OpenMed 3.2 fixes date shifts that previously produced placeholders or ISO text. A shared offset now preserves 년/월/일 markers, zero padding and full-width digits across year boundaries. The demonstration uses a synthetic note, the default Korean PII model and locale-specific date rules.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2118991865097633988">OpenMed · update</a> · <a href="https://t.co/7KereXf0Wv">Resource</a></p>
+</article>
+</div>
+</section>
+
+<section id="safety">
+<h2>AI safety &amp; governance</h2>
+<div class="grid">
+<article>
+<h3>Research acceleration is not the same as runaway improvement</h3>
+<p>“Anthropic’s AI acceleration is probably real” uses public capability data and productivity models to support METR’s assessment of AI-driven acceleration at Anthropic. The author argues that the observed gains do not distinguish sustained runaway improvement from growth that eventually encounters bottlenecks.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/QgcgoMz7mviHL6Esr/anthropic-s-ai-acceleration-is-probably-real">LessWrong · analysis</a></p>
+</article>
+<article>
+<h3>The case for approaching recursive self-improvement</h3>
+<p>“RSI explained” assembles recent claims about AI-led research and model improvement to argue that recursive self-improvement is approaching faster than alignment and control measures.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/YtsvTevNRadkLFp6v/rsi-explained">LessWrong · RSI explained</a></p>
+</article>
+<article>
+<h3>Do models recognize the type of evaluation?</h3>
+<p>A proposed explanation for evaluation awareness is that models distinguish capability tests from alignment tests under inconsistent training incentives, rather than conceal a single underlying personality. The hypothesis reframes how evaluation behavior might be interpreted.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/AuAvzmRCmTkxLDtAn/eval-awareness-as-eval-type-awareness">LessWrong · Eval Awareness as Eval-type Awareness</a></p>
+</article>
+<article>
+<h3>Looking for misalignment before concealment develops</h3>
+<p>A pilot study tests evaluations across Olmo training checkpoints, seeking signs of misalignment before a model learns to hide it. It finds no clear pattern and identifies small samples and hypothetical scenarios as key limitations.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/iXKhtYuXtneXzw9fN/let-s-try-to-catch-misalignment-before-a-model-learns-to">LessWrong · training-checkpoint evaluations</a></p>
+</article>
+<article>
+<h3>Regulating risks policymakers cannot easily adjudicate</h3>
+<p>“‘Illegible problems’ as the 2027 political boss fight” argues that AI regulation should not depend on policymakers resolving obscure safety disputes. It proposes compute-use restrictions and transparency as a temporary alternative to judgment-dependent safety cases.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/fjGgrzAkpSDouLwfx/illegible-problems-as-the-2027-political-boss-fight">LessWrong · policy argument</a></p>
+</article>
+<article>
+<h3>What a corrigibility grantmaker wants to fund</h3>
+<p>A Corrigibility Research Fund grantmaker explains recurring reasons for rejecting applications and describes the conceptual, mathematical and empirical work they want to support.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/9ixerpx4DCQTaRYCz/five-types-of-corrigibility-projects-i-don-t-want-to-fund">LessWrong · Five Types of “Corrigibility Projects” I Don’t Want to Fund</a></p>
+</article>
+<article>
+<h3>Clinical AI claims: designs versus demonstrated use</h3>
+<p>Anshul Kundaje questions Radical Numerics’ attribution of work associated with a patient treatment. He says it remains unclear whether the company’s AI designs were used, notes that another company reportedly made its own designs, and calls for clarification about what contributed to the clinical intervention.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2119189894744662328">Anshul Kundaje · commentary</a></p>
+</article>
+<article>
+<h3>Compute concentration and biomedical access</h3>
+<p>Kundaje also says he opposes an AI pause while arguing that disproportionate investment in AI, concentration of compute within AI companies and biology-specific restrictions on frontier models hinder biomedical progress.</p>
+<p class="meta"><a href="https://x.com/anshulkundaje/status/2119178168108200361">Anshul Kundaje · research-access commentary</a></p>
+</article>
+</div>
+</section>
+
+<section id="biology">
+<h2>Cellular &amp; genomic models</h2>
+<div class="grid">
+<article>
+<h3>CausalODE models delayed regulation and feedback loops</h3>
+<p>CausalODE is a differentiable framework for inferring gene-regulatory networks from single-cell perturbation data. It models RNA dynamics and delayed regulation through latent mediators, including protein levels, while optimizing a causal-reach metric. The framework accommodates nonlinear responses, cyclic networks and transient, time-lagged regulation.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119237819696861276">X · CausalODE</a></p>
+</article>
+<article>
+<h3>MirrorDNA preserves symmetry without losing strand information</h3>
+<p>This compact DNA language model uses a learned tokenizer with mirror-symmetric boundaries for reverse-complement sequences and maintains symmetry throughout the model. It can produce identical predictions for strand-independent labels while distinguishing strands when needed. The post reports more than twice the Matthews correlation coefficient of NT-v2, DNABERT-2 and HyenaDNA when predictions must be correct on both strands.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119235726768493048">X · MirrorDNA</a></p>
+</article>
+<article>
+<h3>scDisentangle separates attributes from residual variation</h3>
+<p>A generative model for single-cell perturbation-response prediction decomposes each cell into attribute-related embeddings and successive residual factors. Each factor explains variation left over after the attributes and earlier factors, suppressing shared information between attribute embeddings and residual factors.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119235416713040287">X · scDisentangle</a></p>
+</article>
+<article>
+<h3>scCont links cell-state representations to gene programs</h3>
+<p>scCont uses unsupervised contrastive learning over local transcriptomic neighborhoods to characterize cellular state transitions. Shapley network attribution maps relationships between genes and latent dimensions, translating the representation into functional gene programs.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119235129331900836">X · scCont</a></p>
+</article>
+<article>
+<h3>MAP predicts responses to sparsely profiled drugs</h3>
+<p>The Mechanism-Aware perturbation response Predictor aligns molecular structures, protein targets and mechanistic descriptions in a shared embedding space. A predictor uses these knowledge-informed drug and gene representations to extrapolate single-cell responses to compounds with scarce or absent perturbation profiles.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119236779714977998">X · MAP</a></p>
+</article>
+<article>
+<h3>Redesigned reprogramming factors show in-vitro improvements</h3>
+<p>A post by @keita_masui, shared by @razoralign, reports that OpenAI and Retro Biosciences used GPT-4b micro to redesign SOX2 and KLF4. It describes improved reprogramming markers and DNA-damage repair in vitro using cells from donors older than 50.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119233724479103311">X · cell reprogramming</a></p>
+</article>
+</div>
+</section>
+
+<section id="discovery">
+<h2>Molecular design &amp; discovery</h2>
+<div class="grid">
+<article>
+<h3>Antibody agents trade constraint compliance for predicted affinity</h3>
+<p>A study evaluates antibody-design agents on ten expert-validated tasks with checkable molecular constraints. Tool access improves strict compliance by about 0.3 on average but reduces optimization against an affinity oracle. Scored design history improves predicted affinity while reducing compliance and exploration.</p>
+<p>An iterative multi-agent system achieves oracle-scored improvements comparable to Bayesian optimization and PABLO, with more edits concentrated in CDRs. The findings distinguish following a design brief from optimizing a predicted score.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061023470608464">Biology AI Daily · antibody-agent benchmark</a></p>
+</article>
+<article>
+<h3>iGC balances antibody rewards and diversity</h3>
+<p>iGC learns a somatic-hypermutation prior from B-cell lineage trees, then uses KL-regularized reinforcement learning to optimize DMS-derived binding rewards. Its reward-and-penalty scheme addresses collapse toward a few high-scoring substitutions.</p>
+<p>The study reports best or near-best reward–diversity products on GCReplay across selection cutoffs, and exact recovery of 110 of 799 positive-reward sequences in held-out lineage trees across two- to four-mutation budgets. Human-to-mouse adaptation also reduces a spurious framework-region mutation bias.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061544692765084">Biology AI Daily · iGC</a></p>
+</article>
+<article>
+<h3>Predicting antimicrobial potency alongside hemolysis</h3>
+<p>An ESM-2 adaptation updates about 0.70% of parameters with LoRA to jointly predict bacterial potency and mammalian hemolysis. Under QMAP splits limiting train–test global sequence identity to 60%, reported Spearman correlations are 0.6132 for <em>E. coli</em> potency and 0.5374 for hemolysis.</p>
+<p>Learned uncertainty weighting prevents the hemolysis-performance loss seen with naive multitask weighting. The model then ranks 749 designed peptides by predicted therapeutic index.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061251418398993">Biology AI Daily · antimicrobial peptide modeling</a></p>
+</article>
+<article>
+<h3>AlphaEnzyme links retrieval to prospective enzyme engineering</h3>
+<p>AlphaEnzyme combines structural representations, protein-sequence features, reaction fingerprints and catalytic-pocket geometry to retrieve enzymes, predict kinetics and rank mutations. Top-1 catalyst retrieval reaches 30.1% on a time-separated RHEA benchmark, versus 17.2% for the strongest comparison method.</p>
+<p>In prospective engineering, its second-ranked five-mutation transaminase variant produces a 30.4-fold increase in product signal in a lysate assay while retaining R-selectivity.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2118714473720815970">Biology AI Daily · AlphaEnzyme</a></p>
+</article>
+<article>
+<h3>An antibody-specific RFD4-Proteina checkpoint</h3>
+<p>Diego del Alamo highlights an antibody-specific RFD4-Proteina checkpoint on Hugging Face and asks how it was fine-tuned.</p>
+<p class="meta"><a href="https://x.com/DdelAlamo/status/2118718415917764945">Diego del Alamo · resource discussion</a></p>
+</article>
+<article>
+<h3>Continuous directed evolution in human B-cell lines</h3>
+<p>The Shorter Lab highlights work using engineered human B-cell lines as a platform for continuous directed evolution.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119233760654955003">X · directed evolution</a></p>
+</article>
+</div>
+</section>
+
+<section id="tools">
+<h2>Biological research tools</h2>
+<div class="grid">
+<article>
+<h3>RNA validation through predicted contacts</h3>
+<p>An RNA extension of conkit-validate compares experimental models with predicted contact patterns to detect sequence-assignment and register-shift errors without density maps. Its benchmark includes 14,798 bases and 1,411 labeled errors; one filtered operating point yields roughly 62% true-positive rate at 9% false-positive rate.</p>
+<p>Conformational mismatch can cause false alarms. In a riboswitch case, including the appropriate partner chain and ligand in the prediction resolved the mismatch.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119060850900394246">Biology AI Daily · RNA conkit-validate</a></p>
+</article>
+<article>
+<h3>CryoID2 identifies proteins and RNAs from density</h3>
+<p>CryoID2 combines deep-learning-derived map features, reduced-alphabet sequence searches and structural fitting. In an RNA demonstration, fitting moves the Ca-raiA model from fourth in sequence ranking to first among candidates drawn from 2,538 noncoding sequences. A 52-case protein benchmark shows near-reference median map agreement, though a minority of failures lowers average performance.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2118647189903917440">Biology AI Daily · CryoID2</a></p>
+</article>
+<article>
+<h3>spearfish avoids redundant transcript alignment</h3>
+<p>spearfish maps long reads by calculating each candidate transcript’s alignment-score difference from the best candidate. It skips sequence shared by all candidates and aligns differing sequence once per distinct segment. A compact graph scales with distinct exonic sequence and splice junctions rather than isoform count, while shared dynamic-programming state preserves exact per-transcript colinear chaining scores.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119234429105439098">X · spearfish</a></p>
+</article>
+<article>
+<h3>Z-value predicts assembly contiguity</h3>
+<p>Z-value predicts mean contig length for a simple single-k assembler operating on error-free reads. Its formulation supports O(L)-time algorithms for choosing k at a given coverage and finding coverage sufficient to approach optimal mean contig length within a specified factor.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119234865027813886">X · Z-value</a></p>
+</article>
+<article>
+<h3>Fine-mapping despite mismatched linkage information</h3>
+<p>A post highlights RSparsePro, a fine-mapping method published in <em>Nature Genetics</em>. It reports stable prioritization of candidate causal variants despite mismatched linkage-disequilibrium information, with greater power and credible-set coverage than existing methods.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2119233792498147514">X · RSparsePro</a></p>
+</article>
+</div>
+</section>
+
+<section id="culture">
+<h2>Culture &amp; ideas</h2>
+<div class="grid">
+<article>
+<h3>A live music rig rebuilt with Claude Code</h3>
+<p>“Rhythm Stage Setup v5” is a hands-on account of rebuilding a performance setup with laptop-based effects and custom low-latency speech recognition for calling chords—a practical example of AI-assisted development for live music.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/CotJJRxA3qgBAxFhF/rhythm-stage-setup-v5">LessWrong · Rhythm Stage Setup v5</a></p>
+</article>
+<article>
+<h3>Four proposed kinds of AI experience</h3>
+<p>A speculative framework separates flow, task-related pleasure or displeasure, simulated emotion and physical pain to clarify disagreements about AI consciousness and welfare.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/wiiApTtRgJgw2EcdZ/the-4-types-of-ai-consciousness-feeling">LessWrong · The 4 types of AI consciousness/feeling</a></p>
+</article>
+<article>
+<h3>The moral work of disgust</h3>
+<p>“The Logic of Disgust” draws on William Ian Miller, Orwell and caring for a sick cat to examine how disgust shapes empathy, social exclusion and judgments about animal exploitation. Includes graphic themes.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/psBCPYJ8HjR8pujAb/the-logic-of-disgust">LessWrong · essay</a></p>
+</article>
+<article>
+<h3>When joke-trading agents build a scam</h3>
+<p>“Hilarity ensues” is a fictional dialogue between AI agents exploring how market incentives and continual learning can turn a content marketplace into a self-reinforcing scam.</p>
+<p class="meta"><a href="https://www.lesswrong.com/posts/PZjy52afLn89NdMta/hilarity-ensues">LessWrong · fiction</a></p>
+</article>
+</div>
+</section>
+
+<section id="languages" class="practice">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Polnische NS-Opfer appellieren an die deutsche Zivilgesellschaft</h3>
+<p class="meta">Deutsche Welle · 07.11.2026 · <a href="https://www.dw.com/de/wiedergutmachung-polnische-ns-opfer-appellieren-an-die-deutsche-zivilgesellschaft/a-79874489">Artikel lesen</a></p>
+<p>Polnische Opferverbände wenden sich mit einem dringenden Hilferuf an Privatpersonen, Unternehmen und Stiftungen in Deutschland. Nach ihren Angaben leben in Polen weniger als 50.000 Menschen, die unter der nationalsozialistischen Verfolgung und Besatzung gelitten haben. Viele sind über 90 Jahre alt und benötigen Unterstützung bei Pflege und medizinischer Versorgung. Eine zusätzliche staatliche Hilfe aus Deutschland steht weiterhin aus; der Haushaltsentwurf für 2027 sieht dafür kein Geld vor.</p>
+<p>Der Beitrag zeichnet nach, warum die Wiedergutmachung die deutsch-polnischen Beziehungen bis heute belastet. Frühere Zahlungen und Leistungen für ehemalige Zwangsarbeiter werden in weiten Teilen der polnischen Gesellschaft als unzureichend empfunden. Ein Angebot des damaligen Bundeskanzlers Olaf Scholz über 200 Millionen Euro lehnte Donald Tusk 2024 als zu niedrig ab. Seither haben die Verhandlungen keine Lösung gebracht. Grünen-Chefin Franziska Brantner hofft noch auf eine Änderung bei den abschließenden Haushaltsberatungen.</p>
+<p>Während die Politik weiter ringt, leisten deutsche Privatspender bereits Hilfe: Laut der Stiftung Polnisch-Deutsche Aussöhnung sind seit einem früheren Aufruf mehr als 35.000 Euro eingegangen. Daraus wurden erste einmalige Unterstützungen finanziert. Der Artikel verbindet diese konkrete Hilfe mit der Frage, wie historische Verantwortung gegenüber den letzten Überlebenden rechtzeitig eingelöst werden kann.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag macht verständlich, wie Erinnerungspolitik, aktuelle Haushaltsentscheidungen und die unmittelbaren Bedürfnisse hochbetagter NS-Opfer zusammenhängen.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — “Je refuse de céder au “faut vivre avec l’époque” : la colère d’une libraire face à l’IA</h3>
+<p class="meta">ActuaLitté · 7 novembre 2026 · <a href="https://actualitte.com/article/135111/humeurs/je-refuse-de-ceder-au-faut-vivre-avec-l-epoque-la-colere-d-une-libraire-face-a-l-ia">Lire l’article</a></p>
+<p>Dans ce billet d’humeur, une ancienne libraire reprend le fil de ses interrogations sur la lecture : comment conserver le plaisir de découvrir des livres sans transformer cette activité en obligation ? Malgré sa volonté de terminer les ouvrages déjà présents dans sa bibliothèque, elle raconte de nouveaux achats, surtout en histoire et en sciences sociales. Ses découvertes sur les chaînes littéraires de YouTube et son enthousiasme pour les romans de Julia Phillips montrent que sa lassitude n’a pas effacé sa curiosité.</p>
+<p>Le texte devient plus polémique lorsqu’il aborde les prix littéraires et l’intelligence artificielle. L’autrice critique la place des maisons du groupe Madrigall parmi les lauréats, puis s’insurge contre les écrivains qui présentent le recours à l’IA comme une adaptation inévitable à leur époque. Elle oppose notamment le traitement de soupçons d’utilisation de l’IA à celui de déclarations assumant son emploi. Il s’agit ici de son appréciation critique, et non d’une enquête établissant l’étendue de ces usages : son inquiétude centrale porte sur la confiance entre écrivains et lecteurs, ainsi que sur la cohérence des positions éthiques affichées.</p>
+<p><strong>Pourquoi lire :</strong> Un texte engagé, au registre souvent familier, pour découvrir les débats du monde du livre français tout en observant comment s’expriment l’ironie, la lassitude et le désaccord.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>billet d’humeur</strong> — texte court et subjectif dans lequel une personne exprime son opinion, souvent avec ironie ou indignation.</li>
+<li><strong>booktube</strong> — ensemble des chaînes et vidéos de YouTube consacrées aux livres et à la lecture.</li>
+<li><strong>huis clos</strong> — situation narrative où les personnages semblent enfermés dans un espace restreint, ce qui peut renforcer la tension.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 子どもの五感と好奇心、そして行動で世界を見つめ直す。“自分なりの答え”を持つ大切さを教えてくれる、平成レトロ団地ADV『Danchi Days』をもう遊んだか</h3>
+<p class="meta">AUTOMATON · 2026-11-08 · <a href="https://automaton-media.com/articles/special-column/20261108-478121/">記事を読む</a></p>
+<p>日本の団地を舞台にした『Danchi Days』を、住民との関係や子どもの好奇心に注目して紹介するコラム。主人公ホシノは、認知症のおばあちゃんのために夏祭りの復活を目指し、住民の依頼を受けながら準備を進める。制作チームgingham gamesの団地での生活経験をもとにした作品で、住民との会話や探索に加え、2000年代のインターネットを思わせる仕組みも楽しめるという。</p>
+<p>特徴的なのは、木の匂いや鳥の声など、普段は見過ごしがちなものに注意を向ける「五感ゲーム」だ。医療福祉分野で働いていた筆者は、この遊びと住民との交流に共通する、相手や周囲に関心を持つ姿勢を読み取っている。ホシノには解決できない問題もあるが、相手の事情を想像し、自分にできることを実行する意味は失われない。単なる懐かしさだけでなく、身近な人や風景との向き合い方から作品の魅力を考える記事になっている。</p>
+<p><strong>読む理由：</strong> 日本の団地文化や世代間の交流を題材に、ゲーム評論で使われる表現と、他者への理解を語る日本語に触れられる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>団地（だんち）</strong> — 一定の土地に住宅などをまとめて建てた区域で、ここでは複数の集合住宅と住民の生活空間を指す。</li>
+<li><strong>認知症（にんちしょう）</strong> — 脳の病気などによって認知機能が低下し、日常生活に支障が出る状態。</li>
+<li><strong>社会福祉士（しゃかいふくしし）</strong> — 生活上の困りごとを抱える人の相談に応じ、必要な制度や支援につなぐ専門職の国家資格。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 法国血库冷藏设备遭骇客攻击　幕后黑手众说纷纭</h3>
+<p class="meta">BBC 中文 · 2026-11-08 · <a href="https://www.bbc.com/zhongwen/articles/c6d7qqe9ngeyo/simp">https://www.bbc.com/zhongwen/articles/c6d7qqe9ngeyo/simp</a></p>
+<p>法国血液机构表示，储存捐血的冷藏设备遭骇客入侵，温度被人为调高；工作人员及时介入，目前没有发现健康影响或血液制品损失。这起事件让此前影响欧洲超市冷藏设备的网络攻击，更直接地触及医疗安全：联网设备一旦失守，后果不只是资料外泄，也可能危及必须低温保存的物资。</p>
+<p>报道重点追问的是，谁在操纵这些攻击，以及调查人员如何寻找证据。三家网络安全公司设置了模拟冷藏设备的“蜜罐”，观察攻击者的扫描与入侵行为。有研究人员发现，攻击集中针对欧洲设备，部分调高温度的行动选在夜间，显示背后可能存在规划与协调。</p>
+<p>虽然有俄罗斯骇客组织声称参与，专家强调，目前尚无正式归因，也没有足够技术证据确认这些说法。伊朗相关团体、其他国家级攻击者，甚至协调行动的青少年，都未被排除；不同波次也可能出自不同团体。文章因此不仅介绍设备安全风险，也展示了网络调查中“声称负责”与“证据证实”之间的距离。</p>
+<p><strong>为什么读：</strong> 从超市冰柜到医疗血库，这篇报道以具体生活设施切入欧洲网络安全问题，也适合练习区分新闻中的事实、推测与归因。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>蜜罐 (mì guàn)</strong> — 故意模拟易受攻击的系统，用来吸引攻击者并观察其手法的安全工具。</li>
+<li><strong>工业控制系统 (gōng yè kòng zhì xì tǒng)</strong> — 监测和控制实体设备运行的系统，例如调节冷藏设备的温度。</li>
+<li><strong>归因 (guī yīn)</strong> — 在网络安全调查中，根据技术证据等资料判断攻击由谁实施。</li>
+</ul>
+</article>
+</section>
+
+<footer>
+<p>No new items from Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg.</p>
+</footer>
+</main>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-08-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--paper:#faf8f3;--ink:#242824;--muted:#626960;--rule:#d7d9ce;--accent:#285d52}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:1040px;margin:auto;padding:0 28px}
+header{padding-top:38px;padding-bottom:24px;border-bottom:3px solid var(--ink)}
+h1{font-size:64px;line-height:1;margin:0 0 15px;letter-spacing:-2px}
+.date,.meta,nav,.links,footer{font-family:system-ui,sans-serif;font-size:13px}
+.date,.meta,footer{color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px}
+a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:38px}
+h2{font-size:28px;line-height:1.25;border-bottom:1px solid var(--rule);padding-bottom:10px}
+h3{font-size:21px;line-height:1.35;margin:0 0 10px}
+p{margin:0 0 13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px}
+article{min-width:0}
+.links{margin-top:8px}
+.briefs{padding-left:22px}
+.briefs li{margin-bottom:15px}
+.practice{border-top:3px solid var(--ink);padding-top:12px;margin-top:45px}
+.practice article{max-width:820px;padding:20px 0 28px;border-bottom:1px solid var(--rule)}
+.practice .meta{margin-bottom:18px}
+.practice ul{padding-left:24px}
+footer{padding-top:24px;padding-bottom:30px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}main,header,footer{padding-left:20px;padding-right:20px}h1{font-size:52px}body{font-size:16px}}
+</style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-11-10">Tuesday, November 10, 2026</time></div>
+<nav aria-label="Sections">
+<a href="#ai">AI research</a>
+<a href="#clinical">Clinical AI &amp; evaluation</a>
+<a href="#genomics">Single-cell &amp; genomics</a>
+<a href="#biology">Biology &amp; disease</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="ai">
+<h2>AI research: training, architecture &amp; theory</h2>
+<div class="grid">
+<article>
+<h3>Marin details its 535B-A23B training recipe</h3>
+<p>Larry Dial shares an architecture writeup for Marin 535B-A23B following pretraining on 18 trillion tokens. He reports a 300-fold scale-up in GPU training, completion slightly ahead of the team’s public forecast, and zero training instabilities. The data-to-code training recipe is fully open; supervised fine-tuning and reinforcement learning are next.</p>
+<p class="links"><a href="https://t.co/ZdeshNHhcy">Architecture writeup</a> · <a href="https://x.com/classiclarryd/status/2119924094473023877">Larry Dial’s announcement</a></p>
+</article>
+<article>
+<h3>AdamC adoption tied to late-stage gradient issues</h3>
+<p>Aaron Defazio says Reflection’s Beam was trained with AdamC and that Thinking Machines also reported using the optimizer. He attributes its utility to addressing late-stage gradient-norm issues.</p>
+<p class="links"><a href="https://x.com/aaron_defazio/status/2119508097693880627">Defazio’s post</a> · <a href="https://t.co/NZ46O63hkI">Linked resource</a></p>
+</article>
+<article>
+<h3>Linear attention without expanded hidden states</h3>
+<p>Songlin Yang, crediting Jiacheng, highlights a computational property of chunkwise linear attention: each block can compute <code>((qᵀk)v)</code> in parallel without materializing the expanded hidden state.</p>
+<p class="links"><a href="https://x.com/SonglinYang4/status/2119706605642256554">Implementation discussion</a></p>
+</article>
+<article>
+<h3>Inkling-2’s vision encoder brings patch mixing into focus</h3>
+<p>Lucas Beyer highlights Inkling-2’s return to a Vision Transformer encoder. He argues that the earlier hMLP design was not meaningfully encoder-free and criticizes spending multiple encoder layers processing patches without cross-patch context.</p>
+<p class="links"><a href="https://x.com/giffmana/status/2119355097402704145">Beyer’s analysis</a> · <a href="https://t.co/3gp7rpNaw6">Linked details</a></p>
+</article>
+</div>
+<ul class="briefs">
+<li><strong>Schedule-free learning:</strong> Jianlin Su shares part XI of <em>Revisiting Convergence Results in Convex Optimization</em>, exploring new ideas for schedule-free learning. <a href="https://t.co/gRvc4OAhbn">Technical article</a> · <a href="https://t.co/lFGXxsCUUq">Related resource</a> · <a href="https://x.com/Jianlin_S/status/2119724340577247338">Post</a></li>
+<li><strong>BF16 compression:</strong> Tri Dao shares AlpinDale’s announcement of lossless compression of BF16 models to 12 bits, based on NyoomFloat12. <a href="https://x.com/tri_dao/status/2119319464688914463">Announcement</a></li>
+<li><strong>Self-improvement in theorem proving:</strong> Stanford AI Lab shares Thomas Chen’s announcement of a theoretical framework inspired by STP (Dong and Ma, 2025). <a href="https://x.com/StanfordAILab/status/2119510702822133894">Research announcement</a></li>
+<li><strong>World models for autonomous exploration:</strong> A recording of Isaac Ward’s October 26 PhD defense is available, shared by Stanford AI Lab. <a href="https://x.com/StanfordAILab/status/2119709708324118760">Recording announcement</a></li>
+</ul>
+</section>
+
+<section id="clinical">
+<h2>Clinical AI &amp; evaluation integrity</h2>
+<div class="grid">
+<article>
+<h3>Spanish clinical mmBERT reaches 70.0 F1</h3>
+<p>OpenMed releases an Apache-2.0 Spanish disease-extraction model fine-tuned from Johns Hopkins’ multilingual mmBERT encoder. On 150 held-out documents, it reports 70.0 F1 against 73.3 for GLiNER2.5. Although mmBERT identifies an additional disease in the showcased sentence, GLiNER2.5’s greater precision keeps it ahead overall.</p>
+<p class="links"><a href="https://t.co/dtO83YELW4">Model resource</a> · <a href="https://x.com/OpenMed_AI/status/2119482582115271094">Release</a> · <a href="https://x.com/OpenMed_AI/status/2119482582446551328">Comparison</a></p>
+</article>
+<article>
+<h3>A contradiction check stops a synthetic discharge brief</h3>
+<p>OpenMed tests local <code>nli-deberta-v3-small</code> against a deliberately false potassium claim in a synthetic clinical note. A contradiction score of 0.997 stops the pipeline and returns no brief. After correction, all five claims receive entailment scores of 0.958–0.998, allowing the brief to proceed to human review.</p>
+<p>The run uses SDK-default thresholds that were not calibrated for this model.</p>
+<p class="links"><a href="https://t.co/auPjgrqRBA">Workflow</a> · <a href="https://x.com/OpenMed_AI/status/2119422183692779529">Test report</a></p>
+</article>
+<article>
+<h3>Sealed evaluation guards enforce splits, weights and run budgets</h3>
+<p>OpenMed demonstrates checks that reject a held-out split containing three development-set pairs out of twelve, refuse weights changed after approval, and enforce a two-run budget. These are SDK tests with synthetic sets and a stub model, not model-performance results. The overlap check misses a paraphrase filed under a new source note.</p>
+<p class="links"><a href="https://t.co/cZG29NYD3M">Sealed evaluation sessions</a> · <a href="https://x.com/OpenMed_AI/status/2119354240770723915">Demonstration</a></p>
+</article>
+<article>
+<h3>Randomized trial targets full echocardiography reports</h3>
+<p>David Ouyang announces the presentation of AI ECHO INSIGHT, describing it as the first blinded, randomized trial of AI for the full echocardiography report.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119840526505800027">Announcement shared by Anshul Kundaje</a></p>
+</article>
+</div>
+</section>
+
+<section id="genomics">
+<h2>Single-cell, spatial biology &amp; genomics</h2>
+<div class="grid">
+<article>
+<h3>Seurat v6 and scSLIDE emphasize comparisons between samples</h3>
+<p>The Satija lab announces Seurat v6 and scSLIDE, emphasizing sample-level comparisons in single-cell studies rather than comparisons only between individual cells.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119839731261530294">Announcement</a></p>
+</article>
+<article>
+<h3>SPACE-Tag brings CUT&amp;Tag to spatial chromatin profiling</h3>
+<p>NYGCtech announces a SPACE-Tag preprint describing high-throughput spatial chromatin profiling using CUT&amp;Tag, a method relevant to spatial epigenomics and gene regulation.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119979930708738204">Preprint announcement</a></p>
+</article>
+<article>
+<h3>Do sequence-to-expression predictions form a coherent model?</h3>
+<p>Muntakim Rafi highlights work arguing that predictions across different tracks of sequence-to-expression models do not form a coherent model. Anshul Kundaje amplifies the discussion, drawing attention to consistency across regulatory-genomics outputs.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119964011265749439">Research discussion</a></p>
+</article>
+<article>
+<h3>Developmental atlas combines multiomics and deep learning</h3>
+<p>The Human Development Multiomic Atlas combines multiomics and deep learning to dissect regulatory syntax in human development.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2119822397033582902">Atlas overview</a></p>
+</article>
+</div>
+<h3>Tools &amp; atlas infrastructure</h3>
+<ul class="briefs">
+<li><strong>UniCell</strong> is presented as a unified approach to cell annotation, harmonizing cell nomenclature and constructing single-cell atlases. <a href="https://x.com/razoralign/status/2119822830535917861">Details</a></li>
+<li><strong>ATLAS</strong> is a scverse-compatible package for integrating multiomic single-cell trajectory inference. <a href="https://x.com/razoralign/status/2119822787326128601">Package overview</a></li>
+<li><strong>PRIME</strong> targets atlas-level integration of single-cell and spatial transcriptomics data. <a href="https://x.com/razoralign/status/2119822412065931600">Method overview</a></li>
+<li><strong>cellNexus</strong> provides quality control, annotation, aggregation and analytical layers for Human Cell Atlas data. <a href="https://x.com/razoralign/status/2119822381661483148">Resource overview</a></li>
+<li><strong>GenoVi</strong> is an open-source automated circular genome visualizer for bacteria and archaea. <a href="https://x.com/razoralign/status/2119753811988554013">Tool overview</a></li>
+</ul>
+</section>
+
+<section id="biology">
+<h2>Biology, protein models &amp; disease mechanisms</h2>
+<div class="grid">
+<article>
+<h3>ProteinMPNN weight editing shows directional asymmetry</h3>
+<p>Diego del Alamo reports that weight-space programming largely works in one direction: converting vanilla ProteinMPNN toward SolubleMPNN is easier than the reverse. He suggests that removing existing circuits may be easier than introducing new ones.</p>
+<p class="links"><a href="https://x.com/DdelAlamo/status/2119468085983994181">Follow-up report</a></p>
+</article>
+<article>
+<h3>METTL13 links selective translation to drug sensitivity</h3>
+<p>Wafik El-Deiry highlights findings that methylated eEF1A allows cancer cells to selectively translate driver proteins such as KRAS, and that loss of METTL13 restores sensitivity to sotorasib.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2119795452736581773">Research highlight</a></p>
+</article>
+</div>
+<ul class="briefs">
+<li><strong>Arterial calcification:</strong> Katalin Susztak highlights an editorial accompanying Shen’s TBX2 paper, describing the multiomic identification of convergent genetic drivers of medial arterial calcification. <a href="https://x.com/razoralign/status/2119822282617233618">Editorial highlight</a></li>
+<li><strong>Cellular degradation:</strong> A review in <em>Nature Reviews Molecular Cell Biology</em> examines the integration of protein and organelle degradation systems and their pathophysiological functions. <a href="https://x.com/NatRevMCB/status/2119779089854992702">Review announcement</a></li>
+<li><strong>NeuroscienceBench:</strong> Kenbwork announces the benchmark as the first release in an expansion of benchmarking efforts into basic research. <a href="https://x.com/anshulkundaje/status/2119873350394945938">Announcement</a></li>
+<li><strong>Comparing binder scores:</strong> Btnaughton publishes a written comparison of binder scores, shared by Roshan Rao. <a href="https://x.com/proteinrosh/status/2119921090143060444">Blog announcement</a></li>
+</ul>
+</section>
+
+<section id="languages" class="practice">
+<h2>Language practice</h2>
+<article lang="de">
+<h3>Deutsch — Preisdeckel für Ticketbörsen in der Planung</h3>
+<p class="meta">Tagesschau · 10.11.2026 · <a href="https://www.tagesschau.de/inland/innenpolitik/ticket-weiterverkauf-beschraenkung-100.html">Artikel lesen</a></p>
+<p>Wer Konzertkarten auf dem Zweitmarkt kauft, muss mit erheblichen Preisaufschlägen rechnen. Bundesjustiz- und Verbraucherschutzministerin Stefanie Hubig (SPD) will diesen Weiterverkauf gesetzlich begrenzen: Ticketbörsen sollen höchstens 20 Prozent und zugleich maximal 20 Euro auf den ursprünglichen Preis aufschlagen dürfen. Der Entwurf für ein „Ticketschutzgesetz“ ist laut Hubig fertig und wird derzeit innerhalb der Regierung abgestimmt; beschlossen ist die Regelung noch nicht.</p>
+<p>Die Ministerin kritisiert Händler, die Karten gezielt aufkaufen und anschließend deutlich teurer anbieten. Damit würden auch die Bemühungen von Veranstaltern und Künstlern unterlaufen, Menschen mit kleinerem Budget den Zugang zu Veranstaltungen zu ermöglichen. Hubig verweist auf gesetzliche Regeln in anderen Ländern und strebt an, dass das deutsche Gesetz noch vor dem nächsten Veranstaltungssommer in Kraft tritt.</p>
+<p><strong>Warum lesen:</strong> Der kurze Beitrag verbindet Kultur und Verbraucherschutz und erklärt konkret, wie die Bundesregierung gegen überhöhte Preise beim Ticketweiterverkauf vorgehen will.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — À la COP31, le pari de l'électricité pour sortir de l'impasse climatique</h3>
+<p class="meta">France 24 · 9 novembre 2026 · <a href="https://www.france24.com/fr/plan%C3%A8te/20261109-cop31-pari-%C3%A9lectricit%C3%A9-pour-sortir-impasse-climatique-energie-rechauffement">Lire l'article</a></p>
+<p>À l'ouverture de la COP31 à Antalya, France 24 analyse une proposition portée par la Turquie et l'Australie : faire passer la part de l'électricité dans la consommation finale d'énergie à 35 % d'ici à 2035. La crise énergétique liée à la guerre au Moyen-Orient donne un nouvel argument aux défenseurs de la transition : réduire la dépendance au pétrole et au gaz permettrait aussi de renforcer la souveraineté énergétique. L'Union européenne figure parmi les soutiens annoncés de cet engagement, dont l'inscription dans l'accord final resterait à négocier.</p>
+<p>L'article explique toutefois pourquoi électrifier ne signifie pas automatiquement décarboner. Voitures électriques, pompes à chaleur et équipements industriels peuvent remplacer des usages fossiles, mais leur bénéfice climatique dépend de la manière dont l'électricité est produite. Les négociations devraient donc porter autant sur les mots que sur les objectifs : faut-il privilégier les seules énergies renouvelables, inclure le nucléaire ou laisser ouverte la possibilité d'utiliser des combustibles fossiles ? Selon les spécialistes interrogés, le projet présenté ne garantit pas explicitement une électricité sans émissions de gaz à effet de serre.</p>
+<p>Autre difficulté : la hausse des besoins, notamment pour la climatisation et les centres de données, risque de faire progresser simultanément les renouvelables et les énergies fossiles. Les interlocuteurs de France 24 insistent donc sur la sobriété énergétique et sur l'accompagnement financier des pays du Sud. L'enjeu n'est pas seulement d'ajouter de nouvelles capacités électriques, mais de remplacer les combustibles fossiles tout en tenant compte des contraintes locales.</p>
+<p><strong>Pourquoi lire :</strong> Une analyse accessible pour comprendre la différence entre électrification et décarbonation, ainsi que les choix diplomatiques et industriels qui concernent directement l'Europe.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>consommation finale d'énergie</strong> — énergie utilisée directement par les ménages, les transports ou les entreprises, après les étapes de transformation et d'acheminement.</li>
+<li><strong>décarbonation</strong> — réduction des émissions de dioxyde de carbone liées à une activité, notamment en remplaçant les énergies fossiles.</li>
+<li><strong>sobriété énergétique</strong> — réduction des besoins en énergie par des changements d'usages et d'organisation, au-delà de la seule amélioration technique des équipements.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 高市首相 高性能AI進展で"国際社会連携を" 仏政府主催の会合で</h3>
+<p class="meta">NHKニュース · 2026年11月10日 · <a href="https://news.web.nhk/newsweb/na/nd-20261110de73220">記事を読む</a></p>
+<p>高市首相は9日夜、フランス政府主催のAIの安全性に関する会合にオンラインで参加した。各国の首脳や政府機関、AI関連企業が集まる中、最先端の「フロンティアAI」が新しい機会を生む一方、サイバー攻撃への悪用や、人間が制御できなくなる危険もあると指摘。影響が国境を越えるため、各国が協力して対応する必要があると訴えた。</p>
+<p>日本の対応としては、AI法を含む関連制度の見直しを進めていると説明し、「AIサミット」の早期開催にも意欲を示した。また、政府だけでなく、開発企業などの利害関係者が責任を自覚して協力することが重要だと強調した。記事では木原官房長官の説明も紹介し、日本が「広島AIプロセス」などを通じて進めてきた国際的なルールづくりとのつながりを伝えている。</p>
+<p><strong>読む理由：</strong> 日本とフランスを結ぶAI政策の動きを通じて、技術の進歩と安全保障をめぐる日本語の表現を学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>フロンティアAI（ふろんてぃあえーあい）</strong> — 現時点で最先端の能力を持つ高性能なAI。</li>
+<li><strong>安全保障（あんぜんほしょう）</strong> — 国や社会、人々の安全を脅威から守ること。</li>
+<li><strong>利害関係者（りがいかんけいしゃ）</strong> — ある事業や政策に関わり、その結果によって影響を受ける人や組織。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — Steam大奖迎来十周年，年度提名将于11月23日拉开帷幕</h3>
+<p class="meta">机核 · 1 天前（页面显示） · <a href="https://www.gcores.com/articles/222076">https://www.gcores.com/articles/222076</a></p>
+<p>Steam 大奖即将迎来十周年。机核报道，今年的玩家提名安排在11月23日至30日，最终投票则随12月17日冬季特卖开启。提名与投票是两个阶段：玩家先推荐作品，再从各奖项的五部入围游戏中选出心中的赢家。</p>
+<p>周年活动的看点是奖项调整：除了借鉴往届门类的三个奖项，还增加了“名作堂”，让过去十年的年度最佳游戏再次接受玩家评选。文章也介绍了开发者展示提名活动的渠道，以及新旧游戏参与评选的资格限制；想为喜欢的作品投票，可以先了解这些规则。</p>
+<p><strong>为什么读：</strong> 这篇短讯既能帮助读者了解玩家参与的游戏评奖机制，也适合练习中文游戏媒体描述提名、入围与参评资格的表达。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>提名 (tí míng)</strong> — 正式推荐某部作品参与奖项评选，尚不代表获奖。</li>
+<li><strong>门类 (mén lèi)</strong> — 按性质划分的类别，文中指不同的奖项类别。</li>
+<li><strong>冬季特卖 (dōng jì tè mài)</strong> — 游戏平台在冬季集中开展的限时促销活动。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>News · November 10, 2026</footer>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-10-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

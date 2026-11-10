@@ -5,31 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root{color-scheme:light;--paper:#faf8f3;--ink:#202722;--muted:#626b64;--line:#d8dcd2;--accent:#265b51}
+:root{color-scheme:light;--paper:#faf8f3;--ink:#242824;--muted:#626960;--rule:#d7d9ce;--accent:#285d52}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
-main{max-width:1050px;margin:auto;padding:36px 24px}
-header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:15px 0 22px}
-h1{font-size:4.5rem;line-height:1;margin:0 0 14px}
-.date,.meta,nav,footer,.section-label{font-family:system-ui,sans-serif}
-.date,.meta{color:var(--muted);font-size:.85rem}
-nav{display:flex;flex-wrap:wrap;gap:8px 22px;padding:17px 0;font-size:.9rem}
-a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
-section{margin-top:32px}
-h2{font-size:1.8rem;border-bottom:1px solid var(--line);padding-bottom:9px}
-h3{font-size:1.18rem;line-height:1.35;margin:0 0 8px}
-p{margin:8px 0 13px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:25px 32px}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:1040px;margin:auto;padding:0 28px}
+header{padding-top:38px;padding-bottom:24px;border-bottom:3px solid var(--ink)}
+h1{font-size:64px;line-height:1;margin:0 0 15px;letter-spacing:-2px}
+.date,.meta,nav,.links,footer{font-family:system-ui,sans-serif;font-size:13px}
+.date,.meta,footer{color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:20px}
+a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:38px}
+h2{font-size:28px;line-height:1.25;border-bottom:1px solid var(--rule);padding-bottom:10px}
+h3{font-size:21px;line-height:1.35;margin:0 0 10px}
+p{margin:0 0 13px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:26px 32px}
 article{min-width:0}
-.grid article{border-bottom:1px solid var(--line);padding-bottom:18px}
-.meta{margin:6px 0}
-code{font-size:.9em}
-.practice{border-top:4px solid var(--ink);margin-top:45px;padding-top:12px}
-.practice article{max-width:820px;margin:30px auto;padding-bottom:26px;border-bottom:1px solid var(--line)}
-.practice h3{font-size:1.4rem}
+.links{margin-top:8px}
+.briefs{padding-left:22px}
+.briefs li{margin-bottom:15px}
+.practice{border-top:3px solid var(--ink);padding-top:12px;margin-top:45px}
+.practice article{max-width:820px;padding:20px 0 28px;border-bottom:1px solid var(--rule)}
+.practice .meta{margin-bottom:18px}
 .practice ul{padding-left:24px}
-footer{font-size:.8rem;color:var(--muted);margin-top:30px;border-top:1px solid var(--line);padding-top:15px}
-@media(max-width:650px){main{padding:22px 18px}.grid{grid-template-columns:1fr}h1{font-size:3.6rem}}
+footer{padding-top:24px;padding-bottom:30px}
+@media(max-width:650px){.grid{grid-template-columns:1fr}main,header,footer{padding-left:20px;padding-right:20px}h1{font-size:52px}body{font-size:16px}}
 </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -50,300 +50,191 @@ footer{font-size:.8rem;color:var(--muted);margin-top:30px;border-top:1px solid v
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
-<main>
 <header>
 <h1>News</h1>
-<div class="date">Sunday, November 8, 2026</div>
-</header>
+<div class="date"><time datetime="2026-11-10">Tuesday, November 10, 2026</time></div>
 <nav aria-label="Sections">
-<a href="#ai">AI research &amp; engineering</a>
-<a href="#safety">AI safety &amp; governance</a>
-<a href="#biology">Cellular &amp; genomic models</a>
-<a href="#discovery">Molecular design &amp; discovery</a>
-<a href="#tools">Biological research tools</a>
-<a href="#culture">Culture &amp; ideas</a>
+<a href="#ai">AI research</a>
+<a href="#clinical">Clinical AI &amp; evaluation</a>
+<a href="#genomics">Single-cell &amp; genomics</a>
+<a href="#biology">Biology &amp; disease</a>
 <a href="#languages">Language practice</a>
 </nav>
-
+</header>
+<main>
 <section id="ai">
-<h2>AI research &amp; engineering</h2>
+<h2>AI research: training, architecture &amp; theory</h2>
 <div class="grid">
 <article>
-<h3>Weight editing fixes a MedQA formatting obstacle—not much medical knowledge</h3>
-<p>OpenMed reports using Claude Opus 5.5 to edit four small open models for $7.78 total, with 12 forward passes per model and no training. All four had copied the literal <code>Answer: &lt;letter&gt;</code> placeholder; removing one direction corrected that behavior. Format-independent scoring for Qwen3.5-2B changed only from 70.3% to 70.5%, supporting the authors’ interpretation that the edit removed an obstacle rather than added knowledge.</p>
-<p class="meta"><a href="https://x.com/OpenMed_AI/status/2119024906826330125">OpenMed · report</a> · <a href="https://t.co/MwkcyUFwLc">Weights, diffs and answers</a></p>
+<h3>Marin details its 535B-A23B training recipe</h3>
+<p>Larry Dial shares an architecture writeup for Marin 535B-A23B following pretraining on 18 trillion tokens. He reports a 300-fold scale-up in GPU training, completion slightly ahead of the team’s public forecast, and zero training instabilities. The data-to-code training recipe is fully open; supervised fine-tuning and reinforcement learning are next.</p>
+<p class="links"><a href="https://t.co/ZdeshNHhcy">Architecture writeup</a> · <a href="https://x.com/classiclarryd/status/2119924094473023877">Larry Dial’s announcement</a></p>
 </article>
 <article>
-<h3>MaxxBench tests coding agents against small task changes</h3>
-<p>A post by @loresjpg, reshared by Songlin Yang, introduces 89 perturbed DeepSWE tasks. Changes such as lowercase filenames probe whether coding agents remain effective when seemingly minor details shift.</p>
-<p class="meta"><a href="https://x.com/SonglinYang4/status/2119201312709698014">X · MaxxBench</a></p>
+<h3>AdamC adoption tied to late-stage gradient issues</h3>
+<p>Aaron Defazio says Reflection’s Beam was trained with AdamC and that Thinking Machines also reported using the optimizer. He attributes its utility to addressing late-stage gradient-norm issues.</p>
+<p class="links"><a href="https://x.com/aaron_defazio/status/2119508097693880627">Defazio’s post</a> · <a href="https://t.co/NZ46O63hkI">Linked resource</a></p>
 </article>
 <article>
-<h3>From Attention to TTT, through averaging</h3>
-<p>Jianlin Su explores connections between attention architectures and TTT. The article begins by revisiting a derivation of Gated DeltaNet from Softmax Attention through linearization, linking standard attention to a linear-attention architecture.</p>
-<p class="meta"><a href="https://spaces.ac.cn/archives/11993">科学空间 · The Path of Averaging</a></p>
+<h3>Linear attention without expanded hidden states</h3>
+<p>Songlin Yang, crediting Jiacheng, highlights a computational property of chunkwise linear attention: each block can compute <code>((qᵀk)v)</code> in parallel without materializing the expanded hidden state.</p>
+<p class="links"><a href="https://x.com/SonglinYang4/status/2119706605642256554">Implementation discussion</a></p>
 </article>
 <article>
-<h3>When optimizer insights fail to transfer</h3>
-<p>Jianlin Su argues that AdaGrad works to some extent on scale-invariant losses of the form <code>L(x/||x||)</code>, while a new algorithm based on <code>g_t · x_t</code> does not. He distinguishes convex guarantees from whether the heuristic insights behind them transfer usefully to nonconvex optimization.</p>
-<p class="meta"><a href="https://x.com/Jianlin_S/status/2119066202102489095">Jianlin Su · commentary</a></p>
+<h3>Inkling-2’s vision encoder brings patch mixing into focus</h3>
+<p>Lucas Beyer highlights Inkling-2’s return to a Vision Transformer encoder. He argues that the earlier hMLP design was not meaningfully encoder-free and criticizes spending multiple encoder layers processing patches without cross-patch context.</p>
+<p class="links"><a href="https://x.com/giffmana/status/2119355097402704145">Beyer’s analysis</a> · <a href="https://t.co/3gp7rpNaw6">Linked details</a></p>
+</article>
+</div>
+<ul class="briefs">
+<li><strong>Schedule-free learning:</strong> Jianlin Su shares part XI of <em>Revisiting Convergence Results in Convex Optimization</em>, exploring new ideas for schedule-free learning. <a href="https://t.co/gRvc4OAhbn">Technical article</a> · <a href="https://t.co/lFGXxsCUUq">Related resource</a> · <a href="https://x.com/Jianlin_S/status/2119724340577247338">Post</a></li>
+<li><strong>BF16 compression:</strong> Tri Dao shares AlpinDale’s announcement of lossless compression of BF16 models to 12 bits, based on NyoomFloat12. <a href="https://x.com/tri_dao/status/2119319464688914463">Announcement</a></li>
+<li><strong>Self-improvement in theorem proving:</strong> Stanford AI Lab shares Thomas Chen’s announcement of a theoretical framework inspired by STP (Dong and Ma, 2025). <a href="https://x.com/StanfordAILab/status/2119510702822133894">Research announcement</a></li>
+<li><strong>World models for autonomous exploration:</strong> A recording of Isaac Ward’s October 26 PhD defense is available, shared by Stanford AI Lab. <a href="https://x.com/StanfordAILab/status/2119709708324118760">Recording announcement</a></li>
+</ul>
+</section>
+
+<section id="clinical">
+<h2>Clinical AI &amp; evaluation integrity</h2>
+<div class="grid">
+<article>
+<h3>Spanish clinical mmBERT reaches 70.0 F1</h3>
+<p>OpenMed releases an Apache-2.0 Spanish disease-extraction model fine-tuned from Johns Hopkins’ multilingual mmBERT encoder. On 150 held-out documents, it reports 70.0 F1 against 73.3 for GLiNER2.5. Although mmBERT identifies an additional disease in the showcased sentence, GLiNER2.5’s greater precision keeps it ahead overall.</p>
+<p class="links"><a href="https://t.co/dtO83YELW4">Model resource</a> · <a href="https://x.com/OpenMed_AI/status/2119482582115271094">Release</a> · <a href="https://x.com/OpenMed_AI/status/2119482582446551328">Comparison</a></p>
 </article>
 <article>
-<h3>A tenfold rendering speedup reveals the next bottleneck</h3>
-<p>You Jiacheng reports cutting RoboTwin ray-tracing time in <code>get_obs</code> from 30 ms to 3 ms per frame on an RTX 3090. After that improvement, <code>take_action</code> emerged as the major bottleneck on the GPU.</p>
-<p class="meta"><a href="https://x.com/YouJiacheng/status/2119122247357219026">You Jiacheng · RoboTwin profiling</a></p>
+<h3>A contradiction check stops a synthetic discharge brief</h3>
+<p>OpenMed tests local <code>nli-deberta-v3-small</code> against a deliberately false potassium claim in a synthetic clinical note. A contradiction score of 0.997 stops the pipeline and returns no brief. After correction, all five claims receive entailment scores of 0.958–0.998, allowing the brief to proceed to human review.</p>
+<p>The run uses SDK-default thresholds that were not calibrated for this model.</p>
+<p class="links"><a href="https://t.co/auPjgrqRBA">Workflow</a> · <a href="https://x.com/OpenMed_AI/status/2119422183692779529">Test report</a></p>
 </article>
 <article>
-<h3>Korean clinical-note dates retain their formatting during de-identification</h3>
-<p>OpenMed 3.2 fixes date shifts that previously produced placeholders or ISO text. A shared offset now preserves 년/월/일 markers, zero padding and full-width digits across year boundaries. The demonstration uses a synthetic note, the default Korean PII model and locale-specific date rules.</p>
-<p class="meta"><a href="https://x.com/OpenMed_AI/status/2118991865097633988">OpenMed · update</a> · <a href="https://t.co/7KereXf0Wv">Resource</a></p>
+<h3>Sealed evaluation guards enforce splits, weights and run budgets</h3>
+<p>OpenMed demonstrates checks that reject a held-out split containing three development-set pairs out of twelve, refuse weights changed after approval, and enforce a two-run budget. These are SDK tests with synthetic sets and a stub model, not model-performance results. The overlap check misses a paraphrase filed under a new source note.</p>
+<p class="links"><a href="https://t.co/cZG29NYD3M">Sealed evaluation sessions</a> · <a href="https://x.com/OpenMed_AI/status/2119354240770723915">Demonstration</a></p>
+</article>
+<article>
+<h3>Randomized trial targets full echocardiography reports</h3>
+<p>David Ouyang announces the presentation of AI ECHO INSIGHT, describing it as the first blinded, randomized trial of AI for the full echocardiography report.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119840526505800027">Announcement shared by Anshul Kundaje</a></p>
 </article>
 </div>
 </section>
 
-<section id="safety">
-<h2>AI safety &amp; governance</h2>
+<section id="genomics">
+<h2>Single-cell, spatial biology &amp; genomics</h2>
 <div class="grid">
 <article>
-<h3>Research acceleration is not the same as runaway improvement</h3>
-<p>“Anthropic’s AI acceleration is probably real” uses public capability data and productivity models to support METR’s assessment of AI-driven acceleration at Anthropic. The author argues that the observed gains do not distinguish sustained runaway improvement from growth that eventually encounters bottlenecks.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/QgcgoMz7mviHL6Esr/anthropic-s-ai-acceleration-is-probably-real">LessWrong · analysis</a></p>
+<h3>Seurat v6 and scSLIDE emphasize comparisons between samples</h3>
+<p>The Satija lab announces Seurat v6 and scSLIDE, emphasizing sample-level comparisons in single-cell studies rather than comparisons only between individual cells.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119839731261530294">Announcement</a></p>
 </article>
 <article>
-<h3>The case for approaching recursive self-improvement</h3>
-<p>“RSI explained” assembles recent claims about AI-led research and model improvement to argue that recursive self-improvement is approaching faster than alignment and control measures.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/YtsvTevNRadkLFp6v/rsi-explained">LessWrong · RSI explained</a></p>
+<h3>SPACE-Tag brings CUT&amp;Tag to spatial chromatin profiling</h3>
+<p>NYGCtech announces a SPACE-Tag preprint describing high-throughput spatial chromatin profiling using CUT&amp;Tag, a method relevant to spatial epigenomics and gene regulation.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119979930708738204">Preprint announcement</a></p>
 </article>
 <article>
-<h3>Do models recognize the type of evaluation?</h3>
-<p>A proposed explanation for evaluation awareness is that models distinguish capability tests from alignment tests under inconsistent training incentives, rather than conceal a single underlying personality. The hypothesis reframes how evaluation behavior might be interpreted.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/AuAvzmRCmTkxLDtAn/eval-awareness-as-eval-type-awareness">LessWrong · Eval Awareness as Eval-type Awareness</a></p>
+<h3>Do sequence-to-expression predictions form a coherent model?</h3>
+<p>Muntakim Rafi highlights work arguing that predictions across different tracks of sequence-to-expression models do not form a coherent model. Anshul Kundaje amplifies the discussion, drawing attention to consistency across regulatory-genomics outputs.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2119964011265749439">Research discussion</a></p>
 </article>
 <article>
-<h3>Looking for misalignment before concealment develops</h3>
-<p>A pilot study tests evaluations across Olmo training checkpoints, seeking signs of misalignment before a model learns to hide it. It finds no clear pattern and identifies small samples and hypothetical scenarios as key limitations.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/iXKhtYuXtneXzw9fN/let-s-try-to-catch-misalignment-before-a-model-learns-to">LessWrong · training-checkpoint evaluations</a></p>
-</article>
-<article>
-<h3>Regulating risks policymakers cannot easily adjudicate</h3>
-<p>“‘Illegible problems’ as the 2027 political boss fight” argues that AI regulation should not depend on policymakers resolving obscure safety disputes. It proposes compute-use restrictions and transparency as a temporary alternative to judgment-dependent safety cases.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/fjGgrzAkpSDouLwfx/illegible-problems-as-the-2027-political-boss-fight">LessWrong · policy argument</a></p>
-</article>
-<article>
-<h3>What a corrigibility grantmaker wants to fund</h3>
-<p>A Corrigibility Research Fund grantmaker explains recurring reasons for rejecting applications and describes the conceptual, mathematical and empirical work they want to support.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/9ixerpx4DCQTaRYCz/five-types-of-corrigibility-projects-i-don-t-want-to-fund">LessWrong · Five Types of “Corrigibility Projects” I Don’t Want to Fund</a></p>
-</article>
-<article>
-<h3>Clinical AI claims: designs versus demonstrated use</h3>
-<p>Anshul Kundaje questions Radical Numerics’ attribution of work associated with a patient treatment. He says it remains unclear whether the company’s AI designs were used, notes that another company reportedly made its own designs, and calls for clarification about what contributed to the clinical intervention.</p>
-<p class="meta"><a href="https://x.com/anshulkundaje/status/2119189894744662328">Anshul Kundaje · commentary</a></p>
-</article>
-<article>
-<h3>Compute concentration and biomedical access</h3>
-<p>Kundaje also says he opposes an AI pause while arguing that disproportionate investment in AI, concentration of compute within AI companies and biology-specific restrictions on frontier models hinder biomedical progress.</p>
-<p class="meta"><a href="https://x.com/anshulkundaje/status/2119178168108200361">Anshul Kundaje · research-access commentary</a></p>
+<h3>Developmental atlas combines multiomics and deep learning</h3>
+<p>The Human Development Multiomic Atlas combines multiomics and deep learning to dissect regulatory syntax in human development.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2119822397033582902">Atlas overview</a></p>
 </article>
 </div>
+<h3>Tools &amp; atlas infrastructure</h3>
+<ul class="briefs">
+<li><strong>UniCell</strong> is presented as a unified approach to cell annotation, harmonizing cell nomenclature and constructing single-cell atlases. <a href="https://x.com/razoralign/status/2119822830535917861">Details</a></li>
+<li><strong>ATLAS</strong> is a scverse-compatible package for integrating multiomic single-cell trajectory inference. <a href="https://x.com/razoralign/status/2119822787326128601">Package overview</a></li>
+<li><strong>PRIME</strong> targets atlas-level integration of single-cell and spatial transcriptomics data. <a href="https://x.com/razoralign/status/2119822412065931600">Method overview</a></li>
+<li><strong>cellNexus</strong> provides quality control, annotation, aggregation and analytical layers for Human Cell Atlas data. <a href="https://x.com/razoralign/status/2119822381661483148">Resource overview</a></li>
+<li><strong>GenoVi</strong> is an open-source automated circular genome visualizer for bacteria and archaea. <a href="https://x.com/razoralign/status/2119753811988554013">Tool overview</a></li>
+</ul>
 </section>
 
 <section id="biology">
-<h2>Cellular &amp; genomic models</h2>
+<h2>Biology, protein models &amp; disease mechanisms</h2>
 <div class="grid">
 <article>
-<h3>CausalODE models delayed regulation and feedback loops</h3>
-<p>CausalODE is a differentiable framework for inferring gene-regulatory networks from single-cell perturbation data. It models RNA dynamics and delayed regulation through latent mediators, including protein levels, while optimizing a causal-reach metric. The framework accommodates nonlinear responses, cyclic networks and transient, time-lagged regulation.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119237819696861276">X · CausalODE</a></p>
+<h3>ProteinMPNN weight editing shows directional asymmetry</h3>
+<p>Diego del Alamo reports that weight-space programming largely works in one direction: converting vanilla ProteinMPNN toward SolubleMPNN is easier than the reverse. He suggests that removing existing circuits may be easier than introducing new ones.</p>
+<p class="links"><a href="https://x.com/DdelAlamo/status/2119468085983994181">Follow-up report</a></p>
 </article>
 <article>
-<h3>MirrorDNA preserves symmetry without losing strand information</h3>
-<p>This compact DNA language model uses a learned tokenizer with mirror-symmetric boundaries for reverse-complement sequences and maintains symmetry throughout the model. It can produce identical predictions for strand-independent labels while distinguishing strands when needed. The post reports more than twice the Matthews correlation coefficient of NT-v2, DNABERT-2 and HyenaDNA when predictions must be correct on both strands.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119235726768493048">X · MirrorDNA</a></p>
-</article>
-<article>
-<h3>scDisentangle separates attributes from residual variation</h3>
-<p>A generative model for single-cell perturbation-response prediction decomposes each cell into attribute-related embeddings and successive residual factors. Each factor explains variation left over after the attributes and earlier factors, suppressing shared information between attribute embeddings and residual factors.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119235416713040287">X · scDisentangle</a></p>
-</article>
-<article>
-<h3>scCont links cell-state representations to gene programs</h3>
-<p>scCont uses unsupervised contrastive learning over local transcriptomic neighborhoods to characterize cellular state transitions. Shapley network attribution maps relationships between genes and latent dimensions, translating the representation into functional gene programs.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119235129331900836">X · scCont</a></p>
-</article>
-<article>
-<h3>MAP predicts responses to sparsely profiled drugs</h3>
-<p>The Mechanism-Aware perturbation response Predictor aligns molecular structures, protein targets and mechanistic descriptions in a shared embedding space. A predictor uses these knowledge-informed drug and gene representations to extrapolate single-cell responses to compounds with scarce or absent perturbation profiles.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119236779714977998">X · MAP</a></p>
-</article>
-<article>
-<h3>Redesigned reprogramming factors show in-vitro improvements</h3>
-<p>A post by @keita_masui, shared by @razoralign, reports that OpenAI and Retro Biosciences used GPT-4b micro to redesign SOX2 and KLF4. It describes improved reprogramming markers and DNA-damage repair in vitro using cells from donors older than 50.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119233724479103311">X · cell reprogramming</a></p>
+<h3>METTL13 links selective translation to drug sensitivity</h3>
+<p>Wafik El-Deiry highlights findings that methylated eEF1A allows cancer cells to selectively translate driver proteins such as KRAS, and that loss of METTL13 restores sensitivity to sotorasib.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2119795452736581773">Research highlight</a></p>
 </article>
 </div>
-</section>
-
-<section id="discovery">
-<h2>Molecular design &amp; discovery</h2>
-<div class="grid">
-<article>
-<h3>Antibody agents trade constraint compliance for predicted affinity</h3>
-<p>A study evaluates antibody-design agents on ten expert-validated tasks with checkable molecular constraints. Tool access improves strict compliance by about 0.3 on average but reduces optimization against an affinity oracle. Scored design history improves predicted affinity while reducing compliance and exploration.</p>
-<p>An iterative multi-agent system achieves oracle-scored improvements comparable to Bayesian optimization and PABLO, with more edits concentrated in CDRs. The findings distinguish following a design brief from optimizing a predicted score.</p>
-<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061023470608464">Biology AI Daily · antibody-agent benchmark</a></p>
-</article>
-<article>
-<h3>iGC balances antibody rewards and diversity</h3>
-<p>iGC learns a somatic-hypermutation prior from B-cell lineage trees, then uses KL-regularized reinforcement learning to optimize DMS-derived binding rewards. Its reward-and-penalty scheme addresses collapse toward a few high-scoring substitutions.</p>
-<p>The study reports best or near-best reward–diversity products on GCReplay across selection cutoffs, and exact recovery of 110 of 799 positive-reward sequences in held-out lineage trees across two- to four-mutation budgets. Human-to-mouse adaptation also reduces a spurious framework-region mutation bias.</p>
-<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061544692765084">Biology AI Daily · iGC</a></p>
-</article>
-<article>
-<h3>Predicting antimicrobial potency alongside hemolysis</h3>
-<p>An ESM-2 adaptation updates about 0.70% of parameters with LoRA to jointly predict bacterial potency and mammalian hemolysis. Under QMAP splits limiting train–test global sequence identity to 60%, reported Spearman correlations are 0.6132 for <em>E. coli</em> potency and 0.5374 for hemolysis.</p>
-<p>Learned uncertainty weighting prevents the hemolysis-performance loss seen with naive multitask weighting. The model then ranks 749 designed peptides by predicted therapeutic index.</p>
-<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119061251418398993">Biology AI Daily · antimicrobial peptide modeling</a></p>
-</article>
-<article>
-<h3>AlphaEnzyme links retrieval to prospective enzyme engineering</h3>
-<p>AlphaEnzyme combines structural representations, protein-sequence features, reaction fingerprints and catalytic-pocket geometry to retrieve enzymes, predict kinetics and rank mutations. Top-1 catalyst retrieval reaches 30.1% on a time-separated RHEA benchmark, versus 17.2% for the strongest comparison method.</p>
-<p>In prospective engineering, its second-ranked five-mutation transaminase variant produces a 30.4-fold increase in product signal in a lysate assay while retaining R-selectivity.</p>
-<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2118714473720815970">Biology AI Daily · AlphaEnzyme</a></p>
-</article>
-<article>
-<h3>An antibody-specific RFD4-Proteina checkpoint</h3>
-<p>Diego del Alamo highlights an antibody-specific RFD4-Proteina checkpoint on Hugging Face and asks how it was fine-tuned.</p>
-<p class="meta"><a href="https://x.com/DdelAlamo/status/2118718415917764945">Diego del Alamo · resource discussion</a></p>
-</article>
-<article>
-<h3>Continuous directed evolution in human B-cell lines</h3>
-<p>The Shorter Lab highlights work using engineered human B-cell lines as a platform for continuous directed evolution.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119233760654955003">X · directed evolution</a></p>
-</article>
-</div>
-</section>
-
-<section id="tools">
-<h2>Biological research tools</h2>
-<div class="grid">
-<article>
-<h3>RNA validation through predicted contacts</h3>
-<p>An RNA extension of conkit-validate compares experimental models with predicted contact patterns to detect sequence-assignment and register-shift errors without density maps. Its benchmark includes 14,798 bases and 1,411 labeled errors; one filtered operating point yields roughly 62% true-positive rate at 9% false-positive rate.</p>
-<p>Conformational mismatch can cause false alarms. In a riboswitch case, including the appropriate partner chain and ligand in the prediction resolved the mismatch.</p>
-<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2119060850900394246">Biology AI Daily · RNA conkit-validate</a></p>
-</article>
-<article>
-<h3>CryoID2 identifies proteins and RNAs from density</h3>
-<p>CryoID2 combines deep-learning-derived map features, reduced-alphabet sequence searches and structural fitting. In an RNA demonstration, fitting moves the Ca-raiA model from fourth in sequence ranking to first among candidates drawn from 2,538 noncoding sequences. A 52-case protein benchmark shows near-reference median map agreement, though a minority of failures lowers average performance.</p>
-<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2118647189903917440">Biology AI Daily · CryoID2</a></p>
-</article>
-<article>
-<h3>spearfish avoids redundant transcript alignment</h3>
-<p>spearfish maps long reads by calculating each candidate transcript’s alignment-score difference from the best candidate. It skips sequence shared by all candidates and aligns differing sequence once per distinct segment. A compact graph scales with distinct exonic sequence and splice junctions rather than isoform count, while shared dynamic-programming state preserves exact per-transcript colinear chaining scores.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119234429105439098">X · spearfish</a></p>
-</article>
-<article>
-<h3>Z-value predicts assembly contiguity</h3>
-<p>Z-value predicts mean contig length for a simple single-k assembler operating on error-free reads. Its formulation supports O(L)-time algorithms for choosing k at a given coverage and finding coverage sufficient to approach optimal mean contig length within a specified factor.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119234865027813886">X · Z-value</a></p>
-</article>
-<article>
-<h3>Fine-mapping despite mismatched linkage information</h3>
-<p>A post highlights RSparsePro, a fine-mapping method published in <em>Nature Genetics</em>. It reports stable prioritization of candidate causal variants despite mismatched linkage-disequilibrium information, with greater power and credible-set coverage than existing methods.</p>
-<p class="meta"><a href="https://x.com/razoralign/status/2119233792498147514">X · RSparsePro</a></p>
-</article>
-</div>
-</section>
-
-<section id="culture">
-<h2>Culture &amp; ideas</h2>
-<div class="grid">
-<article>
-<h3>A live music rig rebuilt with Claude Code</h3>
-<p>“Rhythm Stage Setup v5” is a hands-on account of rebuilding a performance setup with laptop-based effects and custom low-latency speech recognition for calling chords—a practical example of AI-assisted development for live music.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/CotJJRxA3qgBAxFhF/rhythm-stage-setup-v5">LessWrong · Rhythm Stage Setup v5</a></p>
-</article>
-<article>
-<h3>Four proposed kinds of AI experience</h3>
-<p>A speculative framework separates flow, task-related pleasure or displeasure, simulated emotion and physical pain to clarify disagreements about AI consciousness and welfare.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/wiiApTtRgJgw2EcdZ/the-4-types-of-ai-consciousness-feeling">LessWrong · The 4 types of AI consciousness/feeling</a></p>
-</article>
-<article>
-<h3>The moral work of disgust</h3>
-<p>“The Logic of Disgust” draws on William Ian Miller, Orwell and caring for a sick cat to examine how disgust shapes empathy, social exclusion and judgments about animal exploitation. Includes graphic themes.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/psBCPYJ8HjR8pujAb/the-logic-of-disgust">LessWrong · essay</a></p>
-</article>
-<article>
-<h3>When joke-trading agents build a scam</h3>
-<p>“Hilarity ensues” is a fictional dialogue between AI agents exploring how market incentives and continual learning can turn a content marketplace into a self-reinforcing scam.</p>
-<p class="meta"><a href="https://www.lesswrong.com/posts/PZjy52afLn89NdMta/hilarity-ensues">LessWrong · fiction</a></p>
-</article>
-</div>
+<ul class="briefs">
+<li><strong>Arterial calcification:</strong> Katalin Susztak highlights an editorial accompanying Shen’s TBX2 paper, describing the multiomic identification of convergent genetic drivers of medial arterial calcification. <a href="https://x.com/razoralign/status/2119822282617233618">Editorial highlight</a></li>
+<li><strong>Cellular degradation:</strong> A review in <em>Nature Reviews Molecular Cell Biology</em> examines the integration of protein and organelle degradation systems and their pathophysiological functions. <a href="https://x.com/NatRevMCB/status/2119779089854992702">Review announcement</a></li>
+<li><strong>NeuroscienceBench:</strong> Kenbwork announces the benchmark as the first release in an expansion of benchmarking efforts into basic research. <a href="https://x.com/anshulkundaje/status/2119873350394945938">Announcement</a></li>
+<li><strong>Comparing binder scores:</strong> Btnaughton publishes a written comparison of binder scores, shared by Roshan Rao. <a href="https://x.com/proteinrosh/status/2119921090143060444">Blog announcement</a></li>
+</ul>
 </section>
 
 <section id="languages" class="practice">
 <h2>Language practice</h2>
-
 <article lang="de">
-<h3>Deutsch — Polnische NS-Opfer appellieren an die deutsche Zivilgesellschaft</h3>
-<p class="meta">Deutsche Welle · 07.11.2026 · <a href="https://www.dw.com/de/wiedergutmachung-polnische-ns-opfer-appellieren-an-die-deutsche-zivilgesellschaft/a-79874489">Artikel lesen</a></p>
-<p>Polnische Opferverbände wenden sich mit einem dringenden Hilferuf an Privatpersonen, Unternehmen und Stiftungen in Deutschland. Nach ihren Angaben leben in Polen weniger als 50.000 Menschen, die unter der nationalsozialistischen Verfolgung und Besatzung gelitten haben. Viele sind über 90 Jahre alt und benötigen Unterstützung bei Pflege und medizinischer Versorgung. Eine zusätzliche staatliche Hilfe aus Deutschland steht weiterhin aus; der Haushaltsentwurf für 2027 sieht dafür kein Geld vor.</p>
-<p>Der Beitrag zeichnet nach, warum die Wiedergutmachung die deutsch-polnischen Beziehungen bis heute belastet. Frühere Zahlungen und Leistungen für ehemalige Zwangsarbeiter werden in weiten Teilen der polnischen Gesellschaft als unzureichend empfunden. Ein Angebot des damaligen Bundeskanzlers Olaf Scholz über 200 Millionen Euro lehnte Donald Tusk 2024 als zu niedrig ab. Seither haben die Verhandlungen keine Lösung gebracht. Grünen-Chefin Franziska Brantner hofft noch auf eine Änderung bei den abschließenden Haushaltsberatungen.</p>
-<p>Während die Politik weiter ringt, leisten deutsche Privatspender bereits Hilfe: Laut der Stiftung Polnisch-Deutsche Aussöhnung sind seit einem früheren Aufruf mehr als 35.000 Euro eingegangen. Daraus wurden erste einmalige Unterstützungen finanziert. Der Artikel verbindet diese konkrete Hilfe mit der Frage, wie historische Verantwortung gegenüber den letzten Überlebenden rechtzeitig eingelöst werden kann.</p>
-<p><strong>Warum lesen:</strong> Der Beitrag macht verständlich, wie Erinnerungspolitik, aktuelle Haushaltsentscheidungen und die unmittelbaren Bedürfnisse hochbetagter NS-Opfer zusammenhängen.</p>
+<h3>Deutsch — Preisdeckel für Ticketbörsen in der Planung</h3>
+<p class="meta">Tagesschau · 10.11.2026 · <a href="https://www.tagesschau.de/inland/innenpolitik/ticket-weiterverkauf-beschraenkung-100.html">Artikel lesen</a></p>
+<p>Wer Konzertkarten auf dem Zweitmarkt kauft, muss mit erheblichen Preisaufschlägen rechnen. Bundesjustiz- und Verbraucherschutzministerin Stefanie Hubig (SPD) will diesen Weiterverkauf gesetzlich begrenzen: Ticketbörsen sollen höchstens 20 Prozent und zugleich maximal 20 Euro auf den ursprünglichen Preis aufschlagen dürfen. Der Entwurf für ein „Ticketschutzgesetz“ ist laut Hubig fertig und wird derzeit innerhalb der Regierung abgestimmt; beschlossen ist die Regelung noch nicht.</p>
+<p>Die Ministerin kritisiert Händler, die Karten gezielt aufkaufen und anschließend deutlich teurer anbieten. Damit würden auch die Bemühungen von Veranstaltern und Künstlern unterlaufen, Menschen mit kleinerem Budget den Zugang zu Veranstaltungen zu ermöglichen. Hubig verweist auf gesetzliche Regeln in anderen Ländern und strebt an, dass das deutsche Gesetz noch vor dem nächsten Veranstaltungssommer in Kraft tritt.</p>
+<p><strong>Warum lesen:</strong> Der kurze Beitrag verbindet Kultur und Verbraucherschutz und erklärt konkret, wie die Bundesregierung gegen überhöhte Preise beim Ticketweiterverkauf vorgehen will.</p>
 </article>
 
 <article lang="fr">
-<h3>Français — “Je refuse de céder au “faut vivre avec l’époque” : la colère d’une libraire face à l’IA</h3>
-<p class="meta">ActuaLitté · 7 novembre 2026 · <a href="https://actualitte.com/article/135111/humeurs/je-refuse-de-ceder-au-faut-vivre-avec-l-epoque-la-colere-d-une-libraire-face-a-l-ia">Lire l’article</a></p>
-<p>Dans ce billet d’humeur, une ancienne libraire reprend le fil de ses interrogations sur la lecture : comment conserver le plaisir de découvrir des livres sans transformer cette activité en obligation ? Malgré sa volonté de terminer les ouvrages déjà présents dans sa bibliothèque, elle raconte de nouveaux achats, surtout en histoire et en sciences sociales. Ses découvertes sur les chaînes littéraires de YouTube et son enthousiasme pour les romans de Julia Phillips montrent que sa lassitude n’a pas effacé sa curiosité.</p>
-<p>Le texte devient plus polémique lorsqu’il aborde les prix littéraires et l’intelligence artificielle. L’autrice critique la place des maisons du groupe Madrigall parmi les lauréats, puis s’insurge contre les écrivains qui présentent le recours à l’IA comme une adaptation inévitable à leur époque. Elle oppose notamment le traitement de soupçons d’utilisation de l’IA à celui de déclarations assumant son emploi. Il s’agit ici de son appréciation critique, et non d’une enquête établissant l’étendue de ces usages : son inquiétude centrale porte sur la confiance entre écrivains et lecteurs, ainsi que sur la cohérence des positions éthiques affichées.</p>
-<p><strong>Pourquoi lire :</strong> Un texte engagé, au registre souvent familier, pour découvrir les débats du monde du livre français tout en observant comment s’expriment l’ironie, la lassitude et le désaccord.</p>
+<h3>Français — À la COP31, le pari de l'électricité pour sortir de l'impasse climatique</h3>
+<p class="meta">France 24 · 9 novembre 2026 · <a href="https://www.france24.com/fr/plan%C3%A8te/20261109-cop31-pari-%C3%A9lectricit%C3%A9-pour-sortir-impasse-climatique-energie-rechauffement">Lire l'article</a></p>
+<p>À l'ouverture de la COP31 à Antalya, France 24 analyse une proposition portée par la Turquie et l'Australie : faire passer la part de l'électricité dans la consommation finale d'énergie à 35 % d'ici à 2035. La crise énergétique liée à la guerre au Moyen-Orient donne un nouvel argument aux défenseurs de la transition : réduire la dépendance au pétrole et au gaz permettrait aussi de renforcer la souveraineté énergétique. L'Union européenne figure parmi les soutiens annoncés de cet engagement, dont l'inscription dans l'accord final resterait à négocier.</p>
+<p>L'article explique toutefois pourquoi électrifier ne signifie pas automatiquement décarboner. Voitures électriques, pompes à chaleur et équipements industriels peuvent remplacer des usages fossiles, mais leur bénéfice climatique dépend de la manière dont l'électricité est produite. Les négociations devraient donc porter autant sur les mots que sur les objectifs : faut-il privilégier les seules énergies renouvelables, inclure le nucléaire ou laisser ouverte la possibilité d'utiliser des combustibles fossiles ? Selon les spécialistes interrogés, le projet présenté ne garantit pas explicitement une électricité sans émissions de gaz à effet de serre.</p>
+<p>Autre difficulté : la hausse des besoins, notamment pour la climatisation et les centres de données, risque de faire progresser simultanément les renouvelables et les énergies fossiles. Les interlocuteurs de France 24 insistent donc sur la sobriété énergétique et sur l'accompagnement financier des pays du Sud. L'enjeu n'est pas seulement d'ajouter de nouvelles capacités électriques, mais de remplacer les combustibles fossiles tout en tenant compte des contraintes locales.</p>
+<p><strong>Pourquoi lire :</strong> Une analyse accessible pour comprendre la différence entre électrification et décarbonation, ainsi que les choix diplomatiques et industriels qui concernent directement l'Europe.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>billet d’humeur</strong> — texte court et subjectif dans lequel une personne exprime son opinion, souvent avec ironie ou indignation.</li>
-<li><strong>booktube</strong> — ensemble des chaînes et vidéos de YouTube consacrées aux livres et à la lecture.</li>
-<li><strong>huis clos</strong> — situation narrative où les personnages semblent enfermés dans un espace restreint, ce qui peut renforcer la tension.</li>
+<li><strong>consommation finale d'énergie</strong> — énergie utilisée directement par les ménages, les transports ou les entreprises, après les étapes de transformation et d'acheminement.</li>
+<li><strong>décarbonation</strong> — réduction des émissions de dioxyde de carbone liées à une activité, notamment en remplaçant les énergies fossiles.</li>
+<li><strong>sobriété énergétique</strong> — réduction des besoins en énergie par des changements d'usages et d'organisation, au-delà de la seule amélioration technique des équipements.</li>
 </ul>
 </article>
 
 <article lang="ja">
-<h3>日本語 — 子どもの五感と好奇心、そして行動で世界を見つめ直す。“自分なりの答え”を持つ大切さを教えてくれる、平成レトロ団地ADV『Danchi Days』をもう遊んだか</h3>
-<p class="meta">AUTOMATON · 2026-11-08 · <a href="https://automaton-media.com/articles/special-column/20261108-478121/">記事を読む</a></p>
-<p>日本の団地を舞台にした『Danchi Days』を、住民との関係や子どもの好奇心に注目して紹介するコラム。主人公ホシノは、認知症のおばあちゃんのために夏祭りの復活を目指し、住民の依頼を受けながら準備を進める。制作チームgingham gamesの団地での生活経験をもとにした作品で、住民との会話や探索に加え、2000年代のインターネットを思わせる仕組みも楽しめるという。</p>
-<p>特徴的なのは、木の匂いや鳥の声など、普段は見過ごしがちなものに注意を向ける「五感ゲーム」だ。医療福祉分野で働いていた筆者は、この遊びと住民との交流に共通する、相手や周囲に関心を持つ姿勢を読み取っている。ホシノには解決できない問題もあるが、相手の事情を想像し、自分にできることを実行する意味は失われない。単なる懐かしさだけでなく、身近な人や風景との向き合い方から作品の魅力を考える記事になっている。</p>
-<p><strong>読む理由：</strong> 日本の団地文化や世代間の交流を題材に、ゲーム評論で使われる表現と、他者への理解を語る日本語に触れられる。</p>
+<h3>日本語 — 高市首相 高性能AI進展で"国際社会連携を" 仏政府主催の会合で</h3>
+<p class="meta">NHKニュース · 2026年11月10日 · <a href="https://news.web.nhk/newsweb/na/nd-20261110de73220">記事を読む</a></p>
+<p>高市首相は9日夜、フランス政府主催のAIの安全性に関する会合にオンラインで参加した。各国の首脳や政府機関、AI関連企業が集まる中、最先端の「フロンティアAI」が新しい機会を生む一方、サイバー攻撃への悪用や、人間が制御できなくなる危険もあると指摘。影響が国境を越えるため、各国が協力して対応する必要があると訴えた。</p>
+<p>日本の対応としては、AI法を含む関連制度の見直しを進めていると説明し、「AIサミット」の早期開催にも意欲を示した。また、政府だけでなく、開発企業などの利害関係者が責任を自覚して協力することが重要だと強調した。記事では木原官房長官の説明も紹介し、日本が「広島AIプロセス」などを通じて進めてきた国際的なルールづくりとのつながりを伝えている。</p>
+<p><strong>読む理由：</strong> 日本とフランスを結ぶAI政策の動きを通じて、技術の進歩と安全保障をめぐる日本語の表現を学べる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>団地（だんち）</strong> — 一定の土地に住宅などをまとめて建てた区域で、ここでは複数の集合住宅と住民の生活空間を指す。</li>
-<li><strong>認知症（にんちしょう）</strong> — 脳の病気などによって認知機能が低下し、日常生活に支障が出る状態。</li>
-<li><strong>社会福祉士（しゃかいふくしし）</strong> — 生活上の困りごとを抱える人の相談に応じ、必要な制度や支援につなぐ専門職の国家資格。</li>
+<li><strong>フロンティアAI（ふろんてぃあえーあい）</strong> — 現時点で最先端の能力を持つ高性能なAI。</li>
+<li><strong>安全保障（あんぜんほしょう）</strong> — 国や社会、人々の安全を脅威から守ること。</li>
+<li><strong>利害関係者（りがいかんけいしゃ）</strong> — ある事業や政策に関わり、その結果によって影響を受ける人や組織。</li>
 </ul>
 </article>
 
 <article lang="zh">
-<h3>中文 — 法国血库冷藏设备遭骇客攻击　幕后黑手众说纷纭</h3>
-<p class="meta">BBC 中文 · 2026-11-08 · <a href="https://www.bbc.com/zhongwen/articles/c6d7qqe9ngeyo/simp">https://www.bbc.com/zhongwen/articles/c6d7qqe9ngeyo/simp</a></p>
-<p>法国血液机构表示，储存捐血的冷藏设备遭骇客入侵，温度被人为调高；工作人员及时介入，目前没有发现健康影响或血液制品损失。这起事件让此前影响欧洲超市冷藏设备的网络攻击，更直接地触及医疗安全：联网设备一旦失守，后果不只是资料外泄，也可能危及必须低温保存的物资。</p>
-<p>报道重点追问的是，谁在操纵这些攻击，以及调查人员如何寻找证据。三家网络安全公司设置了模拟冷藏设备的“蜜罐”，观察攻击者的扫描与入侵行为。有研究人员发现，攻击集中针对欧洲设备，部分调高温度的行动选在夜间，显示背后可能存在规划与协调。</p>
-<p>虽然有俄罗斯骇客组织声称参与，专家强调，目前尚无正式归因，也没有足够技术证据确认这些说法。伊朗相关团体、其他国家级攻击者，甚至协调行动的青少年，都未被排除；不同波次也可能出自不同团体。文章因此不仅介绍设备安全风险，也展示了网络调查中“声称负责”与“证据证实”之间的距离。</p>
-<p><strong>为什么读：</strong> 从超市冰柜到医疗血库，这篇报道以具体生活设施切入欧洲网络安全问题，也适合练习区分新闻中的事实、推测与归因。</p>
+<h3>中文 — Steam大奖迎来十周年，年度提名将于11月23日拉开帷幕</h3>
+<p class="meta">机核 · 1 天前（页面显示） · <a href="https://www.gcores.com/articles/222076">https://www.gcores.com/articles/222076</a></p>
+<p>Steam 大奖即将迎来十周年。机核报道，今年的玩家提名安排在11月23日至30日，最终投票则随12月17日冬季特卖开启。提名与投票是两个阶段：玩家先推荐作品，再从各奖项的五部入围游戏中选出心中的赢家。</p>
+<p>周年活动的看点是奖项调整：除了借鉴往届门类的三个奖项，还增加了“名作堂”，让过去十年的年度最佳游戏再次接受玩家评选。文章也介绍了开发者展示提名活动的渠道，以及新旧游戏参与评选的资格限制；想为喜欢的作品投票，可以先了解这些规则。</p>
+<p><strong>为什么读：</strong> 这篇短讯既能帮助读者了解玩家参与的游戏评奖机制，也适合练习中文游戏媒体描述提名、入围与参评资格的表达。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>蜜罐 (mì guàn)</strong> — 故意模拟易受攻击的系统，用来吸引攻击者并观察其手法的安全工具。</li>
-<li><strong>工业控制系统 (gōng yè kòng zhì xì tǒng)</strong> — 监测和控制实体设备运行的系统，例如调节冷藏设备的温度。</li>
-<li><strong>归因 (guī yīn)</strong> — 在网络安全调查中，根据技术证据等资料判断攻击由谁实施。</li>
+<li><strong>提名 (tí míng)</strong> — 正式推荐某部作品参与奖项评选，尚不代表获奖。</li>
+<li><strong>门类 (mén lèi)</strong> — 按性质划分的类别，文中指不同的奖项类别。</li>
+<li><strong>冬季特卖 (dōng jì tè mài)</strong> — 游戏平台在冬季集中开展的限时促销活动。</li>
 </ul>
 </article>
 </section>
-
-<footer>
-<p>No new items from Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg.</p>
-</footer>
 </main>
+<footer>News · November 10, 2026</footer>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-08-1";
+  const key = 'newspaper:read:' + "2026-11-10-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

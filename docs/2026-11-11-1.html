@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202b30;--muted:#637078;--line:#d9deda;--accent:#17615c}
+*{box-sizing:border-box}
+body{margin:0;background:#f6f5ef;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:960px;margin:auto;padding:24px 30px}
+header{padding-top:42px;border-bottom:3px solid var(--ink)}
+h1{font-size:64px;line-height:1;margin:0 0 16px}
+.date,.meta,nav,.section-label,footer{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted)}
+nav{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 22px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:29px;line-height:1.25;margin:36px 0 22px;border-bottom:1px solid var(--line);padding-bottom:12px}
+h3{font-size:22px;line-height:1.35;margin:0 0 10px}
+p{margin:10px 0}
+article{margin-bottom:28px}
+.links{font-family:system-ui,sans-serif;font-size:13px}
+.briefs{border-left:3px solid var(--line);padding-left:20px}
+.briefs h3{font-size:19px}
+#language-practice{margin-top:48px;border-top:3px solid var(--ink)}
+.reading{padding:24px 0;border-bottom:1px solid var(--line);margin:0}
+.reading:lang(ja),.reading:lang(zh){font-family:system-ui,sans-serif;line-height:1.9}
+ul{padding-left:24px}
+footer{border-top:1px solid var(--line);margin-top:24px;padding-bottom:36px}
+@media(max-width:600px){main,header,footer{padding-left:20px;padding-right:20px}h1{font-size:52px}body{font-size:16px}}
+</style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-11-11">Wednesday, 11 November 2026</time></div>
+<nav aria-label="Sections">
+<a href="#ai">AI research &amp; engineering</a>
+<a href="#biology">Computational biology</a>
+<a href="#methods">Methods &amp; resources</a>
+<a href="#language-practice">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="ai">
+<h2>AI research &amp; engineering</h2>
+<article>
+<h3>Goodfire releases descriptions of 1,500 neurons</h3>
+<p>Goodfire reports studying thousands of neurons with an automated interpretability pipeline and argues that neurons should be described by their computational function, rather than simply classified as polysemantic. Its technical companion to <em>Neural Networks are Already Clean</em> includes descriptions of 1,500 neurons in Qwen3.6 35B-A3B.</p>
+<p class="links"><a href="https://x.com/GoodfireAI/status/2120221477245182460">Goodfire announcement</a> · <a href="https://t.co/yisd9016np">Technical post</a> · <a href="https://t.co/XqN6yJCNhX">Neuron descriptions</a></p>
+</article>
+<article>
+<h3>Hybrid and sparse architectures move beyond full attention</h3>
+<p>Sebastian Raschka reports that none of the models in his second-half-of-2026 roundup use full attention throughout. The group splits evenly between architectures retaining some dense global attention and those with none.</p>
+<p>His analysis separates two kinds of savings: token or block selection reduces attention computation, while fixed-size recurrent states reduce context memory. Compressing history makes exact retrieval harder—a tradeoff that motivates combining recurrent layers with sparse or full attention.</p>
+<p class="links"><a href="https://x.com/rasbt/status/2120192452287963540">Raschka’s analysis</a></p>
+</article>
+<article>
+<h3>Native 4096² image generation on an M5 Max</h3>
+<p>Prince Canuma reports MiniMax H3-Image measurements in the forthcoming MLX-VLM 0.8.0 on an M5 Max with 128 GB of memory. With 8-bit weights and six generation steps, inference took 13.45 seconds at 1024², 42.34 seconds at 2048², and 242.02 seconds at native 4096². Peak memory was 25 GiB at each resolution; editing a 2048² image with one reference took 126 seconds.</p>
+<p class="links"><a href="https://x.com/Prince_Canuma/status/2120291658788917526">Benchmark report</a> · <a href="https://t.co/P9mZz7SQ5s">Repository</a></p>
+</article>
+<div class="briefs">
+<article>
+<h3>FlashState manages hybrid-model prefix caches</h3>
+<p>Songlin Yang shares @_weilix’s introduction of FlashState, an inference system designed to flexibly manage hybrid language models’ prefix caches for agentic workloads.</p>
+<p class="links"><a href="https://x.com/SonglinYang4/status/2120067182898098252">FlashState announcement</a></p>
+</article>
+<article>
+<h3>Short-convolution efficiency gains across stacks</h3>
+<p>Songlin Yang says Inkling’s reported 19% compute-efficiency gain from short convolution is similar to what he observed in his own stack.</p>
+<p class="links"><a href="https://x.com/SonglinYang4/status/2120074986065170895">Yang’s observation</a></p>
+</article>
+<article>
+<h3>Stanford opens its Engineering AI Agents materials</h3>
+<p>Stanford AI Lab shares Michael Ryan’s announcement that all materials for CS329Z, <em>Engineering AI Agents</em>, are being released publicly.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2120223999439602114">Course announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="biology">
+<h2>Computational biology</h2>
+<article>
+<h3>BioMeme predicts dose responses from an explicit experimental memory</h3>
+<p>BioMeme replaces a learned state-to-response layer with a memory of measured biological experiments. To predict next-dose responses in a new cell type from lower-dose states, it draws on similarly responding compounds in that cell type and the same compound in a reference line.</p>
+<p>Each prediction is an exact weighted sum of named measurements, making the experimental contributions directly traceable. Memory updates use a linear solve.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2120306913707749801">BioMeme overview</a></p>
+</article>
+<article>
+<h3>KLONE links RNA cells to copy-number clones</h3>
+<p>KLONE uses a per-clone k-nearest-neighbor ensemble and cross-modal Pearson similarity to assign RNA cells to copy-number clones, without a parametric model or clone labels for the RNA cells. Each clone is scored using the same number of its most similar DNA cells, preventing clone size alone from conferring an advantage. An unsupervised entropy criterion selects configurations.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2120306664406765930">KLONE overview</a></p>
+</article>
+<article>
+<h3>REAP closes the loop between learning and robotic enzyme experiments</h3>
+<p>REAP—Rank-guided Exploration for Automated enzyme reProgramming—combines AI with robotic experimentation. Its RankReg loss jointly optimizes ranking fidelity and quantitative accuracy, allowing updates directly from experimental feedback. The post reports identification of functional hotspots in catalytic centers and distal regions.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2120306168753205523">REAP overview</a></p>
+</article>
+<article>
+<h3>GeneEmbedLLM aligns heterogeneous gene knowledge</h3>
+<p>GeneEmbedLLM integrates gene attributes from multiple sources, serializes them into structured text, and encodes them with a parameter-efficient Longformer trained through contrastive learning. The shared semantic space supports gene functional representations and association prediction.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2120306422051430516">GeneEmbedLLM overview</a></p>
+</article>
+<article>
+<h3>OpenMed reports fewer incorrect disease tags after fine-tuning</h3>
+<p>OpenMed reports that incorrect tags fell from 2,245 to 1,227 on an evaluation containing 4,424 disease mentions not used in training. One example is nitrofurantoin: the original model incorrectly tagged the antibiotic as a disease, while the fine-tuned model did not. The comparison covers three open English disease models, their results, and blind spots.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2120146926578360616">OpenMed report</a> · <a href="https://t.co/g48IlODijL">Model comparison</a></p>
+</article>
+<article>
+<h3>NovaAtom-Lite announced for drug discovery</h3>
+<p>Geodesiclab introduces NovaAtom-Lite as an all-atom structure-prediction model for drug discovery, in an announcement shared by Anshul Kundaje.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2120338806821802472">Model announcement</a></p>
+</article>
+</section>
+
+<section id="methods">
+<h2>Methods &amp; resources</h2>
+<article>
+<h3>Benchmark evaluates deep-learning peptide sequencing</h3>
+<p>Nature Methods highlights a benchmark analyzing deep-learning tools for de novo peptide sequencing from mass spectra—an evaluation of AI methods for reconstructing peptide sequences from experimental measurements.</p>
+<p class="links"><a href="https://x.com/naturemethods/status/2120235456134607223">Nature Methods announcement</a> · <a href="https://t.co/fpCbpzy8Cs">Study</a></p>
+</article>
+<article>
+<h3>Ok-k-mer optimizes genomic distance estimates</h3>
+<p>Ok-k-mer selects weighted combinations of k-mer lengths for estimating pairwise genomic distances. It ranks genome pairs by Jaccard distance across different k values, then progressively searches for weights that maximize Spearman correlation between the combined rankings and branch distances.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2120305906001059993">Ok-k-mer overview</a></p>
+</article>
+<div class="briefs">
+<article>
+<h3>RNA and spatial profiling</h3>
+<p><strong>tRIBO-seq</strong> uses nanopore sequencing to distinguish ribosome-associated tRNAs from total tRNAs, according to Nature Methods. <a href="https://x.com/naturemethods/status/2120217913785233545">Method announcement</a></p>
+<p><strong>ATLAS</strong> is introduced by Nature Methods as a highly scalable tissue-profiling method for generating imputed cell maps. <a href="https://x.com/naturemethods/status/2120216634740871412">Method announcement</a></p>
+<p><strong>DIRAC</strong> has been published in Nature Methods. Boxiang Liu presents the work in the context of spatial multiomics measurements across molecular layers. <a href="https://x.com/razoralign/status/2120300420010856512">Publication announcement</a></p>
+</article>
+<article>
+<h3>Genetics, sequence analysis, and statistical tools</h3>
+<p><strong>jaxQTL:</strong> The authors announce publication in Nature Genetics and highlight efficient count-based models. <a href="https://x.com/razoralign/status/2120303380321226941">Publication announcement</a></p>
+<p><strong>kache-hash:</strong> A shared resource introduces a dynamic, concurrent, cache-efficient hash table for streaming k-mer operations. <a href="https://x.com/razoralign/status/2120301776993956294">Resource</a></p>
+<p><strong>ROAST:</strong> Hao Yin highlights rotation-based gene-set testing for complex microarray experiments. <a href="https://x.com/razoralign/status/2120300360200065289">Method resource</a></p>
+</article>
+<article>
+<h3>Further reading</h3>
+<p><strong>Genomic language models:</strong> “To Transformers and Beyond: Large Language Models for the Genome” addresses language modeling for genomic sequences. <a href="https://x.com/razoralign/status/2120061990999867679">Shared resource</a></p>
+<p><strong>Genome maintenance:</strong> Nature Reviews Molecular Cell Biology announces the review “The nucleocytoplasmic actin circuit in genome maintenance.” <a href="https://x.com/NatRevMCB/status/2120163101907759200">Review announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="language-practice" aria-labelledby="language-heading">
+<h2 id="language-heading">Language practice</h2>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Telekom rüstet KI-Fabrik in München nach, Gigafactory bleibt Option</h3>
+<p class="meta">heise online · 09.11.2026 · <a href="https://www.heise.de/news/Telekom-ruestet-KI-Fabrik-in-Muenchen-nach-Gigafactory-bleibt-Option-11517926.html">Artikel lesen</a></p>
+<p>Die Deutsche Telekom erweitert ihr KI-Rechenzentrum im Münchner Tucherpark: Statt ursprünglich 10.000 sollen dort bald 20.000 Nvidia-GPUs arbeiten. Dafür investiert der Konzern nach eigenen Angaben knapp eine weitere Viertelmilliarde Euro. Die Nachfrage kommt unter anderem von Industrieunternehmen wie Siemens und Daimler Trucks, die Rechenleistung für Sprachmodelle, Robotik und die Simulation von Produktionsabläufen benötigen. Der Bericht zeigt auch eine überraschend handfeste Grenze des Ausbaus: Bestimmte neue Serverracks passen nicht in den Aufzug der unterirdischen Anlage.</p>
+<p>Neben der Hardware geht es um Energieversorgung und politische Erwartungen. Laut Telekom wird das Rechenzentrum vollständig mit erneuerbaren Energien betrieben; zur Kühlung dient der nahe Eisbach, und künftig soll die Abwärme das Quartier versorgen. Die anwesenden Regierungsvertreter betonten die Bedeutung eigener KI-Infrastruktur für Deutschlands Industrie, verwiesen aber auch auf Kosten, Vertrauen und gesellschaftliche Akzeptanz.</p>
+<p>Eine deutlich größere, EU-geförderte „Gigafactory“ bleibt dagegen offen. Telekom-Chef Tim Höttges kritisiert insbesondere die Vorgabe, 60 Prozent der Rechenleistung für die öffentliche Hand vorzuhalten: Daraus könnten hohe Kosten für ungenutzte Kapazitäten entstehen. Der Artikel macht damit den Unterschied zwischen politischen Ausbauzielen und einer für Investoren tragfähigen Finanzierung deutlich.</p>
+<p><strong>Warum lesen:</strong> Der Bericht verbindet konkrete Einblicke in deutsche KI-Infrastruktur mit der Frage, unter welchen technischen, ökologischen und wirtschaftlichen Bedingungen ihr Ausbau gelingt.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Farsi et port 502 : voici les indices qui ont amené la France à accuser l’Iran du piratage des frigos de supermarchés</h3>
+<p class="meta">Numerama · 10 novembre 2026 · <a href="https://www.numerama.com/cyberguerre/2371171-farsi-et-port-502-voici-les-indices-qui-ont-amene-la-france-a-accuser-liran-du-piratage-des-frigos-de-supermarches.html">Lire l’article</a></p>
+<p>Comment attribuer une cyberattaque à un État plutôt qu’à de simples pirates ? Numerama revient sur les éléments ayant conduit la France à désigner, le 9 novembre, l’unité iranienne Shahid Kaveh comme responsable du piratage des installations frigorifiques d’environ 700 supermarchés. Selon l’article, les équipements visés en octobre étaient directement accessibles sur Internet et protégés par des mots de passe faibles. L’affaire montre ainsi comment une protection numérique insuffisante peut avoir des conséquences sur des installations bien matérielles.</p>
+<p>L’accusation repose sur plusieurs indices réunis par le Centre de coordination des crises cyber : des serveurs également utilisés pour repérer d’autres équipements industriels, des méthodes de reconnaissance déjà associées à cette unité et le recours à l’outil FOFA. À ces traces techniques s’ajoutent l’utilisation du farsi dans l’infrastructure d’attaque et le relais de l’opération par un média de propagande lié au groupe. L’article explique notamment le rôle de Modbus, un protocole de communication entre machines industrielles, et du port réseau 502.</p>
+<p>La nuance essentielle est qu’aucun indice ne suffirait isolément : c’est leur convergence qui fonde l’attribution publique. Les autorités restent d’ailleurs prudentes concernant une autre attaque, visant cette fois des équipements de l’Établissement français du sang : malgré des méthodes similaires, elles ne concluent pas à un auteur commun. Cette distinction donne à l’article un intérêt qui dépasse le seul incident, en éclairant la manière dont une enquête technique devient une accusation diplomatique.</p>
+<p><strong>Pourquoi lire :</strong> Une lecture concrète pour comprendre les liens entre cybersécurité industrielle, enquête technique et relations internationales, sans confondre ressemblance et preuve.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>attribution</strong> — démarche consistant à identifier l’acteur responsable d’une cyberattaque à partir d’éléments techniques et contextuels.</li>
+<li><strong>faisceau d’indices</strong> — ensemble d’éléments qui, considérés conjointement, étayent une conclusion sans constituer chacun une preuve suffisante.</li>
+<li><strong>protocole Modbus</strong> — ensemble de règles permettant à des automates et à d’autres équipements industriels d’échanger des données.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 立役の髪型だけでも1000種類、かつら結って70年「床山」鴨治欽吾さん：歌舞伎、職人の世界（1）</h3>
+<p class="meta">nippon.com · 2026-11-10 · <a href="https://www.nippon.com/ja/articles/-/56311">記事を読む</a></p>
+<p>歌舞伎のかつらは、形を作る「かつら師」と、髪を結い上げる「床山」の分業で生まれる。この記事は、15歳で弟子入りし、70年にわたって仕事を続けてきた鴨治欽吾さんを取材。男性役の髪型だけでも千種類に及び、髷の角度や太さ、曲がり具合によって、人物の身分だけでなく、優しさや気の強さまで表現するという。</p>
+<p>髪型は物語の展開にも関わる。『仮名手本忠臣蔵』では登場人物の最期に合わせて髪が徐々にほどけ、『義経千本桜』では隠されていた本性が明らかになる瞬間に一気に崩れる。その違いを生むのが、かつらに施された仕掛けだ。俳優の顔立ちや役柄に合わせる調整も含め、舞台上では見えにくい技術を写真とともに紹介している。</p>
+<p>一方、技を次世代に伝えるには、床山の後継者だけでなく、櫛や髪を結ぶひもの作り手も欠かせない。記事の後半では、長年受け継いできた道具や、写真・映像による髪型の記録にも触れ、伝統芸能を支える仕事の継承という課題を描く。</p>
+<p><strong>読む理由：</strong> かつらを手掛かりに、歌舞伎の人物表現と舞台裏の職人技を具体的に知ることができる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>床山（とこやま）</strong> — 歌舞伎などで、役柄や俳優に合わせてかつらの髪を結い上げる職人。</li>
+<li><strong>立役（たちやく）</strong> — 歌舞伎で男性の役、またはそれを演じる俳優。</li>
+<li><strong>元結（もっとい）</strong> — 髪を束ねて結び、髷などの形を保つために使うひも。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh">
+<h3>中文 — 新美合办国际空海潜三域机器人挑战赛 10国22队以机器人“应对暴风雨”</h3>
+<p class="meta">联合早报 · 2026-11-10 · <a href="https://www.zaobao.com.sg/news/singapore/story20261110-9977401">https://www.zaobao.com.sg/news/singapore/story20261110-9977401</a></p>
+<p>面对暴风雨中的海上搜救任务，空中、水面和水下的机器人如何自行配合？11月9日至14日在新加坡滨海湾中央岬举行的RobotX国际空海潜三域机器人挑战赛，以这一情境考验来自10个国家和地区的22支大学队伍。参赛系统必须在没有人为遥控的情况下，让无人艇、水下潜航器与无人机协同完成任务。</p>
+<p>报道从新加坡国立大学Bumblebee机器人校队队长陈晟斌的经历切入，介绍本届首次引入空中无人机协同作业带来的挑战。这项由新加坡国防部与美国海军研究办公室联合主办的赛事，时隔12年重返新加坡；它既是海上自主系统的技术试验场，也是培养工程人才的平台。同场还举办面向本地院校的Trident-X挑战赛，让更多学生参与海上无人机器人研发。</p>
+<p><strong>为什么读：</strong> 从具体搜救情境理解自主机器人如何跨域合作，同时熟悉新加坡科技报道中的工程与海事用语。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>自主系统 (zìzhǔ xìtǒng)</strong> — 能依据环境信息自行判断并执行任务、不必由人持续遥控的技术系统。</li>
+<li><strong>无人水下潜航器 (wúrén shuǐxià qiánhángqì)</strong> — 无人乘坐、可在水下航行并执行探测等任务的设备。</li>
+<li><strong>跨域自主协同 (kuàyù zìzhǔ xiétóng)</strong> — 在空中、水面、水下等不同作业空间运行的系统，自行协调行动、共同完成任务。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>News · 11 November 2026</footer>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-11-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

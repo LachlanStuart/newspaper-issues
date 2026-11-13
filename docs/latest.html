@@ -5,29 +5,31 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root { color-scheme: light; --ink:#232a30; --muted:#646c72; --rule:#d9dcd8; --accent:#205b68; }
-* { box-sizing:border-box; }
-body { margin:0; background:#f5f4ef; color:var(--ink); font-family:Georgia,"Times New Roman",serif; line-height:1.65; }
-main { max-width:1000px; margin:auto; padding:40px 28px 64px; }
-header { border-top:5px solid var(--ink); border-bottom:1px solid var(--ink); padding:20px 0; margin-bottom:28px; }
-h1 { font-size:4rem; line-height:1; margin:0 0 16px; letter-spacing:-2px; }
-.date, nav, .source { font-family:system-ui,sans-serif; font-size:.85rem; color:var(--muted); }
-nav { display:flex; flex-wrap:wrap; gap:8px 20px; margin:20px 0 30px; }
-a { color:var(--accent); text-decoration-thickness:1px; text-underline-offset:3px; overflow-wrap:anywhere; }
-h2 { font-family:system-ui,sans-serif; font-size:1.25rem; margin:36px 0 18px; padding-bottom:9px; border-bottom:2px solid var(--ink); }
-h3 { font-size:1.28rem; line-height:1.35; margin:0 0 10px; }
-p { margin:0 0 12px; }
-.grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); column-gap:34px; }
-article { padding:16px 0 20px; border-bottom:1px solid var(--rule); }
-.source { margin-bottom:0; }
-.practice { margin-top:48px; border-top:5px solid var(--ink); }
-.practice article { padding:25px 0; }
-.practice h3 { font-size:1.4rem; }
-.practice ul { padding-left:24px; }
-.practice li { margin-bottom:8px; }
-[lang="ja"], [lang="zh"] { line-height:1.9; }
-footer { margin-top:32px; font-family:system-ui,sans-serif; font-size:.8rem; color:var(--muted); }
-@media(max-width:680px) { main { padding:25px 20px 45px; } .grid { grid-template-columns:1fr; } h1 { font-size:3.4rem; } }
+:root{color-scheme:light;--paper:#faf8f3;--ink:#242824;--muted:#62685f;--rule:#d7dacd;--accent:#285a59}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main,header,footer{max-width:1080px;margin:auto;padding:0 28px}
+header{padding-top:38px;padding-bottom:24px;border-bottom:3px solid var(--ink)}
+h1{font-size:76px;line-height:1;margin:0 0 15px;letter-spacing:-3px}
+.date,.source,nav,.eyebrow,footer{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted)}
+nav{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px 20px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:38px}
+h2{font-size:29px;line-height:1.25;border-bottom:1px solid var(--rule);padding-bottom:12px;margin-bottom:22px}
+h3{font-size:22px;line-height:1.35;margin:0 0 10px}
+p{margin:0 0 13px}
+article{margin-bottom:27px;break-inside:avoid}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 32px}
+.source{margin-top:10px}
+.briefs{padding:20px 23px;background:#f0f1e9;border-left:3px solid var(--rule);margin-bottom:25px}
+.briefs p:last-child{margin-bottom:0}
+.practice{border-top:3px solid var(--ink);padding-top:20px;margin-top:48px}
+.practice article{max-width:850px;margin:30px auto 40px;padding-bottom:25px;border-bottom:1px solid var(--rule)}
+.practice h3{font-size:25px}
+.practice [lang=ja],.practice [lang=zh]{font-family:system-ui,sans-serif;line-height:1.9}
+ul{padding-left:24px}
+footer{padding-top:10px;padding-bottom:30px}
+@media(max-width:700px){.grid{grid-template-columns:1fr}h1{font-size:60px}main,header,footer{padding-left:20px;padding-right:20px}body{font-size:16px}}
 </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -48,246 +50,238 @@ footer { margin-top:32px; font-family:system-ui,sans-serif; font-size:.8rem; col
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
-<main>
 <header>
 <h1>News</h1>
-<div class="date"><time datetime="2026-11-12">Thursday, November 12, 2026</time></div>
-</header>
+<div class="date"><time datetime="2026-11-13">Friday, November 13, 2026</time></div>
 <nav aria-label="Sections">
 <a href="#ai">AI research</a>
-<a href="#genomics">Genomics &amp; single-cell biology</a>
-<a href="#design">Molecular design &amp; experiments</a>
-<a href="#tools">Genomic tools</a>
-<a href="#medicine">Medicine &amp; research perspectives</a>
+<a href="#molecules">Proteins &amp; molecular design</a>
+<a href="#omics">Genomics &amp; cellular biology</a>
+<a href="#tools">Scientific tools</a>
 <a href="#languages">Language practice</a>
 </nav>
-
+</header>
+<main>
 <section id="ai">
-<h2>AI research</h2>
+<h2>AI research &amp; training</h2>
+<article>
+<h3>Model weights as hardware fingerprints</h3>
+<p>Will Depue reports recovering hardware-dependent initialization patterns from released model weights after searching more than six trillion GPU-layout and random-seed combinations. He attributes six models’ initialization to Blackwell systems, including bit-for-bit reproduction of untouched DeepSeek-V4-Flash weights on B300 and a 0.999995 correlation for Kimi K3 on GB200. He also reports validation against 24 models with known hardware.</p>
+<p>In replies, Lawrence Chan asks how preserved rows were selected, how many independently seeded processes support the matches, and how estimates of training-token counts account for learning rate, batch size and schedule.</p>
+<p class="source"><a href="https://x.com/willdepue/status/2120992457630326841">Will Depue’s post</a> · <a href="https://t.co/YOtzND0Jqk">Report</a> · <a href="https://x.com/justanotherlaw/status/2121051477875818721">Methodological questions</a> · <a href="https://x.com/justanotherlaw/status/2121051882143744488">Token-estimation question</a></p>
+</article>
 <div class="grid">
 <article>
-<h3>CLAP2 brings variable-length audio encoding to OpenCLIP</h3>
-<p>Ross Wightman describes CLAP2, or NaFlex CLAP, as using a NaFlexViT audio encoder with log-mel patchification and padding that accommodates different audio lengths per sample. He identifies data curation, scaling and validation as the paper’s central contributions.</p>
-<p>The first OpenCLIP 4.x release supports the models and substantially refactors training code. Preliminary scaling experiments ran on the JUPITER supercomputer at Forschungszentrum Jülich.</p>
-<p class="source">Ross Wightman · <a href="https://x.com/wightmanr/status/2120608738856051023">Research post</a></p>
+<h3>Inkling 2 Small’s architectural changes</h3>
+<p>Songlin Yang describes attention residuals with a q/k/v split, gated attention, a dynamic attention sink, dynamic short convolutions and value normalization. A follow-up specifies an attention-residual-plus-CANON arrangement, placing CANON after attention/MLP residual outputs rather than after prenorm.</p>
+<p class="source"><a href="https://x.com/SonglinYang4/status/2120988641376026691">Architecture post</a> · <a href="https://x.com/SonglinYang4/status/2120996631164379451">Follow-up</a></p>
 </article>
 <article>
-<h3>Clinical extraction: more disease mentions or fewer false alarms?</h3>
-<p>OpenMed compares mmBERT and GLiNER2.5 on the same 1,723 Spanish disease mentions. mmBERT finds 18 more mentions, while GLiNER2.5 produces 193 fewer false alarms—a concrete tradeoff between recall and false-positive reduction.</p>
-<p>The accompanying writeup covers model construction, a sealed test opened once and the errors made by each model.</p>
-<p class="source">OpenMed · <a href="https://x.com/OpenMed_AI/status/2120509430789800195">Results</a> · <a href="https://t.co/snOUd3whbE">Writeup</a></p>
+<h3>Selective teaching for document learning</h3>
+<p>Stanford AI Lab highlights <em>Speculative Self-Distillation</em>, a NeurIPS 2026 paper aimed at teaching an LLM a new document without forgetting existing knowledge. The student generates text while a teacher intervenes selectively; related discussion emphasizes accuracy, efficiency, forgetting and the problem of early student mistakes during on-policy rollouts.</p>
+<p class="source"><a href="https://x.com/StanfordAILab/status/2120969570731356415">Stanford AI Lab</a></p>
 </article>
 <article>
-<h3>Continual-ARC asks whether agents learn from experience</h3>
-<p>Daniel Lenton introduces Continual-ARC, a benchmark for learning from experience. In a post shared by Prince Canuma, he claims that OpenClaw, Hermes Agent and Prime Agent do not meaningfully learn from experience on the benchmark.</p>
-<p class="source">Daniel Lenton, shared by Prince Canuma · <a href="https://x.com/Prince_Canuma/status/2120628277601829022">Announcement</a></p>
+<h3>Two challenges for reasoning monitors</h3>
+<p>Sebastian Raschka discusses research distinguishing reasoning without written chain of thought from the ability to alter written reasoning on request. He reports that better pretraining increases the former, while reinforcement learning substantially increases the latter—and that controllability can transfer through distillation.</p>
+<p>Both complicate monitoring, which depends on written reasoning reflecting actual computation. Architecture mostly did not matter in the results he discusses, and process supervision was not the main culprit.</p>
+<p class="source"><a href="https://x.com/rasbt/status/2120895037064020406">Raschka’s analysis</a></p>
 </article>
 <article>
-<h3>Examining the monitorability of chain-of-thought</h3>
-<p>Jeffrey Wang announces OpenAI research on chain-of-thought monitorability, including models’ capabilities without chain-of-thought and the controllability of chain-of-thought. Songlin Yang shared the research thread.</p>
-<p class="source">Jeffrey Wang, shared by Songlin Yang · <a href="https://x.com/SonglinYang4/status/2120632741322744222">Research thread</a></p>
+<h3>A CPU-ready biomedical extraction fine-tune</h3>
+<p>OpenMed reports that fine-tuning GLiNER2.5 Small on 800 MedMentions abstracts raised F1 from 45.1 to 67.4 in a single evaluation on 200 held-out abstracts. Incorrect tags fell from 1,399 to 678.</p>
+<p>The 74-million-parameter, Apache-2.0 model runs on CPU. Its extraction scope covers drugs, not doses, and treats enzymes and receptors as chemicals.</p>
+<p class="source"><a href="https://x.com/OpenMed_AI/status/2120871737852350477">OpenMed results</a> · <a href="https://t.co/1VYnNPUeyR">Resource</a> · <a href="https://t.co/GR91d8iZ4a">Model card</a></p>
+</article>
+<article>
+<h3>OpenCLIP adds layer-wise learning-rate decay</h3>
+<p>Ross Wightman has added layer-wise learning-rate decay for both text and image encoders, which he says could reduce forgetting when adapting under large distribution shifts. He cautions that further contrastive fine-tuning of CLIP often struggles with insufficient or low-quality data, especially far from the pretraining distribution.</p>
+<p class="source"><a href="https://x.com/wightmanr/status/2120997179477422276">Training-tool update</a> · <a href="https://x.com/wightmanr/status/2120995191339504011">Adaptation discussion</a></p>
+</article>
+<article>
+<h3>An OCR project gets a training-stack overhaul</h3>
+<p>Wightman also revisited an abandoned OCR/screen-parsing vision-language project, using a coding agent to fix issues and refactor training around his newer OpenCLIP design, including a NaFlexViT encoder and data pipeline. He reports improved training curves on the project’s IDL dataset after two sessions over two days.</p>
+<p class="source"><a href="https://x.com/wightmanr/status/2120942981385761274">Project postmortem</a></p>
+</article>
+</div>
+<div class="briefs">
+<p><strong>Optimizer preconditioning:</strong> You Jiacheng shares Mohamad Amin’s introduction to <a href="https://x.com/YouJiacheng/status/2121111518859469219">Toner</a>, a general rule for preconditioning optimizer updates using each layer’s input activations.</p>
+<p><strong>Low-bit recurrent states:</strong> Songlin Yang shares Haocheng Xi’s <a href="https://x.com/SonglinYang4/status/2121096304168194278">LeapQuant</a>, an 8/4-bit approach targeting the recurrent-state bottleneck in linear-attention models.</p>
+</div>
+</section>
+
+<section id="molecules">
+<h2>Proteins &amp; molecular design</h2>
+<article>
+<h3>ProTEUS closes the loop on experimental protein evolution</h3>
+<p>ProTEUS combines sequence, evolutionary and structural representations with mutation-biased attention, pretraining on 182 deep-mutational-scanning assays. The authors report improved held-out fitness ranking and extrapolation to higher-order mutants; increasing activity-training data approximately 80-fold reduced test MSE from 0.262 to 0.115.</p>
+<p>Closed-loop campaigns testing 100–150 sequences each produced levansucrase variants with up to 14.03-fold wild-type activity and ALDH variants with approximately 6.85-fold total activity and 7.90-fold normalized catalytic rate.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2120795451578339492">ProTEUS research summary</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>Cadense samples antibody conformations</h3>
+<p>Cadense is an MSA-free diffusion model generating antibody Fv ensembles in seconds to under a minute, including apo-like and holo-like CDR-H3 conformations. Its distribution-focused variant reports a median flexibility correlation with molecular dynamics of 0.84 across 22 held-out antibodies, versus 0.57 for Boltz-2.</p>
+<p>Ensemble-based surface analysis reduced false high-risk classifications 3.5-fold relative to a static first-frame baseline. Ensemble inputs also improved HADDOCK3 docking on 44 internal antibody–antigen complexes.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2120795792881627157">Cadense research summary</a></p>
+</article>
+<article>
+<h3>OriDynamics models proteins with their partners</h3>
+<p>OriDynamics combines latent-state generation with all-atom diffusion refinement, training against ensemble statistics such as atomic fluctuations and coordinate covariance. The authors report improved ligand and pocket flexibility on MISATO, better recovery of alternative experimental conformations, and partner-dependent shifts between apo and holo ensembles.</p>
+<p>Transient interchain contact rearrangements remain difficult. Adaptation to ligand-dissociation data improves coverage of displaced and unbinding-like configurations.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2120794810340528585">OriDynamics research summary</a></p>
+</article>
+<article>
+<h3>291 million spectra underpin π-SPECFormer</h3>
+<p>π-SPECFormer combines self-supervised spectral pretraining with peptide–spectrum-match-guided refinement, reporting improvements in de novo peptide sequencing, spectrum clustering and phosphorylation detection.</p>
+<p>Its workflow identified 5,103 candidate amino-acid substitutions across 1,712 proteins in samples from 103 lung adenocarcinoma patients. Synthetic peptide spectra supported nine high-confidence mutated peptides. Cell-line experiments suggested that PYGL p.A303S counteracts wild-type PYGL’s proliferation-promoting effect; predicted mutation–drug-target interactions remain testable hypotheses.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2120794503540076684">π-SPECFormer research summary</a></p>
+</article>
+<article>
+<h3>Better protein probes do not guarantee sequence control</h3>
+<p>A study uses generative latent priors on frozen ESM-2 activations to interpret and steer protein representations. Individual latent units outperform single sparse-autoencoder features on discrete biological-concept probes, but combinations of SAE features usually match them—suggesting concentration of existing information rather than discovery of new information.</p>
+<p>Activation correction improves biochemical-property steering, but the benefit disappears when generated sequences are re-embedded. Structural steering consistently succeeds only for helices; long-range motifs remain problematic.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2120795209437184111">Protein interpretability study</a></p>
+</article>
+<article>
+<h3>Epistasis adds predictive power—and complexity</h3>
+<p>An interpretable sequence-to-phenotype framework learns relevant alignment positions, interacting residue pairs and position-specific amino-acid groupings from roughly 100 sequence–phenotype pairs. Across 13 case studies, its combined model is competitive with phylogenetic imputation and ESM-2 regression, particularly for temperature-related traits and HIV protease drug resistance.</p>
+<p>Adding epistasis improves prediction but expands selected positions from about 5% to about 30% of the alignment, trading simplicity for distributed interaction signals.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2120794919220711534">Epistasis framework</a></p>
+</article>
+<article>
+<h3>SensDiff trains with chemical constraints</h3>
+<p>SensDiff progressively introduces steric, bond-length, bond-angle and valence constraints during diffusion training, applying them to intermediate denoising states rather than only checking final molecules.</p>
+<p>The authors report better molecular validity and stability on QM9 and GEOM-Drugs, alongside lower errors in quantum-property-conditioned generation. A constrained-design demonstration steers sampling toward up to seven drug-like property objectives without retraining.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2120794343158259912">SensDiff research summary</a></p>
 </article>
 </div>
 </section>
 
-<section id="genomics">
-<h2>Genomics &amp; single-cell biology</h2>
+<section id="omics">
+<h2>Genomics &amp; cellular biology</h2>
 <div class="grid">
 <article>
-<h3>AlphaGenome 2 adds cell-type and cell-state context</h3>
-<p>AlphaGenome 2 predicts regulatory activity and variant effects from 1-Mb human or mouse DNA sequences. Condition embeddings modulate sequence representations from the earliest network layers, while separating conditions from output heads enables imputation of unmeasured epigenomic assays.</p>
-<p>The approach aligns an expression autoencoder trained on more than 100 million human single-cell profiles with a frozen sequence model. A launch follow-up reports doubled single-cell eQTL recall at high precision, but says the model still misses most variants with high posterior inclusion probabilities.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120566452172517811">Research post</a></p>
+<h3>AlphaGenome 2 tops an updated enhancer benchmark</h3>
+<p>Al Murphy reports that AlphaGenome 2 leads an updated enhancer benchmark, describing its gains as clear but incremental and highlighting better performance on enhancers out to roughly 100 kb. Related commentary from antisense proposes testing how prediction confidence changes with cell number and data quality in unseen states, followed by experimental validation in the relevant cells.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2121039360577654967">Benchmark discussion</a></p>
 </article>
 <article>
-<h3>scOntoFM builds cell-type hierarchy into representations</h3>
-<p>Pretrained on 27.5 million human cells, scOntoFM combines masked gene modeling with ontology-dependent contrastive and rank-alignment objectives. Reported evaluations show stronger preservation of cell-type hierarchy while maintaining competitive clustering and annotation performance.</p>
-<p>Novel-type identification reaches 28.59% macro-accuracy across 99 unseen types. The report also describes benefits for gene-function prediction and spatial expression imputation.</p>
-<p class="source">Biology+AI Daily · <a href="https://x.com/BiologyAIDaily/status/2120463250668294442">Research post</a></p>
+<h3>RawMod detects modifications from nanopore signals</h3>
+<p>RawMod is a transformer-based, control-free method for detecting epigenetically modified genomic positions. It compares raw signals from multiple reads at each site with the unmodified reference sequence, learning different modification types together as one modified class rather than requiring a separate classifier for each chemistry.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2120974726864724464">RawMod</a></p>
 </article>
 <article>
-<h3>PertVI disentangles treatment effects from baseline state</h3>
-<p>PertVI separates baseline mitotic phase, cellular state and batch effects from treatment-induced shifts. Abnormal, off-manifold responses occupy a separate anomaly space.</p>
-<p>The accompanying discussion reports directional response trajectories and biphasic rebound behavior, arguing that phenotypic shifts depend on state-specific impulses rather than broad transcriptional responses alone.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120678779815330164">Research post</a></p>
+<h3>SpaAxFormer links genes across neighboring cells</h3>
+<p>SpaAxFormer uses axial transformers to contextualize genes within each cell, then exchanges corresponding-gene representations across neighboring cells. A separate cell-level summary is trained through expression reconstruction and contrastive learning, connecting gene-level modeling with spatial cellular representations.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2120975348234084600">SpaAxFormer</a></p>
 </article>
 <article>
-<h3>CellVocal links transcriptional dynamics to nearby signaling</h3>
-<p>CellVocal uses velocity-constrained inference to identify communication-mediated transcriptional modulation in spatial transcriptomics. It attributes the inferred communication component to signaling modules and neighboring sender cells. Simulations reportedly recover complex trajectories and communication perturbations.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120678423890907455">Research post</a></p>
+<h3>scBoost stacks single-cell embeddings</h3>
+<p>scBoost-ensemble trains an XGBoost classifier on each embedding view in an AnnData object, then combines out-of-fold class probabilities through a meta-learner. It brings together representations from methods such as Harmony, Scanorama, scVI, scGPT and scANVI to improve cell-type classification.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2120975103056027738">scBoost-ensemble</a></p>
 </article>
 <article>
-<h3>LingoCell connects expression measurements with language</h3>
-<p>LingoCell jointly encodes gene identity and expression magnitude, then aligns those representations with text linking cell identity, disease concepts and tissue environment. It is presented as supporting clustering, batch integration, zero-shot annotation and description generation without fine-tuning, while retaining editable expression levels for perturbation interpretation.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120677018841055398">Research post</a></p>
+<h3>DIRAC integrates spatial multiomics</h3>
+<p>Nature Methods highlights DIRAC, a geometric deep-learning model supporting both vertical and horizontal integration and annotation of spatial multiomic data.</p>
+<p class="source"><a href="https://x.com/naturemethods/status/2120986212681093429">Nature Methods</a> · <a href="https://t.co/oqGyLGQjlU">Paper</a> · <a href="https://t.co/OTk8m2LbDK">Research briefing</a></p>
 </article>
 <article>
-<h3>scDeepSim supplies controllable synthetic single-cell data</h3>
-<p>scDeepSim combines a structured variational autoencoder with latent diffusion to generate single-cell expression profiles. Users can adjust selected biological or technical latent factors at specified strengths, creating synthetic datasets whose intervention parameters provide ground truth for benchmarking.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120565160125550817">Research post</a></p>
+<h3>A spatial view of hippocampal aging</h3>
+<p>Sara Fedez announces a preprint investigating how aging and cellular senescence shape the human hippocampus using spatial analysis.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2121100863892758689">Preprint announcement</a></p>
 </article>
 </div>
-</section>
-
-<section id="design">
-<h2>Molecular design &amp; experiments</h2>
-<div class="grid">
-<article>
-<h3>Joint protein–DNA models guide recognition and editing</h3>
-<p>PDLMs jointly encode protein and DNA sequences following interaction-aware pretraining on 51,329 experimentally supported pairs. Biology+AI Daily reports improved partner-compatibility classification and binding-effect prediction, experimental improvements in MutH editing, and transfer to TadA activity and off-target prediction.</p>
-<p>Fine-tuning also supports transcription-factor motif prediction, including some mutation-driven changes in specificity.</p>
-<p class="source">Biology+AI Daily · <a href="https://x.com/BiologyAIDaily/status/2120462168785375298">Research post</a></p>
-</article>
-<article>
-<h3>LIMBER combines attention and state-space modeling for RNA</h3>
-<p>LIMBER is described as a fully open noncoding-RNA foundation model. Its hybrid architecture interleaves bidirectional attention with selective state-space modeling, targeting both ordered sequence dependencies and nonlocal nucleotide interactions for structure and function prediction.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120677315953017266">Research post</a></p>
-</article>
-<article>
-<h3>RPFace exposes bias in RNA–protein interface benchmarks</h3>
-<p>A leakage-controlled, stratified benchmark finds that co-folding interface accuracy is concentrated in ribosomal complexes and sensitive to experimental modality and evolutionary inputs.</p>
-<p>RPFace instead uses sequence-derived representations, RNA secondary-structure probabilities and partner-conditioned attention, without requiring structures or multiple-sequence alignments. Reported post-cutoff AUROCs are approximately 0.88 for protein residues and 0.80 for RNA nucleotides. CLIP fine-tuning improves transfer across held-out cell lines and chromosomes, but cross-assay transfer remains harder.</p>
-<p class="source">Biology+AI Daily · <a href="https://x.com/BiologyAIDaily/status/2120462467520430544">Research post</a></p>
-</article>
-<article>
-<h3>EnzymeRSI separates workflow gains from algorithm gains</h3>
-<p>EnzymeRSI evaluates research-workflow changes separately from changes to predictors and search algorithms, using matched budgets, sealed evaluations and recorded adoption decisions. Reported wet-lab studies cover luciferase activity, cytidine-deaminase substrate preference and polymerase incorporation of a modified nucleotide.</p>
-<p>In the luciferase experiment, 10 of 32 non-prespecified candidates achieved at least twice wild-type activity. Within-pool ranking remained weak at Spearman 0.175, illustrating that selecting useful candidates and ranking them accurately are different achievements.</p>
-<p class="source">Biology+AI Daily · <a href="https://x.com/BiologyAIDaily/status/2120463777703563552">Research post</a></p>
-</article>
-<article>
-<h3>TALK plans experiments for a different prediction space</h3>
-<p>TALK selects measurable variants according to their expected reduction of uncertainty over a target set—for example, choosing single-mutant assays to improve predictions of higher-order mutants. Covariance-based greedy selection reduces redundant measurements without requiring labels during planning.</p>
-<p>Retrospective ProteinGym-MM and GB1 evaluations report better target-space prediction than random, uncertainty-only and high-score selection. Conditional one-shot batches perform similarly to multiround feedback at equal budgets.</p>
-<p class="source">Biology+AI Daily · <a href="https://x.com/BiologyAIDaily/status/2120463932221726904">Research post</a></p>
-</article>
-<article>
-<h3>ZEUS scales symmetric protein-complex generation</h3>
-<p>ZEUS generates one canonical subunit and uses symmetry-transformed copies as context, reducing memory and runtime without retraining. It demonstrates symmetric assemblies exceeding 10,000 residues on one GPU, with similar computational design-quality distributions.</p>
-<p>For models that break chain-permutation equivariance, the method’s equivalence is to an equivariant ablation rather than default inference.</p>
-<p class="source">Discussed by Biology+AI Daily and antisense. · <a href="https://x.com/BiologyAIDaily/status/2120463452158455845">Research post</a></p>
-</article>
-<article>
-<h3>Mol-1-constraint releases code and weights</h3>
-<p>An announcement shared by Sergey Ovchinnikov says Mol-1-constraint is available to researchers with released code and weights. It reports 88.3% success on the antibody benchmark Foldbench-AB.</p>
-<p class="source">Shared by Sergey Ovchinnikov · <a href="https://x.com/sokrypton/status/2120567314034880649">Announcement</a></p>
-</article>
-<article>
-<h3>Protein embeddings improve binary sequence-design representations</h3>
-<p>pLM-bVAE incorporates frozen protein-language-model embeddings into a binary variational autoencoder for quantum-annealing optimization. Tests on MHC-I peptides, trastuzumab antibody variants and AAV2 capsid variants report better sequence reconstruction and preservation of sequence relationships in binary space.</p>
-<p>The searches yield more unique, novel sequences exceeding model-based score thresholds. ESM2 650M is the best overall encoder in the reported tests, rather than the larger 3B model.</p>
-<p class="source">Biology+AI Daily · <a href="https://x.com/BiologyAIDaily/status/2120462021183631552">Research post</a></p>
-</article>
+<div class="briefs">
+<p><strong>Disease trajectories:</strong> Jonny Hsu and Phil Fradkin introduce <a href="https://x.com/razoralign/status/2120974562225733736">Ladon</a>, a transcriptomic foundation model with disease-trajectory prediction among its stated capabilities.</p>
+<p><strong>Single-cell clustering:</strong> <a href="https://x.com/razoralign/status/2120836333476434335">GraphHDBSCAN*</a> is highlighted as a graph-based hierarchical clustering method for high-dimensional single-cell RNA-sequencing data.</p>
+<p><strong>Experimental profiling:</strong> Chang Lei announces a <a href="https://x.com/razoralign/status/2121100912467063267">Cell study using an updated Droplet Paired-Tag</a> to map gene expression.</p>
+<p><strong>Data resource:</strong> Ming Tang highlights <a href="https://x.com/razoralign/status/2120836311418552342">ATCC’s Cell Line Omics Data resource</a>.</p>
 </div>
 </section>
 
 <section id="tools">
-<h2>Genomic tools &amp; population history</h2>
+<h2>Scientific tools &amp; measurement</h2>
 <div class="grid">
 <article>
-<h3>CellSavior filters noise from single-cell DNA data</h3>
-<p>CellSavior is an open-source Python framework for extracting high-confidence cell barcodes from single-cell DNA-sequencing BAM files. It clusters across multiple distance metrics, then uses confidence-weighted merging to filter technical noise and produce consensus cell calls.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120564763252126129">Tool announcement</a></p>
+<h3>RobPicker addresses noisy labels and rare particles</h3>
+<p>Nature Methods reports that RobPicker improves cryo-electron-tomography particle picking through noisy-label correction and reweighting of rare species, addressing annotation quality and class imbalance together.</p>
+<p class="source"><a href="https://x.com/naturemethods/status/2120984273276797177">Nature Methods</a> · <a href="https://t.co/EZ7HszFh02">Research link</a></p>
 </article>
 <article>
-<h3>TeraMEM accelerates exact matching across genome assemblies</h3>
-<p>TeraMEM finds pairwise maximal exact matches using compressed indexing based on Burrows–Wheeler transform runs. A comparison with Mumemto reports up to 20-fold faster execution and 7.5-fold lower space use when index construction is included for both tools. Excluding construction, the reported speedup exceeds 2,500-fold.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120564464525406645">Research post</a></p>
-</article>
-<article>
-<h3>Faster k-mer lookup with spectral Burrows–Wheeler indexes</h3>
-<p>The SBWT work combines batching, prefetching, cache-efficient rank queries and skipped redundant searches to accelerate k-mer lookup roughly sevenfold over unbatched search.</p>
-<p>For streaming 31-mer queries, a version using 12 bits per canonical k-mer reportedly outperforms SSHash on every tested read set, by up to 4.9-fold. Smaller variants trade speed for storage.</p>
-<p class="source">Shared by razoralign · <a href="https://x.com/razoralign/status/2120564177245008260">Research post</a></p>
-</article>
-<article>
-<h3>Mapping ancestry across geography and time</h3>
-<p>A Human Pangenome announcement shared by Anshul Kundaje describes a method for mapping how different segments of an individual’s DNA reflect ancestry across geography and time.</p>
-<p class="source">Human Pangenome, shared by Anshul Kundaje · <a href="https://x.com/anshulkundaje/status/2120706219736199404">Announcement</a></p>
+<h3>Recognizing individual ovenbirds by voice</h3>
+<p>A machine-learning method shared by Nature Methods distinguishes individual ovenbirds in the wild from their vocalizations using passive acoustic recordings.</p>
+<p class="source"><a href="https://x.com/naturemethods/status/2120992195926761830">Nature Methods</a> · <a href="https://t.co/zLCgmrIWFl">Research link</a></p>
 </article>
 </div>
+<article>
+<h3>Faster molecular simulations must preserve forces, too</h3>
+<p>Rishabh proposes using coding agents to optimize force-field and potential implementations for molecular dynamics and free-energy perturbation. His reliability criterion is physical, not merely computational: faster energy calculations are insufficient if the corresponding forces no longer agree.</p>
+<p class="source"><a href="https://x.com/rishabh16_/status/2120926054852214962">Scientific-software discussion</a></p>
+</article>
 </section>
 
-<section id="medicine">
-<h2>Medicine &amp; research perspectives</h2>
-<div class="grid">
-<article>
-<h3>An open personalized pancreatic-cancer vaccine effort</h3>
-<p>Soham Sankaran announces an effort to make a personalized cancer vaccine for a patient with pancreatic cancer. The project is being conducted openly and with the patient’s consent, according to the announcement shared by Rishabh.</p>
-<p class="source">Soham Sankaran, shared by Rishabh · <a href="https://x.com/rishabh16_/status/2120579534575853834">Announcement</a></p>
-</article>
-<article>
-<h3>PARP1 revisited: repair, replication and therapeutics</h3>
-<p>Nature Reviews Molecular Cell Biology announces “PARP1 revisited,” a review integrating the protein’s roles in DNA repair and replication with therapeutic applications.</p>
-<p class="source">Nature Reviews Molecular Cell Biology · <a href="https://x.com/NatRevMCB/status/2120506422731686032">Review announcement</a></p>
-</article>
-<article>
-<h3>Opinion: biological AI needs a feedback loop</h3>
-<p>Sergey Ovchinnikov argues that progress in mathematical AI depends on parallel agents iterating against formal verification, rather than unaided reasoning alone. For biology, he proposes sufficiently detailed simulation or large-scale wet-lab facilities as analogous feedback mechanisms, while speculating about subatomic simulation and quantum computing.</p>
-<p class="source">Sergey Ovchinnikov · <a href="https://x.com/sokrypton/status/2120756997184458903">Commentary</a></p>
-</article>
-</div>
-</section>
-
-<section id="languages" class="practice" aria-label="Language practice">
+<section class="practice" id="languages">
+<div class="eyebrow">Native-language reading</div>
 <h2>Language practice</h2>
 
 <article lang="de">
-<h3>Deutsch — Jemand hat eine Nintendo Switch nachgebaut und viele Fans haben gar nicht gemerkt, dass sie vollständig aus Lego besteht</h3>
-<p class="source">GameStar · 12.11.2026 · <a href="https://www.gamestar.de/artikel/lego-nintendo-switch-nachgebaut,3462894.html">Zum Artikel</a></p>
-<p>Eine Nintendo Switch aus Klemmbausteinen, die auf Fotos wie das Original wirkt: GameStar stellt das Fanprojekt des Reddit-Nutzers jagamax vor. Für einen Wettbewerb hat er nicht nur die Konsole, sondern auch Zubehör wie die Docking-Station und verschiedenfarbige Joy-Cons nachgebaut. In den vorgestellten Kommentaren berichten mehrere Betrachter, dass sie erst beim genaueren Hinsehen erkannt hätten, woraus das Modell besteht.</p>
-<p>Hinter der überzeugenden Optik stecken allerdings praktische Hürden. Nach Angaben des Erbauers wurden abgesehen von den Drucken ausschließlich Lego-Teile verwendet; manche farbigen Controller-Teile seien inzwischen schwer erhältlich. Wer selbst nachbauen möchte, muss außerdem warten: Eine Anleitung gibt es bislang nicht, und die Wettbewerbsregeln verhindern derzeit ihre Veröffentlichung. Nach dem Wettbewerb möchte jagamax eine digitale Anleitung nachreichen.</p>
-<p><strong>Warum lesen:</strong> Der kurze Beitrag verbindet Spielekultur mit kreativem Modellbau und zeigt, wie verblüffend originalgetreu ein Fanprojekt aussehen kann.</p>
+<h3>Deutsch — Die AfD und das Neonazi-Milieu: Wie eng sind die Verbindungen?</h3>
+<p class="source">Deutsche Welle · 13. November 2026 · <a href="https://www.dw.com/de/die-afd-wird-stärker-warum-ihre-verbindungen-ins-neonazi-milieu-fragen-aufwerfen/a-79931450">Artikel lesen</a></p>
+<p>Wie glaubwürdig grenzt sich die AfD von neonazistischen Organisationen ab? Die DW untersucht personelle Verbindungen und lässt den Rechtsextremismusforscher Fabian Virchow zu Wort kommen. Er beschreibt eine Normalisierung rechtsextremer Positionen innerhalb der Partei, die dadurch für das neonazistische Milieu attraktiver werde. Der Beitrag ordnet diese Entwicklung auch anhand der Leipziger Autoritarismus-Studie ein: Ihr zufolge vereint die AfD große Teile der Wählerschaft mit antidemokratischen Einstellungen auf sich.</p>
+<p>Im Mittelpunkt stehen Fälle aus Sachsen-Anhalt. Zwei AfD-Landtagsabgeordnete waren laut Bericht von einer Razzia wegen des Verdachts betroffen, die verbotene „Artgemeinschaft“ fortzuführen; ihre Anwälte bestreiten die Vorwürfe. Zudem verweist die DW auf Medienrecherchen über ehemalige Mitglieder der ebenfalls verbotenen „Heimattreuen Deutschen Jugend“, die für die AfD-Fraktion arbeiten sollen. Beide Organisationen stehen auf der Unvereinbarkeitsliste der Partei – daraus ergibt sich die Frage, wie konsequent diese Abgrenzung tatsächlich umgesetzt wird.</p>
+<p>Eine Beraterin für den Ausstieg aus der rechtsextremen Szene erläutert, weshalb eine öffentliche Distanzierung allein noch keinen glaubwürdigen Bruch mit früheren Überzeugungen belegt. Entscheidend sei eine ernsthafte Auseinandersetzung mit der eigenen Vergangenheit. Nach Angaben der DW beantworteten weder der angefragte Parteivorstand noch die kontaktierten Abgeordneten und Mitarbeiter ihre Fragen zu diesen Verbindungen.</p>
+<p><strong>Warum lesen:</strong> Der Beitrag verbindet konkrete Recherchefälle mit wissenschaftlicher Einordnung und beleuchtet die Grenzen zwischen formaler Abgrenzung und politischer Praxis.</p>
 </article>
 
 <article lang="fr">
-<h3>Français — Mouvement lycéen : une inquiétude grandissante pour la préparation des examens, les notes du premier trimestre et les dossiers Parcoursup</h3>
-<p class="source">Le Monde · 12 novembre 2026 · <a href="https://www.lemonde.fr/societe/article/2026/11/12/mouvement-lyceen-une-inquietude-grandissante-pour-la-preparation-des-examens-les-notes-du-premier-trimestre-et-les-dossiers-parcoursup_6809050_3224.html">Lire l’article</a></p>
-<p>Après plusieurs semaines de mobilisation, certains lycéens s’interrogent sur le coût scolaire des blocages. Des élèves du lycée Jean-Jaurès, à Montreuil, évoquent leur inquiétude pour le baccalauréat. Même parmi ceux qui participent au mouvement, l’accumulation des cours manqués fait monter la pression : les programmes de spécialité laissent peu de marge pour rattraper un retard prolongé.</p>
-<p>Le problème ne concerne pas seulement les épreuves finales. Les résultats du premier trimestre comptent aussi pour les candidatures sur Parcoursup, alors que certains élèves n’ont encore aucune note dans plusieurs disciplines. L’article met ainsi en lumière une tension entre engagement collectif et avenir individuel, à l’approche de la clôture du trimestre début décembre.</p>
-<p><strong>Pourquoi lire :</strong> Pour découvrir les conséquences concrètes d’une mobilisation sur la scolarité et mieux comprendre le vocabulaire de l’orientation dans le système éducatif français.</p>
+<h3>Français — Webtoon : l’Asfored et Kenaz s’associent pour former de nouveaux auteurs</h3>
+<p class="source">ActuaLitté · 12 novembre 2026 · <a href="https://actualitte.com/article/135204/auteurs/webtoon-l-asfored-et-kenaz-s-associent-pour-former-de-nouveaux-auteurs">https://actualitte.com/article/135204/auteurs/webtoon-l-asfored-et-kenaz-s-associent-pour-former-de-nouveaux-auteurs</a></p>
+<p>Comment former en France des auteurs de bandes dessinées pensées pour le smartphone ? L’Asfored-Edinovo et le studio sud-coréen Kenaz proposent une première réponse avec la Global Webtoon Academy, lancée le 28 septembre. Quatorze étudiants y travaillent pendant deux mois auprès de professionnels coréens. Au programme : la construction du récit, le découpage et la réalisation graphique, avec une attention particulière au rythme d’une lecture verticale plutôt qu’au passage d’une page à l’autre.</p>
+<p>Une remise de prix est prévue le 18 novembre à Paris. Les lauréats doivent recevoir chacun une bourse d’environ 3 000 euros ; les organisateurs évoquent aussi des possibilités de publication sur des plateformes internationales, sans les présenter comme acquises. L’ambition dépasse donc l’apprentissage du dessin : il s’agit de relier la formation aux débouchés professionnels et de développer un pôle européen consacré au webtoon.</p>
+<p>L’article situe cette initiative dans un paysage culturel où le format gagne en visibilité. Selon une étude du CNC publiée en octobre 2026 et citée par ActuaLitté, 39,1 % des Français déclarent connaître les webtoons ; parmi ces personnes, 66,3 % disent en lire. Ce partenariat illustre ainsi la rencontre entre les métiers français de l’édition et les pratiques de création numérique venues de Corée du Sud.</p>
+<p><strong>Pourquoi lire :</strong> Pour découvrir comment un format de lecture sur smartphone transforme la formation des auteurs et leurs perspectives de publication.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>contrôle continu</strong> — évaluation fondée sur les résultats obtenus pendant l’année, plutôt que sur une seule épreuve finale.</li>
-<li><strong>Parcoursup</strong> — plateforme nationale de candidature à l’entrée dans l’enseignement supérieur français.</li>
-<li><strong>enseignement de spécialité</strong> — discipline choisie au lycée général et étudiée de manière approfondie en première et en terminale.</li>
+<li><strong>webtoon</strong> — bande dessinée numérique, généralement conçue pour une lecture par défilement vertical sur smartphone.</li>
+<li><strong>découpage</strong> — organisation d’un récit en scènes et en cases afin de guider la narration et son rythme.</li>
+<li><strong>formation continue</strong> — apprentissage permettant aux personnes déjà engagées dans la vie professionnelle d’acquérir ou d’actualiser des compétences.</li>
 </ul>
 </article>
 
 <article lang="ja">
-<h3>日本語 — フレームレート至上主義者が「GTA6」に備えて目をデチューンしてみた話</h3>
-<p class="source">4Gamer · 2026-11-12 · <a href="https://www.4gamer.net/games/758/G075801/20261111018/">記事を読む</a></p>
-<p>ゲームの映像は、見た目の豪華さと動きの滑らかさのどちらを優先したいだろうか。普段は120fps以上で遊び、必要なら影や反射などの設定を下げるという筆者が、「GTA6」に備えて30fpsの映像に慣れようと試みる体験記事。高フレームレートを重視してきた人が、あえて表示の滑らかさを抑えて遊ぶという逆向きの実験だ。</p>
-<p>試す作品として登場するのは「The Blood of Dawnwalker」「Cyberpunk 2077」「GTA5」。記事は、手持ちのゲームを30fpsに制限して遊ぶ過程をたどり、自分の目がどのように慣れるのか、その経験から何に気づいたのかを扱う。性能の数値だけではなく、プレイヤーの感覚や設定へのこだわりを軸に読めるのが特徴だ。</p>
-<p><strong>読む理由：</strong> 身近なゲーム体験を通じて、映像技術の用語と感覚を表す日本語の両方に触れられる。</p>
+<h3>日本語 — ステンドグラスお掃除&amp;修復シム『Piece and Quiet: A Stained Glass Restoration』11月27日配信へ。「2655個」の破片をゆったり直す、たまには“妖精”の手も借りる</h3>
+<p class="source">AUTOMATON · 2026-11-13 · <a href="https://automaton-media.com/articles/newsjp/20261113-479095/">記事を読む</a></p>
+<p>山奥の荒れた礼拝堂で、割れたステンドグラスを少しずつ元に戻す。個人開発者のVahov gamesが手がける『Piece and Quiet: A Stained Glass Restoration』は、そんな修復作業を楽しむシミュレーションゲームだ。Spaghetti Catが11月27日にPC（Steam）向けに配信する予定で、日本語表示にも対応予定。プレイヤーは合計2655片のガラスを集め、ブラシで汚れを落としたうえで、色や形、下絵を手がかりに6枚のステンドグラスを完成させていく。</p>
+<p>作業を進めると、破片の位置を示したり、必要な破片を呼び寄せたりする魔法を習得できる。清掃や配置の自動化に加え、妖精に破片を運んでもらうことも可能だ。一方、礼拝堂に残された手書きのメモやステンドグラスには、あるガラス職人の過去を知る手がかりがある。時間制限や失敗のペナルティはなく、作業時間を測るモードでも締め切りに追われることはない。記事では、手作業の楽しさと負担を軽くする仕組みが具体的に紹介されている。</p>
+<p><strong>読む理由：</strong> 修復という珍しい題材を通じて、競争や失敗ではなく、落ち着いた作業を楽しませるゲームの設計を知ることができる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>フレームレート（ふれーむれーと）</strong> — 映像で1秒間に表示する画像の枚数。単位はfpsで、動きの滑らかさに関わる。</li>
-<li><strong>レイトレーシング（れいとれーしんぐ）</strong> — 光の進み方を計算し、反射や影などを表現する描画技術。</li>
-<li><strong>デチューン（でちゅーん）</strong> — 性能や設定をあえて下げること。この記事では、低いフレームレートに目を慣らす試みを比喩的に表している。</li>
+<li><strong>修復（しゅうふく）</strong> — 傷んだ作品や建物などを直し、元の姿に近づけること。</li>
+<li><strong>下絵（したえ）</strong> — 作品を仕上げる際に、形や配置の基準として使う準備段階の絵。</li>
+<li><strong>自動化（じどうか）</strong> — 人が一つずつ操作していた作業を、仕組みに任せて進められるようにすること。</li>
 </ul>
 </article>
 
 <article lang="zh">
-<h3>中文 — 中国“双十一”：民众消费仍谨慎 AI促销初显身手</h3>
-<p class="source">DW 中文 · 2026-11-11 · <a href="https://www.dw.com/zh/中国双十一民众消费仍谨慎-ai促销初显身手/a-79917807">阅读原文</a></p>
-<p>促销时间越拉越长，消费者却未必更愿意掏钱。德国之声这篇报道从今年“双十一”的阶段性销售表现切入，讨论房地产低迷、收入预期和消费信心之间的关系。受访研究人士指出，全年不断的打折活动也让消费者产生“折扣疲劳”，购物节的吸引力因而减弱；报道发布时的数据并不等于整个购物节的最终成绩。</p>
-<p>不过，消费谨慎不意味着所有商品都卖不动。报道指出，与健康、睡眠及生活体验相关的产品仍有增长空间，消费者更看重实际需求和内在满足，而非昂贵商品带来的身份象征。这种变化让“消费降级”的故事多了一层含义：人们不仅在控制预算，也在重新排列消费的优先次序。</p>
-<p>文章还介绍了电商平台引入人工智能的新尝试：淘宝、天猫接入“通义千问”，辅助处理订单并推荐商品，按词元计量的人工智能服务也进入直播销售场景。面对精打细算的顾客，平台正在尝试用新的技术和商品类别寻找增长机会。</p>
-<p><strong>为什么读：</strong> 这篇报道把日常购物、消费心理和人工智能商业化联系起来，适合练习中文经济与科技报道的常用表达。</p>
+<h3>中文 — 大众在中国的新能源汽车销量猛增347%</h3>
+<p class="source">RFI 中文 · 2026-11-12 · <a href="https://www.rfi.fr/cn/中国/20261112-大众在中国的新能源汽车销量猛增347">https://www.rfi.fr/cn/中国/20261112-大众在中国的新能源汽车销量猛增347</a></p>
+<p>据法广援引北德广播电台及大众公布的信息，大众汽车品牌2026年10月在中国售出28,000辆新能源汽车，同比增长347%。报道指出，大众今年已在中国推出11款新能源汽车，另有两款即将上市，并提出在2027年进入中国新能源汽车品牌销量前十名的目标。</p>
+<p>不过，单月新能源汽车销量的增长，并不意味着大众在中国的整体业务已经摆脱压力。报道列出的数据显示，大众今年前三季度在中国的汽车交付量同比下降约30%；比亚迪10月的新能源汽车销量则超过25万辆，仍明显领先。文章将德国车企面临的困境与中国本土品牌崛起、市场竞争加剧以及价格战联系起来，适合对照阅读“局部增长”与“整体下滑”这两种趋势。</p>
+<p><strong>为什么读：</strong> 这篇短文连接德国汽车业与中国新能源市场，有助于练习辨别财经新闻中的统计范围和同比变化。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>消费降级 (xiāofèi jiàngjí)</strong> — 消费者减少非必需支出，或转向价格更低的商品与服务。</li>
-<li><strong>同比增长 (tóngbǐ zēngzhǎng)</strong> — 与上一年相同时间段相比出现的增长，常用于观察销售和经济指标的变化。</li>
-<li><strong>词元 (cíyuán)</strong> — 人工智能语言模型处理文本的基本单位，可对应一个字、词或词的一部分，也常用于计算服务用量。</li>
+<li><strong>新能源汽车 (xīn néngyuán qìchē)</strong> — 中国汽车产业的分类术语，通常包括纯电动汽车、插电式混合动力汽车和燃料电池汽车，并非所有混合动力汽车都属于这一类别。</li>
+<li><strong>同比增长 (tóngbǐ zēngzhǎng)</strong> — 与上一年相同时间段相比的增长，用于减少季节差异对比较的影响。</li>
+<li><strong>交付量 (jiāofù liàng)</strong> — 在一定时期内实际交给客户的产品数量，不一定等同于订单数量或产量。</li>
 </ul>
 </article>
 </section>
-<footer>News · November 12, 2026</footer>
 </main>
+<footer>News · November 13, 2026</footer>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-12-1";
+  const key = 'newspaper:read:' + "2026-11-13-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

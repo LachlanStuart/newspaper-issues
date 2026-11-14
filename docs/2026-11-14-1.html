@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#242925;--muted:#626a64;--paper:#faf9f5;--rule:#d6dbd3;--accent:#245b50}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1040px;margin:auto;padding:32px 24px 64px}
+header{border-top:5px solid var(--ink);border-bottom:2px solid var(--ink);padding:12px 0 20px;text-align:center}
+h1{font-size:64px;line-height:1.1;margin:8px 0}
+.date,.source,nav,footer{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted)}
+nav{margin-top:15px}
+nav a{margin:0 9px}
+a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
+section{margin-top:34px}
+h2{font-family:system-ui,sans-serif;font-size:23px;border-bottom:2px solid var(--rule);padding-bottom:9px;line-height:1.3}
+h3{font-size:22px;line-height:1.35;margin:0 0 10px}
+p{margin:10px 0}
+article{padding:15px 0 22px;border-bottom:1px solid var(--rule);break-inside:avoid}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.language{border-top:4px solid var(--ink);margin-top:48px;padding-top:12px}
+.language article{padding:24px 0 30px}
+.language h3{font-size:24px}
+li{margin:7px 0}
+footer{margin-top:32px;border-top:1px solid var(--rule);padding-top:12px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}h1{font-size:50px}main{padding:20px 18px 40px}}
+</style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-11-14">Saturday, November 14, 2026</time></div>
+<nav aria-label="Sections">
+<a href="#drug-discovery">Drug discovery</a>
+<a href="#biology">Cells &amp; genomes</a>
+<a href="#ai">AI research</a>
+<a href="#practice">Language practice</a>
+</nav>
+</header>
+
+<section id="drug-discovery">
+<h2>Drug discovery &amp; protein modeling</h2>
+<article>
+<h3>Bonbon learns protein–ligand mechanisms from sequences alone</h3>
+<p>Biology+AI Daily highlights Bonbon, a 1.6-billion-parameter model trained on paired protein–ligand sequences without structural coordinates or task labels. The authors report representations supporting mechanism-of-action classification, binding-site localization and covalent-engagement prediction, including <strong>85.5% balanced accuracy</strong> for distinguishing agonists from antagonists within 222 GPCRs.</p>
+<p>Across six model sizes, evaluated zero-shot capabilities reportedly improve sharply at the largest scale even as pretraining loss declines smoothly. Prospective synthesis and testing across nine disease targets yielded a reported <strong>61.5% dose-response hit rate</strong>.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2121482414006698381">Biology+AI Daily — Bonbon</a></p>
+</article>
+<article>
+<h3>AllositeUltra finds allosteric sites across protein states</h3>
+<p>AllositeUltra combines structure-aware sequence representations, physicochemical features and dynamic-response signals to identify allosteric regions even when no conventional pocket is apparent. Its AsBench2 benchmark links 536 experimentally supported sites across protein conformations, revealing substantial performance losses for existing methods when moving from ligand-bound to unoccupied sites.</p>
+<p>The authors report Top-3 recovery of <strong>65.2% on apo structures and 70.6% on substrate-bound structures</strong>. For MAGI2, site-guided screening identified a fragment with a measured Kd of 25.9 μM; crystallography confirmed binding at the predicted interdomain pocket. A human-proteome application supplies 26,366 candidate pockets across 12,252 proteins.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2121484827295891482">Biology+AI Daily — AllositeUltra</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>DecoyOpt challenges similarity-based enzyme annotation</h3>
+<p>DecoyOpt separates enzyme discrimination from detailed EC-number prediction, training against structure-guided, putatively inactive functional-site decoys. On homology-controlled splits at 40% identity, the authors report an MCC of 0.899 and a 6.17% false-positive rate on functional-site-only decoys, versus rates above 75% for several public baseline checkpoints.</p>
+<p>Case studies correctly annotated four wild-type enzymes and rejected eight known deleterious variants—targeting the mistake of treating sequence similarity as evidence of preserved catalytic function.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2121483603695849799">Biology+AI Daily — DecoyOpt</a></p>
+</article>
+<article>
+<h3>Probing local chemistry with NMR</h3>
+<p>A new preprint uses NMR chemical shifts to investigate whether protein foundation models capture local chemistry. Sergey Ovchinnikov and antisense shared the announcement.</p>
+<p class="source"><a href="https://x.com/sokrypton/status/2121367808147607612">Sergey Ovchinnikov — research announcement</a></p>
+</article>
+<article>
+<h3>ARIES builds alignments from protein embeddings</h3>
+<p>ARIES is introduced as a method for fast, accurate construction of multiple-sequence alignments using protein language embeddings, with applications to comparative and evolutionary sequence analysis.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2121458267587334651">ARIES announcement</a></p>
+</article>
+<article>
+<h3>Can molecular prediction reach cell biology?</h3>
+<p>Hannes Stark highlights Dominique Beaini’s blog post, “I ran Boltz-2 100 million times to check if it can simulate cell biology,” as a reading-group presentation examining the connection between molecular prediction and virtual-cell modeling.</p>
+<p class="source"><a href="https://x.com/HannesStaerk/status/2121279766728769576">Hannes Stark — reading-group resource</a></p>
+</article>
+</div>
+</section>
+
+<section id="biology">
+<h2>Cells, genomes &amp; measurement</h2>
+<div class="grid">
+<article>
+<h3>SCALEMAP gives each cell its own alignment target</h3>
+<p>SCALEMAP tackles diagonal single-cell multiomics integration through biological feature correspondence. Each cell receives its own positive alignment target, avoiding cross-modal cell-to-cell anchor searches. Accompanying posts report performance matching or exceeding leading alternatives with substantially lower runtime and memory requirements.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2121352582492983318">SCALEMAP announcement</a></p>
+</article>
+<article>
+<h3>CPDD restores DNA with context from both directions</h3>
+<p>Adapted from an autoregressive bacteriophage model, CPDD uses discrete diffusion to restore uncertain sequence regions with context on both sides. The study reports improved restoration of masked and visibly corrupted positions relative to comparison models.</p>
+<p>Long contiguous gaps remain a challenge: reconstruction trends toward codon-usage statistics, while controlled tests show limited recovery based on distant copied sequence.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2121483392168648780">Biology+AI Daily — CPDD</a></p>
+</article>
+<article>
+<h3>Ladon models RNA isoforms for patient-outcome prediction</h3>
+<p>A follow-up thread describes Ladon as a three-billion-parameter transformer encoder–decoder trained on millions of RNA-seq samples for therapeutic-response and prognosis prediction. It represents transcripts at the isoform-sequence level, incorporating nucleotide differences between isoforms, and learns from both outcome-labeled and unlabeled samples.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2121352348027211940">Ladon architecture and training details</a></p>
+</article>
+<article>
+<h3>PANGEA spans 46.5 million cells</h3>
+<p>Posts highlight PANGEA, a <em>Nature Methods</em> atlas covering 160 diseases and 48 organs. Its 46.5 million cells provide a resource for examining multicellular responses to disease.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2121265774103031881">PANGEA atlas announcement</a></p>
+</article>
+<article>
+<h3>Epi-PHR connects epigenetic marks with genome folding</h3>
+<p><em>Nature Methods</em> introduces Epi-PHR, an imaging method that maps combinations of epigenetic marks at individual genes while preserving three-dimensional genome structure. It links histone-modification measurements with chromatin folding.</p>
+<p class="source"><a href="https://x.com/naturemethods/status/2121279979380244810">Nature Methods — Epi-PHR</a></p>
+</article>
+<article>
+<h3>abcFISH images circular RNA molecule by molecule</h3>
+<p><em>Nature Methods</em> presents abcFISH for multiplexed detection of circular RNAs at single-molecule resolution, both in cells and in vivo.</p>
+<p class="source"><a href="https://x.com/naturemethods/status/2121275875702472974">Nature Methods — abcFISH</a></p>
+</article>
+<article>
+<h3>Partial reprogramming may need lineage-specific recipes</h3>
+<p>A post highlighting a new Yamanaka preprint says its findings suggest that rejuvenation through partial reprogramming needs to be optimized separately for individual cell lineages.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2121458207239655893">Partial-reprogramming preprint discussion</a></p>
+</article>
+<article>
+<h3>A structural-reasoning benchmark for biosecurity</h3>
+<p>Kenbwork announces BioSecBench-Structure, a benchmark for structural reasoning in biosecurity tasks that evaluates agentic interpretation.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2121187439087858131">BioSecBench-Structure announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="ai">
+<h2>AI architectures, training &amp; evaluation</h2>
+<article>
+<h3>Three design decisions behind the “encoder-free” debate</h3>
+<p>Lucas Beyer highlights a multimodal scaling study that separates three choices: whether to pretrain vision components separately, allocate separate vision parameters, and place those parameters before or inside the decoder. He emphasizes the scaling experiments over individual model demonstrations and favors the In-Fusion variant.</p>
+<p>The study covers dense architectures only, pretraining plus instruction tuning without RL, single-digit-billion parameter scales, and fixed image resolution.</p>
+<p class="source"><a href="https://x.com/giffmana/status/2121381045727859122">Lucas Beyer — commentary</a> · <a href="https://t.co/cz4FaTQEpQ">Research thread</a></p>
+</article>
+<article>
+<h3>OpenCLIP 4.x expands models and distributed training</h3>
+<p>Ross Wightman details updates beyond CLAP2: pooling fixes for MaMMUT2 and CoCa2; decoder-only GenLIP/GenLAP models; broader NaFlexViT support; and ModernText transformers with RoPE, SwiGLU and gated attention. Variable-length image and text pipelines add length bucketing.</p>
+<p>Refactored training supports FSDP2 and <code>torch.compile</code>, with PyTorch 2.15 variable-length attention support planned.</p>
+<p class="source"><a href="https://x.com/wightmanr/status/2121293659312382156">Ross Wightman — update</a> · <a href="https://t.co/HE3kbGjuKv">CLAP2 paper</a> · <a href="https://t.co/lCWigAB7C7">LAION-Audio-XL dataset</a> · <a href="https://t.co/NODsyggHnB">GenLIP paper</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>OpenMed anatomy fine-tune lifts held-out F1 to 61.9</h3>
+<p>OpenMed reports fine-tuning GLiNER2.5 Small on 1,000 MedMentions abstracts and evaluating on 200 held-out abstracts. F1 rises from 25.7 to 61.9: the model finds 655 of 987 labeled mentions, up from 333, while incorrect tags fall from 1,270 to 476.</p>
+<p>A single label covers organs, tissues, cells and body fluids. The Apache-2.0 model has not yet been tested on hospital notes.</p>
+<p class="source"><a href="https://x.com/OpenMed_AI/status/2121234125738930222">OpenMed — results</a> · <a href="https://t.co/vxkrYoiVGM">Model resource</a></p>
+</article>
+<article>
+<h3>Inkling 2 Small uses 4-bit forward passes through RL</h3>
+<p>Guangxuan Xiao describes an NVFP4 recipe using 4-bit forward passes from the first pretraining step through the final RL rollout. Related posts identify GB300 hardware and describe the overall recipe as mixed precision. Thinking Machines frames the challenge as keeping low-bit computation fast without allowing quantization error to interfere with learning.</p>
+<p class="source"><a href="https://x.com/SonglinYang4/status/2121357408199172404">Inkling 2 Small precision-recipe discussion</a></p>
+</article>
+<article>
+<h3>Attention sinks and gates are not interchangeable</h3>
+<p>Songlin Yang says dynamic attention sinks and gated attention can be combined in Inkling 2 Small. Attention sinks cannot express elementwise gated attention; pointwise gated attention, meanwhile, is agnostic to logZ, which attention sinks incorporate.</p>
+<p class="source"><a href="https://x.com/SonglinYang4/status/2121177540605710641">Songlin Yang — attention mechanisms</a></p>
+</article>
+<article>
+<h3>Row normalization proposed for SwiGLU stability</h3>
+<p>You Jiacheng argues for row normalization to control the infinity norm of pre-activation hidden states and thereby control post-activation RMS. The motivation is SwiGLU’s elementwise multiplication.</p>
+<p class="source"><a href="https://x.com/YouJiacheng/status/2121151031975546996">You Jiacheng — normalization rationale</a></p>
+</article>
+</div>
+<article>
+<h3>Checkpoint forensics faces questions about row selection and token estimates</h3>
+<p>Lawrence Chan asks how preserved weight rows were selected for exact GPU-initialization matches and how many independently seeded processes showed the Blackwell layout. He also questions how training-token counts were inferred from model weights, noting that a weight-drift explanation would depend on learning rate, batch size and schedule.</p>
+<p class="source"><a href="https://x.com/justanotherlaw/status/2121051477875818721">Lawrence Chan — methodological questions</a> · <a href="https://x.com/justanotherlaw/status/2121051882143744488">Follow-up</a></p>
+</article>
+</section>
+
+<section id="practice" class="language">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Erstes Welterbe-Besucherzentrum im Erzgebirge eröffnet</h3>
+<p class="source">Deutschlandfunk Kultur · 13.11.2026 · <a href="https://www.deutschlandfunkkultur.de/erstes-welterbe-besucherzentrum-im-erzgebirge-eroeffnet-102.html">Artikel lesen</a></p>
+<p>Am Marktplatz von Marienberg eröffnet das erste von sechs Besucherzentren für die Welterberegion Erzgebirge/Krušnohoří. Es soll Gästen Orientierung in der deutsch-tschechischen Grenzregion bieten. Dabei geht es nach Angaben des Welterbe-Vereins nicht um ein klassisches Museum, sondern um einen Ort, der informiert und das kulturelle Erbe vermittelt.</p>
+<p>Die kurze Meldung zeigt, wie eng die Geschichte der Region mit dem Bergbau verbunden ist: Über mehr als 800 Jahre hat er Landschaft und Traditionen geprägt. Zum Welterbe gehören deshalb nicht nur Bergwerke, sondern auch historische Stadtkerne und Anlagen der Wasserwirtschaft. Das neue Zentrum bietet einen Ausgangspunkt, um diese Zusammenhänge vor Ort zu entdecken.</p>
+<p><strong>Warum lesen:</strong> Die kompakte Nachricht verbindet ein konkretes Ausflugsziel mit einem Einblick in das grenzüberschreitende Industrie- und Kulturerbe des Erzgebirges.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Salon du Made in France: les entrepreneurs du numérique cherchent leur indépendance face aux Gafam</h3>
+<p class="source">RFI · 13 novembre 2026 · <a href="https://www.rfi.fr/fr/%C3%A9conomie/20261113-salon-du-made-in-france-les-entrepreneurs-du-num%C3%A9rique-cherchent-leur-ind%C3%A9pendance-face-aux-gafam">Lire l’article</a></p>
+<p>Au Salon du Made in France, ouvert à Paris le 12 novembre, les entreprises du numérique défendent une ambition : proposer des alternatives aux services américains et chinois. Le reportage présente notamment Twake, un outil open source destiné à concurrencer Microsoft 365 ou Google Workspace, et Wimi, une solution de travail collaboratif sécurisée. Leurs représentants soulignent toutefois que des tarifs attractifs ne suffisent pas à contrebalancer la puissance commerciale des géants américains ni à défaire les dépendances existantes.</p>
+<p>Pour ces entrepreneurs, les achats des administrations pourraient contribuer à faire grandir la filière française. Le représentant de Wimi réclame ainsi une orientation plus volontariste de la commande publique vers les solutions locales. Celui de Twake évoque, de son côté, de nouveaux contacts commerciaux et un appel d’offres remporté auprès du gouvernement suédois. À travers ces témoignages, l’article montre pourquoi l’échelle européenne apparaît indispensable pour transformer des initiatives françaises en alternatives durables, tout en distinguant les ambitions affichées des obstacles qui restent à surmonter.</p>
+<p><strong>Pourquoi lire :</strong> Un reportage concret pour comprendre comment la souveraineté numérique se joue aussi dans les logiciels de bureau et les décisions d’achat des administrations.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>souveraineté numérique</strong> — capacité à maîtriser ses technologies, ses infrastructures et ses données sans dépendance excessive envers des acteurs étrangers.</li>
+<li><strong>commande publique</strong> — ensemble des achats de biens et de services effectués par les administrations et les organismes publics.</li>
+<li><strong>appel d’offres</strong> — procédure permettant à un acheteur de comparer les propositions de plusieurs fournisseurs avant d’attribuer un marché.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — 相次ぐ情報漏えいでアナログ回帰？　ダイソー「パスワード管理ノート」が品薄に　一方でリスクも──IPAに聞いた</h3>
+<p class="source">ITmedia NEWS · 2026-11-14 · <a href="https://www.itmedia.co.jp/news/article/2611/14/2000003193/">記事を読む</a></p>
+<p>情報漏えいの発表が相次ぐなか、ダイソーの「パスワード管理ノート」が品薄になっている。サービスごとのIDやパスワードを紙に記録する商品で、もともとはデジタル機器での管理が苦手な人などを想定していた。ところが10月末ごろから売れ行きが伸び、同社はネットにつながらない紙への安心感が再び注目されていると説明。11月中の再入荷を予定し、増産の調整も進めているという。</p>
+<p>記事は、紙なら本当に安全なのかを情報処理推進機構（IPA）に取材している。IPAは紙での管理を否定していない一方、持ち歩けば紛失やのぞき見の危険があると指摘する。さらに、サービス側から認証情報が漏れる問題は、手元で紙を使っても防げない。漏れた情報を別のサービスでも試す「リスト型攻撃」に備え、パスワードを使い回さず、対応するサービスでは多要素認証やパスキーを設定することの重要性を伝えている。</p>
+<p><strong>読む理由：</strong> 身近な100円ショップの商品を入り口に、パスワードの保管方法と不正ログイン対策の違いを日本語で学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>認証情報（にんしょうじょうほう）</strong> — 利用者が本人であることを確かめるためのIDやパスワードなどの情報。</li>
+<li><strong>リスト型攻撃（リストがたこうげき）</strong> — 流出したIDとパスワードの組み合わせを使い、別のサービスへの不正ログインを試す攻撃。</li>
+<li><strong>多要素認証（たようそにんしょう）</strong> — パスワードなどの知識、端末などの所持品、指紋などの身体的特徴という異なる種類の要素を組み合わせて本人確認する仕組み。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 西班牙大罢工：数万人参与、巴塞罗那爆发警民冲突</h3>
+<p class="source">BBC 中文 · 2026-11-12 · <a href="https://www.bbc.com/zhongwen/articles/c8wy5x2q2wryo/simp">https://www.bbc.com/zhongwen/articles/c8wy5x2q2wryo/simp</a></p>
+<p>据BBC报道，西班牙主要工会因住房负担及生活成本上涨发起全国大罢工，马德里和巴塞罗那有大批民众上街，交通与公共服务受到影响。巴塞罗那部分地区出现纵火、破坏商店及警民冲突，不过受访示威者强调，大部分参与者是在和平表达对高房租的不满。</p>
+<p>报道将抗议的导火线追溯至一名87岁妇人遭迫迁、随后去世的事件，并通过租户的经历呈现住房压力：即使两人都有工作，支付房租后仍须应付食品与水电等开支，买房更显遥不可及。文章也引用租金与薪资资料，说明住房成本为何成为超出个人理财范围的社会议题。</p>
+<p>这场罢工又与提前举行的国会选举交织。首相桑切斯公开支持劳工争取可负担住房，反对党则指责政府借罢工争取选票，企业组织也质疑行动的政治性质。文章因此不只记录街头冲突，还呈现工会、政府、反对党与雇主对同一场行动的不同解释。</p>
+<p><strong>为什么读：</strong> 从租户生活读到工会行动与选举争议，适合练习中文社会新闻中有关住房、劳动权益和政治立场的表达。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>迫迁 (pò qiān)</strong> — 居民并非自愿，而是在房东要求或法律程序等压力下被迫搬离住所。</li>
+<li><strong>纠察线 (jiū chá xiàn)</strong> — 罢工者在工作场所等地点设置的示威队列，用来表达诉求并劝说他人支持罢工。</li>
+<li><strong>劳资问题 (láo zī wèn tí)</strong> — 劳工与雇主之间围绕薪资、工时、待遇及劳动条件等产生的问题。</li>
+</ul>
+</article>
+</section>
+<footer>News · November 14, 2026</footer>
+</main>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-14-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

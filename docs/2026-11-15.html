@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root { color-scheme: light; --ink: #202b31; --muted: #626c70; --line: #d6dad7; --accent: #175d69; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f5ef; color: var(--ink); font-family: Georgia, "Times New Roman", serif; line-height: 1.65; }
+main, header, footer { max-width: 1040px; margin: auto; padding: 24px 30px; }
+header { border-bottom: 3px solid var(--ink); padding-top: 38px; }
+h1 { margin: 0; font-size: 4rem; line-height: 1.1; letter-spacing: -.04em; }
+.date, .source, nav, footer, .section-intro { font-family: system-ui, sans-serif; }
+.date { color: var(--muted); margin: 14px 0; font-size: .9rem; }
+nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .85rem; }
+a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+a:hover { text-decoration-thickness: 2px; }
+section { margin-bottom: 42px; }
+h2 { font-size: 1.7rem; border-bottom: 1px solid var(--ink); padding-bottom: 9px; margin: 12px 0 24px; }
+h3 { font-size: 1.2rem; line-height: 1.4; margin: 0 0 8px; }
+p { margin: 8px 0 14px; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
+article { border-bottom: 1px solid var(--line); padding-bottom: 19px; }
+.source { font-size: .78rem; color: var(--muted); margin-bottom: 7px; }
+.links { font-size: .9rem; }
+#languages { border-top: 3px solid var(--ink); padding-top: 22px; }
+.section-intro { color: var(--muted); font-size: .9rem; }
+.reading { max-width: 820px; margin: 30px auto; padding-bottom: 28px; }
+.reading h3 { font-size: 1.35rem; }
+.reading ul { padding-left: 24px; }
+.reading li { margin-bottom: 7px; }
+footer { border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); padding-bottom: 35px; }
+@media (max-width: 650px) {
+  main, header, footer { padding-left: 20px; padding-right: 20px; }
+  .grid { grid-template-columns: 1fr; gap: 22px; }
+  h1 { font-size: 3.3rem; }
+}
+</style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+<header>
+<h1>News</h1>
+<p class="date"><time datetime="2026-11-15">Sunday, November 15, 2026</time></p>
+<nav aria-label="Sections">
+<a href="#ai-research">AI research &amp; engineering</a>
+<a href="#ai-society">AI, policy &amp; society</a>
+<a href="#biology">Biology &amp; medicine</a>
+<a href="#essays">Essays</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+<main>
+<section id="ai-research">
+<h2>AI research &amp; engineering</h2>
+<div class="grid">
+<article>
+<p class="source">科学空间 / Spaces AC</p>
+<h3><a href="https://spaces.ac.cn/archives/12003">Training without a predetermined learning-rate schedule</a></h3>
+<p>Part 11 of “Making Model Training More Scientific” explores schedule-free learning rates: training without specifying either a learning-rate curve or the total number of steps in advance. The challenge is to gain that flexibility while retaining the convergence benefits of end-of-training scheduling discussed in earlier installments.</p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/WKt2mqJrsFuMiszed/trying-to-understand-that-compute-multiplier-graph">Reconstructing Anthropic’s compute-multiplier graph</a></h3>
+<p>The author reconstructs an unlabeled Anthropic graph and tentatively estimates roughly 30,000× greater pretraining efficiency since 2024. The analysis emphasizes substantial uncertainty, and its estimate excludes post-training.</p>
+</article>
+<article>
+<p class="source">OpenMed · X</p>
+<h3><a href="https://x.com/OpenMed_AI/status/2121656911615398366">Offline clinical transcription with a release gate</a></h3>
+<p>OpenMed combines local Whisper large-v3-turbo transcription with its 44M-parameter PII SuperClinical Small model to screen each line before release. In a synthetic dictation test, the patient’s name, birth date and phone number were masked; uncertain tokens, including “metoprolol,” “mg” and “2,” were held for human confirmation.</p>
+<p>The network was blocked, with zero connection attempts reported. OpenMed describes this as one synthetic voice and one test demonstrating the release gate—not a measurement of recall.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2121656911988670555">Technical follow-up</a> · <a href="https://t.co/I1vz2HYuQt">Resource</a></p>
+</article>
+<article>
+<p class="source">Lucas Beyer · X</p>
+<h3><a href="https://x.com/giffmana/status/2121519765164364184">What checkpoint forensics can reveal</a></h3>
+<p>Lucas Beyer clarifies that the checkpoint-forensics technique he discusses applies to fine-tuning when the starting weights are available. Combining it with Will DePue’s initialization-recovery technique might conceivably enable studies of pretraining, he suggests, but many relevant signals are likely to wash out after enough training steps.</p>
+</article>
+<article>
+<p class="source">Ross Wightman · X</p>
+<h3><a href="https://x.com/wightmanr/status/2121654691918713293">NaFlex trials compare multimodal architectures</a></h3>
+<p>Ross Wightman reports encoder–decoder versus decoder-only trials for OCR and audio–text pretraining. He says the multimodal encoding approach under discussion can be tested as a configuration toggle, and proposes comparing separate audio and image deltas against text. In a <a href="https://x.com/giffmana/status/2121671035011395907">reply</a>, Lucas Beyer says he has not run that multi-modality experiment.</p>
+</article>
+<article>
+<p class="source">Sebastian Raschka · X</p>
+<h3><a href="https://x.com/rasbt/status/2121613812990095543">Attention residuals are not a linear-attention hybrid</a></h3>
+<p>Sebastian Raschka highlights a distinction in Inkling 2 Small’s architecture: it uses attention residuals, as Kimi K3 does, but does not use the linear-attention hybrid.</p>
+<p class="links"><a href="https://t.co/2U4ctJa1yw">Related material</a></p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/uCqBdWX6hnoB2A8pk/slouching-towards-interpretability-thinking-about">Toward a clearer account of neural computation</a></h3>
+<p>“Slouching Towards Interpretability” challenges underspecified notions of neural circuits. The essay explores reservoir computing, coherent activation sets and spectral clustering as possible foundations for defining and identifying computations inside neural networks.</p>
+</article>
+<article>
+<p class="source">Ross Wightman · X</p>
+<h3><a href="https://x.com/wightmanr/status/2121373602079817932">A reference shelf for OpenCLIP’s model families</a></h3>
+<p>Wightman collects research and implementation pointers spanning CLAP2/LAION-Audio-XL, OpenMaMMUT, SigLIP 2/NaFlex, GenLIP and the original LAION-CLAP, connecting audio–text modeling with generative vision research.</p>
+<p class="links">CLAP2: <a href="https://t.co/HE3kbGjuKv">paper</a>, <a href="https://t.co/ZXkobj7lyx">code</a>, <a href="https://t.co/lCWigAB7C7">dataset</a><br>
+OpenMaMMUT: <a href="https://t.co/15B8N9nk0o">scaling-law paper</a><br>
+GenLIP: <a href="https://t.co/NODsyggHnB">paper</a>, <a href="https://t.co/spaiNJzvX8">code</a></p>
+</article>
+</div>
+</section>
+
+<section id="ai-society">
+<h2>AI, policy &amp; society</h2>
+<div class="grid">
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/JbJXu3LzN7RxmnFpG/visualizing-the-difficulty-of-ai-alignment">Visualizing the difficulty of AI alignment</a></h3>
+<p>A speculative landscape analogy compares five perspectives on alignment difficulty. It separates questions that can otherwise blur together: whether aligned systems are reachable, whether we could recognize them, and whether current training methods can attain them.</p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/bMsQ44sKqrFWjuHPb/on-the-brutality-of-amdahl-s-law">The bottlenecks superintelligence might not remove</a></h3>
+<p>“On the Brutality of Amdahl’s Law” argues that physical throughput, slow experiments, supply chains and institutional delays could prevent superintelligence from producing explosive economic transformation. Its focus is on the parts of progress that remain slow even when other components accelerate.</p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/pzdfkxeG2CMsDWixs/wargames-inform-present-policy-not-future-incident-response">Wargames should inform policy now</a></h3>
+<p>A critique of abstract AI incident-response research argues that scenario analysis is most useful when it changes present policy—not when it offers advice that may become obvious once an incident occurs.</p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/oCX2KjEL6mLDCsq77/a-digital-security-checklist-for-the-ai-age">Personal digital security in the AI age</a></h3>
+<p>A security-checklist post starts from the author’s expectation that rising AI capabilities will increase attacks on everyday digital service providers. The concern extends to people who are not personally targeted but depend on those services.</p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/WgG5M9ZZ2C5KawYP5/protesting-for-ai-regulation">A firsthand account of AI-regulation activism</a></h3>
+<p>An account of a Boston protest considers what public demonstrations can achieve, the compromises involved in coalition-building and the importance of avoiding partisan polarization.</p>
+</article>
+</div>
+</section>
+
+<section id="biology">
+<h2>Biology &amp; medicine</h2>
+<div class="grid">
+<article>
+<p class="source">X Bio Research</p>
+<h3><a href="https://x.com/razoralign/status/2121715358726074405">scAdaG2M transfers cellular graph knowledge to lightweight models</a></h3>
+<p>For scRNA-seq clustering, scAdaG2M uses a graph-neural-network teacher to learn higher-order relationships and local cell neighborhoods, then distills that information into MLP students that operate without a graph. The posts report lower computational overhead and reduced dependence on preconstructed cellular graphs, with less over-smoothing helping characterize ambiguous and potentially rare cell populations.</p>
+</article>
+<article>
+<p class="source">LiteFold · via X Bio Research</p>
+<h3><a href="https://x.com/razoralign/status/2121812461682823195">Jade: GPU-accelerated homology search</a></h3>
+<p>LiteFold introduces Jade as a lightweight homology-search engine supporting protein, DNA and RNA sequences, with GPU acceleration.</p>
+</article>
+<article>
+<p class="source">X Bio Research</p>
+<h3><a href="https://x.com/razoralign/status/2121543266613305589">An updatable index for large-scale sequence search</a></h3>
+<p>“Dynamic Hierarchical Interleaved Bloom Filter” introduces an updatable index designed for fast biological sequence search at large scale.</p>
+</article>
+<article>
+<p class="source">@rec3141 · via X Bio Research</p>
+<h3><a href="https://x.com/razoralign/status/2121817688565813607">Exploring prokaryotic diversity with EarthDNA</a></h3>
+<p>A post highlights EarthDNA as a resource for exploring the diversity of prokaryotic genomes.</p>
+</article>
+<article>
+<p class="source">X Bio Research</p>
+<h3><a href="https://x.com/razoralign/status/2121812051928752613">MotiFlow builds 3D molecules from rigid motifs</a></h3>
+<p>MotiFlow is introduced as a molecular generator that works with rigid motifs rather than learning every constituent atom separately. The announcement uses benzene rings to illustrate the rationale for motif-based three-dimensional generation.</p>
+</article>
+<article>
+<p class="source">Science · highlighted by Chris Stringer</p>
+<h3><a href="https://x.com/razoralign/status/2121630784184635555">Stable genotype–phenotype links do not guarantee predictable evolution</a></h3>
+<p>A Science study reports “Limited genomic predictability of complex trait evolution despite genotype-phenotype stability.” The finding distinguishes stable relationships between genotypes and phenotypes from the ability to predict how complex traits evolve.</p>
+</article>
+<article>
+<p class="source">Marios Georgakis · via X Bio Research</p>
+<h3><a href="https://x.com/anshulkundaje/status/2121726615847903517">Phase 2b results announced for MAR001</a></h3>
+<p>Marios Georgakis highlights Phase 2b results involving 236 participants for MAR001, Marea Therapeutics’ ANGPTL4 inhibitor.</p>
+</article>
+<article>
+<p class="source">Nature Methods · X</p>
+<h3><a href="https://x.com/naturemethods/status/2121273569560723558">Sex as a biological variable</a></h3>
+<p>Nature Methods highlights calls from scientists across life-science subspecialties to address sex as a biological variable in research—a consideration for study design, biological interpretation and medical generalization.</p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/8Y3DB9qAhxxHnegiJ/embryo-selection-and-economic-discounting">Embryo selection and the timing of health risks</a></h3>
+<p>Drawing on their family’s IVF calculations, the author argues that embryo-selection scores should account for time discounting and anticipated medical progress. Under that approach, early-onset conditions receive greater relative weight.</p>
+</article>
+</div>
+</section>
+
+<section id="essays">
+<h2>Essays &amp; perspectives</h2>
+<div class="grid">
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/CzZR4ZcJoCNi2zqFn/the-oldest-text-in-the-training-data">The oldest text in the training data</a></h3>
+<p>A playful exploration of ancient texts that might appear in Claude’s training data connects Gilgamesh, Sumerian accounting tablets and clay tokens to the origins of writing.</p>
+</article>
+<article>
+<p class="source">LessWrong</p>
+<h3><a href="https://www.lesswrong.com/posts/uJma5Hygyj6bHwwSn/be-grateful-in-spite-of-your-suffering">Be grateful in spite of your suffering</a></h3>
+<p>A personal reflection on severe pain and sleeplessness explores gratitude and the search for hope amid suffering.</p>
+</article>
+</div>
+</section>
+
+<section id="languages">
+<h2>Language practice</h2>
+<p class="section-intro">Daily readings in German, French, Japanese and Chinese.</p>
+
+<article class="reading" lang="de">
+<h3>Deutsch — Ein Aufschwung, den die Spanier nicht spüren</h3>
+<p class="source">Tagesschau · 15.11.2026 · <a href="https://www.tagesschau.de/ausland/europa/spanien-wahlkampf-108.html">Artikel lesen</a></p>
+<p>Spaniens Wirtschaft wächst, die Beschäftigung erreicht einen Rekordstand, und Unternehmen wie der Raketenhersteller PLD Space zeigen, dass das Land längst mehr zu bieten hat als Tourismus und Landwirtschaft. Trotzdem gerät Regierungschef Pedro Sánchez vor der vorgezogenen Parlamentswahl unter Druck. Die Reportage von Kristina Böker erklärt diesen Widerspruch: Gute Wirtschaftsdaten bedeuten für viele Menschen noch lange keinen spürbaren Wohlstand, wenn Wohnraum fehlt und der Alltag immer teurer wird.</p>
+<p>Wie sich die Wohnungskrise auswirkt, zeigt die Geschichte des 27-jährigen Handelsvertreters Gonzalo Àlvaro. Nach Jahren in Zweck-Wohngemeinschaften lebt er inzwischen mit seiner Freundin in einer kleinen Wohnung in Madrid; Geld für ein Eigenheim können beide dennoch nicht zurücklegen. Als Aktivist eines Mieterverbands wirbt er für einen landesweiten Generalstreik. Die Protestbewegung verlangt politische Antworten auf steigende Mieten und Zwangsräumungen, während Vorhaben der Minderheitsregierung zunächst an fehlenden parlamentarischen Mehrheiten scheiterten.</p>
+<p>Politisch könnten die Unzufriedenheit und der Vertrauensverlust nach schweren Zugunfällen den Konservativen um Alberto Núñez Feijóo nutzen. Laut dem Bericht wäre eine Mehrheit gemeinsam mit der rechtsnationalen Vox möglich. Der Artikel verbindet damit eine soziale Alltagsfrage mit der größeren Entscheidung über Spaniens politische Richtung: Kann die Mobilisierung für bezahlbares Wohnen das linke Lager stärken, oder profitiert vor allem die rechte Opposition?</p>
+<p><strong>Warum lesen:</strong> Die Reportage macht anhand konkreter Lebensbedingungen verständlich, warum wirtschaftlicher Erfolg und politische Zustimmung in einem europäischen Land auseinanderfallen können.</p>
+</article>
+
+<article class="reading" lang="fr">
+<h3>Français — Après plusieurs heures de suspension des vols, les États-Unis rouvrent leur espace aérien</h3>
+<p class="source">France 24 · 14 novembre 2026 · <a href="https://www.france24.com/fr/%C3%A9co-tech/20261114-etats-unis-suspension-des-vols-reouverture-espace-aerien-faa">Lire l’article</a></p>
+<p>Les États-Unis ont autorisé la reprise des décollages vendredi 13 novembre au soir, après une interruption nationale de plusieurs heures. Selon France 24, presque 6 000 vols ont été annulés et des centaines de milliers de voyageurs ont été touchés. À l’origine de cette mesure de précaution : des communications et des radars fonctionnant par intermittence dans plusieurs centres de contrôle, empêchant les contrôleurs de localiser immédiatement les avions. Les autorités écartent la piste d’une cyberattaque et mettent en cause du matériel informatique vieillissant.</p>
+<p>La réouverture ne signifie toutefois pas un retour immédiat à la normale. L’article décrit des passagers bloqués, des départs sans cesse repoussés et la recherche de solutions de remplacement, notamment en voiture. Le ministre des Transports annonce une reprise progressive et évoque un retour à la normale à l’approche des grands déplacements de Thanksgiving.</p>
+<p>Au-delà des perturbations, cette panne relance le débat sur la modernisation du contrôle aérien américain. La Maison Blanche a demandé au Congrès une enveloppe supplémentaire de 30,1 milliards de dollars, tandis que le ministre des Transports réclame davantage. Certains équipements remontent aux années 1960 et utilisent encore des lignes en cuivre ou des disquettes. France 24 rappelle aussi plusieurs incidents récents de télécommunications, qui illustrent la fragilité de ces infrastructures.</p>
+<p><strong>Pourquoi lire :</strong> Un récit concret pour comprendre comment le vieillissement des infrastructures numériques peut désorganiser les transports à l’échelle d’un pays.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>contrôle aérien</strong> — ensemble des services qui organisent et surveillent les mouvements des avions pour assurer leur sécurité.</li>
+<li><strong>aiguilleurs du ciel</strong> — expression désignant les contrôleurs chargés de guider les avions et de maintenir les distances de sécurité.</li>
+<li><strong>enveloppe budgétaire</strong> — montant de financement prévu ou demandé pour un projet ou un secteur précis.</li>
+</ul>
+</article>
+
+<article class="reading" lang="ja">
+<h3>日本語 — 小泉防衛相 防衛省の新たなAI活用基本方針 11月末めどに公表へ</h3>
+<p class="source">NHKニュース · 2026年11月15日 · <a href="https://news.web.nhk/newsweb/na/nd-20261115de76119">記事を読む</a></p>
+<p>防衛省が、AIをどのように活用するかについて、新たな基本方針をまとめる予定だ。小泉防衛大臣が明らかにしたもので、公表の目標時期は11月末としている。</p>
+<p>背景にあるのは、安全保障分野におけるAIの技術開発の急速な進展だ。技術の変化に政府が方針づくりで対応しようとする動きを伝えるニュースである。</p>
+<p><strong>読む理由：</strong> 日本のAI政策と安全保障の接点を知りながら、行政の方針発表で使われる表現を学べる。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>安全保障（あんぜんほしょう）</strong> — 国や国民の安全を脅威から守るための政策や体制。</li>
+<li><strong>基本方針（きほんほうしん）</strong> — 政策や組織の活動を進める際の、土台となる考え方や方向性。</li>
+<li><strong>策定（さくてい）</strong> — 政策や計画の内容を検討し、まとめて定めること。</li>
+</ul>
+</article>
+
+<article class="reading" lang="zh-Hans">
+<h3>中文 — 超市冷柜一夜变烤箱：法国控伊朗发动“纯破坏”黑客攻击｜Whatsnew</h3>
+<p class="source">端传媒 · 2026-11-13 · <a href="https://theinitium.com/20261113-whatsnew-france-iran-irgc-supermarket-cyberattack-zh-hans/">https://theinitium.com/20261113-whatsnew-france-iran-irgc-supermarket-cyberattack-zh-hans/</a></p>
+<p>据端传媒报道，法国约700个大型零售网点的冷柜在10月遭黑客远程操控，食品大量报废，并发生多处火灾。法国政府本周指认伊朗革命卫队下属网络组织策划攻击，准备推动欧盟制裁；伊朗则否认指控，称其毫无根据。报道同时提醒，网络攻击的责任归属往往难以确定，不能将法方指控直接视为双方认可的结论。</p>
+<p>文章最值得关注的，是普通联网设备如何成为现实生活中的安全缺口。报道指出，部分制冷设备使用弱密码或出厂默认密码，老旧型号也缺乏安全更新。攻击者并未索要赎金，而是利用设备的控制功能造成实际破坏；类似风险还涉及医疗冷藏设施。这让网络安全不再只是个人资料会不会泄露的问题，也关乎食品、医疗和公共服务能否正常运作。</p>
+<p><strong>为什么读：</strong> 从超市冷柜这一日常场景切入，了解欧洲网络安全争议，并练习区分新闻中的事实陈述、官方指控与分析判断。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>攻击归因 (gōngjī guīyīn)</strong> — 根据技术痕迹及其他证据，判断网络攻击由谁实施或支持。</li>
+<li><strong>工业控制器 (gōngyè kòngzhìqì)</strong> — 用于监测和控制机器、生产设施等实体设备的装置。</li>
+<li><strong>网络韧性 (wǎngluò rènxìng)</strong> — 系统遭受攻击或故障后，维持关键服务并恢复正常运作的能力。</li>
+</ul>
+</article>
+</section>
+</main>
+<footer>
+<p><strong>Source notes:</strong> No new items from Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg.</p>
+</footer>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-15-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

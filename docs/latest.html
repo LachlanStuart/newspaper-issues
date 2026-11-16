@@ -5,37 +5,30 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root { color-scheme: light; --ink: #202b31; --muted: #626c70; --line: #d6dad7; --accent: #175d69; }
-* { box-sizing: border-box; }
-body { margin: 0; background: #f6f5ef; color: var(--ink); font-family: Georgia, "Times New Roman", serif; line-height: 1.65; }
-main, header, footer { max-width: 1040px; margin: auto; padding: 24px 30px; }
-header { border-bottom: 3px solid var(--ink); padding-top: 38px; }
-h1 { margin: 0; font-size: 4rem; line-height: 1.1; letter-spacing: -.04em; }
-.date, .source, nav, footer, .section-intro { font-family: system-ui, sans-serif; }
-.date { color: var(--muted); margin: 14px 0; font-size: .9rem; }
-nav { display: flex; flex-wrap: wrap; gap: 8px 22px; font-size: .85rem; }
-a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
-a:hover { text-decoration-thickness: 2px; }
-section { margin-bottom: 42px; }
-h2 { font-size: 1.7rem; border-bottom: 1px solid var(--ink); padding-bottom: 9px; margin: 12px 0 24px; }
-h3 { font-size: 1.2rem; line-height: 1.4; margin: 0 0 8px; }
-p { margin: 8px 0 14px; }
-.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; }
-article { border-bottom: 1px solid var(--line); padding-bottom: 19px; }
-.source { font-size: .78rem; color: var(--muted); margin-bottom: 7px; }
-.links { font-size: .9rem; }
-#languages { border-top: 3px solid var(--ink); padding-top: 22px; }
-.section-intro { color: var(--muted); font-size: .9rem; }
-.reading { max-width: 820px; margin: 30px auto; padding-bottom: 28px; }
-.reading h3 { font-size: 1.35rem; }
-.reading ul { padding-left: 24px; }
-.reading li { margin-bottom: 7px; }
-footer { border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); padding-bottom: 35px; }
-@media (max-width: 650px) {
-  main, header, footer { padding-left: 20px; padding-right: 20px; }
-  .grid { grid-template-columns: 1fr; gap: 22px; }
-  h1 { font-size: 3.3rem; }
-}
+:root{color-scheme:light;--ink:#202b30;--muted:#626d72;--accent:#175c70;--line:#d8dedd;--paper:#fffefa}
+*{box-sizing:border-box}
+body{margin:0;background:#f1f2ef;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1040px;margin:32px auto;padding:42px 54px;background:var(--paper)}
+header{border-bottom:3px solid var(--ink);padding-bottom:22px;margin-bottom:24px}
+h1{font-size:4rem;line-height:1;margin:0 0 16px;letter-spacing:-2px}
+.date,.meta,nav,footer{font-family:system-ui,sans-serif;font-size:.85rem;color:var(--muted)}
+nav{margin-top:14px;line-height:2}
+nav a{margin-right:18px}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-family:system-ui,sans-serif;font-size:1.35rem;border-bottom:1px solid var(--line);padding-bottom:10px;margin:38px 0 20px}
+h3{font-size:1.22rem;line-height:1.35;margin:0 0 10px}
+p{margin:0 0 12px}
+article{margin:0 0 26px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.briefs{padding-left:22px}
+.briefs li{margin-bottom:13px}
+.practice{border-top:3px solid var(--ink);margin-top:42px;padding-top:2px}
+.practice article{padding:18px 0 24px;border-bottom:1px solid var(--line)}
+.practice h3{font-size:1.3rem}
+.practice ul{padding-left:24px}
+footer{margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
+@media(max-width:700px){main{margin:0;padding:28px 22px}.grid{grid-template-columns:1fr}h1{font-size:3.3rem}}
+@media print{body{background:white}main{margin:0;padding:0;max-width:none}article{break-inside:avoid}}
 </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -56,231 +49,198 @@ footer { border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
+<main>
 <header>
 <h1>News</h1>
-<p class="date"><time datetime="2026-11-15">Sunday, November 15, 2026</time></p>
+<div class="date"><time datetime="2026-11-16">Monday, November 16, 2026</time></div>
 <nav aria-label="Sections">
-<a href="#ai-research">AI research &amp; engineering</a>
-<a href="#ai-society">AI, policy &amp; society</a>
-<a href="#biology">Biology &amp; medicine</a>
-<a href="#essays">Essays</a>
+<a href="#discovery">Molecular discovery</a>
+<a href="#interpretability">Model interpretability</a>
+<a href="#biology">Genomics &amp; cells</a>
+<a href="#ai">AI methods &amp; privacy</a>
 <a href="#languages">Language practice</a>
 </nav>
 </header>
-<main>
-<section id="ai-research">
-<h2>AI research &amp; engineering</h2>
+
+<section id="discovery">
+<h2>Molecular discovery</h2>
+<article>
+<h3>Antibody docking accuracy does not guarantee interaction specificity</h3>
+<p>A benchmark highlighted by Biology+AI Daily compares five models across 200 antibody–antigen complexes. OpenDDE leads on median interface DockQ and docking pass rate, though its advantage over Protenix-v2 is not statistically significant. The distinction becomes sharper on mutated-interface decoys: OpenDDE remains highly confident in many, while Protenix-v2 rejects the perturbed interfaces more effectively.</p>
+<p>Interface-specific confidence correlates with docking quality, but useful thresholds vary by model and task. Most gains from additional sampling arrive within roughly five seeds.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937760781308076">Biology+AI Daily · benchmark summary</a></p>
+</article>
 <div class="grid">
 <article>
-<p class="source">科学空间 / Spaces AC</p>
-<h3><a href="https://spaces.ac.cn/archives/12003">Training without a predetermined learning-rate schedule</a></h3>
-<p>Part 11 of “Making Model Training More Scientific” explores schedule-free learning rates: training without specifying either a learning-rate curve or the total number of steps in advance. The challenge is to gain that flexibility while retaining the convergence benefits of end-of-training scheduling discussed in earlier installments.</p>
+<h3>Pallatom2 reports active binders across ten targets</h3>
+<p>Pallatom2 jointly generates protein sequence, backbone, side chains and binder–target contacts, with controls for binding sites, target flexibility and preserved interface geometry. The study reports biolayer interferometry activity for 112 of 210 designs across ten targets, finding binders for every target and picomolar-scale apparent affinities for six.</p>
+<p>Further demonstrations include TNFα affinity maturation and conversion of an inactive nanobody into nanomolar binders.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937375022432411">Biology+AI Daily · Pallatom2</a></p>
 </article>
 <article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/WKt2mqJrsFuMiszed/trying-to-understand-that-compute-multiplier-graph">Reconstructing Anthropic’s compute-multiplier graph</a></h3>
-<p>The author reconstructs an unlabeled Anthropic graph and tentatively estimates roughly 30,000× greater pretraining efficiency since 2024. The analysis emphasizes substantial uncertainty, and its estimate excludes post-training.</p>
+<h3>DiffTernary tackles molecular glues as a three-part docking problem</h3>
+<p>DiffTernary jointly docks a molecular glue and its two protein partners, and introduces Ternary-PDB, a collection of 76,702 experimentally determined ternary complexes. On 88 post-cutoff molecular-glue complexes, the study reports acceptable protein interfaces for 50.0% with one prediction and 78.4% with best-of-25 sampling.</p>
+<p>The latter uses oracle selection, not practical confidence ranking. A separate comparison reports 41.5% acceptable interfaces for the confidence-ranked top candidate among 40. The proteins remain rigid while the bridging molecule can change torsions.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934183140671663">Biology+AI Daily · DiffTernary</a></p>
 </article>
 <article>
-<p class="source">OpenMed · X</p>
-<h3><a href="https://x.com/OpenMed_AI/status/2121656911615398366">Offline clinical transcription with a release gate</a></h3>
-<p>OpenMed combines local Whisper large-v3-turbo transcription with its 44M-parameter PII SuperClinical Small model to screen each line before release. In a synthetic dictation test, the patient’s name, birth date and phone number were masked; uncertain tokens, including “metoprolol,” “mg” and “2,” were held for human confirmation.</p>
-<p>The network was blocked, with zero connection attempts reported. OpenMed describes this as one synthetic voice and one test demonstrating the release gate—not a measurement of recall.</p>
-<p class="links"><a href="https://x.com/OpenMed_AI/status/2121656911988670555">Technical follow-up</a> · <a href="https://t.co/I1vz2HYuQt">Resource</a></p>
+<h3>Binding-pocket diversity as a guide to experimental targets</h3>
+<p>A PocketVec analysis argues for choosing experimental targets by binding-pocket similarity rather than protein sequence or fold. It maps 51,535 predicted druggable pockets across 15,559 human proteins, then selects 200 representative pockets from 100 understudied clusters.</p>
+<p>Those clusters are estimated to cover roughly 10,000–11,000 pockets and 5,600 proteins—2.8–4.4 times the coverage of random ligand-free cluster selection. Alternative prioritizations trade novelty against experimental feasibility.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934579691065829">Biology+AI Daily · pocket-selection study</a></p>
 </article>
 <article>
-<p class="source">Lucas Beyer · X</p>
-<h3><a href="https://x.com/giffmana/status/2121519765164364184">What checkpoint forensics can reveal</a></h3>
-<p>Lucas Beyer clarifies that the checkpoint-forensics technique he discusses applies to fine-tuning when the starting weights are available. Combining it with Will DePue’s initialization-recovery technique might conceivably enable studies of pretraining, he suggests, but many relevant signals are likely to wash out after enough training steps.</p>
-</article>
-<article>
-<p class="source">Ross Wightman · X</p>
-<h3><a href="https://x.com/wightmanr/status/2121654691918713293">NaFlex trials compare multimodal architectures</a></h3>
-<p>Ross Wightman reports encoder–decoder versus decoder-only trials for OCR and audio–text pretraining. He says the multimodal encoding approach under discussion can be tested as a configuration toggle, and proposes comparing separate audio and image deltas against text. In a <a href="https://x.com/giffmana/status/2121671035011395907">reply</a>, Lucas Beyer says he has not run that multi-modality experiment.</p>
-</article>
-<article>
-<p class="source">Sebastian Raschka · X</p>
-<h3><a href="https://x.com/rasbt/status/2121613812990095543">Attention residuals are not a linear-attention hybrid</a></h3>
-<p>Sebastian Raschka highlights a distinction in Inkling 2 Small’s architecture: it uses attention residuals, as Kimi K3 does, but does not use the linear-attention hybrid.</p>
-<p class="links"><a href="https://t.co/2U4ctJa1yw">Related material</a></p>
-</article>
-<article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/uCqBdWX6hnoB2A8pk/slouching-towards-interpretability-thinking-about">Toward a clearer account of neural computation</a></h3>
-<p>“Slouching Towards Interpretability” challenges underspecified notions of neural circuits. The essay explores reservoir computing, coherent activation sets and spectral clustering as possible foundations for defining and identifying computations inside neural networks.</p>
-</article>
-<article>
-<p class="source">Ross Wightman · X</p>
-<h3><a href="https://x.com/wightmanr/status/2121373602079817932">A reference shelf for OpenCLIP’s model families</a></h3>
-<p>Wightman collects research and implementation pointers spanning CLAP2/LAION-Audio-XL, OpenMaMMUT, SigLIP 2/NaFlex, GenLIP and the original LAION-CLAP, connecting audio–text modeling with generative vision research.</p>
-<p class="links">CLAP2: <a href="https://t.co/HE3kbGjuKv">paper</a>, <a href="https://t.co/ZXkobj7lyx">code</a>, <a href="https://t.co/lCWigAB7C7">dataset</a><br>
-OpenMaMMUT: <a href="https://t.co/15B8N9nk0o">scaling-law paper</a><br>
-GenLIP: <a href="https://t.co/NODsyggHnB">paper</a>, <a href="https://t.co/spaiNJzvX8">code</a></p>
+<h3>RSMBind locates small-molecule binding sites on RNA</h3>
+<p>RSMBind combines frozen RNA-model embeddings and nucleotide geometry in a shallow graph-attention network. Training on 358 RNA chains improves performance across four external benchmarks relative to a smaller training set; the method has the highest reported Matthews correlation coefficient among compared approaches on three.</p>
+<p>The recommended configuration combines RNA-FM with geometric descriptors. Solvent-accessibility features do not consistently help, loop-associated sites are easier to predict than stem-embedded sites, and molecular-dynamics examples reveal disagreements between static predictions and dynamic ligand proximity.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121933897554632920">Biology+AI Daily · RSMBind</a></p>
 </article>
 </div>
 </section>
 
-<section id="ai-society">
-<h2>AI, policy &amp; society</h2>
+<section id="interpretability">
+<h2>Model interpretability &amp; steering</h2>
+<article>
+<h3>Alphabet swaps probe what protein language models learn</h3>
+<p>A study consistently permutes amino-acid alphabets in protein-family alignments while preserving their statistical relationships. Classical Potts and inverse-covariance contact estimators remain invariant, but contact predictions from ESM-2, MSA Transformer and AMPLIFY change sharply. Swaps within biochemical classes preserve substantially more predictions than arbitrary permutations.</p>
+<p>The authors call this “alphabet anchoring” and argue that contact accuracy alone does not establish that a model performs classical coevolutionary inference.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937241555849256">Biology+AI Daily · invariant-relabeling study</a></p>
+</article>
 <div class="grid">
 <article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/JbJXu3LzN7RxmnFpG/visualizing-the-difficulty-of-ai-alignment">Visualizing the difficulty of AI alignment</a></h3>
-<p>A speculative landscape analogy compares five perspectives on alignment difficulty. It separates questions that can otherwise blur together: whether aligned systems are reachable, whether we could recognize them, and whether current training methods can attain them.</p>
+<h3>ProteinMPNN steering meets a reconstruction confounder</h3>
+<p>Sparse autoencoders identify features associated with secondary structure, residue chemistry and metal coordination across 1,149 structures. Steering selected features in the therapeutic scFv brolucizumab yields variants with less unfolding in high-temperature molecular-dynamics simulations; stronger steering destabilizes them.</p>
+<p>Inserting the autoencoder can also change amino-acid distributions without explicit steering, making reconstruction-induced model drift an important confounder.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934700201869380">Biology+AI Daily · ProteinMPNN study</a></p>
 </article>
 <article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/bMsQ44sKqrFWjuHPb/on-the-brutality-of-amdahl-s-law">The bottlenecks superintelligence might not remove</a></h3>
-<p>“On the Brutality of Amdahl’s Law” argues that physical throughput, slow experiments, supply chains and institutional delays could prevent superintelligence from producing explosive economic transformation. Its focus is on the parts of progress that remain slow even when other components accelerate.</p>
-</article>
-<article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/pzdfkxeG2CMsDWixs/wargames-inform-present-policy-not-future-incident-response">Wargames should inform policy now</a></h3>
-<p>A critique of abstract AI incident-response research argues that scenario analysis is most useful when it changes present policy—not when it offers advice that may become obvious once an incident occurs.</p>
-</article>
-<article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/oCX2KjEL6mLDCsq77/a-digital-security-checklist-for-the-ai-age">Personal digital security in the AI age</a></h3>
-<p>A security-checklist post starts from the author’s expectation that rising AI capabilities will increase attacks on everyday digital service providers. The concern extends to people who are not personally targeted but depend on those services.</p>
-</article>
-<article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/WgG5M9ZZ2C5KawYP5/protesting-for-ai-regulation">A firsthand account of AI-regulation activism</a></h3>
-<p>An account of a Boston protest considers what public demonstrations can achieve, the compromises involved in coalition-building and the importance of avoiding partisan polarization.</p>
+<h3>PULSE builds steering directions from matched proteins</h3>
+<p>PULSE uses similarity-matched positive and negative protein examples rather than global population centroids. With the downstream editing procedure fixed, it improves predicted solubility, immunogenicity and toxicity objectives over centroid steering.</p>
+<p>Static vector diagnostics do not explain the gains. A proposed Local Directional Support metric instead asks whether each realized editing step follows property directions supported by its local context.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934386203709515">Biology+AI Daily · PULSE</a></p>
 </article>
 </div>
 </section>
 
 <section id="biology">
-<h2>Biology &amp; medicine</h2>
+<h2>Genomics, RNA &amp; cellular models</h2>
+<article>
+<h3>RNAtomy transfers structural pretraining to RNA function</h3>
+<p>RNAtomy learns inter-nucleotide geometry and residue-level structural descriptors through joint masked reconstruction in a hybrid Mamba–Transformer architecture. Pretrained on approximately 200,000 RNAs, it is evaluated on seven tasks spanning structure, interactions and function.</p>
+<p>Reported results include improved solvent-accessibility prediction, strong long-range contact precision, and the best tested R² for 5′ UTR mean ribosome load on both synthetic and out-of-distribution human sequences. It also supports RNA-binding-protein, miRNA-target and IRES prediction.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937151898357937">Biology+AI Daily · RNAtomy</a></p>
+</article>
+<article>
+<h3>Long-read correction reports assembly and classification gains</h3>
+<p>A post by @frederikschu, shared by @razoralign, reports that correcting long DNA reads with DADEC produces less fragmented genome assemblies and improves microbial classification.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2122062794963223031">@razoralign · DADEC</a></p>
+</article>
+
+<h3>Cellular modeling &amp; multiomics briefs</h3>
+<p class="meta">Research and tools highlighted by @razoralign</p>
+<ul class="briefs">
+<li><a href="https://x.com/razoralign/status/2121995460227514606"><strong>Tahoe-x1</strong></a> studies scaling perturbation-trained single-cell foundation models to three billion parameters.</li>
+<li><a href="https://x.com/razoralign/status/2121995296322564381"><strong>Squidiff</strong></a> uses diffusion modeling to predict cellular development and responses to perturbations.</li>
+<li><a href="https://x.com/razoralign/status/2121995548643455348"><strong>STORIES</strong></a> uses Fused Gromov–Wasserstein analysis to learn cell-fate landscapes from spatial transcriptomics.</li>
+<li><a href="https://x.com/razoralign/status/2121995252836036617"><strong>scTrace+</strong></a> combines lineage-tracing information with multiple aspects of transcriptomic similarity for cell-fate inference.</li>
+<li><a href="https://x.com/razoralign/status/2121995269499920592"><strong>GGANO</strong></a> reconstructs gene-network structure and dynamics from single-cell data.</li>
+<li><a href="https://x.com/razoralign/status/2121995348323561785"><strong>Geneformer</strong></a> applies transfer learning to predictions in network biology.</li>
+<li><a href="https://x.com/razoralign/status/2121995364110942365"><strong>FADVI</strong></a> uses disentangled representation learning for robust integration of single-cell and spatial omics.</li>
+<li><a href="https://x.com/razoralign/status/2121995190659670469"><strong>COTree</strong></a> provides a statistical framework for cell-resolved multiomic trajectories.</li>
+<li><a href="https://x.com/razoralign/status/2121995178705866766"><strong>scPhoenix</strong></a> combines contrastive learning and auxiliary–core feature disentanglement for sparse cellular multiomics.</li>
+<li><a href="https://x.com/razoralign/status/2121995241217740936"><strong>BioLLM</strong></a> standardizes integration and benchmarking of single-cell foundation models.</li>
+</ul>
+
+<h3>Sequence, regulation &amp; analysis tools</h3>
+<ul class="briefs">
+<li><a href="https://x.com/razoralign/status/2121995380296683938"><strong>Atacformer</strong></a> is a transformer-based foundation model for analyzing and interpreting ATAC-seq data.</li>
+<li><a href="https://x.com/razoralign/status/2121995314282516689"><strong>VariantFormer</strong></a> integrates DNA sequence, genetic variation and regulatory landscapes in a hierarchical transformer.</li>
+<li><a href="https://x.com/razoralign/status/2121995280606433280"><strong>Clair-Mosaic</strong></a> targets mosaic small-variant calling from long reads with deep learning.</li>
+<li><a href="https://x.com/razoralign/status/2121995209202704501"><strong>Clair3-RNA</strong></a> calls small variants from long-read RNA-sequencing data.</li>
+<li><a href="https://x.com/razoralign/status/2121995390170071415"><strong>GNAT</strong></a> offers interactive gene-neighbourhood analysis through a web tool.</li>
+<li><a href="https://x.com/razoralign/status/2121995228643279296"><strong>HAlign 4</strong></a> introduces a strategy for rapidly aligning millions of sequences.</li>
+<li><a href="https://x.com/razoralign/status/2121995444637323775"><strong>Odyssey</strong></a> explores reconstructing evolution through emergent consensus in the global proteome.</li>
+<li><a href="https://x.com/razoralign/status/2121995142408327510"><strong>GraphFLA</strong></a> augments biological fitness-prediction benchmarks with fitness-landscape features.</li>
+</ul>
+</section>
+
+<section id="ai">
+<h2>AI methods &amp; privacy</h2>
 <div class="grid">
 <article>
-<p class="source">X Bio Research</p>
-<h3><a href="https://x.com/razoralign/status/2121715358726074405">scAdaG2M transfers cellular graph knowledge to lightweight models</a></h3>
-<p>For scRNA-seq clustering, scAdaG2M uses a graph-neural-network teacher to learn higher-order relationships and local cell neighborhoods, then distills that information into MLP students that operate without a graph. The posts report lower computational overhead and reduced dependence on preconstructed cellular graphs, with less over-smoothing helping characterize ambiguous and potentially rare cell populations.</p>
+<h3>A from-scratch guide to positional embeddings</h3>
+<p>Sebastian Raschka’s “Understanding Positional Embeddings in Modern LLMs” combines a from-scratch RoPE tutorial with coverage of NoPE, partial RoPE and hybrid approaches in recent architectures.</p>
+<p class="meta"><a href="https://t.co/ITnEslq8Md">Full article</a> · <a href="https://x.com/rasbt/status/2121958665989083253">Raschka’s post</a></p>
 </article>
 <article>
-<p class="source">LiteFold · via X Bio Research</p>
-<h3><a href="https://x.com/razoralign/status/2121812461682823195">Jade: GPU-accelerated homology search</a></h3>
-<p>LiteFold introduces Jade as a lightweight homology-search engine supporting protein, DNA and RNA sequences, with GPU acceleration.</p>
-</article>
-<article>
-<p class="source">X Bio Research</p>
-<h3><a href="https://x.com/razoralign/status/2121543266613305589">An updatable index for large-scale sequence search</a></h3>
-<p>“Dynamic Hierarchical Interleaved Bloom Filter” introduces an updatable index designed for fast biological sequence search at large scale.</p>
-</article>
-<article>
-<p class="source">@rec3141 · via X Bio Research</p>
-<h3><a href="https://x.com/razoralign/status/2121817688565813607">Exploring prokaryotic diversity with EarthDNA</a></h3>
-<p>A post highlights EarthDNA as a resource for exploring the diversity of prokaryotic genomes.</p>
-</article>
-<article>
-<p class="source">X Bio Research</p>
-<h3><a href="https://x.com/razoralign/status/2121812051928752613">MotiFlow builds 3D molecules from rigid motifs</a></h3>
-<p>MotiFlow is introduced as a molecular generator that works with rigid motifs rather than learning every constituent atom separately. The announcement uses benzene rings to illustrate the rationale for motif-based three-dimensional generation.</p>
-</article>
-<article>
-<p class="source">Science · highlighted by Chris Stringer</p>
-<h3><a href="https://x.com/razoralign/status/2121630784184635555">Stable genotype–phenotype links do not guarantee predictable evolution</a></h3>
-<p>A Science study reports “Limited genomic predictability of complex trait evolution despite genotype-phenotype stability.” The finding distinguishes stable relationships between genotypes and phenotypes from the ability to predict how complex traits evolve.</p>
-</article>
-<article>
-<p class="source">Marios Georgakis · via X Bio Research</p>
-<h3><a href="https://x.com/anshulkundaje/status/2121726615847903517">Phase 2b results announced for MAR001</a></h3>
-<p>Marios Georgakis highlights Phase 2b results involving 236 participants for MAR001, Marea Therapeutics’ ANGPTL4 inhibitor.</p>
-</article>
-<article>
-<p class="source">Nature Methods · X</p>
-<h3><a href="https://x.com/naturemethods/status/2121273569560723558">Sex as a biological variable</a></h3>
-<p>Nature Methods highlights calls from scientists across life-science subspecialties to address sex as a biological variable in research—a consideration for study design, biological interpretation and medical generalization.</p>
-</article>
-<article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/8Y3DB9qAhxxHnegiJ/embryo-selection-and-economic-discounting">Embryo selection and the timing of health risks</a></h3>
-<p>Drawing on their family’s IVF calculations, the author argues that embryo-selection scores should account for time discounting and anticipated medical progress. Under that approach, early-onset conditions receive greater relative weight.</p>
+<h3>OpenMed tests hidden identifiers and fail-closed exports</h3>
+<p>OpenMed reports finding a synthetic patient name planted in five files, including white text, hidden text and a comment. Two files were redacted, two exports were stopped and one PDF was rejected.</p>
+<p>The test ran the open 44M-parameter PII SuperClinical Small model locally. Comments trigger an export stop rather than a potentially incomplete cleanup. Both the patient and the files were synthetic.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2121958901155565684">OpenMed test</a> · <a href="https://x.com/OpenMed_AI/status/2121958902166339696">Technical follow-up</a> · <a href="https://t.co/5HhcyVSGsn">Resource</a></p>
 </article>
 </div>
 </section>
 
-<section id="essays">
-<h2>Essays &amp; perspectives</h2>
-<div class="grid">
-<article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/CzZR4ZcJoCNi2zqFn/the-oldest-text-in-the-training-data">The oldest text in the training data</a></h3>
-<p>A playful exploration of ancient texts that might appear in Claude’s training data connects Gilgamesh, Sumerian accounting tablets and clay tokens to the origins of writing.</p>
-</article>
-<article>
-<p class="source">LessWrong</p>
-<h3><a href="https://www.lesswrong.com/posts/uJma5Hygyj6bHwwSn/be-grateful-in-spite-of-your-suffering">Be grateful in spite of your suffering</a></h3>
-<p>A personal reflection on severe pain and sleeplessness explores gratitude and the search for hope amid suffering.</p>
-</article>
-</div>
-</section>
-
-<section id="languages">
+<section id="languages" class="practice">
 <h2>Language practice</h2>
-<p class="section-intro">Daily readings in German, French, Japanese and Chinese.</p>
 
-<article class="reading" lang="de">
-<h3>Deutsch — Ein Aufschwung, den die Spanier nicht spüren</h3>
-<p class="source">Tagesschau · 15.11.2026 · <a href="https://www.tagesschau.de/ausland/europa/spanien-wahlkampf-108.html">Artikel lesen</a></p>
-<p>Spaniens Wirtschaft wächst, die Beschäftigung erreicht einen Rekordstand, und Unternehmen wie der Raketenhersteller PLD Space zeigen, dass das Land längst mehr zu bieten hat als Tourismus und Landwirtschaft. Trotzdem gerät Regierungschef Pedro Sánchez vor der vorgezogenen Parlamentswahl unter Druck. Die Reportage von Kristina Böker erklärt diesen Widerspruch: Gute Wirtschaftsdaten bedeuten für viele Menschen noch lange keinen spürbaren Wohlstand, wenn Wohnraum fehlt und der Alltag immer teurer wird.</p>
-<p>Wie sich die Wohnungskrise auswirkt, zeigt die Geschichte des 27-jährigen Handelsvertreters Gonzalo Àlvaro. Nach Jahren in Zweck-Wohngemeinschaften lebt er inzwischen mit seiner Freundin in einer kleinen Wohnung in Madrid; Geld für ein Eigenheim können beide dennoch nicht zurücklegen. Als Aktivist eines Mieterverbands wirbt er für einen landesweiten Generalstreik. Die Protestbewegung verlangt politische Antworten auf steigende Mieten und Zwangsräumungen, während Vorhaben der Minderheitsregierung zunächst an fehlenden parlamentarischen Mehrheiten scheiterten.</p>
-<p>Politisch könnten die Unzufriedenheit und der Vertrauensverlust nach schweren Zugunfällen den Konservativen um Alberto Núñez Feijóo nutzen. Laut dem Bericht wäre eine Mehrheit gemeinsam mit der rechtsnationalen Vox möglich. Der Artikel verbindet damit eine soziale Alltagsfrage mit der größeren Entscheidung über Spaniens politische Richtung: Kann die Mobilisierung für bezahlbares Wohnen das linke Lager stärken, oder profitiert vor allem die rechte Opposition?</p>
-<p><strong>Warum lesen:</strong> Die Reportage macht anhand konkreter Lebensbedingungen verständlich, warum wirtschaftlicher Erfolg und politische Zustimmung in einem europäischen Land auseinanderfallen können.</p>
+<article lang="de">
+<h3>Deutsch — Inference Manager: neues Ubuntu-Tool verwaltet lokale KI-Modelle</h3>
+<p class="meta">heise online · 14.11.2026 · <a href="https://www.heise.de/news/Inference-Manager-neues-Ubuntu-Tool-verwaltet-lokale-KI-Modelle-11525275.html">Artikel lesen</a></p>
+<p>KI auf dem eigenen Rechner statt in der Cloud: Canonical hat auf dem Ubuntu Summit den Inference Manager vorgestellt, der lokal installierte Modelle zentral verwalten und verschiedenen Anwendungen zugänglich machen soll. Über eine laut Canonical zur OpenAI-API kompatible Schnittstelle können beispielsweise Chatprogramme, Programmierassistenten und Spracherkennungssoftware dieselbe technische Infrastruktur nutzen. Die Modelle laufen auf dem eigenen Gerät und benötigen für ihren Betrieb keine Internetverbindung.</p>
+<p>Der Artikel erläutert den Zusammenhang mit Ubuntus Paketformat Snap und dem Diktierprogramm Myna. Als anschauliche Demonstration dient eine Carrera-Bahn, deren Autos auf Sprachbefehle reagieren. Zugleich geht es um die Frage, wie viel KI ein Linux-System künftig enthalten soll: Canonical plant unter anderem Unterstützung bei der Fehlersuche und bessere Spracherkennung für die Barrierefreiheit. Die Funktionen sollen freiwillig aktivierbar sein und sich wieder deinstallieren lassen.</p>
+<p><strong>Warum lesen:</strong> Der kurze Beitrag zeigt anhand konkreter Anwendungen, wie Ubuntu lokale KI integrieren will, ohne sie seinen Nutzern verpflichtend vorzusetzen.</p>
 </article>
 
-<article class="reading" lang="fr">
-<h3>Français — Après plusieurs heures de suspension des vols, les États-Unis rouvrent leur espace aérien</h3>
-<p class="source">France 24 · 14 novembre 2026 · <a href="https://www.france24.com/fr/%C3%A9co-tech/20261114-etats-unis-suspension-des-vols-reouverture-espace-aerien-faa">Lire l’article</a></p>
-<p>Les États-Unis ont autorisé la reprise des décollages vendredi 13 novembre au soir, après une interruption nationale de plusieurs heures. Selon France 24, presque 6 000 vols ont été annulés et des centaines de milliers de voyageurs ont été touchés. À l’origine de cette mesure de précaution : des communications et des radars fonctionnant par intermittence dans plusieurs centres de contrôle, empêchant les contrôleurs de localiser immédiatement les avions. Les autorités écartent la piste d’une cyberattaque et mettent en cause du matériel informatique vieillissant.</p>
-<p>La réouverture ne signifie toutefois pas un retour immédiat à la normale. L’article décrit des passagers bloqués, des départs sans cesse repoussés et la recherche de solutions de remplacement, notamment en voiture. Le ministre des Transports annonce une reprise progressive et évoque un retour à la normale à l’approche des grands déplacements de Thanksgiving.</p>
-<p>Au-delà des perturbations, cette panne relance le débat sur la modernisation du contrôle aérien américain. La Maison Blanche a demandé au Congrès une enveloppe supplémentaire de 30,1 milliards de dollars, tandis que le ministre des Transports réclame davantage. Certains équipements remontent aux années 1960 et utilisent encore des lignes en cuivre ou des disquettes. France 24 rappelle aussi plusieurs incidents récents de télécommunications, qui illustrent la fragilité de ces infrastructures.</p>
-<p><strong>Pourquoi lire :</strong> Un récit concret pour comprendre comment le vieillissement des infrastructures numériques peut désorganiser les transports à l’échelle d’un pays.</p>
+<article lang="fr">
+<h3>Français — Panne géante : Microsoft balaie la théorie d’un agent IA qui aurait dérapé</h3>
+<p class="meta">Numerama · 14 novembre 2026 · <a href="https://www.numerama.com/tech/2374527-panne-geante-microsoft-balaie-la-theorie-dun-agent-ia-qui-aurait-derape.html">Lire l’article</a></p>
+<p>Après une interruption mondiale de Microsoft 365, qui a notamment rendu Outlook et Teams indisponibles, Microsoft conteste les rumeurs mettant en cause l’intelligence artificielle. Selon l’entreprise, ni une cyberattaque ni un agent autonome ne sont responsables de l’incident. Numerama explique pourquoi cette hypothèse a néanmoins circulé : l’intégration croissante de Copilot et l’utilisation de l’IA pour écrire du code nourrissent les interrogations sur la place de l’automatisation dans les infrastructures numériques.</p>
+<p>L’explication technique avancée par Microsoft concerne une augmentation de la capacité du réseau, dont un défaut aurait été révélé par une modification ultérieure. Sur les serveurs concernés, le mécanisme chargé d’établir les connexions sécurisées était saturé, empêchant le traitement des demandes. Pour les utilisateurs, cela se traduisait par l’impossibilité de se connecter à leur messagerie, de recevoir des courriels ou d’en envoyer, avec un fonctionnement parfois intermittent.</p>
+<p>Microsoft affirme avoir corrigé la cause de la panne et explique la lenteur du rétablissement par des vérifications de stabilité successives. L’article distingue toutefois cette première communication d’un diagnostic complet : au moment de sa publication, le rapport détaillé promis par l’entreprise n’était pas encore disponible et aucune date n’avait été annoncée.</p>
+<p><strong>Pourquoi lire :</strong> Un article accessible pour comprendre une panne de services numériques tout en distinguant les spéculations sur l’IA des explications techniques encore provisoires.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>contrôle aérien</strong> — ensemble des services qui organisent et surveillent les mouvements des avions pour assurer leur sécurité.</li>
-<li><strong>aiguilleurs du ciel</strong> — expression désignant les contrôleurs chargés de guider les avions et de maintenir les distances de sécurité.</li>
-<li><strong>enveloppe budgétaire</strong> — montant de financement prévu ou demandé pour un projet ou un secteur précis.</li>
+<li><strong>agent autonome</strong> — programme capable d’enchaîner des tâches à partir d’instructions, sans intervention humaine à chaque étape.</li>
+<li><strong>capacité réseau</strong> — quantité de communications qu’une infrastructure informatique peut prendre en charge.</li>
+<li><strong>rapport post-incident</strong> — document établi après une panne pour en expliquer les causes, les conséquences et les mesures correctives.</li>
 </ul>
 </article>
 
-<article class="reading" lang="ja">
-<h3>日本語 — 小泉防衛相 防衛省の新たなAI活用基本方針 11月末めどに公表へ</h3>
-<p class="source">NHKニュース · 2026年11月15日 · <a href="https://news.web.nhk/newsweb/na/nd-20261115de76119">記事を読む</a></p>
-<p>防衛省が、AIをどのように活用するかについて、新たな基本方針をまとめる予定だ。小泉防衛大臣が明らかにしたもので、公表の目標時期は11月末としている。</p>
-<p>背景にあるのは、安全保障分野におけるAIの技術開発の急速な進展だ。技術の変化に政府が方針づくりで対応しようとする動きを伝えるニュースである。</p>
-<p><strong>読む理由：</strong> 日本のAI政策と安全保障の接点を知りながら、行政の方針発表で使われる表現を学べる。</p>
+<article lang="ja">
+<h3>日本語 — ごみをタイルに、タイルをアートに―多治見の伝統産業をリブランディング</h3>
+<p class="meta">nippon.com · 2026-11-16 · <a href="https://www.nippon.com/ja/articles/-/57321">記事を読む</a></p>
+<p>岐阜県多治見市のタイルメーカー・商社「エクシィズ」は、ごみを高温で溶かした後に残る「溶融スラグ」を原料に、再生タイル「Ecorevo」を製造している。美濃焼から受け継がれた技術を使い、原料の配合や釉薬によって多彩な質感と色を生み出す。豊田市では中学校の昇降口に採用され、生徒が身近な場所で資源循環を意識するきっかけにもなっている。</p>
+<p>取り組みの背景には、ごみ処分の問題だけでなく、焼き物に欠かせない地元の良質な粘土を確保しにくくなっている事情がある。同社は「MINO SOIL」の展覧会で土の希少性や美しさを伝える一方、「TAJIMI CUSTOM TILES」では特注タイルを制作。フランスや英国のデザイナーとの協働、ミラノでの展示を通じて、安価な建材として大量消費されてきたタイルに、芸術やデザインの面から新たな価値を与えようとしている。</p>
+<p><strong>読む理由：</strong> 日本の伝統産業が、廃棄物の再利用と欧州のデザイン界との交流を通じて将来を切り開く具体例を読める。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>安全保障（あんぜんほしょう）</strong> — 国や国民の安全を脅威から守るための政策や体制。</li>
-<li><strong>基本方針（きほんほうしん）</strong> — 政策や組織の活動を進める際の、土台となる考え方や方向性。</li>
-<li><strong>策定（さくてい）</strong> — 政策や計画の内容を検討し、まとめて定めること。</li>
+<li><strong>溶融スラグ（ようゆうスラグ）</strong> — ごみなどを高温で溶かした後、冷却して得られるガラス状の物質。</li>
+<li><strong>釉薬（ゆうやく）</strong> — 陶磁器の表面に塗り、焼くことで色やつやを出す材料。</li>
+<li><strong>窯業（ようぎょう）</strong> — 高温の窯を使い、陶磁器やガラス、セメントなどを製造する産業。</li>
 </ul>
 </article>
 
-<article class="reading" lang="zh-Hans">
-<h3>中文 — 超市冷柜一夜变烤箱：法国控伊朗发动“纯破坏”黑客攻击｜Whatsnew</h3>
-<p class="source">端传媒 · 2026-11-13 · <a href="https://theinitium.com/20261113-whatsnew-france-iran-irgc-supermarket-cyberattack-zh-hans/">https://theinitium.com/20261113-whatsnew-france-iran-irgc-supermarket-cyberattack-zh-hans/</a></p>
-<p>据端传媒报道，法国约700个大型零售网点的冷柜在10月遭黑客远程操控，食品大量报废，并发生多处火灾。法国政府本周指认伊朗革命卫队下属网络组织策划攻击，准备推动欧盟制裁；伊朗则否认指控，称其毫无根据。报道同时提醒，网络攻击的责任归属往往难以确定，不能将法方指控直接视为双方认可的结论。</p>
-<p>文章最值得关注的，是普通联网设备如何成为现实生活中的安全缺口。报道指出，部分制冷设备使用弱密码或出厂默认密码，老旧型号也缺乏安全更新。攻击者并未索要赎金，而是利用设备的控制功能造成实际破坏；类似风险还涉及医疗冷藏设施。这让网络安全不再只是个人资料会不会泄露的问题，也关乎食品、医疗和公共服务能否正常运作。</p>
-<p><strong>为什么读：</strong> 从超市冷柜这一日常场景切入，了解欧洲网络安全争议，并练习区分新闻中的事实陈述、官方指控与分析判断。</p>
+<article lang="zh">
+<h3>中文 — 点击解谜游戏《老奶奶侦探社》Demo更新中文本地化</h3>
+<p class="meta">机核 · 2天前（页面显示） · <a href="https://www.gcores.com/articles/222311">https://www.gcores.com/articles/222311</a></p>
+<p>法国独立游戏团队 Team Empreintes 开发的《老奶奶侦探社》为试玩版加入了简体和繁体中文。玩家扮演退休小老鼠玛德琳，从窗前观察街坊的日常生活，却意外受到一群间谍奶奶的求助，卷入一桩陈年阴谋。文章介绍的不是紧张刺激的追逐战，而是一种带着幽默感、可以慢慢调查的侦探体验。</p>
+<p>游戏的主要玩法是拍摄路人、追踪可疑行踪，再把搜集到的线索联系起来，推断人物身份和邻里关系；玩家还可以回溯时间，重新观察遗漏的细节。值得留意的是，中文更新不只是替换文字：文章特别提到，填字小游戏也针对中文进行了优化。对喜欢语言谜题的读者来说，这正是了解游戏本地化如何影响玩法的一个小切口。</p>
+<p><strong>为什么读：</strong> 这篇短讯把法国独立游戏、侦探玩法与中文本地化联系起来，适合练习阅读游戏机制和语言适配方面的表达。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>攻击归因 (gōngjī guīyīn)</strong> — 根据技术痕迹及其他证据，判断网络攻击由谁实施或支持。</li>
-<li><strong>工业控制器 (gōngyè kòngzhìqì)</strong> — 用于监测和控制机器、生产设施等实体设备的装置。</li>
-<li><strong>网络韧性 (wǎngluò rènxìng)</strong> — 系统遭受攻击或故障后，维持关键服务并恢复正常运作的能力。</li>
+<li><strong>本地化 (běndìhuà)</strong> — 为适应某种语言和文化，对游戏文字、内容或玩法进行调整。</li>
+<li><strong>点击解谜 (diǎnjī jiěmí)</strong> — 通过点击场景、观察物品和组合线索来解开谜题的游戏玩法。</li>
+<li><strong>时间回溯 (shíjiān huísù)</strong> — 让游戏中的时间退回先前阶段，以便重新观察事件或尝试不同操作的机制。</li>
 </ul>
 </article>
 </section>
+
+<footer>News · November 16, 2026</footer>
 </main>
-<footer>
-<p><strong>Source notes:</strong> No new items from Hazy Research, Kasra Blog, Nathan Chen Blog or Queer Festival Heidelberg.</p>
-</footer>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-15-1";
+  const key = 'newspaper:read:' + "2026-11-16-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

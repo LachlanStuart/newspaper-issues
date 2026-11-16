@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>News</title>
+<style>
+:root{color-scheme:light;--ink:#202b30;--muted:#626d72;--accent:#175c70;--line:#d8dedd;--paper:#fffefa}
+*{box-sizing:border-box}
+body{margin:0;background:#f1f2ef;color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main{max-width:1040px;margin:32px auto;padding:42px 54px;background:var(--paper)}
+header{border-bottom:3px solid var(--ink);padding-bottom:22px;margin-bottom:24px}
+h1{font-size:4rem;line-height:1;margin:0 0 16px;letter-spacing:-2px}
+.date,.meta,nav,footer{font-family:system-ui,sans-serif;font-size:.85rem;color:var(--muted)}
+nav{margin-top:14px;line-height:2}
+nav a{margin-right:18px}
+a{color:var(--accent);text-decoration:underline;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-family:system-ui,sans-serif;font-size:1.35rem;border-bottom:1px solid var(--line);padding-bottom:10px;margin:38px 0 20px}
+h3{font-size:1.22rem;line-height:1.35;margin:0 0 10px}
+p{margin:0 0 12px}
+article{margin:0 0 26px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
+.briefs{padding-left:22px}
+.briefs li{margin-bottom:13px}
+.practice{border-top:3px solid var(--ink);margin-top:42px;padding-top:2px}
+.practice article{padding:18px 0 24px;border-bottom:1px solid var(--line)}
+.practice h3{font-size:1.3rem}
+.practice ul{padding-left:24px}
+footer{margin-top:28px;border-top:1px solid var(--line);padding-top:14px}
+@media(max-width:700px){main{margin:0;padding:28px 22px}.grid{grid-template-columns:1fr}h1{font-size:3.3rem}}
+@media print{body{background:white}main{margin:0;padding:0;max-width:none}article{break-inside:avoid}}
+</style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+<main>
+<header>
+<h1>News</h1>
+<div class="date"><time datetime="2026-11-16">Monday, November 16, 2026</time></div>
+<nav aria-label="Sections">
+<a href="#discovery">Molecular discovery</a>
+<a href="#interpretability">Model interpretability</a>
+<a href="#biology">Genomics &amp; cells</a>
+<a href="#ai">AI methods &amp; privacy</a>
+<a href="#languages">Language practice</a>
+</nav>
+</header>
+
+<section id="discovery">
+<h2>Molecular discovery</h2>
+<article>
+<h3>Antibody docking accuracy does not guarantee interaction specificity</h3>
+<p>A benchmark highlighted by Biology+AI Daily compares five models across 200 antibody–antigen complexes. OpenDDE leads on median interface DockQ and docking pass rate, though its advantage over Protenix-v2 is not statistically significant. The distinction becomes sharper on mutated-interface decoys: OpenDDE remains highly confident in many, while Protenix-v2 rejects the perturbed interfaces more effectively.</p>
+<p>Interface-specific confidence correlates with docking quality, but useful thresholds vary by model and task. Most gains from additional sampling arrive within roughly five seeds.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937760781308076">Biology+AI Daily · benchmark summary</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>Pallatom2 reports active binders across ten targets</h3>
+<p>Pallatom2 jointly generates protein sequence, backbone, side chains and binder–target contacts, with controls for binding sites, target flexibility and preserved interface geometry. The study reports biolayer interferometry activity for 112 of 210 designs across ten targets, finding binders for every target and picomolar-scale apparent affinities for six.</p>
+<p>Further demonstrations include TNFα affinity maturation and conversion of an inactive nanobody into nanomolar binders.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937375022432411">Biology+AI Daily · Pallatom2</a></p>
+</article>
+<article>
+<h3>DiffTernary tackles molecular glues as a three-part docking problem</h3>
+<p>DiffTernary jointly docks a molecular glue and its two protein partners, and introduces Ternary-PDB, a collection of 76,702 experimentally determined ternary complexes. On 88 post-cutoff molecular-glue complexes, the study reports acceptable protein interfaces for 50.0% with one prediction and 78.4% with best-of-25 sampling.</p>
+<p>The latter uses oracle selection, not practical confidence ranking. A separate comparison reports 41.5% acceptable interfaces for the confidence-ranked top candidate among 40. The proteins remain rigid while the bridging molecule can change torsions.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934183140671663">Biology+AI Daily · DiffTernary</a></p>
+</article>
+<article>
+<h3>Binding-pocket diversity as a guide to experimental targets</h3>
+<p>A PocketVec analysis argues for choosing experimental targets by binding-pocket similarity rather than protein sequence or fold. It maps 51,535 predicted druggable pockets across 15,559 human proteins, then selects 200 representative pockets from 100 understudied clusters.</p>
+<p>Those clusters are estimated to cover roughly 10,000–11,000 pockets and 5,600 proteins—2.8–4.4 times the coverage of random ligand-free cluster selection. Alternative prioritizations trade novelty against experimental feasibility.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934579691065829">Biology+AI Daily · pocket-selection study</a></p>
+</article>
+<article>
+<h3>RSMBind locates small-molecule binding sites on RNA</h3>
+<p>RSMBind combines frozen RNA-model embeddings and nucleotide geometry in a shallow graph-attention network. Training on 358 RNA chains improves performance across four external benchmarks relative to a smaller training set; the method has the highest reported Matthews correlation coefficient among compared approaches on three.</p>
+<p>The recommended configuration combines RNA-FM with geometric descriptors. Solvent-accessibility features do not consistently help, loop-associated sites are easier to predict than stem-embedded sites, and molecular-dynamics examples reveal disagreements between static predictions and dynamic ligand proximity.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121933897554632920">Biology+AI Daily · RSMBind</a></p>
+</article>
+</div>
+</section>
+
+<section id="interpretability">
+<h2>Model interpretability &amp; steering</h2>
+<article>
+<h3>Alphabet swaps probe what protein language models learn</h3>
+<p>A study consistently permutes amino-acid alphabets in protein-family alignments while preserving their statistical relationships. Classical Potts and inverse-covariance contact estimators remain invariant, but contact predictions from ESM-2, MSA Transformer and AMPLIFY change sharply. Swaps within biochemical classes preserve substantially more predictions than arbitrary permutations.</p>
+<p>The authors call this “alphabet anchoring” and argue that contact accuracy alone does not establish that a model performs classical coevolutionary inference.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937241555849256">Biology+AI Daily · invariant-relabeling study</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>ProteinMPNN steering meets a reconstruction confounder</h3>
+<p>Sparse autoencoders identify features associated with secondary structure, residue chemistry and metal coordination across 1,149 structures. Steering selected features in the therapeutic scFv brolucizumab yields variants with less unfolding in high-temperature molecular-dynamics simulations; stronger steering destabilizes them.</p>
+<p>Inserting the autoencoder can also change amino-acid distributions without explicit steering, making reconstruction-induced model drift an important confounder.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934700201869380">Biology+AI Daily · ProteinMPNN study</a></p>
+</article>
+<article>
+<h3>PULSE builds steering directions from matched proteins</h3>
+<p>PULSE uses similarity-matched positive and negative protein examples rather than global population centroids. With the downstream editing procedure fixed, it improves predicted solubility, immunogenicity and toxicity objectives over centroid steering.</p>
+<p>Static vector diagnostics do not explain the gains. A proposed Local Directional Support metric instead asks whether each realized editing step follows property directions supported by its local context.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121934386203709515">Biology+AI Daily · PULSE</a></p>
+</article>
+</div>
+</section>
+
+<section id="biology">
+<h2>Genomics, RNA &amp; cellular models</h2>
+<article>
+<h3>RNAtomy transfers structural pretraining to RNA function</h3>
+<p>RNAtomy learns inter-nucleotide geometry and residue-level structural descriptors through joint masked reconstruction in a hybrid Mamba–Transformer architecture. Pretrained on approximately 200,000 RNAs, it is evaluated on seven tasks spanning structure, interactions and function.</p>
+<p>Reported results include improved solvent-accessibility prediction, strong long-range contact precision, and the best tested R² for 5′ UTR mean ribosome load on both synthetic and out-of-distribution human sequences. It also supports RNA-binding-protein, miRNA-target and IRES prediction.</p>
+<p class="meta"><a href="https://x.com/BiologyAIDaily/status/2121937151898357937">Biology+AI Daily · RNAtomy</a></p>
+</article>
+<article>
+<h3>Long-read correction reports assembly and classification gains</h3>
+<p>A post by @frederikschu, shared by @razoralign, reports that correcting long DNA reads with DADEC produces less fragmented genome assemblies and improves microbial classification.</p>
+<p class="meta"><a href="https://x.com/razoralign/status/2122062794963223031">@razoralign · DADEC</a></p>
+</article>
+
+<h3>Cellular modeling &amp; multiomics briefs</h3>
+<p class="meta">Research and tools highlighted by @razoralign</p>
+<ul class="briefs">
+<li><a href="https://x.com/razoralign/status/2121995460227514606"><strong>Tahoe-x1</strong></a> studies scaling perturbation-trained single-cell foundation models to three billion parameters.</li>
+<li><a href="https://x.com/razoralign/status/2121995296322564381"><strong>Squidiff</strong></a> uses diffusion modeling to predict cellular development and responses to perturbations.</li>
+<li><a href="https://x.com/razoralign/status/2121995548643455348"><strong>STORIES</strong></a> uses Fused Gromov–Wasserstein analysis to learn cell-fate landscapes from spatial transcriptomics.</li>
+<li><a href="https://x.com/razoralign/status/2121995252836036617"><strong>scTrace+</strong></a> combines lineage-tracing information with multiple aspects of transcriptomic similarity for cell-fate inference.</li>
+<li><a href="https://x.com/razoralign/status/2121995269499920592"><strong>GGANO</strong></a> reconstructs gene-network structure and dynamics from single-cell data.</li>
+<li><a href="https://x.com/razoralign/status/2121995348323561785"><strong>Geneformer</strong></a> applies transfer learning to predictions in network biology.</li>
+<li><a href="https://x.com/razoralign/status/2121995364110942365"><strong>FADVI</strong></a> uses disentangled representation learning for robust integration of single-cell and spatial omics.</li>
+<li><a href="https://x.com/razoralign/status/2121995190659670469"><strong>COTree</strong></a> provides a statistical framework for cell-resolved multiomic trajectories.</li>
+<li><a href="https://x.com/razoralign/status/2121995178705866766"><strong>scPhoenix</strong></a> combines contrastive learning and auxiliary–core feature disentanglement for sparse cellular multiomics.</li>
+<li><a href="https://x.com/razoralign/status/2121995241217740936"><strong>BioLLM</strong></a> standardizes integration and benchmarking of single-cell foundation models.</li>
+</ul>
+
+<h3>Sequence, regulation &amp; analysis tools</h3>
+<ul class="briefs">
+<li><a href="https://x.com/razoralign/status/2121995380296683938"><strong>Atacformer</strong></a> is a transformer-based foundation model for analyzing and interpreting ATAC-seq data.</li>
+<li><a href="https://x.com/razoralign/status/2121995314282516689"><strong>VariantFormer</strong></a> integrates DNA sequence, genetic variation and regulatory landscapes in a hierarchical transformer.</li>
+<li><a href="https://x.com/razoralign/status/2121995280606433280"><strong>Clair-Mosaic</strong></a> targets mosaic small-variant calling from long reads with deep learning.</li>
+<li><a href="https://x.com/razoralign/status/2121995209202704501"><strong>Clair3-RNA</strong></a> calls small variants from long-read RNA-sequencing data.</li>
+<li><a href="https://x.com/razoralign/status/2121995390170071415"><strong>GNAT</strong></a> offers interactive gene-neighbourhood analysis through a web tool.</li>
+<li><a href="https://x.com/razoralign/status/2121995228643279296"><strong>HAlign 4</strong></a> introduces a strategy for rapidly aligning millions of sequences.</li>
+<li><a href="https://x.com/razoralign/status/2121995444637323775"><strong>Odyssey</strong></a> explores reconstructing evolution through emergent consensus in the global proteome.</li>
+<li><a href="https://x.com/razoralign/status/2121995142408327510"><strong>GraphFLA</strong></a> augments biological fitness-prediction benchmarks with fitness-landscape features.</li>
+</ul>
+</section>
+
+<section id="ai">
+<h2>AI methods &amp; privacy</h2>
+<div class="grid">
+<article>
+<h3>A from-scratch guide to positional embeddings</h3>
+<p>Sebastian Raschka’s “Understanding Positional Embeddings in Modern LLMs” combines a from-scratch RoPE tutorial with coverage of NoPE, partial RoPE and hybrid approaches in recent architectures.</p>
+<p class="meta"><a href="https://t.co/ITnEslq8Md">Full article</a> · <a href="https://x.com/rasbt/status/2121958665989083253">Raschka’s post</a></p>
+</article>
+<article>
+<h3>OpenMed tests hidden identifiers and fail-closed exports</h3>
+<p>OpenMed reports finding a synthetic patient name planted in five files, including white text, hidden text and a comment. Two files were redacted, two exports were stopped and one PDF was rejected.</p>
+<p>The test ran the open 44M-parameter PII SuperClinical Small model locally. Comments trigger an export stop rather than a potentially incomplete cleanup. Both the patient and the files were synthetic.</p>
+<p class="meta"><a href="https://x.com/OpenMed_AI/status/2121958901155565684">OpenMed test</a> · <a href="https://x.com/OpenMed_AI/status/2121958902166339696">Technical follow-up</a> · <a href="https://t.co/5HhcyVSGsn">Resource</a></p>
+</article>
+</div>
+</section>
+
+<section id="languages" class="practice">
+<h2>Language practice</h2>
+
+<article lang="de">
+<h3>Deutsch — Inference Manager: neues Ubuntu-Tool verwaltet lokale KI-Modelle</h3>
+<p class="meta">heise online · 14.11.2026 · <a href="https://www.heise.de/news/Inference-Manager-neues-Ubuntu-Tool-verwaltet-lokale-KI-Modelle-11525275.html">Artikel lesen</a></p>
+<p>KI auf dem eigenen Rechner statt in der Cloud: Canonical hat auf dem Ubuntu Summit den Inference Manager vorgestellt, der lokal installierte Modelle zentral verwalten und verschiedenen Anwendungen zugänglich machen soll. Über eine laut Canonical zur OpenAI-API kompatible Schnittstelle können beispielsweise Chatprogramme, Programmierassistenten und Spracherkennungssoftware dieselbe technische Infrastruktur nutzen. Die Modelle laufen auf dem eigenen Gerät und benötigen für ihren Betrieb keine Internetverbindung.</p>
+<p>Der Artikel erläutert den Zusammenhang mit Ubuntus Paketformat Snap und dem Diktierprogramm Myna. Als anschauliche Demonstration dient eine Carrera-Bahn, deren Autos auf Sprachbefehle reagieren. Zugleich geht es um die Frage, wie viel KI ein Linux-System künftig enthalten soll: Canonical plant unter anderem Unterstützung bei der Fehlersuche und bessere Spracherkennung für die Barrierefreiheit. Die Funktionen sollen freiwillig aktivierbar sein und sich wieder deinstallieren lassen.</p>
+<p><strong>Warum lesen:</strong> Der kurze Beitrag zeigt anhand konkreter Anwendungen, wie Ubuntu lokale KI integrieren will, ohne sie seinen Nutzern verpflichtend vorzusetzen.</p>
+</article>
+
+<article lang="fr">
+<h3>Français — Panne géante : Microsoft balaie la théorie d’un agent IA qui aurait dérapé</h3>
+<p class="meta">Numerama · 14 novembre 2026 · <a href="https://www.numerama.com/tech/2374527-panne-geante-microsoft-balaie-la-theorie-dun-agent-ia-qui-aurait-derape.html">Lire l’article</a></p>
+<p>Après une interruption mondiale de Microsoft 365, qui a notamment rendu Outlook et Teams indisponibles, Microsoft conteste les rumeurs mettant en cause l’intelligence artificielle. Selon l’entreprise, ni une cyberattaque ni un agent autonome ne sont responsables de l’incident. Numerama explique pourquoi cette hypothèse a néanmoins circulé : l’intégration croissante de Copilot et l’utilisation de l’IA pour écrire du code nourrissent les interrogations sur la place de l’automatisation dans les infrastructures numériques.</p>
+<p>L’explication technique avancée par Microsoft concerne une augmentation de la capacité du réseau, dont un défaut aurait été révélé par une modification ultérieure. Sur les serveurs concernés, le mécanisme chargé d’établir les connexions sécurisées était saturé, empêchant le traitement des demandes. Pour les utilisateurs, cela se traduisait par l’impossibilité de se connecter à leur messagerie, de recevoir des courriels ou d’en envoyer, avec un fonctionnement parfois intermittent.</p>
+<p>Microsoft affirme avoir corrigé la cause de la panne et explique la lenteur du rétablissement par des vérifications de stabilité successives. L’article distingue toutefois cette première communication d’un diagnostic complet : au moment de sa publication, le rapport détaillé promis par l’entreprise n’était pas encore disponible et aucune date n’avait été annoncée.</p>
+<p><strong>Pourquoi lire :</strong> Un article accessible pour comprendre une panne de services numériques tout en distinguant les spéculations sur l’IA des explications techniques encore provisoires.</p>
+<p><strong>Vocabulaire utile</strong></p>
+<ul>
+<li><strong>agent autonome</strong> — programme capable d’enchaîner des tâches à partir d’instructions, sans intervention humaine à chaque étape.</li>
+<li><strong>capacité réseau</strong> — quantité de communications qu’une infrastructure informatique peut prendre en charge.</li>
+<li><strong>rapport post-incident</strong> — document établi après une panne pour en expliquer les causes, les conséquences et les mesures correctives.</li>
+</ul>
+</article>
+
+<article lang="ja">
+<h3>日本語 — ごみをタイルに、タイルをアートに―多治見の伝統産業をリブランディング</h3>
+<p class="meta">nippon.com · 2026-11-16 · <a href="https://www.nippon.com/ja/articles/-/57321">記事を読む</a></p>
+<p>岐阜県多治見市のタイルメーカー・商社「エクシィズ」は、ごみを高温で溶かした後に残る「溶融スラグ」を原料に、再生タイル「Ecorevo」を製造している。美濃焼から受け継がれた技術を使い、原料の配合や釉薬によって多彩な質感と色を生み出す。豊田市では中学校の昇降口に採用され、生徒が身近な場所で資源循環を意識するきっかけにもなっている。</p>
+<p>取り組みの背景には、ごみ処分の問題だけでなく、焼き物に欠かせない地元の良質な粘土を確保しにくくなっている事情がある。同社は「MINO SOIL」の展覧会で土の希少性や美しさを伝える一方、「TAJIMI CUSTOM TILES」では特注タイルを制作。フランスや英国のデザイナーとの協働、ミラノでの展示を通じて、安価な建材として大量消費されてきたタイルに、芸術やデザインの面から新たな価値を与えようとしている。</p>
+<p><strong>読む理由：</strong> 日本の伝統産業が、廃棄物の再利用と欧州のデザイン界との交流を通じて将来を切り開く具体例を読める。</p>
+<p><strong>語彙メモ</strong></p>
+<ul>
+<li><strong>溶融スラグ（ようゆうスラグ）</strong> — ごみなどを高温で溶かした後、冷却して得られるガラス状の物質。</li>
+<li><strong>釉薬（ゆうやく）</strong> — 陶磁器の表面に塗り、焼くことで色やつやを出す材料。</li>
+<li><strong>窯業（ようぎょう）</strong> — 高温の窯を使い、陶磁器やガラス、セメントなどを製造する産業。</li>
+</ul>
+</article>
+
+<article lang="zh">
+<h3>中文 — 点击解谜游戏《老奶奶侦探社》Demo更新中文本地化</h3>
+<p class="meta">机核 · 2天前（页面显示） · <a href="https://www.gcores.com/articles/222311">https://www.gcores.com/articles/222311</a></p>
+<p>法国独立游戏团队 Team Empreintes 开发的《老奶奶侦探社》为试玩版加入了简体和繁体中文。玩家扮演退休小老鼠玛德琳，从窗前观察街坊的日常生活，却意外受到一群间谍奶奶的求助，卷入一桩陈年阴谋。文章介绍的不是紧张刺激的追逐战，而是一种带着幽默感、可以慢慢调查的侦探体验。</p>
+<p>游戏的主要玩法是拍摄路人、追踪可疑行踪，再把搜集到的线索联系起来，推断人物身份和邻里关系；玩家还可以回溯时间，重新观察遗漏的细节。值得留意的是，中文更新不只是替换文字：文章特别提到，填字小游戏也针对中文进行了优化。对喜欢语言谜题的读者来说，这正是了解游戏本地化如何影响玩法的一个小切口。</p>
+<p><strong>为什么读：</strong> 这篇短讯把法国独立游戏、侦探玩法与中文本地化联系起来，适合练习阅读游戏机制和语言适配方面的表达。</p>
+<p><strong>词汇笔记</strong></p>
+<ul>
+<li><strong>本地化 (běndìhuà)</strong> — 为适应某种语言和文化，对游戏文字、内容或玩法进行调整。</li>
+<li><strong>点击解谜 (diǎnjī jiěmí)</strong> — 通过点击场景、观察物品和组合线索来解开谜题的游戏玩法。</li>
+<li><strong>时间回溯 (shíjiān huísù)</strong> — 让游戏中的时间退回先前阶段，以便重新观察事件或尝试不同操作的机制。</li>
+</ul>
+</article>
+</section>
+
+<footer>News · November 16, 2026</footer>
+</main>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-16-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

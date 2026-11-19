@@ -5,29 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root{color-scheme:light;--paper:#faf8f2;--ink:#242923;--muted:#62685f;--rule:#d8d9cd;--accent:#245e54}
+:root{color-scheme:light;--ink:#202b32;--muted:#5b6870;--rule:#d7dedf;--accent:#176479}
 *{box-sizing:border-box}
-body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
-main,header,footer{max-width:1000px;margin:auto;padding:24px 30px}
-header{border-bottom:3px solid var(--ink);padding-top:38px}
-h1{font-size:4.6rem;line-height:1;margin:0 0 14px;letter-spacing:-3px}
-.date,.meta,nav,footer{font-family:system-ui,sans-serif;font-size:.87rem;color:var(--muted)}
-nav{display:flex;gap:18px;flex-wrap:wrap;margin-top:18px}
-a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
-h2{font-size:1.75rem;margin:32px 0 20px;border-bottom:1px solid var(--rule);padding-bottom:10px}
-h3{font-size:1.23rem;line-height:1.35;margin:0 0 10px}
-p{margin:10px 0}
-article{margin-bottom:25px}
+body{margin:0;background:#f5f4ef;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+main{max-width:1020px;margin:auto;padding:36px 28px 60px}
+header{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:25px}
+h1{font-size:68px;line-height:1;margin:0 0 14px;letter-spacing:-2px}
+.date,.source,nav,footer{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted)}
+nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:29px;line-height:1.25;border-bottom:1px solid var(--rule);padding-bottom:10px;margin:36px 0 20px}
+h3{font-size:22px;line-height:1.35;margin:0 0 9px}
+p{margin:0 0 12px}
+article{margin-bottom:26px}
 .grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
-.grid article{border-bottom:1px solid var(--rule);padding-bottom:20px}
-.links{font-family:system-ui,sans-serif;font-size:.83rem}
-.practice{border-top:3px solid var(--ink);margin-top:38px}
-.practice article{max-width:780px;margin:30px auto 40px;padding-bottom:28px;border-bottom:1px solid var(--rule)}
-.practice h3{font-size:1.4rem}
-ul{padding-left:24px}
-li{margin:7px 0}
-footer{border-top:1px solid var(--rule);padding-bottom:36px}
-@media(max-width:650px){main,header,footer{padding-left:20px;padding-right:20px}.grid{grid-template-columns:1fr}h1{font-size:3.7rem}}
+.source{margin-top:10px}
+.practice{border-top:3px solid var(--ink);margin-top:44px;padding-top:4px}
+.practice article{padding:8px 0 24px;border-bottom:1px solid var(--rule)}
+.practice h3{font-size:24px}
+.practice ul{padding-left:24px}
+footer{border-top:1px solid var(--rule);padding-top:16px;margin-top:30px}
+@media(max-width:680px){main{padding:25px 20px 40px}.grid{display:block}h1{font-size:54px}h2{font-size:26px}}
 </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -48,213 +46,195 @@ footer{border-top:1px solid var(--rule);padding-bottom:36px}
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
+<main>
 <header>
 <h1>News</h1>
-<div class="date"><time datetime="2026-11-18">Wednesday, November 18, 2026</time></div>
+<div class="date"><time datetime="2026-11-19">Thursday, November 19, 2026</time></div>
 <nav aria-label="Sections">
-<a href="#biodesign">Biological design</a>
+<a href="#genomics">Genomics &amp; single-cell biology</a>
+<a href="#proteins">Protein models &amp; discovery</a>
 <a href="#ai">AI research &amp; tools</a>
-<a href="#genomics">Cells &amp; genomes</a>
-<a href="#practice">Language practice</a>
+<a href="#languages">Language practice</a>
 </nav>
 </header>
-<main>
-<section id="biodesign">
-<h2>Biological design: models meet measurements</h2>
+
+<section id="genomics">
+<h2>Genomics &amp; single-cell biology</h2>
+<article>
+<h3>Easy synthetic variants still challenge Enformer fine-tuning</h3>
+<p>LAMP introduces artificial single-nucleotide variants affecting transcription-factor motifs into personal-genome datasets, giving them large, consistent causal effects on expression. Even with these deliberately easy-to-learn perturbations, the reported experiments find that fine-tuning Enformer underperforms on HOGP. The study argues that difficulties adapting sequence-to-function models extend beyond the complexity of natural genetic variation.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2123148864387752438">LAMP research post</a></p>
+</article>
 <div class="grid">
 <article>
-<h3>Better antibody optimization starts with fixing the assay objective</h3>
-<p>A team working with Claude on BigHat’s Milliner platform found that standard thermal summaries were steering optimization toward misleading targets: one aggregation readout barely tracked melting, while an apparent melting temperature largely measured precipitation.</p>
-<p>Across two antibody campaigns and roughly 1,010 variants, the researchers fitted complete assay curves and tested their interpretation by changing concentration and heating rate. Optimized leads achieved approximately ninefold and sixfold tighter binding, respectively, alongside improved thermal and aggregation behavior. The study argues for exposing raw measurements, preregistering mechanistic tests and revising objectives when their physical interpretation is wrong.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2122699605100179500">Biology AI Daily · Research report</a></p>
+<h3>Internal priming flagged in 10x 3′ capture</h3>
+<p>A Goyal lab preprint highlighted by Anshul Kundaje reports that oligo(dT) in 10x 3′ capture primes at internal A-rich stretches approximately 80 times more often than at the true poly(A) tail—a measurement artifact relevant to interpreting single-cell transcriptomic data.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2123201715361177855">Kundaje’s post</a></p>
 </article>
 <article>
-<h3>ProtCOVER puts protein families at the center of uncertainty calibration</h3>
-<p>ProtCOVER calibrates variant-effect predictions using homologous protein families rather than individual variants, preventing large, well-studied families from dominating uncertainty guarantees.</p>
-<p>Across five predictors, conventional class-conditional calibration met its variant-level target but covered pathogenic variants at only 82.3–87.3% under family weighting, against a 90% target. ProtCOVER reduced shortfalls under descriptor-based distribution shifts, sometimes with larger prediction sets. It still under-covered when accuracy shifts were invisible to its descriptors and for some external proteins: family-aware calibration did not eliminate deployment risk.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2122702402671595673">Biology AI Daily · Research report</a></p>
+<h3>UK Biobank plans immune profiling at scale</h3>
+<p>Marios Georgakis reports that UK Biobank will add deep immune-cell subtyping and profiling for up to 80,000 participants, including single-cell RNA sequencing.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2123261295302791402">Research announcement</a></p>
 </article>
 <article>
-<h3>Forecasting viral evolution to design antibodies ahead of escape</h3>
-<p>Brian Hie presents antiGen, a framework for forecasting evolutionary changes in viral proteins, alongside Germinal Multi antibody design. The team reports potent pseudoviral neutralization against current and forecasted escape variants by combining forecasting with multi-target design. Hie frames the approach as a step toward evolution-resilient therapeutics and pandemic preparedness.</p>
-<p class="links"><a href="https://x.com/BrianHie/status/2122741126704836864">Brian Hie · antiGen</a></p>
+<h3>GatorAnchor makes cross-modal disagreement explicit</h3>
+<p>GatorAnchor learns modality-specific Gaussian representations from graph-augmented single-cell multiomics features and fuses them through a precision-weighted product of experts. Disagreement between modalities contributes to latent dispersion, while modality reliability and neighborhood evidence guide refinement of cell–cell relationships.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2123149642414411895">GatorAnchor research post</a></p>
 </article>
 <article>
-<h3>MobGen’s antiviral binders reveal an affinity–neutralization gap</h3>
-<p>MobGen combines generative structure design with sequence refinement to produce FN3-based antiviral monobodies. Screening identified seven distinct binders; subsequent engineering improved production and stability more consistently than affinity.</p>
-<p>Characterized binders reached approximately 22–425 nM affinity, but neutralization remained mostly micromolar and varied across viral variants. Framework-dominated binding and substantial divergence from the parental scaffold also raised potential immunogenicity concerns despite the scaffold’s human origin.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2122701842379583669">Biology AI Daily · Research report</a></p>
+<h3>TMCells jointly learns topics and metacells</h3>
+<p>TMCells represents metacells as distribution centers in a latent topic space with a Gaussian-mixture prior. It jointly learns interpretable topics and probabilistic cell partitions, accounting for continuity and uncertainty in cell-state transitions. The source reports improvements in differential expression, rare-cell identification and trajectory inference while preserving biological heterogeneity.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2123149369168048135">TMCells research post</a></p>
 </article>
 <article>
-<h3>RFD4-Proteina adds specificity control and a synthesis application</h3>
-<p>A detailed follow-up reports calcium-dependent binding, highly selective peptide–MHC recognition and discrimination between adjacent histone phosphorylation sites. It also describes a designed ligase supporting a stereoselective amide-forming step in lenacapavir synthesis.</p>
-<p>The model incorporates chemically diverse components, force-field-supervised decoding and stage-specific search. Computational benchmarks report 5.0–10.4 times more passing design clusters per GPU-hour than the next-best evaluated methods.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2122699938929025227">Biology AI Daily · RFD4-Proteina follow-up</a></p>
+<h3>STRUCT searches raw reads for conserved RNA structures</h3>
+<p>STRUCT—Statistical Testing of RNA Units with Covariation Traits—tests RNA covariation directly in sequencing reads, bypassing assembly and multiple-sequence alignment. It examines variable sequences linked to a shared fixed sequence to infer potential compensatory mutations in stem-loops and detect apparent negative selection against structure-disrupting variants.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2123148646342697183">STRUCT research post</a></p>
 </article>
 <article>
-<h3>Classical chemical similarity improves molecule–language embeddings</h3>
-<p>Structure-Aware Guided Alignment, or SAGA, regularizes molecular embeddings toward fingerprint-derived similarity relationships during training, without adding trainable parameters or requiring fingerprints at inference.</p>
-<p>Across MolCA and Atomas backbones, it improved text–molecule retrieval and the structural similarity of retrieved analogues. Frozen-encoder property prediction improved on average across eight scaffold-split classification tasks, though gains depended on the endpoint and fingerprint–encoder pairing.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2122701944397672734">Biology AI Daily · SAGA</a></p>
+<h3>Polygenic ensembles from summary statistics alone</h3>
+<p>A Nature Genetics paper introduces PUMAS-ensemble, a method for constructing regularized ensemble polygenic risk scores using only genome-wide association study summary statistics.</p>
+<p class="source"><a href="https://x.com/razoralign/status/2123261306044395855">Research post</a> · <a href="https://x.com/gen0m1cs/status/2123190189673885936">Shared by gen0m1cs</a></p>
 </article>
 <article>
-<h3>What should biological design models know about the experiment?</h3>
-<p>Sam Sinai argues that general biological design benefits from models with abstract reasoning, rather than relying exclusively on sequence pretraining. Anshul Kundaje counters that the essential requirement is conditioning or supervision on the assay, cell context and design specification—whether the starting point is a sequence model or a general LLM. His distinction is between useful representations and sampling, and guidance toward a desired biological objective.</p>
-<p class="links"><a href="https://x.com/anshulkundaje/status/2122846106174587155">Anshul Kundaje · Discussion</a></p>
+<h3>Debate over what ENCODE GRAMMAR can establish</h3>
+<p>Anshul Kundaje disputes conclusions from an analysis using ENCODE GRAMMAR, arguing that it cannot explain or refute other transcription factors’ roles in targeting binding to particular genomic loci. He acknowledges additional mechanisms of selective binding and says a systematic analysis of regulatory syntax across TF binding, accessibility and transcription initiation is forthcoming.</p>
+<p class="source"><a href="https://x.com/anshulkundaje/status/2123097926264328522">Kundaje’s discussion</a></p>
 </article>
 <article>
-<h3>Independent replication as a test for designed binders</h3>
-<p>A post by WU Fang, shared by Sergey Ovchinnikov and Rishabh, asks whether impressive wet-lab binder-design hit rates reproduce in a second laboratory. The discussion highlights cross-laboratory replication as a separate standard from validation within the originating campaign.</p>
-<p class="links"><a href="https://x.com/sokrypton/status/2122854518203220030">Discussion shared by Sergey Ovchinnikov</a></p>
+<h3>Briefs: brain-cell representations and AlphaGenome 2</h3>
+<p><strong>Bloom:</strong> A research announcement shared by Ruslan Rust introduces a framework for unifying brain-cell representations across modalities and contexts. <a href="https://x.com/razoralign/status/2123146806649626975">Announcement</a></p>
+<p><strong>AlphaGenome 2:</strong> Adam Gayoso announces that the paper on the cell-state-conditioned genomic model is now available on bioRxiv. <a href="https://x.com/razoralign/status/2123146941790077251">Publication update</a></p>
+</article>
+</div>
+</section>
+
+<section id="proteins">
+<h2>Protein models &amp; discovery</h2>
+<article>
+<h3>Claude contact prediction shows prompt-dependent reproducibility</h3>
+<p>Sergey Ovchinnikov reports reconstructing the ubiquitin fold from contacts predicted by Claude Fable 5.2, then finding that the original simple prompt did not reliably reproduce the result across runs. After extracting a more detailed prompt from the successful session, he reports repeating runs three times across three Claude models, with Fable 5.2 appearing stronger on contact prediction.</p>
+<p>He emphasizes that the tests involved easy proteins and that turning a good contact map into a structure is the less informative step. His proposed stronger test is prediction on proteins absent from the PDB and difficult for AlphaFold.</p>
+<p class="source"><a href="https://x.com/sokrypton/status/2123124669096276175">Ovchinnikov’s experiment and follow-up</a></p>
+</article>
+<div class="grid">
+<article>
+<h3>Protein prefixes used to probe training-data exposure</h3>
+<p>Xinming Tu reports testing 20 language models with the beginnings of little-studied bacterial proteins and claims that Claude was trained on protein sequences at scale. Georgia Channing shared the research post.</p>
+<p class="source"><a href="https://x.com/cgeorgiaw/status/2123055039778357458">Shared research post</a></p>
 </article>
 <article>
-<h3>GPT takes control of a microscope in a cancer drug screen</h3>
-<p>Sheng Wang reports giving GPT control of a physical microscope during a 72-hour cancer drug-screening experiment, in a post shared by Anshul Kundaje.</p>
-<p class="links"><a href="https://x.com/anshulkundaje/status/2122758646363050008">Experiment announcement</a></p>
+<h3>VReceptor tests peptide-design strategies with synthetic assays</h3>
+<p>VReceptor generates sequence-dependent synthetic peptide affinities using position-specific pharmacophore-like weights, physicochemical substitution distances and assay noise. In an equal-budget simulation with 589 peptides, triple-mutant sampling yielded lower prediction error than a complete single-mutant scan.</p>
+<p>A roughly six-parameter model fitted to experimental PrRP–GPR10 data reached a test Pearson correlation of about 0.83. The additive formulation omits explicit epistasis and structure, and performance degraded on NPFFR1/NPFFR2.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123059236284608833">VReceptor research summary</a></p>
 </article>
 <article>
-<h3>MecCog Challenge seeks causal mechanisms of Alzheimer’s disease</h3>
-<p>Georgia Channing announces a collaboration between Hugging Face and the founders of CASP focused on piecing together causal mechanisms of Alzheimer’s disease. The MecCog Challenge offers prizes in Hugging Face credits.</p>
-<p class="links"><a href="https://x.com/cgeorgiaw/status/2122746285795279307">Announcement</a> · <a href="https://t.co/PojKDL5lz7">Challenge</a></p>
+<h3>IMPRESS reallocates computation during molecular design</h3>
+<p>IMPRESS replaces fixed design cascades with asynchronous, stateful workflows that stop, resample or branch according to intermediate results. Demonstrations span discontinuous enzyme active sites, small-molecule binders and PDZ peptide-binder redesign.</p>
+<p>For five-island enzyme motifs, it reportedly found high-quality computational solutions in more than 40% of cases where the nonadaptive reference found none under a matched-budget analysis. Comparisons are entirely in silico, and steering and evaluation often use the same metrics; the principal claim is better exploration and control of generated ensembles.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123059121411022852">IMPRESS research summary</a></p>
+</article>
+<article>
+<h3>EnzRef separates reactant and product signals</h3>
+<p>EnzRef predicts log<sub>10</sub> k<sub>cat</sub> using a frozen protein language model and 1.72 million trainable parameters. It conditions residue representations separately on reactants and products, subtracts an enzyme-specific reference and combines shared and role-dependent responses.</p>
+<p>The study reports source-held-out R² of 0.614 versus 0.553 for MCKcat, and enzyme-unseen transfer R² of 0.310 versus 0.259. It also reports better within-enzyme and within-reaction activity comparisons, with approximately 3.14× faster inference using cached features.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123058848084918397">EnzRef research summary</a></p>
+</article>
+<article>
+<h3>Remote homology search without structures at inference</h3>
+<p>S-PLM-TM distills structural information into sequence embeddings through cross-modal flow matching and contrastive learning, then calibrates similarity against TM-align scores. It supports remote-homology retrieval and residue-level alignment without requiring structures at inference.</p>
+<p>The source reports leading sequence-based retrieval performance and strong functional consistency among retrieved neighbors. Searching 957 queries against 430,140 pre-embedded Swiss-Prot targets took 8.6 seconds on one A100. An optional enzyme-classification head supports catalytic-function retrieval.</p>
+<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123058939298283993">S-PLM-TM research summary</a></p>
 </article>
 </div>
 </section>
 
 <section id="ai">
 <h2>AI research &amp; tools</h2>
+<article>
+<h3>OpenMed fine-tune lifts procedure-extraction F1 to 48.0</h3>
+<p>OpenMed reports that GLiNER2.5 ProceduresTests Small improved F1 from 12.6 to 48.0 on 200 held-out abstracts after fine-tuning on 1,000 MedMentions abstracts with three labels. The model is Apache-2.0 licensed.</p>
+<p>Laboratory procedures remain a weakness: F1 is 28.9, with about one in four found. The model also missed “maintenance hemodialysis” in a demonstration and has not been tested on hospital notes.</p>
+<p class="source"><a href="https://x.com/OpenMed_AI/status/2123046065972912325">OpenMed results</a> · <a href="https://t.co/TZOI6fljQa">Model/resource</a></p>
+</article>
 <div class="grid">
 <article>
-<h3>Goodfire identifies neuron communities behind common LLM behaviors</h3>
-<p>Goodfire introduces small groups of neurons that work together on arithmetic, capitalization and recalling dates. The team says these “Neuron Communities” can be identified at scale for further investigation by agents. The work is led by Igor Shilov.</p>
-<p class="links"><a href="https://x.com/GoodfireAI/status/2122742780657389940">Goodfire announcement</a> · <a href="https://t.co/em1Vemg2YW">Research and examples</a></p>
+<h3>Looping Transformers without chain-of-thought</h3>
+<p>Alek Westover, in research shared by Songlin Yang, reports that looping a Transformer increases capabilities without chain-of-thought more than other approaches to improving pretraining quality.</p>
+<p class="source"><a href="https://x.com/SonglinYang4/status/2122951803008368851">Research post</a></p>
 </article>
 <article>
-<h3>Constant learning rates and checkpoint averaging offer an alternative to decay</h3>
-<p>Sebastian Raschka compares pretraining recipes using cosine decay, warmup–stable–decay and constant learning rates with checkpoint averaging. He points to Kolibri-1 and DatologyAI’s models as examples of the no-decay approach, using recent-checkpoint averages or running weight averages. He suggests this avoids committing to a total training length upfront.</p>
-<p class="links"><a href="https://x.com/rasbt/status/2122721652433715481">Sebastian Raschka · Analysis</a></p>
+<h3>Positional-embedding tutorial adds YaRN and ALiBi</h3>
+<p>Sebastian Raschka has added an optional appendix to his positional-embedding article, restoring additional technical material and adding coverage of YaRN and ALiBi.</p>
+<p class="source"><a href="https://x.com/rasbt/status/2123239870394991087">Update</a> · <a href="https://t.co/2WE3wVFgBV">Appendix</a></p>
 </article>
 <article>
-<h3>A variational approach to learning-rate scheduling</h3>
-<p>Jianlin Su shares a technical resource titled “Variational Estimation of Optimal Learning Rate Scheduling.”</p>
-<p class="links"><a href="https://x.com/Jianlin_S/status/2122597840921014337">Jianlin Su · Post</a> · <a href="https://t.co/tUXAqfEjyf">Technical resource</a></p>
-</article>
-<article>
-<h3>Separate preconditioner batches reportedly lose even when extra compute is free</h3>
-<p>Yaroslav Bulatov compares shared versus independently drawn batches for gradients and preconditioner statistics. He says the separate-batch approach appears worse even when its additional computation is treated as free, despite removing bias, and draws a connection to Stein’s paradox.</p>
-<p class="links"><a href="https://x.com/yaroslavvb/status/2122860021356916970">Yaroslav Bulatov · Observation</a> · <a href="https://t.co/hSf9ui1pOK">Linked reference</a></p>
-</article>
-<article>
-<h3>Mojo talk explores metaprogramming, dependent types and memory safety</h3>
-<p>Chris Lattner shares a technical talk covering Mojo’s parametric metaprogramming, dependent types, symbolic function constraints and static memory safety. He also announces the availability of LLVM Developers’ Meeting slides on Mojo and MAX internals.</p>
-<p class="links"><a href="https://x.com/clattner_llvm/status/2122763730471838175">Chris Lattner · Announcement</a> · <a href="https://t.co/xF1h8E7CVw">Talk slides</a> · <a href="https://t.co/xCQT2G3tiJ">Mojo resource</a></p>
-</article>
-<article>
-<h3>Protein-sequence tests prompt discussion of Claude’s biological capabilities</h3>
-<p>Xinming Tu and collaborators tested 20 language models on continuation of little-studied bacterial protein sequences. They report that only the latest Claude models successfully predicted the continuations, which they interpret as evidence of substantial protein-sequence training.</p>
-<p>A follow-up reports that Opus 5.5 predicts human and mouse coding DNA but not the rest of the genome, with code, data and model replies linked. Separately, Sergey Ovchinnikov reports that Claude Fable 5.2 predicted contacts for a de novo protein and recovered ubiquitin’s fold from a prompt requesting contact, secondary-structure and geometric reasoning.</p>
-<p class="links"><a href="https://x.com/TuXinming/status/2122737418864664618">Xinming Tu · Study and discussion</a></p>
+<h3>A possible route to combining AdEMAMix and Muon</h3>
+<p>You Jiacheng recalls that a naive combination of AdEMAMix and Muon did not work, and points instead to a sharpness-aware EMA-mixing approach that appears to work.</p>
+<p class="source"><a href="https://x.com/YouJiacheng/status/2123170614462783739">Discussion</a> · <a href="https://t.co/PYdKKmqJBi">Technical resource</a></p>
 </article>
 </div>
 </section>
 
-<section id="genomics">
-<h2>Cells, RNA &amp; genomes</h2>
-<div class="grid">
-<article>
-<h3>B-RANKO generates RNA inward from both ends</h3>
-<p>B-RANKO is a 150-million-parameter ncRNA model that uses an existing prefix and suffix to generate inward. It combines sequence generation with representation learning and was adapted to an IGFBP3 aptamer dataset.</p>
-<p>On the 13-task BEACON benchmark, the report highlights strong vaccine-degradation and CRISPR off-target prediction, with less consistent results on some fine-grained structure tasks. Matched-scale ablations favored bidirectional over causal pretraining across all 13 tasks.</p>
-<p class="links"><a href="https://x.com/BiologyAIDaily/status/2122702139877478807">Biology AI Daily · B-RANKO</a></p>
-</article>
-<article>
-<h3>Dynamo protocol models single-cell transcriptomic dynamics</h3>
-<p>Nature Protocols announces an article on predictive modeling of single-cell transcriptomic dynamics with Dynamo. A related resource describes the method as mapping transcriptomic vector fields of single cells.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2122696033599967584">Protocol announcement</a></p>
-</article>
-<article>
-<h3>GraphVelo addresses multimodal single-cell velocity</h3>
-<p>A GraphVelo resource describes inference of multimodal single-cell velocities and molecular mechanisms.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2122696248960712966">GraphVelo resource post</a></p>
-</article>
-<article>
-<h3>Generative genome design with DNA language models</h3>
-<p>Nature Reviews Genetics announces a piece on generative genome design with DNA language models. Samuel King identifies himself as its author in a related post shared by Brian Hie.</p>
-<p class="links"><a href="https://x.com/NatureRevGenet/status/2122687518865084734">Nature Reviews Genetics · Announcement</a></p>
-</article>
-<article>
-<h3>How two major heterochromatin marks overlap and interact</h3>
-<p>“Different, yet similar,” published by Nature Reviews Molecular Cell Biology, examines shared features and functional crosstalk between H3K9me3 and H3K27me3 heterochromatin.</p>
-<p class="links"><a href="https://x.com/NatRevMCB/status/2122729992585117755">Review announcement</a></p>
-</article>
-<article>
-<h3>Educational-attainment GWAS reports 33 associated loci</h3>
-<p>Jian Yang announces a study of 448,558 East Asian participants, published in Vita. The post reports 33 loci associated with educational attainment, including 11 described as ancestry-specific.</p>
-<p class="links"><a href="https://x.com/razoralign/status/2122717967771471906">Study announcement</a></p>
-</article>
-</div>
-</section>
-
-<section id="practice" class="practice">
+<section class="practice" id="languages">
 <h2>Language practice</h2>
-
 <article lang="de">
-<h3>Deutsch — Leseflaute: Wie Verlage damit umgehen</h3>
-<p class="meta">Deutsche Welle · 17.11.2026 · <a href="https://www.dw.com/de/leseflaute-wie-buchverlage-damit-umgehen/a-79841803">Artikel lesen</a></p>
-<p>Wenn das Smartphone ins Kinderzimmer einzieht, gerät das Buch häufig ins Hintertreffen. Der DW-Beitrag beschreibt, wie sinkende Buchkäufe und veränderte Lesegewohnheiten deutsche Verlage unter Druck setzen. Dabei ist das Bild nicht einheitlich: Während die Zehn- bis Fünfzehnjährigen laut Artikel 2025 deutlich weniger Bücher kauften, legten die Käufe bei den Sechzehn- bis Neunzehnjährigen zu. Oetinger-Verlagschefin Julia Bielenberg beobachtet zugleich eine stärkere Nachfrage nach einfacherer Sprache, kürzeren Sätzen und mehr Bildern.</p>
-<p>Am Beispiel des Kinderbuchverlags Oetinger zeigt der Text, wie sich das Geschäft verändert. Neben gedruckten Geschichten gewinnen Hörangebote, Theaterstücke, Spiele und andere Produkte rund um bekannte Figuren an Bedeutung. Mitarbeitende besuchen außerdem Kitas und Schulen, um die Wünsche der Kinder in neue Buchkonzepte einzubeziehen. Eine Olchi-Erlebniswelt in Hamburg soll Geschichten sogar räumlich erfahrbar machen – mit Eindrücken zum Sehen, Hören, Fühlen und Riechen.</p>
-<p>Der Blick nach Schweden ergänzt die wirtschaftliche Perspektive um eine bildungspolitische Frage: Welche Rolle sollten gedruckte Bücher im Schulalltag spielen? Dort wird ihr Kauf seit 2024 staatlich gefördert; Bielenberg berichtet von positiven Auswirkungen auf das Lesen und den Absatz. Der Beitrag stellt diesen Erfahrungen allerdings weiterhin schwache Ergebnisse bei der Lesekompetenz gegenüber.</p>
-<p><strong>Warum lesen:</strong> Der Artikel verbindet deutsche Buchkultur mit dem digitalen Alltag und zeigt konkret, wie Verlage um die Aufmerksamkeit junger Leserinnen und Leser kämpfen.</p>
+<h3>Deutsch — Oper Köln erhält Ehrenpreis für künstlerische Leistungen während Sanierung</h3>
+<p class="source">Deutschlandfunk Kultur · 18.11.2026 · <a href="https://www.deutschlandfunkkultur.de/oper-koeln-erhaelt-ehrenpreis-fuer-kuenstlerische-leistungen-waehrend-sanierung-100.html">Artikel lesen</a></p>
+<p>Die Kölner Oper soll einen Ehrenpreis der „OPER! AWARDS“ erhalten. Gewürdigt werden die Mitarbeitenden, die während der langjährigen Sanierung den künstlerischen Betrieb an wechselnden Ausweichspielstätten aufrechterhielten. Das Haus am Offenbachplatz wurde nach vierzehn Jahren Bauzeit im September wiedereröffnet.</p>
+<p>Die Auszeichnung rückt damit nicht das renovierte Gebäude, sondern die künstlerische Arbeit unter schwierigen Bedingungen in den Mittelpunkt. Sie ersetzt diesmal den regulären Preis für das beste Opernhaus und soll im Februar 2027 verliehen werden.</p>
+<p><strong>Warum lesen:</strong> Eine kurze Kulturnachricht darüber, wie ein Opernensemble auch ohne feste Heimat anspruchsvolle Arbeit leisten kann.</p>
 </article>
 
 <article lang="fr">
-<h3>Français — My tailor is rich, mais l'historique Assimil est en redressement judiciaire</h3>
-<p class="meta">ActuaLitté · 17 novembre 2026 · <a href="https://actualitte.com/article/135250/edition/my-tailor-is-rich-mais-l-historique-assimil-est-en-redressement-judiciaire">Lire l’article</a></p>
-<p>Assimil, maison familiale fondée en 1929 et célèbre pour ses méthodes d’apprentissage des langues, a été placée en redressement judiciaire le 4 novembre par le tribunal de commerce de Créteil. Cette procédure ouvre une période d’observation destinée à examiner les possibilités de poursuivre et de réorganiser l’activité : elle ne signifie donc pas une fermeture immédiate. L’éditeur subit une baisse des ventes et des difficultés à l’exportation, qui l’ont déjà conduit à reporter des nouveautés et à suspendre certaines réimpressions.</p>
-<p>L’article replace cette crise dans une transformation des pratiques linguistiques. Face aux manuels et à leurs leçons progressives, les applications, les assistants conversationnels et la traduction instantanée proposent d’autres façons de pratiquer une langue ou de répondre à un besoin ponctuel. Le dirigeant d’Assimil y voit une concurrence majeure, mais le texte apporte une nuance : la méta-analyse qu’il cite présente surtout l’intelligence artificielle comme un complément à l’enseignement traditionnel, plutôt que comme son substitut.</p>
-<p>Pour préserver son catalogue, Assimil avait annoncé des impressions en quantités mieux adaptées à la demande, afin de limiter l’argent immobilisé dans les stocks. Entre histoire éditoriale et enjeux économiques, ce reportage interroge ainsi la place d’une méthode structurée dans un univers où l’aide linguistique est devenue immédiatement accessible. La direction garde pour objectif de redresser l’entreprise et d’atteindre son centenaire en 2029.</p>
-<p><strong>Pourquoi lire :</strong> Un sujet directement lié à la pratique des langues, qui permet aussi de comprendre les difficultés d’un éditeur français face aux nouveaux usages numériques.</p>
+<h3>Français — France: l'Assurance maladie adresse un courrier aux jeunes de 29 ans pour les sensibiliser à la fertilité</h3>
+<p class="source">RFI · 16 novembre 2026 · <a href="https://www.rfi.fr/fr/france/20261116-france-l-assurance-maladie-adresse-un-courrier-aux-jeunes-de-29-ans-pour-les-sensibiliser-%C3%A0-la-fertilit%C3%A9">Lire l’article</a></p>
+<p>L’Assurance maladie lance une campagne d’information destinée aux Français de 29 ans, qui doivent recevoir un courrier sur leur compte Ameli. Le message aborde aussi bien la contraception que les difficultés à concevoir, la diminution de la fertilité avec l’âge et la possibilité de conserver ses gamètes pour un projet parental plus tardif. Initialement prévu pour l’été, cet envoi avait été repoussé après des critiques visant le ton de sa première version, jugé intrusif et infantilisant.</p>
+<p>Selon RFI, la nouvelle formulation satisfait davantage les associations, qui demandent une meilleure information sur la santé reproductive. Virginie Rio, cofondatrice de BAMP, souligne notamment le décalage entre les attentes de certaines personnes et les difficultés qu’elles découvrent lorsqu’elles souhaitent avoir un enfant. Cette initiative fait partie d’un plan de lutte contre l’infertilité comprenant également le déploiement de nouveaux centres de conservation des ovocytes, afin d’améliorer l’accès à cette démarche et de raccourcir les délais d’attente.</p>
+<p><strong>Pourquoi lire :</strong> Un article accessible pour explorer les tensions entre prévention sanitaire, choix personnels et communication publique autour de la fertilité.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>redressement judiciaire</strong> — procédure destinée à permettre, lorsque cela reste possible, la poursuite de l’activité d’une entreprise qui ne peut plus régler ses dettes exigibles.</li>
-<li><strong>fonds éditorial</strong> — ensemble des titres déjà publiés qu’un éditeur maintient dans son catalogue, au-delà des nouveautés.</li>
-<li><strong>tirage</strong> — nombre d’exemplaires d’un ouvrage imprimés lors d’une même opération de production.</li>
+<li><strong>gamètes</strong> — cellules reproductrices : spermatozoïdes et ovocytes.</li>
+<li><strong>conservation des ovocytes</strong> — congélation et stockage de cellules reproductrices féminines en vue d’une utilisation ultérieure.</li>
+<li><strong>insémination</strong> — technique d’aide à la procréation consistant à introduire des spermatozoïdes dans l’appareil reproducteur féminin.</li>
 </ul>
 </article>
 
 <article lang="ja">
-<h3>日本語 — ミニチュア箱庭修理ゲーム『ハコニワデンキ』12月1日配信へ。回路を直して明かりを灯す、ほっこりチルパズル</h3>
-<p class="meta">AUTOMATON · 2026-11-18 · <a href="https://automaton-media.com/articles/newsjp/20261117-479694/">記事を読む</a></p>
-<p>個人ゲーム開発者の亜寝帯氏が、PC（Steam）向けの『ハコニワデンキ Hakoniwa Electric』を12月1日に配信すると発表した。価格は600円（税込）で、体験版も公開中。主人公は、祖父から電気屋を任された新米店主のアカリだ。喫茶店や神社などを小さく表現した全12ステージを訪れ、街の人々の困りごとを修理で解決していく。各ステージは4月から翌年3月までの季節の変化にも対応している。</p>
-<p>修理は、まずブレーカーを探し、回転パネルで電気の通り道をつなぐところから始まる。電源が戻ったら、箱庭の中にある故障したものを探し、スライドパズルやあみだくじ風の仕組みを解いて直していく。時間制限はなく、自分のペースで探索できる設計だ。隠されたイヌの置物を集める要素や、アカリの感想を読める月報もあり、物語が進むにつれて街の建物が増えていくという。</p>
-<p><strong>読む理由：</strong> 身近な街の風景と電気修理を組み合わせた個人開発ゲームを通じて、遊びの仕組みを説明する日本語に触れられる。</p>
+<h3>日本語 — パスワードより安全なはずが……パスキー対応103サイトを検証→全てに脆弱性　独大学の調査結果</h3>
+<p class="source">ITmedia NEWS · 2026-11-16 · <a href="https://www.itmedia.co.jp/news/article/2611/16/2000003199/">https://www.itmedia.co.jp/news/article/2611/16/2000003199/</a></p>
+<p>ドイツのルール大学ボーフムなどの研究チームが、パスキーに対応するウェブサイトの普及状況と安全性を調べた。パスキーは、公開鍵暗号と端末の生体認証やPINを利用するログイン技術だ。しかし、登録できた208サイトの基本設定を調べると、パスキーを追加する際に追加の本人確認を求めないサイトが66％を占め、削除機能や複数登録への対応にも不備があった。</p>
+<p>さらに103サイトを対象に15種類の攻撃手法で検証したところ、認証技術「WebAuthn」が求める全てのセキュリティ基準を満たすサイトはなかった。18サイトで緊急レベル、53サイトで重要レベルの脆弱性が見つかり、暗号署名を検証していない例も確認された。記事が紹介するのは、パスキーという仕組みそのものだけでなく、各サイトでの実装や運用が安全性を左右するという問題だ。</p>
+<p><strong>読む理由：</strong> ドイツ発の研究を通して、身近なログイン技術の安全性と、導入するだけでは防げないリスクを具体的に学べる。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>箱庭（はこにわ）</strong> — 小さな範囲に街や風景を凝縮して表現した空間で、ゲームでは探索や操作の舞台になる。</li>
-<li><strong>回路（かいろ）</strong> — 電気が流れるように部品や導線をつないだ経路。</li>
-<li><strong>収集要素（しゅうしゅうようそ）</strong> — 隠された品などを集めることで、探索や繰り返し遊ぶ楽しみを加えるゲームの仕組み。</li>
+<li><strong>公開鍵暗号（こうかいかぎあんごう）</strong> — 公開できる鍵と秘密に保つ鍵を組み合わせて、暗号化や本人確認を行う技術。</li>
+<li><strong>脆弱性（ぜいじゃくせい）</strong> — 不正アクセスなどに悪用される可能性がある、システムの安全上の弱点。</li>
+<li><strong>実装（じっそう）</strong> — 技術の仕様や設計を、実際に動くプログラムや機能として組み込むこと。</li>
 </ul>
 </article>
 
 <article lang="zh">
-<h3>中文 — 德国经济实现增长，但还太弱太弱</h3>
-<p class="meta">DW 中文 · 2026-11-17 · <a href="https://www.dw.com/zh/德国经济实现增长但乐观不起来/a-79971696">https://www.dw.com/zh/德国经济实现增长但乐观不起来/a-79971696</a></p>
-<p>德国经济出现复苏迹象，为什么企业仍然感到低迷？报道援引德国经济专家委员会的预测称，德国经济2026年有望增长1.3%，2027年增长1%，主要动力来自强劲出口和政府支出。然而，作为工业支柱的机械与设备制造业仍在流失就业岗位，行业代表批评官僚主义、税负及改革迟缓，显示宏观增长与企业实际处境之间存在落差。</p>
-<p>文章进一步指出，短期回暖并未解决长期财政压力：人口老龄化推高养老金、医疗和护理支出，提供资金的劳动力人口却在减少。政府新增债务以及国防、基础设施融资，也使公共财政的可持续性受到关注。专家警告，当前的增长力度不足以维持过去几十年的繁荣。</p>
-<p>创新投资是另一条主线。报道比较德国与英美高校相关初创企业的发展，指出德国在风险投资支持方面仍有短板。虽然新企业数量和人工智能创业活动有所增长，但要把政府支出与出口带来的回暖变成持续增长，仍需要更多私人投资。</p>
-<p><strong>为什么读：</strong> 这篇报道把德国经济增长、工业就业与财政压力联系起来，适合练习区分短期复苏和长期结构性问题的中文表达。</p>
+<h3>中文 — 欧委会初步认定Temu违反《数字服务法》：未能降低平台出现非法产品风险</h3>
+<p class="source">RFI 中文 · 2026-11-17 · <a href="https://www.rfi.fr/cn/欧洲/20261117-欧委会初步认定temu违反-数字服务法-未能降低平台出现非法产品风险">原文链接</a></p>
+<p>据法广报道，欧盟委员会初步认定，跨境电商平台Temu没有充分履行《数字服务法》规定的风险防范义务。调查指出，平台对产品测试报告的要求和核查不足，也没有在实物抽检中优先关注玩具、电子产品和化妆品等高风险商品。问题不仅在于商品信息是否符合平台规则，更在于商品本身是否符合欧盟安全要求。</p>
+<p>报道还介绍了审核与处罚机制中的漏洞：人工审核人员没有随商品数量增长而相应增加，处罚又主要针对单个店铺，而不是背后的商家。因此，一家店铺被关闭后，同一商家仍可能通过其他店铺继续销售。欧委会认为，这种做法削弱了处罚的威慑作用。</p>
+<p>目前这仍是初步认定，并非最终裁定。Temu可以查阅调查文件并提交书面回应；如果认定最终得到确认，平台可能面临最高相当于全球年度总营业额6%的罚款，并须采取整改措施。</p>
+<p><strong>为什么读：</strong> 这篇报道把中国跨境电商、欧盟数字监管和日常网购安全联系起来，适合练习区分调查结论、法律义务与潜在处罚。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>公共财政 (gōnggòng cáizhèng)</strong> — 政府筹集、分配和使用资金以提供公共服务的活动。</li>
-<li><strong>信用评级 (xìnyòng píngjí)</strong> — 对借款方偿债能力及违约风险的等级评估。</li>
-<li><strong>风险投资 (fēngxiǎn tóuzī)</strong> — 向高成长潜力、同时具有较高失败风险的企业投入资金，通常以获得股权为回报。</li>
+<li><strong>合规性 (hé guī xìng)</strong> — 产品或经营行为符合相关法律、标准和规定的程度。</li>
+<li><strong>抗辩权 (kàng biàn quán)</strong> — 当事人针对有关指控或认定提出事实、理由和证据，为自己辩护的权利。</li>
+<li><strong>整改措施 (zhěng gǎi cuò shī)</strong> — 为纠正违规行为、使经营活动符合规定而采取的具体行动。</li>
 </ul>
 </article>
 </section>
+<footer>News · November 19, 2026</footer>
 </main>
-<footer>News · November 18, 2026</footer>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-18-1";
+  const key = 'newspaper:read:' + "2026-11-19-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

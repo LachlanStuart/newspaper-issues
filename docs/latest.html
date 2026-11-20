@@ -5,27 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>News</title>
 <style>
-:root{color-scheme:light;--ink:#202b32;--muted:#5b6870;--rule:#d7dedf;--accent:#176479}
+:root{color-scheme:light;--paper:#faf9f5;--ink:#222b30;--muted:#626d72;--rule:#d8dcd8;--accent:#176078}
 *{box-sizing:border-box}
-body{margin:0;background:#f5f4ef;color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
-main{max-width:1020px;margin:auto;padding:36px 28px 60px}
-header{border-bottom:3px solid var(--ink);padding-bottom:18px;margin-bottom:25px}
-h1{font-size:68px;line-height:1;margin:0 0 14px;letter-spacing:-2px}
-.date,.source,nav,footer{font-family:system-ui,sans-serif;font-size:13px;color:var(--muted)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.65}
+main,header,footer{max-width:1040px;margin:auto;padding:24px}
+header{padding-top:42px;border-bottom:3px solid var(--ink)}
+h1{font-size:4rem;line-height:1;margin:0 0 16px}
+.date,.meta,nav,footer{font-family:system-ui,sans-serif;font-size:.88rem;color:var(--muted)}
 nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-top:18px}
-a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px;overflow-wrap:anywhere}
-h2{font-size:29px;line-height:1.25;border-bottom:1px solid var(--rule);padding-bottom:10px;margin:36px 0 20px}
-h3{font-size:22px;line-height:1.35;margin:0 0 9px}
+a{color:var(--accent);text-underline-offset:3px;overflow-wrap:anywhere}
+h2{font-size:1.75rem;margin:36px 0 20px;padding-bottom:8px;border-bottom:1px solid var(--ink)}
+h3{font-size:1.22rem;line-height:1.35;margin:0 0 10px}
 p{margin:0 0 12px}
-article{margin-bottom:26px}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 30px}
-.source{margin-top:10px}
-.practice{border-top:3px solid var(--ink);margin-top:44px;padding-top:4px}
-.practice article{padding:8px 0 24px;border-bottom:1px solid var(--rule)}
-.practice h3{font-size:24px}
-.practice ul{padding-left:24px}
-footer{border-top:1px solid var(--rule);padding-top:16px;margin-top:30px}
-@media(max-width:680px){main{padding:25px 20px 40px}.grid{display:block}h1{font-size:54px}h2{font-size:26px}}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 32px}
+article{padding-bottom:18px;border-bottom:1px solid var(--rule)}
+.links{font-family:system-ui,sans-serif;font-size:.85rem;margin-bottom:0}
+.practice{margin-top:48px;border-top:3px solid var(--ink)}
+.practice article{max-width:820px;margin:28px auto;padding-bottom:28px}
+.practice h3{font-size:1.4rem}
+.practice .meta{margin-bottom:18px}
+ul{padding-left:24px}
+footer{border-top:1px solid var(--rule);padding-bottom:36px}
+@media(max-width:680px){.grid{grid-template-columns:1fr}header,main,footer{padding-left:20px;padding-right:20px}h1{font-size:3.4rem}}
 </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -46,195 +47,265 @@ footer{border-top:1px solid var(--rule);padding-top:16px;margin-top:30px}
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
-<main>
 <header>
 <h1>News</h1>
-<div class="date"><time datetime="2026-11-19">Thursday, November 19, 2026</time></div>
+<div class="date"><time datetime="2026-11-20">Friday, November 20, 2026</time></div>
 <nav aria-label="Sections">
-<a href="#genomics">Genomics &amp; single-cell biology</a>
-<a href="#proteins">Protein models &amp; discovery</a>
-<a href="#ai">AI research &amp; tools</a>
+<a href="#ai">AI research</a>
+<a href="#regulation">Gene regulation &amp; virtual cells</a>
+<a href="#single-cell">Single-cell &amp; genomics</a>
+<a href="#molecular">Molecular design &amp; medicine</a>
+<a href="#resources">Research resources</a>
 <a href="#languages">Language practice</a>
 </nav>
 </header>
-
-<section id="genomics">
-<h2>Genomics &amp; single-cell biology</h2>
-<article>
-<h3>Easy synthetic variants still challenge Enformer fine-tuning</h3>
-<p>LAMP introduces artificial single-nucleotide variants affecting transcription-factor motifs into personal-genome datasets, giving them large, consistent causal effects on expression. Even with these deliberately easy-to-learn perturbations, the reported experiments find that fine-tuning Enformer underperforms on HOGP. The study argues that difficulties adapting sequence-to-function models extend beyond the complexity of natural genetic variation.</p>
-<p class="source"><a href="https://x.com/razoralign/status/2123148864387752438">LAMP research post</a></p>
-</article>
-<div class="grid">
-<article>
-<h3>Internal priming flagged in 10x 3′ capture</h3>
-<p>A Goyal lab preprint highlighted by Anshul Kundaje reports that oligo(dT) in 10x 3′ capture primes at internal A-rich stretches approximately 80 times more often than at the true poly(A) tail—a measurement artifact relevant to interpreting single-cell transcriptomic data.</p>
-<p class="source"><a href="https://x.com/anshulkundaje/status/2123201715361177855">Kundaje’s post</a></p>
-</article>
-<article>
-<h3>UK Biobank plans immune profiling at scale</h3>
-<p>Marios Georgakis reports that UK Biobank will add deep immune-cell subtyping and profiling for up to 80,000 participants, including single-cell RNA sequencing.</p>
-<p class="source"><a href="https://x.com/razoralign/status/2123261295302791402">Research announcement</a></p>
-</article>
-<article>
-<h3>GatorAnchor makes cross-modal disagreement explicit</h3>
-<p>GatorAnchor learns modality-specific Gaussian representations from graph-augmented single-cell multiomics features and fuses them through a precision-weighted product of experts. Disagreement between modalities contributes to latent dispersion, while modality reliability and neighborhood evidence guide refinement of cell–cell relationships.</p>
-<p class="source"><a href="https://x.com/razoralign/status/2123149642414411895">GatorAnchor research post</a></p>
-</article>
-<article>
-<h3>TMCells jointly learns topics and metacells</h3>
-<p>TMCells represents metacells as distribution centers in a latent topic space with a Gaussian-mixture prior. It jointly learns interpretable topics and probabilistic cell partitions, accounting for continuity and uncertainty in cell-state transitions. The source reports improvements in differential expression, rare-cell identification and trajectory inference while preserving biological heterogeneity.</p>
-<p class="source"><a href="https://x.com/razoralign/status/2123149369168048135">TMCells research post</a></p>
-</article>
-<article>
-<h3>STRUCT searches raw reads for conserved RNA structures</h3>
-<p>STRUCT—Statistical Testing of RNA Units with Covariation Traits—tests RNA covariation directly in sequencing reads, bypassing assembly and multiple-sequence alignment. It examines variable sequences linked to a shared fixed sequence to infer potential compensatory mutations in stem-loops and detect apparent negative selection against structure-disrupting variants.</p>
-<p class="source"><a href="https://x.com/razoralign/status/2123148646342697183">STRUCT research post</a></p>
-</article>
-<article>
-<h3>Polygenic ensembles from summary statistics alone</h3>
-<p>A Nature Genetics paper introduces PUMAS-ensemble, a method for constructing regularized ensemble polygenic risk scores using only genome-wide association study summary statistics.</p>
-<p class="source"><a href="https://x.com/razoralign/status/2123261306044395855">Research post</a> · <a href="https://x.com/gen0m1cs/status/2123190189673885936">Shared by gen0m1cs</a></p>
-</article>
-<article>
-<h3>Debate over what ENCODE GRAMMAR can establish</h3>
-<p>Anshul Kundaje disputes conclusions from an analysis using ENCODE GRAMMAR, arguing that it cannot explain or refute other transcription factors’ roles in targeting binding to particular genomic loci. He acknowledges additional mechanisms of selective binding and says a systematic analysis of regulatory syntax across TF binding, accessibility and transcription initiation is forthcoming.</p>
-<p class="source"><a href="https://x.com/anshulkundaje/status/2123097926264328522">Kundaje’s discussion</a></p>
-</article>
-<article>
-<h3>Briefs: brain-cell representations and AlphaGenome 2</h3>
-<p><strong>Bloom:</strong> A research announcement shared by Ruslan Rust introduces a framework for unifying brain-cell representations across modalities and contexts. <a href="https://x.com/razoralign/status/2123146806649626975">Announcement</a></p>
-<p><strong>AlphaGenome 2:</strong> Adam Gayoso announces that the paper on the cell-state-conditioned genomic model is now available on bioRxiv. <a href="https://x.com/razoralign/status/2123146941790077251">Publication update</a></p>
-</article>
-</div>
-</section>
-
-<section id="proteins">
-<h2>Protein models &amp; discovery</h2>
-<article>
-<h3>Claude contact prediction shows prompt-dependent reproducibility</h3>
-<p>Sergey Ovchinnikov reports reconstructing the ubiquitin fold from contacts predicted by Claude Fable 5.2, then finding that the original simple prompt did not reliably reproduce the result across runs. After extracting a more detailed prompt from the successful session, he reports repeating runs three times across three Claude models, with Fable 5.2 appearing stronger on contact prediction.</p>
-<p>He emphasizes that the tests involved easy proteins and that turning a good contact map into a structure is the less informative step. His proposed stronger test is prediction on proteins absent from the PDB and difficult for AlphaFold.</p>
-<p class="source"><a href="https://x.com/sokrypton/status/2123124669096276175">Ovchinnikov’s experiment and follow-up</a></p>
-</article>
-<div class="grid">
-<article>
-<h3>Protein prefixes used to probe training-data exposure</h3>
-<p>Xinming Tu reports testing 20 language models with the beginnings of little-studied bacterial proteins and claims that Claude was trained on protein sequences at scale. Georgia Channing shared the research post.</p>
-<p class="source"><a href="https://x.com/cgeorgiaw/status/2123055039778357458">Shared research post</a></p>
-</article>
-<article>
-<h3>VReceptor tests peptide-design strategies with synthetic assays</h3>
-<p>VReceptor generates sequence-dependent synthetic peptide affinities using position-specific pharmacophore-like weights, physicochemical substitution distances and assay noise. In an equal-budget simulation with 589 peptides, triple-mutant sampling yielded lower prediction error than a complete single-mutant scan.</p>
-<p>A roughly six-parameter model fitted to experimental PrRP–GPR10 data reached a test Pearson correlation of about 0.83. The additive formulation omits explicit epistasis and structure, and performance degraded on NPFFR1/NPFFR2.</p>
-<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123059236284608833">VReceptor research summary</a></p>
-</article>
-<article>
-<h3>IMPRESS reallocates computation during molecular design</h3>
-<p>IMPRESS replaces fixed design cascades with asynchronous, stateful workflows that stop, resample or branch according to intermediate results. Demonstrations span discontinuous enzyme active sites, small-molecule binders and PDZ peptide-binder redesign.</p>
-<p>For five-island enzyme motifs, it reportedly found high-quality computational solutions in more than 40% of cases where the nonadaptive reference found none under a matched-budget analysis. Comparisons are entirely in silico, and steering and evaluation often use the same metrics; the principal claim is better exploration and control of generated ensembles.</p>
-<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123059121411022852">IMPRESS research summary</a></p>
-</article>
-<article>
-<h3>EnzRef separates reactant and product signals</h3>
-<p>EnzRef predicts log<sub>10</sub> k<sub>cat</sub> using a frozen protein language model and 1.72 million trainable parameters. It conditions residue representations separately on reactants and products, subtracts an enzyme-specific reference and combines shared and role-dependent responses.</p>
-<p>The study reports source-held-out R² of 0.614 versus 0.553 for MCKcat, and enzyme-unseen transfer R² of 0.310 versus 0.259. It also reports better within-enzyme and within-reaction activity comparisons, with approximately 3.14× faster inference using cached features.</p>
-<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123058848084918397">EnzRef research summary</a></p>
-</article>
-<article>
-<h3>Remote homology search without structures at inference</h3>
-<p>S-PLM-TM distills structural information into sequence embeddings through cross-modal flow matching and contrastive learning, then calibrates similarity against TM-align scores. It supports remote-homology retrieval and residue-level alignment without requiring structures at inference.</p>
-<p>The source reports leading sequence-based retrieval performance and strong functional consistency among retrieved neighbors. Searching 957 queries against 430,140 pre-embedded Swiss-Prot targets took 8.6 seconds on one A100. An optional enzyme-classification head supports catalytic-function retrieval.</p>
-<p class="source"><a href="https://x.com/BiologyAIDaily/status/2123058939298283993">S-PLM-TM research summary</a></p>
-</article>
-</div>
-</section>
-
+<main>
 <section id="ai">
-<h2>AI research &amp; tools</h2>
-<article>
-<h3>OpenMed fine-tune lifts procedure-extraction F1 to 48.0</h3>
-<p>OpenMed reports that GLiNER2.5 ProceduresTests Small improved F1 from 12.6 to 48.0 on 200 held-out abstracts after fine-tuning on 1,000 MedMentions abstracts with three labels. The model is Apache-2.0 licensed.</p>
-<p>Laboratory procedures remain a weakness: F1 is 28.9, with about one in four found. The model also missed “maintenance hemodialysis” in a demonstration and has not been tested on hospital notes.</p>
-<p class="source"><a href="https://x.com/OpenMed_AI/status/2123046065972912325">OpenMed results</a> · <a href="https://t.co/TZOI6fljQa">Model/resource</a></p>
-</article>
+<h2>AI research</h2>
 <div class="grid">
 <article>
-<h3>Looping Transformers without chain-of-thought</h3>
-<p>Alek Westover, in research shared by Songlin Yang, reports that looping a Transformer increases capabilities without chain-of-thought more than other approaches to improving pretraining quality.</p>
-<p class="source"><a href="https://x.com/SonglinYang4/status/2122951803008368851">Research post</a></p>
+<h3>Goodfire maps 10 million Qwen3.6 neuron poles</h3>
+<p>Goodfire has released a searchable atlas of the positive and negative sides of neurons in Qwen3.6. Each “pole” gets a rough label from its maximally activating examples, with similarly labeled poles grouped nearby. A Library section examines 3,000 poles in depth, providing a more focused entry point into the interpretability resource.</p>
+<p class="links"><a href="https://x.com/GoodfireAI/status/2123477972443415028">Goodfire announcement</a> · <a href="https://t.co/Ie7DiyKxoo">Atlas</a> · <a href="https://t.co/yisd9016np">Research</a></p>
 </article>
 <article>
-<h3>Positional-embedding tutorial adds YaRN and ALiBi</h3>
-<p>Sebastian Raschka has added an optional appendix to his positional-embedding article, restoring additional technical material and adding coverage of YaRN and ALiBi.</p>
-<p class="source"><a href="https://x.com/rasbt/status/2123239870394991087">Update</a> · <a href="https://t.co/2WE3wVFgBV">Appendix</a></p>
+<h3>Inside Marin Mochi’s architecture</h3>
+<p>Sebastian Raschka highlights design choices in Marin Mochi’s 535B-A23B checkpoint and technical report: extra RMSNorm in latent MoE, a 3:1 sliding-window/global gated-GQA mix, partial RoPE for local attention and NoPE for global attention, short convolutions on keys and attention/MoE outputs, and Exclusive Self-Attention. His analysis frames these choices around training stability and GPU throughput.</p>
+<p class="links"><a href="https://x.com/rasbt/status/2123433827234111659">Raschka’s analysis</a></p>
 </article>
 <article>
-<h3>A possible route to combining AdEMAMix and Muon</h3>
-<p>You Jiacheng recalls that a naive combination of AdEMAMix and Muon did not work, and points instead to a sharpness-aware EMA-mixing approach that appears to work.</p>
-<p class="source"><a href="https://x.com/YouJiacheng/status/2123170614462783739">Discussion</a> · <a href="https://t.co/PYdKKmqJBi">Technical resource</a></p>
+<h3>A challenge to the usual AdaGrad explanation</h3>
+<p>Francesco Orabona’s <em>The Wrong Explanation of Preconditioning</em> argues that the classic account of why preconditioning works in full-matrix AdaGrad does not make sense. In the discussion, Jianlin Su conjectures that spectral-norm-bound alignment is harder to achieve than behavior governed by the mean eigenvalue, explicitly presenting this as intuition without sufficient evidence.</p>
+<p class="links"><a href="https://x.com/bremen79/status/2122997081308631549">Discussion</a> · <a href="https://t.co/Y5ZTke1tmt">Blog post</a></p>
+</article>
+<article>
+<h3>Checking agent-written chip programs with heat</h3>
+<p>Yaroslav Bulatov describes asking agents to run computation on different regions of an AIFoundry open-source chip while watching the die through a thermal camera. The resulting heat patterns provide a physical sanity check on agent-directed programming.</p>
+<p class="links"><a href="https://x.com/yaroslavvb/status/2123564715259678871">Bulatov’s post</a> · <a href="https://t.co/COMhyfvVWN">Demonstration</a></p>
+</article>
+<article>
+<h3>Medical FAQ embeddings improve after domain fine-tuning</h3>
+<p>OpenMed reports NDCG@10 rising from 81.6 to 91.8 on 1,966 held-out medical FAQ questions after fine-tuning the 270M-parameter EmbeddingGemma 2 on MedQuAD. The Apache-2.0 model runs on CPU. A reported error ranks gout prevention above treatment for an acute attack; a GTE-ModernBERT sibling for literature search reports a smaller gain of 1.7.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2123468848276103526">OpenMed results</a> · <a href="https://t.co/6JdzNoG9jm">FAQ model</a> · <a href="https://t.co/ksk2DF1RS6">Literature-search model</a></p>
+</article>
+<article>
+<h3>Spanish clinical de-identification improves, with cross-language gaps</h3>
+<p>OpenMed introduces two Apache-2.0 models for masking identifiers in Spanish clinical reports, reporting character F2 rising from 35.8 to 98.6 on held-out reports and no alterations to 24 clean notes. Multilingual tests still missed an Italian tax code and fully masked only 61.7% of German full names. OpenMed positions the system as a screen for human review, not a guarantee.</p>
+<p class="links"><a href="https://x.com/OpenMed_AI/status/2123408454580637872">OpenMed results</a> · <a href="https://t.co/rfsGwm9lYZ">Model</a> · <a href="https://t.co/IJYyUySFbJ">mmBERT sibling</a></p>
 </article>
 </div>
 </section>
 
-<section class="practice" id="languages">
+<section id="regulation">
+<h2>Gene regulation &amp; virtual cells</h2>
+<div class="grid">
+<article>
+<h3>Virtual Cell Challenge win sparks a benchmark-design dispute</h3>
+<p>Kishore Jaganathan announced that CellularAI won Arc Institute’s Virtual Cell Challenge for predicting perturbation responses in unseen cell lines. Arc reported 805 final team entries. Anshul Kundaje argued that the winning team had a data-access advantage, confounding methodological superiority with access to data. He explicitly directed the criticism at the challenge design, not the team.</p>
+<p class="links"><a href="https://x.com/kjaganatha/status/2123584965195489604">Announcement and discussion</a></p>
+</article>
+<article>
+<h3>Does perturbation prediction teach causal regulation?</h3>
+<p>In a separate argument, Kundaje questions whether prioritizing trans-perturbation prediction moves the field away from learning causal gene regulation. His concern starts with experimental design: whether the collected data lets models learn the biology researchers actually want, rather than merely supporting a particular evaluation.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2123627620176695573">Kundaje’s argument</a></p>
+</article>
+<article>
+<h3>GENECraft designs regulatory DNA under explicit constraints</h3>
+<p>GENECraft combines frozen AlphaGenome predictions with a frozen Carbon sequence prior for training-free optimization. It evaluates discrete sequences throughout, enforces composition constraints and penalizes promoter-like activity when designing enhancers.</p>
+<p>Across 2,185 human loci, the authors report computational full-joint success rates of 62.70% for promoters, 65.23% for enhancers and 94.56% for transcription-factor binding, using held-out Enformer and Borzoi predictions in evaluation. Prior guidance improves composition and robustness, but excessive weighting reduces yield.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2123391518723719583">GENECraft research summary</a></p>
+</article>
+<article>
+<h3>Review connects cell state with sequence-to-function models</h3>
+<p>Peter Koo announced the open-access review <em>Modeling gene regulation across cellular contexts with deep learning</em> on the Genomics x AI Blog. It surveys ways to combine cell-state models with sequence-to-function predictors, including interpretability, evaluation, data scaling, limitations and possible roles for AI agents.</p>
+<p class="links"><a href="https://x.com/pkoo562/status/2123448759703007513">Review announcement</a></p>
+</article>
+<article>
+<h3>DRAFT follows regulatory networks through cell trajectories</h3>
+<p>DRAFT combines graph attention with recurrent temporal memory to infer changing gene-regulatory networks along single-cell trajectories. The method integrates regulatory priors and molecular measurements, supports paired and unpaired RNA–ATAC profiles, and explicitly models dependencies between stages.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123431853327835361">DRAFT research summary</a></p>
+</article>
+<article>
+<h3>Chromatin mechanisms and a new AlphaGenome preprint</h3>
+<p>Anders Hansen highlighted new work examining how CTCF blocks cohesin-mediated loop extrusion, shared by Anshul Kundaje.</p>
+<p>Separately, Adam Gayoso announced that the AlphaGenome 2 paper is now on bioRxiv, in a post shared by gen0m1cs.</p>
+<p class="links"><a href="https://x.com/anshulkundaje/status/2123575720291282972">CTCF work</a> · <a href="https://x.com/gen0m1cs/status/2123652071962628221">AlphaGenome 2 announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="single-cell">
+<h2>Single-cell &amp; genomics</h2>
+<div class="grid">
+<article>
+<h3>scUNVEIL learns cell embeddings by predicting the next UMI</h3>
+<p>scUNVEIL learns measurement-enriched transcriptome representations directly from count vectors using a residual multilayer perceptron, rather than attention over gene tokens. Its low-dimensional hidden state becomes the cell embedding. The framework connects its Bayes-optimal next-UMI prediction target to the posterior mean transcriptome composition that deeper sequencing would reveal.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123512541645353237">scUNVEIL research summary</a></p>
+</article>
+<article>
+<h3>CIRCA separates cellular and neighborhood programs</h3>
+<p>CIRCA applies grouped causal representation learning to spatial transcriptomics, jointly learning cell-intrinsic and neighborhood-level transcriptional programs and sparse directed interactions between them. Its identifiability claims depend on explicit assumptions about the data-generating process.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123512300816715904">CIRCA research summary</a></p>
+</article>
+<article>
+<h3>SPiCe models cellular plasticity across tissue environments</h3>
+<p>SPiCe combines graph neural networks and geostatistics to study intrinsic genomic and extrinsic microenvironmental contributions to cellular plasticity. Graph models capture nonlinear higher-order interactions; spatial error models and geographically weighted regression quantify heterogeneity and short- versus long-range influences.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123434356547150225">SPiCe research summary</a></p>
+</article>
+<article>
+<h3>scHiCGNN treats chromatin contacts as graphs</h3>
+<p>scHiCGNN encodes each chromosome’s Hi-C contact matrix as a weighted graph, learns node features through multi-head graph attention, and combines chromosome embeddings with lightweight self-attention. This reframes single-cell Hi-C clustering as graph representation learning rather than flattened-vector PCA.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123432888054194518">scHiCGNN research summary</a></p>
+</article>
+<article>
+<h3>HARICOT assembles directly from raw nanopore signals</h3>
+<p>HARICOT uses fuzzy de Bruijn graphs and Hough-transform-based overlap detection to assemble noisy raw nanopore signals. Reported results improve contiguity and assembly quality over Rawsamble, narrowing the gap to nucleotide-sequence assemblers such as Flye and wtdbg2.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123432187618079152">HARICOT research summary</a></p>
+</article>
+<article>
+<h3>Repeated data and layer looping cut pretraining data needs</h3>
+<p>Q Labs combines repeated-data training, shared-weight layer looping and snapshot ensembling across molecular, DNA and crystal tasks. The study reports matching baseline performance with up to 56× less unique molecular data and 24× less DNA or crystal data, with some gains extrapolated.</p>
+<p>Downstream results reportedly exceed NovoMolGen on eight MoleculeNet tasks using approximately 350× less pretraining data and match HybriDNA on GUE using approximately 800× less.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123432531236356393">Pretraining study</a></p>
+</article>
+<article>
+<h3>TEN targets feature selection when samples are scarce</h3>
+<p>TEN pairs gene-expression-oriented data augmentation with a transformer encoder for high-dimensional, low-sample feature selection. It uses biological characteristics of expression data to enhance class-discriminative differences, with self-attention modeling relationships among latent sample representations.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123434000115195969">TEN research summary</a></p>
+</article>
+</div>
+</section>
+
+<section id="molecular">
+<h2>Molecular design &amp; medicine</h2>
+<div class="grid">
+<article>
+<h3>GRABS exposes a consequential affinity-data misalignment</h3>
+<p>GRABS curates 4,380 antibody–antigen affinity records, with predicted complexes and features for 4,282. Sequence-derived content keys connect measurements to artifacts to prevent silent positional misalignment. Correcting a misaligned feature store changed pooled cross-target R² from approximately 0.415 to −0.2, the authors report.</p>
+<p>Under antigen-cluster-held-out evaluation, within-antigen variant ranking falls to approximately zero across sequence, structural and confidence-based models, motivating workflows that measure examples on a target before ranking variants.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2123391817328771574">GRABS research summary</a></p>
+</article>
+<article>
+<h3>Affinity transfer has target-specific limits</h3>
+<p>A companion study proposes a noise-corrected, censoring-aware transfer ceiling separating transferable antibody effects from target-specific interactions. Tested methods show near-zero held-out-antigen variant ranking on GRABS, while a structural GNN reaches Spearman 0.548 for within-complex ranking on SKEMPI 2.0.</p>
+<p>Removing antigen nodes barely changes that model’s performance, suggesting much of its signal is antibody-intrinsic. Retrospective acquisition simulations favor target-specific measurement before model-guided ranking over zero-shot cross-target transfer.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2123392077157577003">Affinity-transfer study</a></p>
+</article>
+<article>
+<h3>STORM offers a lightweight, structure-free affinity baseline</h3>
+<p>STORM ensembles 15 small neural networks using molecular fingerprints and protein annotations, without complex structures, MSAs or large foundation-model embeddings. The authors report within-assay Pearson correlation of approximately 0.355 on a ChEMBL35 time split versus 0.303 for Boltz-2 in a matched evaluation, with broadly comparable results on three other benchmarks.</p>
+<p>Inference takes approximately 17.9 microseconds per prediction on an NVIDIA L4. Target-specific fine-tuning improves performance on all three tested targets absent from training.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2123391317346598942">STORM research summary</a></p>
+</article>
+<article>
+<h3>TMol moves differentiable Rosetta-style energetics to GPUs</h3>
+<p>TMol implements RosettaGenFF scoring and refinement as GPU-native PyTorch operations, with automatic differentiation and automated parameterization for ligands, modified residues and nucleotides. Reported speedups over single-threaded PyRosetta reach 233–362× for scoring plus gradients and 38–102× for torsion-space relaxation; total energies correlate at 0.997 across 1,000 protein chains.</p>
+<p>A design demonstration improves interface hydrogen bonding, although forward-folding success is comparable to best-of-k selection. The software uses the BSD-3 license.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2123392461833978171">TMol research summary</a></p>
+</article>
+<article>
+<h3>Generated alignments show signals—and generalization failures</h3>
+<p>Sergey Ovchinnikov reports that Claude Fable 5.2 can generate multiple-sequence alignments with coevolutionary signals usable by AlphaFold. Follow-up tests find poor contact accuracy for orphan proteins without UniProt homologs and unsuccessful paired-MSA generation for protein–protein interactions.</p>
+<p>Ovchinnikov hypothesizes that this pattern could reflect training on individual UniProt sequences rather than genomic context.</p>
+<p class="links"><a href="https://x.com/sokrypton/status/2123588030158004734">Experiments and discussion</a></p>
+</article>
+<article>
+<h3>MARRI adds accessibility and pairing constraints to RNA predictions</h3>
+<p>MARRI combines RNA foundation-model embeddings, structural features and biological metadata with cross-RNA attention incorporating opening penalties and hybridization gains. Reported ROC–AUC is 74.27% on a shared test set, falling to 66.30% when entire genes are held out.</p>
+<p>Predicted nucleotide-pair hotspots respond to computational perturbations and partially agree with resolved contacts in three complexes. Disease-expression analyses use the predictions to build candidate interaction networks in diabetic nephropathy and atherosclerosis.</p>
+<p class="links"><a href="https://x.com/BiologyAIDaily/status/2123391701335331003">MARRI research summary</a></p>
+</article>
+<article>
+<h3>De novo phosphatase work published in Science</h3>
+<p>Gina El Nesr announced publication in <em>Science</em> of a de novo phosphatase study describing zero-shot design of a promiscuous metalloenzyme. Sergey Ovchinnikov and Rishabh shared the announcement.</p>
+<p class="links"><a href="https://x.com/sokrypton/status/2123615060287266869">Publication announcement</a></p>
+</article>
+<article>
+<h3>ZEUS result shifts discussion toward upstream inflammation</h3>
+<p>Marios Georgakis reports that IL-6 inhibition failed to reduce cardiovascular events in ZEUS and says attention is turning upstream toward NLRP3.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123509452607496553">Clinical research discussion</a></p>
+</article>
+</div>
+</section>
+
+<section id="resources">
+<h2>Research resources</h2>
+<div class="grid">
+<article>
+<h3>SPIDER grounds biomedical relationships in study context</h3>
+<p>SPIDER is a multi-agent framework for linking biomedical relations to literature evidence and extracting study conditions. Its reported analysis of 1.95 million abstracts adds 2.31 million previously unrepresented, literature-supported entity pairs to SPIDER-KG. The authors report improved LLM interpretation of supported relationships and retrospective contextualization of newly reported gene–disease associations.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123512095153193452">SPIDER research summary</a></p>
+</article>
+<article>
+<h3>OmicsBridge brings multiomic exploration into Shiny</h3>
+<p>OmicsBridge combines centralized data storage and retrieval with more than 50 visualization and analysis modules. Its Shiny interface supports connecting omics datasets and exploring genes’ functional and clinical relevance without repeated uploads.</p>
+<p class="links"><a href="https://x.com/razoralign/status/2123434897478168758">OmicsBridge overview</a></p>
+</article>
+<article>
+<h3>Algorithms for Validation textbook released</h3>
+<p>Stanford AI Lab shared the release of <em>Algorithms for Validation</em>, a textbook by SISL authors @aiprof_mykel, @Sydney_Katz, @aicorso and @mossrj.</p>
+<p class="links"><a href="https://x.com/StanfordAILab/status/2123507746217893989">Textbook announcement</a></p>
+</article>
+</div>
+</section>
+
+<section id="languages" class="practice">
 <h2>Language practice</h2>
 <article lang="de">
-<h3>Deutsch — Oper Köln erhält Ehrenpreis für künstlerische Leistungen während Sanierung</h3>
-<p class="source">Deutschlandfunk Kultur · 18.11.2026 · <a href="https://www.deutschlandfunkkultur.de/oper-koeln-erhaelt-ehrenpreis-fuer-kuenstlerische-leistungen-waehrend-sanierung-100.html">Artikel lesen</a></p>
-<p>Die Kölner Oper soll einen Ehrenpreis der „OPER! AWARDS“ erhalten. Gewürdigt werden die Mitarbeitenden, die während der langjährigen Sanierung den künstlerischen Betrieb an wechselnden Ausweichspielstätten aufrechterhielten. Das Haus am Offenbachplatz wurde nach vierzehn Jahren Bauzeit im September wiedereröffnet.</p>
-<p>Die Auszeichnung rückt damit nicht das renovierte Gebäude, sondern die künstlerische Arbeit unter schwierigen Bedingungen in den Mittelpunkt. Sie ersetzt diesmal den regulären Preis für das beste Opernhaus und soll im Februar 2027 verliehen werden.</p>
-<p><strong>Warum lesen:</strong> Eine kurze Kulturnachricht darüber, wie ein Opernensemble auch ohne feste Heimat anspruchsvolle Arbeit leisten kann.</p>
+<h3>Deutsch — In Dutzenden Städten: Jugendproteste in ganz Deutschland</h3>
+<p class="meta">Tagesschau · 20.11.2026 · <a href="https://www.tagesschau.de/inland/gesellschaft/jugendproteste-110.html">Artikel lesen</a></p>
+<p>Für heute haben mehrere Jugendorganisationen zu Demonstrationen in Dutzenden deutschen Städten aufgerufen. Beteiligt sind unter anderem „Gen Z regelt“, die Bundesschülerkonferenz, Fridays For Future und „Schulstreik gegen die Wehrpflicht“. Ihre Anliegen überschneiden sich, sind aber nicht identisch: Es geht um bessere Bildung, steigende Lebenshaltungskosten, Klimaschutz und die Frage, wie gesellschaftliche Lasten zwischen den Generationen verteilt werden. Hinzu kommen Proteste gegen Überwachung sowie gegen Wehrpflicht und Musterung.</p>
+<p>Der Beitrag stellt diesen Forderungen die Reaktionen der Bundesregierung gegenüber. Bildungsministerin Karin Prien verspricht, junge Menschen stärker an politischen Entscheidungen zu beteiligen, und betont die Bedeutung von Bildung für Generationengerechtigkeit. Zugleich erinnert der Artikel an die Proteste vom 31. Oktober: Damals demonstrierten Zehntausende überwiegend friedlich; später kam es in einigen Städten vereinzelt zu Ausschreitungen. Bundeskanzler Friedrich Merz hatte die Anliegen der Jugendlichen anschließend als legitim anerkannt.</p>
+<p><strong>Warum lesen:</strong> Der Artikel bietet einen kompakten Einstieg in die unterschiedlichen Forderungen der Jugendproteste und die politische Debatte über Generationengerechtigkeit in Deutschland.</p>
 </article>
 
 <article lang="fr">
-<h3>Français — France: l'Assurance maladie adresse un courrier aux jeunes de 29 ans pour les sensibiliser à la fertilité</h3>
-<p class="source">RFI · 16 novembre 2026 · <a href="https://www.rfi.fr/fr/france/20261116-france-l-assurance-maladie-adresse-un-courrier-aux-jeunes-de-29-ans-pour-les-sensibiliser-%C3%A0-la-fertilit%C3%A9">Lire l’article</a></p>
-<p>L’Assurance maladie lance une campagne d’information destinée aux Français de 29 ans, qui doivent recevoir un courrier sur leur compte Ameli. Le message aborde aussi bien la contraception que les difficultés à concevoir, la diminution de la fertilité avec l’âge et la possibilité de conserver ses gamètes pour un projet parental plus tardif. Initialement prévu pour l’été, cet envoi avait été repoussé après des critiques visant le ton de sa première version, jugé intrusif et infantilisant.</p>
-<p>Selon RFI, la nouvelle formulation satisfait davantage les associations, qui demandent une meilleure information sur la santé reproductive. Virginie Rio, cofondatrice de BAMP, souligne notamment le décalage entre les attentes de certaines personnes et les difficultés qu’elles découvrent lorsqu’elles souhaitent avoir un enfant. Cette initiative fait partie d’un plan de lutte contre l’infertilité comprenant également le déploiement de nouveaux centres de conservation des ovocytes, afin d’améliorer l’accès à cette démarche et de raccourcir les délais d’attente.</p>
-<p><strong>Pourquoi lire :</strong> Un article accessible pour explorer les tensions entre prévention sanitaire, choix personnels et communication publique autour de la fertilité.</p>
+<h3>Français — Sommet de l'Apec : Xi Jinping reçoit Vladimir Poutine avant un sommet inédit avec Donald Trump</h3>
+<p class="meta">France 24 · 18 novembre 2026 · <a href="https://www.france24.com/fr/asie-pacifique/20261118-sommet-de-l-apec-xi-jinping-re%C3%A7oit-vladimir-poutine-avant-un-sommet-in%C3%A9dit-avec-donald-trump">Lire l’article</a></p>
+<p>Dans cet article publié avant la rencontre annoncée pour le 19 novembre, France 24 présente les enjeux du rapprochement diplomatique entre Xi Jinping, Vladimir Poutine et Donald Trump à Shenzhen, en marge de l’Apec. L’Ukraine, l’Europe et Taïwan redoutent des décisions prises sans leur participation. La comparaison avec la conférence de Yalta illustre cette crainte d’un partage des zones d’influence entre grandes puissances, même si les experts cités soulignent que le sommet pourrait aussi déboucher sur peu de résultats concrets.</p>
+<p>Le principal point d’incertitude concerne l’ordre du jour : Pékin évoque la paix et la stabilité stratégique, tandis que Donald Trump mentionne la dénucléarisation, la guerre en Iran et l’Ukraine. Le texte distingue également les objectifs des trois dirigeants : consolider la place internationale de la Chine, affirmer que la Russie reste une grande puissance malgré les sanctions et obtenir, pour le président américain, des gains diplomatiques après un revers électoral. Il s’agit donc d’une lecture des attentes et des rapports de force avant le sommet, et non d’un bilan de ses conclusions.</p>
+<p><strong>Pourquoi lire :</strong> Pour comprendre les inquiétudes européennes face à une diplomatie entre grandes puissances et découvrir le vocabulaire des négociations internationales.</p>
 <p><strong>Vocabulaire utile</strong></p>
 <ul>
-<li><strong>gamètes</strong> — cellules reproductrices : spermatozoïdes et ovocytes.</li>
-<li><strong>conservation des ovocytes</strong> — congélation et stockage de cellules reproductrices féminines en vue d’une utilisation ultérieure.</li>
-<li><strong>insémination</strong> — technique d’aide à la procréation consistant à introduire des spermatozoïdes dans l’appareil reproducteur féminin.</li>
+<li><strong>sommet trilatéral</strong> — rencontre de haut niveau réunissant les représentants de trois États.</li>
+<li><strong>stabilité stratégique</strong> — équilibre entre puissances visant à limiter les risques de confrontation majeure, notamment nucléaire.</li>
+<li><strong>dénucléarisation</strong> — processus de suppression ou de réduction des armes nucléaires dans un pays ou une région.</li>
 </ul>
 </article>
 
 <article lang="ja">
-<h3>日本語 — パスワードより安全なはずが……パスキー対応103サイトを検証→全てに脆弱性　独大学の調査結果</h3>
-<p class="source">ITmedia NEWS · 2026-11-16 · <a href="https://www.itmedia.co.jp/news/article/2611/16/2000003199/">https://www.itmedia.co.jp/news/article/2611/16/2000003199/</a></p>
-<p>ドイツのルール大学ボーフムなどの研究チームが、パスキーに対応するウェブサイトの普及状況と安全性を調べた。パスキーは、公開鍵暗号と端末の生体認証やPINを利用するログイン技術だ。しかし、登録できた208サイトの基本設定を調べると、パスキーを追加する際に追加の本人確認を求めないサイトが66％を占め、削除機能や複数登録への対応にも不備があった。</p>
-<p>さらに103サイトを対象に15種類の攻撃手法で検証したところ、認証技術「WebAuthn」が求める全てのセキュリティ基準を満たすサイトはなかった。18サイトで緊急レベル、53サイトで重要レベルの脆弱性が見つかり、暗号署名を検証していない例も確認された。記事が紹介するのは、パスキーという仕組みそのものだけでなく、各サイトでの実装や運用が安全性を左右するという問題だ。</p>
-<p><strong>読む理由：</strong> ドイツ発の研究を通して、身近なログイン技術の安全性と、導入するだけでは防げないリスクを具体的に学べる。</p>
+<h3>日本語 — H3ロケット 次の11号機の打ち上げ業務を民営化へ 三菱重工業に</h3>
+<p class="meta">NHKニュース · 2026年11月20日 · <a href="https://news.web.nhk/newsweb/na/nd-20261120de78738">記事を読む</a></p>
+<p>日本の主力ロケットH3の打ち上げ業務が、次の11号機からJAXAから三菱重工業へ移管される見通しだ。NHKによると、今年度に入って3機連続で打ち上げに成功し、運用が安定してきたことを受け、両者が民営化で合意した。まず対象となるのは補助ロケットを2本備えるタイプで、ほかのタイプも段階的な民営化を検討する。</p>
+<p>狙いは、海外の衛星事業者からも注文を獲得し、衛星打ち上げを本格的な事業として広げることにある。専門家は、長期契約が機体の効率的な生産につながり、国際競争力を高める可能性を指摘する。一方、先代のH2Aは海外勢との競争で海外衛星の打ち上げ受注が5件にとどまった。H3が技術面の成功を商業的な実績につなげられるかが、今後の課題となる。</p>
+<p><strong>読む理由：</strong> 日本の宇宙開発が、技術を確立する段階から国際市場で事業を広げる段階へどう移るのかを、具体的に読める。</p>
 <p><strong>語彙メモ</strong></p>
 <ul>
-<li><strong>公開鍵暗号（こうかいかぎあんごう）</strong> — 公開できる鍵と秘密に保つ鍵を組み合わせて、暗号化や本人確認を行う技術。</li>
-<li><strong>脆弱性（ぜいじゃくせい）</strong> — 不正アクセスなどに悪用される可能性がある、システムの安全上の弱点。</li>
-<li><strong>実装（じっそう）</strong> — 技術の仕様や設計を、実際に動くプログラムや機能として組み込むこと。</li>
+<li><strong>移管（いかん）</strong> — 業務の管理や責任を別の組織へ移すこと。</li>
+<li><strong>民営化（みんえいか）</strong> — 公的な組織が担っていた事業や業務を民間企業が担う形に変えること。</li>
+<li><strong>受注（じゅちゅう）</strong> — 商品の製造やサービスの提供について、顧客から注文を受けること。</li>
 </ul>
 </article>
 
 <article lang="zh">
-<h3>中文 — 欧委会初步认定Temu违反《数字服务法》：未能降低平台出现非法产品风险</h3>
-<p class="source">RFI 中文 · 2026-11-17 · <a href="https://www.rfi.fr/cn/欧洲/20261117-欧委会初步认定temu违反-数字服务法-未能降低平台出现非法产品风险">原文链接</a></p>
-<p>据法广报道，欧盟委员会初步认定，跨境电商平台Temu没有充分履行《数字服务法》规定的风险防范义务。调查指出，平台对产品测试报告的要求和核查不足，也没有在实物抽检中优先关注玩具、电子产品和化妆品等高风险商品。问题不仅在于商品信息是否符合平台规则，更在于商品本身是否符合欧盟安全要求。</p>
-<p>报道还介绍了审核与处罚机制中的漏洞：人工审核人员没有随商品数量增长而相应增加，处罚又主要针对单个店铺，而不是背后的商家。因此，一家店铺被关闭后，同一商家仍可能通过其他店铺继续销售。欧委会认为，这种做法削弱了处罚的威慑作用。</p>
-<p>目前这仍是初步认定，并非最终裁定。Temu可以查阅调查文件并提交书面回应；如果认定最终得到确认，平台可能面临最高相当于全球年度总营业额6%的罚款，并须采取整改措施。</p>
-<p><strong>为什么读：</strong> 这篇报道把中国跨境电商、欧盟数字监管和日常网购安全联系起来，适合练习区分调查结论、法律义务与潜在处罚。</p>
+<h3>中文 — APEC的特色服饰：从克林顿皮衣到深圳“鲲鹏展翅”丝巾</h3>
+<p class="meta">BBC 中文 · 2026-11-19 · <a href="https://www.bbc.com/zhongwen/articles/cmly7er4rze9o/simp">https://www.bbc.com/zhongwen/articles/cmly7er4rze9o/simp</a></p>
+<p>峰会合照里的服饰，也能成为观察外交与文化展示的窗口。深圳APEC峰会为领导人准备了以“鲲鹏展翅”为主题的红蓝丝绸围巾。报道借此回顾这项惯例的起源：1993年，克林顿向与会领导人赠送皮衣，随后其他主办国陆续用本国特色服饰迎接来宾，让严肃的国际会议多了一点轻松气氛。</p>
+<p>中国此前主办峰会时推出的“新唐装”和“新中装”，把传统服装元素与现代设计结合起来，立领、对襟、盘纽等细节成为展示文化身份的方式。不过，统一着装也受到流于表演的批评，有些主办国选择让领导人穿西装合影。近年，秘鲁、韩国和此次深圳都采用围巾，显示这项惯例正从整套服装转向更简洁的配饰。</p>
+<p><strong>为什么读：</strong> 从一张峰会合照切入，既能了解文化展示与外交礼仪的关系，也能积累描述中式服装的专门词汇。</p>
 <p><strong>词汇笔记</strong></p>
 <ul>
-<li><strong>合规性 (hé guī xìng)</strong> — 产品或经营行为符合相关法律、标准和规定的程度。</li>
-<li><strong>抗辩权 (kàng biàn quán)</strong> — 当事人针对有关指控或认定提出事实、理由和证据，为自己辩护的权利。</li>
-<li><strong>整改措施 (zhěng gǎi cuò shī)</strong> — 为纠正违规行为、使经营活动符合规定而采取的具体行动。</li>
+<li><strong>对襟 (duì jīn)</strong> — 上衣前面左右两片衣襟在正中相对、扣合的式样。</li>
+<li><strong>盘纽 (pán niǔ)</strong> — 用布条或绳带盘结而成的纽扣，兼具扣合与装饰作用。</li>
+<li><strong>蜡染 (là rǎn)</strong> — 用蜡遮盖布料的部分区域后染色，再去蜡形成花纹的工艺。</li>
 </ul>
 </article>
 </section>
-<footer>News · November 19, 2026</footer>
 </main>
+<footer>News · November 20, 2026</footer>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-19-1";
+  const key = 'newspaper:read:' + "2026-11-20-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

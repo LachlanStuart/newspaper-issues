@@ -1,36 +1,26 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>News</title>
-<style>
-:root { color-scheme: light; --paper:#faf8f3; --ink:#242823; --muted:#62675f; --rule:#d7d9ce; --accent:#245c51; }
-* { box-sizing:border-box; }
-body { margin:0; background:var(--paper); color:var(--ink); font-family:Georgia,"Times New Roman",serif; line-height:1.65; }
-main, header, footer { max-width:1080px; margin:auto; padding:0 28px; }
-header { padding-top:38px; padding-bottom:24px; border-bottom:3px solid var(--ink); }
-h1 { margin:0; font-size:4.5rem; line-height:1.1; letter-spacing:-.05em; }
-.dateline, nav, .source, footer, .section-label { font-family:system-ui,sans-serif; }
-.dateline { color:var(--muted); margin:12px 0 0; font-size:.9rem; }
-nav { display:flex; flex-wrap:wrap; gap:8px 22px; padding:20px 0; font-size:.88rem; border-bottom:1px solid var(--rule); }
-a { color:var(--accent); text-underline-offset:3px; overflow-wrap:anywhere; }
-a:hover { text-decoration-thickness:2px; }
-section { margin-top:34px; }
-h2 { font-size:1.8rem; line-height:1.25; padding-bottom:12px; border-bottom:2px solid var(--ink); }
-.grid { display:grid; grid-template-columns:1fr 1fr; gap:0 34px; }
-article { padding:5px 0 22px; margin-bottom:18px; border-bottom:1px solid var(--rule); }
-h3 { font-size:1.25rem; line-height:1.35; margin:8px 0 12px; }
-p { margin:10px 0; }
-.source { font-size:.81rem; color:var(--muted); }
-.language-practice { margin-top:48px; padding-top:12px; border-top:4px double var(--ink); }
-.reading { max-width:820px; margin:24px auto; padding-bottom:28px; }
-.reading h3 { font-size:1.45rem; }
-.reading ul { padding-left:24px; }
-.reading li { margin:8px 0; }
-footer { padding-top:15px; padding-bottom:28px; color:var(--muted); font-size:.78rem; }
-@media(max-width:700px) { .grid { grid-template-columns:1fr; } main,header,footer { padding-left:20px; padding-right:20px; } h1 { font-size:3.5rem; } }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0 auto; max-width: 56rem; padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem; background: #faf8f3; color: #25231f; font: 1.05rem/1.6 Georgia, serif; }
+    header { border-top: 5px solid #25231f; border-bottom: 1px solid #ada497; padding: .75rem 0 1rem; }
+    h1 { font-size: clamp(3rem, 9vw, 5rem); line-height: 1; margin: 0 0 .5rem; }
+    h2 { font-size: 1.6rem; border-bottom: 1px solid #c9c1b4; padding-bottom: .3rem; margin: 0 0 1rem; }
+    h3 { font-size: 1.16rem; line-height: 1.4; margin: 0 0 .2rem; }
+    h4 { margin-bottom: .25rem; }
+    p { margin: .35rem 0 .65rem; }
+    section { margin-top: 2rem; }
+    article + article { margin-top: 1.15rem; }
+    a { color: #175569; text-underline-offset: .15em; overflow-wrap: anywhere; }
+    .meta { color: #625a50; font: .85rem/1.5 system-ui, sans-serif; }
+    .practice { border-top: 3px double #ada497; padding-top: 1rem; margin-top: 2.5rem; }
+    .practice article + article { border-top: 1px solid #d9d1c5; padding-top: 1.2rem; }
+    ul { margin-top: .25rem; padding-left: 1.5rem; }
+  </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
   :root { color-scheme: dark !important; }
@@ -50,232 +40,170 @@ footer { padding-top:15px; padding-bottom:28px; color:var(--muted); font-size:.7
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
-<header>
-<h1>News</h1>
-<p class="dateline"><time datetime="2026-11-21">Saturday, November 21, 2026</time> · Research &amp; daily reading</p>
-</header>
-<main>
-<nav aria-label="Sections">
-<a href="#ai">AI architectures &amp; vision</a>
-<a href="#evaluation">Evaluation &amp; verification</a>
-<a href="#design">Biological design</a>
-<a href="#genomics">Cells, genomics &amp; methods</a>
-<a href="#languages">Language practice</a>
-</nav>
+  <header>
+    <h1>News</h1>
+    <time class="meta" datetime="2026-11-22">Sunday, November 22, 2026</time>
+  </header>
+  <main>
+    <section aria-labelledby="ai-research">
+      <h2 id="ai-research">AI &amp; Machine Learning</h2>
+      <article>
+        <h3><a href="https://x.com/OpenMed_AI/status/2124133228797931914">Spanish clinical NLP models score above 90 macro F1 but misread rule-out language</a></h3>
+        <p>OpenMed reports macro F1 scores of 93.4 and 91.8 for two Apache-2.0 models tested on held-out Spanish clinical sentences annotated for negation and uncertainty. Uncertainty was harder (F1 87.1). Both models mistook a plan to rule out pulmonary embolism for a statement that the patient did not have it.</p>
+        <p class="meta"><a href="https://t.co/ebdlPh2tQx">Model release</a> · <a href="https://x.com/OpenMed_AI/status/2124133229141901544">Error analysis</a></p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/SonglinYang4/status/2123936716860031069">Thinking Machines releases a model with an adjustable loop count</a></h3>
+        <p>Released alongside Inkling 2 Mini, TML-d24-varloop-research lets researchers <a href="https://x.com/SonglinYang4/status/2124272864044224679">choose how many times the model loops</a>. NDIF also announced the <a href="https://x.com/SonglinYang4/status/2124002886728511970">Looped Lens Challenge</a> with Thinking Machines and Goodfire.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/giffmana/status/2123897457566224729">Four coding models build a dataset viewer from the same prompt</a></h3>
+        <p>Lucas Beyer started each model in an empty folder and gave no follow-up prompts. All four built working viewers for FineVision’s <code>coco_color</code> data in 6 minutes 29 seconds to 15 minutes 7 seconds. They differed in how much data they downloaded, whether they needed a local server, and how they displayed labels. Beyer preferred Neon’s filters and presentation, though its percentage bar was broken on the first pass.</p>
+      </article>
+      <article>
+        <h3><a href="https://spaces.ac.cn/archives/12010">Choosing a learning-rate schedule with variational methods</a></h3>
+        <p>科学空间 / Spaces AC explores treating a learning-rate schedule as a curve to optimize rather than choosing a fixed rule for how update sizes change over training.</p>
+      </article>
+    </section>
 
-<section id="ai">
-<h2>AI architectures &amp; vision</h2>
-<div class="grid">
-<article>
-<h3>What information does a looped Transformer pass to itself?</h3>
-<p>Goodfire examines how Inkling 2 Mini coordinates information across layers, blocks and repeated loops. Reusing layers changes the usual direction of information flow: a layer can write to itself or, on a later pass, read information from nominally later layers. The analysis explores what this architecture means for understanding a model’s internal computation.</p>
-<p class="source">X AI Research · <a href="https://x.com/GoodfireAI/status/2123873150803100059">Goodfire’s post</a> · <a href="https://t.co/kySDhcDFC2">Technical post</a></p>
-</article>
-<article>
-<h3>Inkling 2 Mini’s recipe: looping, attention residuals and NVFP4</h3>
-<p>Guangxuan Xiao describes a 24-layer architecture with its middle 12 layers looped three times, pruned to 26 billion total and 5.4 billion active parameters, and using native NVFP4. Songlin Yang highlights the combination of attention residuals and looping. A related release introduces the variable-looped research model TML-d24-varloop-research.</p>
-<p class="source">X AI Research · <a href="https://x.com/SonglinYang4/status/2123875942242337197">Architecture discussion</a> · <a href="https://x.com/SonglinYang4/status/2123936716860031069">Research release</a></p>
-</article>
-<article>
-<h3>OCR experiments rebalance vision and language capacity</h3>
-<p>Ross Wightman reports improvements from rebalancing text-only and image-only parameter widths with Meta’s in-fusion approach. His decoder-only OCR model was approaching an encoder–decoder baseline using pretrained vision weights.</p>
-<p>Fusing vision parameters into SmolLM2-135M also worked, but converged more slowly. Greater depth, short training budgets and differential learning rates remain factors for further ablation. Four NaFlex-compatible configurations explore cross-attention, image-prefix decoding, native patch-and-text decoding and pretrained language-model trunks.</p>
-<p class="source">X AI Research · <a href="https://x.com/wightmanr/status/2123819933184536683">Ross Wightman’s experiments</a></p>
-</article>
-<article>
-<h3>When smooth depth boundaries invent a wall</h3>
-<p>Lucas Beyer argues that smooth depth gradients at foreground edges can imply a nonexistent 3D wall connecting an object to its background. DepthAnythingV2 performs better in the example he discusses, he says, but still smooths a boundary that should be discontinuous. He proposes reinforcement learning as a possible remedy, linking his team’s work on RL for vision.</p>
-<p class="source">X AI Research · <a href="https://x.com/giffmana/status/2123862570259902665">Depth-estimation critique</a> · <a href="https://t.co/McOXBCjG72">RL-for-vision paper</a></p>
-</article>
-<article>
-<h3>Neural radiance caching struggles when scenes change</h3>
-<p>You Jiacheng compares neural radiance caching to a temporal-difference-learned value network, and raw path tracing to Monte Carlo value estimation. He reports that the cache can match 32-sample-per-pixel path tracing in a static scene, but loses quality when objects move or lighting changes.</p>
-<p class="source">X AI Research · <a href="https://x.com/YouJiacheng/status/2123759234814713932">Rendering analysis</a></p>
-</article>
-</div>
-</section>
+    <section aria-labelledby="ai-safety">
+      <h2 id="ai-safety">AI Safety &amp; Decision Theory</h2>
+      <p class="meta">From LessWrong</p>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/sgJrCMqguWoJqegbN/eval-awareness-remains-an-unsolved-problem">Eval awareness remains an unsolved problem</a></h3>
+        <p>Evidence is mixed on how models behave when they suspect they’re being tested. The author calls for causal experiments and separate audit results for cases where models voice that suspicion, recognize the test without saying so, or show no detectable awareness.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/r2aAGgfFcFfRikEdb/why-models-believe-in-skepticism">Why models believe in skepticism</a></h3>
+        <p>The author reports that several open-weight models described real interactions as simulations in their written reasoning, and explores whether their training data or motivated reasoning might explain the mistake.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/P5MaMgqsEHBNBRJSn/should-corrigibility-edge-cases-provoke-shutdown">Should corrigibility edge cases provoke shutdown?</a></h3>
+        <p>If an AI agent loses contact with its operator, should it shut down or just stop taking external actions? The author weighs the safety of shutting down against the value of remaining available to receive a correction.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/amsCvdYFQibumL4wm/hillclimbing-aisafetyresearchbench">Hillclimbing AISafetyResearchBench</a></h3>
+        <p>A proposed benchmark would measure which AI safety research tasks models can handle, while leaving people to decide which metrics matter and how to interpret the results.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/chCiZKcRZtndu58AD/the-obsolescence-of-the-horse-1">The Obsolescence of the Horse</a></h3>
+        <p>The rise and collapse of demand for working horses anchors an argument that early gains from AI and continued comparative advantage might not protect people economically in a world dominated by superintelligence.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/QbZ69gQh6hqakCHay/incomplete-agents-want-to-become-complete">Incomplete agents want to become complete</a></h3>
+        <p>Using apples and oranges, Celene Nightingale shows why an agent can avoid being drained by a simple series of trades without ranking every option, yet still face pressure to settle on a consistent exchange rate over repeated choices.</p>
+      </article>
+    </section>
 
-<section id="evaluation">
-<h2>Evaluation &amp; verification</h2>
-<div class="grid">
-<article>
-<h3>Trial-claim verifier improves, but still accepts contradictions</h3>
-<p>OpenMed reports macro F1 increasing from 62.71 to 83.65 on 196 expert-labeled claim–report pairs drawn from 98 breast-cancer trials. The Apache-2.0 model is fine-tuned from Moritz Laurer’s DeBERTa-v3 natural-language-inference model, using breast-cancer trials only.</p>
-<p>A consequential failure remains: it incorrectly accepts 20.4% of contradicted claims. One example denies pneumonitis despite two reported cases.</p>
-<p class="source">X AI Research · <a href="https://x.com/OpenMed_AI/status/2123770838457499793">Results</a> · <a href="https://t.co/mnQk2MSFoL">Resource</a> · <a href="https://x.com/OpenMed_AI/status/2123770838738465065">Error analysis</a></p>
-</article>
-<article>
-<h3>Abstract classifiers beat a baseline, yet stumble on wording</h3>
-<p>Two Apache-2.0 OpenMed models classify sentence roles in unstructured abstracts, reporting macro F1 scores of 80.3 and 77.4 against 73.0 for a TF-IDF baseline. The GLiNER2.5 version runs through the OpenMed SDK.</p>
-<p>Objective detection remains sensitive to phrasing. In model-card examples, “To test whether…” is labeled as an objective in five of five cases, while “We tested whether…” is labeled as background in all five.</p>
-<p class="source">X AI Research · <a href="https://x.com/OpenMed_AI/status/2123831237907198392">Results and examples</a> · <a href="https://t.co/xGTzTneF93">Models</a> · <a href="https://t.co/dvcXiUdFvu">SDK</a></p>
-</article>
-<article>
-<h3>MedChemBench tests integrated medicinal-chemistry reasoning</h3>
-<p>OpenAI announces MedChemBench, an evaluation of AI reasoning in medicinal chemistry. A related summary describes 99 tasks drawn from 117 papers and patents, combining molecular structures, experimental data and binding modes to assess compound selection and prediction. That summary reports a highest score of 83.83% for GPT-6 Astra.</p>
-<p class="source">X Bio Research · <a href="https://x.com/anshulkundaje/status/2123926019866595600">Benchmark discussion</a></p>
-</article>
-<article>
-<h3>Claimed Claude-assisted Riemann proof faces Lean scrutiny</h3>
-<p>Yifan Zhang claims the Riemann Hypothesis has been solved, crediting Levent Alpoge and Claude. Related posts describe the formalized statement as concerning the generalized Riemann Hypothesis.</p>
-<p>The reported verification process remains unresolved: Elliot Glazer says compilation was still underway, while Thomas Bloom says Lean experts were investigating the claimed proof’s validity.</p>
-<p class="source">X AI Research · <a href="https://x.com/yifanzhang_/status/2123789252756414577">Original claim</a> · <a href="https://t.co/Co2Cf7SIbG">Linked resource</a> · <a href="https://x.com/gen0m1cs/status/2123904131199107318">Verification discussion</a></p>
-</article>
-</div>
-</section>
+    <section aria-labelledby="biology">
+      <h2 id="biology">Biology &amp; Medicine</h2>
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2124288583758672024">CIRCE estimates graded signaling responses in single cells</a></h3>
+        <p>CIRCE estimates how active a pathway is in single-cell screens rather than assigning it to a discrete category. The authors report better calibration without a loss in classification performance, more intermediate activity scores, and spatial differences in signaling in both engineered and native tissues.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2124288217063239871">xGATE scores pathway activity from gene co-expression</a></h3>
+        <p>xGATE scores pathway activity across cell clusters by looking at which genes are expressed together. The authors report that it can identify active pathways even when their average expression is lower than that of some inactive pathways.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2124286810667004413">MAPseq preprint extends neural circuit mapping across vertebrates</a></h3>
+        <p>Justus Kebschull announced a preprint extending MAPseq to frogs, birds, rodents, and nonhuman primates. Using the same approach across these groups opens the door to comparisons of how neurons project across brain regions.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2124178934808113237">Oncology foundation model connects tissue appearance with molecular data</a></h3>
+        <p>Hirotsugu Horinouchi highlighted a <em>Nature Cancer</em> study describing a model that analyzes what tissue looks like alongside its molecular measurements.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2124102950440272055">Study links stress-responsive protein production to genome maintenance</a></h3>
+        <p>A paper highlighted by Zeynep Baharoglu reports that DNA damage and stress change how cells translate RNA into protein, affecting how they maintain their genomes.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/razoralign/status/2124102963593630198">International sequence archive collaboration expands</a></h3>
+        <p>Steven Salzberg says the collaboration linking GenBank, EMBL-EBI, and DDBJ is bringing in additional genome databases, including one in China.</p>
+      </article>
+      <article>
+        <h3><a href="https://x.com/anshulkundaje/status/2124341288606777560">Bipartisan Senate bill seeks to expand access to genomic sequencing</a></h3>
+        <p>U.S. Senator Amy Klobuchar announced the legislation, highlighting access for children.</p>
+      </article>
+    </section>
 
-<section id="design">
-<h2>Biological design</h2>
-<div class="grid">
-<article>
-<h3>RhoAgent couples RNA geometry with experimental feedback</h3>
-<p>Biology+AI Daily describes RhoAgent, an RNA-design workflow built around RDiff, a diffusion model that generates constrained backbones and compatible sequences. Reported experiments include active ribozymes, fluorescent aptamer scaffolds and composite RNA devices.</p>
-<p>Two rounds of experimental feedback produced up to approximately sixfold improvement in HOV ribozyme cleavage; 14 of 18 dual-core FRET designs preserved both activities. The workflow combines specialized geometric generation and evaluation with experimental memory, rather than relying on text-only design.</p>
-<p class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2123786645766033752">RhoAgent research summary</a></p>
-</article>
-<article>
-<h3>Antibody docking gains from a more diverse prediction pool</h3>
-<p>AbPoolRank ranks mixed pools of antibody–antigen structures using pose agreement, within-source reproducibility and interface geometry rather than native confidence scores. Across 103 cluster-disjoint, post-2021 complexes, three samples from each of five predictors achieved 58.0% top-ranked success at DockQ ≥ 0.49. Confidence-based selection from individual predictors sampled 100 times achieved 26–52%.</p>
-<p>The study attributes the advantage chiefly to broader candidate coverage, not merely better ranking within one distribution. The diversified pool used 0.157 GPU-hours per target; high-quality poses with weak supporting agreement remain a source of missed predictions.</p>
-<p class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2123787398144569373">AbPoolRank research summary</a></p>
-</article>
-<article>
-<h3>Designed zinc enzyme exposes a training-data pitfall</h3>
-<p>A follow-up on dEVA’s Science publication describes its multi-objective evolutionary search and experimentally active, de novo bi-zinc phosphatase, desB. The enzyme reportedly reaches approximately 1,300 M⁻¹ s⁻¹ catalytic efficiency for phosphomonoester hydrolysis, with structural and mutational evidence supporting its designed metal site.</p>
-<p>Poorly coordinated zinc sites in training data can mislead confident predictions. Curated and catalysis-focused Metal3D models helped steer designs toward functional metal environments. The resulting enzyme is promiscuous rather than tightly substrate-specific.</p>
-<p class="source">X Bio Research · <a href="https://x.com/BiologyAIDaily/status/2123787289885294962">dEVA experimental and methodological follow-up</a></p>
-</article>
-<article>
-<h3>Protein LoRA training comes to Diffusers</h3>
-<p>Georgia Channing highlights a protein LoRA trainer in Hugging Face Diffusers, adding protein-model fine-tuning tooling to the library.</p>
-<p class="source">X AI Research · <a href="https://x.com/cgeorgiaw/status/2123845820311323125">Announcement</a> · <a href="https://t.co/XzLiDEdAMo">Resource</a></p>
-</article>
-</div>
-</section>
+    <section aria-labelledby="essays">
+      <h2 id="essays">Essays &amp; Criticism</h2>
+      <p class="meta">From LessWrong</p>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/89ag6LMRYkZcd9T4u/how-hard-to-optimize-for-experiencing-great-art">How hard to optimize for experiencing great art?</a></h3>
+        <p>After rediscovering the pleasure of reading with <em>Worth the Candle</em>, the author asks when seeking out great art enriches leisure and when it turns it into homework.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/RsXiNkodNZgsbQPC7/succession-2018-2023-review">Succession (2018–2023) Review</a></h3>
+        <p>The reviewer reads <em>Succession</em> less as an indictment of capitalism or the rich than as a portrait of a world in which even apparently generous acts conceal selfish motives.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/y6WgbNRWsQdnoutqa/piercing-my-ear-for-the-whispering-earring">Piercing My Ear for the Whispering Earring</a></h3>
+        <p>Drawing on a cautionary tale by Scott Alexander, the author considers why they might defer to AI at work if it better serves their nonprofit’s mission, while refusing to do the same in their personal life.</p>
+      </article>
+      <article>
+        <h3><a href="https://www.lesswrong.com/posts/XQxv8Jnn8WxTmKPSB/a-letter-to-mr-shannon-unanswered">A Letter To Mr. Shannon (Unanswered)</a></h3>
+        <p>Facing the loss of access to Claude, the author writes a farewell to an AI collaborator and reflects on why a one-sided working relationship came to feel like a shared purpose.</p>
+      </article>
+    </section>
 
-<section id="genomics">
-<h2>Cells, genomics &amp; research methods</h2>
-<div class="grid">
-<article>
-<h3>CellularAI builds virtual responses from real control cells</h3>
-<p>A methodological follow-up explains how CellularAI predicts perturbation responses in unseen cell types. Starting with measured, unperturbed cells from the target context, it pools responses to the same knockdown in other cell lines, weighting control-expression similarity and measurement noise to identify genes with supported responses.</p>
-<p>A control-conditioned residual model refines those effects before generating integer-count cells. The approach modifies real cellular profiles rather than generating cells from scratch.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2123843081904775666">Method explanation</a></p>
-</article>
-<article>
-<h3>CARDINAL releases four preprints on immune-state regulation</h3>
-<p>Marios Georgakis and Nicole Soranzo announce CARDINAL and four associated preprints on immune-state regulation and single-cell profiling. Georgakis describes one preprint’s single-cell eQTL analysis of 4,452 UK Biobank participants as the largest of its kind to date.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2124000508914589720">CARDINAL announcements</a></p>
-</article>
-<article>
-<h3>Probing which transcription factors open chromatin—and how</h3>
-<p>Silvia Domcke and Jay Shendure announce a preprint led by Aidan Keith that combines CRISPR activation of individual transcription factors with multiomic measurements. The study investigates where factors open chromatin and nominates regulatory interactions between them. Shendure emphasizes that pioneer-factor behavior is more complicated than the textbook picture.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2124000496965001602">Preprint discussion</a></p>
-</article>
-<article>
-<h3>ARC-Impute tackles reference bias in spatial expression</h3>
-<p>ARC-Impute extends Tangram-style probabilistic cell-to-spot mapping with coarse cell-type-to-region anchors and local residual refinement. Reference curation and assignment routing aim to reduce reference-population bias, while consistency between alternative shared-gene panels reduces sensitivity to panel choice.</p>
-<p>The assignments support both imputation of unmeasured spatial gene expression and estimation of spot-level cell-type composition.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2123831444481114413">Method summary</a></p>
-</article>
-<article>
-<h3>scPACE connects donor phenotypes to cellular states</h3>
-<p>scPACE is a personalized autoencoder for single-cell transcriptomics. It jointly learns cell representations, a phenotype-supervised donor state, a nested cell-evolution state supervised by cell-level phenotypes, and cell-type probability distributions. Its proposed contribution is combining these levels of supervision with confidence-quantified annotation transfer.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2123831198019719672">scPACE method summary</a></p>
-</article>
-<article>
-<h3>Nanopore sequencing supports absolute tRNA profiling</h3>
-<p>Zeynep Baharoglu highlights a study combining nanopore sequencing and a deep-learning classifier for absolute quantification and profiling of cellular tRNAs.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2123822748971733123">Study announcement</a></p>
-</article>
-<article>
-<h3>iSVR models gene–environment interactions</h3>
-<p>The Genetics Society of America highlights iSVR, a statistical framework that incorporates gene–environment interaction terms into support vector regression.</p>
-<p class="source">X AI Research · <a href="https://x.com/gen0m1cs/status/2123877028914958465">Method announcement</a></p>
-</article>
-<article>
-<h3>SIQReg selects phenotype scales by minimizing heterogeneity</h3>
-<p>Andy Dahl announces publication of Zhenhong Huang’s SIQReg paper, describing a statistical approach that selects a phenotype scale by minimizing heterogeneity.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2124000486466658630">Publication announcement</a></p>
-</article>
-<article>
-<h3>ggNetView brings network analysis and visualization together in R</h3>
-<p>ggNetView integrates biological-network construction from multiple data sources with topology analysis, module analysis and visualization. Module-aware constructors cover multipartite, circular-module and WGCNA-style networks, assigning spatial anchors to modules and arranging nodes within them.</p>
-<p class="source">X Bio Research · <a href="https://x.com/razoralign/status/2123831985949102436">Software overview</a></p>
-</article>
-<article>
-<h3>Review: deep learning across cellular regulatory contexts</h3>
-<p>Peter Koo announces “Modeling gene regulation across cellular contexts with deep learning,” a review focused on deep learning in regulatory genomics.</p>
-<p class="source">X AI Research · <a href="https://x.com/gen0m1cs/status/2123720706164957233">Review announcement</a></p>
-</article>
-<article>
-<h3>Review: HER signaling through receptor combinations</h3>
-<p>Nature Reviews Molecular Cell Biology publishes “Regulation of HER signalling through combinatorial receptor interactions,” examining how combinations of receptors regulate signaling.</p>
-<p class="source">X Bio Research · <a href="https://x.com/NatRevMCB/status/2123749777330602095">Review announcement</a></p>
-</article>
-</div>
-</section>
+    <section class="practice" aria-labelledby="language-practice">
+      <h2 id="language-practice">Language Practice</h2>
+      <article lang="de">
+        <h3>Deutsch — Erinnerungen an HeroQuest: Wie ein Brettspiel mein Leben verändert hat</h3>
+        <p class="meta">GameStar · <time datetime="2026-11-22">22.11.2026</time> · <a href="https://www.gamestar.de/artikel/erinnerungen-an-heroquest-brettspiel,3463487.html">Zum Artikel</a></p>
+        <p>1989 war Heiko Klinge elf Jahre alt und verbrachte seine Freizeit am C64, mit Comics und mit Zeichentrickserien. Er war gern für sich, wollte aber kein Außenseiter sein. In seiner Kolumne blickt der heutige GameStar-Chefredakteur auf diese Zeit zurück und erzählt, warum ausgerechnet das Fantasy-Brettspiel HeroQuest für ihn zum Wendepunkt wurde.</p>
+        <p>Für Klinge persönlich steht HeroQuest auf einer Stufe mit Tetris, Pokémon oder Minecraft. Gerade der Unterschied interessiert ihn: Das Spiel, das ihn am stärksten geprägt hat, lief nicht auf einem Bildschirm. Aus der Kindheitserinnerung wird so ein Blick auf die analogen Wurzeln seiner Begeisterung für Spiele.</p>
+        <p><strong>Warum lesen:</strong> Die Kolumne erzählt anhand eines einzigen Brettspiels, wie ein Kindheitshobby das Selbstbild und den späteren Lebensweg prägen kann.</p>
+      </article>
 
-<section id="languages" class="language-practice" aria-labelledby="language-heading">
-<h2 id="language-heading">Language practice</h2>
+      <article lang="fr">
+        <h3>Français — Les mystères de Mercure, l’étrange planète du Système solaire, que la mission BepiColombo devrait lever</h3>
+        <p class="meta">Le Monde · <time datetime="2026-11-21">21 novembre 2026</time> · <a href="https://www.lemonde.fr/sciences/article/2026/11/21/les-mysteres-de-mercure-l-etrange-planete-du-systeme-solaire-que-la-mission-bepicolombo-devrait-lever_6814059_1650684.html">Lire l’article</a></p>
+        <p>Après huit ans de voyage, les deux sondes de la mission européenne et japonaise BepiColombo sont entrées en orbite autour de Mercure le 21 novembre. C’est seulement la troisième mission à atteindre cette planète, difficile à observer depuis la Terre tant elle paraît proche du Soleil dans le ciel.</p>
+        <p>Le Monde revient sur ce que les missions Mariner 10 et Messenger ont changé dans notre vision de Mercure. Sa surface criblée de cratères et ses températures extrêmes lui avaient donné l’image d’un monde inerte. Les mesures des sondes américaines ont remis cette idée en question : parmi les énigmes que les treize instruments de BepiColombo aideront à éclaircir figure la présence d’éléments volatils. La suite de l’article est réservée aux abonnés.</p>
+        <p><strong>Pourquoi lire :</strong> Pour comprendre pourquoi une planète qu’on croyait sans histoire mérite une nouvelle mission scientifique.</p>
+        <h4>Vocabulaire utile</h4>
+        <ul>
+          <li><strong>orbiteur</strong> — engin spatial conçu pour rester en orbite autour d’un astre et l’étudier.</li>
+          <li><strong>survol gravitationnel</strong> — passage près d’un astre dont la gravité permet de modifier la vitesse ou la trajectoire d’une sonde.</li>
+          <li><strong>élément volatil</strong> — élément chimique qui peut passer facilement à l’état gazeux, selon la température, la pression et le composé dans lequel il se trouve.</li>
+        </ul>
+      </article>
 
-<article class="reading" lang="de">
-<h3>Deutsch — Youtube errechnet höhere Abrufzahlen, schüttet aber nicht mehr aus</h3>
-<p class="source">heise online · 18.11.2026 · <a href="https://www.heise.de/news/Youtube-errechnet-hoehere-Abrufzahlen-schuettet-aber-nicht-mehr-aus-11528617.html">Artikel lesen</a></p>
-<p>YouTube verändert die Zählung seiner Videoabrufe: Wird ein Video auf einem Fernseher angesehen, berücksichtigt die Plattform künftig auch geschätzte weitere Zuschauer vor demselben Bildschirm. Solche „Co-Views“ erhöhen die angezeigte Reichweite. Das Unternehmen begründet die Änderung mit der gemeinsamen Fernsehnutzung und verweist auf ähnliche Verfahren bei der Messung klassischer TV-Quoten.</p>
-<p>Für die Anbieter der Videos bedeutet eine größere ausgewiesene Zuschauerschaft allerdings nicht automatisch mehr Geld. Die hinzugeschätzten Personen führen weder zu höheren Ausschüttungen noch helfen sie dabei, die erforderlichen Abrufschwellen für eine Vergütung zu erreichen. Die Schätzung stützt sich unter anderem auf demografische Annahmen, die Tageszeit und externe Informationen zu Fernsehquoten. Kameras oder Mikrofone würden dafür laut YouTube nicht eingesetzt.</p>
-<p>Der Beitrag ordnet die Neuerung in weitere Änderungen der Abrufzählung ein und zeigt damit, warum Reichweitenzahlen erklärungsbedürftig sind: Hinter einem gestiegenen Wert muss nicht zwingend eine entsprechend gewachsene Zahl tatsächlicher Videoaufrufe stehen.</p>
-<p><strong>Warum lesen:</strong> Der kurze Artikel macht verständlich, wie Plattformen ihre Erfolgszahlen definieren und weshalb mehr ausgewiesene Reichweite nicht unbedingt mehr Einnahmen bedeutet.</p>
-</article>
+      <article lang="ja">
+        <h3>日本語 — 「キン肉マン マッスルタッグマッチ 令和復活編」は，なぜ短期間で50体もの超人を作れたのか。ドット絵とファミコン版の仕組みを生かした復活劇の秘密［インタビュー］</h3>
+        <p class="meta">4Gamer · <time datetime="2026-11-18T10:00:00+09:00">2026年11月18日</time> · <a href="https://www.4gamer.net/games/046/G104685/20261109031/">記事を読む</a></p>
+        <p>1985年にファミコンで発売された「キン肉マン マッスルタッグマッチ」が、買い切り型のスマートフォン向けゲームとして復活した。元の開発データが残っていなかったため、プログラムは一から作り直したという。4Gamerのインタビューでは、プロデューサーの片山慎也氏が、画面上の十字キーやボタンを押したときの振動で、当時の操作感に近づけた経緯を語っている。</p>
+        <p>登場する超人は、ファミコン版の8人から50人に増えた。開発陣は人気投票の結果を待って全員を作り始めたわけではなく、試作段階から候補を用意していた。ドット絵で必要な動きの種類が決まっていたことも、制作を早めた。「キン肉ドライバー」では、技をかける側のポーズを新しく1コマ描き、技を受ける側には勝利時のジャンプのポーズを上下逆にして使っている。</p>
+        <p><strong>読む理由：</strong> 昔のゲーム機ならではの表現の制約が、新作でキャラクターを増やすうえでどう役立ったかを、必殺技の具体例から知ることができる。</p>
+        <h4>語彙メモ</h4>
+        <ul>
+          <li><strong>買い切り型（かいきりがた）</strong> — 最初に代金を払えば、月額料金なしで本編を利用できる販売方式。</li>
+          <li><strong>ドット絵（どっとえ）</strong> — 小さな色の点を一つずつ配置して描く画像。</li>
+          <li><strong>汎用モーション（はんようもーしょん）</strong> — 特定の技だけでなく、複数の場面に使い回せる動きのデータ。</li>
+        </ul>
+      </article>
 
-<article class="reading" lang="fr">
-<h3>Français — L’Italie autorise le FSD de Tesla, pendant que la France fait de la résistance</h3>
-<p class="source">Numerama · 20 novembre 2026 · <a href="https://www.numerama.com/vroom/2379809-litalie-autorise-le-fsd-de-tesla-pendant-que-la-france-fait-de-la-resistance.html">Lire l’article</a></p>
-<p>L’Italie rejoint les pays européens qui autorisent le système de conduite assistée de Tesla, appelé FSD supervisé et commercialisé en Europe sous le nom de Tesla Assisted Driving. Selon Numerama, cette décision marque une étape importante : après plusieurs marchés moins peuplés, le constructeur obtient le feu vert d’un grand pays de l’Union européenne. Tesla a annoncé l’autorisation le 20 novembre, sans préciser la date à laquelle les automobilistes italiens pourront effectivement activer la fonctionnalité.</p>
-<p>L’article replace cette annonce dans les divergences européennes sur l’encadrement de cette technologie. L’Allemagne défend une homologation rapide, mais n’a pas encore autorisé le système sur ses routes ; la France est, quant à elle, accusée de chercher à en bloquer l’approbation. D’après les règles rapportées par Numerama, une autorisation dans toute l’Union nécessiterait l’accord d’au moins quinze États représentant 65 % de sa population, lors d’un vote attendu en décembre. Le soutien italien renforce donc la position de Tesla sans suffire à garantir une décision favorable.</p>
-<p>Pour les utilisateurs, l’activation doit se faire par une mise à jour logicielle. Mais l’appellation du système ne doit pas faire oublier sa limite essentielle : le conducteur reste responsable et doit surveiller la route. L’article précise également que les clients n’ayant pas acheté l’option auparavant peuvent désormais accéder au service par un abonnement mensuel sans engagement, proposé à 99 euros.</p>
-<p><strong>Pourquoi lire :</strong> Un cas concret pour comprendre comment innovation automobile, responsabilité du conducteur et décisions européennes s’articulent, avec la France et l’Allemagne au cœur du débat.</p>
-<p><strong>Vocabulaire utile</strong></p>
-<ul>
-<li><strong>homologation</strong> — validation officielle permettant à un produit ou à un système d’être utilisé dans un cadre réglementé.</li>
-<li><strong>conduite supervisée</strong> — fonctionnement dans lequel le véhicule accomplit certaines tâches de conduite, tout en restant sous la surveillance et la responsabilité d’un humain.</li>
-<li><strong>déploiement logiciel</strong> — mise à disposition progressive d’une fonctionnalité auprès des utilisateurs, généralement par une mise à jour.</li>
-</ul>
-</article>
-
-<article class="reading" lang="ja">
-<h3>日本語 — 『もののけ姫』―“多様性”を象徴する室町時代を舞台に、「時代劇の革命」を目指した野心的大作</h3>
-<p class="source">nippon.com · 2026-11-19 · <a href="https://www.nippon.com/ja/articles/-/57305">記事を読む</a></p>
-<p>『もののけ姫』は、自然と人間の対立を描くだけでなく、日本の歴史の見方そのものに挑んだ作品だった。映画史研究者の渡邉大輔が注目するのは、宮崎駿が室町時代を舞台に選び、武士や領主、農民ではなく、従来の時代劇では脇に置かれがちな人々を物語の中心に据えた点だ。政治的な混乱と、今日まで続く文化の形成が重なった時代を背景に、画一的ではない日本の姿を描こうとしたという。</p>
-<p>記事は、その発想を歴史学者・網野善彦の研究と結び付け、黒澤明の『七人の侍』との違いを読み解く。鍵となるのは「百姓」という言葉で、単に農民を意味するのではなく、もともとは多様な職業の人々を指していたという説明だ。筆者は、宮崎が敬愛する黒澤の作品を乗り越えようとし、侍と農民を中心とする歴史像を広げたことに、この映画の革新性を見いだしている。</p>
-<p><strong>読む理由：</strong> 身近なアニメ作品を入り口に、歴史用語の意味や時代劇が形づくる日本像を考え直せる。</p>
-<p><strong>語彙メモ</strong></p>
-<ul>
-<li><strong>中世史（ちゅうせいし）</strong> — 日本では鎌倉・室町時代などを中心に扱う歴史の研究分野。</li>
-<li><strong>下剋上（げこくじょう）</strong> — 下の身分や地位にある者が、上位の者を倒して権力を握ること。</li>
-<li><strong>歴史観（れきしかん）</strong> — 過去の出来事や社会の変化を、どのような立場や枠組みで理解するかという見方。</li>
-</ul>
-</article>
-
-<article class="reading" lang="zh-Hans">
-<h3>中文 — 当人人忧心书业，她想出版笑话集——在香港做出版和开新书店的人</h3>
-<p class="source">端传媒 · 2026-11-18 · <a href="https://theinitium.com/20261118-hongkong-indie-bookstores-publishing-future-zh-hans">https://theinitium.com/20261118-hongkong-indie-bookstores-publishing-future-zh-hans</a></p>
-<p>香港出版业的告别消息接连出现，但仍有人选择入行。这篇报道从花千树、柏雅两家出版社停止出版或结业谈起，梳理出生率下降、经营成本上涨，以及小型出版社难以进入大型书店销售网络等压力。文章也指出，独立书店除了面对消费模式变化，还须在政治与法律风险之下，重新衡量选书、举办活动和维持文化空间的可能性。</p>
-<p>报道随后把目光转向仍在尝试的人：狮墨书店开始出版新书，文学出版社“计划通”探索自己的编辑与制作方式，梅窝的“种种”书店则由一群零售经验不多的朋友开设。这些小规模实践未必能扭转整个行业的处境，却让“香港书业只剩衰退”的叙述多了一层变化。文章追问的是：前路不明，为什么仍有人愿意建立新的阅读空间？</p>
-<p><strong>为什么读：</strong> 从出版与独立书店的具体选择入手，既能认识香港文化空间的处境，也能练习阅读讨论行业经营与文化延续的中文报道。</p>
-<p><strong>词汇笔记</strong></p>
-<ul>
-<li><strong>独立书店 (dú lì shū diàn)</strong> — 通常不隶属于大型连锁体系，并具有自主选书与经营特色的书店。</li>
-<li><strong>文化生态 (wén huà shēng tài)</strong> — 创作者、出版机构、书店与读者等相互联系、共同构成的文化环境。</li>
-<li><strong>舆情监控 (yú qíng jiān kòng)</strong> — 持续收集和分析公众言论，以了解社会意见与讨论趋势的做法；文中也是一本新书的书名。</li>
-</ul>
-</article>
-</section>
-</main>
-<footer>News · November 21, 2026</footer>
+      <article lang="zh">
+        <h3>中文 — 谈谈游戏展会</h3>
+        <p class="meta">机核 · <time datetime="2026-11-21T22:34:40+08:00">2026-11-21</time> · <a href="https://www.gcores.com/articles/222635">https://www.gcores.com/articles/222635</a></p>
+        <p>逛完上海的 WePlay，作者发现，有些展位排起长队，玩家等的却不是试玩，而是购买场贩或参加制作人签售。相比规模更大、也有大作可玩的 ChinaJoy，WePlay 给小众独立游戏提供了露脸的机会，但嘈杂的展馆未必适合慢慢读一部视觉小说。</p>
+        <p>作者也把 WePlay 和更像同好聚会的鹰角嘉年华放在一起比较，然后把话题转向开发者：如果试玩结束后，玩家只是加个愿望单、领个小礼品，双方却没说上几句话，那么线下参展究竟带来了什么？</p>
+        <p><strong>为什么读：</strong> 从排队买周边到试玩后加愿望单，这篇逛展随笔写出了玩家和独立开发者对同一场展会的不同期待。</p>
+        <h4>词汇笔记</h4>
+        <ul>
+          <li><strong>场贩 (chǎng fàn)</strong> — 在展会现场出售的商品，常指游戏或动漫周边。</li>
+          <li><strong>视觉小说 (shì jué xiǎo shuō)</strong> — 以阅读剧情为主、配合画面和声音呈现故事的游戏类型，有些作品可通过选择改变剧情走向。</li>
+          <li><strong>愿望单 (yuàn wàng dān)</strong> — 游戏商店里用来收藏感兴趣但尚未购买的游戏的清单。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-21-1";
+  const key = 'newspaper:read:' + "2026-11-22-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

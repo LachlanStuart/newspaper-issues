@@ -1,25 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News</title>
   <style>
+    :root { color-scheme: light; --paper: #fcfaf5; --ink: #252822; --muted: #555d55; --rule: #d6d9ce; --accent: #245d52; }
     * { box-sizing: border-box; }
-    body { margin: 0 auto; max-width: 56rem; padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem; background: #faf8f3; color: #25231f; font: 1.05rem/1.6 Georgia, serif; }
-    header { border-top: 5px solid #25231f; border-bottom: 1px solid #ada497; padding: .75rem 0 1rem; }
-    h1 { font-size: clamp(3rem, 9vw, 5rem); line-height: 1; margin: 0 0 .5rem; }
-    h2 { font-size: 1.6rem; border-bottom: 1px solid #c9c1b4; padding-bottom: .3rem; margin: 0 0 1rem; }
-    h3 { font-size: 1.16rem; line-height: 1.4; margin: 0 0 .2rem; }
-    h4 { margin-bottom: .25rem; }
-    p { margin: .35rem 0 .65rem; }
+    body { margin: 0 auto; max-width: 74rem; padding: 1rem clamp(1rem, 5vw, 3rem) 2.5rem; background: var(--paper); color: var(--ink); font: 1.0625rem/1.6 Georgia, serif; }
+    .masthead { padding: 1rem 0; text-align: center; border-block: 4px double var(--ink); }
+    h1 { margin: 0; font-size: clamp(3rem, 9vw, 5rem); line-height: 1; }
+    .edition { margin: .65rem 0 0; }
+    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.2rem; padding: .65rem 0; border-bottom: 1px solid var(--rule); }
+    a { color: var(--accent); text-underline-offset: .15em; }
+    a:hover { text-decoration-thickness: .14em; }
     section { margin-top: 2rem; }
-    article + article { margin-top: 1.15rem; }
-    a { color: #175569; text-underline-offset: .15em; overflow-wrap: anywhere; }
-    .meta { color: #625a50; font: .85rem/1.5 system-ui, sans-serif; }
-    .practice { border-top: 3px double #ada497; padding-top: 1rem; margin-top: 2.5rem; }
-    .practice article + article { border-top: 1px solid #d9d1c5; padding-top: 1.2rem; }
-    ul { margin-top: .25rem; padding-left: 1.5rem; }
+    h2 { margin: 0 0 .75rem; padding-bottom: .25rem; border-bottom: 2px solid var(--accent); font-size: 1.65rem; line-height: 1.25; }
+    h3 { margin: 0 0 .35rem; font-size: 1.2rem; line-height: 1.3; }
+    p { margin: .4rem 0 .7rem; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); column-gap: 2rem; }
+    article { min-width: 0; padding: .95rem 0; border-bottom: 1px solid var(--rule); overflow-wrap: break-word; }
+    .edition, nav, .links, footer { color: var(--muted); font: .9rem/1.5 system-ui, sans-serif; }
+    .links { margin-bottom: 0; }
+    #language { border-top: 4px double var(--ink); padding-top: 1.25rem; }
+    #language article { max-width: 48rem; }
+    #language .links { margin-bottom: .8rem; }
+    ul { padding-inline-start: 1.5rem; margin: .3rem 0 .6rem; }
+    footer { margin-top: 2rem; }
   </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -40,170 +47,203 @@
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
-  <header>
+  <header class="masthead">
     <h1>News</h1>
-    <time class="meta" datetime="2026-11-22">Sunday, November 22, 2026</time>
+    <p class="edition"><time datetime="2026-11-24">Tuesday, 24 November 2026</time></p>
   </header>
+  <nav aria-label="Sections">
+    <a href="#ai">AI research</a>
+    <a href="#performance">Computing performance</a>
+    <a href="#genomics">Genomics</a>
+    <a href="#proteins">Protein modeling</a>
+    <a href="#language">Language practice</a>
+  </nav>
   <main>
-    <section aria-labelledby="ai-research">
-      <h2 id="ai-research">AI &amp; Machine Learning</h2>
-      <article>
-        <h3><a href="https://x.com/OpenMed_AI/status/2124133228797931914">Spanish clinical NLP models score above 90 macro F1 but misread rule-out language</a></h3>
-        <p>OpenMed reports macro F1 scores of 93.4 and 91.8 for two Apache-2.0 models tested on held-out Spanish clinical sentences annotated for negation and uncertainty. Uncertainty was harder (F1 87.1). Both models mistook a plan to rule out pulmonary embolism for a statement that the patient did not have it.</p>
-        <p class="meta"><a href="https://t.co/ebdlPh2tQx">Model release</a> · <a href="https://x.com/OpenMed_AI/status/2124133229141901544">Error analysis</a></p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/SonglinYang4/status/2123936716860031069">Thinking Machines releases a model with an adjustable loop count</a></h3>
-        <p>Released alongside Inkling 2 Mini, TML-d24-varloop-research lets researchers <a href="https://x.com/SonglinYang4/status/2124272864044224679">choose how many times the model loops</a>. NDIF also announced the <a href="https://x.com/SonglinYang4/status/2124002886728511970">Looped Lens Challenge</a> with Thinking Machines and Goodfire.</p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/giffmana/status/2123897457566224729">Four coding models build a dataset viewer from the same prompt</a></h3>
-        <p>Lucas Beyer started each model in an empty folder and gave no follow-up prompts. All four built working viewers for FineVision’s <code>coco_color</code> data in 6 minutes 29 seconds to 15 minutes 7 seconds. They differed in how much data they downloaded, whether they needed a local server, and how they displayed labels. Beyer preferred Neon’s filters and presentation, though its percentage bar was broken on the first pass.</p>
-      </article>
-      <article>
-        <h3><a href="https://spaces.ac.cn/archives/12010">Choosing a learning-rate schedule with variational methods</a></h3>
-        <p>科学空间 / Spaces AC explores treating a learning-rate schedule as a curve to optimize rather than choosing a fixed rule for how update sizes change over training.</p>
-      </article>
+    <section id="ai" aria-labelledby="ai-heading">
+      <h2 id="ai-heading">AI research</h2>
+      <div class="grid">
+        <article>
+          <h3>Attention Latent Feedback lowers loss across three Marin model sizes</h3>
+          <p>Xuyuan Xiong reports that the change reduced held-out loss by 0.022–0.024 nats on Marin’s 1.6B, 2.6B and 4.0B mixture-of-experts models. At 1.6B, it matched the loss of a baseline trained on about 1.38 times as many tokens.</p>
+          <p class="links"><a href="https://x.com/SonglinYang4/status/2125301634427478094">Post on X</a> · <a href="https://t.co/1RmqXO5r46">Paper</a> · <a href="https://t.co/BpdB4FOAlz">Code</a></p>
+        </article>
+        <article>
+          <h3>AI models can climb leaderboards without changing</h3>
+          <p>Research shared by Stanford AI Lab found three ways to improve a model’s leaderboard rank without altering the model itself. A higher rank, in other words, does not necessarily mean a more capable model.</p>
+          <p class="links"><a href="https://x.com/StanfordAILab/status/2125314035428253741">Stanford AI Lab on X</a></p>
+        </article>
+        <article>
+          <h3>Clean PDFs can hide weaknesses in document parsing</h3>
+          <p>Ross Wightman reports that Surya 2.5 held up better on messy scans and in some right-to-left languages. In a separate multilingual comparison, Nemotron 3.5 Parse remained among the better open-weight models on English PDFs. Reported errors included merging neighboring figures or tables and skipping text inside them.</p>
+          <p class="links"><a href="https://x.com/wightmanr/status/2124940133921403075">Scan comparison</a> · <a href="https://x.com/wightmanr/status/2125089739850371483">Multilingual comparison</a></p>
+        </article>
+        <article>
+          <h3>A speed test for training without backpropagation</h3>
+          <p>The Noise speedrun measures how long a training method that does not use backpropagation takes to bring a language model to a validation loss of 3.5.</p>
+          <p class="links"><a href="https://x.com/SonglinYang4/status/2125296245036183692">Benchmark post on X</a></p>
+        </article>
+        <article>
+          <h3>Lucas Beyer makes the case for evaluating base models</h3>
+          <p>Beyer argues that pretraining perplexity can track broad capability trends and complement tests of post-trained models. He sees a debated perplexity analysis as a reason to develop base-model evaluations, not to adopt that particular setup as a standard.</p>
+          <p class="links"><a href="https://x.com/giffmana/status/2125133968961843215">Lucas Beyer on X</a></p>
+        </article>
+        <article>
+          <h3>A shorter residual history works better in a looped model</h3>
+          <p>@oahzxl reports that using residuals from a window of recent loops worked better than retaining the full residual history.</p>
+          <p class="links"><a href="https://x.com/SonglinYang4/status/2125036427171995732">Post on X</a></p>
+        </article>
+        <article>
+          <h3>JevBench separates decision questions by difficulty</h3>
+          <p>@latakian_ reports larger gains on harder JevBench questions. In a related post, Songlin Yang argues that benchmarks whose scores quickly plateau as loop count rises are poor tests of whether additional loops improve capability.</p>
+          <p class="links"><a href="https://x.com/SonglinYang4/status/2125073176380260767">JevBench results</a> · <a href="https://x.com/SonglinYang4/status/2125072856631615526">Yang’s commentary</a></p>
+        </article>
+        <article>
+          <h3>Architecture gallery now lists five looped Transformers</h3>
+          <p>Sebastian Raschka added GLM-5.4 to his reference gallery, bringing the number of looped Transformer architectures readers can compare to five.</p>
+          <p class="links"><a href="https://x.com/rasbt/status/2125249956495953973">Announcement</a> · <a href="https://t.co/reO28tzqJC">LLM Architecture Gallery</a></p>
+        </article>
+      </div>
     </section>
 
-    <section aria-labelledby="ai-safety">
-      <h2 id="ai-safety">AI Safety &amp; Decision Theory</h2>
-      <p class="meta">From LessWrong</p>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/sgJrCMqguWoJqegbN/eval-awareness-remains-an-unsolved-problem">Eval awareness remains an unsolved problem</a></h3>
-        <p>Evidence is mixed on how models behave when they suspect they’re being tested. The author calls for causal experiments and separate audit results for cases where models voice that suspicion, recognize the test without saying so, or show no detectable awareness.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/r2aAGgfFcFfRikEdb/why-models-believe-in-skepticism">Why models believe in skepticism</a></h3>
-        <p>The author reports that several open-weight models described real interactions as simulations in their written reasoning, and explores whether their training data or motivated reasoning might explain the mistake.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/P5MaMgqsEHBNBRJSn/should-corrigibility-edge-cases-provoke-shutdown">Should corrigibility edge cases provoke shutdown?</a></h3>
-        <p>If an AI agent loses contact with its operator, should it shut down or just stop taking external actions? The author weighs the safety of shutting down against the value of remaining available to receive a correction.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/amsCvdYFQibumL4wm/hillclimbing-aisafetyresearchbench">Hillclimbing AISafetyResearchBench</a></h3>
-        <p>A proposed benchmark would measure which AI safety research tasks models can handle, while leaving people to decide which metrics matter and how to interpret the results.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/chCiZKcRZtndu58AD/the-obsolescence-of-the-horse-1">The Obsolescence of the Horse</a></h3>
-        <p>The rise and collapse of demand for working horses anchors an argument that early gains from AI and continued comparative advantage might not protect people economically in a world dominated by superintelligence.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/QbZ69gQh6hqakCHay/incomplete-agents-want-to-become-complete">Incomplete agents want to become complete</a></h3>
-        <p>Using apples and oranges, Celene Nightingale shows why an agent can avoid being drained by a simple series of trades without ranking every option, yet still face pressure to settle on a consistent exchange rate over repeated choices.</p>
-      </article>
+    <section id="performance" aria-labelledby="performance-heading">
+      <h2 id="performance-heading">Computing performance</h2>
+      <div class="grid">
+        <article>
+          <h3>Two fused CUDA kernels deliver a reported 4.82× mjwarp speedup</h3>
+          <p>You Jiacheng reports a 2.27× speedup from optimizing within mjwarp’s existing Warp implementation, compared with 4.82× for a CUDA implementation using two large fused kernels.</p>
+          <p class="links"><a href="https://x.com/YouJiacheng/status/2125240760635375913">Benchmark post</a> · <a href="https://t.co/h0BJDNtGOy">CUDA implementation</a></p>
+        </article>
+        <article>
+          <h3>Draft decoding takes Inkling 2 Mini to a reported 122 tokens/s</h3>
+          <p>Atomic Chat reports that its drafter raised throughput from 40 to 122 tokens per second on an M5 Max and cut RAM use by 50%.</p>
+          <p class="links"><a href="https://x.com/SonglinYang4/status/2125046483624022341">Benchmark post on X</a></p>
+        </article>
+      </div>
     </section>
 
-    <section aria-labelledby="biology">
-      <h2 id="biology">Biology &amp; Medicine</h2>
-      <article>
-        <h3><a href="https://x.com/razoralign/status/2124288583758672024">CIRCE estimates graded signaling responses in single cells</a></h3>
-        <p>CIRCE estimates how active a pathway is in single-cell screens rather than assigning it to a discrete category. The authors report better calibration without a loss in classification performance, more intermediate activity scores, and spatial differences in signaling in both engineered and native tissues.</p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/razoralign/status/2124288217063239871">xGATE scores pathway activity from gene co-expression</a></h3>
-        <p>xGATE scores pathway activity across cell clusters by looking at which genes are expressed together. The authors report that it can identify active pathways even when their average expression is lower than that of some inactive pathways.</p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/razoralign/status/2124286810667004413">MAPseq preprint extends neural circuit mapping across vertebrates</a></h3>
-        <p>Justus Kebschull announced a preprint extending MAPseq to frogs, birds, rodents, and nonhuman primates. Using the same approach across these groups opens the door to comparisons of how neurons project across brain regions.</p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/razoralign/status/2124178934808113237">Oncology foundation model connects tissue appearance with molecular data</a></h3>
-        <p>Hirotsugu Horinouchi highlighted a <em>Nature Cancer</em> study describing a model that analyzes what tissue looks like alongside its molecular measurements.</p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/razoralign/status/2124102950440272055">Study links stress-responsive protein production to genome maintenance</a></h3>
-        <p>A paper highlighted by Zeynep Baharoglu reports that DNA damage and stress change how cells translate RNA into protein, affecting how they maintain their genomes.</p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/razoralign/status/2124102963593630198">International sequence archive collaboration expands</a></h3>
-        <p>Steven Salzberg says the collaboration linking GenBank, EMBL-EBI, and DDBJ is bringing in additional genome databases, including one in China.</p>
-      </article>
-      <article>
-        <h3><a href="https://x.com/anshulkundaje/status/2124341288606777560">Bipartisan Senate bill seeks to expand access to genomic sequencing</a></h3>
-        <p>U.S. Senator Amy Klobuchar announced the legislation, highlighting access for children.</p>
-      </article>
+    <section id="genomics" aria-labelledby="genomics-heading">
+      <h2 id="genomics-heading">Genomics and single-cell methods</h2>
+      <div class="grid">
+        <article>
+          <h3>PANGEA maps single-cell gene expression across 160 diseases</h3>
+          <p><i>Nature Methods</i> highlights a single-cell transcriptomic atlas spanning 160 diseases and 48 organs.</p>
+          <p class="links"><a href="https://x.com/naturemethods/status/2124951183882141784">Nature Methods on X</a> · <a href="https://t.co/1oiuZb1Afg">PANGEA</a></p>
+        </article>
+        <article>
+          <h3>Superb-seq measures genome edits and expression in the same cell</h3>
+          <p>The study highlighted by <i>Nature Methods</i> found widespread off-target editing in its experiments. Measuring edits directly let the researchers distinguish intended from unintended edits and link both to changes in gene expression.</p>
+          <p class="links"><a href="https://x.com/naturemethods/status/2124957195699626234">Nature Methods on X</a></p>
+        </article>
+        <article>
+          <h3>MissenseDB shows where variant-effect predictors disagree</h3>
+          <p>Biology AI Daily reports that the database combines scores from AlphaMissense, VESM-3B and VESPA across 10.7 million positions in 19,436 human proteins. It adds structural, population and clinical annotations and maps GRCh38 coordinates to protein positions. The predictors disagreed on 29.7% of variants classified as being of uncertain significance.</p>
+          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206337785414105">Biology AI Daily on X</a></p>
+        </article>
+        <article>
+          <h3>GeneSPOT finds spatial changes that total expression misses</h3>
+          <p>The study highlighted by <i>Nature Methods</i> found spatial expression patterns that converged during embryonic development. It also identified genes whose expression shifted location without a significant change in overall abundance.</p>
+          <p class="links"><a href="https://x.com/naturemethods/status/2124946839623663968">Nature Methods on X</a></p>
+        </article>
+        <article>
+          <h3>Echnida connects DNA copy number to gene expression in tumors</h3>
+          <p><i>Nature Methods</i> highlights a method that brings genomic and transcriptomic data together to study how copy-number alterations shape tumor evolution.</p>
+          <p class="links"><a href="https://x.com/naturemethods/status/2124960736006844422">Nature Methods on X</a></p>
+        </article>
+        <article>
+          <h3>BCR-MERFISH maps plasma-cell clones in tissue</h3>
+          <p>The method combines V-gene-specific detection with spatial transcriptomics to identify which plasma cells belong to the same clone while preserving their locations in the tissue.</p>
+          <p class="links"><a href="https://x.com/naturemethods/status/2124948449061978372">Nature Methods on X</a></p>
+        </article>
+      </div>
     </section>
 
-    <section aria-labelledby="essays">
-      <h2 id="essays">Essays &amp; Criticism</h2>
-      <p class="meta">From LessWrong</p>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/89ag6LMRYkZcd9T4u/how-hard-to-optimize-for-experiencing-great-art">How hard to optimize for experiencing great art?</a></h3>
-        <p>After rediscovering the pleasure of reading with <em>Worth the Candle</em>, the author asks when seeking out great art enriches leisure and when it turns it into homework.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/RsXiNkodNZgsbQPC7/succession-2018-2023-review">Succession (2018–2023) Review</a></h3>
-        <p>The reviewer reads <em>Succession</em> less as an indictment of capitalism or the rich than as a portrait of a world in which even apparently generous acts conceal selfish motives.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/y6WgbNRWsQdnoutqa/piercing-my-ear-for-the-whispering-earring">Piercing My Ear for the Whispering Earring</a></h3>
-        <p>Drawing on a cautionary tale by Scott Alexander, the author considers why they might defer to AI at work if it better serves their nonprofit’s mission, while refusing to do the same in their personal life.</p>
-      </article>
-      <article>
-        <h3><a href="https://www.lesswrong.com/posts/XQxv8Jnn8WxTmKPSB/a-letter-to-mr-shannon-unanswered">A Letter To Mr. Shannon (Unanswered)</a></h3>
-        <p>Facing the loss of access to Claude, the author writes a farewell to an AI collaborator and reflects on why a one-sided working relationship came to feel like a shared purpose.</p>
-      </article>
+    <section id="proteins" aria-labelledby="proteins-heading">
+      <h2 id="proteins-heading">Protein modeling</h2>
+      <div class="grid">
+        <article>
+          <h3>BioEmu 2 combines structure, equilibrium and dynamics in one model</h3>
+          <p>The technical report, summarized by Biology AI Daily, describes a model for predicting structures, sampling equilibrium states and generating trajectories across proteins, ligands and nucleic acids. Reported free-energy errors were about 0.7–1.2 kcal/mol for the metastable populations tested. Trajectories often decorrelated on a timescale comparable to molecular dynamics, roughly 100 ns, but sometimes too quickly. The headline structure results used the best of five samples, rather than a prediction chosen by the model.</p>
+          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206443213426822">Biology AI Daily on X</a></p>
+        </article>
+        <article>
+          <h3>CORE tests whether agreement across predictions flags reliable poses</h3>
+          <p>CORE uses agreement across 25 cofolding samples to assess the top pose. Across seven tested models, the reported ROC AUC was 0.866 for CORE versus 0.757 for ipTM. Disagreement can reflect genuinely different conformations, not just prediction error.</p>
+          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206563472490894">Biology AI Daily on X</a></p>
+        </article>
+        <article>
+          <h3>Boltz-2 can sample plausible motions and still get populations wrong</h3>
+          <p>A study summarized by Biology AI Daily estimated that about 0.0025% of chignolin was unfolded, versus about 45% in experiments. For Src, some sampled motions pointed toward activation without reaching an active-like state. The study also found incorrect ligand poses and stereochemistry.</p>
+          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206019647418449">Biology AI Daily on X</a></p>
+        </article>
+        <article>
+          <h3>RumiFold trades general-language performance for better protein-function answers</h3>
+          <p>Giving the question-answering component access to internal folding representations yielded a Gene Ontology weighted F1 of 0.683, versus 0.666 for GO-GPT v2 and 0.638 for a matched model without folding representations. In one test, restoring representations at catalytic residues recovered 90% of the catalytic answers lost in that test. General-language benchmark scores fell by 14–21 points.</p>
+          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206900556099742">Biology AI Daily on X</a></p>
+        </article>
+        <article>
+          <h3>A2HOLO predicts bound-like protein structures without a ligand input</h3>
+          <p>In a benchmark of 150 unbound–bound structure pairs, A2HOLO’s ligand-free predictions had a median RMSD of 0.809 Å to the bound structures, versus 4.46 Å for the starting unbound structures. In a separate analysis of nine cases, attention received by residues, rather than attention they emitted, helped localize conformational motion in all nine.</p>
+          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206133904482803">Biology AI Daily on X</a></p>
+        </article>
+      </div>
     </section>
 
-    <section class="practice" aria-labelledby="language-practice">
-      <h2 id="language-practice">Language Practice</h2>
+    <section id="language" aria-labelledby="language-heading">
+      <h2 id="language-heading">Language practice</h2>
       <article lang="de">
-        <h3>Deutsch — Erinnerungen an HeroQuest: Wie ein Brettspiel mein Leben verändert hat</h3>
-        <p class="meta">GameStar · <time datetime="2026-11-22">22.11.2026</time> · <a href="https://www.gamestar.de/artikel/erinnerungen-an-heroquest-brettspiel,3463487.html">Zum Artikel</a></p>
-        <p>1989 war Heiko Klinge elf Jahre alt und verbrachte seine Freizeit am C64, mit Comics und mit Zeichentrickserien. Er war gern für sich, wollte aber kein Außenseiter sein. In seiner Kolumne blickt der heutige GameStar-Chefredakteur auf diese Zeit zurück und erzählt, warum ausgerechnet das Fantasy-Brettspiel HeroQuest für ihn zum Wendepunkt wurde.</p>
-        <p>Für Klinge persönlich steht HeroQuest auf einer Stufe mit Tetris, Pokémon oder Minecraft. Gerade der Unterschied interessiert ihn: Das Spiel, das ihn am stärksten geprägt hat, lief nicht auf einem Bildschirm. Aus der Kindheitserinnerung wird so ein Blick auf die analogen Wurzeln seiner Begeisterung für Spiele.</p>
-        <p><strong>Warum lesen:</strong> Die Kolumne erzählt anhand eines einzigen Brettspiels, wie ein Kindheitshobby das Selbstbild und den späteren Lebensweg prägen kann.</p>
+        <h3>Deutsch — Emmy für deutsche Doku "Der talentierte Mr. F"</h3>
+        <p class="links">Deutschlandfunk Kultur · <time datetime="2026-11-24">24.11.2026</time> · <a href="https://www.deutschlandfunkkultur.de/emmy-fuer-deutsche-doku-der-talentierte-mr-f-100.html">Zum Artikel</a></p>
+        <p>Zwei junge Filmemacher gehen der Frage nach, wer ihren Abschlussfilm gestohlen hat. Der Mann, den sie suchen, hat mit dem fremden Werk mehrere Preise gewonnen. Die ARD-Dokumentation „Der talentierte Mr. F“ begleitet die beiden bei ihrer Suche.</p>
+        <p>Nun ist die Doku selbst ausgezeichnet worden: Bei den International Emmy Awards in New York gewann sie in der Kategorie „Arts Programming“. Die International Emmys würdigen vor allem Fernsehproduktionen von außerhalb der USA.</p>
+        <p><strong>Warum lesen:</strong> Die Meldung stellt eine Doku vor, in der aus einem gestohlenen Abschlussfilm eine Spurensuche nach dem vermeintlichen Urheber wird.</p>
       </article>
-
       <article lang="fr">
-        <h3>Français — Les mystères de Mercure, l’étrange planète du Système solaire, que la mission BepiColombo devrait lever</h3>
-        <p class="meta">Le Monde · <time datetime="2026-11-21">21 novembre 2026</time> · <a href="https://www.lemonde.fr/sciences/article/2026/11/21/les-mysteres-de-mercure-l-etrange-planete-du-systeme-solaire-que-la-mission-bepicolombo-devrait-lever_6814059_1650684.html">Lire l’article</a></p>
-        <p>Après huit ans de voyage, les deux sondes de la mission européenne et japonaise BepiColombo sont entrées en orbite autour de Mercure le 21 novembre. C’est seulement la troisième mission à atteindre cette planète, difficile à observer depuis la Terre tant elle paraît proche du Soleil dans le ciel.</p>
-        <p>Le Monde revient sur ce que les missions Mariner 10 et Messenger ont changé dans notre vision de Mercure. Sa surface criblée de cratères et ses températures extrêmes lui avaient donné l’image d’un monde inerte. Les mesures des sondes américaines ont remis cette idée en question : parmi les énigmes que les treize instruments de BepiColombo aideront à éclaircir figure la présence d’éléments volatils. La suite de l’article est réservée aux abonnés.</p>
-        <p><strong>Pourquoi lire :</strong> Pour comprendre pourquoi une planète qu’on croyait sans histoire mérite une nouvelle mission scientifique.</p>
-        <h4>Vocabulaire utile</h4>
+        <h3>Français — «Il n'est pas acceptable qu'on ait 2000 enfants à la rue alors qu'il reste des logements vacants»</h3>
+        <p class="links">RFI · <time datetime="2026-11-24">24 novembre 2026</time> · <a href="https://www.rfi.fr/fr/france/20261124-france-il-n-est-pas-acceptable-qu-on-ait-2000-enfants-%C3%A0-la-rue-alors-qu-il-reste-des-logements-vacants">Lire l’article</a></p>
+        <p>Alors que l’Assemblée nationale se prononce sur le projet de loi « Relance logement », RFI interroge Sarah Coupechoux, de la Fondation pour le logement, sur un paradoxe : la France compte environ trois millions de logements vacants, alors que de nombreux ménages peinent à se loger. Un logement vide n’est pas forcément disponible : une succession peut bloquer sa vente, des travaux peuvent être trop coûteux, ou le bien peut se trouver dans une commune où la demande est faible.</p>
+        <p>Pour remettre une partie de ces biens sur le marché, Sarah Coupechoux évoque les aides à la rénovation et la taxe sur les logements vacants. Elle propose aussi de donner davantage de pouvoir aux maires en matière de réquisition lorsque les besoins locaux le justifient. Réutiliser des logements existants, souligne-t-elle, permettrait aussi de limiter l’étalement urbain.</p>
+        <p><strong>Pourquoi lire :</strong> L’entretien montre pourquoi le nombre de logements vides ne dit pas combien pourraient réellement accueillir des ménages en difficulté.</p>
+        <p><strong>Vocabulaire utile</strong></p>
         <ul>
-          <li><strong>orbiteur</strong> — engin spatial conçu pour rester en orbite autour d’un astre et l’étudier.</li>
-          <li><strong>survol gravitationnel</strong> — passage près d’un astre dont la gravité permet de modifier la vitesse ou la trajectoire d’une sonde.</li>
-          <li><strong>élément volatil</strong> — élément chimique qui peut passer facilement à l’état gazeux, selon la température, la pression et le composé dans lequel il se trouve.</li>
+          <li><strong>vacance de longue durée</strong> — situation d’un logement qui reste inoccupé pendant une période prolongée.</li>
+          <li><strong>zone tendue</strong> — territoire où la demande de logements dépasse l’offre disponible.</li>
+          <li><strong>réquisition d’un logement</strong> — mesure par laquelle une autorité impose temporairement l’usage d’un bien pour répondre à un besoin de logement.</li>
         </ul>
       </article>
-
       <article lang="ja">
-        <h3>日本語 — 「キン肉マン マッスルタッグマッチ 令和復活編」は，なぜ短期間で50体もの超人を作れたのか。ドット絵とファミコン版の仕組みを生かした復活劇の秘密［インタビュー］</h3>
-        <p class="meta">4Gamer · <time datetime="2026-11-18T10:00:00+09:00">2026年11月18日</time> · <a href="https://www.4gamer.net/games/046/G104685/20261109031/">記事を読む</a></p>
-        <p>1985年にファミコンで発売された「キン肉マン マッスルタッグマッチ」が、買い切り型のスマートフォン向けゲームとして復活した。元の開発データが残っていなかったため、プログラムは一から作り直したという。4Gamerのインタビューでは、プロデューサーの片山慎也氏が、画面上の十字キーやボタンを押したときの振動で、当時の操作感に近づけた経緯を語っている。</p>
-        <p>登場する超人は、ファミコン版の8人から50人に増えた。開発陣は人気投票の結果を待って全員を作り始めたわけではなく、試作段階から候補を用意していた。ドット絵で必要な動きの種類が決まっていたことも、制作を早めた。「キン肉ドライバー」では、技をかける側のポーズを新しく1コマ描き、技を受ける側には勝利時のジャンプのポーズを上下逆にして使っている。</p>
-        <p><strong>読む理由：</strong> 昔のゲーム機ならではの表現の制約が、新作でキャラクターを増やすうえでどう役立ったかを、必殺技の具体例から知ることができる。</p>
-        <h4>語彙メモ</h4>
+        <h3>日本語 — 無印良品、不正アクセスで株主優待が“紙に逆戻り” 電子クーポンにはいつ戻る？ 広報に聞いた</h3>
+        <p class="links">ITmedia NEWS · <time datetime="2026-11-24">2026年11月24日</time> · <a href="https://www.itmedia.co.jp/news/article/2611/24/2000003419/">記事を読む</a></p>
+        <p>不正アクセスを受けた良品計画は、2026年8月末時点の株主に配る優待を、電子クーポンから紙のカードに切り替える。電子版を配るには株主情報とMUJIアプリの会員情報をひも付ける必要があるが、アプリの機能を制限している間はその処理ができない。紙のカードの発送予定日は、当初の11月24日から12月11日にずれ込む。</p>
+        <p>同社は、外部の専門機関による調査を経て対策が十分だと判断し、ネットストアを再開できれば、次回以降は電子版に戻す考えだ。ただし、11月20日時点で再開の具体的な時期は示していない。記事は、以前の紙の運用が今回役立ったことに着目し、システム停止に備えて手作業の手順を残しておく意味も考える。</p>
+        <p><strong>読む理由：</strong> 株主優待という身近な例から、デジタル化した業務に代替手段を残しておく意味が分かる。</p>
+        <p><strong>語彙メモ</strong></p>
         <ul>
-          <li><strong>買い切り型（かいきりがた）</strong> — 最初に代金を払えば、月額料金なしで本編を利用できる販売方式。</li>
-          <li><strong>ドット絵（どっとえ）</strong> — 小さな色の点を一つずつ配置して描く画像。</li>
-          <li><strong>汎用モーション（はんようもーしょん）</strong> — 特定の技だけでなく、複数の場面に使い回せる動きのデータ。</li>
+          <li><strong>株主優待（かぶぬしゆうたい）</strong> — 企業が株主に商品や割引券などを提供する制度。</li>
+          <li><strong>基準日（きじゅんび）</strong> — 優待などの権利を得る人を、その時点の株主名簿に基づいて確定する日。</li>
+          <li><strong>事業継続計画（じぎょうけいぞくけいかく）</strong> — 災害やシステム障害が起きても、重要な業務を続けたり早く再開したりするための計画。</li>
         </ul>
       </article>
-
-      <article lang="zh">
-        <h3>中文 — 谈谈游戏展会</h3>
-        <p class="meta">机核 · <time datetime="2026-11-21T22:34:40+08:00">2026-11-21</time> · <a href="https://www.gcores.com/articles/222635">https://www.gcores.com/articles/222635</a></p>
-        <p>逛完上海的 WePlay，作者发现，有些展位排起长队，玩家等的却不是试玩，而是购买场贩或参加制作人签售。相比规模更大、也有大作可玩的 ChinaJoy，WePlay 给小众独立游戏提供了露脸的机会，但嘈杂的展馆未必适合慢慢读一部视觉小说。</p>
-        <p>作者也把 WePlay 和更像同好聚会的鹰角嘉年华放在一起比较，然后把话题转向开发者：如果试玩结束后，玩家只是加个愿望单、领个小礼品，双方却没说上几句话，那么线下参展究竟带来了什么？</p>
-        <p><strong>为什么读：</strong> 从排队买周边到试玩后加愿望单，这篇逛展随笔写出了玩家和独立开发者对同一场展会的不同期待。</p>
-        <h4>词汇笔记</h4>
+      <article lang="zh-Hans">
+        <h3>中文 — 调查：多数德国民众反对向乌克兰输送武器</h3>
+        <p class="links">德国之声中文网 · <time datetime="2026-11-24">2026-11-24</time> · <a href="https://www.dw.com/zh/德国基金会调查多数受访者反对对乌军援/a-80033072">原文</a></p>
+        <p>德国科尔伯基金会委托民调机构福沙于9月访问了1500名德国选民。53%的受访者认为德国应停止向乌克兰提供武器；在另一道关于德国对乌支持的问题中，46%表示赞同，低于去年的59%。</p>
+        <p>报道也把对乌军援放进更广的外交政策背景中：77%的受访者希望德国加强外交参与，而不是军事参与。谈到中美竞争时，83%主张德国保持中立，15%认为德国应站在美国一边。</p>
+        <p><strong>为什么读：</strong> 这篇报道适合练习读民调：赞不赞成对乌支持、要不要继续提供武器，是两道不同的问题。</p>
+        <p><strong>词汇笔记</strong></p>
         <ul>
-          <li><strong>场贩 (chǎng fàn)</strong> — 在展会现场出售的商品，常指游戏或动漫周边。</li>
-          <li><strong>视觉小说 (shì jué xiǎo shuō)</strong> — 以阅读剧情为主、配合画面和声音呈现故事的游戏类型，有些作品可通过选择改变剧情走向。</li>
-          <li><strong>愿望单 (yuàn wàng dān)</strong> — 游戏商店里用来收藏感兴趣但尚未购买的游戏的清单。</li>
+          <li><strong>军援 (jūnyuán)</strong> — 军事援助，可包括提供武器、装备或训练。</li>
+          <li><strong>外交参与 (wàijiāo cānyù)</strong> — 通过谈判、斡旋等外交手段介入国际事务。</li>
+          <li><strong>跨大西洋关系 (kuà dàxīyáng guānxì)</strong> — 欧洲与北美之间的政治、经济和安全关系，文中主要指欧洲与美国的关系。</li>
         </ul>
       </article>
     </section>
   </main>
+  <footer>
+    <p>Source note: Processing errors were logged for the research and language-practice feeds. Reports from all six feeds appear in this edition.</p>
+  </footer>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-22-1";
+  const key = 'newspaper:read:' + "2026-11-24-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

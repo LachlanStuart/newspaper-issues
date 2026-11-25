@@ -5,28 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News</title>
   <style>
-    :root { color-scheme: light; --paper: #fcfaf5; --ink: #252822; --muted: #555d55; --rule: #d6d9ce; --accent: #245d52; }
-    * { box-sizing: border-box; }
-    body { margin: 0 auto; max-width: 74rem; padding: 1rem clamp(1rem, 5vw, 3rem) 2.5rem; background: var(--paper); color: var(--ink); font: 1.0625rem/1.6 Georgia, serif; }
-    .masthead { padding: 1rem 0; text-align: center; border-block: 4px double var(--ink); }
-    h1 { margin: 0; font-size: clamp(3rem, 9vw, 5rem); line-height: 1; }
-    .edition { margin: .65rem 0 0; }
-    nav { display: flex; flex-wrap: wrap; justify-content: center; gap: .4rem 1.2rem; padding: .65rem 0; border-bottom: 1px solid var(--rule); }
-    a { color: var(--accent); text-underline-offset: .15em; }
-    a:hover { text-decoration-thickness: .14em; }
-    section { margin-top: 2rem; }
-    h2 { margin: 0 0 .75rem; padding-bottom: .25rem; border-bottom: 2px solid var(--accent); font-size: 1.65rem; line-height: 1.25; }
-    h3 { margin: 0 0 .35rem; font-size: 1.2rem; line-height: 1.3; }
-    p { margin: .4rem 0 .7rem; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 24rem), 1fr)); column-gap: 2rem; }
-    article { min-width: 0; padding: .95rem 0; border-bottom: 1px solid var(--rule); overflow-wrap: break-word; }
-    .edition, nav, .links, footer { color: var(--muted); font: .9rem/1.5 system-ui, sans-serif; }
-    .links { margin-bottom: 0; }
-    #language { border-top: 4px double var(--ink); padding-top: 1.25rem; }
-    #language article { max-width: 48rem; }
-    #language .links { margin-bottom: .8rem; }
-    ul { padding-inline-start: 1.5rem; margin: .3rem 0 .6rem; }
-    footer { margin-top: 2rem; }
+    :root { color-scheme: light dark; }
+    body { margin: 0 auto; padding: 1.5rem 1.25rem 3rem; max-width: 46rem; font: 1.05rem/1.65 Georgia, serif; }
+    header { text-align: center; padding: 1rem 0 1.5rem; border-bottom: 3px double; }
+    h1 { font-size: clamp(3rem, 10vw, 5rem); line-height: 1; margin: 0 0 .6rem; }
+    h2 { font-size: 1.65rem; margin: 2rem 0 1rem; }
+    h3 { font-size: 1.2rem; line-height: 1.35; margin: 0 0 .4rem; }
+    article { margin-bottom: 1.5rem; }
+    p { margin: 0 0 .65rem; }
+    a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .15em; }
+    .meta { font: .88rem/1.5 system-ui, sans-serif; }
+    .practice { border-top: 3px double; margin-top: 2.5rem; }
+    .practice article + article { border-top: 1px solid; padding-top: 1.25rem; }
+    ul { margin-top: .3rem; padding-left: 1.4rem; }
   </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -47,203 +38,151 @@
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
-  <header class="masthead">
+  <header>
     <h1>News</h1>
-    <p class="edition"><time datetime="2026-11-24">Tuesday, 24 November 2026</time></p>
+    <time class="meta" datetime="2026-11-25">Wednesday, November 25, 2026</time>
   </header>
-  <nav aria-label="Sections">
-    <a href="#ai">AI research</a>
-    <a href="#performance">Computing performance</a>
-    <a href="#genomics">Genomics</a>
-    <a href="#proteins">Protein modeling</a>
-    <a href="#language">Language practice</a>
-  </nav>
   <main>
-    <section id="ai" aria-labelledby="ai-heading">
-      <h2 id="ai-heading">AI research</h2>
-      <div class="grid">
-        <article>
-          <h3>Attention Latent Feedback lowers loss across three Marin model sizes</h3>
-          <p>Xuyuan Xiong reports that the change reduced held-out loss by 0.022–0.024 nats on Marin’s 1.6B, 2.6B and 4.0B mixture-of-experts models. At 1.6B, it matched the loss of a baseline trained on about 1.38 times as many tokens.</p>
-          <p class="links"><a href="https://x.com/SonglinYang4/status/2125301634427478094">Post on X</a> · <a href="https://t.co/1RmqXO5r46">Paper</a> · <a href="https://t.co/BpdB4FOAlz">Code</a></p>
-        </article>
-        <article>
-          <h3>AI models can climb leaderboards without changing</h3>
-          <p>Research shared by Stanford AI Lab found three ways to improve a model’s leaderboard rank without altering the model itself. A higher rank, in other words, does not necessarily mean a more capable model.</p>
-          <p class="links"><a href="https://x.com/StanfordAILab/status/2125314035428253741">Stanford AI Lab on X</a></p>
-        </article>
-        <article>
-          <h3>Clean PDFs can hide weaknesses in document parsing</h3>
-          <p>Ross Wightman reports that Surya 2.5 held up better on messy scans and in some right-to-left languages. In a separate multilingual comparison, Nemotron 3.5 Parse remained among the better open-weight models on English PDFs. Reported errors included merging neighboring figures or tables and skipping text inside them.</p>
-          <p class="links"><a href="https://x.com/wightmanr/status/2124940133921403075">Scan comparison</a> · <a href="https://x.com/wightmanr/status/2125089739850371483">Multilingual comparison</a></p>
-        </article>
-        <article>
-          <h3>A speed test for training without backpropagation</h3>
-          <p>The Noise speedrun measures how long a training method that does not use backpropagation takes to bring a language model to a validation loss of 3.5.</p>
-          <p class="links"><a href="https://x.com/SonglinYang4/status/2125296245036183692">Benchmark post on X</a></p>
-        </article>
-        <article>
-          <h3>Lucas Beyer makes the case for evaluating base models</h3>
-          <p>Beyer argues that pretraining perplexity can track broad capability trends and complement tests of post-trained models. He sees a debated perplexity analysis as a reason to develop base-model evaluations, not to adopt that particular setup as a standard.</p>
-          <p class="links"><a href="https://x.com/giffmana/status/2125133968961843215">Lucas Beyer on X</a></p>
-        </article>
-        <article>
-          <h3>A shorter residual history works better in a looped model</h3>
-          <p>@oahzxl reports that using residuals from a window of recent loops worked better than retaining the full residual history.</p>
-          <p class="links"><a href="https://x.com/SonglinYang4/status/2125036427171995732">Post on X</a></p>
-        </article>
-        <article>
-          <h3>JevBench separates decision questions by difficulty</h3>
-          <p>@latakian_ reports larger gains on harder JevBench questions. In a related post, Songlin Yang argues that benchmarks whose scores quickly plateau as loop count rises are poor tests of whether additional loops improve capability.</p>
-          <p class="links"><a href="https://x.com/SonglinYang4/status/2125073176380260767">JevBench results</a> · <a href="https://x.com/SonglinYang4/status/2125072856631615526">Yang’s commentary</a></p>
-        </article>
-        <article>
-          <h3>Architecture gallery now lists five looped Transformers</h3>
-          <p>Sebastian Raschka added GLM-5.4 to his reference gallery, bringing the number of looped Transformer architectures readers can compare to five.</p>
-          <p class="links"><a href="https://x.com/rasbt/status/2125249956495953973">Announcement</a> · <a href="https://t.co/reO28tzqJC">LLM Architecture Gallery</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section id="performance" aria-labelledby="performance-heading">
-      <h2 id="performance-heading">Computing performance</h2>
-      <div class="grid">
-        <article>
-          <h3>Two fused CUDA kernels deliver a reported 4.82× mjwarp speedup</h3>
-          <p>You Jiacheng reports a 2.27× speedup from optimizing within mjwarp’s existing Warp implementation, compared with 4.82× for a CUDA implementation using two large fused kernels.</p>
-          <p class="links"><a href="https://x.com/YouJiacheng/status/2125240760635375913">Benchmark post</a> · <a href="https://t.co/h0BJDNtGOy">CUDA implementation</a></p>
-        </article>
-        <article>
-          <h3>Draft decoding takes Inkling 2 Mini to a reported 122 tokens/s</h3>
-          <p>Atomic Chat reports that its drafter raised throughput from 40 to 122 tokens per second on an M5 Max and cut RAM use by 50%.</p>
-          <p class="links"><a href="https://x.com/SonglinYang4/status/2125046483624022341">Benchmark post on X</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section id="genomics" aria-labelledby="genomics-heading">
-      <h2 id="genomics-heading">Genomics and single-cell methods</h2>
-      <div class="grid">
-        <article>
-          <h3>PANGEA maps single-cell gene expression across 160 diseases</h3>
-          <p><i>Nature Methods</i> highlights a single-cell transcriptomic atlas spanning 160 diseases and 48 organs.</p>
-          <p class="links"><a href="https://x.com/naturemethods/status/2124951183882141784">Nature Methods on X</a> · <a href="https://t.co/1oiuZb1Afg">PANGEA</a></p>
-        </article>
-        <article>
-          <h3>Superb-seq measures genome edits and expression in the same cell</h3>
-          <p>The study highlighted by <i>Nature Methods</i> found widespread off-target editing in its experiments. Measuring edits directly let the researchers distinguish intended from unintended edits and link both to changes in gene expression.</p>
-          <p class="links"><a href="https://x.com/naturemethods/status/2124957195699626234">Nature Methods on X</a></p>
-        </article>
-        <article>
-          <h3>MissenseDB shows where variant-effect predictors disagree</h3>
-          <p>Biology AI Daily reports that the database combines scores from AlphaMissense, VESM-3B and VESPA across 10.7 million positions in 19,436 human proteins. It adds structural, population and clinical annotations and maps GRCh38 coordinates to protein positions. The predictors disagreed on 29.7% of variants classified as being of uncertain significance.</p>
-          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206337785414105">Biology AI Daily on X</a></p>
-        </article>
-        <article>
-          <h3>GeneSPOT finds spatial changes that total expression misses</h3>
-          <p>The study highlighted by <i>Nature Methods</i> found spatial expression patterns that converged during embryonic development. It also identified genes whose expression shifted location without a significant change in overall abundance.</p>
-          <p class="links"><a href="https://x.com/naturemethods/status/2124946839623663968">Nature Methods on X</a></p>
-        </article>
-        <article>
-          <h3>Echnida connects DNA copy number to gene expression in tumors</h3>
-          <p><i>Nature Methods</i> highlights a method that brings genomic and transcriptomic data together to study how copy-number alterations shape tumor evolution.</p>
-          <p class="links"><a href="https://x.com/naturemethods/status/2124960736006844422">Nature Methods on X</a></p>
-        </article>
-        <article>
-          <h3>BCR-MERFISH maps plasma-cell clones in tissue</h3>
-          <p>The method combines V-gene-specific detection with spatial transcriptomics to identify which plasma cells belong to the same clone while preserving their locations in the tissue.</p>
-          <p class="links"><a href="https://x.com/naturemethods/status/2124948449061978372">Nature Methods on X</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section id="proteins" aria-labelledby="proteins-heading">
-      <h2 id="proteins-heading">Protein modeling</h2>
-      <div class="grid">
-        <article>
-          <h3>BioEmu 2 combines structure, equilibrium and dynamics in one model</h3>
-          <p>The technical report, summarized by Biology AI Daily, describes a model for predicting structures, sampling equilibrium states and generating trajectories across proteins, ligands and nucleic acids. Reported free-energy errors were about 0.7–1.2 kcal/mol for the metastable populations tested. Trajectories often decorrelated on a timescale comparable to molecular dynamics, roughly 100 ns, but sometimes too quickly. The headline structure results used the best of five samples, rather than a prediction chosen by the model.</p>
-          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206443213426822">Biology AI Daily on X</a></p>
-        </article>
-        <article>
-          <h3>CORE tests whether agreement across predictions flags reliable poses</h3>
-          <p>CORE uses agreement across 25 cofolding samples to assess the top pose. Across seven tested models, the reported ROC AUC was 0.866 for CORE versus 0.757 for ipTM. Disagreement can reflect genuinely different conformations, not just prediction error.</p>
-          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206563472490894">Biology AI Daily on X</a></p>
-        </article>
-        <article>
-          <h3>Boltz-2 can sample plausible motions and still get populations wrong</h3>
-          <p>A study summarized by Biology AI Daily estimated that about 0.0025% of chignolin was unfolded, versus about 45% in experiments. For Src, some sampled motions pointed toward activation without reaching an active-like state. The study also found incorrect ligand poses and stereochemistry.</p>
-          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206019647418449">Biology AI Daily on X</a></p>
-        </article>
-        <article>
-          <h3>RumiFold trades general-language performance for better protein-function answers</h3>
-          <p>Giving the question-answering component access to internal folding representations yielded a Gene Ontology weighted F1 of 0.683, versus 0.666 for GO-GPT v2 and 0.638 for a matched model without folding representations. In one test, restoring representations at catalytic residues recovered 90% of the catalytic answers lost in that test. General-language benchmark scores fell by 14–21 points.</p>
-          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206900556099742">Biology AI Daily on X</a></p>
-        </article>
-        <article>
-          <h3>A2HOLO predicts bound-like protein structures without a ligand input</h3>
-          <p>In a benchmark of 150 unbound–bound structure pairs, A2HOLO’s ligand-free predictions had a median RMSD of 0.809 Å to the bound structures, versus 4.46 Å for the starting unbound structures. In a separate analysis of nine cases, attention received by residues, rather than attention they emitted, helped localize conformational motion in all nine.</p>
-          <p class="links"><a href="https://x.com/BiologyAIDaily/status/2125206133904482803">Biology AI Daily on X</a></p>
-        </article>
-      </div>
-    </section>
-
-    <section id="language" aria-labelledby="language-heading">
-      <h2 id="language-heading">Language practice</h2>
-      <article lang="de">
-        <h3>Deutsch — Emmy für deutsche Doku "Der talentierte Mr. F"</h3>
-        <p class="links">Deutschlandfunk Kultur · <time datetime="2026-11-24">24.11.2026</time> · <a href="https://www.deutschlandfunkkultur.de/emmy-fuer-deutsche-doku-der-talentierte-mr-f-100.html">Zum Artikel</a></p>
-        <p>Zwei junge Filmemacher gehen der Frage nach, wer ihren Abschlussfilm gestohlen hat. Der Mann, den sie suchen, hat mit dem fremden Werk mehrere Preise gewonnen. Die ARD-Dokumentation „Der talentierte Mr. F“ begleitet die beiden bei ihrer Suche.</p>
-        <p>Nun ist die Doku selbst ausgezeichnet worden: Bei den International Emmy Awards in New York gewann sie in der Kategorie „Arts Programming“. Die International Emmys würdigen vor allem Fernsehproduktionen von außerhalb der USA.</p>
-        <p><strong>Warum lesen:</strong> Die Meldung stellt eine Doku vor, in der aus einem gestohlenen Abschlussfilm eine Spurensuche nach dem vermeintlichen Urheber wird.</p>
+    <section aria-labelledby="ai">
+      <h2 id="ai">AI research &amp; computing</h2>
+      <article>
+        <h3>Anthropic Fellows revisit individual neurons as a way to interpret models</h3>
+        <p>The research returns to the model’s own neurons as the units of analysis for understanding its internal computations.</p>
+        <p class="meta"><a href="https://x.com/SonglinYang4/status/2125376904723386676">Research announcement on X</a></p>
       </article>
+      <article>
+        <h3>Hard mazes test Looped Weight-Space Programming</h3>
+        <p>The authors introduced a method called Looped Weight-Space Programming and used hard mazes to evaluate it. They report that Claude Opus 5.5 scored 26% on those mazes as a comparison.</p>
+        <p class="meta"><a href="https://x.com/SonglinYang4/status/2125094878560604657">Research post on X</a></p>
+      </article>
+      <article>
+        <h3>Nemotron 3.5 Parse fares better on English PDFs</h3>
+        <p>In Ross Wightman’s multilingual evaluation, Nemotron 3.5 Parse ranked among the best open-weight parsers on English documents but was weaker in some other languages. Wightman also found that it sometimes merged nearby tables and figures into a single region and omitted text inside it.</p>
+        <p class="meta"><a href="https://x.com/wightmanr/status/2125089739850371483">Multilingual evaluation</a> · <a href="https://x.com/wightmanr/status/2125083194370445350">Layout findings</a></p>
+      </article>
+      <article>
+        <h3>RoboDojo-RC reports 97% on Tier 1 in physical robot trials</h3>
+        <p>RoboCurve says GPT-6.2 Astra, running through Codex, scored 97% across 120 real-world robot trials at the benchmark’s Tier 1.</p>
+        <p class="meta"><a href="https://x.com/aaron_defazio/status/2125078161746473423">Benchmark results on X</a></p>
+      </article>
+      <article>
+        <h3>A small helper cuts the cost of launching subprocesses</h3>
+        <p>Peter Steinberger starts a helper early so it can fork subprocesses later, after the main process has grown. He says the helper typically uses about one-thirtieth as much memory as the main process. In a separate macOS measurement, Charlie Marsh reported cutting launch time from about 200 ms to 0.25 ms with a 20 GB parent process.</p>
+        <p class="meta"><a href="https://x.com/steipete/status/2125344148496769362">Steinberger’s post</a> · <a href="https://x.com/charliermarsh/status/2125333328207413458">Marsh’s measurement</a></p>
+      </article>
+    </section>
+
+    <section aria-labelledby="biology">
+      <h2 id="biology">Biology &amp; medicine</h2>
+      <article>
+        <h3>Goodfire reports better protein predictions from multiple kinds of input</h3>
+        <p>Goodfire says its collaboration with NVIDIA and Arc Institute improved how BioReason-Pro 2 combines different kinds of information. The team reports that the improved predictions held up in lab experiments and that it could inspect how the model used protein inputs.</p>
+        <p class="meta"><a href="https://x.com/GoodfireAI/status/2125286137145250122">Goodfire’s announcement</a> · <a href="https://t.co/ub4KH4fJe2">Research write-up</a></p>
+      </article>
+      <article>
+        <h3>GPT-6.2 protein-design preprint draws scrutiny of its benchmarks</h3>
+        <p>OpenAI reports that antibodies from a GPT-6.2 design task bound the same target in lab tests. The computational results prompted two separate questions: whether ESM2 was a strong enough specialist baseline, and whether similarity to training data might inflate ProteinGym variant-effect scores. The latter was raised as a possibility, not as evidence of data leakage.</p>
+        <p class="meta"><a href="https://x.com/anshulkundaje/status/2125400592575254727">Benchmark discussion on X</a></p>
+      </article>
+      <article>
+        <h3>AURA separates cell identity from neighborhood effects</h3>
+        <p>AURA divides variation in spatial gene expression into three components: cell identity, the composition of neighboring cells, and what remains associated with location after accounting for both. That remainder can flag where tissue location matters, but it does not identify a cause.</p>
+        <p class="meta"><a href="https://x.com/razoralign/status/2125440403482833312">Research post on X</a></p>
+      </article>
+      <article>
+        <h3>scGPL combines local and global clues to infer gene regulation</h3>
+        <p>Using single-cell RNA sequencing and a prior regulatory network, scGPL scores candidate links between transcription factors and their targets. It accounts for both the network immediately around each candidate link and the broader network. The authors report gains across seven benchmarks, with a maximum improvement of 13.7% over the best comparator.</p>
+        <p class="meta"><a href="https://x.com/razoralign/status/2125353774462157005">Research post on X</a></p>
+      </article>
+      <article>
+        <h3>A cell atlas compares 614 human biological states</h3>
+        <p>An application of UCE brings together more than 59 million cells and nuclei from 8,789 human samples, harmonizing annotations into 36 cell types. It compares biological states by their mix of cell types. Similar profiles do not show that one state leads to or causes another.</p>
+        <p class="meta"><a href="https://x.com/razoralign/status/2125353386816213136">Atlas discussion on X</a></p>
+      </article>
+      <article>
+        <h3>Genetic medicine faces two distinct bottlenecks</h3>
+        <p>Sam Sinai, summarizing Eric Kelsic, argues that personalized treatments could reuse components and that AI could help connect expertise across specialties. Anshul Kundaje points to a separate problem: deciding what to intervene on. The causal biology is clear for some rare diseases but often remains unresolved in diseases involving many genes.</p>
+        <p class="meta"><a href="https://x.com/samsinai/status/2125421839287464336">Discussion on X</a></p>
+      </article>
+      <article>
+        <h3>HER2 antibody redesign improves predicted affinity in some cases</h3>
+        <p>The GABIF study reports that some redesigned HER2 antibodies scored better on AlphaBind while retaining their predicted structure. Both results come from computational models; they do not establish stronger binding in the lab.</p>
+        <p class="meta"><a href="https://x.com/BiologyAIDaily/status/2125206731701776881">Study discussion on X</a></p>
+      </article>
+      <article>
+        <h3>Can a blood draw reveal which nonmalignant clones are expanding?</h3>
+        <p>A preprint highlighted by the Zhu Lab asks whether blood sampling can reveal which groups of nonmalignant mutant cells are growing in the body.</p>
+        <p class="meta"><a href="https://x.com/anshulkundaje/status/2125430867296395764">Preprint discussion on X</a></p>
+      </article>
+      <article>
+        <h3>CrypticFlow predicts bound-like protein shapes without ligand input</h3>
+        <p>On 150 structure pairs, the study reports a median Cα RMSD of 1.333 Å. The model produces nearly deterministic predictions: it does not explicitly capture how a ligand can open a binding pocket, nor does it generate a diverse set of bound-state structures.</p>
+        <p class="meta"><a href="https://x.com/BiologyAIDaily/status/2125205860263841885">Study discussion on X</a></p>
+      </article>
+      <article>
+        <h3>Review examines how RNA organizes the genome</h3>
+        <p>Dimple Notani highlights an Annual Reviews article on how RNA helps organize the genome at different spatial scales, connecting nuclear architecture with gene regulation.</p>
+        <p class="meta"><a href="https://x.com/anshulkundaje/status/2125429719751709179">Review discussion on X</a></p>
+      </article>
+    </section>
+
+    <section class="practice" aria-labelledby="language">
+      <h2 id="language">Language practice</h2>
+
+      <article lang="de">
+        <h3>Deutsch — 35. Todestag von Freddie Mercury: Eine unsterbliche Stimme</h3>
+        <p class="meta">Tagesschau · 24. November 2026 · <a href="https://www.tagesschau.de/kultur/freddie-mercury-todestag-100.html">Zum Artikel</a></p>
+        <p>Zum 35. Todestag von Freddie Mercury fragt die Tagesschau, warum der Queen-Sänger bis heute so präsent ist. Ein Schlüssel liegt in seiner Wandelbarkeit: Mercury konnte vom rauen Rockgesang zur leisen Ballade wechseln und machte selbst den Ausflug in die Oper zum Hit, etwa mit „Barcelona“, seinem Duett mit Montserrat Caballé.</p>
+        <p>Das Porträt blickt auch nach München, wo Mercury zeitweise lebte und mit Queen in den Musicland Studios aufnahm. Im Glockenbachviertel, erzählt ein Vertreter des Deutschen Queen Fanclubs, habe er eine Szene gefunden, die ihm nicht nur als Star begegnete. Der Film „Bohemian Rhapsody“ brachte seine Geschichte später einem jüngeren Publikum nahe, zeichnete seine Münchner Jahre aber düsterer, als sie laut dem Beitrag waren.</p>
+        <p><strong>Warum lesen:</strong> Das Porträt verbindet Mercurys Gesang und Bühnenkunst mit einem weniger bekannten Kapitel seines Lebens in München.</p>
+      </article>
+
       <article lang="fr">
-        <h3>Français — «Il n'est pas acceptable qu'on ait 2000 enfants à la rue alors qu'il reste des logements vacants»</h3>
-        <p class="links">RFI · <time datetime="2026-11-24">24 novembre 2026</time> · <a href="https://www.rfi.fr/fr/france/20261124-france-il-n-est-pas-acceptable-qu-on-ait-2000-enfants-%C3%A0-la-rue-alors-qu-il-reste-des-logements-vacants">Lire l’article</a></p>
-        <p>Alors que l’Assemblée nationale se prononce sur le projet de loi « Relance logement », RFI interroge Sarah Coupechoux, de la Fondation pour le logement, sur un paradoxe : la France compte environ trois millions de logements vacants, alors que de nombreux ménages peinent à se loger. Un logement vide n’est pas forcément disponible : une succession peut bloquer sa vente, des travaux peuvent être trop coûteux, ou le bien peut se trouver dans une commune où la demande est faible.</p>
-        <p>Pour remettre une partie de ces biens sur le marché, Sarah Coupechoux évoque les aides à la rénovation et la taxe sur les logements vacants. Elle propose aussi de donner davantage de pouvoir aux maires en matière de réquisition lorsque les besoins locaux le justifient. Réutiliser des logements existants, souligne-t-elle, permettrait aussi de limiter l’étalement urbain.</p>
-        <p><strong>Pourquoi lire :</strong> L’entretien montre pourquoi le nombre de logements vides ne dit pas combien pourraient réellement accueillir des ménages en difficulté.</p>
+        <h3>Français — "La conviction d'avoir été empoisonnés" : des taux élevés de PFAS dans le sang des salariés de la chimie</h3>
+        <p class="meta">France 24 (AFP) · 23 novembre 2026 · <a href="https://www.france24.com/fr/info-en-continu/20261123-la-conviction-d-avoir-%C3%A9t%C3%A9-empoisonn%C3%A9s-des-taux-%C3%A9lev%C3%A9s-de-pfas-dans-le-sang-des-salari%C3%A9s-de-la-chimie">Lire l’article</a></p>
+        <p>L’étude OPAL a analysé le sang de 126 salariés et retraités de l’industrie chimique dans la région lyonnaise et dans le Gard. En croisant les résultats avec les parcours professionnels et l’historique des productions, les chercheurs ont mis en évidence des écarts selon les ateliers. Chez des salariés d’Arkema ayant travaillé à la fabrication de polymères fluorés, la concentration d’un PFAS, le PFNA, atteignait environ huit fois la moyenne nationale. Ce chiffre concerne une substance et un groupe précis, pas l’ensemble des participants.</p>
+        <p>Un délégué de la CGT réclame un suivi médical renforcé et des analyses pour déterminer ce que contiennent les poussières encore présentes dans l’usine. De son côté, Arkema affirme respecter les règles de prévention et de suivi médical. L’article rapporte aussi que deux demandes de reconnaissance de maladie professionnelle ont été rejetées et qu’un recours a été déposé.</p>
+        <p><strong>Pourquoi lire :</strong> L’article montre la différence entre mesurer une exposition au travail et faire reconnaître une maladie professionnelle.</p>
         <p><strong>Vocabulaire utile</strong></p>
         <ul>
-          <li><strong>vacance de longue durée</strong> — situation d’un logement qui reste inoccupé pendant une période prolongée.</li>
-          <li><strong>zone tendue</strong> — territoire où la demande de logements dépasse l’offre disponible.</li>
-          <li><strong>réquisition d’un logement</strong> — mesure par laquelle une autorité impose temporairement l’usage d’un bien pour répondre à un besoin de logement.</li>
+          <li><strong>PFAS</strong> — famille de substances fluorées dont beaucoup se dégradent très lentement dans l’environnement.</li>
+          <li><strong>Biosurveillance humaine</strong> — mesure de substances ou de leurs traces dans des prélèvements humains, par exemple dans le sang.</li>
+          <li><strong>Sur-imprégnation</strong> — présence d’une substance dans l’organisme à un niveau supérieur à celui observé dans une population de référence.</li>
         </ul>
       </article>
+
       <article lang="ja">
-        <h3>日本語 — 無印良品、不正アクセスで株主優待が“紙に逆戻り” 電子クーポンにはいつ戻る？ 広報に聞いた</h3>
-        <p class="links">ITmedia NEWS · <time datetime="2026-11-24">2026年11月24日</time> · <a href="https://www.itmedia.co.jp/news/article/2611/24/2000003419/">記事を読む</a></p>
-        <p>不正アクセスを受けた良品計画は、2026年8月末時点の株主に配る優待を、電子クーポンから紙のカードに切り替える。電子版を配るには株主情報とMUJIアプリの会員情報をひも付ける必要があるが、アプリの機能を制限している間はその処理ができない。紙のカードの発送予定日は、当初の11月24日から12月11日にずれ込む。</p>
-        <p>同社は、外部の専門機関による調査を経て対策が十分だと判断し、ネットストアを再開できれば、次回以降は電子版に戻す考えだ。ただし、11月20日時点で再開の具体的な時期は示していない。記事は、以前の紙の運用が今回役立ったことに着目し、システム停止に備えて手作業の手順を残しておく意味も考える。</p>
-        <p><strong>読む理由：</strong> 株主優待という身近な例から、デジタル化した業務に代替手段を残しておく意味が分かる。</p>
+        <h3>日本語 — EU 中国製ハイブリッド車 輸入急増で制限へ 日本製も対象に</h3>
+        <p class="meta">NHKニュース · 2026年11月25日 · <a href="https://news.web.nhk/newsweb/na/nd-20261125de80923">記事を読む</a></p>
+        <p>EUの執行機関は24日、域内の自動車産業を守るため、ハイブリッド車などの輸入の伸びを抑える暫定措置をとると発表した。背景には、中国製ハイブリッド車の輸入が急増していることがある。</p>
+        <p>ただし、制限の対象は中国製に限られず、日本製の車も含まれる。中国からの輸入増をきっかけとした措置が、日本の自動車にも及ぶ点がこの記事の焦点だ。</p>
+        <p><strong>読む理由：</strong> EUの産業保護策が、きっかけとなった中国だけでなく日本にも関わることがわかる。</p>
         <p><strong>語彙メモ</strong></p>
         <ul>
-          <li><strong>株主優待（かぶぬしゆうたい）</strong> — 企業が株主に商品や割引券などを提供する制度。</li>
-          <li><strong>基準日（きじゅんび）</strong> — 優待などの権利を得る人を、その時点の株主名簿に基づいて確定する日。</li>
-          <li><strong>事業継続計画（じぎょうけいぞくけいかく）</strong> — 災害やシステム障害が起きても、重要な業務を続けたり早く再開したりするための計画。</li>
+          <li><strong>執行機関（しっこうきかん）</strong> — 政策や決定を実行する組織。</li>
+          <li><strong>域内（いきない）</strong> — ここでは、EU加盟国の範囲内のこと。</li>
+          <li><strong>暫定措置（ざんていそち）</strong> — 最終的な対応が決まるまで、当面の対策としてとる措置。</li>
         </ul>
       </article>
-      <article lang="zh-Hans">
-        <h3>中文 — 调查：多数德国民众反对向乌克兰输送武器</h3>
-        <p class="links">德国之声中文网 · <time datetime="2026-11-24">2026-11-24</time> · <a href="https://www.dw.com/zh/德国基金会调查多数受访者反对对乌军援/a-80033072">原文</a></p>
-        <p>德国科尔伯基金会委托民调机构福沙于9月访问了1500名德国选民。53%的受访者认为德国应停止向乌克兰提供武器；在另一道关于德国对乌支持的问题中，46%表示赞同，低于去年的59%。</p>
-        <p>报道也把对乌军援放进更广的外交政策背景中：77%的受访者希望德国加强外交参与，而不是军事参与。谈到中美竞争时，83%主张德国保持中立，15%认为德国应站在美国一边。</p>
-        <p><strong>为什么读：</strong> 这篇报道适合练习读民调：赞不赞成对乌支持、要不要继续提供武器，是两道不同的问题。</p>
+
+      <article lang="zh">
+        <h3>中文 — 受惠AI需求 新加坡上调2026年经济成长预测</h3>
+        <p class="meta">RFI 中文（法新社） · 2026-11-24 · <a href="https://www.rfi.fr/cn/%E5%9B%BD%E9%99%85%E6%8A%A5%E9%81%93/20261124-%E5%8F%97%E6%83%A0ai%E9%9C%80%E6%B1%82-%E6%96%B0%E5%8A%A0%E5%9D%A1%E4%B8%8A%E8%B0%832026%E5%B9%B4%E7%BB%8F%E6%B5%8E%E6%88%90%E9%95%BF%E9%A2%84%E6%B5%8B">原文</a></p>
+        <p>新加坡贸工部把2026年经济成长预测调高至约6%。这是今年第三次上修，高于8月公布的4.5%至5.5%预测区间。</p>
+        <p>贸工部指出，资料中心建设比预期快，带动人工智慧相关产品加快生产和出口。晶片等高科技产品的需求增加，受惠的不只是制造业，也包括批发贸易业。</p>
+        <p><strong>为什么读：</strong> 这则短讯用一次经济预测的调整，说明人工智慧投资如何带动新加坡的制造业和贸易。</p>
         <p><strong>词汇笔记</strong></p>
         <ul>
-          <li><strong>军援 (jūnyuán)</strong> — 军事援助，可包括提供武器、装备或训练。</li>
-          <li><strong>外交参与 (wàijiāo cānyù)</strong> — 通过谈判、斡旋等外交手段介入国际事务。</li>
-          <li><strong>跨大西洋关系 (kuà dàxīyáng guānxì)</strong> — 欧洲与北美之间的政治、经济和安全关系，文中主要指欧洲与美国的关系。</li>
+          <li><strong>经济成长预测 (jīngjì chéngzhǎng yùcè)</strong> — 对一段时期内经济产出将增长多少的估计，并非最终统计结果。</li>
+          <li><strong>资料中心 (zīliào zhōngxīn)</strong> — 集中设置伺服器和网路设备，用于处理和储存资料的设施。</li>
+          <li><strong>批发贸易 (pīfā màoyì)</strong> — 向零售商或其他企业销售商品，而非直接卖给消费者。</li>
         </ul>
       </article>
     </section>
   </main>
-  <footer>
-    <p>Source note: Processing errors were logged for the research and language-practice feeds. Reports from all six feeds appear in this edition.</p>
-  </footer>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-24-1";
+  const key = 'newspaper:read:' + "2026-11-25-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

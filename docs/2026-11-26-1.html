@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root { color-scheme: light; }
+    body { margin: 0; background: #f8f6f0; color: #242421; font: 1.05rem/1.6 Georgia, serif; }
+    .page { max-width: 72rem; margin: auto; padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem; }
+    header { text-align: center; border-top: 5px solid #242421; border-bottom: 1px solid #242421; padding: 1rem 0; }
+    h1 { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin: 0 0 .5rem; }
+    h2 { font-size: 1.65rem; border-bottom: 1px solid #bbb8ac; padding-bottom: .35rem; margin: 2rem 0 1rem; }
+    h3 { font-size: 1.18rem; line-height: 1.35; margin: 0 0 .35rem; }
+    p { margin: .35rem 0 .65rem; }
+    a { color: #195260; text-underline-offset: .16em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.25rem 2rem; }
+    .meta, footer { color: #56554f; font: .88rem/1.5 system-ui, sans-serif; }
+    .practice { border-top: 3px double #242421; margin-top: 2rem; }
+    .practice article { max-width: 48rem; margin: 0 0 1.5rem; padding: 1rem 1.25rem; background: #fffdf8; }
+    .practice ul { margin-top: .25rem; padding-inline-start: 1.4rem; }
+    footer { border-top: 1px solid #bbb8ac; padding-top: .7rem; }
+  </style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+<div class="page">
+  <header>
+    <h1>News</h1>
+    <time class="meta" datetime="2026-11-26">Thursday, 26 November 2026</time>
+  </header>
+  <main>
+    <section aria-labelledby="ai">
+      <h2 id="ai">AI &amp; Data</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/wightmanr/status/2125672830063042663">Duplicate pages aren’t always safe to drop</a></h3>
+          <p>Ross Wightman plans to run OCR and layout models on 8–10 million pages as part of a roughly 50-million-page effort combining PDF rules and OCR. In the IDL corpus, he estimates about 3.2% of pages can be dropped as exact document duplicates or cover-sheet subsets. Another 7–8% are shared attachments or correspondence: removing those pages can leave otherwise unique documents incomplete.</p>
+          <p class="meta"><a href="https://x.com/wightmanr/status/2125687719443710143">Preprocessing</a> · <a href="https://x.com/wightmanr/status/2125694308171014402">Deduplication breakdown</a></p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2125664188249092592">A pretraining bug fix could improve compute efficiency</a></h3>
+          <p>In a discussion of FineWeb-Edu, @wenhaocha1 reports fixing a bug that could make language-model pretraining experiments 1.23× as compute-efficient.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/giffmana/status/2125679940138058190">CoT-Proxy distills performance without reasoning traces</a></h3>
+          <p>@y_m_asano reports that CoT-Proxy transfers performance on long-horizon tasks from frontier models without access to their chain-of-thought traces.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2125687947131580690">Context parallelism for Gated DeltaNet</a></h3>
+          <p>@rosinality shares work on distributing context processing for the linear-attention architecture Gated DeltaNet.</p>
+          <p class="meta"><a href="https://t.co/Xlc5BfKORu">Resource</a> · <a href="https://t.co/oHPqNVYQXe">Additional link</a></p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2125510834965360886">LoopCD targets inference-time gains for Inkling 2 Mini</a></h3>
+          <p>@crazyMLguy presents LoopCD as a way to improve the looped model without additional training.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2125826774328340893">Inkling 2 Mini tested with quantization</a></h3>
+          <p>@bnjmn_marie reports that the model was easier to quantize than expected and names GPQA Diamond as one of the benchmarks used to assess it.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/YouJiacheng/status/2125615007530680326">Row norms and spectral norms control different things</a></h3>
+          <p>You Jiacheng distinguishes bounding forward activations with a row norm (2→∞) from controlling gradients and Lipschitz behavior, which he argues also requires a spectral norm bound (2→2).</p>
+          <p class="meta"><a href="https://x.com/YouJiacheng/status/2125616016831230417">Follow-up</a></p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/SonglinYang4/status/2125433437201060323">Perplexity as a shared measure of model intelligence</a></h3>
+          <p>Jason Wei highlights Jakub’s essay <cite>Perplexity and Intelligence</cite>, which argues for using perplexity as a common yardstick across models.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="genomics">
+      <h2 id="genomics">Genomics &amp; Gene Regulation</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2125734623686914512">Coronary disease risk variants linked to cell types</a></h3>
+          <p>A <cite>Nature</cite> study combines single-cell multiomics, coronary Hi-C and functional genomics to identify the cell types in which coronary artery disease risk variants may act.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125809075325968384">Genetic effects in the brain can depend on cell state</a></h3>
+          <p>Lida Wang and colleagues use single-nucleus RNA sequencing to study how genotype and cell state jointly shape gene expression. Grouping nuclei by broad cell type can hide effects that emerge only in particular states.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/anshulkundaje/status/2125739765819732417">FLANDERS asks whether traits share a genetic signal</a></h3>
+          <p>Arianna Landini announced a workflow that combines fine-mapping and colocalization to distinguish shared genetic signals from nearby but distinct ones.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125809307854000366">Must a gene leave heterochromatin before it is transcribed?</a></h3>
+          <p>The Lomvardas Lab highlights a study challenging the idea that a gene must move out of heterochromatin before transcription can begin.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125686317233406393">BQDNA tests a learned tokenizer for genome models</a></h3>
+          <p>The authors report that a context-aware tokenizer outperformed handcrafted tokenizers and a standard vector-quantized autoencoder in their comparisons. They also emphasize how closely training data match downstream datasets.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125686026790470057">Lash comparisons show memory savings for genome sketches</a></h3>
+          <p>At matched accuracy, UltraLogLog and ExaLogLog reportedly used about 28% and 43% less memory than HyperLogLog, respectively. HyperMinHash was reported to be four to five times as space-efficient as MinHash.</p>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="methods">
+      <h2 id="methods">Imaging, Proteomics &amp; Model Evaluation</h2>
+      <div class="grid">
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2125600534375891299">Space-map reconstructs 3D tissue from serial sections</a></h3>
+          <p><cite>Nature Methods</cite> presents a computational method that assembles two-dimensional tissue sections into a volume, making spatial relationships easier to follow across slices.</p>
+          <p class="meta"><a href="https://t.co/SfZcVsqP1H">Paper</a> · <a href="https://t.co/dmFX8cMLwP">Research briefing</a></p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/naturemethods/status/2125596075364938226">SpillOT corrects signal spillover in multiplexed images</a></h3>
+          <p>The zero-shot method denoises multiplexed images and corrects signal bleeding between channels, which can make distinct markers appear to occupy the same location.</p>
+          <p class="meta"><a href="https://t.co/UBqyFtfxbi">Resource</a></p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125686629172129858">Knockout responses put CMC-VAE’s RNA–protein links to the test</a></h3>
+          <p>The authors report that CMC-VAE ranked knockout-responsive genes better than correlation and latent-VAE baselines. Its sparse RNA–protein map was also enriched for matching transcript–protein pairs.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125809114349740321">ProteomicsBench uses experimental peptide measurements</a></h3>
+          <p>ProteomicsBench-Bottom-Up evaluates models on peptide measurements from bottom-up mass spectrometry rather than relying solely on sequence-based tasks.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125809321825255833">Two models predict the same lipid modification site on SMIM32</a></h3>
+          <p>BioReason-Pro 2 and Carbon-High reportedly point to the same site on the human protein SMIM32. Their agreement is not experimental confirmation.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125618249488646183">A clean test split can still contain data seen in pretraining</a></h3>
+          <p>Anthony Gitter highlights a risk for biological benchmarks: separating examples during fine-tuning does not establish that the model never saw the evaluation data during pretraining.</p>
+        </article>
+        <article>
+          <h3><a href="https://x.com/razoralign/status/2125656727903465819">Finding water sites doesn’t explain their role in binding</a></h3>
+          <p>A drug-modeling discussion distinguishes predicting where water molecules sit in a crystal structure from predicting how they affect ligand binding. The effect can depend on water orientation, electrostatics, and whether the ligand bridges through a water molecule or displaces it.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="practice" aria-labelledby="practice">
+      <h2 id="practice">Language Practice</h2>
+      <article lang="fr">
+        <h3>Français — Pourquoi le premier jour rouge Tempo d’EDF tombe si tôt cette année, dès le 26 novembre ?</h3>
+        <p class="meta">Numerama · 25 novembre 2026 · <a href="https://www.numerama.com/sciences/2384971-pourquoi-le-premier-jour-rouge-tempo-dedf-tombe-si-tot-cette-annee-des-le-26-novembre.html">Lire l’article</a></p>
+        <p>Le jeudi 26 novembre marque le premier jour rouge de la saison pour les abonnés à l’option Tempo d’EDF, alors que l’hiver dernier il avait fallu attendre le 29 décembre. La différence se voit sur la facture : en heures pleines, le kilowattheure coûte plus de quatre fois le tarif d’un jour bleu.</p>
+        <p>Numerama explique ce changement par une nouvelle règle : depuis le 1er novembre, RTE fait coïncider les jours rouges avec les journées où le réseau électrique est le plus sollicité. Le nombre de jours rouges reste fixé à 22 pour la saison, mais leur répartition est désormais plus encadrée, notamment en mars. L’article indique aussi où consulter la couleur du lendemain et à quelle heure le tarif baisse.</p>
+        <p><strong>Pourquoi lire :</strong> L’article montre comment une règle de gestion du réseau électrique se répercute sur la facture des ménages.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>jour rouge</strong> — journée où l’option Tempo applique son tarif le plus élevé en heures pleines.</li>
+          <li><strong>jour de pointe</strong> — journée où la demande d’électricité est particulièrement forte et où le réseau est très sollicité.</li>
+          <li><strong>mécanisme de capacité</strong> — dispositif qui oblige les fournisseurs à s’assurer que des moyens suffisants seront disponibles pour couvrir les pics de consommation.</li>
+        </ul>
+      </article>
+      <article lang="ja">
+        <h3>日本語 — 【動画】月探査車の試験走行公開　日印共同、２８年度打ち上げ―ＪＡＸＡ</h3>
+        <p class="meta">nippon.com · 2026-11-26 · <a href="https://www.nippon.com/ja/articles/-/58004">記事を読む</a></p>
+        <p>宇宙航空研究開発機構（JAXA）は11月25日、東京都調布市の調布航空宇宙センターで、月面を移動する探査車の試験走行を公開した。記事では、地上試験用の車両が実際に動く様子を動画で見られる。</p>
+        <p>この探査車は、日本とインドが共同で進める月極域探査計画「LUPEX」で使われる。計画は月の極に近い地域を調べるもので、打ち上げは2028年度に予定されている。</p>
+        <p><strong>読む理由：</strong> 日印共同の月探査計画を、地上で走る試験車の映像を通して具体的にイメージできる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>月極域（つききょくいき）</strong> — 月の北極や南極に近い地域。</li>
+          <li><strong>探査車（たんさしゃ）</strong> — 月などの表面を移動しながら観測や調査を行う車両。ローバーともいう。</li>
+          <li><strong>地上試験機（ちじょうしけんき）</strong> — 実際の任務に先立ち、地上で動作や性能を確かめるための機体。</li>
+        </ul>
+      </article>
+      <article lang="zh-Hans">
+        <h3>中文 — 宏福苑大火一周年：“这条刺永远都在”，遗属在伤痛中寻找答案</h3>
+        <p class="meta">BBC News 中文 · 2026-11-26（据报道所述周年日期推定） · <a href="https://www.bbc.com/zhongwen/articles/c3j4r274lj82o/simp">原文</a></p>
+        <p>香港大埔宏福苑大火夺去168条人命。一年后，BBC中文访问了几位遇难者家属。Christy仍会给丈夫以前用的号码发讯息，告诉他孩子的近况；苏先生则随身带着从旧居灰烬里找回的父母的手表。对两家人来说，这些日常举动是继续惦记亲人的方式。</p>
+        <p>香港政府10月底公布的独立委员会报告指出，四个政府部门在事件中有缺失。特首率官员道歉，房屋局长辞职，但家属仍有许多疑问。报道也交代了民事索偿的下一步：司法机构指引要求申索人先尝试和解，谈不拢再调解，调解不成才由法院处理。</p>
+        <p><strong>为什么读：</strong> 这篇报道从两户人家的日常出发，写出政府道歉之后，遗属为何仍在等待答案。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>过渡性房屋 (guòdùxìng fángwū)</strong> — 香港为有住屋需要的人提供的短期住所，供他们在获得较长期住处前暂住。</li>
+          <li><strong>民事索偿 (mínshì suǒcháng)</strong> — 通过民事程序要求对方赔偿损失。</li>
+          <li><strong>死因裁判法庭 (sǐyīn cáipàn fǎtíng)</strong> — 香港负责研讯死亡原因及相关情况的法庭。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+  <footer lang="de">Deutsch — heute kein Lesetipp.</footer>
+</div>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-26-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

@@ -1,0 +1,221 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>News</title>
+  <style>
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0 auto; padding: 2rem 1.25rem 3rem; max-width: 72rem; background: Canvas; color: CanvasText; font: 1rem/1.6 system-ui, sans-serif; }
+    header { border-block: 1px solid; text-align: center; padding: 1rem 0; }
+    header p { margin: 0.25rem 0; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+    h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 0; }
+    h2 { font-size: 1.75rem; border-bottom: 1px solid; padding-bottom: 0.4rem; margin: 2rem 0 1rem; }
+    h3 { font-size: 1.2rem; margin: 0 0 0.5rem; }
+    article p { margin: 0.45rem 0; }
+    a { text-underline-offset: 0.16em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1.5rem 2rem; }
+    .source { font-size: 0.875rem; }
+    .practice { margin-top: 3rem; border-top: 3px double; }
+    .practice article { max-width: 48rem; padding: 1rem 0; }
+    .practice article + article { border-top: 1px solid GrayText; }
+    .practice ul { margin-top: 0.35rem; }
+  </style>
+<!-- newspaper-presentation --><style>
+@media screen and (prefers-color-scheme: dark) {
+  :root { color-scheme: dark !important; }
+  html, body { background: #171b20 !important; color: #e2e7ec !important; }
+  body :where(*) {
+    color: inherit !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border-color: #56616d !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  body a, body a :where(*) { color: #8fc9ff !important; }
+  body a:visited, body a:visited :where(*) { color: #c5b3f2 !important; }
+  body a:hover, body a:hover :where(*) { color: #c6e4ff !important; }
+  body :where(pre, blockquote, th, code, mark) { background-color: #252d36 !important; }
+}
+</style><!-- /newspaper-presentation --></head>
+<body>
+  <header>
+    <h1>News</h1>
+    <p><time datetime="2026-11-27">Friday, November 27, 2026</time></p>
+  </header>
+  <main>
+    <section aria-labelledby="ai">
+      <h2 id="ai">AI &amp; computing</h2>
+      <div class="grid">
+        <article>
+          <h3>Seven-model speech ensemble tops open leaderboard</h3>
+          <p>Eric Bezzam reports that ishiki-asr-1.0 posted a 5.02% word error rate, ranking first among open models and third overall on Hugging Face’s Open ASR Leaderboard. It combines seven recognizers in a single 13-billion-parameter checkpoint with a learned gate.</p>
+          <p class="source"><a href="https://x.com/EricBezzam/status/2125555333133222350">Eric Bezzam on X</a></p>
+        </article>
+        <article>
+          <h3>Swift SDK brings open-weight models to Apple devices</h3>
+          <p>Prince Canuma released an MLX-based Swift SDK for running open-weight Hugging Face models locally on iOS, macOS, and watchOS, Deli Rao reports.</p>
+          <p class="source"><a href="https://x.com/Prince_Canuma/status/2126146172066963936">Release post on X</a></p>
+        </article>
+        <article>
+          <h3>Stanford researchers study the energy cost of local AI</h3>
+          <p>Thinking Machines highlighted work from Stanford’s Hazy Research group examining the energy efficiency of running AI models locally.</p>
+          <p class="source"><a href="https://x.com/SonglinYang4/status/2125694531442208803">Research announcement on X</a></p>
+        </article>
+        <article>
+          <h3>What happens before a distributed matrix multiplication?</h3>
+          <p>You Jiacheng contrasts fully sharded data parallelism with tensor parallelism, focusing on when devices communicate. With fully sharded data parallelism, devices gather the parameters before multiplying.</p>
+          <p class="source"><a href="https://x.com/YouJiacheng/status/2125867044004565092">You Jiacheng on X</a></p>
+        </article>
+        <article>
+          <h3>Could thousands of agents work on a scientific problem?</h3>
+          <p>A research blog post, <cite>Scaling Swarms to Thousands of Agents</cite>, explores using large groups of AI agents to tackle scientific problems.</p>
+          <p class="source"><a href="https://x.com/cgeorgiaw/status/2125904490100617361">Blog announcement on X</a></p>
+        </article>
+      </div>
+    </section>
+    <section aria-labelledby="genomics">
+      <h2 id="genomics">Genomics &amp; single-cell research</h2>
+      <div class="grid">
+        <article>
+          <h3>Learned genomic representations capture rare and common variant effects</h3>
+          <p>Researchers report that sequence-to-function embeddings computed across individuals capture contributions to heritability from both rare and common genetic variants.</p>
+          <p class="source"><a href="https://x.com/gen0m1cs/status/2126079994015158717">Research highlight on X</a></p>
+        </article>
+        <article>
+          <h3>CREMAP looks for enhancer–gene links after accounting for shared variation</h3>
+          <p>CREMAP tests whether chromatin accessibility and gene expression still vary together after accounting for sequencing depth and other shared sources of variation. The associations suggest candidate regulatory links without establishing causality.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126129205322887509">CREMAP research post</a></p>
+        </article>
+        <article>
+          <h3>CyteArc analyzes remote cell atlases on standard CPUs</h3>
+          <p>CyteArc processes remote atlases approaching 100 million cells in place. It was faster than the workflows it was compared with and used the least memory at 10 million cells and above. Source data stay read-only, and results remain linked to their inputs and settings.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126128980764012736">CyteArc research post</a></p>
+        </article>
+        <article>
+          <h3>A test for what transcriptomic models learn</h3>
+          <p>interpreTFM compares sparse features extracted from scGPT, Geneformer, and C2S-scale with the models’ raw embeddings. It tests both against held-out gene annotations and asks whether the extracted features recover tissue organization and boundaries between cells.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126130107362484436">interpreTFM research post</a></p>
+        </article>
+        <article>
+          <h3>Cell annotation improves when the whole batch counts</h3>
+          <p>In a task requiring one-to-one label assignments, scOPD with Qwen3-8B labeled 44.49% of batches entirely correctly, compared with 24.52% for fine-tuning alone. Per-cell accuracy was 81.71%, illustrating how a cell-level score can mask batch-level errors.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125958978874261612">scOPD research post</a></p>
+        </article>
+        <article>
+          <h3>scPriorDiff infers missing single-cell measurements</h3>
+          <p>scPriorDiff uses known regulatory links and genomic proximity to help a diffusion model infer RNA expression or chromatin accessibility when one of those measurements is missing.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126129546902884823">scPriorDiff research post</a></p>
+        </article>
+        <article>
+          <h3>STAVAG ranks genes by how well they predict place or time</h3>
+          <p>STAVAG predicts spatial or temporal coordinates from gene expression, then ranks genes by their contribution to the prediction. The reported applications identified groups of genes associated with prognosis.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126128774509146400">STAVAG research post</a></p>
+        </article>
+        <article>
+          <h3>RNA editing predictions draw on different signals at different scales</h3>
+          <p>In ModFormer’s evaluation of naturally occurring ADAR editing, RNA structure mattered more for known duplexes, while sequence mattered more in transcriptome-wide predictions. Adapting the model to one sequencing library made it less effective on others.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125958233298977206">ModFormer research post</a></p>
+        </article>
+      </div>
+    </section>
+    <section aria-labelledby="biomedicine">
+      <h2 id="biomedicine">Biomedicine &amp; protein modeling</h2>
+      <div class="grid">
+        <article>
+          <h3>Dual-target therapeutic peptides show preclinical activity</h3>
+          <p>A <cite>Nature</cite> study reports that six designed peptides acting on GLP-1R and GCGR were more potent than the corresponding natural agonists in receptor assays. A separate peptide targeting PD-1 and CTLA-4 reduced tumor volume by 94.2% versus control in mice carrying human immune checkpoints. The findings do not establish efficacy or tolerability in patients.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125961403337183437">Study highlight on X</a></p>
+        </article>
+        <article>
+          <h3>Inherited IL7 variation studied as a marker of immunotherapy toxicity</h3>
+          <p>A study in the <cite>Journal for ImmunoTherapy of Cancer</cite> examines whether inherited variation in <i>IL7</i> can help predict adverse effects from immune checkpoint inhibitors. The focus is treatment safety, not tumor response.</p>
+          <p class="source"><a href="https://x.com/anshulkundaje/status/2126160877447684134">Study announcement on X</a></p>
+        </article>
+        <article>
+          <h3>Cofolding models struggle with cyclic peptides</h3>
+          <p>In the PRETZEL benchmark of 285 cyclic peptide–protein complexes, none of four models placed more than about 20% of predicted poses within 2 Å of the reference. Even the best model produced valid distances for every inter-residue bond in only 8.1% of predictions.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125959328993870117">PRETZEL benchmark post</a></p>
+        </article>
+        <article>
+          <h3>AlloGator tests predictions of long-range effects in proteins</h3>
+          <p>For the beta-2 adrenergic receptor, 14 of AlloGator’s 20 candidate positions agreed with signaling assays. The study reported weaker performance when the effect spanned different protein chains.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125959462418796861">AlloGator research post</a></p>
+        </article>
+        <article>
+          <h3>Binding-change predictors fare worse under stricter testing</h3>
+          <p>Every predictor in the ProtBFF evaluation performed worse when the benchmark more strictly separated related protein chains. Adding biophysical features improved performance across five encoders, but results still varied by assay.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125959693768200630">ProtBFF benchmark post</a></p>
+        </article>
+      </div>
+    </section>
+    <section class="practice" aria-labelledby="practice">
+      <h2 id="practice">Language practice</h2>
+      <article lang="de">
+        <h3>Deutsch — In einem aktuellen Steam Sale gibt es nur Spiele ohne KI im Angebot</h3>
+        <p class="source">GameStar · 26.11.2026 · <a href="https://www.gamestar.de/artikel/in-einem-aktuellen-steam-sale-gibt-es-nur-spiele-ohne-ki-im-angebot,3463940.html">Zum Artikel</a></p>
+        <p>Bei der Steam-Aktion »Games Without AI« steht nicht ein bestimmtes Genre im Mittelpunkt, sondern die Art, wie die Spiele entstanden sind: Die Auswahl beschränkt sich auf Titel, die ohne generative KI entwickelt wurden. Die von einem Drittanbieter organisierte Aktion läuft noch bis zum 6. Dezember.</p>
+        <p>Neben Rabatten auf bereits erschienene Spiele gibt es auch einen Ausblick auf kommende Titel. Die Beispiele im Artikel reichen vom Rätselspiel »Escape From Mystwood Mansion« über die Gartensimulation »The Abbess Garden« bis zum Weltraum-Strategiespiel »Space Menace 2«.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel zeigt, wie der Verzicht auf generative KI zum Auswahlkriterium für eine Verkaufsaktion wird.</p>
+      </article>
+      <article lang="fr">
+        <h3>Français — Notre avis sur « GTA VI » après soixante heures de jeu : entre vertige urbain et romance sous tension</h3>
+        <p class="source">Le Monde · 26 novembre 2026 · <a href="https://www.lemonde.fr/pixels/article/2026/11/26/notre-avis-sur-gta-vi-apres-soixante-heures-de-jeu-entre-vertige-urbain-et-romance-sous-tension_6815568_4408996.html">Lire l’article</a></p>
+        <p>Après soixante heures de jeu, Le Monde revient sur ce qui fait la force de GTA VI : une ville fictive inspirée de Miami où le moindre détour peut se transformer en petite histoire. La critique s’ouvre sur un vol de voiture qui tourne à l’absurde quand un influenceur caché dans le coffre croit participer à une vidéo entre amis. La scène passe de la satire des réseaux sociaux à la course-poursuite.</p>
+        <p>Le test souligne aussi le soin apporté aux décors, à la lumière et aux reflets. Ces détails donnent envie de quitter l’itinéraire prévu pour explorer Vice City. Le bilan est toutefois nuancé : si la ville tient ses promesses, la conclusion de l’histoire manque de rythme. La suite de l’article est réservée aux abonnés.</p>
+        <p><strong>Pourquoi lire :</strong> Pour comprendre comment un jeu vidéo peut raconter des histoires en dehors de ses missions principales.</p>
+        <p><strong>Vocabulaire utile</strong></p>
+        <ul>
+          <li><strong>monde ouvert</strong> — espace de jeu que l’on peut explorer assez librement, sans suivre un parcours imposé.</li>
+          <li><strong>microhistoire</strong> — bref récit qui se déroule en marge de l’intrigue principale.</li>
+          <li><strong>trame principale</strong> — suite d’événements qui structure le récit central d’un jeu.</li>
+        </ul>
+      </article>
+      <article lang="ja">
+        <h3>日本語 — 星々を結ぶ空港を舞台にした放置ゲーム「Baggage Belt」，12月3日にSteamで発売決定。動物のスタッフたちを雇って，空港を大きくしていこう</h3>
+        <p class="source">4Gamer · 2026-11-27 · <a href="https://www.4gamer.net/games/062/G106200/20261127008/">記事を読む</a></p>
+        <p>星々を結ぶ空港を運営する放置ゲーム「Baggage Belt」が、12月3日にSteamで発売される。空港の仕事といっても、最初にプレイヤーがするのは飛行機の操縦ではなく、乗客の荷物を預かることだ。</p>
+        <p>はじめは自分で荷物を受け付けるが、やがて動物のスタッフを雇い、仕事を任せながら空港を拡張していく。記事にはスクリーンショットや紹介映像もあり、動物たちが働く空港の雰囲気を確かめられる。</p>
+        <p><strong>読む理由：</strong> 荷物を一つ預かるところから空港の経営へと発展する、放置ゲームならではの仕組みが分かる。</p>
+        <p><strong>語彙メモ</strong></p>
+        <ul>
+          <li><strong>放置ゲーム（ほうちゲーム）</strong> — プレイヤーが操作していない間も、作業や資源の蓄積が進むゲーム。</li>
+          <li><strong>預け荷物（あずけにもつ）</strong> — 機内に持ち込まず、出発前に航空会社に預ける荷物。</li>
+        </ul>
+      </article>
+      <article lang="zh-Hans">
+        <h3>中文 — 台湾选举漫游录：在花莲丰滨问“为什么原乡那么蓝？”</h3>
+        <p class="source">端传媒 · 2026-11-27 · <a href="https://theinitium.com/20261127-taiwan-why-hualien-fengbin-is-blue-zh-hans/">原文（会员限定）</a></p>
+        <p>十月中旬，记者在花莲县丰滨乡的港口村拍摄乡长候选人的海报，一位当地居民上前询问来意。记者说想了解丰滨的选举为什么那么“蓝”，对方却反问，这跟他们有什么关系。</p>
+        <p>报道从这段对话切入：外来者想用蓝绿阵营理解地方选举，当地人却不一定接受这样的提问。导语里还有一句反问，把焦点从支持哪个政党转向另一件事：如果自己始终是被统治的一方，换谁执政又有多大区别？</p>
+        <p><strong>为什么读：</strong> 从一次街头碰面，看台湾选举中常见的蓝绿标签如何遭遇地方居民的反问。</p>
+        <p><strong>词汇笔记</strong></p>
+        <ul>
+          <li><strong>原乡 (yuánxiāng)</strong> — 在台湾语境中，常指原住民族传统聚居的地区。</li>
+          <li><strong>泛蓝 (fànlán)</strong> — 以中国国民党为主的政治阵营；标题里的“蓝”指向这一政治倾向。</li>
+          <li><strong>乡长 (xiāngzhǎng)</strong> — 台湾乡级地方自治行政首长，由当地选民选出。</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+<!-- newspaper-presentation --><script>
+(() => {
+  const key = 'newspaper:read:' + "2026-11-27-1";
+  function checkProgress() {
+    const page = document.scrollingElement || document.documentElement;
+    const scrollable = page.scrollHeight - page.clientHeight;
+    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    try {
+      localStorage.setItem(key, '1');
+      window.removeEventListener('scroll', checkProgress);
+      window.removeEventListener('pageshow', checkProgress);
+    } catch (_) { /* Storage can be disabled or full. */ }
+  }
+  window.addEventListener('scroll', checkProgress, { passive: true });
+  window.addEventListener('pageshow', checkProgress);
+})();
+</script><!-- /newspaper-presentation --></body>
+</html>

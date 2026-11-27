@@ -5,21 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>News</title>
   <style>
-    :root { color-scheme: light; }
-    body { margin: 0; background: #f8f6f0; color: #242421; font: 1.05rem/1.6 Georgia, serif; }
-    .page { max-width: 72rem; margin: auto; padding: 1.5rem clamp(1rem, 4vw, 3rem) 3rem; }
-    header { text-align: center; border-top: 5px solid #242421; border-bottom: 1px solid #242421; padding: 1rem 0; }
-    h1 { font-size: clamp(3rem, 8vw, 5.5rem); line-height: 1; margin: 0 0 .5rem; }
-    h2 { font-size: 1.65rem; border-bottom: 1px solid #bbb8ac; padding-bottom: .35rem; margin: 2rem 0 1rem; }
-    h3 { font-size: 1.18rem; line-height: 1.35; margin: 0 0 .35rem; }
-    p { margin: .35rem 0 .65rem; }
-    a { color: #195260; text-underline-offset: .16em; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: 1.25rem 2rem; }
-    .meta, footer { color: #56554f; font: .88rem/1.5 system-ui, sans-serif; }
-    .practice { border-top: 3px double #242421; margin-top: 2rem; }
-    .practice article { max-width: 48rem; margin: 0 0 1.5rem; padding: 1rem 1.25rem; background: #fffdf8; }
-    .practice ul { margin-top: .25rem; padding-inline-start: 1.4rem; }
-    footer { border-top: 1px solid #bbb8ac; padding-top: .7rem; }
+    :root { color-scheme: light dark; }
+    * { box-sizing: border-box; }
+    body { margin: 0 auto; padding: 2rem 1.25rem 3rem; max-width: 72rem; background: Canvas; color: CanvasText; font: 1rem/1.6 system-ui, sans-serif; }
+    header { border-block: 1px solid; text-align: center; padding: 1rem 0; }
+    header p { margin: 0.25rem 0; }
+    h1, h2, h3 { font-family: Georgia, "Times New Roman", serif; line-height: 1.2; }
+    h1 { font-size: clamp(3rem, 8vw, 5rem); margin: 0; }
+    h2 { font-size: 1.75rem; border-bottom: 1px solid; padding-bottom: 0.4rem; margin: 2rem 0 1rem; }
+    h3 { font-size: 1.2rem; margin: 0 0 0.5rem; }
+    article p { margin: 0.45rem 0; }
+    a { text-underline-offset: 0.16em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); gap: 1.5rem 2rem; }
+    .source { font-size: 0.875rem; }
+    .practice { margin-top: 3rem; border-top: 3px double; }
+    .practice article { max-width: 48rem; padding: 1rem 0; }
+    .practice article + article { border-top: 1px solid GrayText; }
+    .practice ul { margin-top: 0.35rem; }
   </style>
 <!-- newspaper-presentation --><style>
 @media screen and (prefers-color-scheme: dark) {
@@ -40,167 +42,168 @@
 }
 </style><!-- /newspaper-presentation --></head>
 <body>
-<div class="page">
   <header>
     <h1>News</h1>
-    <time class="meta" datetime="2026-11-26">Thursday, 26 November 2026</time>
+    <p><time datetime="2026-11-27">Friday, November 27, 2026</time></p>
   </header>
   <main>
     <section aria-labelledby="ai">
-      <h2 id="ai">AI &amp; Data</h2>
+      <h2 id="ai">AI &amp; computing</h2>
       <div class="grid">
         <article>
-          <h3><a href="https://x.com/wightmanr/status/2125672830063042663">Duplicate pages aren’t always safe to drop</a></h3>
-          <p>Ross Wightman plans to run OCR and layout models on 8–10 million pages as part of a roughly 50-million-page effort combining PDF rules and OCR. In the IDL corpus, he estimates about 3.2% of pages can be dropped as exact document duplicates or cover-sheet subsets. Another 7–8% are shared attachments or correspondence: removing those pages can leave otherwise unique documents incomplete.</p>
-          <p class="meta"><a href="https://x.com/wightmanr/status/2125687719443710143">Preprocessing</a> · <a href="https://x.com/wightmanr/status/2125694308171014402">Deduplication breakdown</a></p>
+          <h3>Seven-model speech ensemble tops open leaderboard</h3>
+          <p>Eric Bezzam reports that ishiki-asr-1.0 posted a 5.02% word error rate, ranking first among open models and third overall on Hugging Face’s Open ASR Leaderboard. It combines seven recognizers in a single 13-billion-parameter checkpoint with a learned gate.</p>
+          <p class="source"><a href="https://x.com/EricBezzam/status/2125555333133222350">Eric Bezzam on X</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/SonglinYang4/status/2125664188249092592">A pretraining bug fix could improve compute efficiency</a></h3>
-          <p>In a discussion of FineWeb-Edu, @wenhaocha1 reports fixing a bug that could make language-model pretraining experiments 1.23× as compute-efficient.</p>
+          <h3>Swift SDK brings open-weight models to Apple devices</h3>
+          <p>Prince Canuma released an MLX-based Swift SDK for running open-weight Hugging Face models locally on iOS, macOS, and watchOS, Deli Rao reports.</p>
+          <p class="source"><a href="https://x.com/Prince_Canuma/status/2126146172066963936">Release post on X</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/giffmana/status/2125679940138058190">CoT-Proxy distills performance without reasoning traces</a></h3>
-          <p>@y_m_asano reports that CoT-Proxy transfers performance on long-horizon tasks from frontier models without access to their chain-of-thought traces.</p>
+          <h3>Stanford researchers study the energy cost of local AI</h3>
+          <p>Thinking Machines highlighted work from Stanford’s Hazy Research group examining the energy efficiency of running AI models locally.</p>
+          <p class="source"><a href="https://x.com/SonglinYang4/status/2125694531442208803">Research announcement on X</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/SonglinYang4/status/2125687947131580690">Context parallelism for Gated DeltaNet</a></h3>
-          <p>@rosinality shares work on distributing context processing for the linear-attention architecture Gated DeltaNet.</p>
-          <p class="meta"><a href="https://t.co/Xlc5BfKORu">Resource</a> · <a href="https://t.co/oHPqNVYQXe">Additional link</a></p>
+          <h3>What happens before a distributed matrix multiplication?</h3>
+          <p>You Jiacheng contrasts fully sharded data parallelism with tensor parallelism, focusing on when devices communicate. With fully sharded data parallelism, devices gather the parameters before multiplying.</p>
+          <p class="source"><a href="https://x.com/YouJiacheng/status/2125867044004565092">You Jiacheng on X</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/SonglinYang4/status/2125510834965360886">LoopCD targets inference-time gains for Inkling 2 Mini</a></h3>
-          <p>@crazyMLguy presents LoopCD as a way to improve the looped model without additional training.</p>
-        </article>
-        <article>
-          <h3><a href="https://x.com/SonglinYang4/status/2125826774328340893">Inkling 2 Mini tested with quantization</a></h3>
-          <p>@bnjmn_marie reports that the model was easier to quantize than expected and names GPQA Diamond as one of the benchmarks used to assess it.</p>
-        </article>
-        <article>
-          <h3><a href="https://x.com/YouJiacheng/status/2125615007530680326">Row norms and spectral norms control different things</a></h3>
-          <p>You Jiacheng distinguishes bounding forward activations with a row norm (2→∞) from controlling gradients and Lipschitz behavior, which he argues also requires a spectral norm bound (2→2).</p>
-          <p class="meta"><a href="https://x.com/YouJiacheng/status/2125616016831230417">Follow-up</a></p>
-        </article>
-        <article>
-          <h3><a href="https://x.com/SonglinYang4/status/2125433437201060323">Perplexity as a shared measure of model intelligence</a></h3>
-          <p>Jason Wei highlights Jakub’s essay <cite>Perplexity and Intelligence</cite>, which argues for using perplexity as a common yardstick across models.</p>
+          <h3>Could thousands of agents work on a scientific problem?</h3>
+          <p>A research blog post, <cite>Scaling Swarms to Thousands of Agents</cite>, explores using large groups of AI agents to tackle scientific problems.</p>
+          <p class="source"><a href="https://x.com/cgeorgiaw/status/2125904490100617361">Blog announcement on X</a></p>
         </article>
       </div>
     </section>
-
     <section aria-labelledby="genomics">
-      <h2 id="genomics">Genomics &amp; Gene Regulation</h2>
+      <h2 id="genomics">Genomics &amp; single-cell research</h2>
       <div class="grid">
         <article>
-          <h3><a href="https://x.com/anshulkundaje/status/2125734623686914512">Coronary disease risk variants linked to cell types</a></h3>
-          <p>A <cite>Nature</cite> study combines single-cell multiomics, coronary Hi-C and functional genomics to identify the cell types in which coronary artery disease risk variants may act.</p>
+          <h3>Learned genomic representations capture rare and common variant effects</h3>
+          <p>Researchers report that sequence-to-function embeddings computed across individuals capture contributions to heritability from both rare and common genetic variants.</p>
+          <p class="source"><a href="https://x.com/gen0m1cs/status/2126079994015158717">Research highlight on X</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/razoralign/status/2125809075325968384">Genetic effects in the brain can depend on cell state</a></h3>
-          <p>Lida Wang and colleagues use single-nucleus RNA sequencing to study how genotype and cell state jointly shape gene expression. Grouping nuclei by broad cell type can hide effects that emerge only in particular states.</p>
+          <h3>CREMAP looks for enhancer–gene links after accounting for shared variation</h3>
+          <p>CREMAP tests whether chromatin accessibility and gene expression still vary together after accounting for sequencing depth and other shared sources of variation. The associations suggest candidate regulatory links without establishing causality.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126129205322887509">CREMAP research post</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/anshulkundaje/status/2125739765819732417">FLANDERS asks whether traits share a genetic signal</a></h3>
-          <p>Arianna Landini announced a workflow that combines fine-mapping and colocalization to distinguish shared genetic signals from nearby but distinct ones.</p>
+          <h3>CyteArc analyzes remote cell atlases on standard CPUs</h3>
+          <p>CyteArc processes remote atlases approaching 100 million cells in place. It was faster than the workflows it was compared with and used the least memory at 10 million cells and above. Source data stay read-only, and results remain linked to their inputs and settings.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126128980764012736">CyteArc research post</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/razoralign/status/2125809307854000366">Must a gene leave heterochromatin before it is transcribed?</a></h3>
-          <p>The Lomvardas Lab highlights a study challenging the idea that a gene must move out of heterochromatin before transcription can begin.</p>
+          <h3>A test for what transcriptomic models learn</h3>
+          <p>interpreTFM compares sparse features extracted from scGPT, Geneformer, and C2S-scale with the models’ raw embeddings. It tests both against held-out gene annotations and asks whether the extracted features recover tissue organization and boundaries between cells.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126130107362484436">interpreTFM research post</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/razoralign/status/2125686317233406393">BQDNA tests a learned tokenizer for genome models</a></h3>
-          <p>The authors report that a context-aware tokenizer outperformed handcrafted tokenizers and a standard vector-quantized autoencoder in their comparisons. They also emphasize how closely training data match downstream datasets.</p>
+          <h3>Cell annotation improves when the whole batch counts</h3>
+          <p>In a task requiring one-to-one label assignments, scOPD with Qwen3-8B labeled 44.49% of batches entirely correctly, compared with 24.52% for fine-tuning alone. Per-cell accuracy was 81.71%, illustrating how a cell-level score can mask batch-level errors.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125958978874261612">scOPD research post</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/razoralign/status/2125686026790470057">Lash comparisons show memory savings for genome sketches</a></h3>
-          <p>At matched accuracy, UltraLogLog and ExaLogLog reportedly used about 28% and 43% less memory than HyperLogLog, respectively. HyperMinHash was reported to be four to five times as space-efficient as MinHash.</p>
+          <h3>scPriorDiff infers missing single-cell measurements</h3>
+          <p>scPriorDiff uses known regulatory links and genomic proximity to help a diffusion model infer RNA expression or chromatin accessibility when one of those measurements is missing.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126129546902884823">scPriorDiff research post</a></p>
+        </article>
+        <article>
+          <h3>STAVAG ranks genes by how well they predict place or time</h3>
+          <p>STAVAG predicts spatial or temporal coordinates from gene expression, then ranks genes by their contribution to the prediction. The reported applications identified groups of genes associated with prognosis.</p>
+          <p class="source"><a href="https://x.com/razoralign/status/2126128774509146400">STAVAG research post</a></p>
+        </article>
+        <article>
+          <h3>RNA editing predictions draw on different signals at different scales</h3>
+          <p>In ModFormer’s evaluation of naturally occurring ADAR editing, RNA structure mattered more for known duplexes, while sequence mattered more in transcriptome-wide predictions. Adapting the model to one sequencing library made it less effective on others.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125958233298977206">ModFormer research post</a></p>
         </article>
       </div>
     </section>
-
-    <section aria-labelledby="methods">
-      <h2 id="methods">Imaging, Proteomics &amp; Model Evaluation</h2>
+    <section aria-labelledby="biomedicine">
+      <h2 id="biomedicine">Biomedicine &amp; protein modeling</h2>
       <div class="grid">
         <article>
-          <h3><a href="https://x.com/naturemethods/status/2125600534375891299">Space-map reconstructs 3D tissue from serial sections</a></h3>
-          <p><cite>Nature Methods</cite> presents a computational method that assembles two-dimensional tissue sections into a volume, making spatial relationships easier to follow across slices.</p>
-          <p class="meta"><a href="https://t.co/SfZcVsqP1H">Paper</a> · <a href="https://t.co/dmFX8cMLwP">Research briefing</a></p>
+          <h3>Dual-target therapeutic peptides show preclinical activity</h3>
+          <p>A <cite>Nature</cite> study reports that six designed peptides acting on GLP-1R and GCGR were more potent than the corresponding natural agonists in receptor assays. A separate peptide targeting PD-1 and CTLA-4 reduced tumor volume by 94.2% versus control in mice carrying human immune checkpoints. The findings do not establish efficacy or tolerability in patients.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125961403337183437">Study highlight on X</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/naturemethods/status/2125596075364938226">SpillOT corrects signal spillover in multiplexed images</a></h3>
-          <p>The zero-shot method denoises multiplexed images and corrects signal bleeding between channels, which can make distinct markers appear to occupy the same location.</p>
-          <p class="meta"><a href="https://t.co/UBqyFtfxbi">Resource</a></p>
+          <h3>Inherited IL7 variation studied as a marker of immunotherapy toxicity</h3>
+          <p>A study in the <cite>Journal for ImmunoTherapy of Cancer</cite> examines whether inherited variation in <i>IL7</i> can help predict adverse effects from immune checkpoint inhibitors. The focus is treatment safety, not tumor response.</p>
+          <p class="source"><a href="https://x.com/anshulkundaje/status/2126160877447684134">Study announcement on X</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/razoralign/status/2125686629172129858">Knockout responses put CMC-VAE’s RNA–protein links to the test</a></h3>
-          <p>The authors report that CMC-VAE ranked knockout-responsive genes better than correlation and latent-VAE baselines. Its sparse RNA–protein map was also enriched for matching transcript–protein pairs.</p>
+          <h3>Cofolding models struggle with cyclic peptides</h3>
+          <p>In the PRETZEL benchmark of 285 cyclic peptide–protein complexes, none of four models placed more than about 20% of predicted poses within 2 Å of the reference. Even the best model produced valid distances for every inter-residue bond in only 8.1% of predictions.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125959328993870117">PRETZEL benchmark post</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/razoralign/status/2125809114349740321">ProteomicsBench uses experimental peptide measurements</a></h3>
-          <p>ProteomicsBench-Bottom-Up evaluates models on peptide measurements from bottom-up mass spectrometry rather than relying solely on sequence-based tasks.</p>
+          <h3>AlloGator tests predictions of long-range effects in proteins</h3>
+          <p>For the beta-2 adrenergic receptor, 14 of AlloGator’s 20 candidate positions agreed with signaling assays. The study reported weaker performance when the effect spanned different protein chains.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125959462418796861">AlloGator research post</a></p>
         </article>
         <article>
-          <h3><a href="https://x.com/razoralign/status/2125809321825255833">Two models predict the same lipid modification site on SMIM32</a></h3>
-          <p>BioReason-Pro 2 and Carbon-High reportedly point to the same site on the human protein SMIM32. Their agreement is not experimental confirmation.</p>
-        </article>
-        <article>
-          <h3><a href="https://x.com/razoralign/status/2125618249488646183">A clean test split can still contain data seen in pretraining</a></h3>
-          <p>Anthony Gitter highlights a risk for biological benchmarks: separating examples during fine-tuning does not establish that the model never saw the evaluation data during pretraining.</p>
-        </article>
-        <article>
-          <h3><a href="https://x.com/razoralign/status/2125656727903465819">Finding water sites doesn’t explain their role in binding</a></h3>
-          <p>A drug-modeling discussion distinguishes predicting where water molecules sit in a crystal structure from predicting how they affect ligand binding. The effect can depend on water orientation, electrostatics, and whether the ligand bridges through a water molecule or displaces it.</p>
+          <h3>Binding-change predictors fare worse under stricter testing</h3>
+          <p>Every predictor in the ProtBFF evaluation performed worse when the benchmark more strictly separated related protein chains. Adding biophysical features improved performance across five encoders, but results still varied by assay.</p>
+          <p class="source"><a href="https://x.com/BiologyAIDaily/status/2125959693768200630">ProtBFF benchmark post</a></p>
         </article>
       </div>
     </section>
-
     <section class="practice" aria-labelledby="practice">
-      <h2 id="practice">Language Practice</h2>
+      <h2 id="practice">Language practice</h2>
+      <article lang="de">
+        <h3>Deutsch — In einem aktuellen Steam Sale gibt es nur Spiele ohne KI im Angebot</h3>
+        <p class="source">GameStar · 26.11.2026 · <a href="https://www.gamestar.de/artikel/in-einem-aktuellen-steam-sale-gibt-es-nur-spiele-ohne-ki-im-angebot,3463940.html">Zum Artikel</a></p>
+        <p>Bei der Steam-Aktion »Games Without AI« steht nicht ein bestimmtes Genre im Mittelpunkt, sondern die Art, wie die Spiele entstanden sind: Die Auswahl beschränkt sich auf Titel, die ohne generative KI entwickelt wurden. Die von einem Drittanbieter organisierte Aktion läuft noch bis zum 6. Dezember.</p>
+        <p>Neben Rabatten auf bereits erschienene Spiele gibt es auch einen Ausblick auf kommende Titel. Die Beispiele im Artikel reichen vom Rätselspiel »Escape From Mystwood Mansion« über die Gartensimulation »The Abbess Garden« bis zum Weltraum-Strategiespiel »Space Menace 2«.</p>
+        <p><strong>Warum lesen:</strong> Der Artikel zeigt, wie der Verzicht auf generative KI zum Auswahlkriterium für eine Verkaufsaktion wird.</p>
+      </article>
       <article lang="fr">
-        <h3>Français — Pourquoi le premier jour rouge Tempo d’EDF tombe si tôt cette année, dès le 26 novembre ?</h3>
-        <p class="meta">Numerama · 25 novembre 2026 · <a href="https://www.numerama.com/sciences/2384971-pourquoi-le-premier-jour-rouge-tempo-dedf-tombe-si-tot-cette-annee-des-le-26-novembre.html">Lire l’article</a></p>
-        <p>Le jeudi 26 novembre marque le premier jour rouge de la saison pour les abonnés à l’option Tempo d’EDF, alors que l’hiver dernier il avait fallu attendre le 29 décembre. La différence se voit sur la facture : en heures pleines, le kilowattheure coûte plus de quatre fois le tarif d’un jour bleu.</p>
-        <p>Numerama explique ce changement par une nouvelle règle : depuis le 1er novembre, RTE fait coïncider les jours rouges avec les journées où le réseau électrique est le plus sollicité. Le nombre de jours rouges reste fixé à 22 pour la saison, mais leur répartition est désormais plus encadrée, notamment en mars. L’article indique aussi où consulter la couleur du lendemain et à quelle heure le tarif baisse.</p>
-        <p><strong>Pourquoi lire :</strong> L’article montre comment une règle de gestion du réseau électrique se répercute sur la facture des ménages.</p>
+        <h3>Français — Notre avis sur « GTA VI » après soixante heures de jeu : entre vertige urbain et romance sous tension</h3>
+        <p class="source">Le Monde · 26 novembre 2026 · <a href="https://www.lemonde.fr/pixels/article/2026/11/26/notre-avis-sur-gta-vi-apres-soixante-heures-de-jeu-entre-vertige-urbain-et-romance-sous-tension_6815568_4408996.html">Lire l’article</a></p>
+        <p>Après soixante heures de jeu, Le Monde revient sur ce qui fait la force de GTA VI : une ville fictive inspirée de Miami où le moindre détour peut se transformer en petite histoire. La critique s’ouvre sur un vol de voiture qui tourne à l’absurde quand un influenceur caché dans le coffre croit participer à une vidéo entre amis. La scène passe de la satire des réseaux sociaux à la course-poursuite.</p>
+        <p>Le test souligne aussi le soin apporté aux décors, à la lumière et aux reflets. Ces détails donnent envie de quitter l’itinéraire prévu pour explorer Vice City. Le bilan est toutefois nuancé : si la ville tient ses promesses, la conclusion de l’histoire manque de rythme. La suite de l’article est réservée aux abonnés.</p>
+        <p><strong>Pourquoi lire :</strong> Pour comprendre comment un jeu vidéo peut raconter des histoires en dehors de ses missions principales.</p>
         <p><strong>Vocabulaire utile</strong></p>
         <ul>
-          <li><strong>jour rouge</strong> — journée où l’option Tempo applique son tarif le plus élevé en heures pleines.</li>
-          <li><strong>jour de pointe</strong> — journée où la demande d’électricité est particulièrement forte et où le réseau est très sollicité.</li>
-          <li><strong>mécanisme de capacité</strong> — dispositif qui oblige les fournisseurs à s’assurer que des moyens suffisants seront disponibles pour couvrir les pics de consommation.</li>
+          <li><strong>monde ouvert</strong> — espace de jeu que l’on peut explorer assez librement, sans suivre un parcours imposé.</li>
+          <li><strong>microhistoire</strong> — bref récit qui se déroule en marge de l’intrigue principale.</li>
+          <li><strong>trame principale</strong> — suite d’événements qui structure le récit central d’un jeu.</li>
         </ul>
       </article>
       <article lang="ja">
-        <h3>日本語 — 【動画】月探査車の試験走行公開　日印共同、２８年度打ち上げ―ＪＡＸＡ</h3>
-        <p class="meta">nippon.com · 2026-11-26 · <a href="https://www.nippon.com/ja/articles/-/58004">記事を読む</a></p>
-        <p>宇宙航空研究開発機構（JAXA）は11月25日、東京都調布市の調布航空宇宙センターで、月面を移動する探査車の試験走行を公開した。記事では、地上試験用の車両が実際に動く様子を動画で見られる。</p>
-        <p>この探査車は、日本とインドが共同で進める月極域探査計画「LUPEX」で使われる。計画は月の極に近い地域を調べるもので、打ち上げは2028年度に予定されている。</p>
-        <p><strong>読む理由：</strong> 日印共同の月探査計画を、地上で走る試験車の映像を通して具体的にイメージできる。</p>
+        <h3>日本語 — 星々を結ぶ空港を舞台にした放置ゲーム「Baggage Belt」，12月3日にSteamで発売決定。動物のスタッフたちを雇って，空港を大きくしていこう</h3>
+        <p class="source">4Gamer · 2026-11-27 · <a href="https://www.4gamer.net/games/062/G106200/20261127008/">記事を読む</a></p>
+        <p>星々を結ぶ空港を運営する放置ゲーム「Baggage Belt」が、12月3日にSteamで発売される。空港の仕事といっても、最初にプレイヤーがするのは飛行機の操縦ではなく、乗客の荷物を預かることだ。</p>
+        <p>はじめは自分で荷物を受け付けるが、やがて動物のスタッフを雇い、仕事を任せながら空港を拡張していく。記事にはスクリーンショットや紹介映像もあり、動物たちが働く空港の雰囲気を確かめられる。</p>
+        <p><strong>読む理由：</strong> 荷物を一つ預かるところから空港の経営へと発展する、放置ゲームならではの仕組みが分かる。</p>
         <p><strong>語彙メモ</strong></p>
         <ul>
-          <li><strong>月極域（つききょくいき）</strong> — 月の北極や南極に近い地域。</li>
-          <li><strong>探査車（たんさしゃ）</strong> — 月などの表面を移動しながら観測や調査を行う車両。ローバーともいう。</li>
-          <li><strong>地上試験機（ちじょうしけんき）</strong> — 実際の任務に先立ち、地上で動作や性能を確かめるための機体。</li>
+          <li><strong>放置ゲーム（ほうちゲーム）</strong> — プレイヤーが操作していない間も、作業や資源の蓄積が進むゲーム。</li>
+          <li><strong>預け荷物（あずけにもつ）</strong> — 機内に持ち込まず、出発前に航空会社に預ける荷物。</li>
         </ul>
       </article>
       <article lang="zh-Hans">
-        <h3>中文 — 宏福苑大火一周年：“这条刺永远都在”，遗属在伤痛中寻找答案</h3>
-        <p class="meta">BBC News 中文 · 2026-11-26（据报道所述周年日期推定） · <a href="https://www.bbc.com/zhongwen/articles/c3j4r274lj82o/simp">原文</a></p>
-        <p>香港大埔宏福苑大火夺去168条人命。一年后，BBC中文访问了几位遇难者家属。Christy仍会给丈夫以前用的号码发讯息，告诉他孩子的近况；苏先生则随身带着从旧居灰烬里找回的父母的手表。对两家人来说，这些日常举动是继续惦记亲人的方式。</p>
-        <p>香港政府10月底公布的独立委员会报告指出，四个政府部门在事件中有缺失。特首率官员道歉，房屋局长辞职，但家属仍有许多疑问。报道也交代了民事索偿的下一步：司法机构指引要求申索人先尝试和解，谈不拢再调解，调解不成才由法院处理。</p>
-        <p><strong>为什么读：</strong> 这篇报道从两户人家的日常出发，写出政府道歉之后，遗属为何仍在等待答案。</p>
+        <h3>中文 — 台湾选举漫游录：在花莲丰滨问“为什么原乡那么蓝？”</h3>
+        <p class="source">端传媒 · 2026-11-27 · <a href="https://theinitium.com/20261127-taiwan-why-hualien-fengbin-is-blue-zh-hans/">原文（会员限定）</a></p>
+        <p>十月中旬，记者在花莲县丰滨乡的港口村拍摄乡长候选人的海报，一位当地居民上前询问来意。记者说想了解丰滨的选举为什么那么“蓝”，对方却反问，这跟他们有什么关系。</p>
+        <p>报道从这段对话切入：外来者想用蓝绿阵营理解地方选举，当地人却不一定接受这样的提问。导语里还有一句反问，把焦点从支持哪个政党转向另一件事：如果自己始终是被统治的一方，换谁执政又有多大区别？</p>
+        <p><strong>为什么读：</strong> 从一次街头碰面，看台湾选举中常见的蓝绿标签如何遭遇地方居民的反问。</p>
         <p><strong>词汇笔记</strong></p>
         <ul>
-          <li><strong>过渡性房屋 (guòdùxìng fángwū)</strong> — 香港为有住屋需要的人提供的短期住所，供他们在获得较长期住处前暂住。</li>
-          <li><strong>民事索偿 (mínshì suǒcháng)</strong> — 通过民事程序要求对方赔偿损失。</li>
-          <li><strong>死因裁判法庭 (sǐyīn cáipàn fǎtíng)</strong> — 香港负责研讯死亡原因及相关情况的法庭。</li>
+          <li><strong>原乡 (yuánxiāng)</strong> — 在台湾语境中，常指原住民族传统聚居的地区。</li>
+          <li><strong>泛蓝 (fànlán)</strong> — 以中国国民党为主的政治阵营；标题里的“蓝”指向这一政治倾向。</li>
+          <li><strong>乡长 (xiāngzhǎng)</strong> — 台湾乡级地方自治行政首长，由当地选民选出。</li>
         </ul>
       </article>
     </section>
   </main>
-  <footer lang="de">Deutsch — heute kein Lesetipp.</footer>
-</div>
 <!-- newspaper-presentation --><script>
 (() => {
-  const key = 'newspaper:read:' + "2026-11-26-1";
+  const key = 'newspaper:read:' + "2026-11-27-1";
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;

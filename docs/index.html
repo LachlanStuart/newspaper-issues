@@ -199,12 +199,57 @@
   <footer>News · Research, reading, and language practice.</footer>
   <script>
 (() => {
+  const PREFETCH_WINDOW_DAYS = 7;
+  const DAY_MS = 86400000;
+  function issueDateMs(issueId) {
+    const match = /^(\d{4}-\d{2}-\d{2})-\d+$/.exec(issueId || '');
+    return match ? Date.parse(match[1] + 'T00:00:00Z') : NaN;
+  }
   function refreshReadState() {
-    document.querySelectorAll('[data-issue-id]').forEach(link => {
+    const links = Array.from(document.querySelectorAll('[data-issue-id]'));
+    let latestMs = NaN;
+    links.forEach(link => {
+      const ms = issueDateMs(link.dataset.issueId);
+      if (!Number.isNaN(ms) && (Number.isNaN(latestMs) || ms > latestMs)) {
+        latestMs = ms;
+      }
+    });
+    const desiredPrefetch = new Map();
+    links.forEach(link => {
+      const issueId = link.dataset.issueId;
+      let isRead = false;
       try {
-        link.classList.toggle('is-read', localStorage.getItem(
-          'newspaper:read:' + link.dataset.issueId) === '1');
+        isRead = localStorage.getItem('newspaper:read:' + issueId) === '1';
       } catch (_) { /* Reading still works when storage is unavailable. */ }
+      link.classList.toggle('is-read', isRead);
+      if (isRead || !issueId || desiredPrefetch.has(issueId)) return;
+      const href = link.getAttribute('href');
+      if (!href) return;
+      const ms = issueDateMs(issueId);
+      if (!Number.isNaN(latestMs) && !Number.isNaN(ms) && (latestMs - ms) > PREFETCH_WINDOW_DAYS * DAY_MS) {
+        return;
+      }
+      desiredPrefetch.set(issueId, href);
+    });
+    const head = document.head;
+    if (!head) return;
+    const existing = new Map();
+    head.querySelectorAll('link[rel="prefetch"][data-prefetch-issue-id]').forEach(hint => {
+      const id = hint.dataset.prefetchIssueId;
+      if (!desiredPrefetch.has(id) || existing.has(id)) {
+        hint.remove();
+      } else {
+        existing.set(id, hint);
+      }
+    });
+    desiredPrefetch.forEach((href, id) => {
+      if (existing.has(id)) return;
+      const hint = document.createElement('link');
+      hint.rel = 'prefetch';
+      hint.as = 'document';
+      hint.setAttribute('href', href);
+      hint.dataset.prefetchIssueId = id;
+      head.appendChild(hint);
     });
   }
   refreshReadState();

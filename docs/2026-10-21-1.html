@@ -292,7 +292,7 @@ footer{font-size:.82rem;color:var(--muted);padding-bottom:40px}
   function checkProgress() {
     const page = document.scrollingElement || document.documentElement;
     const scrollable = page.scrollHeight - page.clientHeight;
-    if (scrollable <= 0 || page.scrollTop / scrollable <= 0.75) return;
+    if (scrollable <= 0 || page.scrollTop / scrollable < 0.5) return;
     try {
       localStorage.setItem(key, '1');
       window.removeEventListener('scroll', checkProgress);
